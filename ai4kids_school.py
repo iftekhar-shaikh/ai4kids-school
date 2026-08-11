@@ -1950,8 +1950,19 @@ st.set_page_config(page_title="AI4Kids.pk", page_icon="🐱", layout="wide")
 #
 # PC par yeh set nahi hote -> koi password nahi poocha jaata -> pehle jaisa.
 # ===========================================================================
-SCHOOL_PASSWORD = os.environ.get("AI4KIDS_SCHOOL_PASSWORD", "").strip()
-ADMIN_PASSWORD  = os.environ.get("AI4KIDS_ADMIN_PASSWORD", "").strip()
+def _secret(name):
+    """Password dhoondo: pehle Streamlit Secrets, phir environment variable.
+    Dono jagah na mile to khali — yaani PC par koi password nahi poocha jaata."""
+    try:
+        if name in st.secrets:
+            return str(st.secrets[name]).strip()
+    except Exception:
+        pass
+    return os.environ.get(name, "").strip()
+
+
+SCHOOL_PASSWORD = _secret("AI4KIDS_SCHOOL_PASSWORD")
+ADMIN_PASSWORD  = _secret("AI4KIDS_ADMIN_PASSWORD")
 
 
 def _school_gate():
