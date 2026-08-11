@@ -1,0 +1,482 @@
+{
+  "subject": "science",
+  "name": "General Science",
+  "teacher": "Science Sir",
+  "grade": 2,
+  "topics": [
+    {
+      "title": "Zinda aur be-jaan",
+      "description": "Living aur non-living cheezein",
+      "lesson": "## HOOK\nAao Student, socho agar tumharay garden mein ek khubsurat phool khilta hai aur usi bagiche mein ek pathar bhi maujood hai, tou kya tumhein pata hai ke in dono mein kya farq hai? Kya phool zinda hai aur pathar be-jaan?\n\n## SAMJHAO\nZinda aur be-jaan cheezon ka farq samajhna bohat zaroori hai. Zinda cheezein wo hain jo khud se grow kar sakti hain, khana kha sakti hain, aur apne aap ko badal sakti hain. Jaise ke insaan, jaanwar, aur poday. In sab ki kuch khasiyat hoti hain: wo khud se khana hasil karte hain, hawa se oxygen lete hain, aur reproduce bhi karte hain.\n\nBe-jaan cheezein wo hain jo kabhi nahi jeeti, na khati hain aur na hi grow karti hain. Jaise ke pathar, paani, aur furniture. Ye cheezain sirf ek hi halat mein rahte hain aur inmein kisi tarah ka jaan nahi hota. \n\nZinda cheezein hamesha apne aas paas ke environment ke sath interact karti hain. Jab ek phool khilta hai, tou wo bees ya butterflies ko attract karta hai. Lekin pathar usi jagah rahta hai jahan wo rakha gaya ho, wo kabhi nahi hilta ya badalta.\n\nHamara environment bhi in dono cheezon se bhara hua hai. Jab aap bazaar jaate hain, tou aapko zinda cheezein jaise ke khudai fruits ya vegetables dikhai dete hain, jabke be-jaan cheezein jaise ke dukanon ka saman wahan bhi maujood hota hai.\n\n## MISAAL\nSocho jab aap bazaar jate hain, tou wahan bohot saari zinda aur be-jaan cheezein hoti hain. Jaise ke fresh sabziyaan, jo zinda hain, aur khokha, jo be-jaan hai. Zinda sabziyan khud se grow hoti hain, lekin khokha sirf ek structure hai jo kisi cheez ko rakhne ke liye bana hota hai.\n\n## KARO\nAb tum ghar ya school mein ek activity karte hain. Ek zinda aur be-jaan cheezon ki list banao. Apne aas paas jo cheezein hain unmein se kuch zinda aur kuch be-jaan cheezein dhoondho. Phir unhein ek kaghaz par likho. Jaise ke tumhare ghar ke aas paas ke phool, ped, khidki, ya toy.\n\n## SAWAAL\n1. Zinda cheezein kya hoti hain? Ek misaal do.  \n2. Be-jaan cheezein kis tarah ki hoti hain?  \n3. Bazaar mein tumhein kaise pata chalega ke koi cheez zinda hai ya be-jaan?  \n\nScience Sir",
+      "quiz": {
+        "title": "Zinda aur be-jaan Quiz",
+        "questions": [
+          {
+            "q": "Kon si cheez zinda hai?",
+            "a": "Ghar ka kutta",
+            "b": "Pathar",
+            "c": "Dharakna",
+            "d": "Ghar",
+            "correct": "a",
+            "explanation": "Kyun ke ghar ka kutta zinda hai jo khata, peeta aur harkat karta hai."
+          },
+          {
+            "q": "Tamaam in mein se konsa be-jaan hai?",
+            "a": "Ped",
+            "b": "Darya",
+            "c": "Ghar ki chhat",
+            "d": "Bagh",
+            "correct": "c",
+            "explanation": "Ghar ki chhat be-jaan hai kyunki yeh sirf ek maali material hai."
+          },
+          {
+            "q": "Zinda cheezon ka kya khasiyat hoti hai?",
+            "a": "Hawa mein udna",
+            "b": "Khud ko reproduce karna",
+            "c": "Chalak hona",
+            "d": "Suno aur dekhna",
+            "correct": "b",
+            "explanation": "Zinda cheezen khud ko reproduce karti hain yani ke unka janam hota hai."
+          },
+          {
+            "q": "In mein se kon si cheez be-jaan nahi hai?",
+            "a": "Machhli",
+            "b": "Kapra",
+            "c": "Khisa",
+            "d": "Chandni raat",
+            "correct": "a",
+            "explanation": "Machhli zinda hai aur paani mein rehkar saans leti hai."
+          },
+          {
+            "q": "Kya poday zinda hain?",
+            "a": "Haan, yeh hawa aur paani lete hain",
+            "b": "Nahi, yeh sirf khud hi hain",
+            "c": "Yeh hawa nahi lete",
+            "d": "Yeh sirf khushboo dete hain",
+            "correct": "a",
+            "explanation": "Poday zinda hain kyunki yeh hawa aur paani lete hain aur photosynthesis karte hain."
+          }
+        ]
+      },
+      "emoji": "🌼",
+      "text_simple": "Zinda cheezein wo hain jo khud se badhti hain. Jaise phool aur jaanwar. Be-jaan cheezein kabhi nahi jeeti. Jaise pathar aur paani. Zinda cheezein khana khati hain aur hawa se oxygen leti hain. Be-jaan cheezein sirf ek jagah par rehti hain. Hamara aas paas zinda aur be-jaan cheezein hain.",
+      "audio_text": "Zinda cheezein wo hain jo khud se badhti hain. Jaise phool aur jaanwar. Be-jaan cheezein kabhi nahi jeeti. Jaise pathar aur paani. Zinda cheezein khana khati hain aur hawa se oxygen leti hain. Be-jaan cheezein sirf ek jagah par rehti hain. Hamara aas paas zinda aur be-jaan cheezein hain.",
+      "simple_quiz": [
+        {
+          "emoji": "❓",
+          "question_short": "Phool zinda hai ya be-jaan?",
+          "options": [
+            {
+              "emoji": "🌼",
+              "text": "Zinda"
+            },
+            {
+              "emoji": "🪨",
+              "text": "Be-jaan"
+            },
+            {
+              "emoji": "🍎",
+              "text": "Khana"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "title": "Janwar ki qismein",
+      "description": "Zameen, paani, hawa ke janwar",
+      "lesson": "## HOOK\nAik dafa ka zikar hai ke ek chota sa chuhar (mouse) zameen par daud raha tha, jabke ek machhli paani mein tair rahi thi. Kya aapne kabhi socha hai ke in dono ke beech kya farq hai? Doston, har janwar ka apna ek khaas maqam hota hai!\n\n## SAMJHAO\nJanwaron ki qismain aam tor par teen categories mein taqseem ki jaati hain: Zameen ke janwar, paani ke janwar, aur hawa ke janwar. Zameen ke janwar woh hain jo zameen par rehne aur chalne phirne mein maharat rakhte hain. Jaise ke kutte, billi, aur gaye. Ye sab janwar zameen par chal kar khana dhoondte hain.\n\nPaani ke janwar woh hain jo paani mein rehte hain. Jaise machhlyan, kachhue, aur chhipkلی. Ye sab janwar paani mein tair kar apna rozana ka khana hasil karte hain aur wahan ki zindagi se bhagwan ke aajaib ko jeete hain.\n\nHawa ke janwar, jinhain hum parindey kehte hain, aise hain jo hawa mein udte hain. Jese parindey aur tiliyan (bats). Ye jaanwar hawa mein ud kar uncha udte hain aur zameen par khana dhoondhne ke liye wapas aate hain.\n\nHar kism ke janwar ka apna environment hota hai, aur wo wahin par sukoon se reh sakte hain. Unka har aks (behaviour) unki qism aur tawajjo se maloom hota hai.\n\n## MISAAL\nAapko yaad hai jab aap bazaar jaate hain, to wahan aap aksar dekhtay hain ke kutte dikkat karte hain aur kis tarah se woh zameen par chalte hain. Agar aap paani ke paas jaate hain, to machhliyan aur kachhuwa aapko paani mein dikhai dete hain. Ye sab kuch humein ye samajhne mein madad dete hain ke har janwar kis tarah apne environment mein zindagi guzarta hai.\n\n## KARO\nApne ghar ya school ke ird gird dekhein aur jaanch karain ke kitne alag alag qism ke janwar hain. Aap kuch pictures bana sakte hain ya collage kar sakte hain. Aap zameen, paani aur hawa ke janwaron ki pictures ka use karke ek poster bana sakte hain. Poster mein har ek janwar ke liye uska naam aur uska environment likhen, taake aapka poster dikhaaye ka kaise har janwar apni jagah par rehta hai.\n\n## SAWAAL\n1. Zameen ke janwaron ki kya misaalain hain? \n2. Paani ke janwar kis tarah ki jagah par rehte hain?\n3. Hawa ke janwaron ka kya kaam hota hai?\n\nApne jawab tayar karo aur apne doston ke sath share karo! \n\nScience Sir.",
+      "quiz": {
+        "title": "Janwar ki qismein Quiz",
+        "questions": [
+          {
+            "q": "Zameen par rehne wale janwar ka misaal kya hai?",
+            "a": "Billi",
+            "b": "Machhli",
+            "c": "Chidai",
+            "d": "Darya",
+            "correct": "a",
+            "explanation": "Billi zameen par rehta hai is liye sahi jawab hai."
+          },
+          {
+            "q": "Paani mein rehne wale janwar ka kya naam hai?",
+            "a": "Khiladi",
+            "b": "Machhli",
+            "c": "Ghar",
+            "d": "Ghoora",
+            "correct": "b",
+            "explanation": "Machhli paani mein rehne wala janwar hai."
+          },
+          {
+            "q": "Aam tor par hawa mein udne wale janwar kaun se hain?",
+            "a": "Ghar",
+            "b": "Khargosh",
+            "c": "Parinda",
+            "d": "Billi",
+            "correct": "c",
+            "explanation": "Parinda hawa mein udne wale janwar hain is liye sahi jawab hai."
+          },
+          {
+            "q": "Zameen, paani aur hawa mein rehne wale janwaron ka kya hai?",
+            "a": "Sab janwar alag alag hain",
+            "b": "Sab janwar sirf zameen pe hain",
+            "c": "Koi nahi",
+            "d": "Sab ek jaise hain",
+            "correct": "a",
+            "explanation": "Zameen, paani aur hawa ke janwar alag alag hain is liye sahi jawab hai."
+          },
+          {
+            "q": "Ghar par paaya jane wala janwar kya hai?",
+            "a": "Khiladi",
+            "b": "Machhli",
+            "c": "Ghar",
+            "d": "Khiladi",
+            "correct": "d",
+            "explanation": "Khiladi ghar par paaya jane wala ek janwar hai."
+          }
+        ]
+      },
+      "emoji": "🐾",
+      "text_simple": "Janwar teen qismon mein taqseem hote hain. Zameen ke janwar jaise kutte aur billi. Paani ke janwar jaise machhliyan aur kachhue. Hawa ke janwar jaise parindey. Har kism ka janwar apne environment mein rehta hai. Wo wahin khush rehte hain.",
+      "audio_text": "Janwar teen qismon mein taqseem hote hain. Zameen ke janwar jaise kutte aur billi. Paani ke janwar jaise machhliyan aur kachhue. Hawa ke janwar jaise parindey. Har kism ka janwar apne environment mein rehta hai. Wo wahin khush rehte hain.",
+      "simple_quiz": [
+        {
+          "emoji": "❓",
+          "question_short": "Hawa ke janwar kaun hain?",
+          "options": [
+            {
+              "emoji": "🦜",
+              "text": "Parindey"
+            },
+            {
+              "emoji": "🐶",
+              "text": "Kutta"
+            },
+            {
+              "emoji": "🐟",
+              "text": "Machhli"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "title": "Podha kaise ugta hai",
+      "description": "Beej se podha — seed to plant",
+      "lesson": "## HOOK\nKya aapne kabhi chhoti si beej ko dekh kar socha hai ke ye kaise bada aur khoobsurat podha ban sakta hai? Chalo, aaj hum is naeem safar par chalte hain jahan hum beej se podhe tak ka raaz jaanenge!\n\n## SAMJHAO\nPodha ugne ka amal bahut hi dilchasp hota hai. Sab se pehle, hume ek beej ki zarurat hoti hai. Beej chhota hota hai, lekin usmein ek zinda jism hota hai. Jab beej ko paani aur khushk hawa milti hai, to wo chaand taazgi se jagta hai.\n\nUske baad, beej apne andar se ek chhoti si jhaari ya 'root' nikaalta hai. Ye root zameen ke andar jaata hai aur paani aur khurak ki talash karta hai. Uske saath hi, beej ke upar se ek chhoti si jhaad ya 'shoot' bahar aati hai. Is shoot mein podhe ke patte aur shakhein banti hain.\n\nJaise jaise din guzarte hain, ye podha bara hota jata hai aur iske patte hara rang le lete hain. Is waqt, podha photosynthesis bhi shuru kar deta hai. Ye chaand, dhoond, yaani light ko energy mein tabdeel karta hai. Aakhir mein, podha ek khubsurat phool ya phir phal (fruit) bhi de sakta hai.\n\nHumara har din jo khana ya greeans khate hain, wo aise hi podhon ka nateeja hota hai jo beej se shuru hote hain. Har ek podha aur uske beej ka apna ek kahani hota hai.\n\n## MISAAL\nChalo ek misaal lete hain. Pakistan mein aam, narangi ya seb ke beej ko le lo. Jab in beejon ko kisaan zameen mein lagata hai, to ye dheere dheere khubsurat phalon ke ped ban jaate hain. Taza aam ya narangi khana humein na sirf maza deta hai balki ye hamaari sehat ke liye bhi faida mand hota hai.\n\n## KARO\nAb kuch dilchasp karte hain. Aapko sirf ek chhoti si daani ka beej lena hai, puuri zindagi ke liye ek parivar banana hai. Ghar ke kisi khali dibbe ya paudon ki gaddi mein beej lagao, paani do aur roz iski dekha rekha karna. Aap dekhenge ke wo beej kis tarah dheere dheere podha banta hai.\n\n## SAWAAL\n1. Podha beej se kaise nikaalta hai?\n2. Podha apne liye khurak kaise ikattha karta hai?\n3. Aam aur narangi ke beej ka example do.\n\nScience Sir",
+      "quiz": {
+        "title": "Podha kaise ugta hai Quiz",
+        "questions": [
+          {
+            "q": "Podha kis cheez se ugta hai?",
+            "a": "Beej",
+            "b": "Patte",
+            "c": "Khal",
+            "d": "Dharati",
+            "correct": "a",
+            "explanation": "Beej se podha ugta hai."
+          },
+          {
+            "q": "Podhe ko kis cheez ki zaroorat hoti hai?",
+            "a": "Pani",
+            "b": "Garmi",
+            "c": "Thanda",
+            "d": "Bheed",
+            "correct": "a",
+            "explanation": "Podhe ko pani ki zaroorat hoti hai."
+          },
+          {
+            "q": "Beej ko ugne ke liye kya chahiye?",
+            "a": "Khushboo",
+            "b": "Dharati",
+            "c": "Khal",
+            "d": "Meetha",
+            "correct": "b",
+            "explanation": "Beej ko dharati mein dalna hota hai."
+          },
+          {
+            "q": "Podhe ki sabse pehli shakal kya hoti hai?",
+            "a": "Patti",
+            "b": "Daal",
+            "c": "Beej",
+            "d": "Phool",
+            "correct": "b",
+            "explanation": "Sabse pehle daal nikalta hai."
+          },
+          {
+            "q": "Podha kis se barhta hai?",
+            "a": "Khal se",
+            "b": "Dharati se",
+            "c": "Aasman se",
+            "d": "Pani se",
+            "correct": "d",
+            "explanation": "Podha pani se barhta hai aur zinda rehta hai."
+          }
+        ]
+      },
+      "emoji": "🌱",
+      "text_simple": "Podha ugne ka amal bahut dilchasp hai. Pehle hume beej chahiye. Jab beej ko paani milta hai, wo jagta hai. Phir wo zameen mein root nikaalta hai. Upar se shoot bahar aata hai. Podha dheere dheere bara hota hai aur patte hara ho jate hain. Podha phool ya phal bhi de sakta hai.",
+      "audio_text": "Podha ugne ka amal bahut dilchasp hai. Pehle hume beej chahiye. Jab beej ko paani milta hai, wo jagta hai. Phir wo zameen mein root nikaalta hai. Upar se shoot bahar aata hai. Podha dheere dheere bara hota hai aur patte hara ho jate hain. Podha phool ya phal bhi de sakta hai.",
+      "simple_quiz": [
+        {
+          "emoji": "❓",
+          "question_short": "Podha kis se shuru hota hai?",
+          "options": [
+            {
+              "emoji": "🌱",
+              "text": "Beej"
+            },
+            {
+              "emoji": "🌼",
+              "text": "Khushboo"
+            },
+            {
+              "emoji": "🌳",
+              "text": "Dhoond"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "title": "Khana ki qismein",
+      "description": "Energy, body-building, protective food",
+      "lesson": "## HOOK\nKya aapne kabhi socha hai ke aapka favorite biryani kyun itna tasty hota hai? Ya phir cricket khelte waqt aapko zyada taqat kyun chahiye hoti hai? Aaj hum khanay ki qisemon ke baare mein jaanenge jo hamein taqat, masbooti aur immunity dete hain!\n\n## SAMJHAO\nKhana sirf bhookh mitane ke liye nahi hota, balki yeh humein alag-alag tarah se madad deta hai. Pehli qism hai Energy food. Yeh aise khanay hain jo hamein taqat dete hain, jaise ke roti, chawal, aur fruits. Jab hum yeh khane khate hain, to hamein din bhar kaam karne ki energy milti hai.\n\nDoosri qism hai Body-building food. Yeh khanay hamari body ki masalay banate hain aur hamein strong banate hain. Ismein daalain, meat, aur eggs shamil hain. Yeh khanay humein muscles banane aur body ko mazboot rakhnay mein madad karte hain.\n\nTeesri qism hai Protective food. Yeh khanay hamein bimariyon se bachate hain. Ismein sabziyan aur fruits hote hain, jaise ke palak, gajar, aur oranges. Yeh khanay hamari immunity ko strong karte hain taake hum healthy rah sakein.\n\nHar qism ka khana milkar hamein ek balanced diet deta hai, jo hamein har roz zinda rehne ke liye zaroori hai. Isliye, har meal mein in tino qisemon ka khayal rakhna zaroori hai.\n\n## MISAAL\nKya aapne bazaar mein kabhi fresh fruits dekhay hain? Jab hum mango ya oranges khate hain, to yeh humare liye Protective food hain. Aur jab hum daal aur chicken khate hain, to yeh Body-building food hain. Yeh sab khanay mil kar hamein healthy aur khush rakhte hain, jyunke cricketers ko achi performance ke liye taqat ki zaroorat hoti hai!\n\n## KARO\nAaj aap ghar par apne maa baap ke saath milkar ek healthy meal plan banain. Ismein teen qisemon ka khana shamil karein: ek Energy food, ek Body-building food, aur ek Protective food. Dekhein ke aapke liye kaunsa khana sabse acha hoga!\n\n## SAWAAL\n1. Khana ki teen qismein kya hain? \n2. Aapko kis qism ka khana strongest banata hai?\n3. Protective food ka kya faida hai?\n\nAllah aapko sehat de! Science Sir.",
+      "quiz": {
+        "title": "Khana ki qismein Quiz",
+        "questions": [
+          {
+            "q": "Khana ki wo qism jo humein taqat deti hai, usay kya kehte hain?",
+            "a": "Energy food",
+            "b": "Body-building food",
+            "c": "Protective food",
+            "d": "Junk food",
+            "correct": "a",
+            "explanation": "Energy food humein rozana ki activities ke liye taqat deti hai."
+          },
+          {
+            "q": "Doodh aur dahi kis qism ke khane mein aate hain?",
+            "a": "Energy food",
+            "b": "Body-building food",
+            "c": "Protective food",
+            "d": "Fast food",
+            "correct": "b",
+            "explanation": "Doodh aur dahi body-building food hain kyunki yeh protein aur calcium dete hain."
+          },
+          {
+            "q": "Sabziyan kis khasiyat ke liye zaroori hain?",
+            "a": "Energy dene ke liye",
+            "b": "Body banane ke liye",
+            "c": "Jism ko bachane ke liye",
+            "d": "Meetha dene ke liye",
+            "correct": "c",
+            "explanation": "Sabziyan protective food hain jo jism ko bimariyon se bachati hain."
+          },
+          {
+            "q": "Aloo aur chawal kis qism ke khane mein aate hain?",
+            "a": "Energy food",
+            "b": "Body-building food",
+            "c": "Protective food",
+            "d": "Kuch nahi",
+            "correct": "a",
+            "explanation": "Aloo aur chawal energy food hain aur taqat dene ke liye istemal hote hain."
+          },
+          {
+            "q": "Kya khana jismein vitamins aur minerals hote hain, wo kis qism ka khana hai?",
+            "a": "Energy food",
+            "b": "Body-building food",
+            "c": "Protective food",
+            "d": "Bakery items",
+            "correct": "d",
+            "explanation": "Vitamins aur minerals protective food ka hissa hain jo health ko improve karte hain."
+          }
+        ]
+      },
+      "emoji": "🍽️",
+      "text_simple": "Khana sirf bhookh ke liye nahi, balki hamein taqat deta hai. Teen qisam ke khanay hain. Pehli hai Energy food, jaise roti aur fruits. Doosri hai Body-building food, jaise daal aur meat. Teesri hai Protective food, jaise sabziyan. In tino ka khana zaroori hai taake hum healthy rahein.",
+      "audio_text": "Khana sirf bhookh ke liye nahi, balki hamein taqat deta hai. Teen qisam ke khanay hain. Pehli hai Energy food, jaise roti aur fruits. Doosri hai Body-building food, jaise daal aur meat. Teesri hai Protective food, jaise sabziyan. In tino ka khana zaroori hai taake hum healthy rahein.",
+      "simple_quiz": [
+        {
+          "emoji": "❓",
+          "question_short": "Energy food ka kya hai?",
+          "options": [
+            {
+              "emoji": "🍚",
+              "text": "Roti aur fruits"
+            },
+            {
+              "emoji": "🥩",
+              "text": "Meat"
+            },
+            {
+              "emoji": "🥦",
+              "text": "Sabziyan"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "title": "Paani ki ahmiyat",
+      "description": "Paani ke uses, paani bachao",
+      "lesson": "## HOOK\nAaj kal agar hum kisi bhi shehray ka mood dekhain, to sab log paani ki kami ki shikayat kartay hain. Kya aap ko maloom hai ke paani sirf peene ke liye nahi, balki aur bhi kayi kaamon ke liye istemal hota hai? Sochain agar paani nahi hoga, to kya hoga?\n\n## SAMJHAO\nPaani zindagi ke liye bohot zaroori hai. Har insaan ko achi sehat ke liye din mein kam se kam 8 glass paani peena chahiye. Is ke ilawa, paani sirf insaano ke liye nahi, balki jaanwaro aur podon ke liye bhi zaroori hai. Paani ka istemal karte waqt humein iski ahmiyat samajhni chahiye taake hum isay bacha sakein.\n\nBachon, hum ghar mein ya bahar kahan kahan paani istemal karte hain? Jab hum daant brush karte hain, jab hum khana banate hain, ya jab hum nahate hain, tab paani ka istemal hota hai. Paani se hi humare baagh-bagiche khilte hain aur jaanwaron ko paani dete hain. Aapne kabhi dekha hai ke ek khubsurat phool ya ped kis tarah se paani se bharpur hota hai?\n\nLekin, humein yaad rakhna chahiye ke paani ko bachaana bhi hamesha hamari zimmedaari hai. Agar hum zyada paani wastage karte hain to is se sab ko mushkil hoti hai. Kya aapne kabhi apne ghar mein dekha hai ke hum kaise paani ki bachat kar sakte hain?\n\nIsliye paani ki ahmiyat ko samajhna bohot zaroori hai. Hum sab ko paani ki bachat karne ki koshish karni chahiye takay aane wale log bhi isay istemal kar sakein.\n\n## MISAAL\nChalo, ek misaal lete hain. Jab hum Islamabad ke bazar mein jaate hain toh wahan ka pani kaise zindagi chalayata hai? Jo dukan walay hain, unhe paani ki zaroorat hoti hai khana banane ke liye. Agar bazar mein paani nahi hoga, to sabziyan kaise bechi jaengi? Biryani banane waale ko bhi paani chahiye hota hai. Is tarah, paani bazar ki zindagi ka ek aham hissa hai.\n\n## KARO\nAb aap sab ek activity karenge. Apne ghar ke bathroom ya kitchen mein dekhein aur note karein ke aap kitna paani istemal karte hain. Phir sochain ke aap paani ki bachat kaise kar sakte hain. Kya aap tap khula rakh ke nahi nahate? Kya aap daant brush karte waqt tap ko band kar sakte hain? Isay ek paper par likhein aur next week apne doston ke sath share karein!\n\n## SAWAAL\n1. Paani ki ahmiyat kya hai aur yeh kahan kahan istemal hota hai?\n2. Aap paani ki bachat kaise kar sakte hain?\n3. Bazaar mein paani istemal karne ka kya faida hai?\n\nScience Sir",
+      "quiz": {
+        "title": "Paani ki ahmiyat Quiz",
+        "questions": [
+          {
+            "q": "Paani kahan se hasil hota hai?",
+            "a": "Nadiyon aur jheelon se",
+            "b": "Sitraiyon se",
+            "c": "Samundar se",
+            "d": "Ghar ke tap se",
+            "correct": "a",
+            "explanation": "Nadiyan aur jheelein paani ka asal zarayea hain."
+          },
+          {
+            "q": "Paani ka sab se bara istemal kya hai?",
+            "a": "Pehne ke liye",
+            "b": "Khaane ke liye",
+            "c": "Ghar saaf karne ke liye",
+            "d": "Bachon ke khelne ke liye",
+            "correct": "c",
+            "explanation": "Ghar saaf karne ke liye paani ka istemal zaroori hai."
+          },
+          {
+            "q": "Paani bachanay ka ek tariqa kya hai?",
+            "a": "Bartan dhone mein paani ka istemal badhayein",
+            "b": "Paani ke leakage ko theek karein",
+            "c": "Paani zyada istemal karein",
+            "d": "Khayalat mein paani ka istemal",
+            "correct": "b",
+            "explanation": "Paani ki leakage ko theek karna paani bachanay ka achha tariqa hai."
+          },
+          {
+            "q": "Kya paani peena hamare liye zaroori hai?",
+            "a": "Haan, yeh zaroori hai",
+            "b": "Nahi, yeh zaroori nahi hai",
+            "c": "Sirf doston ke liye",
+            "d": "Khilone ke liye",
+            "correct": "a",
+            "explanation": "Haan, paani peena humare liye bohot zaroori hai."
+          },
+          {
+            "q": "Agar paani nahi ho toh hum kya karen?",
+            "a": "Aur zyada paani istemal karein",
+            "b": "Paani ki zarooriyat samjhein",
+            "c": "Sab kuch band kar dein",
+            "d": "Dost ko bula kar paani mangain",
+            "correct": "b",
+            "explanation": "Agar paani nahi ho toh paani ki ahmiyat ko samajhna chahiye."
+          }
+        ]
+      },
+      "emoji": "💧",
+      "text_simple": "Paani zindagi ke liye bohot zaroori hai. Har din 8 glass paani peena chahiye. Paani se hum daant brush karte hain aur khana banate hain. Paani bina, sab kuch mushkil ho jata hai. Humein paani ki bachat karni chahiye. Kya aapne kabhi dekha hai ke paani bagiche ko kaise khilta hai?",
+      "audio_text": "Paani zindagi ke liye bohot zaroori hai. Har din 8 glass paani peena chahiye. Paani se hum daant brush karte hain aur khana banate hain. Paani bina, sab kuch mushkil ho jata hai. Humein paani ki bachat karni chahiye. Kya aapne kabhi dekha hai ke paani bagiche ko kaise khilta hai?",
+      "simple_quiz": [
+        {
+          "emoji": "❓",
+          "question_short": "Paani kis liye zaroori hai?",
+          "options": [
+            {
+              "emoji": "🌱",
+              "text": "Podon ke liye"
+            },
+            {
+              "emoji": "🏠",
+              "text": "Ghar ke liye"
+            },
+            {
+              "emoji": "🎈",
+              "text": "Khushiyon ke liye"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "title": "Pakistan ke seasons",
+      "description": "Garmi, sardi, barsat, bahar",
+      "lesson": "## HOOK\nKya aap ne kabhi soche hai ke hamare Pakistan mein mawaqif kaisay tabdeel hote hain? Jab garmi ka mausam hota hai, to kya aapko uski mehsoosi pata hai? Aayiye, hum garmi, sardi, barsat aur bahar ke baray mein jaante hain!\n\n## SAMJHAO\nPakistan mein chaar mukhtalif seasons hain. Pehla mausam garmi hai, jo aksar April se shuru hote hue, August tak chalta hai. Is waqt dhoond kaamzori hoti hai aur hum sabko thandi cheezon ki zarurat mehsoos hoti hai. Garmi ke dinon mein hum lemonade ya mango shake ka maza lete hain.\n\nDusra mausam sardi hai. Sardi ka mausam November se shuru hota hai aur February tak rehta hai. Is waqt halki si barf bhi gir sakti hai, khaaskar northern areas mein. Is mausam mein hum sweaters aur jackets pehente hain kyunki bahar nikalte waqt kaafi thand hoti hai.\n\nTeesra mausam barsat hai, jo aksar July se September tak hota hai. Barsat ke dinon mein khushbu se bhari hawa hoti hai. Yeh mausam zyada ter kisano ke liye khaas hota hai kyunki is waqt kheton mein paani milta hai aur kheti achi hoti hai.\n\nChoutha mausam bahar hai, jo ke February se shuru hota hai aur April tak rehta hai. Is waqt phool khilte hain aur har taraf khushbuein fail jaati hain. Bahar ka mausam hamesha dilchasp hota hai, kyunki is mein sab kuch naya hota hai!\n\n## MISAAL\nAgar aap bazaar jayein to garmi mein aapko zyada thandi drink ya ice-cream milegi. Sardi ke dauran, log garam halwa ya peanut chaat khana pasand karte hain. Barsaat ke dinon mein, aapko umbrella aur raincoat dekhne ko milenge, jab log pani mein ghar se bahar nikalte hain. Bahar ke mausam mein, aap phoolon ki dukanon mein bahut rang birange phool dekh sakte hain.\n\n## KARO\nApne ghar ke aas paas dekhein aur har mausam ka mehsoos karne ki koshish karein. Garmi ke dinon mein thandi cheezein khayen, sardi mein garam kapre pehenein, barsat mein barsaat ka maza lein, aur bahar ke mauke par phoolon ko dekhein. Phir ek notebook mein likhein ke aapne har mausam mein kya mehsoos kiya.\n\n## SAWAAL\n1. Pakistan mein chaar seasons kaun se hain?\n2. Barsat ke mausam ka kya ahmiyat hai?\n3. Aapko garmi ka mausam kaisa lagta hai, aur aap us waqt kya karte hain?\n\nScience Sir",
+      "quiz": {
+        "title": "Pakistan ke seasons Quiz",
+        "questions": [
+          {
+            "q": "Garmi ka mausam Pakistan mein kab aata hai?",
+            "a": "May se August",
+            "b": "November se February",
+            "c": "March se April",
+            "d": "September se October",
+            "correct": "a",
+            "explanation": "Garmi ka mausam aam tor par May se August tak hota hai."
+          },
+          {
+            "q": "Barsaat ke mausam mein kis cheez ki zarurat sab se zyada hoti hai?",
+            "a": "Chhatri",
+            "b": "Hawa ka pankha",
+            "c": "Aam",
+            "d": "Jootay",
+            "correct": "a",
+            "explanation": "Barsaat mein log chhatri istemal karte hain taake bahrup se bachein."
+          },
+          {
+            "q": "Sardi ka mausam Pakistan mein kis mahine se shuru hota hai?",
+            "a": "October",
+            "b": "February",
+            "c": "April",
+            "d": "August",
+            "correct": "a",
+            "explanation": "Sardi ka mausam aam tor par October se shuru hota hai."
+          },
+          {
+            "q": "Bahar ka mausam kis waqt tak rehta hai?",
+            "a": "March se June",
+            "b": "December se February",
+            "c": "September se November",
+            "d": "March se May",
+            "correct": "d",
+            "explanation": "Bahar ka mausam Pakistan mein March se May tak rehta hai."
+          },
+          {
+            "q": "Garmi ke mausam mein kaunsa phal bohat mashhoor hai?",
+            "a": "Aam",
+            "b": "Kharbooza",
+            "c": "Narangi",
+            "d": "Seb",
+            "correct": "a",
+            "explanation": "Garmi ke mausam mein aam sab se zyada mashhoor hota hai."
+          }
+        ]
+      },
+      "emoji": "🌦️",
+      "text_simple": "Pakistan mein chaar mausam hain. Garmi, sardi, barsat aur bahar. Garmi mein dhoond hoti hai aur hum thandi cheezein pasand karte hain. Sardi mein hum sweaters pehente hain. Barsat mein paani girta hai aur khushbu aati hai. Bahar mein phool khilte hain aur sab kuch khubsurat lagta hai.",
+      "audio_text": "Pakistan mein chaar mausam hain. Garmi, sardi, barsat aur bahar. Garmi mein dhoond hoti hai aur hum thandi cheezein pasand karte hain. Sardi mein hum sweaters pehente hain. Barsat mein paani girta hai aur khushbu aati hai. Bahar mein phool khilte hain aur sab kuch khubsurat lagta hai.",
+      "simple_quiz": [
+        {
+          "emoji": "❓",
+          "question_short": "Pakistan mein kitne mausam hain?",
+          "options": [
+            {
+              "emoji": "🌞",
+              "text": "Chaar"
+            },
+            {
+              "emoji": "🌧️",
+              "text": "Do"
+            },
+            {
+              "emoji": "🌈",
+              "text": "Teen"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+﻿{
+    "students":  [
+                     {
+                         "name":  "Ali",
+                         "roll":  1,
+                         "grade":  1,
+                         "section":  "Shaheen",
+                         "stars":  6,
+                         "attendance":  [
+                                            "2026-08-11"
+                                        ],
+                         "joined":  "2026-08-11",
+                         "last_subject":  "ai"
+                     },
+                     {
+                         "name":  "Sara",
+                         "roll":  2,
+                         "grade":  3,
+                         "section":  "Chaand",
+                         "stars":  14,
+                         "attendance":  [
+                                            "2026-08-11"
+                                        ],
+                         "joined":  "2026-08-11",
+                         "last_subject":  "math"
+                     },
+                     {
+                         "name":  "Bilal",
+                         "roll":  3,
+                         "grade":  4,
+                         "section":  "Gulab",
+                         "stars":  21,
+                         "attendance":  [
+                                            "2026-08-11"
+                                        ],
+                         "joined":  "2026-08-11",
+                         "last_subject":  "science"
+                     }
+                 ]
+}

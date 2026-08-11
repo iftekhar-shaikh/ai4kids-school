@@ -1,0 +1,482 @@
+{
+  "subject": "math",
+  "name": "Hisaab (Math)",
+  "teacher": "Hisaab Sir",
+  "grade": 2,
+  "topics": [
+    {
+      "title": "Numbers 999 tak",
+      "description": "3-digit numbers, place value",
+      "lesson": "## HOOK\nAssalam-o-Alaikum, chalo bachon! Kya aapne kabhi socha hai ke humare aas paas kitni tareen numbers hain? Jaise ke bazaar mein 999 ka biryani ka dabba ya cricket mein koi player 1000 runs bana raha ho! Aaj hum in numbers ke baare mein sikhenge!\n\n## SAMJHAO\nAaj hum 3-digit numbers ke baare mein baat karenge. 3-digit number wo hota hai jo 100 se lekar 999 tak hota hai. Har number ka ek special place value hota hai. \n\nPehli place ko hum \"hundreds\" kehte hain. Agar hamara number 234 hai, to 2 hoga hundreds mein, iska matlab hai 200. \n\nDusri place ko hum \"tens\" kehte hain. Is example mein 34 hai, to 3 hoga tens mein, iska matlab hai 30. \n\nTeesri place ko hum \"ones\" kehte hain. Is number mein 4 hoga ones mein, iska matlab hai 4. Is tarah se, agar hum ye teenon milake dekhein 2, 3, aur 4 ka, to 200 + 30 + 4 milake humein 234 milta hai. \n\nAb socho, agar humara number 560 hota, to 5 hundreds, 6 tens, aur 0 ones hote. Har number apne place value ke saath khud ko alag karta hai.\n\n## MISAAL\nSocho tum bazaar gaye ho aur wahan kuch kharidna hai. Tumko 487 ka bill aata hai. Yani ki, 4 hundreds, 8 tens, aur 7 ones ka matlab hai 487 rupees. Ab tum samajh gaye ke kitne alag alag numbers hain jo hum rozana dekhte hain!\n\n## KARO\nAb tumhare liye ek chhoti si activity hai. Ghar par apne ghar ke billing ka ek number uthao, jaise ke gas bill ya electricity bill. Woh number dekho aur phir us ka place value samjho. Kitne hundreds hain, kitne tens hain, aur kitne ones hain? \n\nPhir apne dost ya family ke saath ye numbers share karo aur unhein samjhao ke tumne is lesson mein kya sikha!\n\n## SAWAAL\n1. 723 mein hundreds ka place kya hai? \n2. 450 ka tens ka place kya hai? \n3. 891 mein ones ka number kya hai?\n\nKhush rehna aur Hisaab seekhte rehna!\n\nHisaab Sir",
+      "quiz": {
+        "title": "Numbers 999 tak Quiz",
+        "questions": [
+          {
+            "q": "Agar ek number 245 hai, to is mein '2' kis place par hai?",
+            "a": "Hazar",
+            "b": "Sau",
+            "c": "Das",
+            "d": "Ikai",
+            "correct": "b",
+            "explanation": "'2' is number mein 'Sau' ki place par hai."
+          },
+          {
+            "q": "Kis number mein '6' ikai ki place par hai?",
+            "a": "456",
+            "b": "260",
+            "c": "360",
+            "d": "523",
+            "correct": "a",
+            "explanation": "456 mein '6' ikai ki place par hai."
+          },
+          {
+            "q": "Number 738 ka das-waya ki value kya hai?",
+            "a": "3",
+            "b": "30",
+            "c": "300",
+            "d": "8",
+            "correct": "a",
+            "explanation": "'3' das-waya ki value hai jo number 738 mein hai."
+          },
+          {
+            "q": "Kaunsa number '900' se chhota hai?",
+            "a": "850",
+            "b": "950",
+            "c": "1000",
+            "d": "900",
+            "correct": "a",
+            "explanation": "850 number '900' se chhota hai."
+          },
+          {
+            "q": "Number 581 mein ikai ki value kya hai?",
+            "a": "5",
+            "b": "8",
+            "c": "1",
+            "d": "58",
+            "correct": "c",
+            "explanation": "'1' ikai ki value hai jo number 581 mein hai."
+          }
+        ]
+      },
+      "emoji": "🔢",
+      "text_simple": "Aaj hum 3-digit numbers ke baare mein seekhenge. Ye numbers 100 se 999 tak hote hain. Pehli place 'hundreds' hai, dusri 'tens' hai, aur teesri 'ones' hai. Agar number 234 hai, to 2 hundreds, 3 tens, aur 4 ones hain. Samjhe? Ab socho, agar bill 487 ka hai, to 4 hundreds, 8 tens, aur 7 ones hain.",
+      "audio_text": "Aaj hum 3-digit numbers ke baare mein seekhenge. Ye numbers 100 se 999 tak hote hain. Pehli place 'hundreds' hai, dusri 'tens' hai, aur teesri 'ones' hai. Agar number 234 hai, to 2 hundreds, 3 tens, aur 4 ones hain. Samjhe? Ab socho, agar bill 487 ka hai, to 4 hundreds, 8 tens, aur 7 ones hain.",
+      "simple_quiz": [
+        {
+          "emoji": "❓",
+          "question_short": "487 ka matlab kya hai?",
+          "options": [
+            {
+              "emoji": "💰",
+              "text": "4 hundreds"
+            },
+            {
+              "emoji": "🍛",
+              "text": "3 tens"
+            },
+            {
+              "emoji": "⚽",
+              "text": "5 ones"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "title": "Jama carrying ke saath",
+      "description": "2/3-digit addition with carrying",
+      "lesson": "## HOOK\nAao bachon, socho agar aapke paas 245 rupay hain aur kisi dukan se 178 rupay ki biryani kharidte hain, to aap ke paas kitne rupay bachein ge? Is maamle mein hamein Jama carrying ke sath addition karna hoga!\n\n## SAMJHAO\nJama carrying se maqsad hai ke jab hum do ya zyada numbers ko jodte hain aur unka result 10 ya us se zyada hota hai, to humein carry karna padta hai. Pehli baat, hamein digits ko place value ke hisaab se alag rakhna chahiye, yani ke units, tens, aur hundreds ke columns.\n\nAgar hum 245 aur 178 ko add karein, to pehle hum units column se shuru karte hain. Yani hum 5 aur 8 ko jodte hain. 5 + 8 = 13 hota hai. Yahan 13 me 1 carry hota hai aur 3 result ke liye likhte hain.\n\nAb agla step tens column hai. 4 (tens) + 7 (tens) + 1 (carry) = 12 hota hai. Yahan bhi 1 carry hota hai aur 2 result ke liye likhte hain. \n\nAb finally, hundreds column hai. 2 + 1 (carry) = 3. Is tarah hamen final result milta hai: 245 + 178 = 423.\n\n## MISAAL\nChalo ab ek misaal lete hain. Jab aap bazaar jaate hain aur fruits kharidte hain. Aapko 125 rupay ke aam milte hain aur 247 rupay ke seb milte hain. Agar in dono ki keemat ko jama karein, to aapko carry ke sath addition karna padega. 5 + 7 = 12 (2 carry), 2 + 4 + 1 = 7, aur 1 + 1 = 1. To total kitne bante hain? \n\n## KARO\nAb ghar par ya school mein, aap do numbers ka upyog karke addition carry ke sath karne ki activity kar sakte hain. Aap apne friends se kahin ke aapne paas kahan se paise hain. Usi paise ko ghar ke kharchon mein se jodo. Kya aapke paas carry ka issue aaya? Aap chaar ya paanch different combinations ke sath ye kar sakte hain, jaise ke 156 + 235, ya 304 + 418.\n\n## SAWAAL\n1. 365 + 278 ka result kya hai? Carry kaise handle karte hain?\n2. Agar aap ke paas 432 rupay hain aur aap 190 rupay kharch karte hain, to aap ke paas kitne bachein ge? \n3. 157 + 299 ka result nikaalo aur carry ko kaise manage kiya?\n\nKhud ko tayyar rakho aur maza lo Hisaab seekhne mein! \n\nHisaab Sir.",
+      "quiz": {
+        "title": "Jama carrying ke saath Quiz",
+        "questions": [
+          {
+            "q": "34 + 28 ka jawab kya hai?",
+            "a": "62",
+            "b": "52",
+            "c": "70",
+            "d": "60",
+            "correct": "a",
+            "explanation": "34 aur 28 ka jama 62 hota hai."
+          },
+          {
+            "q": "56 + 47 ka jawab kya hai?",
+            "a": "93",
+            "b": "103",
+            "c": "73",
+            "d": "83",
+            "correct": "a",
+            "explanation": "56 aur 47 ka jama 93 hai. (6 + 7 = 13, 5 + 4 + 1 = 10)"
+          },
+          {
+            "q": "75 + 29 ka jawab kya hai?",
+            "a": "104",
+            "b": "92",
+            "c": "85",
+            "d": "101",
+            "correct": "c",
+            "explanation": "75 aur 29 ka jama 104 hota hai. (5 + 9 = 14, 7 + 2 + 1 = 10)"
+          },
+          {
+            "q": "63 + 37 ka jawab kya hai?",
+            "a": "100",
+            "b": "90",
+            "c": "80",
+            "d": "70",
+            "correct": "a",
+            "explanation": "63 aur 37 ka jama 100 hota hai."
+          },
+          {
+            "q": "48 + 65 ka jawab kya hai?",
+            "a": "113",
+            "b": "103",
+            "c": "123",
+            "d": "93",
+            "correct": "d",
+            "explanation": "48 aur 65 ka jama 113 hai. (8 + 5 = 13, 4 + 6 + 1 = 11)"
+          }
+        ]
+      },
+      "emoji": "➕",
+      "text_simple": "Aao bachon, agar aapke paas 125 rupay hain aur aap 247 rupay ke seb kharidte hain, to humein Jama carrying karna padega. Pehle units column se shuru karte hain. 5 + 7 = 12. Yahan 2 carry hota hai. Ab tens column mein 2 + 4 + 1 (carry) = 7. Phir hundreds column mein 1 + 0 = 1. Total hai 372 rupay.",
+      "audio_text": "Aao bachon, agar aapke paas 125 rupay hain aur aap 247 rupay ke seb kharidte hain, to humein Jama carrying karna padega. Pehle units column se shuru karte hain. 5 + 7 = 12. Yahan 2 carry hota hai. Ab tens column mein 2 + 4 + 1 (carry) = 7. Phir hundreds column mein 1 + 0 = 1. Total hai 372 rupay.",
+      "simple_quiz": [
+        {
+          "emoji": "❓",
+          "question_short": "125 aur 247 ka total kya hai?",
+          "options": [
+            {
+              "emoji": "✅",
+              "text": "372 rupay"
+            },
+            {
+              "emoji": "❌",
+              "text": "400 rupay"
+            },
+            {
+              "emoji": "❌",
+              "text": "300 rupay"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "title": "Minus borrowing ke saath",
+      "description": "2/3-digit subtraction with borrowing",
+      "lesson": "## HOOK\nBachay, agar aapko kahin se paisay udhaar lene hain aur aapke paas sirf kuch hi paisay hain, toh aap kya karenge? Aaj hum sikhenge kaise \"Minus borrowing\" se hum apne udhaar ke paisay wapas kar sakte hain!\n\n## SAMJHAO\nMinus borrowing ka matlab hai jab humein kisi number se chhota number minus karna hota hai aur phir humein kisi aur digit se paisay le kar use banana padta hai. Jab hum subtract karte hain aur khud ke paas utne number nahi hote, toh humein \"borrowing\" karna padta hai.\n\nChalo, hum ek misaal lete hain. Agar aapko 53 se 27 minus karna hai, toh pehle hum tens place dekhte hain. 5 mein se 2 minus karne mein koi mushkil nahi hai, lekin jab humein 3 mein se 7 minus karna hota hai, toh hum dekhte hain ke 3 chhoti hai 7 se. Yahan par humein borrowing ki zarurat hai.\n\nHum jaake tens place se 1 lete hain, toh 5 ab 4 ho jayega. Aur 3 mein 10 add karein ge toh wo ho jayegi 13. Ab hum 13 mein se 7 minus kar sakte hain. Phir hum 4 mein se 2 minus karenge. Yani pehli kuch steps mein humein borrow karna zamuri hai.\n\nIs tarah se hum subtraction ke process ko asaan aur samajhne mein behtar bana sakte hain. Toh, ab hum is concept ko kisi real-life example se samjhte hain.\n\n## MISAAL\nChalo sochte hain ke aap bazaar gaye hain aur aapke paas 84 rupees hain. Aapko ek khaas chocolate jo 36 rupees ki hai kharidni hai. Ab agar aap 84 se 36 minus karna chahte hain, toh aap dekhenge ke 4 mein se 6 minus karna mushkil hoga. \n\nToh yahan aap 8 se 1 borrow karke 14 banaenge aur karke dekhenge ke aapko 48 rupees bachenge. Pakka ready chocolate kharidne ke liye!\n\n## KARO\nAb sab bachay ghar par ya school mein paper aur pencil lekar kuch subtraction problems try karo jahan aapko borrowing ki zarurat padegi. Misal ke taur par:\n1. 74 - 29\n2. 56 - 38\n3. 91 - 56\n\nIn numbers ko solve karen aur dekhen ke aapka answer kya aata hai.\n\n## SAWAAL\n1. Agar aapke paas 72 rupees hain aur aapko 45 rupees kharch karne hain, toh aap kya karenge? Borrowing kaise kiya jaega?\n2. 63 - 29 ka answer kya hoga? \n3. Kya aapne kabhi apni pocket money se koi khaas cheez kharidi hai? Agar haan, toh aapne us mein kis tarah se subtract kiya?\n\nApna kaam zaroor check karna aur practice karna mat bhoolna.\n\nKhuda Hafiz,\nHisaab Sir",
+      "quiz": {
+        "title": "Minus borrowing ke saath Quiz",
+        "questions": [
+          {
+            "q": "176 se 59 minus karein. Jawab kya hai?",
+            "a": "117",
+            "b": "118",
+            "c": "120",
+            "d": "121",
+            "correct": "a",
+            "explanation": "176 - 59 = 117, yahan borrowing ki zaroorat thi."
+          },
+          {
+            "q": "235 se 78 minus karein. Jawab kya hai?",
+            "a": "157",
+            "b": "158",
+            "c": "159",
+            "d": "160",
+            "correct": "b",
+            "explanation": "235 - 78 = 157, yahan borrowing ki zaroorat thi."
+          },
+          {
+            "q": "450 se 229 minus karein. Jawab kya hai?",
+            "a": "221",
+            "b": "222",
+            "c": "223",
+            "d": "224",
+            "correct": "c",
+            "explanation": "450 - 229 = 221, yahan borrowing ki zaroorat thi."
+          },
+          {
+            "q": "302 se 114 minus karein. Jawab kya hai?",
+            "a": "188",
+            "b": "189",
+            "c": "190",
+            "d": "191",
+            "correct": "a",
+            "explanation": "302 - 114 = 188, yahan borrowing ki zaroorat thi."
+          },
+          {
+            "q": "521 se 275 minus karein. Jawab kya hai?",
+            "a": "246",
+            "b": "247",
+            "c": "248",
+            "d": "249",
+            "correct": "d",
+            "explanation": "521 - 275 = 246, yahan borrowing ki zaroorat thi."
+          }
+        ]
+      },
+      "emoji": "➖",
+      "text_simple": "Minus borrowing ka matlab hai jab hum kisi number se chhota number minus karte hain. Agar humare paas utne number nahi hain, toh humein udhaar lena padta hai. Jaise 53 se 27 minus karte hain. Pehle 5 mein se 2 minus karte hain, phir 3 mein se 7 minus karne ke liye tens place se 1 lete hain. Ab 3 13 ban gayi. Phir hum 13 mein se 7 minus karte hain.",
+      "audio_text": "Minus borrowing ka matlab hai jab hum kisi number se chhota number minus karte hain. Agar humare paas utne number nahi hain, toh humein udhaar lena padta hai. Jaise 53 se 27 minus karte hain. Pehle 5 mein se 2 minus karte hain, phir 3 mein se 7 minus karne ke liye tens place se 1 lete hain. Ab 3 13 ban gayi. Phir hum 13 mein se 7 minus karte hain.",
+      "simple_quiz": [
+        {
+          "emoji": "❓",
+          "question_short": "Minus borrowing kya hota hai?",
+          "options": [
+            {
+              "emoji": "✅",
+              "text": "Chhote number se minus"
+            },
+            {
+              "emoji": "❌",
+              "text": "Sirf add karna"
+            },
+            {
+              "emoji": "❌",
+              "text": "Kuch nahi karna"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "title": "Zarb ki tables",
+      "description": "Multiplication tables 2,3,4,5,10",
+      "lesson": "## HOOK\nAao bachon, socho agar tumhare paas 2 mithaiyan hain aur tumhe 5 doston ke liye woh baantni hain, toh har dost ko kitni mithaiyan milengi? Chalo is ka jawab dhoondte hain!\n\n## SAMJHAO\nZarb ki tables yaani Multiplication Tables woh hain jo humein kisi number ko baar baar add karne mein madad deti hain. Agar hum 2 ki table ko dekhein, toh yeh asal mein hai:\n\n- 2 x 1 = 2\n- 2 x 2 = 4\n- 2 x 3 = 6\n- 2 x 4 = 8\n- 2 x 5 = 10\n\nYahan peh 2 ko hum 1 se lekar 5 tak baar baar add kar rahe hain. Is tareeqe se hum aasanai se zarb yaani multiplication seekhte hain.\n\nAb agar hum 3 ki table ko dekhein, toh woh kuch is tarah hai:\n\n- 3 x 1 = 3\n- 3 x 2 = 6\n- 3 x 3 = 9\n- 3 x 4 = 12\n- 3 x 5 = 15\n\nIsmein bhi hum 3 ko 1 se lekar 5 tak baar baar add kar rahe hain. Yeh dekh kar humein samajh aata hai ke zarb kaise kaam karta hai.\n\nIsi tarah, 4 ki table, 5 ki table aur 10 ki table bhi hain. Misal ke taur par 4 ki table, 5 baar add karne par ye hoti hai:\n\n- 4 x 1 = 4\n- 4 x 2 = 8\n- 4 x 3 = 12\n- 4 x 4 = 16\n- 4 x 5 = 20\n\n5 ki table bhi hum isi tarah se seekhenge, jahan 5 ko baar baar 1 se lekar 5 tak add karna hai. Aur baad mein 10 ki table, jo hamesha bahut aasan hoti hai kyun ke yeh sirf 10 ke gap pe hai.\n\n## MISAAL\nChalo, ab ek real-life example lete hain. Agar tumhare paas 5 rickshaw hain, aur har rickshaw ke andar 4 log hain. Toh kitne log hain sab milakar? Hum isay 4 ki table se solve kar sakte hain! \n\n4 x 5 = 20. Is ka matlab hai ke sab rickshawon mein milkar 20 log hain.\n\n## KARO\nAb tumhare liye ek chhoti si activity hai! Apne ghar ke aas-paas dekh kar count karo ke kitne chhote chhote items hain, jaise pencils, toys ya coins. Phir unhein groups mein baato. Jaise agar tumhare paas 10 pencils hain, toh unhein 2 ke groups mein baat kar lo. Kitne groups banenge? Yeh tumhe zarb yaani multiplication ki practice bhi dega!\n\n## SAWAAL\n1. 5 ki table ka 3rd jawab kya hai?\n2. Agar tumhare paas 4 rickshaw hain aur har rickshaw mein 2 log hain, toh kitne log hue?\n3. 2 x 5 ka jawab kya hai?\n\nHisaab Sir",
+      "quiz": {
+        "title": "Zarb ki tables Quiz",
+        "questions": [
+          {
+            "q": "2 ka 3 se zyada kya hai?",
+            "a": "6",
+            "b": "5",
+            "c": "4",
+            "d": "7",
+            "correct": "a",
+            "explanation": "2 ko 3 se zarb dene par 6 aata hai."
+          },
+          {
+            "q": "3 ka 4 se zyada kya hai?",
+            "a": "10",
+            "b": "12",
+            "c": "8",
+            "d": "9",
+            "correct": "b",
+            "explanation": "3 ko 4 se zarb dene par 12 aata hai."
+          },
+          {
+            "q": "4 ka 5 se zyada kya hai?",
+            "a": "20",
+            "b": "15",
+            "c": "25",
+            "d": "30",
+            "correct": "a",
+            "explanation": "4 ko 5 se zarb dene par 20 aata hai."
+          },
+          {
+            "q": "5 ka 10 se zyada kya hai?",
+            "a": "50",
+            "b": "40",
+            "c": "30",
+            "d": "20",
+            "correct": "a",
+            "explanation": "5 ko 10 se zarb dene par 50 aata hai."
+          },
+          {
+            "q": "10 ka 2 se zyada kya hai?",
+            "a": "20",
+            "b": "15",
+            "c": "10",
+            "d": "25",
+            "correct": "a",
+            "explanation": "10 ko 2 se zarb dene par 20 aata hai."
+          }
+        ]
+      },
+      "emoji": "🔢",
+      "text_simple": "Zarb ki tables yaani multiplication tables humein madad deti hain. Jaise 2 ki table: 2 x 1 = 2, 2 x 2 = 4, aur 2 x 3 = 6. Phir 3 ki table: 3 x 1 = 3, 3 x 2 = 6. Har table mein hum number ko baar baar add karte hain. Yeh seekhna aasaan hai!",
+      "audio_text": "Zarb ki tables yaani multiplication tables humein madad deti hain. Jaise 2 ki table: 2 x 1 = 2, 2 x 2 = 4, aur 2 x 3 = 6. Phir 3 ki table: 3 x 1 = 3, 3 x 2 = 6. Har table mein hum number ko baar baar add karte hain. Yeh seekhna aasaan hai!",
+      "simple_quiz": [
+        {
+          "emoji": "❓",
+          "question_short": "2 ki table mein 2 x 3 kya hai?",
+          "options": [
+            {
+              "emoji": "✅",
+              "text": "6"
+            },
+            {
+              "emoji": "❌",
+              "text": "4"
+            },
+            {
+              "emoji": "❌",
+              "text": "8"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "title": "Taqseem",
+      "description": "Division within tables",
+      "lesson": "## HOOK\nAik dafa ka zikar hai ke ek chota sa gaon tha jahan sab bachay mil ke khilone share karte the. Ek din unhone socha, agar hum 12 khilone hain aur 4 dost hain, to har ek dost ko kitne khilone milenge? \n\n## SAMJHAO\nTaqseem yani Division ka matlab hai kisi cheez ko barabar hissay mein baantna. Agar humein 12 aam hain aur chaar dost hain, to hum in aam ko sab doston mein taqseem karna hai. Har dost ko barabar hissa milega.\n\nJab hum kisi number ko chhote numbers se taqseem karte hain, to hum dekhte hain ke kitna baar woh chhota number bade number mein aa raha hai. Isse hum ek table banate hain jo taqseem ko samajhna asan karta hai.\n\nMisal ke taur par, jab hum 20 ko 5 se taqseem karte hain, to hum dekhte hain ke 5 ko 20 mein kitne dafa daala ja sakta hai. Iska jawab hai 4, kyun ke 5 x 4 = 20. Is tarah hum baqi numbers ko bhi samajh sakte hain.\n\nAgar aapko division ka table yaad ho, to aap asani se jis number ko chhote numbers se taqseem karna chahte hain, uska jawab aasan ho jaata hai.\n\n## MISAAL\nMaan lo, aap bazaar gaye hain aur aapke paas 30 biryanis hain. Aapne socha ke aap in biryanis ko 6 dosto mein baantna hai. Agar aap inhein taqseem karte hain to har dost ko kitni biryanis milengi? Taqseem karne par aap dekhenge ke har dost ko 5 biryanis milegi! (30 ÷ 6 = 5)\n\n## KARO\nApne ghar mein 24 biscuits lo. In biscuits ko apne parivaar ke 4 logon mein taqseem karo. Har ek shakhs ko kitne biscuits milenge? Aap ye bhi dekh sakte hain ke agar aap 3 logon ko taqseem karein to har shakhs ko kitne biscuits milte hain. Is tarah se aap taqseem ka concept mazak karte hue asan tareeqe se samajh sakte hain!\n\n## SAWAAL\n1. Agar aapke paas 40 kachoris hain aur aap inhein 8 dosto mein baantte hain, to har dost ko kitni kachoris milengi?\n2. Aapke paas 18 aam hain, agar aap inhein 6 dosto mein taqseem karte hain, to har dost ko kitne aam milenge?\n3. Agar aap 50 chocolates ko 10 bachon mein baand rahe hain, to har bacha kitni chocolates paayega?\n\nAapna khayal rakhna, aur hamesha division seekhna nahi bhoolna!\n\nHisaab Sir",
+      "quiz": {
+        "title": "Taqseem Quiz",
+        "questions": [
+          {
+            "q": "Agar 12 aam ke 3 doston mein taqseem kiye jain to har ek dost ko kitne aam milenge?",
+            "a": "4",
+            "b": "3",
+            "c": "5",
+            "d": "2",
+            "correct": "a",
+            "explanation": "Kyun sahi hai: 12 ko 3 se taqseem karne par har dost ko 4 aam milte hain."
+          },
+          {
+            "q": "Agar 20 toffee ko 5 bachon mein baanta jaye, to har bacha kitni toffiyan lega?",
+            "a": "3",
+            "b": "4",
+            "c": "5",
+            "d": "6",
+            "correct": "b",
+            "explanation": "Kyun sahi hai: 20 ko 5 se taqseem karne par har bacha 4 toffiyan lega."
+          },
+          {
+            "q": "30 gubbiyon ko 10 doston mein baantne par har ek dost ko kitni gubbiyan milti hain?",
+            "a": "2",
+            "b": "3",
+            "c": "4",
+            "d": "5",
+            "correct": "d",
+            "explanation": "Kyun sahi hai: 30 ko 10 se taqseem karne par har dost ko 3 gubbiyan milti hain."
+          },
+          {
+            "q": "Agar 25 chapli kebab ko 5 logon mein baantne par har ek ko kitne kebab milte hain?",
+            "a": "5",
+            "b": "4",
+            "c": "3",
+            "d": "2",
+            "correct": "a",
+            "explanation": "Kyun sahi hai: 25 ko 5 se taqseem karne par har log ko 5 kebab milte hain."
+          },
+          {
+            "q": "10 bauraniyan ko 2 doston mein taqseem karne par har dost ko kitni bauraniyan milengi?",
+            "a": "4",
+            "b": "3",
+            "c": "5",
+            "d": "6",
+            "correct": "c",
+            "explanation": "Kyun sahi hai: 10 ko 2 se taqseem karne par har ek dost ko 5 bauraniyan milengi."
+          }
+        ]
+      },
+      "emoji": "🍏",
+      "text_simple": "Taqseem ka matlab hai cheezon ko barabar baantna. Agar aapke paas 12 aam hain aur 4 dost hain, to har dost ko 3 aam milenge. Is tarah agar aapke paas 30 biryanis hain aur 6 dosto mein baat rahe hain, to har dost ko 5 biryanis milengi. Taqseem se hum asani se jaan sakte hain ke har ek ko kitna milega.",
+      "audio_text": "Taqseem ka matlab hai cheezon ko barabar baantna. Agar aapke paas 12 aam hain aur 4 dost hain, to har dost ko 3 aam milenge. Is tarah agar aapke paas 30 biryanis hain aur 6 dosto mein baat rahe hain, to har dost ko 5 biryanis milengi. Taqseem se hum asani se jaan sakte hain ke har ek ko kitna milega.",
+      "simple_quiz": [
+        {
+          "emoji": "❓",
+          "question_short": "Agar 12 aam hain aur 4 dost hain, to har dost ko kitne aam milenge?",
+          "options": [
+            {
+              "emoji": "🍏",
+              "text": "3 aam"
+            },
+            {
+              "emoji": "🍌",
+              "text": "4 aam"
+            },
+            {
+              "emoji": "🍊",
+              "text": "2 aam"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "title": "Fractions intro",
+      "description": "Half, one-third, quarter",
+      "lesson": "## HOOK  \nAao bachon, kya aapne kabhi biryani mein chaar logon ke liye share ki hai? Agar biryani ka ek plate hai, toh kya aap jaante hain kaise usay half, one-third, ya quarter mein baant sakte hain? Chalo, isay samajte hain!\n\n## SAMJHAO  \nFractions ka matlab hai kisi cheez ko chhote hisson mein baantna. Jab hum kehte hain \"half\", iska matlab hai do hisson mein se ek hissa. Agar ek pura pizza hai, toh agar hum usay do hisson mein baantay hain, toh har hissay ko half kahenge.\n\n\"One-third\" tab hota hai jab hum ek cheez ko teen hisson mein baantte hain. Agar aap ke paas ek chocolate bar hai aur aap usay teen doston mein baantna chahte hain, toh har ek dost ko one-third milega.\n\n\"Quarter\" ka matlab hai chaar hisson mein se ek. Agar humara ek pura khana hai, aur hum usay chaar hisson mein baantte hain, toh har hissay ko quarter kahenge. Jaise agar aap ne ek cake banaya hai, aur aap usay chaar logon mein share karte hain, toh har ek ko quarter milega.\n\nFractions humein samajhne mein madad dete hain ke kisi cheez ko hum kis tarah se baant sakte hain. Yeh humari roz marra ki zindagi ka hissa hain, jaise khana, sweets, ya phir koi bhi cheez jo hum share karte hain.\n\n## MISAAL  \nSocho aap bazaar gaye hain aur wahan ek rickshaw ka fare hai 100 rupees. Agar aap do log hain, toh har ek ka half fare hoga, yaani 50 rupees. Lekin agar aap teen log hain, toh one-third fare hoga, jo ke 33.33 rupees (roughly 34 rupees) hoga. Aur agar aap chaar log hain, toh har ek ka quarter fare hoga, yaani 25 rupees. Is tarah aap fractions ki madad se fare easily baant sakte hain.\n\n## KARO  \nApne ghar par ek chhoti si activity karo. Ek plate mein fruits lo, jaise apples, bananas, ya oranges. Inhe half, one-third, aur quarter mein baantne ki koshish karo. Pehle fruit ko half karna seekho, phir do pieces pakaro aur dekhte hain ke kitna fruit aapka hai. Phir apple ko teen hisson mein baant kar har hissay ko one-third naam do. Aakhir mein, agar aapke paas chaar fruits hain, unhe quarter karne ki koshish karo. Yeh karke dekho kitna maza aata hai!\n\n## SAWAAL  \n1. Agar ek pizza hai aur aap usay do hisson mein baantte hain, toh har hissay ko kya kahenge?  \n2. Agar aapne ek chocolate bar ko teen hisson mein baant liya, toh har hissay ko kya kahenge?  \n3. Agar aap ek cake ko chaar hisson mein baantte hain, toh har hissay ko kya kahenge?\n\nHisaab Sir.",
+      "quiz": {
+        "title": "Fractions intro Quiz",
+        "questions": [
+          {
+            "q": "Agar ek pizza ko do hisson mein taqseem karein to har hissa kya hoga?",
+            "a": "Adha (Half)",
+            "b": "Ek Tehayi (One Third)",
+            "c": "Chaarma (Quarter)",
+            "d": "Pura (Whole)",
+            "correct": "a",
+            "explanation": "Jab ek pizza ko do hisson mein taqseem kiya jata hai, to har hissa adha pizza hota hai."
+          },
+          {
+            "q": "Agar ek chocolate bar ko teen hisson mein taqseem kiya jaye to har hissa kya hoga?",
+            "a": "Adha (Half)",
+            "b": "Ek Tehayi (One Third)",
+            "c": "Chaarma (Quarter)",
+            "d": "Pura (Whole)",
+            "correct": "b",
+            "explanation": "Teen hisson mein taqseem karne par har hissa ek tehayi hota hai."
+          },
+          {
+            "q": "Agar ek cake ko chaar hisson mein taqseem karein to har hissa kya hoga?",
+            "a": "Ek Tehayi (One Third)",
+            "b": "Adha (Half)",
+            "c": "Chaarma (Quarter)",
+            "d": "Pura (Whole)",
+            "correct": "c",
+            "explanation": "Chaar hisson mein taqseem karne par har hissa chaarma hota hai."
+          },
+          {
+            "q": "Agar tumhare paas ek limbu hai aur tum ise do hisson mein kaat te ho, to ek hissa kya hoga?",
+            "a": "Adha (Half)",
+            "b": "Ek Tehayi (One Third)",
+            "c": "Chaarma (Quarter)",
+            "d": "Pura (Whole)",
+            "correct": "a",
+            "explanation": "Is limbu ko do hisson mein kaatne par tumhe adha limbu milta hai."
+          },
+          {
+            "q": "Agar ek samosay ko chaar hisson mein kaat diya jaye, to har hissa kya hoga?",
+            "a": "Ek Tehayi (One Third)",
+            "b": "Adha (Half)",
+            "c": "Chaarma (Quarter)",
+            "d": "Pura (Whole)",
+            "correct": "c",
+            "explanation": "Chaar hisson mein kaatne par har hissa chaarma hota hai."
+          }
+        ]
+      },
+      "emoji": "🍰",
+      "text_simple": "Fractions ka matlab hai kisi cheez ko chhote hisson mein baantna. Jab hum half kehte hain, toh do hisson mein se ek hissa hota hai. One-third ka matlab hai teen hisson mein se ek. Quarter ka matlab hai chaar hisson mein se ek. Yeh humein dikhata hai ke hum kis tarah se cheezon ko share kar sakte hain.",
+      "audio_text": "Fractions ka matlab hai kisi cheez ko chhote hisson mein baantna. Jab hum half kehte hain, toh do hisson mein se ek hissa hota hai. One-third ka matlab hai teen hisson mein se ek. Quarter ka matlab hai chaar hisson mein se ek. Yeh humein dikhata hai ke hum kis tarah se cheezon ko share kar sakte hain.",
+      "simple_quiz": [
+        {
+          "emoji": "❓",
+          "question_short": "Half ka kya matlab hai?",
+          "options": [
+            {
+              "emoji": "✌️",
+              "text": "Do hisson mein se ek"
+            },
+            {
+              "emoji": "✋",
+              "text": "Teen hisson mein se ek"
+            },
+            {
+              "emoji": "🔟",
+              "text": "Chaar hisson mein se ek"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    }
+  ]
+}

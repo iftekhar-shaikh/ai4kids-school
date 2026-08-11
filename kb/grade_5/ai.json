@@ -1,0 +1,338 @@
+{
+  "subject": "ai",
+  "name": "AI & Technology",
+  "teacher": "Ustaad Ji",
+  "grade": 5,
+  "topics": [
+    {
+      "title": "Neural network",
+      "description": "Dimaag jaisa computer — neurons aur connections",
+      "lesson": "## HOOK\nSadi, kya tumne kabhi socha hai ke tumhara dimaag kaise kaam karta hai? Acha socho, jab tum cricket khelte ho, to kya tumhara dimaag seeda ball ki direction aur speed ko kaise samajhta hai? Chalo, iss dimaag ki tarah aik computer bhi hota hai jo sochta hai!\n\n## SAMJHAO\nNeural network ek aisa computer system hai jo insaan ke dimaag ki tarah kaam karta hai. Is mein chhote chhote parts hote hain jinko neurons kaha jata hai. Ye neurons ek dusre ke sath connections banate hain, bilkul waise hi jaise insaan apne dosto se milte hain aur baatein karte hain.\n\nJab tum kisi cheez ko seekhte ho, jaise maths ka formula ya cricket ka rule, tumhara dimaag neurons ka istemal karke information ko yaad karta hai. Neural network bhi is tarah se seekhta hai. Jab ye data ko process karta hai, to ye bahut se neurons ko activate karta hai jisse ye naye patterns aur knowledge ko generate karta hai.\n\nAgar tum kisi image ko dikhate ho, to neural network woh image dekh kar uske features ko identify karta hai jese ke rang, shape, aur size. Phir ye features use karke sahi sochta hai ke woh image kya hai. Ye process bilkul waisa hi hai jaise tum bartan ko dekh kar samajhte ho ke woh kya hai aur uska istemal kaise karna hai.\n\nNeural networks aksar AI applications mein istemal hote hain, jese speech recognition aur image processing. Yeh systems isliye itne powerful hain kyunki ye bohot saari information ko fast process kar sakte hain aur naye ideas generate kar sakte hain.\n\n## MISAAL\nSadi, jab tum bazaar jaate ho aur alag alag fruits dekhte ho, tumhara dimaag in fruits ko pehchan leta hai. Jaise agar tum ek aam dekhte ho, to tumhe yaad aata hai kaise woh aam ka khushboo hai aur uska rang kis tarah ka hai. Neural network bhi yahi karta hai! Agar kisi computer ko is tarah ka data diya jaye, to wo bhi fruits ki pehchaan kar sakta hai aur tumhe batata hai ke yeh aam hai, ya angoor.\n\n## KARO\nAb tum ghar ya school mein aik activity karo! Ek drawing sheet lo aur is par do drawings banao. Pehli drawing mein apne dimaag ki tarah neurons ko dikhana hai — chhoti circles ko lines se jod kar dikhana hai. Doosri drawing mein yeh dikhana hai ke kaise neurons ek dusre se milkar kaam karte hain, jaise ek team mein. Phir dono drawings ko achi tarah se explain karo apne dost ko!\n\n## SAWAAL\n1. Neural network kya hai aur ye kis tarah se insaan ke dimaag ki tarah kaam karta hai?\n2. Tumhara dimaag kaise koi cheez ko yaad karta hai? Mujhe ek misaal do.\n3. Tum kaise sochte ho ke ek computer neural network ki madad se kaise soch sakta hai?",
+      "quiz": {
+        "title": "Neural network Quiz",
+        "questions": [
+          {
+            "q": "Neural network kya hai?",
+            "a": "Ek computer jo dimaag ki tarah kaam karta hai",
+            "b": "Ek simple calculator",
+            "c": "Ek mobile phone",
+            "d": "Ek printer",
+            "correct": "a",
+            "explanation": "Neural network ek aisa computer hai jo insaan ke dimaag ki tarah sochne aur sikhne ki koshish karta hai."
+          },
+          {
+            "q": "Neurons kis cheez ko represent karte hain?",
+            "a": "Data",
+            "b": "Connections",
+            "c": "Graphics",
+            "d": "Sound",
+            "correct": "a",
+            "explanation": "Neurons data ya maloomat ko represent karte hain jo processing ke liye istemal hoti hai."
+          },
+          {
+            "q": "Neural network ka asal maqsad kya hai?",
+            "a": "Human brain ki tarah sochna",
+            "b": "Games khelnay",
+            "c": "Film banana",
+            "d": "Music sunaana",
+            "correct": "a",
+            "explanation": "Neural network ka asal maqsad dimaag ki tarah sochne aur mushkil masail hal karne mein madad dena hai."
+          },
+          {
+            "q": "Connections ka kya kaam hai neural network mein?",
+            "a": "Neurons ke darmiyan maloomat ka taluq banana",
+            "b": "Games ka design banana",
+            "c": "Mobile app banana",
+            "d": "Kuch nahi",
+            "correct": "a",
+            "explanation": "Connections neurons ke darmiyan maloomat ka taluq banate hain, jis se neural network ka sahi kaam karna mumkin hota hai."
+          },
+          {
+            "q": "Aam tor par neural networks kis field mein istemal hote hain?",
+            "a": "Healthcare",
+            "b": "Khana pakana",
+            "c": "Khilone banana",
+            "d": "Ghar ka kaam",
+            "correct": "a",
+            "explanation": "Neural networks healthcare jese field mein patients ki bimariyon ka pata lagane aur diagnosis mein madadgar hote hain."
+          }
+        ]
+      }
+    },
+    {
+      "title": "Prompt engineering",
+      "description": "AI se achi baat kaise karein — best prompts likhna",
+      "lesson": "## HOOK\nSadi, kabhi socha hai ke AI (Artificial Intelligence) se baat karne ka sahi tareeqa kya hai? Aaj hum seekhenge ke kaise achi baatein kar ke AI se behtar jawab le sakte hain. Socho agar tum AI se puchho ke \"Biryani ka best recipe kya hai?\" aur woh tumhe ek zabardast recipe de! \n\n## SAMJHAO\nPrompt engineering ka matlab hai AI ko achi tarah se waise sawal ya requests dena ke usay samajh aaye ke tumhe kya chahiye. Jab hum AI se baat karte hain, to humein clear aur specific hona chahiye. Yani, agar tumhein kisi cheez ke bare mein jaan'na hai, to us sawaal ko theek tareeqe se poochna hoga.\n\nAgar tum AI se puchte ho \"Mujhe kuch mazaydar khaana batao\", to AI shayad sirf general foods ke naam de de. Lekin agar tum kehte ho \"Karachi ki famous biryani ki recipe kya hai?\", to AI tumhein behtar jawab de sakta hai kyunki tumhara sawaal specific hai.\n\nIsliye, hamesha socho ke tumhara sawaal kis tarah se hai. Zyada details dene se AI ko madad milti hai. For example, agar tumhein kisi movie ke bare mein padhna hai, to tum yeh nahi keh sakte \"Mujhe movie ke bare mein batao\". Iske bajaye tum keh sakte ho \"Mujhe 2020 ki sab se achi animation movie ke bare mein batao\".\n\nJise hum 'keywords' kehte hain, unhe use karna bhi zaroori hai. Jaise agar tumhein cricket ke match ke score ke bare mein jaana hai, to kehna behtar hai \"Pakistan ne apne last match me kitne runs banaye?\" Is se AI ko clear idea milta hai ke tumhe kya chahiye.\n\n## MISAAL\nSocho, Sadi, agar tum bazaar jaate ho aur ek dukaan mein bhelpuri kharidna chahte ho. Agar tum keh dete \"Mujhe bhelpuri de do\", to dukaan wala sirf ek plate de dega. Lekin agar tum kehte \"Mujhe ek badi plate bhelpuri chahiye, usme tamatar aur dahi bhi hon\", to dukaan wala tumhari baat achhe se samajh kar tumhe aur behtar bhelpuri dega.\n\n## KARO\nAb Sadi, tum ghar par ya school mein ek activity kar sakte ho! Ek paper lo aur uspe 5 different sawal likho jo tum AI se pooch sakte ho. Har sawaal ko clearly aur specific tarike se likho. Jaise, \"Mujhe Karachi mein sab se behtareen date fruit ki dukaan ka naam batao\". Phir, agar tumhare paas koi AI tool hai to un sawalon ko use kar ke dekho ke AI kaise jawab deta hai.\n\n## SAWAAL\n1. Prompt engineering ka kya matlab hai?\n2. Jab hum AI se sawal karte hain, to humein kaisi baatein karni chahiye?\n3. Ek example do jismein tumne specific sawaal poocha ho aur is se behtar jawab mila ho.",
+      "quiz": {
+        "title": "Prompt engineering Quiz",
+        "questions": [
+          {
+            "q": "AI se behtar result hasil karne ke liye aapko kis tarah ka sawal puchna chahiye?",
+            "a": "Seedha sawal poochna",
+            "b": "Ghalat sawal poochna",
+            "c": "Mushtamil sawal poochna",
+            "d": "Kuch nahi poochna",
+            "correct": "a",
+            "explanation": "Seedha sawal poochne se AI ko behtar jawab dene me madad milti hai."
+          },
+          {
+            "q": "Agar aapko AI se kisi kahani ka khulasa chahiye, toh aapko kis tarah ka prompt dena chahiye?",
+            "a": "Ghalat sawaal poochna",
+            "b": "Kahani ka naam aur theme bataein",
+            "c": "Kahani ka sirf naam batana",
+            "d": "Kahani ke sab characters ka zikar karna",
+            "correct": "b",
+            "explanation": "Kahani ka naam aur theme dene se AI ko behtar samajh aata hai."
+          },
+          {
+            "q": "Agar aap AI se kisi maslay ka hal chahte hain, toh aapko kis tarah ka prompt dena chahiye?",
+            "a": "Mausam ke bare mein poochna",
+            "b": "Maslay ka tazkira karna aur kuch halat batana",
+            "c": "Kuch nahi kehna",
+            "d": "Maslay ka sirf naam rakhna",
+            "correct": "b",
+            "explanation": "Maslay ka tazkira aur halat dene se AI ko achhe options milte hain."
+          },
+          {
+            "q": "AI se creative ideas chahiye toh kya karna chahiye?",
+            "a": "Seedha bas 'idea do' kehna",
+            "b": "Tafseeli context dena",
+            "c": "Sirf ek word me kehna",
+            "d": "Kuch nahi kehna",
+            "correct": "b",
+            "explanation": "Tafseeli context dene se AI ko creativity ke liye behtar mauqa milta hai."
+          },
+          {
+            "q": "AI se kisi topic par maaloomat chahiye toh sabse pehle kya batana chahiye?",
+            "a": "Topic ka naam",
+            "b": "Topic se juda koi ghalat information",
+            "c": "Kuch nahi kehna",
+            "d": "Topic aur iski zaroorat ka zikar karna",
+            "correct": "d",
+            "explanation": "Topic aur iski zaroorat batane se AI ko behtar jawab dene ka mauqa milta hai."
+          }
+        ]
+      }
+    },
+    {
+      "title": "Computer vision",
+      "description": "AI tasveerein kaise samajhti hai — object detection",
+      "lesson": "## HOOK\nAao Sadi, socho agar tumhara computer ya phone tumhare aas paas ki tasaveer ko samajh sake, toh kya hota? Kya tumhe yaad hai jab tum bazaar jaate ho aur wahan bahut saari cheezein hoti hain? Kya tumhe lagta hai ke tumhara phone bhi un saari cheezon ko samajh kar tumhe help kar sakta hai?\n\n## SAMJHAO\nComputer vision ek technology hai jisse computers tasaveeron ko samajhne ki salahiyat rakhte hain. Matlab yeh ki computer alag-alag cheezon ko pehchaan sakta hai jo ek tasveer mein hoti hain. Jaise tum kisi tasveer mein ek gaadi, ek ghar, ya koi insaan dekhte ho, waise hi computer bhi un cheezon ko samajhne ki koshish karta hai.\n\nIs technology ke zariye, computers \"object detection\" karte hain. Iska matlab hai ke wo khas tor par tasveer mein maujood cheezon ko dhoondte hain. Jaise agar tum ek tasveer mein doost ka chehra dekhte ho, toh computer bhi yeh jaan sakta hai ke yeh ek insaan hai aur shayad wo tumhara doost hai.\n\nComputer vision mein algorithms ka istemal hota hai. Yeh algorithms computer ko tasveer ko process karne aur usme ki cheezon ko pehchanne mein madad karte hain. Algorithms software ke chhote hisson ki tarah hote hain jo computer ko batate hain ke kis tarah kaam karna hai.\n\nEk aur cheez jo bahut zaroori hai wo hai \"training\". Matlab, computer ko pehle se bahut saari tasaveer dikha kar sikhaya jata hai. Jab computer bahut saari tasaveer dekhta hai, tab wo samajhta hai ke kis cheez ko kis tarah pehchana jata hai. Yeh process computer ko intelligent banata hai!\n\n## MISAAL\nChalo sochte hain ke tum chaand raat ko bazaar gaye ho. Wahaan ek digital camera hai jo yeh check karta hai ke kitne log bazaar mein hain. Agar camera ko pehle se logon ki tasaveer dikhai gayi hain, toh wo aasani se jaan sakta hai ke kitne log wahaan hain, kis cheez ki kitni demand hai, aur yeh bhi pata kar sakta hai ke kaun se products zyada beche ja rahe hain jaise ke biryani ya chaat. Is tarah yeh technology bazaar ki management ko behter banane mein madad karti hai!\n\n## KARO\nSadi, ab tum ek simple activity karo. Apne mobile phone ya camera se club room ya ghar ki koi bheed bhari jagah ki tasveer lo. Phir dekho ke tumhare aas paas kitne log hain aur un dheere dheere kaisi cheezein hain. Koshish karo ke tum tasveer mein agar do ya teen cheezein identify kar sakte ho, jaise log, khilaune ya furniture. Isse tumhe samajh aayega ke kaise computer vision kaam karta hai.\n\n## SAWAAL\n1. Computer vision kya hai aur yeh kis tarah se kaam karta hai?\n2. \"Object detection\" ka matlab kya hota hai?\n3. Tum kaise sochte ho ke computer kisi tasveer mein cheezein kaise pehchanta hai?",
+      "quiz": {
+        "title": "Computer vision Quiz",
+        "questions": [
+          {
+            "q": "Computer vision mein 'object detection' ka matlab kya hai?",
+            "a": "Computer ka kisi cheez ko dekhna",
+            "b": "Tasveer mein mukhtalif cheezen pehchanana",
+            "c": "Photo ko enhance karna",
+            "d": "Video banane ka amal",
+            "correct": "b",
+            "explanation": "'Object detection' ka matlab hai tasveer mein mukhtalif cheezen pehchanana."
+          },
+          {
+            "q": "AI ka istemal kis kisam ki tasveeron mein hota hai?",
+            "a": "Kewal animations",
+            "b": "Duniya ki aam tasveeron",
+            "c": "Game designing",
+            "d": "Sab kuch",
+            "correct": "d",
+            "explanation": "AI ka istemal har kisam ki tasveeron mein hota hai, chahe wo animations hon ya aam tasveeron."
+          },
+          {
+            "q": "Pakistan mein kis cheez ke liye 'object detection' aam tor par istemal hota hai?",
+            "a": "Traffic monitoring ke liye",
+            "b": "Ghar mein cleaning ke liye",
+            "c": "School ki tasaveer banane ke liye",
+            "d": "Khel khilone banane ke liye",
+            "correct": "a",
+            "explanation": "Pakistan mein traffic monitoring ke liye 'object detection' ka istemal aam hai."
+          },
+          {
+            "q": "Konn sa AI tool 'object detection' ke liye mashhoor hai?",
+            "a": "OpenCV",
+            "b": "Photoshop",
+            "c": "Microsoft Word",
+            "d": "Notepad",
+            "correct": "a",
+            "explanation": "OpenCV aik mashhoor AI tool hai jo 'object detection' ke liye istemal hota hai."
+          },
+          {
+            "q": "AI ko cheezein pehchanane mein kaise madad milti hai?",
+            "a": "Tasveeron ko analysis karke",
+            "b": "Sirf dikhne se",
+            "c": "Bina data ke",
+            "d": "Aam mansoobon se",
+            "correct": "a",
+            "explanation": "AI tasveeron ko analysis karke cheezein pehchanata hai."
+          }
+        ]
+      }
+    },
+    {
+      "title": "NLP basics",
+      "description": "AI language kaise samajhti hai — Natural Language Processing",
+      "lesson": "## HOOK\nSadi, kya tumne kabhi socha hai ke jab tum apni mom se bolte ho ke mujhe biryani chahiye, to wo turant samajh jati hain? Lekin agar koi robot yeh sunne, to kya wo samajh payega ke tum kya chahte ho? Chalo aaj is khaas topic par baat karte hain!\n\n## SAMJHAO\nNatural Language Processing (NLP) aik aisi technology hai jo machines ko insani zuban samajhne aur istemal karne ki salahiyat deti hai. Jab tum computer ya smartphone par koi text likhte ho ya voice command dete ho, to NLP kaam karta hai. Iska kaam hai tumhari zuban ko samajhna aur uska jawab dena.\n\nNLP ki pehli tarah, wo language ki grammar ko samajhta hai. Jaise tum school mein grammar seekhte ho, waise hi NLP algorithms bhi sentences ko theek se samajhne ke liye grammar rules ko istemal karte hain. Is wajah se machines also sentences ki meaning aur structure ko behtar samajh payengi.\n\nDusri tarah, NLP context ko samajhne ki koshish karta hai. Agar tum kahte ho \"Aaj mausam acha hai\", to machine samjhe gi ke tumara mood acha hai. Magar agar tum kehdo \"Aaj toh kaafi garmi hai,\" to machine samjhe gi ke tumhara mood kuch acha nahi. Yeh context samajhna NLP ka ek bohat important hissa hai.\n\nTeesri tarah, NLP machines ko training deti hai ke wo alag alag languages aur dialects ko samjhein. Pakistan mein, different languages jaise Urdu, Punjabi, aur Sindhi hain. NLP ki madad se, ek machine in sab languages ko samajhne ki koshish karti hai.\n\n## MISAAL\nChalo ek misaal lete hain bazaar ki. Jab tum bazaar jaate ho aur keh dete ho \"Mujhe ek kilo tamatar chahiye,\" to dukandaar samajh jata hai ke tum kya chahte ho. Lekin agar tum keh do \"Tamatar zyada mehngay ho gaye hain,\" to dukandaar samajh jata hai ke tumhein daam ki chinta hai. NLP bhi is tarah se samajhne ki koshish karti hai.\n\n## KARO\nSadi, ab tumhare liye ek chhoti si activity hai! Aaj khud se kuch sentences banao aur unhein kisi dost ya family member ko sunao. Dekho wo unka kya matlab samajhte hain. Phir socho, agar ek machine tumhare sentences sunti, to kya wo unhe sahi samajh sakti? Tumhein yeh samajhne mein madad milegi ke NLP kaise kaam karta hai!\n\n## SAWAAL\n1. Natural Language Processing (NLP) kis cheez ki technology hai?\n2. NLP machines ko kya samajhne ki koshish karne mein madad deta hai?\n3. Tumhein kya lagta hai, agar machine tumhara sentence samajh nahi paayi, to wo kya kar sakti hai?",
+      "quiz": {
+        "title": "NLP basics Quiz",
+        "questions": [
+          {
+            "q": "Natural Language Processing (NLP) ka asal maksad kya hai?",
+            "a": "Insani zabano ko samajhna",
+            "b": "Machine ko khud seekhna",
+            "c": "Data ka analysis karna",
+            "d": "Graphics banana",
+            "correct": "a",
+            "explanation": "NLP ka asal maksad insani zabano ko samajhna aur unhein process karna hai."
+          },
+          {
+            "q": "NLP kis technology ki madad se kaam karti hai?",
+            "a": "Artificial Intelligence",
+            "b": "Robotics",
+            "c": "Virtual Reality",
+            "d": "Blockchain",
+            "correct": "a",
+            "explanation": "NLP Artificial Intelligence ka ek aham hissa hai jo insani zabano ko samajhta hai."
+          },
+          {
+            "q": "In mein se kaunsa NLP ka istemal nahi hai?",
+            "a": "Chatbots",
+            "b": "Text translation",
+            "c": "Face recognition",
+            "d": "Sentiment analysis",
+            "correct": "c",
+            "explanation": "Face recognition NLP ka istemal nahi karta, yeh image processing se mutaliq hai."
+          },
+          {
+            "q": "NLP kis tarah se insan ki zuban samajh sakti hai?",
+            "a": "Keywords aur phrases ko analyze karke",
+            "b": "Sirf likhi hui text ko padh kar",
+            "c": "Bina kisi training ke",
+            "d": "Sirf awaz sun kar",
+            "correct": "a",
+            "explanation": "NLP keywords aur phrases ko analyze karke insani zuban ko samajhti hai."
+          },
+          {
+            "q": "In mein se kaunsa NLP ka ek example nahi hai?",
+            "a": "Google Translate",
+            "b": "Siri",
+            "c": "YouTube",
+            "d": "Spam detection",
+            "correct": "c",
+            "explanation": "YouTube NLP ka example nahi hai, lekin Google Translate, Siri aur Spam detection NLP ke examples hain."
+          }
+        ]
+      }
+    },
+    {
+      "title": "AI ethics",
+      "description": "AI ka sahi aur ghalat istemal — zimmedari",
+      "lesson": "## HOOK\nSadi, soch ke dekho agar tumhare paas ek aisa robot ho jo tumhare homework kar de ya tumari khud se cricket khelne ki salahiyat behtar kare. Lakin, kya tumhe pata hai ke is AI ka sahi aur ghalat istemal kya hai?\n\n## SAMJHAO\nAI yani Artificial Intelligence ek technology hai jo machines ko sochne aur samajhne ki salahiyat deti hai. Jab hum AI ka istemal karte hain, toh humein ye sochna chahiye ke kya hum usay theek tarike se istemal kar rahe hain ya nahi. \n\nPehla point ye hai ke AI ka istemal insani zindagi ko asan banane ke liye hona chahiye. Misal ke taur par, agar AI koi aisi application banata hai jo students ki madad karta hai toh ye sahi hai. Lekin agar AI kisi ko ghalat information de raha hai, toh ye ghalat hai.\n\nDoosra point ye hai ke AI ka istemal zaroori zimmedari ke sath hona chahiye. Jab hum AI ka istemal karte hain, humein yeh dekhna chahiye ke isse dusron ko koi nuqsan toh nahi ho raha. Agar AI se koi aisi cheez banta hai jo logon ki feelings ko hurt kare, toh humay ise rokna chahiye.\n\nTeesra point yeh hai ke har kisi ko AI ke istemal ka pata hona chahiye. Agar hum AI ke baray mein itna nahi jaanenge, toh humari samajh sudharne mein rukaawat ho sakti hai, aur hum khud be khabar rahenge. \n\n## MISAAL\nSocho agar tumhe school ki projects ki madad chahiye aur tum AI se madad lete ho. Tumhe ek app milta hai jo tumhare project ke liye ideas de sakta hai. Lekin agar ye app sirf dusron ke ideas udate hain, toh yeh ghalat hai. Iska maqsad yeh hona chahiye ke tumhe inspire kare, na ke tumhare creativity ko khatam kare.\n\n## KARO\nSadi, ghar pe ek activity karo. Apne dosto ya ghar walon ke saath milkar ek chhoti si story banao jisme AI ka istemal sahi aur ghalat dono tarike se dikhaya gaya ho. Is story ko draw karo, jaise ek scene jahan AI ka sahi istemal ho raha hai aur doosra scene jahan ghalat istemal ho raha hai. Isse tumhe AI ethics ka behtar samajh aaye ga.\n\n## SAWAAL\n1. AI ka sahi istemal kya hai? Ek misaal do.\n2. AI ke ghalat istemal ki koi misaal do jo tumne suna ho.\n3. Tumhare khayal mein AI ka istemal zimmedari se kyun zaroori hai? \n\nSadi, ye sawaal tumhe sochne par majboor karenge aur tumhare AI ethics ke baare mein sochne mein madad karenge!",
+      "quiz": {
+        "title": "AI ethics Quiz",
+        "questions": [
+          {
+            "q": "AI ka sahi istemal kis cheez ki taraf ishara karta hai?",
+            "a": "Insani zindagi ko behtar banana",
+            "b": "Logon ki jaan khatar mein daalna",
+            "c": "Ghalat fehmi rakhna",
+            "d": "Kisi ki privacy ka ulhanghna",
+            "correct": "a",
+            "explanation": "AI ka sahi istemal insani zindagi ko behtar banane ke liye hota hai."
+          },
+          {
+            "q": "Agar AI ka istemal kisi ki tasveer bina unki ijaazat ke karein, to yeh kya hoga?",
+            "a": "Sahi kaam",
+            "b": "Ghalat kaam",
+            "c": "Bohot acha kaam",
+            "d": "Kuch nahi",
+            "correct": "b",
+            "explanation": "Yeh ghalat hai kyunki dusron ki privacy ka khayal rakhna zaroori hai."
+          },
+          {
+            "q": "AI ka ghalat istemal kis tarah se hota hai?",
+            "a": "Logo ka data bechna bina unki rizaam ke",
+            "b": "AI ka istemal khud ki tarakki ke liye",
+            "c": "Taleem dena",
+            "d": "Taqreeb ka intezaam karna",
+            "correct": "a",
+            "explanation": "Logo ka data bechna bina unki rizaam ke AI ka ghalat istemal hai."
+          },
+          {
+            "q": "AI ko kaise istemal karna chahiye taake logon ka bhala ho?",
+            "a": "Unki ijaazat aur rizaam se",
+            "b": "Bina kisi soch-vichar ke",
+            "c": "Sirf apne faida ke liye",
+            "d": "Jab marzi ho",
+            "correct": "a",
+            "explanation": "AI ko unki ijaazat aur rizaam se istemal karna chahiye taake logon ka bhala ho."
+          },
+          {
+            "q": "Kya AI ka ghalat istemal ek bara masla ban sakta hai?",
+            "a": "Haan, yeh bohot bara masla ban sakta hai",
+            "b": "Nahi, yeh sirf ek maamooli baat hai",
+            "c": "Kuch nahi hoga",
+            "d": "Yeh sirf mujhe parashan karta hai",
+            "correct": "a",
+            "explanation": "AI ka ghalat istemal ek bara masla ban sakta hai jo logon ke liye khatarnaak ho sakta hai."
+          }
+        ]
+      }
+    },
+    {
+      "title": "AI project",
+      "description": "Apna chhota AI project design karo — idea to plan",
+      "lesson": "## HOOK\nSadi, kya tumne kabhi socha hai ke tumhare smartphone ya computer kaise itne samajhdar hain? Aaj hum ek aisa project design karne ja rahe hain jo tumhe dikhayega ke AI (Artificial Intelligence) kis tarah se kaam karta hai. \n\n## SAMJHAO\nAI ka matlab hai ek aisi technology jo machines ya computer ko insaan ki tarah sochne aur samajhne ke laayak banati hai. Tumhe ye samajhna hoga ke AI kaise data ko use karke decisions leta hai. Misal ke taur par, jab tumhara mobile phone tumhe koi recommendation deta hai, wo AI kaam kar raha hota hai.\n\nAI ke kuch tools hote hain jisse hum projects banate hain. Jaise ke Chatbots jo logon ke sawalon ka jawab dete hain, ya phir facial recognition jo chehron ko pehchanta hai. Hum in saari cheezon ko samajh kar apna chhota AI project bana sakte hain.\n\nAb tumhare dimag mein ek idea aa raha hoga ke tumhe kis cheez par kaam karna hai. Tum look kar sakte ho ke kya problem hai jo tum solve karna chahte ho? Ye project sirf tumhara nahi hai, ye har kisi ko madad de sakta hai.\n\nTumhare project ka pehla step hai planning. Is mein tumhe sochna hoga ke tumhara AI kya karega? Kaise kaam karega aur kis tarah se use kiya jayega? Tumhe iske liye kuch data bhi ikattha karna hoga.\n\n## MISAAL\nPakistan ke sheher mein, bazaar mein shopkeepers aksar customer ki taraf se aane wale sawal ka jawab nahi de pate. Agar hum ek AI chatbot banayen jo customer ke common sawalat ka jawab de sake, to ye na sirf shopkeeper ka kaam aasaan karega balki customers ko bhi behtar service milegi. Tum dekh sakte ho ke is AI project se sabko faida ho sakta hai.\n\n## KARO\nSadi, ab tumhara waqt hai! Tum ek drawing banayein jisme tumhara AI project dikhe. Is drawing mein tumhe apne chatbot ka design banana hai — wo kis tarah se customer se baat karega? Kuch common sawalat likho jo log usse pooch sakte hain, jaise: \"Aaj yahan kya sale hai?\" Ya \"Mujhe sabzi khareedni hai, kya tum madad kar sakte ho?\" \n\n## SAWAAL\n1. AI kya hai aur ye kis tarah kaam karta hai?\n2. Tumhare project ka idea kya hai?\n3. Tumhe apne AI project mein kya challenges nazar aate hain?",
+      "quiz": {
+        "title": "AI project Quiz",
+        "questions": [
+          {
+            "q": "Aapka AI project kis cheez par hoga?",
+            "a": "Khudkar khel banane par",
+            "b": "Pani ki kami ka hal",
+            "c": "Health monitoring system",
+            "d": "Sab",
+            "correct": "d",
+            "explanation": "Sab options AI project ka hissa ban sakte hain."
+          },
+          {
+            "q": "Aapka AI project kis technology ka istemal karega?",
+            "a": "Machine Learning",
+            "b": "Virtual Reality",
+            "c": "Blockchain",
+            "d": "Augmented Reality",
+            "correct": "a",
+            "explanation": "Machine Learning AI ka buniyadi hissa hai."
+          },
+          {
+            "q": "AI project banate waqt sab se pehle kya karna chahiye?",
+            "a": "Test karke dekhna",
+            "b": "Idea sochna",
+            "c": "Code likhna",
+            "d": "Design banana",
+            "correct": "b",
+            "explanation": "Idea sochna pehla qadam hota hai AI project ke liye."
+          },
+          {
+            "q": "AI project ke liye data kahan se laa sakte hain?",
+            "a": "Internet se",
+            "b": "Taleemi institutions se",
+            "c": "Local communities se",
+            "d": "Sab",
+            "correct": "d",
+            "explanation": "Data sab jagah se laaya ja sakta hai."
+          },
+          {
+            "q": "AI project ko kis age ke log istemal kar sakte hain?",
+            "a": "Sirf bache",
+            "b": "Sirf bade",
+            "c": "Sab age ke log",
+            "d": "Sirf professionals",
+            "correct": "c",
+            "explanation": "AI projects sab age ke logon ke liye banaaye ja sakte hain."
+          }
+        ]
+      }
+    }
+  ]
+}

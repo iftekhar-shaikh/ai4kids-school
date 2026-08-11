@@ -1,0 +1,338 @@
+{
+  "subject": "english",
+  "name": "English",
+  "teacher": "English Ma'am",
+  "grade": 5,
+  "topics": [
+    {
+      "title": "Comprehension skills",
+      "description": "SNC: Summarize, predict, infer — longer texts se",
+      "lesson": "## HOOK\nSadi, kya tumne kabhi kisi kitab ka pehla page padha hai aur socha hai ke aage kya hoga? Kya tum samajhte ho ke hum kitne asaani se kisi kahani ka khulasa ya point samajh sakte hain? \n\n## SAMJHAO\nComprehension skills ka matlab hai kisi text ko achhe se samajhna aur us se learning lena. Jab hum kisi lambi kahani ya paragraph par kaam karte hain, to humein kuch basic skills ki zaroorat hoti hai jaise summarize, predict, aur infer karna. \n\nPehla skill hai \"Summarize\". Iska matlab hai ke hum text ka short version bataein, matlab mukhtasir taur par uske main points ko samjhain. Jab tum kisi story ko summarize karte ho, to tum sirf un important baaton ko uthate ho jo kahani ka main idea dikhati hain.\n\nDusra skill hai \"Predict\". Isme hum sochte hain ke aage kya ho sakta hai. Jab tum ek kitab ka page padte ho, to tum soch sakte ho ke character kya karega ya next scene mein kya hoga. Yeh tumhari soch aur imagination ko bhadwata hai.\n\nTeesra skill hai \"Infer\". Iska matlab hai jo chizein likhi nahi gayi, unhein samajhna. Kabhi kabhi writer kuch aise clues chhodta hai jo hamein text ka deeper meaning samajhne mein madad karte hain. Tumhe sochna padta hai ke writer kya kehna chahta tha.\n\n## MISAAL\nChalo, Sadi, ek example lete hain bazaar ki. Jab tum bazaar jaate ho aur ek dukan par \"Sasti Biryani\" likha hota hai, to tum sochte ho ke aaj khana khaane ke liye sara parivaar us dukaan par jayega. Ab agar tumhare dost ko padhna aata hai, to wo kah sakta hai, \"Bhai, aaj to sab us biryani ka maza lene wale hain,\" yeh uski predicting skill hai. Jab tum wahaan jaate ho aur dekhte ho ke sirf 5 log hain, to tumhe lagta hai ke shayad sirf aaj hi nahi, par kuch aur log bhi aate hain — hai na? \n\n## KARO\nSadi, ab tum ek activity karte hain. Apne ghar ya school mein jaakar koi ek lambi kahani ya article churnouse se lo. Phir uski summarize karo, socho ke aage kya ho sakta hai aur kuch clues uthao jo tumhein text se milen. Yeh 3 cheezein tum naye hobbies bana sakte ho! \n\n1. Kahani ka mukhtasir summary likho.\n2. Socho, \"Agar mujhe ye kahani likhni hoti, to mai isse kaise aage badhata?\"\n3. Kahani se kuch aise points uthao jo tumhare liye interesting hain aur unki wajah bhi batao. \n\n## SAWAAL\n1. Summarize ka kya matlab hai?\n2. Predict karne ke liye hum kya karte hain?\n3. Infer kaise hota hai aur iski zaroorat kyun hai?\n\nChalo Sadi, in sab activities aur sawalon par kaam karo aur apni comprehension skills ko aur behtar banao!",
+      "quiz": {
+        "title": "Comprehension skills Quiz",
+        "questions": [
+          {
+            "q": "Ek din Raza aur Usama ne socha ke woh picnic par jayein. Wo dono apne dosto ko bulane gai. Picnic kaha jaane wala hai?",
+            "a": "Jheel ke paas",
+            "b": "School",
+            "c": "Ghar",
+            "d": "Mohray ki dukaan",
+            "correct": "a",
+            "explanation": "Kyunke sawaal mein picnic ka zikar hai jheel ke paas ka."
+          },
+          {
+            "q": "Razia ne mehfil mein sab ko apne naye kaprey dikhaye. Logon ne kya kaha?",
+            "a": "Kaprey bohat kharab hain.",
+            "b": "Kaprey bohat khubsurat hain.",
+            "c": "Kaprey purane hain.",
+            "d": "Koi nahi dekhta.",
+            "correct": "b",
+            "explanation": "Razia apne naye kaprey dikhane par logon ki tarif sunne ki ummeed karti thi."
+          },
+          {
+            "q": "Jab Asad ne cricket khelna shuru kiya, wo kabhi haar nahi gaya. Yeh kya dikhata hai?",
+            "a": "Wo kabhi nahi jeet sakta.",
+            "b": "Wo sirf dosti ke liye khelta hai.",
+            "c": "Wo kaafi mehnat karta hai.",
+            "d": "Usay cricket pasand nahi hai.",
+            "correct": "c",
+            "explanation": "Asad ki jeet aur haar ka faisla uski mehnat par hai."
+          },
+          {
+            "q": "Tariq ka ghar bahut bada hai, lekin uska sala khaali hai. Wo kyun khafa hai?",
+            "a": "Uska ghar chota hai.",
+            "b": "Uska dost nahi aa raha.",
+            "c": "Wo akela mehsoos karta hai.",
+            "d": "Usay khana nahi mila.",
+            "correct": "c",
+            "explanation": "Sala khaali hone se Tariq ko akelapan mehsoos hota hai."
+          },
+          {
+            "q": "Sadiq ke paas ek purana khilauna hai. Usay is khilaune se kya yaad aata hai?",
+            "a": "Waqt guzar gaya.",
+            "b": "Naya khilauna kharidna.",
+            "c": "Khilaune ko bechna.",
+            "d": "Woh nahi pasand.",
+            "correct": "a",
+            "explanation": "Purana khilauna Sadiq ko apne bachpan ki yaad dilata hai."
+          }
+        ]
+      }
+    },
+    {
+      "title": "Active/Passive voice",
+      "description": "SNC: Active voice ko passive mein badalna",
+      "lesson": "## HOOK\nSadi, kya tumne kabhi socha hai ke agar tumhara dost tumhare liye koi acha kaam kare, toh woh kaise kehna pasand karega? \"Main ne yeh kiya\" ya \"Yeh mera dost kiya\"? Chalo, aaj hum yeh seekhenge ke Active aur Passive voice kya hote hain!\n\n## SAMJHAO\nSabse pehle, chalo Active voice ko samajhte hain. Active voice mein subject khud action karta hai. Jaise ke, \"Sadi ne kitaab padhi.\" Is jumlay mein, Sadi subject hai aur action (padhi) wo khud kar raha hai.\n\nAb hum baat karte hain Passive voice ki. Passive voice mein subject par action hota hai aur action ka karta ka naam shayad na aaye. Jaise ke, \"Kitaab Sadi ke zariye padhi gayi.\" Yahan pe kitaab subject bani hai, lekin Sadi ne action kiya hai magar wo pehle nahi aata.\n\nAb hum dekhte hain kaise kisi active sentence ko passive sentence mein badalte hain. Pehle, hamesha action word ki form \"be\" verb ke saath change hoti hai. Dusra, action ke karne wale ko \"by\" ke zariye dikhate hain agar zarurat ho. \n\nAgar hum yeh sentence le: \"Sadi ne cricket khela.\" Isay passive mein yun badlenge: \"Cricket Sadi ke zariye khela gaya.\" Dekha, ab cricket subject hai aur Sadi action ka karne wala hai!\n\n## MISAAL\nChalo ek Pakistani example lete hain. Socho, tum bazaar mein gaye aur tumne dekha, \"Dada ne biryani banayi.\" Yeh active voice hai. Ab agar hum ise passive voice mein badlein, toh hoga: \"Biryani dada ke zariye banayi gayi.\" Yeh hai kaise hum sentences ko simple aur effective way mein change kar sakte hain!\n\n## KARO\nAab Sadi, tumhara time hai kuch karne ka! Apne ghar ke aas-paas dekho, kuch kaam ho raha hoga. Jaise tumhari maa khana bana rahi hain ya tumhara bhai khel raha hai. Unke liye ek sentence likho jo active voice mein ho. Phir ussentence ko passive voice mein badlo. Jaise:\n\n- **Active:** \"Meri maa ne khichdi banayi.\"\n- **Passive:** \"Khichdi meri maa ke zariye banayi gayi.\"\n\n## SAWAAL\n1. Active voice kya hoti hai? Ek example do.\n2. Passive voice ka kya matlab hai? \n3. \"Sadi ne kitaab likhi\" ko passive voice mein kaise badlenge? \n\nYeh sawaal tumhein sochne par majboor karenge aur daira karne mein madad kareinge!",
+      "quiz": {
+        "title": "Active/Passive voice Quiz",
+        "questions": [
+          {
+            "q": "Ali ne kitab padhi.",
+            "a": "Kitab Ali ne padhi.",
+            "b": "Kitab padhi gai.",
+            "c": "Kitab Ali dwara padhi gai.",
+            "d": "Ali se kitab padhi gayi.",
+            "correct": "c",
+            "explanation": "Is jumlay mein 'Ali' karta hai aur 'kitab' mad'ah hai, is liye hum isay 'Ali dwara' se badalte hain."
+          },
+          {
+            "q": "Bachon ne khilone kharide.",
+            "a": "Khilone bachon ne kharide.",
+            "b": "Khilone kharide gaye.",
+            "c": "Khilone bachon dwara kharide gaye.",
+            "d": "Bachon se khilone kharide gaye.",
+            "correct": "c",
+            "explanation": "Yahan 'bachon' kartaa hai aur 'khilone' mad'ah hai, aur isay 'bachon dwara' se badalna sahi hai."
+          },
+          {
+            "q": "Teacher ne students ko daikhha.",
+            "a": "Students ko daikhha gaya.",
+            "b": "Students ko teacher ne daikhha.",
+            "c": "Teacher dwara students ko daikhha gaya.",
+            "d": "Students ne daikhha teacher ne.",
+            "correct": "c",
+            "explanation": "Yahaan 'teacher' karne wala hai aur 'students' mad'ah hain, is liye humein isay 'teacher dwara' se badalna hoga."
+          },
+          {
+            "q": "Humne cricket khela.",
+            "a": "Cricket khela gaya hum se.",
+            "b": "Cricket humne khela.",
+            "c": "Cricket humare dwara khela gaya.",
+            "d": "Kehna hai hum ne cricket khela.",
+            "correct": "c",
+            "explanation": "Jumlay mein 'hum' karne wale hain aur 'cricket' mad'ah hai, isliye 'humare dwara' sahi hai."
+          },
+          {
+            "q": "Rani ne khana banaya.",
+            "a": "Khana Rani ne banaya.",
+            "b": "Khana Rani dwara banaya gaya.",
+            "c": "Khana ban gaya Rani se.",
+            "d": "Rani se khana banaya.",
+            "correct": "b",
+            "explanation": "Yahan 'Rani' karne wali hai aur 'khana' mad'ah hai, isliye isay 'Rani dwara' se badalne par yah sahi hota hai."
+          }
+        ]
+      }
+    },
+    {
+      "title": "All tenses review",
+      "description": "SNC: Past, present, future — simple, continuous, perfect",
+      "lesson": "## HOOK  \nSadi, kya aapne kabhi socha hai ke aaj ka din kis tarah ka hoga? Kya aaj aap school ja rahe ho ya ghar par rehkar kuch khaas karoge? Har din alag hota hai, lekin sab kuch alag tenses mein hota hai!\n\n## SAMJHAO  \nSab se pehle, tenses grammar ka wo hissa hai jo waqt ko samjhanay mein madad karta hai. Is mein teen main categories hain: Past, Present, aur Future. Har category mein do-do tarah ke tenses hote hain: Simple, Continuous, aur Perfect.\n\n**Past Tense** ka matlab hai jo kuch pehle ho chuka hai. Jaise \"Sadi school gaya.\" Isme hum baat kar rahe hain ke Sadi pehle school gaya tha. \n\n**Present Tense** us waqt ko batata hai jo abhi ho raha hai. Jaise \"Sadi school jata hai.\" Yani ke Sadi abhi apne school ja raha hai. \n\n**Future Tense** woh waqt hai jo aane wala hai. Jaise \"Sadi kal school jayega.\" Isme hum aane wale din ki baat kar rahe hain.\n\nAb in teeno tenses ke andar Continuous aur Perfect tenses bhi hain. **Continuous Tense** us waqt ko dikhata hai jo kisi kaam ke dauran ho raha hai. Jaise, \"Sadi school ja raha hai.\" \n\n**Perfect Tense** woh kaam hai jo khatam ho chuka hai. Jaise, \"Sadi ne apna homework khatam kiya hai.\"\n\n## MISAAL  \nChalo ek example lete hain jo sab logon ko pasand hai — cricket. Jab Pakistan ne match jeeta tha, hum keh sakte hain:  \n- **Past Simple**: \"Pakistan ne match jeeta.\"  \n- **Present Simple**: \"Pakistan aaj match jeet raha hai.\"  \n- **Future Simple**: \"Pakistan agle hafte match jeetega.\"  \n- **Past Continuous**: \"Pakistan match jeet raha tha.\"  \n- **Present Continuous**: \"Pakistan match jeet raha hai.\"  \n- **Future Continuous**: \"Pakistan match jeet raha hoga.\"  \n- **Past Perfect**: \"Pakistan ne match jeet liya tha.\"  \n- **Present Perfect**: \"Pakistan ne ab tak teen match jeet liye hain.\"  \n- **Future Perfect**: \"Pakistan agle maheene tak match jeet chuka hoga.\"\n\n## KARO  \nSadi, ab aap ko ek drawing karni hai. Aap ek paper lein aur teen sections banaein. Pehle section mein, aap ek aisa scene draw karein jo aapne pehle kiya ho. Dusre section mein, aap ek scene draw karein jo aap abhi kar rahe ho. Aur teesre section mein, aap vo scene draw karein jo aap future mein karna chahte hain. Is tarah se aapko tenses ki samajh aur mazid gehri ho jayegi!\n\n## SAWAAL  \n1. Past Tense ka ek example do jo aapne khud experience kiya ho.  \n2. Present Perfect Tense ka ek sentence banana.  \n3. Future Continuous Tense ke baare mein ek sentence batao.",
+      "quiz": {
+        "title": "All tenses review Quiz",
+        "questions": [
+          {
+            "q": "Main roz school jata hoon. Ye kis tense mein hai?",
+            "a": "Past Simple",
+            "b": "Present Simple",
+            "c": "Future Simple",
+            "d": "Present Continuous",
+            "correct": "b",
+            "explanation": "Yeh sentence Present Simple tense mein hai kyun ke yeh abhi ho raha hai."
+          },
+          {
+            "q": "Wo kal cricket khel raha tha. Ye kis tense mein hai?",
+            "a": "Past Continuous",
+            "b": "Present Perfect",
+            "c": "Future Perfect",
+            "d": "Future Continuous",
+            "correct": "a",
+            "explanation": "Yeh sentence Past Continuous tense mein hai kyun ke iska amal kal hua tha."
+          },
+          {
+            "q": "Main ne kal kitaab parhi thi. Ye kis tense mein hai?",
+            "a": "Present Perfect",
+            "b": "Past Perfect",
+            "c": "Future Simple",
+            "d": "Present Continuous",
+            "correct": "b",
+            "explanation": "Yeh sentence Past Perfect tense mein hai kyun ke yeh pehle kisi waqt ki baat kar raha hai."
+          },
+          {
+            "q": "Wo aaj khana bana raha hai. Ye kis tense mein hai?",
+            "a": "Present Continuous",
+            "b": "Past Simple",
+            "c": "Future Simple",
+            "d": "Present Perfect",
+            "correct": "a",
+            "explanation": "Yeh sentence Present Continuous tense mein hai kyun ke yeh abhi ho raha hai."
+          },
+          {
+            "q": "Main kal film dekhunga. Ye kis tense mein hai?",
+            "a": "Past Continuous",
+            "b": "Present Simple",
+            "c": "Future Simple",
+            "d": "Present Perfect",
+            "correct": "c",
+            "explanation": "Yeh sentence Future Simple tense mein hai kyun ke yeh batata hai jo kal hoga."
+          }
+        ]
+      }
+    },
+    {
+      "title": "Idioms aur proverbs",
+      "description": "SNC: Muhavare aur kahawatein — context clues",
+      "lesson": "## HOOK\nSadi, kya tumne kabhi suna hai \"awaaz dekar apni khud ki Qadr karna\"? Iska kya matlab ho sakta hai? Chalain, is par baat karte hain!\n\n## SAMJHAO\nAaj hum \"Idioms aur Proverbs\" ke bare mein seekhenge. Yeh dono chizain hamari zindagi ko rangin banati hain. Idioms aise jumlay hain jinka asal matlab samjhna mushkil hota hai. Jaise \"pani mein rah kar magar se dosti\". Yeh is baat ko samjhata hai ke insaan ko aisi jagah nahi rahni chahiye jahan uski muskilaat barh jayein.\n\nProverbs hamesha ek seedha sa khayal ya advice hota hai. Jaise \"Jaisi karni, waisi bharni\". Yeh yeh samjhaata hai ke agar tum achha kaam karoge, toh achhe natije milenge. Dilon ko samjne ka yeh ek pyara tareeqa hai.\n\nIsi tarah, context clues ka istemal karke hum yah samajh sakte hain ke kisi idiom ya proverb ka matlab kya hai. Agar kisi kahawat ya muhavaray mein koi lafz samajh nahi aata, toh hum uske aas-paas ke lafzon se istemal samajh sakte hain.\n\nSamajhne ki koshish karte hue, hum yah bhi dekhte hain ke in idioms aur proverbs ka hamari zindagi mein kya ahmiyat hai. Yeh sirf shayari nahi hoti, balki yeh hame teachings aur lessons deti hain jo hamesha yaad rakhne walay hote hain.\n\n## MISAAL\nSadi, socho tum school jaate waqt kisi dost tumhare paas aata hai aur kehta hai, \"Kal toh baarish bohot hui thi, magar jitna bhi bheeg gaye hum, humne kahan 'jo hoga dekha jayega'!\" Yeh ek idiom hai jo yeh dikhata hai ke hum mushkil waqton mein bhi mazedaar rahna chahte hain. \n\nAgar hum bazaar mein jayein aur koi kehta hai, \"jahan chaah, wahan raah,\" toh iska matlab hai ke agar tum mehnat karte ho, toh kisi bhi mushkil ko paar karke apne maqasad tak pahuncho ge.\n\n## KARO\nAb Sadi, tumhare paas ek bohot mazaydar activity hai! Apne ghar ke kisi kone mein khud ki ek \"Idioms aur Proverbs\" ki deewaar banao. Is deewaar par tum chuni-hui idioms aur proverbs ko likh sakte ho. Unke saath choti choti tasveerein ya drawings bhi laga sakte ho jo unka matlab samjhayein. Yeh tumhare liye ek acha yaadgar bhi banega!\n\n## SAWAAL\n1. \"Jaisi karni, waisi bharni\" ka kya matlab hai?  \n2. Aik idiom ka example do aur uska meaning samjhao.  \n3. Tumhare khayal mein idioms aur proverbs hamein kyun seekhni chahiyein?  \n\nYeh sab sawalat tumhain sochein aur likh kar mujhe dikhana!",
+      "quiz": {
+        "title": "Idioms aur proverbs Quiz",
+        "questions": [
+          {
+            "q": "Aisa karna jaise khud ko churi se kaatna, is ka matlab kya hai?",
+            "a": "Apne dosto ke liye kuch karna",
+            "b": "Kisi ke liye khud ko nuksan dena",
+            "c": "Khud ko uss cheez se khush rakhna",
+            "d": "Samasya se bachna",
+            "correct": "b",
+            "explanation": "Yeh muhavara khud ko kisi nuksan ya takleef mein dalne ko darshata hai."
+          },
+          {
+            "q": "Aam dosti karna, iska asal matlab kya hai?",
+            "a": "Sab logon se dosti karna",
+            "b": "Kuch logon se khaas dosti karna",
+            "c": "Dosti mein dikhawa karna",
+            "d": "Sadiyon se dosti karna",
+            "correct": "a",
+            "explanation": "Iska matlab hai ke sab logon se dosti karna."
+          },
+          {
+            "q": "Jis kaam ki koi ahmiyat nahi, usay kya khte hai?",
+            "a": "Bhaari kaam",
+            "b": "Choti baat",
+            "c": "Suno pehchaan",
+            "d": "Sada bahar",
+            "correct": "b",
+            "explanation": "Iska matlab hai ke yeh kaam choti si baat hai aur iski koi ahmiyat nahi."
+          },
+          {
+            "q": "Jab koi kaam mushkil ho jaye to kehna, 'Pani mein chhod dena' ka matlab kya hai?",
+            "a": "Kaam chhod dena",
+            "b": "Kaam ko asan karna",
+            "c": "Chalo bahar chalte hain",
+            "d": "Naya rasta dhoondna",
+            "correct": "a",
+            "explanation": "Iska matlab hai ke jab kaam mushkil ho jaye to usay chhod dena."
+          },
+          {
+            "q": "Akele sochne se kisi kaam ka hal nahi milta, iska matlab kya hai?",
+            "a": "Doston se milne ka waqt nahi milta",
+            "b": "Khud se sochna zaroori hai",
+            "c": "Teamwork se hi kaam banega",
+            "d": "Akele se sochna asan hai",
+            "correct": "c",
+            "explanation": "Yeh kahawat teamwork aur mil-jul kar kaam karne ki ahmiyat ko dikhati hai."
+          }
+        ]
+      }
+    },
+    {
+      "title": "Essay aur story writing",
+      "description": "SNC: Essays, stories, book reviews likhna",
+      "lesson": "## HOOK\nSadi, agar tumhari zindagi ka koi khaas lamha ho, jab tumhein sab kuch bhool kar sirf ek kahani likhni hoti, toh woh lamha kaisa hota? Kya tumhari kahani kisi bazaar ki ya cricket match ki hoti?\n\n## SAMJHAO\nEssay aur story writing ek fun aur creative activity hai. Jab tum ek essay ya story likhte ho, toh tumhe apne ideas ko behtar tarike se pesh karna hota hai. Essay mein ek specific topic hota hai jiske baare mein tum likhte ho, jabke story mein tumhare pas ek plot, characters, aur setting hoti hai.\n\nPehle, essay likhne ka tarika samjho. Essay mein intro hota hai, jahan tum apna topic introduce karte ho. Phir, body mein tum apne thoughts ko detail mein explain karte ho, aur last mein conclusion hota hai jahan tum apne points ka summary dete ho.\n\nAb stories ki baat karte hain. Story mein ek shuruat hoti hai, jahan tum characters aur setting ko introduce karte ho. Phir, tumhe story ka problem ya challenge batana hota hai jo characters face karte hain. Last mein, tum resolution ya ending dete ho jahan sab kuch solve hota hai.\n\nYeh dono writing styles tumhare ideas ko doosron tak pahunchaane ka tareeqa hain. Writing se tum apne jazbat aur khayalat ko behtar tareeqe se bayaan kar sakte ho.\n\n## MISAAL\nChalo ek misaal lete hain. Sadi, socho agar tumhare paas ek famous cricket match ka scene ho. Tum yeh keh sakte ho, \"Match ka mauka tha aur stadium bhar gaya tha. Har koi Pakistan ke liye dua kar raha tha.\" Yeh line tumhare story ya essay ki shuruat ho sakti hai. Phir tum match ke important moments ko detail mein explain kar sakte ho.\n\n## KARO\nSadi, chalo ab ek fun activity karte hain! Ghar par ya school mein, ek drawing competition rakho. Tum apni story ya essay ka ek scene draw karo. Jaise agar tumne cricket match par likha hai toh tum stadium ya players ka scene ban sakte ho. Koi aur topic le lo toh usi ke mutabiq drawing karo. Phir apni drawing ko dosto ke saath share karo aur batato ke yeh scene kis story ya essay ka hai.\n\n## SAWAAL\n1. Essay aur story writing mein kya farq hota hai?\n2. Tumne apni recent kahani ya essay kis topic par likha tha?\n3. Writing ke liye tumhe kis cheez ki sabse zyada zarurat mehsoos hoti hai?\n\nSadi, in sab sawaalon par socho aur agar lagta hai toh unka jawab apri khud ke liye likh lo!",
+      "quiz": {
+        "title": "Essay aur story writing Quiz",
+        "questions": [
+          {
+            "q": "Taleem par essay likhne ka sabse behtareen tareeqa kya hai?",
+            "a": "Aam zindagi ke tajurbaat ko shamil karna",
+            "b": "Sirf kitaab se parhna",
+            "c": "Aam taur par sirf bayan karna",
+            "d": "Baqi students se nakal karna",
+            "correct": "a",
+            "explanation": "Aam zindagi ke tajurbaat ko shamil karna essay ko zyada relatable aur samajhnay mein asan banata hai."
+          },
+          {
+            "q": "Kahani likhte waqt sabse zaroori cheez kya hoti hai?",
+            "a": "Kahani ke maqsad ko samajhna",
+            "b": "Lamhaat ka ghatna khud ba khud hona",
+            "c": "Kahani mein sirf hasi mazahiya pehlu hona",
+            "d": "Kahani ka aik jaise shuru hona",
+            "correct": "a",
+            "explanation": "Kahani ka maqsad samajhna zaroori hai taake kahani zyada impactful ho."
+          },
+          {
+            "q": "Aik achay essay ka structure kya hota hai?",
+            "a": "Sirf ek paragraph",
+            "b": "Mukhtalif headings aur subheadings",
+            "c": "Shuruat, beech aur khatma",
+            "d": "Bhoot aur jadoo ka zikr",
+            "correct": "c",
+            "explanation": "Aik achay essay ka structure hamesha shuruat, beech aur khatma par mabni hota hai."
+          },
+          {
+            "q": "Kahani likhne ka behtareen tareeqa kya hai?",
+            "a": "Har waqt khud se likhna",
+            "b": "Dost se ideas lena",
+            "c": "Tajurbaat ko khud par asar karna",
+            "d": "Dilchaspi se likhna",
+            "correct": "d",
+            "explanation": "Dilchaspi se likhne se kahani zyada engaging aur interesting hoti hai."
+          },
+          {
+            "q": "Kis cheez ko essay ke achi shuruat ke liye behtar samjha jata hai?",
+            "a": "Ek shandar quote",
+            "b": "Koi behtar research",
+            "c": "Kuch funny jokes",
+            "d": "Sofiyan alif aur beeta zindagi",
+            "correct": "a",
+            "explanation": "Ek shandar quote se essay ki shuruat zyada dilchasp aur atraktve hoti hai."
+          }
+        ]
+      }
+    },
+    {
+      "title": "Creative writing",
+      "description": "SNC: Poetry, dialogue, application letter likhna",
+      "lesson": "## HOOK\nSadi, kabhi socha hai ke tum kis tarah se apne khayalat aur jazbat ko likhne mein behtar ho sakte ho? Jab tumhe apne dosto ko koi khaas baat batani hoti hai, toh kya tum sochte ho ke kya likhna chahiye?\n\n## SAMJHAO\nCreative writing woh skill hai jis se hum apne khayalat ko likhne mein aazadi mehsoos karte hain. Ismein alag alag tarikon se likhne ka amal hota hai. Jaise ke poetry, dialogue aur application letter likhna.\n\nPoetry ek aisi form hai jahan hum jazbat ko chhoti chhoti lines mein bayaan karte hain. Yeh aksar tasavvur aur khayalat se bhari hoti hai. Misal ke taur par, jab tum chaand ko dekhte ho, toh tumhare dil mein kya jazbat hain? Tum unhe kuch lines mein kaise likh sakte ho?\n\nDialogue likhna bhi ek zaroori hissa hai. Yeh do ya do se zyada characters ke beech hoti hai. Jaise tum apne dosto ke saath baatein karte ho, waise hi tumhe un baaton ko likhne ka amal karna hota hai. Ismein emotions aur thoughts ko behtar taur par dikhaya ja sakta hai.\n\nApplication letter har kisi ke liye ek zaroori cheez hai. Jab tum kisi naukri ya school mein admission ke liye apply karte ho, toh tumhe ek proper letter likhna hoga. Yeh letter tumhare bare mein jaankari deta hai aur dikhata hai ke tum us position ke liye kyun suitable ho.\n\n## MISAAL\nChalo, ek example lete hain. Tumhara dost Ahmed cricket khelta hai aur uski team ko trophy jeetne ke liye kisi competition mein jana hai. Usne apne team ke liye ek khubsurat poem likhi hai:\n\n\"Khushiyon ka pal, jeet ka mehsoos,  \nBall ki gend, chaand ka roshni jaisa poora khayal.  \nPlaying in the field, dosti ki baat,  \nHum hain ek saath, jeetne ki hai aasha!\"\n\nIs tarah se, tum bhi apne khud ki kahani aur jazbat likh sakte ho.\n\n## KARO\nSadi, ek activity karte hain. Tumhari task hai ke tumhara favorite topic choose karo, jaise ke \"Biryani\" ya \"School\". Us topic par ek chhoti si poem likho ya do characters ka dialogue banao. Jaise ke, agar tum Biryani par likhte ho, toh tum is mein Biryani aur raita ko baat karwate hue likh sakte ho!\n\nActivity ke liye ek colorful drawing bhi banao, jismein tum apna likha hua dikhana chahte ho. Isse tumhare khayalat aur creativity dono saamne aayegi!\n\n## SAWAAL\n1. Creative writing kyun zaroori hai? \n2. Tum poem kaise likhte ho? \n3. Application letter mein kya cheezein shamil hoti hain? \n\nBachay, yeh lesson tumhari writing skills ko better banane mein madad karega. Apne khayalat ko likhna seekhte jao!",
+      "quiz": {
+        "title": "Creative writing Quiz",
+        "questions": [
+          {
+            "q": "Kis sheher ka sab se purana shayar Ghalib hai?",
+            "a": "Lahore",
+            "b": "Karachi",
+            "c": "Delhi",
+            "d": "Islamabad",
+            "correct": "c",
+            "explanation": "Ghalib Delhi ka mashhoor shayar hai."
+          },
+          {
+            "q": "Aapka dost aap se madad karne ko keh raha hai. Usay kis tarah jawab dena chahiye?",
+            "a": "Tumhe madad nahi karni",
+            "b": "Main tumhari madad kar sakta hoon",
+            "c": "Main busy hoon abhi",
+            "d": "Kyun tumhara kaam mushkil hai?",
+            "correct": "b",
+            "explanation": "Dost ki madad karna ek acchi baat hai."
+          },
+          {
+            "q": "Ek application letter kis liye likhte hain?",
+            "a": "Namaz ke liye",
+            "b": "School ke liye",
+            "c": "Koi dosti ke liye",
+            "d": "Chhutti ke liye",
+            "correct": "d",
+            "explanation": "Application letter aksar chhutti lene ke liye likha jata hai."
+          },
+          {
+            "q": "Poetry ka kis shayari ki misaal hai?",
+            "a": "Ameen Afaq",
+            "b": "Faiz Ahmed Faiz",
+            "c": "Jahangir Badar",
+            "d": "Ibrahim Jhulka",
+            "correct": "b",
+            "explanation": "Faiz Ahmed Faiz ek mashhoor shayar hain."
+          },
+          {
+            "q": "Ek dialogue ka kya maqsad hota hai?",
+            "a": "Kahani sunaana",
+            "b": "Dosto se baat karna",
+            "c": "Baat samajhana",
+            "d": "Rishta banana",
+            "correct": "c",
+            "explanation": "Dialogue ka maqsad ek doosre se baatein karna aur baat samajhna hota hai."
+          }
+        ]
+      }
+    }
+  ]
+}

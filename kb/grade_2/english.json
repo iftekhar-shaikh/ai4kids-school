@@ -1,0 +1,482 @@
+{
+  "subject": "english",
+  "name": "English",
+  "teacher": "English Ma'am",
+  "grade": 2,
+  "topics": [
+    {
+      "title": "Paragraphs parhna",
+      "description": "Short paragraphs aur stories reading",
+      "lesson": "## HOOK\nAaj hum baat karne wale hain kahaniyon aur paragraphs ke bare mein. Kya aap ko pata hai ki ek choti si kahani kaise bahut si baatein bata sakti hai? Jaise jab aap bazaar jaate hain, wahan bohot saare log hotay hain aur sab ki kahaniyan alag hoti hain! \n\n## SAMJHAO\nParagraphs uss likhai ka hissa hain jahan hum ek ya do ideas ko saaf taur pe bayaan karte hain. Har paragraph mein ek mukhya idea hota hai aur uske aas-paas chhoti baatein hoti hain jo is idea ko samjhati hain.\n\nJab hum paragraphs padhte hain, to humein yeh samajh ata hai ke likhne wala kya kehna chahta hai. Jaise agar koi paragraph cricket ke bare mein hai, to us mein cricket ki khel, players ya match ka zikr ho sakta hai.\n\nKahani bhi ek tarah ki paragraph hoti hai. Kahani mein characters hote hain, ek plot hai aur kuch events hote hain. Samajh jao, agar hum ek kahani padhein, to humein uske characters aur events ko sochna padta hai.\n\nKahin bhi padhte waqt, hamesha dhyan rakho ke paragraph ka suru karne ka tareeqa, uska contents aur khatam hone ka tareeqa kaisa hai. Isse humein poori kahani ya baat samajhne mein madad milti hai.\n\n## MISAAL\nChalo, ab hum bazaar ka example lete hain. Jab aap apne ghar ke paas ke bazaar jaate hain, to aap dekhte hain ke wahan bohot saare dukaan hain. Ek dukaan par chalta hai ek aadmi inside dekhta hai ke kya achha hai kharidne ke liye. Wahan kabab, biryani, aur mithaiyan bhee hain. Un sab ki kahaniyaan hain — kyun wahan log aaye hain, kya kharid rahe hain aur kya kha rahe hain. Yeh ek chhota sa paragraph ban sakta hai.\n\n## KARO\nAap apne ghar par ya school mein ek chhoti si kahani likho. Kahani mein aapke dost, ghar ya kisi adventure ka zikr ho. Koshish karo ke aapka likha hua ek ya do paragraphs mein ho. Us kahani ko apne friends ko sunao!\n\n## SAWAAL\n1. Paragraph kya hota hai?\n2. Kahani aur paragraph mein kya farq hai?\n3. Aapne kis topic par kahani likhi aur usmein kya tha?\n\nEnglish Ma'am",
+      "quiz": {
+        "title": "Paragraphs parhna Quiz",
+        "questions": [
+          {
+            "q": "Ayesha aik chamakdaar sitara hai. Usay har waqt muskurate dekhna pasand hai. Aap ko Ayesha ki muskurahat kaisi lagti hai?",
+            "a": "Bohat achi",
+            "b": "Kharab",
+            "c": "Aam",
+            "d": "Bilkul nahi",
+            "correct": "a",
+            "explanation": "Yeh sahi hai kyun ke Ayesha ki muskurahat sab ko khushi deti hai."
+          },
+          {
+            "q": "Lahore ka shahi qila aik mashhoor tha. Yeh kis liye jaana jata hai?",
+            "a": "Khubsurati ke liye",
+            "b": "Khana khane ke liye",
+            "c": "Doston se milne ke liye",
+            "d": "Shopping ke liye",
+            "correct": "a",
+            "explanation": "Yeh sahi hai kyun ke shahi qila ki khubsurati har kisi ko pasand aati hai."
+          },
+          {
+            "q": "Khilone bachon ka pyaar hote hain. Aapka favorit khilona kya hai?",
+            "a": "Gaddi",
+            "b": "Ball",
+            "c": "Doll",
+            "d": "Sab kuch",
+            "correct": "c",
+            "explanation": "Yeh sahi hai kyun ke ghar mein ladkiyan aksar dolls se khelna pasand karti hain."
+          },
+          {
+            "q": "Rang birangi machhliyan paani mein khel rahi hain. Aap ko ye nazar dekh kar kaisa mehsoos hota hai?",
+            "a": "Khushi",
+            "b": "Gham",
+            "c": "Boring",
+            "d": "Nafrat",
+            "correct": "a",
+            "explanation": "Yeh sahi hai kyun ke rang birangi machhliyan dekh kar sab ko khushi mehsoos hoti hai."
+          },
+          {
+            "q": "Saal ke har mawasim ka apna maza hota hai. Aapka favorit mawasim kaunsa hai?",
+            "a": "Sitar",
+            "b": "Garama",
+            "c": "Baraf",
+            "d": "Baarish",
+            "correct": "d",
+            "explanation": "Yeh sahi hai kyun ke baarish mein khelne ka maza alag hota hai."
+          }
+        ]
+      },
+      "emoji": "📚",
+      "text_simple": "Paragraphs ka matlab hai chhoti chhoti baatein likhna. Har paragraph mein ek mukhya idea hota hai. Jaise jab aap cricket ki kahani padte hain, to aapko players aur match ki baatein samajh aati hain. Kahaniyan bhi paragraphs hoti hain. Unmein characters aur events hote hain. Hum jab paragraphs padhte hain, to humein samajh aata hai ke likhne wala kya kehna chahta hai.",
+      "audio_text": "Paragraphs ka matlab hai chhoti chhoti baatein likhna. Har paragraph mein ek mukhya idea hota hai. Jaise jab aap cricket ki kahani padte hain, to aapko players aur match ki baatein samajh aati hain. Kahaniyan bhi paragraphs hoti hain. Unmein characters aur events hote hain. Hum jab paragraphs padhte hain, to humein samajh aata hai ke likhne wala kya kehna chahta hai.",
+      "simple_quiz": [
+        {
+          "emoji": "❓",
+          "question_short": "Paragraph ka kya matlab hai?",
+          "options": [
+            {
+              "emoji": "📖",
+              "text": "Chhoti baatein likhna"
+            },
+            {
+              "emoji": "⚽",
+              "text": "Khiladiyon ki kahani"
+            },
+            {
+              "emoji": "🍚",
+              "text": "Biryani banana"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "title": "Nouns aur verbs",
+      "description": "Grammar — nouns aur verbs",
+      "lesson": "## HOOK\nKya aapne kabhi socha hai ke aapke paas kitne nouns aur verbs hain? Jaise, jab aap bazaar jaate hain, to aap kya dekhte hain? Kya wo sirf cheezein hain, ya unke kuch khaas actions bhi hain?\n\n## SAMJHAO\nNouns woh lafz hain jo kisi cheez, shakhs, ya jagah ko darshate hain. Jaise \"billi\", \"school\", aur \"dost\" nouns hain. Jab aap kisi cheez ki taraf ishara karte hain ya uska naam lete hain, to aap ek noun ka istemal kar rahe hain.\n\nAb baat karte hain verbs ki. Verbs woh lafz hain jo kisi action ya kaam ko darshate hain. Jaise \"khelna\", \"khana\", aur \"dhoondna\" verbs hain. Jab aap kuch kar rahe hote hain, to aap ek verb ka istemal karte hain.\n\nAb hum dekhte hain ke nouns aur verbs mil ke kaise ek khaas sentence banate hain. Jaise, \"Billi khel rahi hai.\" Is sentence mein \"billi\" ek noun hai aur \"khel rahi hai\" ek verb hai.\n\nZindagi ke har pehlu mein nouns aur verbs hote hain. Aap jab dost se baatchit karte hain, to aap nouns aur verbs ka istemal karte hain. Isliye inhe samajhna bohot zaroori hai!\n\n## MISAAL\nSochiye, aap nahi hain, lekin aapke dost cricket khel rahe hain. Aap kaise unhe describe karte hain? Jaise, \"Bachay cricket khel rahe hain.\" Yahan \"bachay\" ek noun hai aur \"khel rahe hain\" verb hai. Aap jab bazaar jaate hain, to aap \"log khareed rahe hain\" bhi keh sakte hain. Yahan \"log\" noun hai aur \"khareed rahe hain\" verb.\n\n## KARO\nActivity ke liye aap ghar ya school mein is tarah ka kaam kar sakte hain: Aap apne dost ke saath mil kar 5 nouns aur 5 verbs likhein. Phir aap inhe mila kar sentences banayein. Jaise, agar aapne \"billi\" socha to aap keh sakte hain, \"Billi doodh pi rahi hai.\" Is tarah aap mazeed sentences banakar English seekh sakte hain!\n\n## SAWAAL\n1. Noun kya hota hai? Ek misaal do.\n2. Verb kya hota hai? Ek misaal do.\n3. \"Larka daud raha hai\" mein larka kya hai aur daud raha hai kya hai?\n\nBest of luck, Student! \nEnglish Ma'am.",
+      "quiz": {
+        "title": "Nouns aur verbs Quiz",
+        "questions": [
+          {
+            "q": "Dost, kya yeh noun hai ya verb?",
+            "a": "Noun",
+            "b": "Verb",
+            "c": "Dono",
+            "d": "Kuch nahi",
+            "correct": "a",
+            "explanation": "Dost ek noun hai, jo insaan ko darshata hai."
+          },
+          {
+            "q": "Kya 'daudna' ek verb hai?",
+            "a": "Haan",
+            "b": "Nahi",
+            "c": "Kuch nahi",
+            "d": "Shayad",
+            "correct": "a",
+            "explanation": "Daudna ek action hai, isliye yeh verb hai."
+          },
+          {
+            "q": "'Kitaab' kis cheez ka naam hai?",
+            "a": "Noun",
+            "b": "Verb",
+            "c": "Adjective",
+            "d": "Pronoun",
+            "correct": "a",
+            "explanation": "Kitaab ek cheez ka naam hai, isliye yeh noun hai."
+          },
+          {
+            "q": "'Khana khana' kis tarah ka kaam hai?",
+            "a": "Noun",
+            "b": "Verb",
+            "c": "Dono",
+            "d": "Kuch nahi",
+            "correct": "b",
+            "explanation": "Khana khana ek action hai, isliye yeh verb hai."
+          },
+          {
+            "q": "'Shahri' kis cheez ko darshata hai?",
+            "a": "Noun",
+            "b": "Verb",
+            "c": "Adjective",
+            "d": "Adverb",
+            "correct": "a",
+            "explanation": "Shahri ek noun hai, jo ek insani community ko darshata hai."
+          }
+        ]
+      },
+      "emoji": "📚",
+      "text_simple": "Nouns wo lafz hain jo cheezon ya logon ka naam batate hain. Jaise 'billi', 'school', aur 'dost'. Verbs wo lafz hain jo kaam ya action dikhate hain. Jaise 'khelna', 'khana', aur 'dhoondna'. Jab aap kehte hain 'Billi khel rahi hai', to 'billi' noun hai aur 'khel rahi hai' verb hai. Nouns aur verbs mil kar sentences banate hain.",
+      "audio_text": "Nouns wo lafz hain jo cheezon ya logon ka naam batate hain. Jaise 'billi', 'school', aur 'dost'. Verbs wo lafz hain jo kaam ya action dikhate hain. Jaise 'khelna', 'khana', aur 'dhoondna'. Jab aap kehte hain 'Billi khel rahi hai', to 'billi' noun hai aur 'khel rahi hai' verb hai. Nouns aur verbs mil kar sentences banate hain.",
+      "simple_quiz": [
+        {
+          "emoji": "❓",
+          "question_short": "Noun kya hota hai?",
+          "options": [
+            {
+              "emoji": "🧍",
+              "text": "Cheez ya shakhs ka naam"
+            },
+            {
+              "emoji": "🏃",
+              "text": "Koi action"
+            },
+            {
+              "emoji": "🍽️",
+              "text": "Khana"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "title": "School aur ghar",
+      "description": "Vocabulary — school, home, food, clothes",
+      "lesson": "## HOOK\nBachay, aap kabhi sochay hain ke school aur ghar mein kya kya cheezen hoti hain? Kya aapko school mein khana pasand hai ya ghar par? Aur kya aapko school ke liye ya ghar ke liye zyada acha lagta hai?\n\n## SAMJHAO\nAaj hum \"School aur Ghar\" ke bare mein baat karenge. School hamara wo jagah hai jahan hum seekhte hain. Wahan humare teachers hote hain jo humein new cheezein sikhate hain. School mein hum dost banate hain aur khelte hain. Ye sab cheezen humari learning ka hissa hain.\n\nGhar hamari wo jagah hai jahan hum apne family ke sath rehte hain. Ghar par hum relax karte hain aur apne pyaray logon ke sath waqt guzarte hain. Ghar mein sab log milkar khana khate hain aur ek doosre ke sath baatein karte hain. \n\nFood bhi school aur ghar dono mein zaroori hai. School mein hum lunch karte hain aur ghar par dinner. Hamara favorite khana kya hai? Biryani, chicken karahi, ya pizza? Ye khanay humein taakat dete hain.\n\nClothes ka bhi school aur ghar par alag maqsad hota hai. School mein humein uniform pehnni hoti hai taake hum sab same nazar aayen. Ghar par hum comfortable clothes pehente hain jahan hum relaxed feel karte hain.\n\n## MISAAL\nAapne bazaar mein kabhi dekha hai ke log kis tarah se khanay ki shopping karte hain? Baazaar mein sabziyan, fruits aur khanay ki cheezen milti hain. Aksar hum lunch ke liye ghar par biryani banate hain, jo humein school se wapas aakar khana hota hai. Jo khana ghar par banta hai wo hamesha sabse acha hota hai!\n\n## KARO\nAb ek fun activity karte hain. Aapko apne school aur ghar ke liye ek chart banana hai! Chart par aapko school aur ghar ki cheezen likhni hain — jese school - books, teachers, lunch, aur ghar - kitchen, family, clothes. Is chart ko apne teachers ya family ko dikhao aur unse in cheezon ke bare mein baat karo.\n\n## SAWAAL\n1. School aur ghar mein kaun se cheezein hoti hain?\n2. Aapko school ka khana kaise lagta hai?\n3. Ghar par aapka favorite khana kya hai?\n\nEnglish Ma'am",
+      "quiz": {
+        "title": "School aur ghar Quiz",
+        "questions": [
+          {
+            "q": "School ka Urdu kya hai?",
+            "a": "School",
+            "b": "Ghar",
+            "c": "Khana",
+            "d": "Kapray",
+            "correct": "a",
+            "explanation": "School ka matlab school hi hota hai."
+          },
+          {
+            "q": "Ghar ka maqasid kya hai?",
+            "a": "Khana banana",
+            "b": "Rahne ke liye",
+            "c": "Kapray kharidna",
+            "d": "Dosto se milna",
+            "correct": "b",
+            "explanation": "Ghar wo jagah hai jahan hum rehte hain."
+          },
+          {
+            "q": "School mein kya padhte hain?",
+            "a": "Khana",
+            "b": "Kapray",
+            "c": "Ilm",
+            "d": "Ghar",
+            "correct": "c",
+            "explanation": "School mein hum ilm hasil karte hain."
+          },
+          {
+            "q": "Kapray kis liye pehnete hain?",
+            "a": "Din bar soone ke liye",
+            "b": "Khana khane ke liye",
+            "c": "Bahar jaane ke liye",
+            "d": "Kuch nahi",
+            "correct": "c",
+            "explanation": "Kapray hum bahar jaane ke liye pehnete hain."
+          },
+          {
+            "q": "Khanay mein kya hota hai?",
+            "a": "Kitaben",
+            "b": "Ghar",
+            "c": "Dost",
+            "d": "Roti aur sabzi",
+            "correct": "d",
+            "explanation": "Khanay mein roti aur sabzi hoti hain."
+          }
+        ]
+      },
+      "emoji": "🏫",
+      "text_simple": "School aur ghar dono zaroori hain. School mein hum seekhte hain aur dost banate hain. Wahan hum lunch karte hain. Ghar par hum family ke sath rehte hain. Ghar mein khana milkar khate hain. School mein uniform hoti hai, ghar par comfortable clothes. Dono jagah khana aur pyaar milta hai.",
+      "audio_text": "School aur ghar dono zaroori hain. School mein hum seekhte hain aur dost banate hain. Wahan hum lunch karte hain. Ghar par hum family ke sath rehte hain. Ghar mein khana milkar khate hain. School mein uniform hoti hai, ghar par comfortable clothes. Dono jagah khana aur pyaar milta hai.",
+      "simple_quiz": [
+        {
+          "emoji": "❓",
+          "question_short": "School mein kya hota hai?",
+          "options": [
+            {
+              "emoji": "🏫",
+              "text": "Seekhna"
+            },
+            {
+              "emoji": "🍕",
+              "text": "Pizza khana"
+            },
+            {
+              "emoji": "😴",
+              "text": "Sona"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "title": "Sentences banana",
+      "description": "Statements aur questions likhna",
+      "lesson": "## HOOK\nAik din Student ke dost ne kaha, \"Kya tumhein pata hai, hum kis tarah se achi baatein karte hain?\" Student ko samajh nahi aaya. Usne socha, \"Kya hum sirf baatein karte hain ya kuch aur bhi karte hain?\"\n\n## SAMJHAO\nAaj hum seekhenge ke sentences kaise bante hain. Jab hum kuch kehna chahte hain to hum sentences banate hain. Sentences do tarah ke hote hain: Statements aur Questions. \n\nStatements wo hote hain jinmein hum koi baat karte hain. Jaise \"Maam biryani pasand karti hain.\" Ye ek statement hai kyunki ismein sirf ek baat ki gayi hai. Jaise hi hum kehte hain \"Main cricket khelta hoon,\" toh hum apne shauk ke bare mein baat kar rahe hain. \n\nQuestions wo hote hain jinke zariye hum kisi se kuch puchte hain. Jaise \"Kya tum cricket khelte ho?\" Ye ek question hai kyunki hum jawab chahte hain. Jab hum kisi se kuch poochte hain, toh hamesha question mark (?) lagaana nahi bhoolna chahiye.\n\nAb agar hum sochay \"Ye kya hai?\" toh ye question hai. Hum is tarah se sentences banakar apni feelings aur soch ko dusron tak pohanchate hain. Hamara lessons ka maksad ye hai ke aap achi tarah se statements aur questions banana seekh sakein.\n\n## MISAAL\nSocho aap bazaar gaye hain aur wahan aapne aman biryani dekhi. Aap keh sakte hain, \"Yeh biryani bohat tasty hai.\" Ye ek statement hai. Aap agar poochna chahte hain, \"Yeh biryani kitni kharch hai?\" toh ye ek question hai. Aap in sentences ka istemal bazaar mein asaani se kar sakte hain.\n\n## KARO\nGhar ya school mein aap ek activity kar sakte hain. Aap apne dosto ya family ke sath baith kar kuch statements aur questions likhein. Pehle apne pasandida khaney ke bare mein 3 statements likhein. Phir us khaney ke bare mein 3 questions banayen. Jaise aap \"Biryani itni tasty hai\" ya \"Kya biryani khanay ko aata hai?\" Aap in sentences ko share karein aur unse jawab lein!\n\n## SAWAAL\n1. Statements aur questions ka kya farq hai?\n2. Aapne apne ghar mein kis cheez ka ek statement banaya?\n3. Kya aap ek question bana sakte hain jo aapke dost se puchne layak ho?\n\nKhush raho aur seekhte raho! \n\nSign off: English Ma'am",
+      "quiz": {
+        "title": "Sentences banana Quiz",
+        "questions": [
+          {
+            "q": "Kya tum school ja rahe ho?",
+            "a": "Haan, mein school ja raha hoon.",
+            "b": "Kya tum khana khana chahte ho?",
+            "c": "Mera naam Ali hai.",
+            "d": "Aam bahut tasty hain.",
+            "correct": "a",
+            "explanation": "Yeh ek sawal hai aur iska jawab hai ke haan."
+          },
+          {
+            "q": "Ghar ka kaam kaise karte hain?",
+            "a": "Pehle saaf karte hain.",
+            "b": "Kahi nahin jate hain.",
+            "c": "Kitne paise hain?",
+            "d": "Mausam bohat achha hai.",
+            "correct": "b",
+            "explanation": "Yeh ek sawal hai jo ghar ka kaam puch raha hai."
+          },
+          {
+            "q": "Tumhara dost kis naam se jana jata hai?",
+            "a": "Rizwan.",
+            "b": "Kya tum khel rahe ho?",
+            "c": "Sawari ka waqt hai.",
+            "d": "Yeh aasan hai.",
+            "correct": "c",
+            "explanation": "Yeh ek statement hai jo waqt ki baat kar raha hai."
+          },
+          {
+            "q": "Aam kis tarah ka phal hai?",
+            "a": "Ye khanay mein achha hai.",
+            "b": "Kya tum ne khana khaya?",
+            "c": "Mein math padh raha hoon.",
+            "d": "Ghar janay ka waqt hai.",
+            "correct": "a",
+            "explanation": "Yeh ek statement hai aur aam ke bare mein jaankari de raha hai."
+          },
+          {
+            "q": "Tumhara favorite khana kya hai?",
+            "a": "Biryani.",
+            "b": "Usne mujhe bulaya.",
+            "c": "Yeh kitab hai.",
+            "d": "Kahani suno.",
+            "correct": "d",
+            "explanation": "Yeh ek sawal hai jo favorite khane ko puch raha hai."
+          }
+        ]
+      },
+      "emoji": "🗣️",
+      "text_simple": "Aaj hum sentences banana seekhenge. Sentences do tarah ke hote hain: Statements aur Questions. Statement wo hoti hai jisme hum koi baat karte hain. Jaise 'Main biryani pasand karta hoon.' Question wo hota hai jisme hum kisi se poochte hain. Jaise 'Kya tum cricket khelte ho?' Hum in sentences se apni baatein dusron tak pohanchate hain.",
+      "audio_text": "Aaj hum sentences banana seekhenge. Sentences do tarah ke hote hain: Statements aur Questions. Statement wo hoti hai jisme hum koi baat karte hain. Jaise 'Main biryani pasand karta hoon.' Question wo hota hai jisme hum kisi se poochte hain. Jaise 'Kya tum cricket khelte ho?' Hum in sentences se apni baatein dusron tak pohanchate hain.",
+      "simple_quiz": [
+        {
+          "emoji": "❓",
+          "question_short": "Statements kya hote hain?",
+          "options": [
+            {
+              "emoji": "✅",
+              "text": "Koi baat karte hain"
+            },
+            {
+              "emoji": "❌",
+              "text": "Sirf sawal karte hain"
+            },
+            {
+              "emoji": "❌",
+              "text": "Kuch nahi karte"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "title": "Listening skills",
+      "description": "2-3 step instructions follow karna",
+      "lesson": "## HOOK\nKya aapko kabhi apne dost ko cricket khelte hue suna hai? Jab unhoon ne ball ka chakkar dekha aur chalo chalo keh kar daud lagai, toh kya aapne suna ke unhoon ne kya kaha? Aaj hum seekhenge ke kaise behtar \"Listening skills\" se hum aise palon ko behtar samajh sakte hain!\n\n## SAMJHAO\nAaj hum \"Listening skills\" ke baare mein baat karenge. Listening skills ka matlab hai doosre logon ki baatein dhyan se sunna aur samajhna. Jab hum achi tarah sunte hain, toh hum jaan sakte hain ke samne wala kya keh raha hai. Yeh skills bohat zaroori hain, kyunki iss se hum behtar dosti kar sakte hain aur khaas tor par school mein apne teachers ko bhi acchi tarah samajh sakte hain.\n\nListening skills ko behtar karne ke liye, 2-3 step instructions ko follow karna seekhna bohot zaroori hai. Jab koi aapko kahin jaane ya kuch karne ka keh raha hota hai, toh aapko dhyan se sunna chahiye. Aapko instructions ko yaad rakhna hoga taake aap sahi se unhe follow kar sakein. \n\nEk aur baat hai, jab hum sun rahe hote hain, toh humein sirf sunna nahi hai, balki samajhna bhi hai. Aap kaya kah rahe hain? Kya yeh kya sach hai? Yeh choti choti baatein humein bohot madad karti hain. \n\nAakhir mein, jab aap listening skills ko aam zindagi mein istemal karte hain, toh yeh aapko behtar communicator banata hai. Aap asani se apne dosto ke sath, teachers ke sath aur ghar walon ke sath baat kar sakte hain!\n\n## MISAAL\nChalo ek misaal lete hain bazaar ki. Jab aap apni maa ke sath bazaar jaate hain, toh unhoon ko kehna hota hai ke kya kharidna hai — jaise ke 5 kilo aalu, 2 kilo tamatar, aur kuch dahi. Agar aap dhyan se sunenge, toh aap galat cheez nahi le jaayenge. Aapko yeh yaad rakhna hoga ke maa ne kya kaha tha. Is tarah se, aap listening skills se bazaar mein asani se kaam kar sakte hain.\n\n## KARO\nAb aap ek fun activity kar sakte hain! Aap apne ghar walon se kahin ke woh aapko ek choti si recipe bataein, jaise ke sandwich kaise banana hai. Unki baatein dhyan se suno aur phir khud sandwich banao. Jab aap sandwich banayenge, toh dekhein ke kitni baatein yaad rakhni parti hain jo aapne unse suni hoti. Yeh aap ki Listening skills ko behtar karega!\n\n## SAWAAL\n1. Listening skills ka kya matlab hai?\n2. Aap kis tarah se doosron ki baatein behtar sun sakte hain?\n3. Bazaar mein listening skills ka istemal karne ka kya faida hai?\n\nTake care and keep listening,  \nEnglish Ma'am",
+      "quiz": {
+        "title": "Listening skills Quiz",
+        "questions": [
+          {
+            "q": "Agar aap ko apni kitaab utakar table par rakhni hai aur phir apna pencil uthana hai, to aap kya karenge?",
+            "a": "Kitaab utakar table par rakhungi aur phir pencil uthaoongi.",
+            "b": "Pencil uthaoongi phir kitaab rakhoongi.",
+            "c": "Table ko dekhun gi phir kuch nahi karungi.",
+            "d": "Kuch nahi.",
+            "correct": "a",
+            "explanation": "Kyun sahi hai: Yeh sahi hai kyunke pehle kitaab rakhni hai, phir pencil uthani hai."
+          },
+          {
+            "q": "Agar aapko apne dost ko paani dena hai aur khud chai peeni hai, to sab se pehle aap kya karenge?",
+            "a": "Dost ko paani doongi pehle.",
+            "b": "Khud chai peeni shuru karungi.",
+            "c": "Dost ko kuch nahi doongi.",
+            "d": "Dost se kahein gi paani chahiye?",
+            "correct": "a",
+            "explanation": "Kyun sahi hai: Pehle dost ko paani dena hoga phir khud chai peena sahi hai."
+          },
+          {
+            "q": "Agar teacher kehati hain ke aapko khud ko tayar karna hai aur phir school jana hai, to aap kya karenge?",
+            "a": "Pehle tayar honga, phir school jaun ga.",
+            "b": "Seedha school jaunga.",
+            "c": "Tayar nahi honga.",
+            "d": "Teacher se poochun ga.",
+            "correct": "c",
+            "explanation": "Kyun sahi hai: Ye sahi nahi hai kyunke tayar hona pehla kaam hai."
+          },
+          {
+            "q": "Agar aapko sandwich banana hai aur phir khelna hai, to aap kaise shuru karenge?",
+            "a": "Sandwich banaungi phir khelungi.",
+            "b": "Khelna shuru karungi.",
+            "c": "Sandwich nahi banana.",
+            "d": "Maa se poochungi.",
+            "correct": "a",
+            "explanation": "Kyun sahi hai: Pehle sandwich banana zaroori hai, phir khelna sahi hai."
+          },
+          {
+            "q": "Agar aapko khana khelne se pehle khana khana hai, to aap kya karenge?",
+            "a": "Khana khane ke baad khelne jaungi.",
+            "b": "Khelna shuru karungi.",
+            "c": "Khana nahi khauga.",
+            "d": "Khana khane ka wait karungi.",
+            "correct": "d",
+            "explanation": "Kyun sahi hai: Khana khana pehle zaroori hai, phir khelna chahiye."
+          }
+        ]
+      },
+      "emoji": "👂",
+      "text_simple": "Listening skills ka matlab hai doosron ki baatein dhyan se sunna. Jab hum achi tarah sunte hain, toh hum samajhte hain. Yeh skills dosti aur school mein madadgar hain. Jab koi kuch keh raha ho, toh humein dhyan se sunna chahiye. Humain yaad rakhna hai ke kya kaha gaya. Is tarah hum behtar samajh sakte hain.",
+      "audio_text": "Listening skills ka matlab hai doosron ki baatein dhyan se sunna. Jab hum achi tarah sunte hain, toh hum samajhte hain. Yeh skills dosti aur school mein madadgar hain. Jab koi kuch keh raha ho, toh humein dhyan se sunna chahiye. Humain yaad rakhna hai ke kya kaha gaya. Is tarah hum behtar samajh sakte hain.",
+      "simple_quiz": [
+        {
+          "emoji": "❓",
+          "question_short": "Listening skills kya hai?",
+          "options": [
+            {
+              "emoji": "✅",
+              "text": "Doosron ki baatein sunna"
+            },
+            {
+              "emoji": "❌",
+              "text": "Khana banana"
+            },
+            {
+              "emoji": "❌",
+              "text": "Cricket khelna"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "title": "Picture describe karo",
+      "description": "Tasveeron ke baare mein batao",
+      "lesson": "## HOOK\nAao bachon, socho agar aap ka paas ek khubsurat tasveer ho, jo aapke dosto ko dikhani ho. Aapko kya kehna pasand hoga? Kya aap bata sakte ho ke us tasveer mein kya hai? Aaj hum yehi seekhenge!\n\n## SAMJHAO\nTasveeren sirf dekhne ke liye nahi hoti, balke unmein kahaniyan hoti hain. Jab hum kisi tasveer ko dekhte hain, to hum uski details par nazar dalte hain. Pehle hum dekhenge ke tasveer kya dikhati hai. Jaise ke ek larki aur larka bazaar mein khush hain, ya phir ek cricket match ki tasveer.\n\nPhir hum us tasveer ke rang aur chehron ki feelings par bhi tawajju dete hain. Kya woh muskurate hain ya phir serious hain? Isse hum tasveer ka asal maqsad samajhte hain. Tasveer ko describe karne ke liye humein adjectives ki bhi madad leni hoti hai. Jaise: khoobsurat, rang-birangi, ya chashmash.\n\nAb samjho, agar tasveer mein ek rickshaw hai, to hum keh sakte hain ke wo chota aur laal rang ka hai us mein ek aadmi baitha hua hai. Hum yeh bhi keh sakte hain ke rickshaw ke as paas bohot saare log hain jo is taraf dekh rahe hain.\n\nJab hum tasveer ko describe karte hain, to humein behtar safar or ehsaas de sakti hai. Humari soch ko dohraati hai aur humein us lamhe mein le jaati hai, jise tasveer ne qaid kiya hai.\n\n## MISAAL\nChalo ab hum ek example lete hain. Socho, aap bazaar gaye hain. Aapne ek tasveer liye, jis me ek stall hai jo biryani bech raha hai. Aap tasveer describe karte hain: \"Yeh tasveer ek bazaar ki hai. Stall bohot bada hai aur biryani ke deggay haseen hain. Log wahan khade hain aur unka chehra khushi se bhara hua hai. Ek aurat apne bacho ke saath hai jo khush ho kar biryani kharid rahi hai.\"\n\n## KARO\nAb aap khud say ek tasveer dhoondna hai. Yeh tasveer ghar, school, ya outdoor se ho sakti hai. Jab aap tasveer lein, to uski details par hamesha tawajju dein. Phir woh tasveer doston ko dikhayein aur uska description dein. Koshish karein ke adjectives ka istemal zaroor karen!\n\n## SAWAAL\n1. Tasveer describe karne se humein kya faida hota hai?\n2. Kya aap ek tasveer ke kuch adjectives bata sakte hain?\n3. Jab aap bazaar jaate hain, to kaun kaun si cheezon ki tasveeren le sakte hain?\n\nBye, take care! \nEnglish Ma'am",
+      "quiz": {
+        "title": "Picture describe karo Quiz",
+        "questions": [
+          {
+            "q": "Tasveer mein kahan ka nazara hai?",
+            "a": "Gali ka nazara",
+            "b": "Samundar ka nazara",
+            "c": "Parbat ka nazara",
+            "d": "Khet ka nazara",
+            "correct": "a",
+            "explanation": "Gali ki tasveer hai, is liye sahi jawab Gali ka nazara hai."
+          },
+          {
+            "q": "Tasveer mein log kya kar rahe hain?",
+            "a": "Khush ho rahe hain",
+            "b": "Rote hain",
+            "c": "Bhaag rahe hain",
+            "d": "Sote hain",
+            "correct": "b",
+            "explanation": "Tasveer mein log rote hue nazar aa rahe hain."
+          },
+          {
+            "q": "Tasveer mein kya rang hai?",
+            "a": "Neela",
+            "b": "Laal",
+            "c": "Hara",
+            "d": "Peela",
+            "correct": "c",
+            "explanation": "Tasveer mein hara rang dominant hai, is liye sahi jawab Hara hai."
+          },
+          {
+            "q": "Tasveer kis mauqe par hai?",
+            "a": "Chutiyon par",
+            "b": "School mein",
+            "c": "Bazar mein",
+            "d": "Doston ke bheed mein",
+            "correct": "a",
+            "explanation": "Tasveer mein log chutiyon ka lutf utha rahe hain, is liye sahi jawab Chutiyon par hai."
+          },
+          {
+            "q": "Tasveer mein kis cheez ka behtareen rang hai?",
+            "a": "Phoolon ka rang",
+            "b": "Ghar ka rang",
+            "c": "Khidki ka rang",
+            "d": "Chhat ka rang",
+            "correct": "d",
+            "explanation": "Tasveer mein chhat ka rang behtareen dikhai de raha hai, is liye sahi jawab Chhat ka rang hai."
+          }
+        ]
+      },
+      "emoji": "🖼️",
+      "text_simple": "Aao bachon, tasveer ko dekhte hain. Tasveer mein ek larki hai jo khush hai. Uske paas ek khubsurat phool hai. Phool rang-biranga hai. Larki muskurati hai. Pehle hum dekhte hain ke tasveer kya dikhati hai. Tasveer ko describe karna bohot maza aata hai!",
+      "audio_text": "Aao bachon, tasveer ko dekhte hain. Tasveer mein ek larki hai jo khush hai. Uske paas ek khubsurat phool hai. Phool rang-biranga hai. Larki muskurati hai. Pehle hum dekhte hain ke tasveer kya dikhati hai. Tasveer ko describe karna bohot maza aata hai!",
+      "simple_quiz": [
+        {
+          "emoji": "❓",
+          "question_short": "Tasveer mein kya hai?",
+          "options": [
+            {
+              "emoji": "🌸",
+              "text": "Phool"
+            },
+            {
+              "emoji": "🏏",
+              "text": "Cricket"
+            },
+            {
+              "emoji": "🚗",
+              "text": "Gari"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    }
+  ]
+}

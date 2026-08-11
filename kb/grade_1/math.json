@@ -1,0 +1,482 @@
+{
+  "subject": "math",
+  "name": "Hisaab (Math)",
+  "teacher": "Hisaab Sir",
+  "grade": 1,
+  "topics": [
+    {
+      "title": "Ginti 0-100",
+      "description": "Numbers 0-100 pehchano, likho, gino",
+      "lesson": "## HOOK\nKya aapko pata hai ke jab hum bazaar jate hain, to wahan kitne tarah ke samay hain? Har cheez ki apni ginti hoti hai, jaise aap kaise biryani ko plate karte hain, ya cricket ball ka score kaisa hota hai. Aaj hum ginti 0 se 100 tak seekhenge!\n\n## SAMJHAO\nGinti 0 se 100 tak seekhna bohot mazedaar hai! Hum pehle ginti 0 se shuru karte hain. 0 ka matlab hai kuch nahi, jaise agar aapke paas paise nahi hain, to aap keh sakte hain \"mere paas zero paise hain\". \n\nAb hum 1 se shuru karte hain. 1 ka matlab hai aik, jaise aap ke paas ek aam ho. Phir 2, 3, 4 aur aise hi aage barhte hain. Jab hum 2 kehte hain, to iska matlab hai do, jaise do dosto ka milna. \n\nAgar aapke paas 5 khilone hain, to aap keh sakte hain \"meray paas paanch khilone hain\". Har number ka apna maqaam hai. Hum 10, 20, 30, aur 100 tak ginti karte hain. 10 ka matlab hai das, yaani ke 10 se zyada khilone ka milna. \n\nJab hum 100 tak pahunchenge, to hum sikhenge ke har hifz ada kiya jaye aur humein in numbers ki pehchan honi chahiye, taake hum unhe likh sakein aur gino.\n\n## MISAAL\nChaliye, ab hum ek Pakistani misaal lete hain. Sochiye, agar aapko bazaar se 15 aam kharidne hain. Aap 15 aam le kar aate hain. Jab aap ghar jate hain, to aap apne dosto ko kehte hain \"mere paas 15 aam hain\", ye ginti hai jo aapne seekhi!\n\n## KARO\nAb aap ek chhoti si activity karenge! Apne ghar mein doodle ya paper le kar us par ginti likhein. Aap sab numbers 0 se 100 tak write karein aur unhe rangon se bharein. Unhe dosto aur family ke sath share karein. \n\n## SAWAAL\n1. Ginti 0 se 4 tak kya hai?\n2. 10 aur 20 mein kitne numbers hain?\n3. Agar aapke paas 7 khilone hain, to aap kaise keh sakte hain?\n\nAapko is lesson pehnchana aata hai ab? Ginti seekhne mein maza aya? \n\nHisaab Sir.",
+      "quiz": {
+        "title": "Ginti 0-100 Quiz",
+        "questions": [
+          {
+            "q": "Ginti 0 se 10 tak kitni ginti hai?",
+            "a": "10",
+            "b": "11",
+            "c": "9",
+            "d": "12",
+            "correct": "a",
+            "explanation": "0 se 10 tak ginti mein 10 aksar hoti hain."
+          },
+          {
+            "q": "Ginti 20 ka chura (one less) kya hota hai?",
+            "a": "19",
+            "b": "20",
+            "c": "18",
+            "d": "21",
+            "correct": "a",
+            "explanation": "20 se ek kum 19 hota hai."
+          },
+          {
+            "q": "Pehli das (1-10) mein sabse bara number kya hai?",
+            "a": "10",
+            "b": "9",
+            "c": "8",
+            "d": "7",
+            "correct": "a",
+            "explanation": "1 se 10 tak sabse bara number 10 hai."
+          },
+          {
+            "q": "Agar aapke paas 5 aam hain aur aapko 3 aam milte hain, to aapke paas kul kitne aam hain?",
+            "a": "8",
+            "b": "7",
+            "c": "5",
+            "d": "6",
+            "correct": "a",
+            "explanation": "5 + 3 = 8 aam hote hain."
+          },
+          {
+            "q": "Ginti 30 ka adhura (half) kya hota hai?",
+            "a": "10",
+            "b": "20",
+            "c": "15",
+            "d": "30",
+            "correct": "c",
+            "explanation": "30 ka half (adhura) 15 hota hai."
+          }
+        ]
+      },
+      "emoji": "🔢",
+      "text_simple": "Ginti bohot mazedaar hai! Hum 0 se shuru karte hain. 0 ka matlab hai kuch nahi. 1 ka matlab hai aik, jaise ek aam. 2 ka matlab hai do, jaise do dosto ka milna. 5 ka matlab hai paanch, jaise paanch khilone. Hum 10, 20, aur 100 tak ginti karte hain. Har number ka apna maqaam hai!",
+      "audio_text": "Ginti bohot mazedaar hai! Hum 0 se shuru karte hain. 0 ka matlab hai kuch nahi. 1 ka matlab hai aik, jaise ek aam. 2 ka matlab hai do, jaise do dosto ka milna. 5 ka matlab hai paanch, jaise paanch khilone. Hum 10, 20, aur 100 tak ginti karte hain. Har number ka apna maqaam hai!",
+      "simple_quiz": [
+        {
+          "emoji": "❓",
+          "question_short": "0 ka matlab kya hai?",
+          "options": [
+            {
+              "emoji": "❌",
+              "text": "Kuch nahi"
+            },
+            {
+              "emoji": "🍏",
+              "text": "Ek aam"
+            },
+            {
+              "emoji": "👫",
+              "text": "Do dosto"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "title": "Jama (+)",
+      "description": "Addition without carrying",
+      "lesson": "## HOOK\nAao mein aapko ek mazaydar kahani sunata hoon! Student, socho agar aapke paas 3 aam hain aur aapke dost ne aapko 2 aur aam diye, toh aapke paas kitne aam honge? Chalo isay mil kar jaan'tay hain!\n\n## SAMJHAO\nJama yaani Addition ek aisa amal hai jismein hum do ya zyada numbers ko milate hain. Jab hum Jama karte hain, toh hum bas un numbers ko saath mila dete hain, bina kisi carrying ke. Iska matlab ye hai ke hum har number ke digits ko alag-alag dekhte hain aur phir unhain jodte hain.\n\nAgar hum kehte hain 4 aur 3 ka Jama, toh hum jante hain ke 4 mein 4 dots hain aur 3 mein 3 dots hain. Jab aap inhe jodte hain, aap ke paas 7 dots honge. Yeh bilkul asaan hai!\n\nJama karne ke liye humein bas ye yaad rakhna chahiye ke agar humare paas do digits hain jo 9 se zyada nahi hain, toh hum unko seedha jod sakte hain. Misal ke taur par, agar aap 5 aur 2 ka Jama karte hain, toh aapko milta hai 7. Bahut asaan hai, hai na?\n\nIs tarah se, jab hum addition karte hain toh na keval numbers azmaate hain, balki humari soch bhi tarakki karti hai. Toh chalo aaj hum kuch addition karte hain aur mazeed practice karte hain!\n\n## MISAAL\nChalo sochte hain agar hum bazaar gaye hain. Aapke paas 3 kharbuze hain aur aapne dekha ke aapki dost ne 4 aur kharbuze liye hain. Toh ab aap dono milkar kharbuze khanay ka sochte hain. Toh aapke paas kul kharbuze kitne hote hain? 3 + 4 = 7! Aapke paas ab 7 kharbuze hain!\n\n## KARO\nAap ek choti si activity karte hain. Aapko chaar choti cheezen chuni hongi, jaise 4 qeemay, 2 kharbuze, aur 5 toffiyan. Ab in sab ko ek saath rakh kar ye dekhein ke aapke paas total kitni cheezen hain. Pehle aap qeemay aur kharbuze ka Jama karen, phir usmein toffiyan daal kar dekhein ke aapke paas kitni cheezen hain. Yeh activity mazedaar hogi!\n\n## SAWAAL\n1. Agar aapke paas 6 mango hain aur aapko 1 aur mango milta hai, toh ab aapke paas kitne mango honge?\n2. Aapke paas 3 khargosh hain aur aapke dost ne aapko 3 aur khargosh diye, toh kul kitne khargosh ho gaye?\n3. Aapki duaad ki kitni aarhi hain, agar aapke paas 2 aariyan hain aur aapne 5 aur kharidi hain?\n\nKhush raho aur hisaab sikho!  \n**Hisaab Sir**",
+      "quiz": {
+        "title": "Jama (+) Quiz",
+        "questions": [
+          {
+            "q": "3 + 5 kitne hote hain?",
+            "a": "8",
+            "b": "7",
+            "c": "9",
+            "d": "6",
+            "correct": "a",
+            "explanation": "Kyun sahi hai: 3 aur 5 ko milane par 8 milta hai."
+          },
+          {
+            "q": "2 + 4 kitna hoga?",
+            "a": "5",
+            "b": "6",
+            "c": "7",
+            "d": "8",
+            "correct": "b",
+            "explanation": "Kyun sahi hai: 2 aur 4 ko milane par 6 milta hai."
+          },
+          {
+            "q": "1 + 3 ka jawab kya hoga?",
+            "a": "3",
+            "b": "5",
+            "c": "4",
+            "d": "2",
+            "correct": "c",
+            "explanation": "Kyun sahi hai: 1 aur 3 ko mila kar 4 milta hai."
+          },
+          {
+            "q": "7 + 2 ka total kya hai?",
+            "a": "9",
+            "b": "10",
+            "c": "8",
+            "d": "7",
+            "correct": "a",
+            "explanation": "Kyun sahi hai: 7 aur 2 mila kar 9 hota hai."
+          },
+          {
+            "q": "5 + 0 ka kya jawab hai?",
+            "a": "1",
+            "b": "5",
+            "c": "0",
+            "d": "10",
+            "correct": "b",
+            "explanation": "Kyun sahi hai: Kisi bhi number mein 0 milane par wohi number rehta hai."
+          }
+        ]
+      },
+      "emoji": "➕",
+      "text_simple": "Aao doston, Jama karte hain! Agar aapke paas 3 kharbuze hain aur aapke dost ne 2 aur diye, toh aapke paas kitne kharbuze honge? Haan, 3 aur 2 ka Jama karne se humein milta hai 5! Jama asaan hai. Hum sirf numbers ko milate hain. Chalo, mazeed practice karte hain!",
+      "audio_text": "Aao doston, Jama karte hain! Agar aapke paas 3 kharbuze hain aur aapke dost ne 2 aur diye, toh aapke paas kitne kharbuze honge? Haan, 3 aur 2 ka Jama karne se humein milta hai 5! Jama asaan hai. Hum sirf numbers ko milate hain. Chalo, mazeed practice karte hain!",
+      "simple_quiz": [
+        {
+          "emoji": "❓",
+          "question_short": "3 aur 2 ka Jama kya hai?",
+          "options": [
+            {
+              "emoji": "🍉",
+              "text": "5"
+            },
+            {
+              "emoji": "🍌",
+              "text": "4"
+            },
+            {
+              "emoji": "🍏",
+              "text": "6"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "title": "Minus (-)",
+      "description": "Subtraction without borrowing",
+      "lesson": "## HOOK\nAao bacho, socho agar tumhare paas 10 toffees hain aur tumhare dost ne tumse 3 toffees le li. Tumhare paas ab kitni toffees bachi hain? Chalo, aaj hum yahi seekhenge!\n\n## SAMJHAO\nSubtraction, yaani ke minus (-), ek aisa amal hai jismein hum kisi number se doosra number kam karte hain. Jab humein ek number se chhota number minus karna hota hai, toh hum bas dekhte hain ke kitna bach gaya.\n\nJab hum bina borrowing ke subtraction karte hain, toh humein yeh dekhna hota hai ke kya pehla number chhota hai ya bada. Agar pehla number bada hai, toh hum asaani se choti number ko pehle number se minus karte hain.\n\nAam tor par, hum ek number ke neeche chhote number ko likhte hain aur baad mein dono ka subtraction karte hain. Ismein kuch simple steps hote hain: pehle hum dono numbers ko likhte hain, phir chhote number ko pehle number se minus karte hain.\n\nChalo, ab hum ek misaal lete hain. Agar tumhare paas 8 aam hain aur tumne 2 aam kha liye hain, toh hum is tarah se dekhenge: 8 - 2 = 6. Iska matlab hai, tumhare paas ab 6 aam bache hain.\n\n## MISAAL\nAao, bazaar ki misaal lete hain. Tumhe pata hai ke tumne bazaar se 15 mithaiyan kharidi hain. Phir tumhare bhai ne tumse 5 mithaiyan le li. Toh hum is tarah se subtract karte hain: 15 - 5 = 10. Ab tumhare paas 10 mithaiyan hain!\n\n## KARO\nAb ghar mein ya school mein, tumhare paas kuch candies hain (jaise toffees ya chocolate). Pichle din jitni candies tumne khari di thi, woh saari ek table par rakho. Phir tumhare dost ya behan se kehna, “Mujhse 3 candies le lo.” Ab tum subtract karke dekhna kitni candies bachi hain. Yeh activity maza bhi degi aur tumhe subtraction bhi seekhne ko milegi!\n\n## SAWAAL\n1. Agar tumhare paas 12 khilone hain aur tumne 4 khilone diya, toh tumhare paas ab kitne khilone bache hain?\n2. Tumhare paas 9 kitabain hain aur tumne 3 kitabain di hain, toh ab kitni kitabain tumhare paas hain?\n3. Agar tumhare paas 20 rupee hain aur tumne 10 rupee kharch kiye, toh ab tumhare paas kitne rupee hain?\n\nHisaab Sir",
+      "quiz": {
+        "title": "Minus (-) Quiz",
+        "questions": [
+          {
+            "q": "Agar aapke paas 8 aam hain aur aapne 3 aam kha liye, to aapke paas kitne aam bache hain?",
+            "a": "5",
+            "b": "4",
+            "c": "6",
+            "d": "3",
+            "correct": "a",
+            "explanation": "8 - 3 = 5, isliye 5 aam bache hain."
+          },
+          {
+            "q": "Agar aapke paas 10 toffiyan hain aur aapne 2 toffiyan dosto ko de di, to aapke paas kitni toffiyan bachi hain?",
+            "a": "7",
+            "b": "8",
+            "c": "9",
+            "d": "6",
+            "correct": "b",
+            "explanation": "10 - 2 = 8, isliye 8 toffiyan bachi hain."
+          },
+          {
+            "q": "Bachon ne milkar 7 khilone kharide, phir unme se 4 khilone wapas kar diye. Ab unke paas kitne khilone hain?",
+            "a": "3",
+            "b": "5",
+            "c": "4",
+            "d": "2",
+            "correct": "a",
+            "explanation": "7 - 4 = 3, isliye 3 khilone hain."
+          },
+          {
+            "q": "Agar aapke paas 12 paise hain aur aapne 5 paise kharch kiye, to aapke paas kitne paise bache hain?",
+            "a": "7",
+            "b": "6",
+            "c": "5",
+            "d": "8",
+            "correct": "a",
+            "explanation": "12 - 5 = 7, isliye 7 paise bache hain."
+          },
+          {
+            "q": "Ek din mein 15 kitabain padhein gayi, agar 9 kitabain khatam ho gayi hain, to kitni kitabain abhi tak padhi nahi gayi?",
+            "a": "6",
+            "b": "5",
+            "c": "7",
+            "d": "8",
+            "correct": "d",
+            "explanation": "15 - 9 = 6, isliye 6 kitabain abhi tak padhi nahi gayi."
+          }
+        ]
+      },
+      "emoji": "➖",
+      "text_simple": "Aao bacho, subtraction yaani minus seekhte hain. Agar tumhare paas 10 toffees hain aur tumne 3 kha li, toh tumhare paas 7 toffees bachi hain. Hum isay is tarah likhte hain: 10 - 3 = 7. Ab agar tumhare paas 5 aam hain aur tumne 1 kha li, toh 5 - 1 = 4. Tumhare paas 4 aam bache hain. Aasan hai, hai na?",
+      "audio_text": "Aao bacho, subtraction yaani minus seekhte hain. Agar tumhare paas 10 toffees hain aur tumne 3 kha li, toh tumhare paas 7 toffees bachi hain. Hum isay is tarah likhte hain: 10 - 3 = 7. Ab agar tumhare paas 5 aam hain aur tumne 1 kha li, toh 5 - 1 = 4. Tumhare paas 4 aam bache hain. Aasan hai, hai na?",
+      "simple_quiz": [
+        {
+          "emoji": "❓",
+          "question_short": "Agar paas 10 toffees hain aur 3 kha li, toh kitni bachi?",
+          "options": [
+            {
+              "emoji": "🍬",
+              "text": "7 toffees"
+            },
+            {
+              "emoji": "🍬",
+              "text": "5 toffees"
+            },
+            {
+              "emoji": "🍬",
+              "text": "3 toffees"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "title": "Pakistani Paisa",
+      "description": "Coins Rs1,2,5,10 aur Notes pehchano",
+      "lesson": "## HOOK\nKya aap ne kabhi socha hai ke bazaar mein jab aap apne liye chhoti si cheez kharidte hain, to woh cheez kharidne ke liye aapko kitne paise chahiye hote hain? Aaj hum Pakistan ke paisay aur unhein pehchaan-ne ka maza leinge!\n\n## SAMJHAO\nPakistan ke paisay ko hum \"Rupiya\" kehte hain. Humein apne rozana kaam mein kharidari ke liye paisay ki zarurat hoti hai. Rupiya ka humara do tarah ka shakal hota hai: coins aur notes. \n\nSab se pehle baat karte hain coins ki. Pakistan mein sab se chhoti coin \"1 Rupiya\" ki hoti hai. Phir \"2 Rupiya\", \"5 Rupiya\", aur sab se badi coin \"10 Rupiya\" hoti hai. Ye sab coins alag-alag rang aur shape mein hote hain.\n\nAb hum notes ki taraf dekhte hain. Pakistan mein notes bhi chaar mukhtalif darjoun ke hote hain: \"10 Rupiya\", \"20 Rupiya\", \"50 Rupiya\" aur \"100 Rupiya\". Ye notes bade hote hain aur in par mukhtalif tayyaron ki tasaveer hoti hain. \n\nCoin aur notes dono humein har din ke kaam mein madad dete hain. Jab bhi aap apna chota sa kharidari karte hain, aap in mein se koi bhi paise istemal karte hain. Aaj hum in paise ko pehchan-na seekhenge taake aap bazaar mein asaani se kharidari kar saken.\n\n## MISAAL\nChalo sochte hain aap apne dost ke saath bazaar gaye hain aur aap dono ko biryani kharidna hai. Biryani ki plate ki qeemat hai \"50 Rupiya\". Aapko pata hona chahiye ke aapko ye paise kaise de na hain. Agar aap ke paas 2 coins hain, ek 20 ka aur ek 10 ka, to aap asaani se biryani kharid sakte hain!\n\n## KARO\nAb aapko ghar ya school mein ek chhoti si activity karni hai. Mama ya papa se keh kar alag-alag coins aur notes le lo. Inhein achhi tarah dekho aur pehchaano. Phir inhe ginte hue ek game khelo: ek dost ko kehna ke aap 25 Rupiya kaise layenge aur dusre dost ko dekhna hai wo kaise coins aur notes ka intekhab karte hain! \n\n## SAWAAL\n1. Pakistan mein sab se chhoti coin ka naam kya hai?\n2. \"50 Rupiya\" ka note kisa dekhai deta hai?\n3. Agar aapke paas 1 coin hai 10 Rupiya ka, to aap aur kitne paise chahenge agar aapko 50 Rupiya ki cheez kharidni hai?\n\nHisaab Sir.",
+      "quiz": {
+        "title": "Pakistani Paisa Quiz",
+        "questions": [
+          {
+            "q": "Rs1 ka sikka kis rang ka hota hai?",
+            "a": "Neela",
+            "b": "Laal",
+            "c": "Peela",
+            "d": "Hara",
+            "correct": "a",
+            "explanation": "Rs1 ka sikka neela rang ka hota hai."
+          },
+          {
+            "q": "Rs2 ka nota kis kisam ka hota hai?",
+            "a": "Chota",
+            "b": "Bada",
+            "c": "Ghalat",
+            "d": "Koi nahi",
+            "correct": "a",
+            "explanation": "Rs2 ka nota chota hota hai."
+          },
+          {
+            "q": "Rs5 ka sikka kis rang ka hota hai?",
+            "a": "Hara",
+            "b": "Neela",
+            "c": "Surkh",
+            "d": "Safed",
+            "correct": "a",
+            "explanation": "Rs5 ka sikka hara rang ka hota hai."
+          },
+          {
+            "q": "Rs10 ka nota kis par hota hai?",
+            "a": "Quaid-e-Azam",
+            "b": "Allama Iqbal",
+            "c": "Iqbal",
+            "d": "Benazir Bhutto",
+            "correct": "a",
+            "explanation": "Rs10 ka nota Quaid-e-Azam ki tasveer pe hota hai."
+          },
+          {
+            "q": "Rs1 aur Rs5 mila kar kitne paisa bante hain?",
+            "a": "6",
+            "b": "5",
+            "c": "4",
+            "d": "3",
+            "correct": "a",
+            "explanation": "Rs1 aur Rs5 mila kar Rs6 bante hain."
+          }
+        ]
+      },
+      "emoji": "💵",
+      "text_simple": "Pakistan ka paisa 'Rupiya' kehlata hai. Ye do tarah ka hota hai: coins aur notes. Coins chhote hote hain, jaise 1 Rupiya, 2 Rupiya, aur 10 Rupiya. Notes bade hote hain, jaise 10 Rupiya, 20 Rupiya, aur 100 Rupiya. Aap in paise se bazaar mein kharidari karte hain.",
+      "audio_text": "Pakistan ka paisa 'Rupiya' kehlata hai. Ye do tarah ka hota hai: coins aur notes. Coins chhote hote hain, jaise 1 Rupiya, 2 Rupiya, aur 10 Rupiya. Notes bade hote hain, jaise 10 Rupiya, 20 Rupiya, aur 100 Rupiya. Aap in paise se bazaar mein kharidari karte hain.",
+      "simple_quiz": [
+        {
+          "emoji": "❓",
+          "question_short": "Pakistan ka paisa kya kehlata hai?",
+          "options": [
+            {
+              "emoji": "💰",
+              "text": "Rupiya"
+            },
+            {
+              "emoji": "🪙",
+              "text": "Dollar"
+            },
+            {
+              "emoji": "💳",
+              "text": "Pound"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "title": "Ghadi Parhna",
+      "description": "Analog clock, digital clock, din maheene",
+      "lesson": "## HOOK\nAao bachon, ek kahani sunte hain! Ek din Student ne apne dost ko kaha, \"Jana, kya tumhe pata hai ki ghadi parhna kitna zaroori hai? Kyunke agar hum time na dekhein, toh hum school ya cricket match kaise pohanchain ge?\" \n\n## SAMJHAO\nGhadi do tarikon ki hoti hai: Analog clock aur Digital clock. Analog clock wo hoti hai jisme haath (hands) hote hain jo sahi time dikhate hain. Ismein ek bada haath minute ke liye hota hai aur chhota haath ghanton ke liye. Jab bada haath 12 par hota hai, toh ye ek naya ghanta shuru hota hai.\n\nDigital clock mein numbers hote hain, aur ye straight time dikhata hai jaise 3:30. Ismein haath nahi hote, lekin ye dekhna bohat asaan hai. Ab din aur mahine ki bhi baat karte hain. Din 24 ghante ka hota hai, jaise subah, dopahar, aur raat. Aur mahina 30 ya 31 din ka hota hai, jab tak ke February 28 din ka hota hai.\n\nKya aapne kabhi socha hai ki time ko dekhne ka tareeqa kaisa hai? Agar hum kahte hain ke waqt ho raha hai, toh iska matlab hai ke humari ghadi sahi chal rahi hai! Isliye ghadi parhna bohot zaroori hai taake hum apne kaam time par kar sakein.\n\n## MISAAL\nChalo, baat karte hain bazaar ki! Jab Student apni maa ke saath bazaar jaata hai, toh unhe gaddi ka time dekhna hota hai. Agar unhe 4 baje wapas ghar aana hai, toh unhe ghadi check karni hoti hai. Agar ghadi 3:30 hai, toh unhe samajh aata hai ki unke paas sirf 30 minutes hain.\n\n## KARO\nAb aap sabko ek activity karni hai! Apne ghar mein kisi bhi ghadi ka time dekhein. Speacial taur par dekhein ke ghadi ki minute aur hour hands ka kya position hai. Phir aap bano ek chhoti ghadi (clock) paper se, jisme aap hands bana sakte hain aur unhe sahi time par set karein. Aise aap practice karenge ki ghadi kaise kaam karti hai!\n\n## SAWAAL\n1. Analog clock aur Digital clock mein kya farq hai?\n2. Din kitne ghante ka hota hai?\n3. Agar ghadi 2:15 hai, toh minute hand kahan hona chahiye?\n\nHisaab Sir.",
+      "quiz": {
+        "title": "Ghadi Parhna Quiz",
+        "questions": [
+          {
+            "q": "Ghar ki ghadi par agar 3 baj kar 15 minute hain, toh wo kis waqt ko darshata hai?",
+            "a": "3:15",
+            "b": "3:45",
+            "c": "4:15",
+            "d": "2:15",
+            "correct": "a",
+            "explanation": "Kyun sahi hai: Ghadi par 3 baje aur 15 minute ko '3:15' kehte hain."
+          },
+          {
+            "q": "Digital ghadi par 8:30 ka waqt hai, toh analog ghadi par kaise dikhai dega?",
+            "a": "8 aur 6",
+            "b": "8 aur 12",
+            "c": "7 aur 30",
+            "d": "9 aur 30",
+            "correct": "a",
+            "explanation": "Kyun sahi hai: Analog ghadi par 8 ki ghanti aur 6 ka haal dikhata hai."
+          },
+          {
+            "q": "Din ki kis ghadi par hum subha ke 6 baje ka waqt parhte hain?",
+            "a": "12 baje",
+            "b": "6 baje",
+            "c": "7 baje",
+            "d": "5 baje",
+            "correct": "b",
+            "explanation": "Kyun sahi hai: Subha 6 baje ko '6' hi kahte hain."
+          },
+          {
+            "q": "Agar ghadi par 11 baje hain, toh yeh kis waqt ko dikhata hai?",
+            "a": "11:00",
+            "b": "12:00",
+            "c": "10:00",
+            "d": "1:00",
+            "correct": "a",
+            "explanation": "Kyun sahi hai: 11 baje ka matlab hai '11:00'."
+          },
+          {
+            "q": "Agar aaj 15 September hai, toh kal ka din konsa hoga?",
+            "a": "16 September",
+            "b": "14 September",
+            "c": "17 September",
+            "d": "18 September",
+            "correct": "a",
+            "explanation": "Kyun sahi hai: 15 September ke baad '16 September' aata hai."
+          }
+        ]
+      },
+      "emoji": "🕰️",
+      "text_simple": "Ghadi parhna bohot zaroori hai. Ghadi do tarikon ki hoti hai: Analog aur Digital. Analog ghadi mein haath hote hain. Bada haath minute dikhata hai aur chhota haath ghanton ka. Digital ghadi mein sirf numbers hote hain. Din 24 ghante ka hota hai. Isliye ghadi dekhna seekhna chahiye.",
+      "audio_text": "Ghadi parhna bohot zaroori hai. Ghadi do tarikon ki hoti hai: Analog aur Digital. Analog ghadi mein haath hote hain. Bada haath minute dikhata hai aur chhota haath ghanton ka. Digital ghadi mein sirf numbers hote hain. Din 24 ghante ka hota hai. Isliye ghadi dekhna seekhna chahiye.",
+      "simple_quiz": [
+        {
+          "emoji": "❓",
+          "question_short": "Ghadi kitne tarikon ki hoti hai?",
+          "options": [
+            {
+              "emoji": "🕰️",
+              "text": "Do tarikon ki"
+            },
+            {
+              "emoji": "📅",
+              "text": "Teen tarikon ki"
+            },
+            {
+              "emoji": "🕵️",
+              "text": "Chaar tarikon ki"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "title": "Ashkaal",
+      "description": "Rectangle, square, circle, triangle",
+      "lesson": "## HOOK\nSalam bachon! Aaj hum ek dilchasp safar par nikalne wale hain jahan hum kuch khaas shapes ke baare mein seekhenge. Kya aapne kabhi cricket ka ball dekha hai? Ya phir bazaar mein khudai gaddiyan? Aaj hum yeh sochenge ke in shapes ka kya maqsad hai!\n\n## SAMJHAO\nAaj hum \"Ashkaal\" ke baare mein baat karenge. Pehla shape hai Rectangle. Rectangle aisi shape hai jo do lambi aur do chhoti sides rakhta hai, jaise ek kitab. \n\nAb baat karte hain Square ki. Square bhi chaar sides rakhta hai, par iski saari sides barabar hoti hain, jaise ek khilona ya ek chhoti si chocolate. \n\nAgla shape hai Circle. Circle ki koi side nahi hoti, yeh baahari hisse se gol hota hai, jaise ek paani ka glass ya ek karan ka chakkar. \n\nAur aakhri shape hai Triangle. Triangle mein teen sides hoti hain. Yeh aksar ek kishti ya ek pyramidal shape jaisa hota hai. Yeh shape zabardast hai kyunke iska base majboot hota hai!\n\n## MISAAL\nChalo ab ek misaal dekhte hain. Aapne bazaar mein dekha hoga ke dukanon ke signboards kis tarah se Rectangle mein hote hain. Aur jab aap kuch khareedte hain, toh aapko dukan wale ke paas ek Square ka box milta hai, jisme goodies hoti hain. Aur paani ka bottle aksar Circle mein hota hai. Humari gaddi ke wheels bhi Circle ke shape mein hote hain! \n\n## KARO\nAb aapko ek mazedaar activity karni hai. Ghar me ya school me saaman lo jaise khushbu se bhari chhoti khudai gaddiyan ya chhoti chocolates. Inhe dekh kar pehchano ke yeh kaun si shape hai: Rectangle, Square, Circle ya Triangle. Phir aap in shapes ko paper par draw bhi kar sakte hain!\n\n## SAWAAL\n1. Rectangle mein kitne sides hote hain?\n2. Triangle ka shape kis tarah ka hota hai?\n3. Aap apne ghar mein kis kis shape ko dekh sakte hain?\n\nKhuda Hafiz,  \nHisaab Sir.",
+      "quiz": {
+        "title": "Ashkaal Quiz",
+        "questions": [
+          {
+            "q": "Rectangle kaun sa shakal hai?",
+            "a": "Chaar sidiyaan, do lambay, do chhotay",
+            "b": "Saare chaar barabar hain",
+            "c": "Bina sidiyaan",
+            "d": "Chaar golaaiyan hain",
+            "correct": "a",
+            "explanation": "Rectangle mein chaar sidiyaan hoti hain, jismein do lambay aur do chhotay hote hain."
+          },
+          {
+            "q": "Square mein kitni sidiyaan hoti hain?",
+            "a": "Teen",
+            "b": "Chaar",
+            "c": "Paanch",
+            "d": "Do",
+            "correct": "b",
+            "explanation": "Square mein chaar barabar sidiyaan hoti hain."
+          },
+          {
+            "q": "Gola ka doosra naam kya hai?",
+            "a": "Circle",
+            "b": "Triangle",
+            "c": "Rectangle",
+            "d": "Square",
+            "correct": "a",
+            "explanation": "Gola ko English mein circle kaha jata hai."
+          },
+          {
+            "q": "Triangle ka kya matlab hai?",
+            "a": "Chaar sidiyaan",
+            "b": "Do sidiyaan",
+            "c": "Teen sidiyaan",
+            "d": "Ek sidi",
+            "correct": "c",
+            "explanation": "Triangle mein teen sidiyaan hoti hain."
+          },
+          {
+            "q": "Kin shaakaloon mein sab sidiyaan barabar hoti hain?",
+            "a": "Rectangle",
+            "b": "Circle",
+            "c": "Triangle",
+            "d": "Square",
+            "correct": "d",
+            "explanation": "Square mein sab sidiyaan barabar aur ek jaisi hoti hain."
+          }
+        ]
+      },
+      "emoji": "🔷",
+      "text_simple": "Salam bachon! Aaj hum shapes ke baare mein seekhenge. Pehla shape hai Rectangle, jaise kitab. Dusra shape hai Square, jaise chocolate. Teesra shape hai Circle, jaise paani ka glass. Aur aakhri shape hai Triangle, jaise kishti. Har shape ka apna maqsad hai!",
+      "audio_text": "Salam bachon! Aaj hum shapes ke baare mein seekhenge. Pehla shape hai Rectangle, jaise kitab. Dusra shape hai Square, jaise chocolate. Teesra shape hai Circle, jaise paani ka glass. Aur aakhri shape hai Triangle, jaise kishti. Har shape ka apna maqsad hai!",
+      "simple_quiz": [
+        {
+          "emoji": "❓",
+          "question_short": "Rectangle kis cheez ki tarah hai?",
+          "options": [
+            {
+              "emoji": "📚",
+              "text": "Kitab"
+            },
+            {
+              "emoji": "🍫",
+              "text": "Chocolate"
+            },
+            {
+              "emoji": "⚽",
+              "text": "Football"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    }
+  ]
+}

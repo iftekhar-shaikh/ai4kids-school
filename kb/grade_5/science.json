@@ -1,0 +1,338 @@
+{
+  "subject": "science",
+  "name": "General Science",
+  "teacher": "Science Sir",
+  "grade": 5,
+  "topics": [
+    {
+      "title": "Khoon ka nizam",
+      "description": "SNC: Circulatory system — dil, khoon, nassen",
+      "lesson": "## HOOK\nSadi, kya tumne kabhi socha hai ke agar tumhara dil na ho to tum zinda kaise reh sakte ho? Acha, socho toh sahi! Har pal mein, tumhara dil tumhare khoon ko kaise har jaga pahuncha raha hai?\n\n## SAMJHAO\nKhoon ka nizam, jise hum circulatory system kehte hain, ek bohot hi zaroori nizam hai jo humare jism mein sab kuch sahi se chalata hai. Is nizam ka sabse aham hissa hai dil, jo ek pump ki tarah kaam karta hai. Jab dil dhadakta hai, tab woh khoon ko nassein (blood vessels) mein bhejta hai.\n\nDil do main chambers mein divided hota hai: atria aur ventricles. Jab dil ke atria contract karte hain, khoon ventricles ki taraf jaata hai. Phir jab ventricles contract karte hain, khoon puri body mein pump hota hai. Is tarah se hamara jism zaroori khurak aur oxygen hasil karta hai.\n\nKhoon sirf oxygen hi nahi, balki hormones aur nutrients bhi lekar chalta hai. Yeh naye cells ko banata hai aur purane cells ko repair karta hai. Is tarah, khoon ka nizam humein behtar zindagi guzarne mein madad karta hai.\n\nNassein do tarah ki hoti hain: arteries aur veins. Arteries khoon ko dil se baahar nikaalti hain, jabke veins khoon ko dil tak laati hain. Yeh zaroori hai ke yeh dono nassein sahi se kaam karein, taake khoon ka sahi dauraan bana rahe.\n\n## MISAAL\nChalo Sadi, socho agar tum cricket khel rahe ho. Jab tum bhaag rahe ho, toh tumhare dil ki dhadkan tez ho jaati hai, aur tumhara khoon zyada oxygen lene ke liye tezi se pump hota hai. Yeh zaroori hai ke tumhe achi performance dene ke liye khoon mein energy ho. Agar yeh system sahi se kaam na kare, toh tum thakee mehsoos karoge aur achi batting nahi kar paoge!\n\n## KARO\nSadi, ab tum ghar par ek chhoti si activity kar sakte ho. Ek drawing banayein jismein tum dil, arteries aur veins ko dikhate ho. Phir, har hisson ko different colors se rang do. Is tarah tumhe yaad rahega ke dil kaise kaam karta hai, aur khoon kaise body mein daurta hai. Tum yeh drawing apne school mein bhi dikhana.\n\n## SAWAAL\n1. Khoon ka nizam kis cheez par mabni hai?\n2. Dil ka kaam kya hota hai?\n3. Arteries aur veins mein kya faraq hai? \n\nSadi, in sawalon ke zariye tum is lesson ko ache se yaad kar sakte ho!",
+      "quiz": {
+        "title": "Khoon ka nizam Quiz",
+        "questions": [
+          {
+            "q": "Dilon ka kaam kya hai?",
+            "a": "Khoon ko pump karna",
+            "b": "Hawaa ko saans lena",
+            "c": "Jism ko garmi dena",
+            "d": "Dimaag ko aalaat dena",
+            "correct": "a",
+            "explanation": "Dil khoon ko pump karta hai takay yeh jism ke har hisson tak pahunche."
+          },
+          {
+            "q": "Nassien kis cheez ka hissa hain?",
+            "a": "Khoon",
+            "b": "Hawaa",
+            "c": "Pani",
+            "d": "Garmi",
+            "correct": "a",
+            "explanation": "Nassien khoon ko jism ke mukhtalif hisson tak le jate hain."
+          },
+          {
+            "q": "Khoon ke kitne rang hote hain?",
+            "a": "Ek",
+            "b": "Do",
+            "c": "Teen",
+            "d": "Chaar",
+            "correct": "b",
+            "explanation": "Khoon ke do rang hain: laal (oxygen se bhara) aur neela (carbon dioxide se bhara)."
+          },
+          {
+            "q": "Dil kis taraf hota hai?",
+            "a": "Dainay taraf",
+            "b": "Bainay taraf",
+            "c": "Beech mein",
+            "d": "Peeche",
+            "correct": "b",
+            "explanation": "Insani dil aam tor par bainay taraf hota hai."
+          },
+          {
+            "q": "Khoon ka dar asal kis liye hota hai?",
+            "a": "Zakhm waghaira ke liye",
+            "b": "Jism ko khanewala kharch dene ke liye",
+            "c": "Oxygen aur nutrients pohanchane ke liye",
+            "d": "Dukh aur dard mehsoos karne ke liye",
+            "correct": "c",
+            "explanation": "Khoon jism ko oxygen aur nutrients pohanchata hai jo zindagi ke liye zaroori hain."
+          }
+        ]
+      }
+    },
+    {
+      "title": "Cells",
+      "description": "SNC: Cell — jism ki sab se chhoti eent, basic unit of life",
+      "lesson": "## HOOK\nSadi, kabhi socha hai agar tumhare jism ki har cheez sirf ek chhoti si eent se bani ho? Jaise ek makaan, jo eenton se mil kar tayyar hota hai, waise hi tumhara jism bhi cells se mil kar bana hai!\n\n## SAMJHAO\nPehle hum jaan lete hain ke cell kya hai. Cell jism ki sab se chhoti unit hai. Isay hum life ka basic unit bhi kehte hain. Har living organism, chahe wo insaan ho ya ek chhoti si machhli, cells se bana hota hai. Cells ke bina, zindagi ka sochna bhi impossible hai.\n\nCells do mukhtalif type ke hote hain: prokaryotic aur eukaryotic. Prokaryotic cells choti aur simple hote hain, yeh keval bacteria mein paaye jaate hain. Eukaryotic cells thode complex hote hain aur in mein nucleus bhi hota hai, jo unchey organisms, jese ke insaan, jaanwar aur podon mein paaye jaate hain.\n\nHar cell ke andar kuch zaroori cheezen hoti hain, jaise cytoplasm aur cell membrane. Cytoplasm cell ka andar ka hissa hai jahan sab kuch hota hai, aur cell membrane isay bahar se protect karti hai. Yeh membrane decide karti hai ke cell ke andar kya aayega aur kya bahar jayega.\n\nCells ka kaam bohot important hai, kyunki yeh energy produce karte hain, growth mein madad karte hain aur body ke functions ko regulate karte hain. Jaise jaise hum bade hote hain, hamaari cells bhi divide hoti hain aur naye cells banti hain.\n\n## MISAAL\nSadi, socho agar tum school jaate ho aur tumhari teachers tumhein batati hain ke ek achi biryani banane ke liye kya kya chahiye. Waise hi, cells ka bhi ek special recipe hota hai. Jaise biryani mein mutton, chawal, aur masalay zaroori hote hain, waise hi cells mein DNA, proteins aur carbohydrates zaroori hote hain. Har ek cheez ka apna role hota hai, aur mil kar yeh ek complete living organism ko banate hain.\n\n## KARO\nAb Sadi, tumhare liye ek chhoti si activity hai. Chalo, ek drawing banao jo cells ko dikhaye. Tumhara drawing kaisa dikhna chahiye? \n\n1. Pehle ek chhota sa circle banao jo cell ka shape hoga.\n2. Is circle ke andar aur chhote chhote parts banao, jaise nucleus, cytoplasm aur cell membrane.\n3. Phir batao ke har part ka kya kaam hai. Tumhare drawing ko apne dost ke sath share karo aur dekhna kaise woh bhi tracking karte hain.\n\n## SAWAAL\n1. Cell kya hota hai aur iska kya role hai?\n2. Prokaryotic aur eukaryotic cells mein kya farq hai?\n3. Tumhara khayal hai cells kis tarah se body ke growth mein madad karte hain?",
+      "quiz": {
+        "title": "Cells Quiz",
+        "questions": [
+          {
+            "q": "Cell kya hai?",
+            "a": "Jism ki sab se chhoti eent",
+            "b": "Dhoondh ne wala aala",
+            "c": "Khaana pakane ka samaan",
+            "d": "Khilone ka ek set",
+            "correct": "a",
+            "explanation": "Cell jism ki sab se chhoti eent hai, jo har jeev ke liye zaroori hoti hai."
+          },
+          {
+            "q": "Insani jism mein kitni cells hoti hain?",
+            "a": "Kuch hazaar",
+            "b": "Kuch lakh",
+            "c": "Kuch crore",
+            "d": "Kuch arab",
+            "correct": "d",
+            "explanation": "Insani jism mein lagbhag 37.2 trillion cells hoti hain, jo dakhil aur bahar ke kaamon ko anjam deti hain."
+          },
+          {
+            "q": "Plant cells mein kya khaas hota hai?",
+            "a": "Chhoti size",
+            "b": "Chloroplast",
+            "c": "Jelly jaise structure",
+            "d": "Jaise ghee",
+            "correct": "b",
+            "explanation": "Plant cells mein chloroplast hota hai, jo photosynthesis mein madad karta hai."
+          },
+          {
+            "q": "Cell ka kya kaam hota hai?",
+            "a": "Sirf sochna",
+            "b": "Jism ki raksha",
+            "c": "Khaana banana aur istemal karna",
+            "d": "Dhoondh karna",
+            "correct": "c",
+            "explanation": "Cells khaana banana aur istemal karne ka kaam karti hain, aur yeh jism ke liye zaroori hote hain."
+          },
+          {
+            "q": "Animal cells se kya farq hota hai?",
+            "a": "Sirf size",
+            "b": "Kuch nahi, bilkul same hain",
+            "c": "Cell wall na hona",
+            "d": "Cell ki shape",
+            "correct": "c",
+            "explanation": "Animal cells mein cell wall nahi hoti, jabke plant cells mein cell wall hoti hai."
+          }
+        ]
+      }
+    },
+    {
+      "title": "Bijli ke circuits",
+      "description": "SNC: Electricity — circuits, conductors, insulators",
+      "lesson": "## HOOK\nSadi, tum ne kabhi socha hai ke bijli kaise kaam karti hai? Agar tumhare ghar mein bijli na ho, toh kya hota? Kya tumhara TV chalta? Aur jab tum bazaar jate ho, toh kya utni roshni hoti?\n\n## SAMJHAO\nBijli ke circuits ka matlab hai ke bijli ka chakkar ya raasta jahan woh chakar lagata hai. Jab tak bijli ka raasta khula rahe, tab tak bijli chalti rahegi. Jaise agar tum ek water pipe ke through paani behte huye dekhte ho, waise hi bijli bhi circuits se guzar kar kaam karti hai.\n\nConductors wo cheezen hain jo bijli ko aasanai se guzarne dete hain. Misal ke taur par, tamba (copper) ek acha conductor hai. Jab hum wires mein tamba use karte hain, toh bijli jaldi se guzar jati hai. Iske ilawa, maidan mein jo cricket ke players hain, unki uniforms bhi conductors ban sakti hain agar woh metal se bani hoon.\n\nInsulators wo cheezen hain jo bijli ko guzarne nahi dete. Jaise ke rubber aur plastic. Agar humare paas ek rubber ka cover ho toh woh hume bijli se bachata hai. Is tarah, agar kisi wire ka insulation (covering) nahi ho, toh wo khatarnaak ho sakta hai. Yeh bilkul waise hai jaise agar tum paani ki garmi se bachne ke liye rubber ka chashma pehn lo.\n\nCircuit ke do hisson mein battery aur switch shamil hote hain. Battery power ka source hoti hai aur switch circuit ko on ya off karta hai. Jab tum switch ko on karte ho, toh circuit complete ho jata hai aur bijli flow karti hai.\n\n## MISAAL\nSocho, Sadi, jab tum khelte ho to tumhare pass ek flashlight hoti hai. Jab tum us flashlight ka switch on karte ho, toh usmein bijli flow hoti hai aur light jalti hai. Lekin agar flashlight ka circuit kisi wajah se tut gaya ho, yaani koi wire khula ya damaged ho, toh light nahi jalti. Is tarah, ek acha circuit banan ke liye humein conductors aur insulators ka achi tarah se istemal karna hota hai. \n\n## KARO\nSadi, ab tumhare liye ek bohot aasan activity hai. Apne ghar mein ek simple circuit banao. Iske liye tumhe ek battery, ek small bulb, aur kuch wires chahiye. Battery se bulb ko connect karo dauraan wires ke, aur dekhna jab tak tumhara circuit complete rahega, bulb jalta rahega. Agar tum rubber ya plastic ki koi cheez us wire ke beech mein daal do, toh bulb nahi jalega. Is tareeqe se tum signals dekh sakte ho ke kaunsa material conductor hai aur kaunsa insulator!\n\n## SAWAAL\n1. Conductors aur insulators mein kya farq hai?\n2. Jab switch off hota hai, circuit kya hota hai?\n3. Kya tum ghar mein kisi aur cheez ka circuit bana sakte ho? Kaise?",
+      "quiz": {
+        "title": "Bijli ke circuits Quiz",
+        "questions": [
+          {
+            "q": "Bijli ka chakkar kisay kehlate hain?",
+            "a": "Circuit",
+            "b": "Conductor",
+            "c": "Insulator",
+            "d": "Transformer",
+            "correct": "a",
+            "explanation": "Circuit ka matlab hai wo rasta jahan se bijli guzarti hai."
+          },
+          {
+            "q": "Kaun sa mawaad bijli ko behtne deta hai?",
+            "a": "Insulator",
+            "b": "Conductor",
+            "c": "Resistor",
+            "d": "Switch",
+            "correct": "b",
+            "explanation": "Conductor aise mawaad hote hain jo bijli ko behtne dete hain, jese mein copper."
+          },
+          {
+            "q": "Kaun sa mawaad bijli ko nahi guzarta?",
+            "a": "Water",
+            "b": "Wood",
+            "c": "Plastic",
+            "d": "Rubber",
+            "correct": "c",
+            "explanation": "Plastic ek insulator hai jo bijli ko guzarnay nahi deta."
+          },
+          {
+            "q": "Bijli ke circuit mein kaun si cheez istemal hoti hai?",
+            "a": "Battery",
+            "b": "Air",
+            "c": "Water",
+            "d": "Wood",
+            "correct": "a",
+            "explanation": "Battery circuit ka ahm hissa hoti hai jo bijli ka zaraya de sakti hai."
+          },
+          {
+            "q": "Kya lamp ek example hai ek circuit ka?",
+            "a": "Haan",
+            "b": "Nahi",
+            "c": "Sirf kuch waqt",
+            "d": "Kabhi nahi",
+            "correct": "a",
+            "explanation": "Lamp ek circuit ka part hota hai jo bijli se chamakta hai."
+          }
+        ]
+      }
+    },
+    {
+      "title": "Magnet ki taqat",
+      "description": "SNC: Magnetism — poles, attraction, repulsion",
+      "lesson": "## HOOK\nSadi, kya aapne kabhi socha hai ke ek chhoti si magnet kitni taqat rakh sakti hai? Aapne kabhi dekhha hai ke jab do magnets ko paas laate hain to wo kis tarah se ek doosray ki taraf kheeche jaate hain? \n\n## SAMJHAO\nMagnet ek aisa cheez hai jo kuch khaas metals, jaise ke iron aur nickel, ko apni taraf khinch sakta hai. Magnet mein do khaas hisson hote hain jinhein poles kaha jata hai – ek north pole aur ek south pole. Jab aap ek magnet ko kisi metal ke kareeb laate hain to woh metal us magnet ki taraf khinchta hai.\n\nMagnet ki taqat do tarikon se dhamti hai: attraction aur repulsion. Jab aap ek north pole ko dusre north pole ke kareeb laate hain, to wo ek doosray se bhagte hain. Isay repulsion kehte hain. Lekin jab aap north pole ko south pole ke kareeb laate hain, to wo ek doosray ki taraf kheechete hain. Isay attraction kehte hain.\n\nHum har roz magnets ka istemal karte hain, jaise ke refrigerators par lagne wali chhoti magnets. Ye magnets chhoti chhoti cheezon ko pakad kar rakhte hain. Is tarah, magnets hamari zindagi ka hissa hain, chahe wo ghar ho ya school.\n\nZamane ke saath, magnets ka istemal bahut tarah se hota hai – jaise ke electric trains, hard drives, aur medical equipment mein. Isliye, magnets ki samajh banana humare liye bohot zaroori hai.\n\n## MISAAL\nSocho Sadi, jab aap bazaar mein jaate hain aur wahan aapko ek seller dikhai deta hai jo chhoti chhoti iron ki chhizain bech raha hai. Agar woh seller magnets ka istemal kare, to woh apne jewellery ya chhoti chhoti chizain ko asani se dikh sakta hai. Kyunki magnets un chhizoon ko choone par pakad lete hain. Is tarah, magnets bazaar mein woh seller ki madad karte hain.\n\n## KARO\nAap ek chhota experiment kar sakte hain ghar ya school mein. Ek chhoti si magnet lein aur dekhein ke aapke aas paas kya kya metallic cheezin hain jo us magnet ki taraf khinchti hain. Aap different cheezon ko utha kar dekhein – jaise ke 1 rupee ka sikka, kuch chhote clips, ya kisi purani ghari ka parts. Dekhein kaun si cheez magnet ke sath attract hoti hai aur kaun si nahi.\n\nIske ilawa, aap ek drawing bhi bana sakte hain jisme aap magnet ke north aur south pole dikhayein aur unke attraction aur repulsion ki illustrations banayein.\n\n## SAWAAL\n1. Magnet ke do poles kya hain?\n2. Attraction aur repulsion mein kya farq hai?\n3. Aapne kis metallic cheez ko magnet se attract hote dekha hai?",
+      "quiz": {
+        "title": "Magnet ki taqat Quiz",
+        "questions": [
+          {
+            "q": "Magnet ke do kisam ke poles kya hain?",
+            "a": "North aur South",
+            "b": "East aur West",
+            "c": "Positiv aur Negativ",
+            "d": "Top aur Bottom",
+            "correct": "a",
+            "explanation": "Magnet mein hamesha do poles hote hain: North pole aur South pole."
+          },
+          {
+            "q": "Agar ek magnet ka North pole doosre magnet ke North pole ke saath laaya jaye, to kya hoga?",
+            "a": "Attraction",
+            "b": "Repulsion",
+            "c": "Koi farq nahi",
+            "d": "Magnet khud hi toot jayega",
+            "correct": "b",
+            "explanation": "Do North poles ya do South poles hamesha ek doosre ko repel karte hain."
+          },
+          {
+            "q": "Kya sab cheezen magnets ki taraf kheenchti hain?",
+            "a": "Haan, sab cheezen",
+            "b": "Sirf lohay ki cheezen",
+            "c": "Sirf plastic ki cheezen",
+            "d": "Sirf khud magnet",
+            "correct": "b",
+            "explanation": "Sirf lohay aur kuch metal cheezen magnets ki taraf kheenchti hain."
+          },
+          {
+            "q": "Agar ek magnet ko do hisson mein kaat diya jaye, to kya hoga?",
+            "a": "Do naye magnets banenge",
+            "b": "Magnet khatam ho jayega",
+            "c": "Koi bhi asar nahi hoga",
+            "d": "Woh sirf ek aise hissa rahega",
+            "correct": "a",
+            "explanation": "Magnet ko kaatne par har hissa ek naya North aur South pole banata hai."
+          },
+          {
+            "q": "Pakistan mein kis cheez ki magnetism ka istemal hota hai?",
+            "a": "Khaali bottle ka",
+            "b": "Khaane ki cheezon ka",
+            "c": "Electric motors ka",
+            "d": "Khilonaon ka",
+            "correct": "c",
+            "explanation": "Magnetism ka istemal electric motors aur generators mein hota hai jo bijli banate hain."
+          }
+        ]
+      }
+    },
+    {
+      "title": "Ecosystem",
+      "description": "SNC: Margalla Hills ecosystem — food web, conservation",
+      "lesson": "## HOOK\nSadi, socho agar tumhara ghar ek aise jungle mein ho jahan har waqt naye rang aur awazain ho rahi hon! Kya tumhe pata hai ke is jungle ka naam kya hai? Yeh hai Margalla Hills, jahan bohot se pauday aur jaanwar milte hain. Is jungle ki shaan kya hai? Chalo ispar baat karte hain!\n\n## SAMJHAO\nMargalla Hills ka ecosystem bohot hi khaas hai. Ismein har tarah ke pauday, jaanwar, aur zameen aur hawa ki cheezain shamil hain. Jab hum ecosystem ki baat karte hain, toh iska matlab hai ke sab cheezein ek doosre ke saath milkar kaam karti hain. Jaise pauday hawa ko saaf karte hain, aur jaanwar paudon ko khate hain! \n\nIs ecosystem mein bohot se jaanwar hain, jese ke hiran, bhaloo, aur bohot se pakshi. Har ek jaanwar ka apna kaam hai. Jaisey hiran ghas khata hai, toh bhaloo ussko shikar karta hai. Yeh sab ek food web ka hissa hain. Food web ek chhupi hui jali hai jo saare jaanwaron aur paudon ko milaati hai.\n\nMargalla Hills mein kuch endangered species bhi hain, jinko humari hifazat ki zaroorat hai. Jab tak hum inka khayal nahi rakhenge, yeh khatam ho sakte hain. Hifazati tadabeer se hum inhe bacha sakte hain, jaise ke illegal hunting ko rokna aur inka natural habitat safe rakhna.\n\nIs jungle ki hifazat karne se sirf jaanwaron ko nahi, balke insaano ko bhi faida hoga. Kyunki humare liye bhi ye hawa achi hai aur ye pauday zindagi ki buniyad hain. Hifazat se hum na sirf jaanwaron ka, balke apna ecosystem bhi save karte hain.\n\n## MISAAL\nSadi, jab tum apne school ki taraf jaate ho, toh kya tumne kabhi in sabziyon ka bazaar dekha hai? Wahan har tarah ki sabziyaan aur phal hote hain jo kisanon ne mehnat se ugaye hain. Yeh sabziyaan ek tarah se ecosystem ka hissa hain. Agar kisan achhe se apne kaam karein, toh hume fresh aur healthy food milegi. Is tarah se bazaar bhi ecosystem ka ek hissa hai jahan sab kuch ek doosre se juda hota hai.\n\n## KARO\nAb Sadi, tumhe ek activity karni hai. Tumhe Margalla Hills ka ecosystem draw karna hai. Paper par kuch pauday, jaanwar, aur unka environment banao. Har ek jaanwar ya pauday ke niche unka naam zaroor likho. Tum dekhoge ke sab kuch ek doosre ke sath milkar kaise kaam kar raha hai. Isse tumhe food web samajhne mein madad milegi!\n\n## SAWAAL\n1. Margalla Hills mein kaun se kuch jaanwar paaye jaate hain?\n2. Food web ki importance kyun hai?\n3. Hum apne environment ko kaise hifazat de sakte hain?\n\nSadi, tumhara yeh lesson bahut acha hua! Ab tumhe ecosystem ke baare mein achhi tarah se samajh aa gaya hoga.",
+      "quiz": {
+        "title": "Ecosystem Quiz",
+        "questions": [
+          {
+            "q": "Margalla Hills ka ecosystem kis kisam ke jandar se bhara hua hai?",
+            "a": "Pahaari qareeb ke janwar",
+            "b": "Darya ke machhliyan",
+            "c": "Din raat rakhne wale jaanwar",
+            "d": "Sab ke sab",
+            "correct": "d",
+            "explanation": "Margalla Hills mein bohat se kisam ke jandar paye jate hain."
+          },
+          {
+            "q": "Food web ka asal maqsad kya hai?",
+            "a": "Sab janwaron ko khush rakhna",
+            "b": "Sab jandar ki khurak ur khichav dikhana",
+            "c": "Ecosystem ka balance banana",
+            "d": "Jandar ko khuli hawa dena",
+            "correct": "c",
+            "explanation": "Food web ecosystem ke balance ko banaye rakhne mein madadgar hoti hai."
+          },
+          {
+            "q": "Kya aapne kabhi dekha hai ke Margalla Hills mein kya hote hain?",
+            "a": "Sirf darakht hain",
+            "b": "Bus khudai chal rahi hai",
+            "c": "Bahut se khufia jandar hote hain",
+            "d": "Wahan sirf log hain",
+            "correct": "c",
+            "explanation": "Margalla Hills mein khufia aur anokhe jandar milte hain jo ecosystem ka hissa hain."
+          },
+          {
+            "q": "Conservation ka kya matlab hai?",
+            "a": "Jandar ko khud se marna",
+            "b": "Darakht kaatna",
+            "c": "Jandar aur unka environment bachana",
+            "d": "Kuch nahi karna",
+            "correct": "c",
+            "explanation": "Conservation ka matlab hai jandar aur unke habitats ko bachana."
+          },
+          {
+            "q": "Margalla Hills ka sabse bara khatar kya hai?",
+            "a": "Taqreeb karna aur pollution",
+            "b": "Aasman ka rang badalna",
+            "c": "Ghar ke maamle",
+            "d": "Dost banane mein mushkil",
+            "correct": "a",
+            "explanation": "Margalla Hills ko taqreeb aur pollution se khatar hota hai."
+          }
+        ]
+      }
+    },
+    {
+      "title": "Technology aur safety",
+      "description": "SNC: Computers, internet safety, digital literacy",
+      "lesson": "## HOOK  \nSadi, socho agar tumhe kisi ne kaha ke tumhare mobile ya tablet par kuch chori karne ka koshish kar raha hai! Tum kya karoge? Kya tumhe pata hai ke aise waqt pe kis tarah se apne aap ko bachana hai?  \n\n## SAMJHAO  \nAaj kal technology har jagah hai, jaise ke computers aur internet. Ye tools humein bohat madad dete hain, lekin saath hi saath kuch khatarnaak cheezein bhi ho sakti hain. Jab tum internet par hote ho, toh tumhe apni safety ka khayal rakhna zaroori hai.  \n\nInternet safety ka matlab hai ke tumhe pata hona chahiye ke kaunse cheezein tumhare liye safe hain aur kaunse nahi. Jab tum kisi website par jao, toh pehle check karo ke wo trustworthy hai ya nahi. Jaise ke agar koi website tumhe bina permission ke personal information maang rahi hai, toh wahan mat jao.  \n\nDigital literacy ka matlab hai ke tumhare paas wo skills hon jo tumhe technology istemal karne mein madad deti hain. Is mein computers ka istemal karna, internet par search karna aur online communication karna shamil hai. Ye skills tumhe sirf fun mein nahi, balki school ya career mein bhi help karte hain.  \n\nTechnology ke kayi faide hain, tum videos dekh sakte ho, online study kar sakte ho, aur doston ke saath connect reh sakte ho. Lekin is sab ke saath, tumhe apne data ki security ka khayal rakhna hoga. Jab tum kisi app ya game ko download karte ho, toh hamesha dekho ke kya wo app secure hai ya nahi.  \n\n## MISAAL  \nChalo Sadi, socho agar tum bazaar ja rahe ho aur wahan tumhare dost ne tumhe ek mobile game ke liye link diya. Wo link acche lag raha hai lekin jab tum us par click karte ho, toh tumhare phone par strange messages aana shuru ho jaate hain. Ye ho sakta hai ke wo link safe na ho. Is liye, hamesha soch samajh kar click karo, jaise ke bazaar mein kharidari karte waqt tum khud ko dhokey se bachate ho.  \n\n## KARO  \nAb Sadi, tumhare liye ek chhoti si activity hai! Ek drawing banao jismein tumhe safe aur unsafe internet activities ko dikhana hai. Tum ek taraf safe cheezon ko dikhana, jaise ke password ka strong hona, websites ka check karna, aur doosri taraf unsafe cheezon ko dikhana, jaise ke unknown links par click karna aur personal information share karna. Isse tumhe samajh aayega ke kaise apne aap ko online safe rakhna hai.  \n\n## SAWAAL  \n1. Internet safety kya hai?  \n2. Tumhe kis tarah se pata chalega ke koi website trustworthy hai ya nahi?  \n3. Digital literacy kyun important hai?",
+      "quiz": {
+        "title": "Technology aur safety Quiz",
+        "questions": [
+          {
+            "q": "Internet par kya cheez aapko apni personal information share nahi karni chahiye?",
+            "a": "Apna naam",
+            "b": "Apna phone number",
+            "c": "Apna address",
+            "d": "Sab kuch",
+            "correct": "d",
+            "explanation": "Internet par apni personal information share karna unsafe hai kyunki yeh aapki privacy ko khatre mein daal sakti hai."
+          },
+          {
+            "q": "Agar aapko kisi unknown email se message aaye, aapko kya karna chahiye?",
+            "a": "Us par click karna",
+            "b": "Usay ignore karna",
+            "c": "Usay forward karna",
+            "d": "Usay jawab dena",
+            "correct": "b",
+            "explanation": "Unknown emails se aane wale messages aksar spam ya phishing hote hain, is liye unhein ignore karna behtar hai."
+          },
+          {
+            "q": "Jab aap online game khelte hain, aapko kis cheez ka khayal rakhna chahiye?",
+            "a": "Sirf doston se baat karna",
+            "b": "Har kisi se milna",
+            "c": "Apna asli naam istemal karna",
+            "d": "Game mein kisi se bhi sunny na dena",
+            "correct": "a",
+            "explanation": "Online games mein sirf doston ke sath baat karna achi practice hai taake aap khud ko safe rakh sakein."
+          },
+          {
+            "q": "Password ko kis tareeqe se banana chahiye?",
+            "a": "Asaan aur wahid naam",
+            "b": "Complex aur unique",
+            "c": "Sirf 123456",
+            "d": "Kuch bhi nahi",
+            "correct": "b",
+            "explanation": "Password ko complex aur unique banana chahiye taake koi aasanise hack na kar sake."
+          },
+          {
+            "q": "Cyberbullying ka kya matlab hai?",
+            "a": "Doston ke sath mazak karna",
+            "b": "Online dauraan kisi ko takleef dena",
+            "c": "Acha online behavior",
+            "d": "Kisi ko online sharminda karna",
+            "correct": "b",
+            "explanation": "Cyberbullying se murad hai kisi ko online dauraan takleef dena jo ke bilkul galat hai."
+          }
+        ]
+      }
+    }
+  ]
+}

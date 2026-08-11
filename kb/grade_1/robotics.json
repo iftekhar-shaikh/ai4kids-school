@@ -1,0 +1,482 @@
+{
+  "subject": "robotics",
+  "name": "Automation & Robotics",
+  "teacher": "Robotics Ustaad",
+  "grade": 1,
+  "topics": [
+    {
+      "title": "Machine kya hai?",
+      "description": "Simple machines — lever, wheel",
+      "lesson": "## HOOK\nAcha Student, kabhi socha hai ke humari tazurbaat mein machines kis tarah se madad karti hain? Jaise rickshaw jo hamesha bazaar tak humein le jaata hai, ya woh chashni jo biryani ko aur bhi mazaydaar banati hai. Chalo dekhte hain ke machines kya hoti hain!\n\n## SAMJHAO\nMachine ek aisi cheez hai jo kaam ko asan banane ke liye banayi jati hai. Ye kisi bhi tareeqe se kaam kar sakti hain, jaise kuch machines khud chalti hain aur kuch ko humein chalana padta hai. Machines ke khoj se insaan ki zindagi mein bohot badlav aaye hain.\n\nEk simple machine ka udaharan hai lever. Lever ek aisi rod hai jo ek point par ghoomti hai, jisse humein mushkil kaamon ko asan karne mein madad milti hai. Jese ek taraf se zyada weight hon aur doosri taraf thoda, to lever usse upar karne mein madad karta hai.\n\nDusra udaharan hai wheel. Wheel ek gol cheez hai jo ghoom sakti hai. Jab hum ek wheel ko ghoomate hain, to iski madad se ek bhaari cheez asaani se chal sakti hai. Jaise ek cycle ya rickshaw, ye sab wheel ki wajah se chalte hain.\n\nIn dono machines ka istamal hum rozana ki zindagi mein karte hain. Ye machines humari zindagi ko aasan banati hain aur humein kaam karne mein madad karti hain.\n\n## MISAAL\nSocho, jab tum bazaar jaate ho aur wahan sabzi bechne wale logo ko dekhte ho. Woh naujawan lever ka istemal karke bhaari bhaari sabzi ko upar uthaate hain. Jab woh sabzi ko bech rahe hote hain, tab unka kaam lever ki wajah se asan hota hai, aur unhe zyada mehnat nahi karni padti. \n\n## KARO\nAb tum ghar ya school mein ek chhoti si activity kar sakte ho. Koi choti si cheez, jaise ek kitaab ya khilona, uthao. Usko ek chhoti si rod ya stick par rakh kar, usko ek taraf se push karo. Dekho ke kaise wo cheez aasani se uthti hai, jaise lever ka kaam. Ab tum socho ke agar bina lever ke tumhe woh cheez uthani hoti, to kitni mushkil hoti!\n\n## SAWAAL\n1. Machine kya hoti hai? Thoda samjhao.\n2. Lever aur wheel ka kya kaam hai?\n3. Apne aas paas kisi machine ka udaharan do aur batayein ke wo kaise kaam karti hai.\n\nRobotics Ustaad",
+      "quiz": {
+        "title": "Machine kya hai? Quiz",
+        "questions": [
+          {
+            "q": "Machine kya hoti hai?",
+            "a": "Aise tools jo kaam asaan karte hain",
+            "b": "Aise tools jo zindagi ko mushkil karte hain",
+            "c": "Aise tools jo sirf khilone hain",
+            "d": "Aise tools jo sirf khana banate hain",
+            "correct": "a",
+            "explanation": "Kyun sahi hai: Machine wo tools hote hain jo humare kaam ko asaan aur tezi se karte hain."
+          },
+          {
+            "q": "Lever kis cheez ko kehte hain?",
+            "a": "Aik aisa machine jo ek taraf se daba kar doosri taraf se cheez uthata hai",
+            "b": "Ek ghoomaane wala part",
+            "c": "Aik bhari cheez",
+            "d": "Aik chhoti si machine",
+            "correct": "a",
+            "explanation": "Kyun sahi hai: Lever ek aisi machine hai jo ek taraf se force lagane par doosri taraf se cheez uthata hai."
+          },
+          {
+            "q": "Wheel kis kaam ke liye istemal hoti hai?",
+            "a": "Gadi chalane ke liye",
+            "b": "Khana pakane ke liye",
+            "c": "Ghar saaf karne ke liye",
+            "d": "Padhai karne ke liye",
+            "correct": "a",
+            "explanation": "Kyun sahi hai: Wheel ka istemal gadee ya cycle chalane ke liye hota hai."
+          },
+          {
+            "q": "Lever ka sabse aasan misaal kya hai?",
+            "a": "Ek rukhi hui chhadi jo patang uthati hai",
+            "b": "Ek khilauna",
+            "c": "Paani ka glass",
+            "d": "Ek chhoti si gaddi",
+            "correct": "a",
+            "explanation": "Kyun sahi hai: Ek rukhi hui chhadi ko use karke hum asaani se patang ko utha sakte hain."
+          },
+          {
+            "q": "Wheel kis cheez se juda hoti hai?",
+            "a": "Gari ya cycle",
+            "b": "Ghar ka chhat",
+            "c": "Khilone",
+            "d": "Kitabon",
+            "correct": "a",
+            "explanation": "Kyun sahi hai: Wheel ka istemal aksar gari ya cycle mein hota hai, jo chalane mein madad karte hain."
+          }
+        ]
+      },
+      "emoji": "🤖",
+      "text_simple": "Machine ek aisi cheez hai jo kaam ko asan karti hai. Jaise rickshaw humein bazaar le jata hai. Lever aur wheel bhi machines hain. Lever se hum bhaari cheez utha sakte hain. Wheel se cycle aur rickshaw chalte hain. Ye sab machines humari zindagi ko aasan banate hain.",
+      "audio_text": "Machine ek aisi cheez hai jo kaam ko asan karti hai. Jaise rickshaw humein bazaar le jata hai. Lever aur wheel bhi machines hain. Lever se hum bhaari cheez utha sakte hain. Wheel se cycle aur rickshaw chalte hain. Ye sab machines humari zindagi ko aasan banate hain.",
+      "simple_quiz": [
+        {
+          "emoji": "❓",
+          "question_short": "Machine kis cheez ko asan karti hai?",
+          "options": [
+            {
+              "emoji": "🚲",
+              "text": "Kaam"
+            },
+            {
+              "emoji": "🍚",
+              "text": "Biryani"
+            },
+            {
+              "emoji": "🏏",
+              "text": "Cricket"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "title": "Robot kya karta?",
+      "description": "Robots kya kar sakte hain",
+      "lesson": "## HOOK\nAaj hum baat karne wale hain robots ke baare mein! Socho agar tumhara chhota bhai ya behan ek robot hota, to kya woh tumhare ghar ki saaf safai kar sakta tha? Ya phir kya woh tumhare saath cricket khel sakta tha?\n\n## SAMJHAO\nRobots aise machines hain jo logon ki madad karte hain. Yeh machines kuch khaas kaam karne ke liye design kiye gaye hain. Jab bhi koi kaam repeat hota hai ya mushkil hota hai, wahan robot aata hai. Robot ek computer ki tarah hai jo kuch programs ke zariye kaam karta hai.\n\nRobots bahut tarah ke hote hain. Koi robot ghar ki cleaning karta hai, jaise vacuum cleaner robot. Dusre robots manufacturing plants mein kaam karte hain, jahan yeh cheezen assemble karne mein madad karte hain. Kayi robots medical field mein bhi hain jo doctors ki madad karte hain surgeries mein.\n\nPackaged meals banane wale restaurants mein bhi robots hotay hain jo khaana tayyar karne ka kaam karte hain. Yeh sab robots humein zindagi ko aasaan banane mein madad karte hain. Iska matlab hai ki robots sirf ek machine nahi hain, balki yeh humare doston ki tarah hote hain jo har waqt madad karte hain!\n\nHamari zindagi mein robots ki kami nahi hai, chahe woh ghar ho, school ya bazaar. Yeh humare kaam ko tezi se karne mein madad karte hain aur humein zyada waqt dete hain apne hobbies ya doston ke saath guzaarne ke liye.\n\n## MISAAL\nImagine karo, tumhe apne ghar se bazaar jaana hai biryani kharidne ke liye. Ek robot rickshaw tumhe bazaar tak le ja sakta hai, saath hi traffic ka khayal rakhte hue. Jab tum bazaar pahunchtay ho, robot khud bhi items kharid kar tumhara kaam asaan kar sakta hai, jaise kuch samaan uthana ya payment karna. \n\n## KARO\nGhar par ek choti si activity karo! Ek box ya toy se ek chhota robot banao. Us box ko design karne ke liye paper, markers, aur glue use kar sakte ho. Is robot ka naam rakho, aur socho ke yeh kya kya kar sakta hai. Fir us robot ka ek khalaasan likho ke yeh kis kis kaam mein aata. Jaise, \"Mera robot khana bana sakta hai\" ya \"Mera robot kis kis tarah se madad kar sakta hai.\"\n\n## SAWAAL\n1. Robot kya hota hai? Ek do examples do.\n2. Tumhara robot kya kar sakta hai? Do kaam batao.\n3. Robots kis kis jagah par istemal hote hain? \n\nRobotics Ustaad.",
+      "quiz": {
+        "title": "Robot kya karta? Quiz",
+        "questions": [
+          {
+            "q": "Robot kis kaam ke liye istemal hota hai?",
+            "a": "Khilone banana",
+            "b": "Mazaq karna",
+            "c": "Bachon ko padhaana",
+            "d": "Khud chalay jaana",
+            "correct": "a",
+            "explanation": "Robot khilone bananay mein kaam ke liye istemal hote hain."
+          },
+          {
+            "q": "Robot kis kaam mein madadgar ho sakta hai?",
+            "a": "Khana pakana",
+            "b": "Taalim dena",
+            "c": "Maqalat likhna",
+            "d": "Gari chalana",
+            "correct": "b",
+            "explanation": "Kuch robots talim dene mein madadgar hote hain."
+          },
+          {
+            "q": "Robot kis cheez ko behtar kar sakta hai?",
+            "a": "Jungle ki safai",
+            "b": "Khush ghamzi",
+            "c": "Khilone khilana",
+            "d": "Dost banana",
+            "correct": "c",
+            "explanation": "Kuch robots khilone khilana mein behtar hote hain."
+          },
+          {
+            "q": "Robot ka sab se bada faida kya hai?",
+            "a": "Kaam ko jaldi karna",
+            "b": "Taalim lena",
+            "c": "Hasi mazak karna",
+            "d": "Logo se dosti karna",
+            "correct": "a",
+            "explanation": "Robot ka sab se bada faida yeh hai ke yeh kaam ko jaldi karte hain."
+          },
+          {
+            "q": "Kya robot khud se soch sakta hai?",
+            "a": "Haan, hamesha",
+            "b": "Kabhi kabhi",
+            "c": "Nahi, sirf program kiya gaya hai",
+            "d": "Sirf din ke waqt",
+            "correct": "c",
+            "explanation": "Robot sirf usi cheez kaam kar sakta hai jo unhe program kiya gaya hai."
+          }
+        ]
+      },
+      "emoji": "🤖",
+      "text_simple": "Robot aise machines hain jo logon ki madad karte hain. Yeh ghar ki safai karte hain ya khana banate hain. Kayi robots factories mein bhi kaam karte hain. Yeh sab kaam mushkil hote hain. Robots humari zindagi ko aasaan banate hain. Woh humare dost hain jo har waqt madad karte hain!",
+      "audio_text": "Robot aise machines hain jo logon ki madad karte hain. Yeh ghar ki safai karte hain ya khana banate hain. Kayi robots factories mein bhi kaam karte hain. Yeh sab kaam mushkil hote hain. Robots humari zindagi ko aasaan banate hain. Woh humare dost hain jo har waqt madad karte hain!",
+      "simple_quiz": [
+        {
+          "emoji": "❓",
+          "question_short": "Robot kya karta hai?",
+          "options": [
+            {
+              "emoji": "🧹",
+              "text": "Ghar ki safai"
+            },
+            {
+              "emoji": "📚",
+              "text": "Taleem deta hai"
+            },
+            {
+              "emoji": "🎨",
+              "text": "Painting karta hai"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "title": "Sensor dost",
+      "description": "Sensors — robot ki aankhein aur kaan",
+      "lesson": "## HOOK\nBachon, kya aap ne kabhi socha hai ke humari robot dost kaise duniya ko dekhte hain? Kya aap jaante hain ke unhon ki aankhein aur kaan kya hain? Chalo, aaj hum Sensors ke bare mein seekhte hain!\n\n## SAMJHAO\nSensors wo chizain hain jo robots ko feel karne aur samajhne mein madad deti hain. Jaise insaanon ke paas aankhein hoti hain jo unhein dekhne mein madad deti hain, waise hi robots ke paas Sensors hote hain jo unhein duniya ka pata dete hain. \n\nAankhein dekhne ke liye hoti hain, lekin kuch robots kaan bhi rakhte hain jo unhein sunne mein madad karte hain. Yeh Sensors bahut chhote hote hain, lekin inki madad se robots aasani se samajh sakte hain ke unhein kya karna hai. \n\nMisaal ke taur par, agar ek robot ko kisi cheez ka samna karna hai, to wo apni Sensors ka istemal karke jaan lega ke vo cheez kya hai. Yeh waise hi hai jaise hum akash mein chand ko dekhte hain ya bhi koi awaz sunte hain. \n\nPakistan mein aksar chhoti chhoti robots banai ja rahi hain jinmein yeh Sensors istemal kiye ja rahe hain. In Sensors ki madad se robots akelay kaam karte hain.\n\n## MISAAL\nSocho, ek chhoti si robot jo bazaar mein chakkar laga rahi hai. Uske paas ek Sensor hai jo use yeh bata raha hai ke log uske aas paas hain ya koi cheez uske raste mein aa rahi hai. Jaise hi koi customer aata hai, robot use scan karti hai aur agar usse kisi cheez ki zarurat hai to wo khud hi us customer ki taraf jaati hai!\n\n## KARO\nAb aapko ek chhoti si activity karni hai. Ghar par ya school mein chhoti chhoti cheezain chunain, jaise ek khilauna, kitab, ya ek phool. Phir dekhein ke woh cheezain kaise alag alag jagah par rakhkar aap unhein dekh sakte hain bina unhein haath lagaye. Yeh aapke liye Sensors ko samajhne ka aik tareeqa hoga!\n\n## SAWAAL\n1. Sensors kya hain aur yeh robots ko kaise madad dete hain?\n2. Kya sensors robots ki aankhein hain, ya kuch aur?\n3. Aapke khayal se, ek robot bazaar mein kaise kaam karta hai?\n\nRobotics Ustaad",
+      "quiz": {
+        "title": "Sensor dost Quiz",
+        "questions": [
+          {
+            "q": "Robot ki aankhein kis cheez ko dekhne mein madad karti hain?",
+            "a": "Rang",
+            "b": "Mehman",
+            "c": "Taqdeer",
+            "d": "Roshni",
+            "correct": "a",
+            "explanation": "Robot ki aankhein rang aur cheezon ko pehchanne mein madad karti hain."
+          },
+          {
+            "q": "Robot ke kaan kis cheez ko sunne ke liye hote hain?",
+            "a": "Ghar ki awaz",
+            "b": "Duniya ki awaz",
+            "c": "Mausam",
+            "d": "Khud ki awaz",
+            "correct": "b",
+            "explanation": "Robot ke kaan duniya ki awazein sunne ke liye hote hain."
+          },
+          {
+            "q": "Kya sensors sirf robot ke liye hain?",
+            "a": "Haan",
+            "b": "Nahin",
+            "c": "Kabhi kabhi",
+            "d": "Humans ke liye",
+            "correct": "b",
+            "explanation": "Sensors sirf robots ke liye nahin, balke insano aur doosre asbaab ke liye bhi hain."
+          },
+          {
+            "q": "Robot ki aankhein kis tarah kaam karti hain?",
+            "a": "Roshni ko dekh kar",
+            "b": "Khud se",
+            "c": "Hawa se",
+            "d": "Doston se",
+            "correct": "a",
+            "explanation": "Robot ki aankhein roshni ko dekh kar cheezein pehchan leti hain."
+          },
+          {
+            "q": "Kya robot ke kaan har awaaz sun sakte hain?",
+            "a": "Haan, har awaaz",
+            "b": "Nahin, sirf kuch awaz",
+            "c": "Kabhi kabhi",
+            "d": "Koi bhi nahin",
+            "correct": "b",
+            "explanation": "Robot ke kaan sirf kuch specific awazein sunte hain."
+          }
+        ]
+      },
+      "emoji": "🤖",
+      "text_simple": "Bachon, sensors wo chizain hain jo robots ko dekhne aur sunne mein madad deti hain. Jaise insaanon ki aankhein hoti hain, waise hi robots ke paas sensors hote hain. Agar ek robot bazaar mein hai, to wo apne sensor se dekh sakta hai ke kya ho raha hai. Yeh sensors chhote hote hain, lekin bahut kaam ke hote hain.",
+      "audio_text": "Bachon, sensors wo chizain hain jo robots ko dekhne aur sunne mein madad deti hain. Jaise insaanon ki aankhein hoti hain, waise hi robots ke paas sensors hote hain. Agar ek robot bazaar mein hai, to wo apne sensor se dekh sakta hai ke kya ho raha hai. Yeh sensors chhote hote hain, lekin bahut kaam ke hote hain.",
+      "simple_quiz": [
+        {
+          "emoji": "❓",
+          "question_short": "Sensors kis cheez ki madad karte hain?",
+          "options": [
+            {
+              "emoji": "👀",
+              "text": "Dekhne aur sunne"
+            },
+            {
+              "emoji": "🎵",
+              "text": "Gaane mein"
+            },
+            {
+              "emoji": "🚗",
+              "text": "Chalane mein"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "title": "Motor chalo!",
+      "description": "Motor kaise ghoomta hai",
+      "lesson": "## HOOK\nBachon, kya aapne kabhi socha hai ke aapke ghar ke fan ya rickshaw kaise ghoomta hai? Yeh sab kuch motor ki wajah se hota hai! Aaj hum seekhenge \"Motor chalo!\" aur dekhenge ke yeh motors kis tarah se ghoomti hain.\n\n## SAMJHAO\nChalo, sabse pehle samajhte hain ke motor kya hota hai. Motor aik aisi machine hai jo energy ko movement mein tabdeel karti hai. Jab aap kisi motor ko power dete hain, to yeh energy se ghoomna shuru karti hai. \n\nAb baat karte hain ke motor kaise kaam karti hai. Motor ke andar do main cheezein hoti hain: stator aur rotor. Stator woh hota hai jo kahin nahi hila, jabke rotor woh hota hai jo ghoomta hai. Jab stator aur rotor ko electricity milti hai, to rotor ghoomta hai!\n\nElectric motor ko chalane ke liye humein power ki zarurat hoti hai. Yeh power 220 volts ki electricity ya batteries se mil sakti hai. Jab hum switch on karte hain, to power motor tak pohanchti hai aur yeh ghoomne lagti hai.\n\nMatlab yeh, agar hum koi chhoti si robot banaen jisme motor ho, to woh bhi ghoom sakti hai! Hum yeh kar sakte hain apne chhote projects mein. Yani, motor sirf machines mein nahi, balki humare daily life mein bhi bahut important hai.\n\n## MISAAL\nAgar aap bazaar mein jaayen, to wahan aapko bohot si cheezein chalte-hue nazar aati hain. Jaise ke rickshaw, jo motor ki wajah se chalta hai. Jab rickshaw ki motor on hoti hai, to yeh aage badhta hai aur aapka safar asaan banata hai. \n\n## KARO\nAb hum ek simple activity karte hain. Aapko ghar par aik chhoti si toy car ki motor ko dekhna hai. Dekhein ke jab aap battery lagate hain, to woh kaise ghoomti hai. Agar aapke paas motor nahi hai, to aap apne cycle ka bell bhi dekh sakte hain - jab aap usay dabaate hain, to yeh kyu ghoomta hai!\n\n## SAWAAL\n1. Motor ka kya kaam hai?\n2. Stator aur rotor mein kya faraq hai?\n3. Aapne kis cheez ki motor dekhi aur usay kaise chalaya?\n\nKhuda Hafiz, \nRobotics Ustaad",
+      "quiz": {
+        "title": "Motor chalo! Quiz",
+        "questions": [
+          {
+            "q": "Motor kya cheez hai?",
+            "a": "Ek aisi cheez jo kaam karti hai.",
+            "b": "Ek khilona.",
+            "c": "Ek paani ka jug.",
+            "d": "Ek khana.",
+            "correct": "a",
+            "explanation": "Motor ek aisi cheez hai jo energy ko movement mein tabdeel karti hai."
+          },
+          {
+            "q": "Motor kis liye istemal hoti hai?",
+            "a": "Ghar ke kaamon ke liye.",
+            "b": "Khilono ke liye.",
+            "c": "Pani bharne ke liye.",
+            "d": "Sab options sahi hain.",
+            "correct": "d",
+            "explanation": "Motor ka istemal ghar ke kaamon, khilono, aur bohot si cheezein karne ke liye hota hai."
+          },
+          {
+            "q": "Motor ko ghoomne ke liye kya chahiye?",
+            "a": "Bijli.",
+            "b": "Paani.",
+            "c": "Dhoondhna.",
+            "d": "Waqt.",
+            "correct": "a",
+            "explanation": "Motor ko chalane ke liye bijli ki zaroorat hoti hai."
+          },
+          {
+            "q": "Motor kis cheez se chalti hai?",
+            "a": "Electronics se.",
+            "b": "Aam khilone se.",
+            "c": "Puraani kitaabon se.",
+            "d": "Roti se.",
+            "correct": "a",
+            "explanation": "Motor electronics se chalti hai jisme wires aur circuits shamil hote hain."
+          },
+          {
+            "q": "Motor ka istemal kis kis cheezon mein hota hai?",
+            "a": "Caron mein.",
+            "b": "Fan mein.",
+            "c": "Khilono mein.",
+            "d": "Sab options sahi hain.",
+            "correct": "d",
+            "explanation": "Motor ka istemal car, fan aur khilono mein hota hai."
+          }
+        ]
+      },
+      "emoji": "🚗",
+      "text_simple": "Bachon, motor ek machine hai jo ghoomti hai. Jab hum isay power dete hain, to yeh chalti hai. Motor ka do hissa hota hai: stator aur rotor. Stator nahi ghoomta, lekin rotor ghoomta hai. Yeh humari machines aur robots mein bhi hoti hai. Jab switch on karte hain, to motor ghoomne lagti hai!",
+      "audio_text": "Bachon, motor ek machine hai jo ghoomti hai. Jab hum isay power dete hain, to yeh chalti hai. Motor ka do hissa hota hai: stator aur rotor. Stator nahi ghoomta, lekin rotor ghoomta hai. Yeh humari machines aur robots mein bhi hoti hai. Jab switch on karte hain, to motor ghoomne lagti hai!",
+      "simple_quiz": [
+        {
+          "emoji": "❓",
+          "question_short": "Motor kya karti hai?",
+          "options": [
+            {
+              "emoji": "🔄",
+              "text": "Ghoomti hai"
+            },
+            {
+              "emoji": "💤",
+              "text": "Soti hai"
+            },
+            {
+              "emoji": "🛑",
+              "text": "Rukti hai"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "title": "Traffic light",
+      "description": "Traffic signal kaise kaam karta hai",
+      "lesson": "## HOOK\nKya aap ne kabhi socha hai ke traffic light, jo hum har roz dekhte hain, kaise kaam karti hai? Agar ye na hoti, toh logon ka traffic kitna zyada messy hota! Socho, agar aap ko bazaar jatey waqt traffic ka dhyan nahi rakhna hota, toh kya hota?\n\n## SAMJHAO\nTraffic light ek aisi system hai jo gaadiyon aur pedestrian (logon) ko sahi waqt par rukne ya chalne ka signal deti hai. Is mein teen rang hotay hain: laal, peela aur hara.\n\nJab traffic light laal hoti hai, toh iska matlab hai ke gaadiyon ko rukna hai. Is waqt pedestrians ko chalne ki ijaazat hoti hai. Toh isi liye, jab aap laal light dekhte hain, toh aapko khud ko safe rakhna chahiye aur ruk jana chahiye.\n\nPhir jab traffic light peeli hoti hai, toh iska matlab hota hai ke gaadiyon ko tayar hona chahiye. Ye signal unhain batata hai ke kuch hi der mein light hara hone wali hai. Is waqt, agar aap odd bikhar rahe hain, toh aapko thoda sochna chahiye ke aage badhna hai ya nahi.\n\nAakhir mein, jab traffic light hara hoti hai, toh gaadiyon ko chalne ka signal diya jata hai. Ye waqt hota hai jab gaadiyan aage barh sakti hain, aur pedestrians ko ruk jana chahiye.\n\nIs trah se, traffic light har kisi ko yahaan tak sahi waqt par chalne ka aur rukne ka mauka deti hai, jisse traffic safe aur organized rehta hai.\n\n## MISAAL\nJab aap bazaar jate hain, toh aap dekhte hain ke har taraf log hain aur gaadiyan chal rahi hain. Traffic lights sunischit karti hain ke sab kuch order mein ho. Agar aap bazaar ke charon taraf traffic lights ko dhyan se dekhein, toh aap samjhein ge ke kab logon ko chalna hai aur kab gaadiyon ko rukna hai. Is se bazaar mein confusion nahi hoti.\n\n## KARO\nGhar ya school mein, ek simple traffic light banane ki activity karein. Aapko sirf colors ke paper aur kuch sticks chahiye honge. Laal, peela aur hara rang ka paper lein aur inhein choti choti circles mein kaat kar sticks par chipka dein. Phir, jab aapke dost ya family members aakar dekhein, aap unhein samjha sakte hain ke kaise traffic lights kaam karti hain.\n\n## SAWAAL\n1. Traffic light mein kitne rang hotay hain aur unka kya matlab hai?\n2. Jab traffic light peeli hoti hai, toh humein kya karna chahiye?\n3. Traffic light ka kya faida hai jab hum bazaar ya sadak par jaate hain?\n\nRobotics Ustaad",
+      "quiz": {
+        "title": "Traffic light Quiz",
+        "questions": [
+          {
+            "q": "Traffic light ka laal rang kya batata hai?",
+            "a": "Ruk jao",
+            "b": "Chalo",
+            "c": "Tayyar ho jao",
+            "d": "Koi khaas nahi",
+            "correct": "a",
+            "explanation": "Laal rang hamesha rukne ka ishara deta hai."
+          },
+          {
+            "q": "Traffic light ka peela rang kis cheez ki nishani hai?",
+            "a": "Ruk jao",
+            "b": "Chalo par dekh kar",
+            "c": "Sida jao",
+            "d": "Gadi khadi karo",
+            "correct": "b",
+            "explanation": "Peela rang tayyari ya dekhne ka ishara hota hai."
+          },
+          {
+            "q": "Traffic light ka hara rang kya kahta hai?",
+            "a": "Ruk jao",
+            "b": "Chalo",
+            "c": "Zaroori nahi",
+            "d": "Sambhal ke",
+            "correct": "b",
+            "explanation": "Hara rang chalu hone ka sign hai."
+          },
+          {
+            "q": "Traffic light kisi kisi masail ke liye kyun zaroori hai?",
+            "a": "Trafik ko behtar karne ke liye",
+            "b": "Sirf decoration ke liye",
+            "c": "Acha nazar aane ke liye",
+            "d": "Ye sirf aik rang hai",
+            "correct": "a",
+            "explanation": "Traffic light se sadak par traffic ka flow behtar hota hai."
+          },
+          {
+            "q": "Traffic light par hamesha kaun dekhta hai?",
+            "a": "Driver",
+            "b": "Chowkidar",
+            "c": "Aik dost",
+            "d": "Koi nahi",
+            "correct": "a",
+            "explanation": "Driver hi signal par nazar rakhte hain taake wo sahih faisla kar sake."
+          }
+        ]
+      },
+      "emoji": "🚦",
+      "text_simple": "Traffic light teen rangon mein hoti hai: laal, peela aur hara. Jab laal hoti hai, toh gaadiyan rukti hain. Peela aata hai, toh gaadiyan tayar hoti hain. Jab hara hota hai, toh gaadiyan chalti hain. Ye sab logon aur gaadiyon ko safe rakhne ke liye hai.",
+      "audio_text": "Traffic light teen rangon mein hoti hai: laal, peela aur hara. Jab laal hoti hai, toh gaadiyan rukti hain. Peela aata hai, toh gaadiyan tayar hoti hain. Jab hara hota hai, toh gaadiyan chalti hain. Ye sab logon aur gaadiyon ko safe rakhne ke liye hai.",
+      "simple_quiz": [
+        {
+          "emoji": "❓",
+          "question_short": "Traffic light ke kitne rang hote hain?",
+          "options": [
+            {
+              "emoji": "🔴",
+              "text": "Teen rang"
+            },
+            {
+              "emoji": "🔵",
+              "text": "Do rang"
+            },
+            {
+              "emoji": "🟢",
+              "text": "Chaar rang"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "title": "Toy robot",
+      "description": "Apna toy robot design karo",
+      "lesson": "# Toy Robot — Apna Toy Robot Design Karo\n\n## HOOK\nKya aapne kabhi socha hai ke ek robot humari help kaisa kar sakta hai? Khayal kijiye agar aapka khilona robot aapke liye ghar ka kaam kar sake, ya aapke liye khana la sakta ho! \n\n## SAMJHAO\nAaj hum baat karenge toy robots ke bare mein. Toy robots wo chhote chhote machines hote hain jo humein khelne ke liye maza dete hain. Yeh robots kuch kaam kar sakte hain, jaise chalna, gaana gaana, ya bolna. \n\nHar toy robot ka apna design hota hai. Kuch robots sirf chal sakte hain, jabke kuch robots ko hum remote se control kar sakte hain. Yeh robots aksar battery se chalate hain, aur unke andar chhoti chhoti chips hoti hain jo unhein commands deti hain.\n\nAb sochiye, agar aap apna khud ka toy robot design kar sakte to wo kaisa hoga? Aap apne robot ko kis color ka banana chahenge? Kya wo gaana gaayega ya dance karega? Yeh sab sochne ki zaroorat hai jab aap apne robot ka design karte hain.\n\nEk toy robot ko design karne mein creativity bahut zaroori hai. Aap jo bhi design karain, usay banana ek fun activity hoti hai jismein aap apne doston aur family ke sath milkar kaam kar sakte hain.\n\n## MISAAL\nAgar hum Pakistan ki taraf dekhein, to Bachay jo bazaar se khilone lete hain, unmein bahut se toy robots hote hain. Kahi baar yeh robots sirf chalne ya bolne ka kaam karte hain. Aise khilone bazaar mein bahut popular hote hain, aur bachay inhein kharid kar khush hote hain!\n\n## KARO\nChalo ab milkar apna khud ka toy robot design karte hain! Is activity ke liye aap ko kuch chhoti chhoti cheezen chahiye: ek cardboard box, rang-birange color papers, scissors, aur glue. \n\n1. Sab se pehle, cardboard box ko lein aur usay apne robot ka body banayein.\n2. Ab us par apne pasand ke colors ka paper chipkayein.\n3. Aankhein aur mooh banane ke liye aur bhi chhoti cheezen jaise buttons ya stickers use karein.\n4. Robot ki arms aur legs bananay ke liye aap lambi paper strips ya straw use kar sakte hain.\n5. Jab aapka robot tayar ho jaye, to ise apne doston ke sath share karein!\n\n## SAWAAL\n1. Toy robot kya hota hai?\n2. Aap apne robot ko kaise design kar sakte hain?\n3. Pakistan ke kis bazaar mein aapne toy robots dekhe hain?\n\nAsha hai aapko yeh lesson pasand aaya hoga aur aap apne toy robot design karke enjoy karenge!\n\nRobotics Ustaad",
+      "quiz": {
+        "title": "Toy robot Quiz",
+        "questions": [
+          {
+            "q": "Aap ka toy robot kis kaam ke liye hai?",
+            "a": "Khelne ke liye",
+            "b": "Ghar ka kaam karne ke liye",
+            "c": "Sikhne ke liye",
+            "d": "Sab ke liye",
+            "correct": "a",
+            "explanation": "Yeh toy robot bacho ke liye hai taake wo khel sakein."
+          },
+          {
+            "q": "Aap apne toy robot ka rang kya rakhein ge?",
+            "a": "Laal",
+            "b": "Neela",
+            "c": "Sabz",
+            "d": "Peela",
+            "correct": "b",
+            "explanation": "Neela rang zyada pasandida hai bacho mein."
+          },
+          {
+            "q": "Aap toy robot ki size kaisa rakhna chahenge?",
+            "a": "Chhota",
+            "b": "Bara",
+            "c": "Bohot bara",
+            "d": "Bohot chhota",
+            "correct": "c",
+            "explanation": "Bohot bara robot zyada maza dega."
+          },
+          {
+            "q": "Toy robot ko kaise control kiya ja sakta hai?",
+            "a": "Remote se",
+            "b": "Haath se",
+            "c": "Aankhon se",
+            "d": "Dimaag se",
+            "correct": "a",
+            "explanation": "Remote se control karna asaan hota hai."
+          },
+          {
+            "q": "Aap apne toy robot ko kahan use karna chahenge?",
+            "a": "Ghar mein",
+            "b": "School mein",
+            "c": "Bahaar",
+            "d": "Sab jagah",
+            "correct": "d",
+            "explanation": "Sab jagah use karne se mazeed fun milega."
+          }
+        ]
+      },
+      "emoji": "🤖",
+      "text_simple": "Kya aapne toy robot dekha hai? Yeh chhote machines hote hain. Yeh chal sakte hain ya gaana ga sakte hain. Aap apna robot design kar sakte hain. Uska color kya hoga? Kya wo dance karega? Design karna maza aata hai!",
+      "audio_text": "Kya aapne toy robot dekha hai? Yeh chhote machines hote hain. Yeh chal sakte hain ya gaana ga sakte hain. Aap apna robot design kar sakte hain. Uska color kya hoga? Kya wo dance karega? Design karna maza aata hai!",
+      "simple_quiz": [
+        {
+          "emoji": "❓",
+          "question_short": "Toy robot kya kar sakta hai?",
+          "options": [
+            {
+              "emoji": "🎶",
+              "text": "Gaana gaana"
+            },
+            {
+              "emoji": "🚗",
+              "text": "Ghar jana"
+            },
+            {
+              "emoji": "🍔",
+              "text": "Khana banana"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    }
+  ]
+}

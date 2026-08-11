@@ -1,0 +1,482 @@
+{
+  "subject": "science",
+  "name": "General Science",
+  "teacher": "Science Sir",
+  "grade": 1,
+  "topics": [
+    {
+      "title": "Mera jism",
+      "description": "Jism ke hisse aur unke kaam",
+      "lesson": "## HOOK\nBachay, kabhi kabhi hum sochte hain ke jab hum cricket khelte hain ya chaat khate hain, to humein kis tarah se apne jism ki hifazat karni chahiye? Aaj hum apne jism ke hisse aur unke kaamon ke bare mein jaanenge!\n\n## SAMJHAO\nSab se pehle, chalo samajhte hain ke jism ke kya kya hisse hote hain. Hamara jism do main hisse mein taqseem hota hai: upper body aur lower body. Upper body mein humare sir, haath aur seena shamil hain. Lower body mein hamari legs aur pairo ka hisaab hota hai. \n\nAb hum dekhte hain ke har hisa ka kya kaam hai. Sir humare liye sochne aur bolne ka kaam karta hai. Haath hume cheezon ko pakadne, likhne aur khelne mein madad dete hain. Seena jo hai woh hamare dil aur lungs ko sambhalta hai, jo zinda rehne ke liye bahut zaroori hain.\n\nPhir aate hain lower body ki taraf. Hamari legs hume chalne, daudne aur khelne mein madad deti hain. Jab hum bazaar jaate hain ya cricket khelte hain, to legs ki madad se hi yah sab mumkin hota hai. Aur hamare pairo mein kuch special muscles hote hain jo hume upar uthne ya jump karne ke liye madad karte hain.\n\nHar hisa apne kaam mein bohat ahmiyat rakhta hai. Isliye humein apne jism ka khayal rakhna chahiye. Mazboot jism se hi hum healthy aur khush reh sakte hain.\n\n## MISAAL\nChalo, sochte hain! Jab hum bazaar jaate hain to bechne wale achi biryani bech rahe hote hain. Us waqt humare sir me yeh soch rahe hote hain ke hum kya khareedna chahte hain. Haath use karte hain taake biryani ka dabba pakad saken. Aur jab hum ghar jaate hain, to legs se chalte hain. Is tarah se hum apne jism ke har hisse ka istemal karte hain.\n\n## KARO\nAb aapko apne jism ke hisse ko pehchaanne ka ek mazaidar activity karna hai. Ghar mein ya school mein aik mirror (aaina) ke samne khade ho jao. Apne har hisse ko dekho aur unhe buland awaaz se bulao. Jaise “Yeh mera haath hai!” aur phir haath ko hilao. Phir “Yeh mera sir hai!” kaho aur sir ko ghooma do. Is tarah se aap apne jism ko jaan paoge aur seekh paoge.\n\n## SAWAAL\n1. Hamara sir kis cheez ke liye zaroori hai?\n2. Legs ka kya kaam hota hai?\n3. Aapne ghar par kis tarah se apne jism ke hisse ko dekha?\n\nKhuda Hafiz,  \nScience Sir",
+      "quiz": {
+        "title": "Mera jism Quiz",
+        "questions": [
+          {
+            "q": "Mere sar ka kaam kya hai?",
+            "a": "Sochna aur samajhna",
+            "b": "Chalna",
+            "c": "Sonne",
+            "d": "Khana khana",
+            "correct": "a",
+            "explanation": "Sar sochne aur samajhne ka kaam karta hai."
+          },
+          {
+            "q": "Mere haath ka kya kaam hai?",
+            "a": "Bachon ko paalna",
+            "b": "Dhoondna",
+            "c": "Khana banana",
+            "d": "Uthana",
+            "correct": "c",
+            "explanation": "Haath khana banane aur kaam karne mein madad dete hain."
+          },
+          {
+            "q": "Mere pair ka kaam kya hai?",
+            "a": "Khana",
+            "b": "Chalna aur daudna",
+            "c": "Sonne",
+            "d": "Dekhana",
+            "correct": "b",
+            "explanation": "Pair chalna aur daudna mein madad karte hain."
+          },
+          {
+            "q": "Mere dil ka kaam kya hai?",
+            "a": "Khoon ko pump karna",
+            "b": "Sochna",
+            "c": "Har waqt dhadakna",
+            "d": "Bhai se baat karna",
+            "correct": "a",
+            "explanation": "Dil khoon ko pump karne ka kaam karta hai."
+          },
+          {
+            "q": "Mere aankhon ka kaam kya hai?",
+            "a": "Deekhna",
+            "b": "Sunna",
+            "c": "Chalna",
+            "d": "Khaana",
+            "correct": "a",
+            "explanation": "Aankhein deekhne ka kaam karti hain."
+          }
+        ]
+      },
+      "emoji": "🧍",
+      "text_simple": "Mera jism do hisse mein hai: upper body aur lower body. Upper body mein sir, haath aur seena hain. Sir sochta hai, haath cheezen pakadte hain. Lower body mein legs aur pairo hain. Legs humein chalne aur daudne mein madad deti hain. Har hisa important hai, isliye humein apne jism ka khayal rakhna chahiye.",
+      "audio_text": "Mera jism do hisse mein hai: upper body aur lower body. Upper body mein sir, haath aur seena hain. Sir sochta hai, haath cheezen pakadte hain. Lower body mein legs aur pairo hain. Legs humein chalne aur daudne mein madad deti hain. Har hisa important hai, isliye humein apne jism ka khayal rakhna chahiye.",
+      "simple_quiz": [
+        {
+          "emoji": "❓",
+          "question_short": "Mera jism kitne hisse mein hai?",
+          "options": [
+            {
+              "emoji": "✌️",
+              "text": "Do hisse"
+            },
+            {
+              "emoji": "🖐️",
+              "text": "Teen hisse"
+            },
+            {
+              "emoji": "🔄",
+              "text": "Chaar hisse"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "title": "Paanch hasiyaat",
+      "description": "5 senses — dekhna, sunna, chhoona",
+      "lesson": "## HOOK\nBachon, kabhi socha hai ke humare paas kitni khaas hasiyaat hain jo hume duniya samajhne mein madad deti hain? Jaise jab aap bazaar jaate ho, to aap kasay sabziyon ki rangat aur khushboo kaise mehsoos karte ho? Chalo, aaj hum in paanch hasiyat ka maloom karte hain!\n\n## SAMJHAO\nPaanch hasiyaat hain: dekhna, sunna, chhoona, chakhna, aur mehsoos karna. In teens ka hissa hum aaj samjhenge: dekhna, sunna, aur chhoona.\n\nDekhna humari ankhon ka kaam hai. Jab aap kuch dekhte ho, jaise ek laal phool ya ek sundar badal, to aap us cheez ki rangat aur shakl ko samajh sakte ho. Aankhein humare liye duniya ko dekhne ka darwaza hain.\n\nSunna, yani awaz sunna. Jab aap doston ke saath khel rahe ho ya cricket ka match dekh rahe ho, aap ball ki awaaz ya doston ki hasi sun sakte ho. Yeh humari kaan ki madad se hota hai. \n\nChhoona, yani kisi cheez ko apne haath se chhuna. Jab aap ek garam roti ko chhote ho ya paani ka thanda glass uthaate ho, aap uski texture aur temperature mehsoos karte ho. Yeh humare haathon ke zariye hota hai.\n\n## MISAAL\nAgar aap bazaar jaate hain, to aap fresh sabziyan dekhte hain — unka rang hamesha chamakdaar hota hai. Aap unhe chhote hain aur mehsoos karte hain ke wo fresh hain. Kisi dukan par aata dekhte hain, uski khushboo bhi mehsoos karte hain, aur jab aap usse sunghte hain to ab aap dekh rahe hain ke ye aata kitna safed hai!\n\n## KARO\nGhar ya school mein ek chhoti si activity karo. Ek plate mein 3-4 alag alag cheezein rakho — jaise ek laal seb, ek kachumber (salad), aur ek kaep dekhne ke liye! Pehle unhe achhe se dekho, phir unhe chhuno, aur aakhir mein unki khushboo ko mehsoos karo. Phir socho ke yeh cheezein aapko kaisi lagti hain.\n\n## SAWAAL\n1. Aankhein kya kaam karti hain?\n2. Jab aap palm ko chhote hain, aap kya mehsoos karte hain?\n3. Sunne ki hasiyat kaise kam karti hai?\n\nScience Sir",
+      "quiz": {
+        "title": "Paanch hasiyaat Quiz",
+        "questions": [
+          {
+            "q": "Dekhne ki hasiyat ka kya matlab hai?",
+            "a": "Cheezon ko dekhna",
+            "b": "Cheezon ki khushbu mehsoos karna",
+            "c": "Cheezon ko chhoona",
+            "d": "Cheezon ki awaaz sunna",
+            "correct": "a",
+            "explanation": "Dekhne ki hasiyat ka matlab hai cheezon ko dekhna."
+          },
+          {
+            "q": "Sunne ki hasiyat ka kya matlab hai?",
+            "a": "Cheezon ko mehsoos karna",
+            "b": "Aawaaz ko sunna",
+            "c": "Cheezon ko khana",
+            "d": "Cheezon ko dekhna",
+            "correct": "b",
+            "explanation": "Sunne ki hasiyat ka matlab hai aawaaz ko sunna."
+          },
+          {
+            "q": "Chhoone ki hasiyat kis cheez se tafreeq karti hai?",
+            "a": "Awaaz se",
+            "b": "Rooh se",
+            "c": "Chizoon ki soorat se",
+            "d": "Cheezon ke rang se",
+            "correct": "c",
+            "explanation": "Chhoone ki hasiyat cheezon ki soorat se tafreeq karti hai."
+          },
+          {
+            "q": "Kya aap khushbu ko mehsoos karne ki hasiyat rakhte hain?",
+            "a": "Haan",
+            "b": "Nahi",
+            "c": "Kabhi kabhi",
+            "d": "Maloom nahi",
+            "correct": "a",
+            "explanation": "Khushbu ko mehsoos karne ki hasiyat rakhte hain."
+          },
+          {
+            "q": "Kaisa hai jab aap kisi meethi cheez ko chhoonte hain?",
+            "a": "Thanda",
+            "b": "Garam",
+            "c": "Meetha",
+            "d": "Sookha",
+            "correct": "d",
+            "explanation": "Kaisa hai jab aap kisi meethi cheez ko chhoonte hain, sookha mehsoos hota hai."
+          }
+        ]
+      },
+      "emoji": "👀",
+      "text_simple": "Bachon, paanch hasiyaat hain: dekhna, sunna, chhoona. Dekhna humari ankhon ka kaam hai. Jab aap ek laal phool dekhte ho, to aap uski rangat samajhte ho. Sunna ka matlab hai awaz sunna. Jab aap doston ki hasi sunte ho, to aap khush hote ho. Chhoona ka matlab hai kisi cheez ko haath se mehsoos karna. Jaise garam roti ko chhota hai.",
+      "audio_text": "Bachon, paanch hasiyaat hain: dekhna, sunna, chhoona. Dekhna humari ankhon ka kaam hai. Jab aap ek laal phool dekhte ho, to aap uski rangat samajhte ho. Sunna ka matlab hai awaz sunna. Jab aap doston ki hasi sunte ho, to aap khush hote ho. Chhoona ka matlab hai kisi cheez ko haath se mehsoos karna. Jaise garam roti ko chhota hai.",
+      "simple_quiz": [
+        {
+          "emoji": "❓",
+          "question_short": "Dekhna kis kaam se hota hai?",
+          "options": [
+            {
+              "emoji": "👁️",
+              "text": "Aankhein"
+            },
+            {
+              "emoji": "👂",
+              "text": "Kaan"
+            },
+            {
+              "emoji": "🤚",
+              "text": "Haath"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "title": "Janwar",
+      "description": "Ghar ke aur junglee janwar",
+      "lesson": "## HOOK\nAaj hum baat karenge janwaron ki! Kya aapne kabhi socha hai ke aapka paltoo kutta kis kisam ka janwar hai? Aur kya jungl mein rehne wale janwar aapke ghar aane ka soch bhi sakte hain? \n\n## SAMJHAO\nJanwar do qisam ke hote hain: Ghar ke janwar aur Junglee janwar. Ghar ke janwar woh hote hain jo hum apne ghar mein rakhte hain, jaise kutte, billi, aur parinday. Inko hum paal kar inke saath waqt guzarate hain. Yeh hamare dost hote hain aur hum inke khyaal rakhte hain.\n\nJunglee janwar woh hote hain jo zyada tar jungle ya khuli jagah par rehte hain. Ismein sher, hathi, aur bandar shamil hain. Yeh janwar azad hote hain aur apne natural habitats mein rehte hain. Inka khayal koi nahi rakhta aur yeh apne khud ke liye khana dhoondte hain. \n\nGhar ke janwar aur junglee janwar mein ek aham farq yeh hai ke ghar ke janwar insano ke saath zindagi guzar rahe hote hain jabke junglee janwar apni zindagi khud guzarne ke liye zinda rehte hain. \n\nHamara mulk Pakistan bhi alag-alag tarah ke janwaron se bhara hua hai. Aapko yahan lehrati hui genday, zinda khargosh aur jangalon mein chalte huye sher bhi milte hain. Har janwar ka apna ek ahem kirdar hai.\n\n## MISAAL\nSochiye, jab aap bazaar jaate hain, to aapko milti hain kitne saari chiriyan jo bazaar ke aas-paas udti rehti hain. Yeh chiriyan bazaar ke khane ki kisam kisam ki cheezon par aakar baith jati hain. Bazaar mein khana khareedte waqt aapne inhe dekha hoga, aur yeh bhi samjha hoga ke yeh bhi janwar hain jo hamare aas paas hain.\n\n## KARO\nChalo, ab hum ek activity karte hain! Aap ghar par ya school mein ek \"Janwar Ka Karta\" banayein. Ek kaghaz lein aur uspe ghar ke janwaron jaise kutte aur billi aur junglee janwaron jaise sher aur hathi ki tasveerain banayen. Is tarah aapko yeh samajh aayega ke har janwar kis kisam ka hota hai aur kahan rehta hai.\n\n## SAWAAL\n1. Ghar ke janwar aur junglee janwar mein kya farq hai?\n2. Aapke ghar mein kaunsa paltoo janwar hai?\n3. Pakistan mein kaunsa junglee janwar aapne dekha hai?\n\nAap sabse behtareen hain! Science Sir.",
+      "quiz": {
+        "title": "Janwar Quiz",
+        "questions": [
+          {
+            "q": "Ghar ka sab se aam janwar kaun sa hai?",
+            "a": "Billi",
+            "b": "Sher",
+            "c": "Hathi",
+            "d": "Ghar ka murgha",
+            "correct": "a",
+            "explanation": "Billi ghar me aam tor par paayi jaati hai."
+          },
+          {
+            "q": "Jungle ka sab se taiz janwar kaun sa hai?",
+            "a": "Ghar ka kutta",
+            "b": "Chita",
+            "c": "Billi",
+            "d": "Ghar ka bakri",
+            "correct": "b",
+            "explanation": "Chita jungle me sab se taiz daudta hai."
+          },
+          {
+            "q": "Ghar me sabziyan khaane wala janwar kaun sa hai?",
+            "a": "Khilari",
+            "b": "Billi",
+            "c": "Ghar ka kutta",
+            "d": "Ghar ka bakri",
+            "correct": "c",
+            "explanation": "Ghar ka kutta khud sabzi nahi khata lekin isse pyaar karta hai."
+          },
+          {
+            "q": "Sher ka asal habitat kahan hai?",
+            "a": "Ghar",
+            "b": "Jungle",
+            "c": "Khilari",
+            "d": "Pakwaan",
+            "correct": "b",
+            "explanation": "Sher jungle me rehta hai, wahi inka asal maqam hai."
+          },
+          {
+            "q": "Ghar ka sab se mazaedar janwar konsi hai?",
+            "a": "Ghar ka kutta",
+            "b": "Hathi",
+            "c": "Billi",
+            "d": "Ghar ka murgha",
+            "correct": "d",
+            "explanation": "Ghar ka murgha zyada tar khanay ke liye palte jate hain."
+          }
+        ]
+      },
+      "emoji": "🐶",
+      "text_simple": "Janwar do qisam ke hote hain: ghar ke janwar aur junglee janwar. Ghar ke janwar jaise kutta aur billi hote hain. Yeh hamare dost hote hain. Junglee janwar jaise sher aur hathi jungle mein rehte hain. Yeh azad hote hain aur khud khana dhoondte hain. Pakistan mein bohat se janwar hain.",
+      "audio_text": "Janwar do qisam ke hote hain: ghar ke janwar aur junglee janwar. Ghar ke janwar jaise kutta aur billi hote hain. Yeh hamare dost hote hain. Junglee janwar jaise sher aur hathi jungle mein rehte hain. Yeh azad hote hain aur khud khana dhoondte hain. Pakistan mein bohat se janwar hain.",
+      "simple_quiz": [
+        {
+          "emoji": "❓",
+          "question_short": "Ghar ke janwar kaun hain?",
+          "options": [
+            {
+              "emoji": "🐱",
+              "text": "Billi"
+            },
+            {
+              "emoji": "🐘",
+              "text": "Hathi"
+            },
+            {
+              "emoji": "🐅",
+              "text": "Sher"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "title": "Podhe",
+      "description": "Podhe ke hisse — jar, tana, patti, phool",
+      "lesson": "## HOOK\nAao dosto! Kya aap ne kabhi socha hai ke podhe kis tarah se zinda rehte hain? Kya aap ne apne ghar ke aangan mein ya bazaar mein podhon ko dekha hai? Haan, yeh podhe kitne khoobsurat hain na! \n\n## SAMJHAO\nPodhe har jagah maujood hain, aur yeh zindagi ka ek ahem hissa hain. Podhe do tarah ke hote hain: ek zaroori hissa, jo unhein zinda rakhta hai, aur doosra hissa, jo inhein khoobsurat banata hai. Har podhe ke chaar mukhya hissa hote hain: jar, tana, patti, aur phool.\n\n**Jar** podhe ka neeche wala hissa hota hai. Yeh zameen ke andar hota hai aur pani aur khurak ko podhe tak pohanchata hai. Jar podhe ko zinda rakhta hai.\n\n**Tana** podhe ka upar wala hissa hai. Yeh jar se patti tak jata hai. Tana podhe ko seedha rakhta hai aur patti aur phool ko support deta hai.\n\n**Patti** podhe ke sabse zaroori hisson mein se hai. Iska kaam roshni ko dharna hai. Patti ke zariye podha apni khurak banata hai. Yeh process \"Photosynthesis\" kehlata hai.\n\n**Phool** podhe ka sab se khoobsurat hisa hota hai. Phool ki rang-birangi khushboo aur sundarta inhein auron se alag banati hai. Phool podhe ki nayaayi yaane seeds (beejon) ko banana ka kaam bhi karte hain.\n\n## MISAAL\nChalo dosto, hum ek example lete hain! Jab aap bazaar jaate hain, wahan aap ko aam ke podhe milte hain. Aam ka podha jab bara hota hai to iski patti hara rang ki hoti hain aur jab yeh phool deta hai, toh baad mein aam banate hain. Is tarah, aam ke podhe ke jar, tana, patti, aur phool hain.\n\n## KARO\nAb aapko ghar ya school mein ek chhoti si activity karni hai. Koi bhi podha lo, jaise chhota sa paudh, aur iska jar, tana, patti aur phool ghin kar dekho. Ab jaldi se in parts ko ek paper par likho aur yeh batao ke kis part ka kya kaam hai. \n\n## SAWAAL\n1. Podhe ke kaun se chaar parts hain?\n2. Jar ka kya kaam hota hai?\n3. Phool kyun zaroori hain?\n\nScience Sir",
+      "quiz": {
+        "title": "Podhe Quiz",
+        "questions": [
+          {
+            "q": "Podhe ka sab se neeche wala hissa kya kehlata hai?",
+            "a": "Jar",
+            "b": "Tana",
+            "c": "Patti",
+            "d": "Phool",
+            "correct": "a",
+            "explanation": "Jar podhe ka sab se neeche wala hissa hota hai jo zameen ke andar hota hai."
+          },
+          {
+            "q": "Podhe ka hissa jo baahar se dekhai deta hai aur zameen ke upar hota hai usay kya kehte hain?",
+            "a": "Jar",
+            "b": "Tana",
+            "c": "Patti",
+            "d": "Phool",
+            "correct": "b",
+            "explanation": "Tana podhe ka wo hissa hai jo zameen ke upar hota hai aur is par pattiyan aur phool hote hain."
+          },
+          {
+            "q": "Podhe ki hangi cheez sooraj ki roshni se khurak banati hai?",
+            "a": "Jar",
+            "b": "Tana",
+            "c": "Patti",
+            "d": "Phool",
+            "correct": "c",
+            "explanation": "Patti sooraj ki roshni ko khurak mein tabdeel karti hai."
+          },
+          {
+            "q": "Phool ka kya maqasad hai?",
+            "a": "Beej banana",
+            "b": "Zameen thik karna",
+            "c": "Patti ko pakana",
+            "d": "Pani lena",
+            "correct": "a",
+            "explanation": "Phool ka maqasad beej banana hota hai taake naye podhe paida ho sakein."
+          },
+          {
+            "q": "Sab se pehli cheez jo podhe se nikalti hai, wo kya hai?",
+            "a": "Tana",
+            "b": "Phool",
+            "c": "Patti",
+            "d": "Jar",
+            "correct": "d",
+            "explanation": "Jar sab se pehli cheez hai jo podhe se nikalti hai jab wo beej se ugta hai."
+          }
+        ]
+      },
+      "emoji": "🌱",
+      "text_simple": "Podhe zinda rehte hain. Har podhe ke chaar hissa hote hain: jar, tana, patti, aur phool. Jar zameen mein hota hai. Tana podhe ko seedha rakhta hai. Patti roshni ko dharti hai. Phool khoobsurat hota hai aur beejon ko banata hai.",
+      "audio_text": "Podhe zinda rehte hain. Har podhe ke chaar hissa hote hain: jar, tana, patti, aur phool. Jar zameen mein hota hai. Tana podhe ko seedha rakhta hai. Patti roshni ko dharti hai. Phool khoobsurat hota hai aur beejon ko banata hai.",
+      "simple_quiz": [
+        {
+          "emoji": "❓",
+          "question_short": "Podhe ka sab se khoobsurat hissa kya hai?",
+          "options": [
+            {
+              "emoji": "🌸",
+              "text": "Phool"
+            },
+            {
+              "emoji": "🌿",
+              "text": "Patti"
+            },
+            {
+              "emoji": "🌳",
+              "text": "Tana"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "title": "Sehat aur safai",
+      "description": "Healthy khana, haath dhona",
+      "lesson": "## HOOK\nBaccho, kabhi socha hai ke kyun kuch log hamesha sehatmand rehte hain aur kuch log kamzor? Kya aapne dekha hai ke humare bazaar mein log kya khaate hain? \n\n## SAMJHAO\nHumari sehat kaafi cheezon par depend karti hai, aur unme se ek hai sehatmand khana. Sehatmand khana aisa khana hai jo humein taqat de. Yeh fruits, sabziyan, daalain aur doodh jese cheezein hain. Inhe khane se humare jism ki growth hoti hai aur hum zyada active rehte hain. \n\nAb baat karte hain haath dhone ki. Jab hum khana khate hain ya bahar jaate hain, to hamesha apne haath dhone chahiye. Isse germs aur bacteria khatam ho jaate hain jo beemariyaan faela sakte hain. Haath dhona sirf khana khane se pehle nahi, balki toilet use karne ke baad bhi bohot zaroori hai. \n\nAgar aap apne haath dhote hain to aap khud ko aur apne doston ko bimarion se bacha sakte hain. Isliye, hamesha sabun se achi tarah se haath dhona sikhna chahiye. Yeh ek aasan aur aham tareeqa hai sehatmand rehne ka.\n\nKhud ko sehatmand rakhne ke liye, sirf khana nahi, balki masroof rehna bhi zaroori hai. Khelna, daudna aur khush rehna bhi humari sehat ke liye acha hai. Isliye, hamesha healthy cheezon ka intikhab karein.\n\n## MISAAL\nSocho agar aap bazaar jaate hain aur wahan sabzi wale ke paas se fresh sabziyan lete hain, to aapne sehatmand khane ka intikhab kiya. Lekin agar aap wahan se chaat ya pakore lete hain, jo dher saare tel mein bane hote hain, to yeh aapki sehat ke liye acha nahi hai. Isliye, behtar yeh hai ke hum hamesha sehatmand khane ko chunen.\n\n## KARO\nGhar ya school mein ek \"Healthy Eating Chart\" banao. Is chart par un sabziyon, fruits aur grains ki pictures chipkaao jo aapko achi lagti hain. Phir inhe daily khane ki koshish karo. Saath mein, ek routine banao jisme aap haath dhone ka waqt zaroor rakhte hain, jaise khana khane se pehle aur toilet use karne ke baad.\n\n## SAWAAL\n1. Sehatmand khana kya hota hai?\n2. Haath dhone ki zaroorat kyun hai?\n3. Aap apne doston ko sehatmand khana kaise encourage kar sakte hain?\n\nScience Sir.",
+      "quiz": {
+        "title": "Sehat aur safai Quiz",
+        "questions": [
+          {
+            "q": "Meetha khana kaisa hota hai?",
+            "a": "Sehatmand",
+            "b": "Behtareen",
+            "c": "Bura",
+            "d": "Accha nahi",
+            "correct": "a",
+            "explanation": "Meetha khana agar kam khaya jaye to sehatmand hota hai."
+          },
+          {
+            "q": "Kahan par haath dhonay chahiye?",
+            "a": "Khane se pehle",
+            "b": "Sone se pehle",
+            "c": "Jab bhi man ho",
+            "d": "Jab bahir jaen",
+            "correct": "a",
+            "explanation": "Khane se pehle haath dhona zaroori hai takay koi germs na lage."
+          },
+          {
+            "q": "Sehatmand khane mein kya shamil hota hai?",
+            "a": "Sabziyan aur phal",
+            "b": "Crisps aur cold drink",
+            "c": "Chocolates",
+            "d": "Fast food",
+            "correct": "a",
+            "explanation": "Sabziyan aur phal sehatmand khane ke liye achi cheezen hain."
+          },
+          {
+            "q": "Aam khana kis cheez se milta hai?",
+            "a": "Doodh se",
+            "b": "Zaroori nahi",
+            "c": "Ghar par banto",
+            "d": "Sirf bazar se",
+            "correct": "a",
+            "explanation": "Doodh se aisa khana milta hai jo sehatmand hota hai."
+          },
+          {
+            "q": "Haath dho kar kya hota hai?",
+            "a": "Germs khatam hote hain",
+            "b": "Kuch nahi hota",
+            "c": "Aaram hota hai",
+            "d": "Saaf nahi hota",
+            "correct": "a",
+            "explanation": "Haath dhone se germs khatam hote hain aur khud ko sehatmand rakhta hai."
+          }
+        ]
+      },
+      "emoji": "🍏",
+      "text_simple": "Sehat aur safai bohot zaroori hain. Sehatmand khana khana chahiye. Fruits aur sabziyan khana se hum sehatmand rehte hain. Haath dhona bhi zaroori hai. Khaane se pehle aur toilet ke baad haath dhona chahiye. Is se germs khatam hote hain. Khelna aur daudna bhi sehat ke liye acha hai.",
+      "audio_text": "Sehat aur safai bohot zaroori hain. Sehatmand khana khana chahiye. Fruits aur sabziyan khana se hum sehatmand rehte hain. Haath dhona bhi zaroori hai. Khaane se pehle aur toilet ke baad haath dhona chahiye. Is se germs khatam hote hain. Khelna aur daudna bhi sehat ke liye acha hai.",
+      "simple_quiz": [
+        {
+          "emoji": "❓",
+          "question_short": "Haath kab dhone chahiye?",
+          "options": [
+            {
+              "emoji": "🧼",
+              "text": "Khaane se pehle"
+            },
+            {
+              "emoji": "🚶‍♂️",
+              "text": "Sone se pehle"
+            },
+            {
+              "emoji": "🧸",
+              "text": "Sirf school mein"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "title": "Mausam",
+      "description": "Dhoop, baarish, badal, hawa",
+      "lesson": "## HOOK  \nAap ko yaad hai jab aap ne last baar baarish mein khelna tha? Dhoond ke paani kaise beh raha tha? Aur phir suraj nikal aaya, to sab kuch kis tarah chamak raha tha? Mausam waqai mein bahut hi dilchasp hota hai!\n\n## SAMJHAO  \nMausam ka matlab hai woh halat jo humare aas paas hoti hain, jaise dhoop, baarish, badal, aur hawa. Jab din shuru hota hai, to kabhi kabhi suraj chamakta hai, jise hum dhoop kehte hain. Dhoop se sab kuch roshan hota hai aur humein garmi mehsoos hoti hai. \n\nKabhi kabhi hum dekhte hain ke aasman mein badal gharhate hain. Badal hawa mein udte hain aur jab unhein paani bhar jata hai to woh baarish ban jaate hain. Baarish bohot zaroori hai, kyunki yeh zameen ko tarbiyat deti hai aur paani ki zaroorat ko pura karti hai.\n\nHawa bhi ek aham hissa hai mausam ka. Jab hawa chalti hai to kadmon ki khushboo le aati hai ya kabhi kisi cheez ko uda deti hai. Aankhein band karke, aap hawa ko mehsoos kar sakte hain! \n\nMausam kis tarah badalta hai, yeh cheez bhi zaroor dekhni chahiye. Kabhi kabhi garmi hoti hai, kabhi thand, aur kabhi baarish ki wajah se sab kuch badal jaata hai.\n\n## MISAAL  \nChaliye, ab hum baat karte hain bazaar ki. Jab baarish hoti hai, to bazaar ki galiyaan paani se bhari hoti hain, logon ki chhatriyan khuli hoti hain aur chai walay chai bechne nikalte hain. Lekin jab dhoop nikalti hai, to sab log thande thande drinks lene nikalte hain! Yeh mausam ki badlaav ko dekhne ka behtareen example hai.\n\n## KARO  \nAb aapko ek chhoti si activity karni hai. Aap ghar ya school mein ek \"Mausam ka Chart\" banayein. Aapko roz mausam ko dekh kar yeh note karna hai ke aaj dhoop hai, baarish hai, ya badal hain. Har din ke liye ek chhoti si tasveer ya khichai banayein. Yeh mujhe agle lesson mein dikhaiye!\n\n## SAWAAL  \n1. Mausam ke kitne hisson ke baare mein hum ne seekha?  \n2. Badal jab paani bharte hain to kya banate hain?  \n3. Aapko sab se zyada konsa mausam pasand hai? Kyun?  \n\nKhush rahiye aur seekhte rahiye!  \nScience Sir",
+      "quiz": {
+        "title": "Mausam Quiz",
+        "questions": [
+          {
+            "q": "Dhoop kis mausam ka hissa hai?",
+            "a": "Garmi",
+            "b": "Sardi",
+            "c": "Baarish",
+            "d": "Badal",
+            "correct": "a",
+            "explanation": "Dhoop garmiyon mein zyada hoti hai."
+          },
+          {
+            "q": "Baarish kyun hoti hai?",
+            "a": "Jab hawa thandi hoti hai",
+            "b": "Jab badal bhar jaate hain",
+            "c": "Jab dhoop nahi hoti",
+            "d": "Jab hawa tez chalti hai",
+            "correct": "b",
+            "explanation": "Baarish tab hoti hai jab badal paani giraate hain."
+          },
+          {
+            "q": "Badal kis cheez se bante hain?",
+            "a": "Hawa se",
+            "b": "Dhoond se",
+            "c": "Paani se",
+            "d": "Ghar se",
+            "correct": "c",
+            "explanation": "Badal paani ke bhap se mil kar bante hain."
+          },
+          {
+            "q": "Hawa kis cheez ka asar hoti hai?",
+            "a": "Mausam par",
+            "b": "Dhoond par",
+            "c": "Bachon par",
+            "d": "Khilonaon par",
+            "correct": "a",
+            "explanation": "Hawa mausam ko badal deti hai."
+          },
+          {
+            "q": "Sardi kis mausam mein hoti hai?",
+            "a": "Garmi",
+            "b": "Baarish",
+            "c": "Badal",
+            "d": "Sardi",
+            "correct": "d",
+            "explanation": "Sardi uttarat zaal mein hoti hai."
+          }
+        ]
+      },
+      "emoji": "☀️",
+      "text_simple": "Mausam ka matlab hai aas paas ki halat. Jab dhoop hoti hai, to sab kuch chamakta hai. Baarish se zameen tarbiyat leti hai. Badal jab paani bharte hain, to baarish hoti hai. Hawa bhi mausam ka hissa hai. Garmi, thand, aur baarish se mausam badalta hai.",
+      "audio_text": "Mausam ka matlab hai aas paas ki halat. Jab dhoop hoti hai, to sab kuch chamakta hai. Baarish se zameen tarbiyat leti hai. Badal jab paani bharte hain, to baarish hoti hai. Hawa bhi mausam ka hissa hai. Garmi, thand, aur baarish se mausam badalta hai.",
+      "simple_quiz": [
+        {
+          "emoji": "❓",
+          "question_short": "Mausam kis cheez ka naam hai?",
+          "options": [
+            {
+              "emoji": "☀️",
+              "text": "Aas paas ki halat"
+            },
+            {
+              "emoji": "🌼",
+              "text": "Khilti phool"
+            },
+            {
+              "emoji": "🌧️",
+              "text": "Baarish ka paani"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    }
+  ]
+}

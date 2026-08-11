@@ -1,0 +1,338 @@
+{
+  "subject": "science",
+  "name": "General Science",
+  "teacher": "Science Sir",
+  "grade": 4,
+  "topics": [
+    {
+      "title": "Hazam ka nizam",
+      "description": "Digestive system",
+      "lesson": "## HOOK\nBachay, kabhi socha hai ke humare jism mein khana kaise hazam hota hai? Aap sab ne biryani toh khayi hogi, lekin kya aapne socha hai ke wo bina kisi mushkil ke aapki body mein kaise pahuncha?\n\n## SAMJHAO\nHazam ka nizam, yaani Digestive system, hamare jism ka wo nizam hai jo khane ko todta hai. Jab hum khana khate hain, wo hamare munh se shuru hota hai. Munh mein daant khane ko chhote hisson mein todte hain aur saliva, jo ke munh mein hota hai, khane ko wet karta hai takay yeh aasani se ghoont sakain.\n\nPhir khana galle se guzar kar esophagus ke zariye pet tak pahuncha jata hai. Pet mein khana enzymes ke saath milta hai jo isay aur behtar tareeqe se tod dete hain. Is process ko hum 'digestion' kehte hain. Pet ka kaam sirf khana todna nahi, balki ismay se nutrients ko absorb karna bhi hai, jo ke hamare jism ko energy dete hain.\n\nPet ke baad khana choti aant (small intestine) mein jata hai. Yahan par nutrients, vitamines aur minerals khoob absorb kiye jate hain. Is waqt khana itna chhota ho jata hai ke hamare jism ise aasani se istemal kar sakte hain. Baad mein, jo kuch bacha reh jata hai, wo badi aant (large intestine) mein jata hai, jahan se paani absorb hota hai aur phir bekaar ka saaman body se bahar nikaala jata hai.\n\nDihaan rahe, ke is poore process mein hamare liver aur pancreas bhi madad karte hain. Ye organs enzymes aur juices tayar karte hain jo digestion mein madad karte hain. \n\n## MISAAL\nAgar aap bazaar mein chaat khate hain, toh sabziyan, chutney aur papri ko jab aap bite karte hain, toh aapke munh se jo chewed khana pet tak jaata hai, wahi hazam ka nizam ka kaam shuru karta hai. Jaise hi yeh khana hazam hota hai, aapko maza aata hai, lekin aap nahi jaante ke aap kaise isay energy mein tabdeel karte hain!\n\n## KARO\nAb aap ghar par ek chhoti experiment kar sakte hain. Aap ek bread ka tukda lo aur use paani mein bhigo do. Kuch der tak ise rehne do. Phir dekho ke bread kitni jaldi mushkil hota hai. Yeh aapko yeh samjha dega ke hamara digestive system khanay ko kis tarah se gulr kar deta hai!\n\n## SAWAAL\n1. Hazam ka nizam kis process ko dikhata hai?\n2. Pehle khana kis organ se guzar kar pet tak pahuncha?\n3. Small intestine ka kya kaam hai digest karne mein?\n\nScience Sir",
+      "quiz": {
+        "title": "Hazam ka nizam Quiz",
+        "questions": [
+          {
+            "q": "Insaan ke hazam naamsystem ka pehla hissa kya hai?",
+            "a": "Munh",
+            "b": "Throat",
+            "c": "Stomach",
+            "d": "Intestine",
+            "correct": "a",
+            "explanation": "Munh se khana pehle chaba kar hazam hota hai."
+          },
+          {
+            "q": "Khane ko paushak padarthon me tabdeel karne wala ang kya hai?",
+            "a": "Heart",
+            "b": "Liver",
+            "c": "Stomach",
+            "d": "Kidney",
+            "correct": "c",
+            "explanation": "Maqsad hai khane ko hazam karna."
+          },
+          {
+            "q": "Intestine ka kaam kya hai?",
+            "a": "Khaana ghalat karna",
+            "b": "Paushak padarthon ko khichna",
+            "c": "Khud khana khana",
+            "d": "Kuch nahi",
+            "correct": "b",
+            "explanation": "Intestine paushak padarthon ko khich kar jism tak pohnchata hai."
+          },
+          {
+            "q": "Pachak aasu ka kya kaam hai?",
+            "a": "Khane ko chabaana",
+            "b": "Khaane ki paushak padarthon ko khojna",
+            "c": "Pachak padarthon ka amal",
+            "d": "Khane ko ghalat karna",
+            "correct": "c",
+            "explanation": "Pachak aasu khane ko hazam karne me madad karta hai."
+          },
+          {
+            "q": "Kya cheez hazam naamsystem ko khojti hai?",
+            "a": "Aam",
+            "b": "Doodh",
+            "c": "Kacha khana",
+            "d": "Sabzi",
+            "correct": "b",
+            "explanation": "Doodh hazam naamsystem ko takharak karne wale padarth hai."
+          }
+        ]
+      }
+    },
+    {
+      "title": "Taqat aur harkat",
+      "description": "Force and motion — push, pull, friction",
+      "lesson": "## HOOK\nKya aapne kabhi socha hai ke jab aap ball ko khelte hain ya kisi cheez ko kheechte hain, toh wo kyun hilti hai? Ye sab kuch \"Taqat\" (Force) aur \"Harkat\" (Motion) ki wajah se hota hai. Aaj hum in dono concepts ko samjhenge!\n\n## SAMJHAO\nTaqat (Force) wo cheez hai jo kisi object ko move karne ya uski position ko badalne ke liye istemal hoti hai. Jab aap kuch cheezon ko push karte hain ya pull karte hain, toh aap Taqat ka istemal kar rahe hain. \n\nAb harkat (Motion) ka matlab hai kisi cheez ka ek jagah se doosri jagah jana. Jab hum kisi object ko taqat lagate hain, toh wo harkat shuru karta hai. Harkat sirf tab hoti hai jab koi taqat lagai jaye.\n\nFriction bhi ek tareeqa hai jo harkat ko rokta hai. Jab koi object ground ya kisi surface par move karte hain, toh us board ya surface ke sath milne se friction hoti hai. Ye friction kabhi kabhi helpful hoti hai kyunki is se hum girte nahi. Lekin kabhi kabhi ye humein rukne bhi deti hai.\n\nHum jab bhi bike chalate hain ya daaru neiche girate hain, toh ye sab Taqat aur Harkat ke principles par hi hota hai. \n\n## MISAAL\nChalo hum cricket ka example lete hain. Jab aap cricket khelte hain aur ball ko bat se hit karte hain, aap bat pe taqat laga rahe hote hain. Ye taqat ball ko aage ki taraf move karti hai. Agar ball zameen par girti hai, toh wahaan friction hoti hai jo ball ki harkat ko slow kar deti hai.\n\n## KARO\nAb aap ghar par ek simple experiment kar sakte hain. Ek ball lein aur use ek flat surface, jaise table ya floor par rakhain. Phir, ball ko push karain aur dekhein ke wo kaise move karti hai. Phir friction ke liye, ek thodi si cloth ya rough surface par us ball ko push karein aur dekhein ke kya hota hai. \n\nEk aur experiment yeh hai ke aap ek rickshaw ko push karne ki koshish kar sakte hain. Dekhein ke agar aap zyada taqat lagate hain toh kya hota hai. \n\n## SAWAAL\n1. Taqat (Force) aur harkat (Motion) ka kya relation hai?\n2. Friction kis tarah se harkat ko affect karta hai?\n3. Aap kis tarah ki cheezon ko push ya pull kar sakte hain daily life mein?\n\nSign off as Science Sir.",
+      "quiz": {
+        "title": "Taqat aur harkat Quiz",
+        "questions": [
+          {
+            "q": "Kya taqat ka matlab hai?",
+            "a": "Zor lagana",
+            "b": "Chalna",
+            "c": "Udaan bharna",
+            "d": "Soojana",
+            "correct": "a",
+            "explanation": "Taqqat ka matlab hai kisi cheez par zor lagana."
+          },
+          {
+            "q": "Harkat kis cheez ko kehte hain?",
+            "a": "Koi cheez hilana ya chalana",
+            "b": "Koi cheez band karna",
+            "c": "Koi cheez choona",
+            "d": "Koi cheez dekhna",
+            "correct": "a",
+            "explanation": "Harkat ka matlab hai kisi cheez ko hilana ya chalana."
+          },
+          {
+            "q": "Zameen par chalte waqt kis cheez ka asar hota hai?",
+            "a": "Friction",
+            "b": "Gravity",
+            "c": "Magnetism",
+            "d": "Pressure",
+            "correct": "a",
+            "explanation": "Zameen par chalte waqt friction ka asar hota hai jo cheezon ko rukne aur chalne mein madad karta hai."
+          },
+          {
+            "q": "Kya daur karke gaddi ko chalana ek misal hai?",
+            "a": "Harkat ki",
+            "b": "Taqat ki",
+            "c": "Friction ki",
+            "d": "Koi nahi",
+            "correct": "a",
+            "explanation": "Daur karke gaddi ko chalana harkat ki misal hai."
+          },
+          {
+            "q": "Kya khichna ek taqat hai?",
+            "a": "Haan",
+            "b": "Nahi",
+            "c": "Sirf kabhi kabhi",
+            "d": "Sirf chhoti cheezon par",
+            "correct": "a",
+            "explanation": "Khichna bhi ek taqat hai jo kisi cheez ko apni taraf kheechtay hai."
+          }
+        ]
+      }
+    },
+    {
+      "title": "Simple machines",
+      "description": "Lever, pulley, wheel",
+      "lesson": "## HOOK\nKya aapne kabhi socha hai ke bazaar mein log itni aasani se saman kaise utha lete hain? Ya phir kaisa hota hai jab rickshaw wala aapko gherte hue qadam uthata hai? Yeh sab simple machines ki wajah se hota hai!\n\n## SAMJHAO\nAaj hum simple machines ke baare mein seekhenge. Simple machines wo tools hain jo humari madad karte hain kaam ko aasaan aur tezi se karne ke liye. Inmein kuch ahem machines hain: Lever, Pulley, aur Wheel.\n\nPehla simple machine hai Lever. Lever ek aisi machine hai jo ek pivot point ke aas paas ghoomti hai. Jab hum lever par pressure dalte hain, to wo usse door chiz uthane ya move karne mein madad karti hai. Jaise ek balance scale hota hai, ismein dono taraf weight hota hai, aur yeh dekhte hain kaunsa bhaari hai. \n\nDusra simple machine hai Pulley. Pulley ek tarah ka wheel hota hai jis par ek rope ya chain hoti hai. Jab aap rope ko kheenchte hain, to pulley aapko saman uthane mein madad karti hai. Aam tor par hum ise building mein saman uthane ke liye istemal karte hain. \n\nTeesra simple machine hai Wheel. Wheel aksar chalne waali machines mein hota hai, jaise gaadiyaan aur cycle. Wheel ka design is tarah hai ke wo shuru hone par aasani se ghoomta hai, is se hamein zyada distance tay karne mein madad milti hai. \n\n## MISAAL\nAgar aap bazaar mein jaakar dosto ke saath biryani lete hain, to kabhi dekha hai ke kaise halwai ya dhabba wala aasan se dersey samay mein zyada biryani banata hai? Unki machines, like big pots aur wooden spoons, ek tarah ke levers hain. Aur jab woh biryani ka thaala aage aata hai, woh pulley ki tarah kaam karti hai!\n\n## KARO\nAb aap ghar ya school mein ek choti si activity karenge. Ek khariji ka khilona, jaise chhoti si gari, le lo. Koshish karo ke usse lever ki madad se uthao. Kuch kitab ya koi chhoti cheese lekar dekho ke kahan se uthane par wo kitni asaani se uth sakti hai. Ab ek pulley bana lo, ek chhoti si bucket ya container le lo aur ek rope se usse latka do. Ab dekho, jab aap rope kheenchte hain to waise wo kheench toh uth rahi hai?\n\n## SAWAAL\n1. Lever kis tarah se kaam karta hai?\n2. Kya aapne kabhi pulley dekha hai? Uski kahani sunaiye.\n3. Wheel ka istemal aap kis kis cheezon mein dekhte hain?\n\nScience Sir",
+      "quiz": {
+        "title": "Simple machines Quiz",
+        "questions": [
+          {
+            "q": "Lever kya hota hai?",
+            "a": "Aik aisa machine jo kaam karne ke liye daira challaata hai",
+            "b": "Aik aisa machine jo sirf khichne ka kaam karta hai",
+            "c": "Aik aisa machine jo chakkar lagata hai",
+            "d": "Aik aisa machine jo sirf girta hai",
+            "correct": "a",
+            "explanation": "Lever ka asal kaam ek daira banake kaam karna hota hai, jise asaani se istemal kiya ja sakta hai."
+          },
+          {
+            "q": "Pulley kis cheez ko count karti hai?",
+            "a": "Aik tarah ka wheel jo chadhao aur utaro ka kaam karta hai",
+            "b": "Aik tarah ka lever hai",
+            "c": "Aik daira jo ghoomta hai",
+            "d": "Aik machine jo kabhi nahi chalta",
+            "correct": "a",
+            "explanation": "Pulley ka kaam chadhao aur utaro k liye tareeqe faraham karna hai, is mein ek wheel hota hai."
+          },
+          {
+            "q": "Wheel kyun zaroori hai?",
+            "a": "Yeh chalne mein madad karta hai",
+            "b": "Yeh sirf girta hai",
+            "c": "Yeh khichne ka kaam karta hai",
+            "d": "Yeh koi kaam nahi karta",
+            "correct": "a",
+            "explanation": "Wheel ka asal kaam chalne aur safar asaan karne mein madad karna hai."
+          },
+          {
+            "q": "Lever ka istemal kahan hota hai?",
+            "a": "Ration uthane mein",
+            "b": "Ghar ka kaam karne mein nahi",
+            "c": "Khud chalta hai",
+            "d": "Koi madad nahi karta",
+            "correct": "a",
+            "explanation": "Lever ka istemal aam tor par mawaad ko uthane mein asaani ke liye hota hai."
+          },
+          {
+            "q": "Pulley ka misaal kya hai?",
+            "a": "Jahan par jhande lagaye jaate hain",
+            "b": "Baghban mein fassal uthana",
+            "c": "Koi bhi machine",
+            "d": "Ghar ka kaam",
+            "correct": "b",
+            "explanation": "Pulley ka istemal baghban mein fassal uthana aur chadhana ke liye hota hai."
+          }
+        ]
+      }
+    },
+    {
+      "title": "Roshni aur saya",
+      "description": "Light sources, shadows, reflection",
+      "lesson": "## HOOK\nKya aapne kabhi kisi din dhoop mein khade hote waqt apne saya ko dekha hai? Aapka saya kaisa dikh raha tha? Kya aapne socha hai ke ye saya kyun banta hai?\n\n## SAMJHAO\nRoshni, yaani Light, har chiz ko dekhne ke liye zaroori hai. Jab humare paas koi light source hota hai, jaise suraj ya bulb, tab wo cheezon par roshni girata hai, jis se hum unhein dekh sakte hain. Light sources do tarah ke hote hain: natural aur artificial. Suraj ek natural source hai, jabke bulb aur diya artificial sources hain.\n\nJab roshni kisi object se takraati hai, tab wo kisi object ki surface par girkar waisa hi dekhta hai jaisa object khud hai. Lekin agar yeh roshni kisi solid object jaise darakht ya desk se takraati hai, tab wo ek shadow yaani saya banati hai. Yeh saya isi wajah se hoti hai kyun ke light us object ke peechay nahi ja sakti.\n\nReflection ka matlab hai ke roshni jab kisi surface se takraati hai aur wapas chali jaati hai. Isay aam tor par hum shiny ya chamkeeli cheezon par dekhte hain, jaise paani ya sheeshe. Ye reflection hume apna chehra dekhne mein bhi madad karta hai!\n\nRoshni aur saya ke beech ka ye rishta bahut interesting hai. Jab hum outdoors hotay hain, tab hum dekhte hain ke humare as-pas har taraf shadows hain, jo light sources ke aas-paas banti hain. \n\n## MISAAL\nAgar aap din ke waqt bazaar jaate hain, to aap dekhte hain ke dhoondharon ke beech mein kya hota hai? Aapke saamne jo bhi shop hoti hai, uski shadow ground par dikhai degi. Jab aap samose kharidte hain, tab wo aapke haath mein aate hain, aur unki shadow bhi aapke saath hoti hai!\n\n## KARO\nIs activity ke liye aapko sirf ek flashlight aur kuch objects ki zaroorat hai jo aapke ghar mein aasani se mil sakte hain, jaise ek kitab, khilauna ya dhoondhar. Aap khud ya kisi dost ke saath ye kar sakte hain: \n\n1. Ek kamre mein andhera karain.\n2. Apne flashlight ko on karein aur kisi object ko uski taraf rakhain.\n3. Dekhein ke aap ki flashlight se roshni kab tak aa rahi hai aur kya aapko object ka saya dekhai de raha hai.\n4. Alag-alag objects ka use karein aur dekhein kya shadows banti hain ya nahi.\n\n## SAWAAL\n1. Roshni aur saya ke beech kya rishta hai?\n2. Kya aap ek example de sakte hain jab aapne reflection dekha ho?\n3. Aapke ghar mein kaunsa ek light source hai jo aapko shadows bana sakta hai?\n\nScience Sir",
+      "quiz": {
+        "title": "Roshni aur saya Quiz",
+        "questions": [
+          {
+            "q": "Kya cheez roshni ka asal zariya hai?",
+            "a": "Suraj",
+            "b": "Chaand",
+            "c": "Bijli",
+            "d": "Tandoor",
+            "correct": "a",
+            "explanation": "Suraj duniya ka sab se bara roshni ka zariya hai."
+          },
+          {
+            "q": "Saya kis tarah banta hai?",
+            "a": "Jab roshni kisi cheez se ruk jati hai",
+            "b": "Jab andhera hota hai",
+            "c": "Jab paani girta hai",
+            "d": "Jab hawa chalti hai",
+            "correct": "a",
+            "explanation": "Saya roshni ke rukne se banta hai."
+          },
+          {
+            "q": "Kya aaina mein tasveer dekhne se roshni ka aks milta hai?",
+            "a": "Nahi",
+            "b": "Haan, aks milta hai",
+            "c": "Sirf andhere mein aks milta hai",
+            "d": "Aks sirf dhoondne par milta hai",
+            "correct": "b",
+            "explanation": "Aaina roshni ko reflect karta hai, jis se aks milta hai."
+          },
+          {
+            "q": "Kaun si cheez sab se zyada roshni ko reflect karti hai?",
+            "a": "Paani",
+            "b": "Kagaz",
+            "c": "Sunehra rang",
+            "d": "Kali cheez",
+            "correct": "a",
+            "explanation": "Paani sab se behtar reflection karta hai."
+          },
+          {
+            "q": "Roshni ka rang kya hota hai?",
+            "a": "Safiid",
+            "b": "Kala",
+            "c": "Hara",
+            "d": "Sunoora",
+            "correct": "d",
+            "explanation": "Roshni ka asal rang bahut saare rangon ka milap hota hai."
+          }
+        ]
+      }
+    },
+    {
+      "title": "Awaaz",
+      "description": "Sound sources, loud/soft, high/low",
+      "lesson": "## HOOK\nKya aapne kabhi socha hai ke jab aap cricket khelte hain aur ball ko hit karte hain, toh wo kaisi awaaz karti hai? Ya phir jab aap bazaar mein chalte hain toh har taraf se alag alag awazon kaise sunai deti hain? Aaj hum sunaai dene wali in awaazon ke baare mein baat karenge!\n\n## SAMJHAO\nAwaaz har jagah hai aur yeh vibrations se banti hai. Jab koi cheez hilti hai, toh wo hawa mein chhoti chhoti lehrain bnaati hai, jo ke hamaari kaan tak pahuncht hain. Yeh vibrations jab hamaari kaan mein pahuncht hain, toh humein awaaz sunai deti hai.\n\nAwaaz ki do asal qualities hain: loudness aur pitch. Loudness se murad hai ke awaaz kitni buland ya dheemi hai. Agar koi cheez zyada taqat se awaaz karti hai, toh woh loud hai, jaise ke drum ya police ka siren. Lekin agar koi cheez dheemi awaaz karti hai, toh woh soft hai, jaise ke ek chhoti bachhi ki khamoshi.\n\nPitch se hum ye samajhte hain ke awaaz itni tinggi hai ya neeche. Agar awaaz zyada high hai, toh ise high pitch kehte hain, jaise ke ek chidiya ki chirchirahat. Aur agar awaaz neeche hai, toh ise low pitch kehte hain, jaise ke ek bhari awaaz, jaise ke kisi bhaloo ki. \n\nHar cheez ki awaaz alag hoti hai, aur yeh iska size aur vibration ki speed par depend karta hai. Chahe wo ek tabla ho, guitar ho ya phir koi bhi doosra musical instrument, har ek ki awaaz alag hoti hai.\n  \n## MISAAL\nChalo ab bazaar ki misaal lete hain. Jab aap bazaar jate hain, toh aapko har taraf se alag alag awazein sunai deti hain. Kisi halwai ki dukaan se mithaiyon ki khushboo ke saath saath, wo halwai ki awaaz samosay fry karte waqt aati hai. Wahi par ek dukaandar cheezon ko bechne ke liye bol raha hota hai, aur ek rickshaw vagerah ke horns bhi sunai dete hain. Yeh sab alag-alag awazein hain jo bazaar ko zinda banati hain.\n\n## KARO\nAb ek chhoti si activity karte hain! Ghar par ya school mein, apne doston ke saath mil kar alag-alag cheezon se awaaz nikaal kar dekho. Ek wooden spoon ko ek plate par maar kar dekho, aur iski awaaz suno. Phir ek pillow ya koi soft cheez par maar kar dekhte hain. Kya dono ki awaaz mein farq hai? Is activity se aap ko loudness aur softness ka asar samajhne mein madad milegi.\n\n## SAWAAL\n1. Loudness aur pitch mein kya farq hai?\n2. Kya aap ek misaal de sakte hain jahan high pitch ki awaaz sunai deti hai?\n3. Bazaar ki kitni alag-alag awazein aapne sunaayi hain aur unka asal kya tha?\n\nYeh tha hamara aaj ka lesson \"Awaaz\" ke baare mein. Umeed hai aapne seekha hoga! Science Sir.",
+      "quiz": {
+        "title": "Awaaz Quiz",
+        "questions": [
+          {
+            "q": "Awaaz ka asal zarayeh kya hai?",
+            "a": "Darbuka",
+            "b": "Kitaab",
+            "c": "Khilona",
+            "d": "Chand",
+            "correct": "a",
+            "explanation": "Darbuka ek musical instrument hai jo aawaz banata hai."
+          },
+          {
+            "q": "Awaaz kis cheez se zyada hoti hai?",
+            "a": "Bachon ki hasi",
+            "b": "Bade logon ki cheekh",
+            "c": "Pani ki boond",
+            "d": "Khushboo",
+            "correct": "b",
+            "explanation": "Bade logon ki cheekh aam tor per zyada aawaz hoti hai."
+          },
+          {
+            "q": "Kaun si aawaz high hai?",
+            "a": "Chirya ki chahchahat",
+            "b": "Gaadi ka horn",
+            "c": "Makaan ka majnoon",
+            "d": "Darbuka",
+            "correct": "a",
+            "explanation": "Chirya ki chahchahat ek high frequency aawaz hai."
+          },
+          {
+            "q": "Kaun si aawaz soft hai?",
+            "a": "Suno, chai paa lo",
+            "b": "Taal se bajne wali aawaz",
+            "c": "Dhoondh lo",
+            "d": "Bharati aawaz",
+            "correct": "a",
+            "explanation": "Suno, chai paa lo ki aawaz bohot hi soft hoti hai."
+          },
+          {
+            "q": "Kaun si aawaz low hai?",
+            "a": "Chand ki khamoshi",
+            "b": "Billi ki mein mein",
+            "c": "Baarish ki boond",
+            "d": "Baraawaaz",
+            "correct": "d",
+            "explanation": "Baraawaaz ek low frequency sound hai jo zyada ghanay aawaz hoti hai."
+          }
+        ]
+      }
+    },
+    {
+      "title": "Solar system",
+      "description": "Suraj, zameen, chaand, sitare",
+      "lesson": "## HOOK\nKya aap ne kabhi socha hai ke aasmaan mein chamakte sitare kya hote hain? Aur kya yeh sirf khwab hain ya inka haqeeqat se kuch taluq hai? Aaj hum Solar System ke baare mein jaanenge, jahan Suraj, Zameen, aur Chaand hain!\n\n## SAMJHAO\nSolar System ek aisa nizaam hai jismein Suraj aur uske aas paas ghoomte huye celestial bodies, jaise ke planets, sitare, aur asteroids shamil hain. Suraj hamara sabse nazdeek aur sabse bada sitara hai. Yeh itna bada hai ke iski roshni Zameen tak paunchne mein 8 mint lagte hain.\n\nZameen, jahan hum rehte hain, Suraj ke charon taraf ghoomti hai. Zameen nahi sirf Suraj ke aas paas ghoomti hai, balki yeh apni axis par bhi ghoomti hai. Is ghoomnay ki wajah se din aur raat bante hain. Jab Zameen Suraj ke saamne hoti hai to din hota hai, aur jab yeh Suraj ke parde se door hoti hai to raat hoti hai.\n\nChaand, jo Zameen ke 238,855 miles door hai, humara sabse nazdeek celestial body hai. Yeh Zameen ke 27.3 din mein ek dafa iske ird gird ghoomta hai. Yeh Zameen ki roshni ko apne par parda dal ke chamakata hai, isiliye raat mein humein chaand chamakta nazar aata hai.\n\nAasman mein bahut se sitare hain, jo charo taraf chamakte hain. Har sitara apni khasiyat rakhta hai. Kayi sitare, jaise Polestar, hamein raasta dikhate hain aur kuch sitare to bahut door hain jinka hum sirf andaze se pata karte hain.\n\n## MISAAL\nAgar aap bazaar mein jayein aur dekhein ke kaise log taare dekhne ke liye televue lagate hain, to aapko yaad aayega ke asal mein taare kitne khas hain. Jaise hum bazaar mein tayyari karte hain, waise hi Solar System bhi tayar hota hai, lekin iski tayyari bohat zyada waqt leti hai aur iski planning bhi Suraj aur planets ki waja se hoti hai.\n\n## KARO\nGhar ya school mein ek chhota sa model bana sakte hain Solar System ka. Aap chhoti chhoti gendain istamal kar sakte hain jo har planet ko darust karte hain. Suraj ke liye sabse badi gend rakhain, phir Zameen aur chaand ke liye chhoti gendain rakhein. Is tarah aap Solar System ke planets ki distance aur size samajh sakte hain!\n\n## SAWAAL\n1. Suraj se Zameen tak roshni pahunchne mein kitna waqt lagta hai?\n2. Chaand Zameen ke ird gird kitne dinon mein ghoomta hai?\n3. Aasmaan mein kitne tarike ke celestial bodies hain?\n\nScience Sir",
+      "quiz": {
+        "title": "Solar system Quiz",
+        "questions": [
+          {
+            "q": "Suraj ko kis cheez ka markazi jahan samjha jata hai?",
+            "a": "Solar system ka markaz",
+            "b": "Zameen ka markaz",
+            "c": "Chaand ka markaz",
+            "d": "Sitaron ka markaz",
+            "correct": "a",
+            "explanation": "Suraj solar system ka markaz hai, iske gird sab planets aur asteroids ghoomte hain."
+          },
+          {
+            "q": "Zameen par life kahan se aayi?",
+            "a": "Sitaron se",
+            "b": "Suraj se",
+            "c": "Chaand se",
+            "d": "Pani se",
+            "correct": "b",
+            "explanation": "Suraj se milne wale energy ki wajah se zameen par life barh sakti hai."
+          },
+          {
+            "q": "Chaand ki roshni asal mein kis cheez ki roshni hai?",
+            "a": "Apni roshni",
+            "b": "Suraj ki roshni",
+            "c": "Taare ki roshni",
+            "d": "Zameen ki roshni",
+            "correct": "b",
+            "explanation": "Chaand apni roshni nahi rakhta, balke Suraj ki roshni ko reflect karta hai."
+          },
+          {
+            "q": "Koun sa planet humare solar system mein sab se bara hai?",
+            "a": "Jupiter",
+            "b": "Mars",
+            "c": "Saturn",
+            "d": "Mercury",
+            "correct": "a",
+            "explanation": "Jupiter humare solar system ka sab se bara planet hai."
+          },
+          {
+            "q": "Tare kis parkar ke hain?",
+            "a": "Ghar ke tare",
+            "b": "LightSources",
+            "c": "Gases",
+            "d": "Garm aur sard",
+            "correct": "d",
+            "explanation": "Tare garm hote hain aur unka saiz aur roshni alag-alag hoti hai."
+          }
+        ]
+      }
+    }
+  ]
+}

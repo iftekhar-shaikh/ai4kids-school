@@ -1,0 +1,338 @@
+{
+  "subject": "ai",
+  "name": "AI & Technology",
+  "teacher": "Ustaad Ji",
+  "grade": 4,
+  "topics": [
+    {
+      "title": "Machine learning",
+      "description": "Computer khud seekhti hai",
+      "lesson": "## HOOK\nKya aapne kabhi socha hai ke aapka mobile phone aapki pasand ki cheezein khud kaise dhoond leta hai? Ya phir aapke dost ki cricket batting technique itni behtareen kaise hoti hai? Aaj hum aise hi ek amazing topic par baat karne wale hain - \"Machine Learning!\"\n\n## SAMJHAO\nMachine Learning ek aisa process hai jismein computers ya systems khud seekhtay hain bina kisi khas instruction ke. Yani, agar aap kisi cheez ko regular basis par karte hain, to computer uss cheez ko samajhkar khud learn kar leta hai.\n\nMasalan, agar aapne ek app download ki jo movies recommend karti hai, to wo aapki dekhi hui movies aur unki ratings ko analyze karke aapko naye movies suggest kar sakta hai. Yeh sab kuch Machine Learning ki wajah se hota hai.\n\nAaj kal humare aas paas bohot si technology aisi hai jo Machine Learning pe based hai. Jaise ke social media apps, jo aapki activities ko dekhte hain aur apne aap se aapko wohi content dikhate hain jo aapko pasand aata hai.\n\nIs tarah se, Machine Learning ko “Artificial Intelligence” ka part samjha ja sakta hai. Yeh technology waqt ke saath evolve hoti ja rahi hai aur iska istemal har field mein ho raha hai, chahe wo healthcare ho ya education.\n\n## MISAAL\nChaliye ab ek Pakistani example dekhte hain. Jab aap ek biryani order karte hain, agar aap baar baar same restaurant se order karte hain, to kuch applications aapko khud hi recommend kar deti hain ke aapko kaunsi biryani leni chahiye. Yeh recommendations Machine Learning ki wajah se hoti hain, kyunki wo aapki previous orders ko analyze karti hain.\n\n## KARO\nAb aap ghar par ek mazedaar activity kar sakte hain. Aap apne family members ya doston se kahin ke wo aapko kuch choti choti tasks dein, jese ke aapko unhein unki pasand ki colors ya movies ke liye points score karne hain. Har bar jab koi task complete hota hai, to aap usse record karein. Phir analysis karein ke kahan aapki performance behtar hui ya nahi. Yeh aapka apna chhota sa Machine Learning project hoga!\n\n## SAWAAL\n1. Machine Learning kya hai aur kaise kaam karta hai?\n2. Aapne kis Pakistani example mein Machine Learning dekha?\n3. Aap ghar par kis tarah se Machine Learning ki activity kar sakte hain? \n\nUstaad Ji.",
+      "quiz": {
+        "title": "Machine learning Quiz",
+        "questions": [
+          {
+            "q": "Machine learning kya hai?",
+            "a": "Computer ka khud seekhna",
+            "b": "Sirf data ka jamah karna",
+            "c": "Sirf games khelna",
+            "d": "Doosron se seekhna",
+            "correct": "a",
+            "explanation": "Machine learning se computer khud se data se seekhta hai."
+          },
+          {
+            "q": "Machine learning ka istemal kis cheez mein hota hai?",
+            "a": "Online shopping recommendations",
+            "b": "Ghar ki safai",
+            "c": "Khaane ka pakana",
+            "d": "Mausam ka andaza",
+            "correct": "a",
+            "explanation": "Online shopping mein machine learning aapki pasand ke mutabiq suggestions deta hai."
+          },
+          {
+            "q": "Kis cheez ki wajah se machine learning seekhti hai?",
+            "a": "Data",
+            "b": "Aam insaan",
+            "c": "Ankhein",
+            "d": "Padhai",
+            "correct": "a",
+            "explanation": "Machine learning ki buniyad data par hoti hai, jisse ye seekhti hai."
+          },
+          {
+            "q": "Agar computer ek wajah se ghalat seekh jaye to kya hota hai?",
+            "a": "Usko sahi seekhna padega",
+            "b": "Wo kabhi nahi seekhega",
+            "c": "Wo thak jayega",
+            "d": "Wo phir se shuru karega",
+            "correct": "a",
+            "explanation": "Agar computer ghalat seekh gaya, to wo isse sahi data ke zariye correct karta hai."
+          },
+          {
+            "q": "Pakistan mein kis kis tarah ki machine learning technology istemal hoti hai?",
+            "a": "Healthcare mein",
+            "b": "Aam kaam mein",
+            "c": "Sirf khelon mein",
+            "d": "Haray bhaind ke liye",
+            "correct": "a",
+            "explanation": "Pakistan mein healthcare mein machine learning ka istemal patients ki medical records ko analyze karne ke liye hota hai."
+          }
+        ]
+      }
+    },
+    {
+      "title": "Chatbot kya hai",
+      "description": "ChatGPT, Claude — AI se baat",
+      "lesson": "## HOOK\nKya aapne kabhi socha hai ke agar aapko koi dost na ho, to aap kis se baat karenge? Aaj hum ek aise dost ke bare mein baat karen gay jo sirf aapko samajhne ke liye bana hai — yeh hai Chatbot!\n\n## SAMJHAO\nChatbot ek aisa computer program hai jo insano ki tarah baat kar sakta hai. Iska istemal hum karte hain jab hume koi sawaal hota hai ya hum kisi maloomat ki talash mein hote hain. Jaise ke, agar aapko dua ki koi kitab chahiye, to aap Chatbot se pooch sakte hain. \n\nChatbot sab kuch nahi janta, lekin yeh internet ke zariye bohat si maloomat hasil kar sakta hai. Yeh kisi bhi platform par ho sakta hai, jese ke website ya smartphone apps. Example ke tor par, jab aap kisi website par jaate hain aur \"Help\" ka button click karte hain, to aksar aapko ek Chatbot milta hai jo aapke sawaalon ka jawab deta hai.\n\nChatGPT aur Claude jaise AI tools bhi Chatbots hain. Yeh bohat hi advanced hain aur lagaataar seekhte rehte hain. Ye aap se baat karte hain, aapki baat samajhte hain aur behtar jawab dene ki koshish karte hain.\n\nIs technology ka istemal sirf maloomat tak hi nahi, balki aapki madad karne ke liye bhi hota hai. Ki aap kisi khareedari ke liye advice chahte hain ya kisi maslay ka hal chahte hain, Chatbot aapki madad kar sakta hai!\n\n## MISAAL\nAgar aap bazaar jaate hain aur aapko biryani ki recipe chahiye, to aap bazaar ke kisi restaurant ke Chatbot se pooch sakte hain. Wo aapko batayega ke kitne masale aur kis tarah se biryani banani hai. Is tarah, aap bina kisi se baat kiye hi apne sawal ka jawab hasil kar lete hain!\n\n## KARO\nAap ghar par ek activity kar sakte hain. Apne smart phone ya computer par ek free Chatbot tool kholain, jaise ke ChatGPT. Phir apne kuch interesting sawaal tayyar karein, jaise ke \"Aaj mausam kaisa hai?\" ya \"Mujhe cricket ke bare mein kuch batain.\" Iske baad Chatbot se baatein karein aur dekhein ke wo aapke sawaalon ka kya jawab deta hai!\n\n## SAWAAL\n1. Chatbot kya hai aur yeh kya karta hai?\n2. Aap Chatbot se kis tarah madoonat hasil kar sakte hain?\n3. Aapne kis Chatbot ka istemal kiya hai aur uska tajurba kaisa raha?\n\nKhush rahiye aur seekhte rahiye,  \nUstaad Ji",
+      "quiz": {
+        "title": "Chatbot kya hai Quiz",
+        "questions": [
+          {
+            "q": "Chatbot kya hota hai?",
+            "a": "Ek AI program jo insaanon se baat karta hai",
+            "b": "Ek aam computer program",
+            "c": "Ek video game",
+            "d": "Ek mobile app",
+            "correct": "a",
+            "explanation": "Chatbot AI ka ek program hai jo insaanon ke sawalon ka jawab deta hai."
+          },
+          {
+            "q": "ChatGPT ka kya kaam hai?",
+            "a": "Baaton ko samajhna aur jawab dena",
+            "b": "Aksar games khelna",
+            "c": "Sirf musiqi sunana",
+            "d": "Takhleeq karna",
+            "correct": "a",
+            "explanation": "ChatGPT ek chatbot hai jo sawalon ka jawab dene ke liye design kiya gaya hai."
+          },
+          {
+            "q": "Claude ka istemal kis liye hota hai?",
+            "a": "Hunar sikhana",
+            "b": "AI se baat karna",
+            "c": "Kahaniyan sunana",
+            "d": "Online shopping",
+            "correct": "b",
+            "explanation": "Claude bhi ek chatbot hai jo AI se baat karne ke liye istemal hota hai."
+          },
+          {
+            "q": "Chatbots ka sabse bada faida kya hai?",
+            "a": "24/7 madad faraham karna",
+            "b": "Sirf mazeed waqt lena",
+            "c": "Baat nahi karna",
+            "d": "Aam sawalon ka jawab na dena",
+            "correct": "a",
+            "explanation": "Chatbots har waqt madad faraham kar sakte hain, chahe din ho ya raat."
+          },
+          {
+            "q": "AI ka kya matlab hai?",
+            "a": "Artificial Intelligence",
+            "b": "Automatic Internet",
+            "c": "Analytical Information",
+            "d": "Advanced Imaging",
+            "correct": "a",
+            "explanation": "AI ka matlab Artificial Intelligence hai, jo machines ko insaani tarah sochne aur samajhne ki salahiyat deta hai."
+          }
+        ]
+      }
+    },
+    {
+      "title": "Data types",
+      "description": "Text, numbers, images, audio",
+      "lesson": "## HOOK\nKya aap ne kabhi socha hai ke aapka mobile phone kaise aapke text messages, photos aur audio ko samajhta hai? Chaliye aaj hum is baare mein jaan lete hain!\n\n## SAMJHAO\nData types ka matlab hai ke kis cheez ka data kis tareeqe se represent kiya jata hai. Humare paas chaar badi data types hain: Text, Numbers, Images, aur Audio. \n\nText ka matlab hai wo sab kuch jo hum likhtay hain. Jaise ke aapka naam \"Student\" ya fir koi khabar jo aap newspaper mein parhte hain. Text ko hum aksar letters aur words mein represent karte hain.\n\nNumbers ka data type un cheezon ko dikhata hai jo hum gin sakte hain. Jaise, agar aap ke paas 10 rupees hain, to yeh number data type hai. Hum ismein addition, subtraction aur multiplication jese operations bhi karte hain.\n\nImages wo pictures hain jo hum dekhte hain. Jaise ke aapke phone mein family ki photos ya cricket match ki images. Images ko hum pixel ke through represent karte hain. \n\nAudio bhi ek important data type hai. Yeh wo awazein hain jo hum sunte hain. Jaise aapki favorite song ya phir koi kahani jo aap sunte hain. Audio ko bhi digital format mein record kiya jata hai.\n\n## MISAAL\nAgar aap bazaar jate hain, to wahan aapko price cards par numbers dikhte hain, jo aapko batate hain ke kis cheez ka kitna dam hai. Aap seller se baat karte hain, jo text ka istemal karta hai. Agar aap kisi cheez ka photo lena chahein, to aap camera ka istemal karke image banate hain. Aur jab aap apne dost se koi gaana sunna chahte hain, to aap audio sunte hain.\n\n## KARO\nAb aap ghar par ek chhoti si activity karein. Apne ghar mein chaar cheezen uthayen — ek kitab, ek pen, ek photo aur ek speaker. In chaaron ka data types mein tafreeq karein. Aap likhein:\n\n1. Kitab: Text\n2. Pen: Text (agar aap is se likhte hain)\n3. Photo: Image\n4. Speaker: Audio\n\nAur dekhain ke in cheezon ko kaise aap ek dusre se farq kar sakte hain!\n\n## SAWAAL\n1. Text data type ka kya matlab hai?\n2. Aapko kya maloom hai ke image ko kaise represent kiya jata hai?\n3. Audio ka data type kis cheez ka hissa hota hai?\n\nUstaad Ji",
+      "quiz": {
+        "title": "Data types Quiz",
+        "questions": [
+          {
+            "q": "Aik text data ka misaal kya hai?",
+            "a": "ChatGPT se baat karna",
+            "b": "Pani ki bottle",
+            "c": "Ghar ki tasveer",
+            "d": "Ghar ki aawaz",
+            "correct": "a",
+            "explanation": "Text data mein likhi gayi baatein hoti hain."
+          },
+          {
+            "q": "Numbers data ka kya istemal hota hai?",
+            "a": "Gharon ki aabadi ginana",
+            "b": "Ghalat saans lena",
+            "c": "Doston se baat karna",
+            "d": "Gaane sunna",
+            "correct": "a",
+            "explanation": "Numbers data ka istemal ginti ya maamool ke liye hota hai."
+          },
+          {
+            "q": "Qayamat ke din kaise aawaz ka data hota hai?",
+            "a": "Ghar ki khidki khulne ki aawaz",
+            "b": "Kisi ka hasi sunna",
+            "c": "Khoobsoorat tasveer dekhna",
+            "d": "Khudai ki qabeela ka nashan",
+            "correct": "b",
+            "explanation": "Aawaz ka data hai jab hum kisi ki aawaz sunte hain."
+          },
+          {
+            "q": "Tasveer data ka kya faida hai?",
+            "a": "Jaga pe kiya gaya kaam dekhna",
+            "b": "Hawa ka rang badalna",
+            "c": "Fikar karna",
+            "d": "Khaana khana",
+            "correct": "a",
+            "explanation": "Tasveer data se hum dekhtay hain ke cheezen kis tarah hain."
+          },
+          {
+            "q": "Aawaz ka data kaise faraham hota hai?",
+            "a": "Ghar ke bahar ka husn",
+            "b": "Ghar ke andar ka mahol",
+            "c": "Gaana suna kar",
+            "d": "Bacho ki kahani suna kar",
+            "correct": "c",
+            "explanation": "Aawaz data ko gaane ya kisi ki aawaz sunne se samjha ja sakta hai."
+          }
+        ]
+      }
+    },
+    {
+      "title": "AI decision tree",
+      "description": "Agar yeh to woh",
+      "lesson": "## HOOK\nAik din Student apne dosto ke sath cricket khel raha tha. Usko sochna pada, agar main pehle batting karun to kya hoga? Lekin agar doosri team pehle batting kare to? Kya aap bhi kabhi aise sochte hain? Yehi hai \"AI Decision Tree\" ka maamla!\n\n## SAMJHAO\nAI Decision Tree ek aisa method hai jise machine decision lene ke liye istemal karti hai. Ye ek tree ki tarah hoti hai, jisme har node par ek sawal hota hai. Jab aap kisi specific situation mein hote hain, to aap ye sawal poochte hain, aur phir uspe amal kar ke next step decide karte hain.\n\nMisaal ke taur par, agar aapko cricket khelna hai, to pehla sawal ho sakta hai, \"Kya mausam achha hai?\" Agar haan, to aap cricket khel sakte hain. Lekin agar nahi, to shayad aap koi aur activity choose karein. Ye decision tree hai!\n\nIs process ko aap har roz apni zindagi mein istemal kar sakte hain. Jab aap eat karte hain, yeh sochte hain, \"Kya mujhe biryani khani hai? Agar haan, to kaunsi biryani? Agar nahi, to fast food ya salad?\" Har option aapko aage phir se decision lene ka mauka deta hai.\n\nYe AI ka ek chhota sa example hai jo aapko mushkil decisions lene mein madad karta hai. Is tarah se AI apne kaam ko asan banati hai. Bas kuch simple sawal padhne hain aur aap asaani se faisle kar sakte hain.\n\n## MISAAL\nChalo ab ek real-life example dekhte hain. Aapko bazaar jana hai aur aapko decide karna hai ke kya khareedna hai. Aap ke paas do options hain: \"Sabziyan\" ya \"Fruits\". Aapka pehla sawal hoga, \"Kya mujhe healthy khana chahiye?\" Agar haan, to aap sabziyan khareedenge. Agar nahi, to aap fruits lena shuru kareinge. Har step pe aapke paas naye sawal hain jo aapko aage badhne mein madad karte hain.\n\n## KARO\nAap ghar par ya school mein ek simple decision tree create kar sakte hain. Aap ek paper lein aur beech mein \"Kya aaj school jana hai?\" likh dein. Phir is se connected 2 branches banayen: \"Haan\" aur \"Nahi\". Agar \"Haan\" ki branch par jate hain, to do naye sawal likhein, jaise \"Kya homework kiya hai?\" Ya agar \"Nahi\" par hain to wahan \"Kya TV dekhna hai?\" jaise options likh sakte hain. Is tarah se aap apni decision tree bana kar practice kar sakte hain.\n\n## SAWAAL\n1. AI Decision Tree kya hota hai?\n2. Aap kaise ek decision tree bana sakte hain?\n3. Bazaar ke decision-making ka ek example do.\n\nUstaad Ji",
+      "quiz": {
+        "title": "AI decision tree Quiz",
+        "questions": [
+          {
+            "q": "Agar aap ka AI ko flower classify karna hai, to sab se pehle aap kya dekhenge?",
+            "a": "Flowers ki rang",
+            "b": "Flowers ki khushboo",
+            "c": "Flowers ka size",
+            "d": "Flowers ka naam",
+            "correct": "a",
+            "explanation": "Flower ki rang ko dekh kar pehla decision liya ja sakta hai."
+          },
+          {
+            "q": "Agar AI ko yeh pata karna ho ke koi fruit amrood hai ya nahi, to kaunsa sawaal pehle puchha jayega?",
+            "a": "Kya yeh green hai?",
+            "b": "Kya yeh gol hai?",
+            "c": "Kya yeh meetha hai?",
+            "d": "Kya yeh aata hai?",
+            "correct": "b",
+            "explanation": "Amrood ka shape gol hota hai, is liye yeh sawal pehla aana chahiye."
+          },
+          {
+            "q": "Agar AI ko yeh classifiy karna ho ke ek video game children ke liye hai ya nahi, to pehla sawaal kya hoga?",
+            "a": "Isme kitne characters hain?",
+            "b": "Kya is game ka maqsad seekhna hai?",
+            "c": "Kya yeh game violent hai?",
+            "d": "Kya yeh game ek player ki hai?",
+            "correct": "b",
+            "explanation": "Game ka maqsad seekhna hai ya nahi yeh sab se pehla clue de sakta hai."
+          },
+          {
+            "q": "Agar aap ka AI ko yeh decide karna hai ke koi movie bachon ke liye hai ya nahi, to pehla sawaal kya hoga?",
+            "a": "Kya isme animation hai?",
+            "b": "Kya isme romantic scenes hain?",
+            "c": "Kya isme comedy hai?",
+            "d": "Kya isme drama hai?",
+            "correct": "a",
+            "explanation": "Animation movies aksar bachon ko pasand hoti hain."
+          },
+          {
+            "q": "Agar AI ko yeh pata karna hai ke koi TV show educational hai ya nahi, to kaunsa sawaal pehle puchha jayega?",
+            "a": "Kya yeh show kisi topic par knowledge deta hai?",
+            "b": "Kya is show ki rating high hai?",
+            "c": "Kya is show mein music hai?",
+            "d": "Kya is show ka host famous hai?",
+            "correct": "a",
+            "explanation": "Knowledge dene wala show educational hota hai."
+          }
+        ]
+      }
+    },
+    {
+      "title": "Fake vs real",
+      "description": "Deepfakes pehchano",
+      "lesson": "## HOOK\nKya aapne kabhi socha hai ke aise videos kaise bante hain jahan logon ka chehra aur awaaz badal di jati hai? Aaj kal ke zamane mein, aisi technology kya aapko bhi chakkar mein daal deti hai? \n\n## SAMJHAO\nAam tor par, hum jo kuch dekhte hain woh asal mein sach nahi hota. Fake aur real cheezon ka farq samajhna zaroori hai, kyunki aaj kal social media par bohat saari fake information fail rahi hai. Deepfakes ek aisi technology hai jisse kisi bhi shakhs ke chehre ya awaaz ko edit karke kuch bhi banaya ja sakta hai. \n\nDeepfake ka matlab hai ke kisi bhi video ya audio clip ko is tarah se edit kiya jaye ke woh asal lagay, jabke woh asal nahi hota. Maslan, isi technology ka istemal karke kisi politician ka fake video tayyar kiya ja sakta hai jismein woh kuch keh rahe hote hain jo unhone kabhi nahi kaha.\n\nYe sab technology machine learning ka istamal karti hai. Is main computers ko training di jati hai taake wo original video aur audio ko samajh kar naye fake versions bana saken. Magar hamesha yaad rahe, fake cheezein sirf entertaining nahi hoti, balki yeh logon ko ghalat fehmi mein dal sakti hain.\n\nIsliye, jab bhi aap koi video ya audio dekhein, ensure karein ke wo asal hai ya fake. Fake cheezein samajhna mushkil hota hai, magar agar aap dhyan se dekhein aur samjhein, to aap inhein asani se pehchan sakte hain.\n\n## MISAAL\nAap sochiye, agar ek cricketer jaise Babar Azam ke bare mein kisi ne ek video bana diya jismein wo kisi aur team ko gaali de raha hai, to aapko kaise pata chalega ke yeh video asal hai ya fake? Bazar mein aam tor par aise fake khabarain sunae deti hain, jo sadak par chorri ya dacoiti ke incidents ke bare mein hoti hain, lekin asal video dekhne se tabahi ka samna hota hai.\n\n## KARO\nAap ghar ya school mein ek activity kar sakte hain. Apne dosto ke sath milkar do videos dhoondhein, ek asli aur ek fake. Phir unhein dikhayein aur discuss karein ke aap ne kaise jaancha ke kaunsa video asal hai aur kaunsa fake. Kya aapne dono videos ki wajah se koi naya sabak seekha? \n\n## SAWAAL\n1. Deepfake kya hota hai?\n2. Fake videos ko pehchaanne ka kya tareeqa hai?\n3. Aap kis cheez ke liye zyada jaanch karte hain: asal video ya fake video?\n\nUstaad Ji",
+      "quiz": {
+        "title": "Fake vs real Quiz",
+        "questions": [
+          {
+            "q": "Deepfake kya hota hai?",
+            "a": "Ek digital video jo asal lagta hai lekin jhoot hai",
+            "b": "Ek asli video jo kisi ne record kiya ho",
+            "c": "Ek cartoon animation",
+            "d": "Ek photo jo edit ki gayi ho",
+            "correct": "a",
+            "explanation": "Deepfake aik aisi technology hai jo asal logon ke chehra aur aawaz ko khoobsoorti se manipulate karti hai."
+          },
+          {
+            "q": "Deepfake ko pehchanna kis kaam mein aata hai?",
+            "a": "Bachon ko cartoons dikhane mein",
+            "b": "Asal aur jhooti information ka farq karne mein",
+            "c": "Games banane mein",
+            "d": "Social media posts ko design karne mein",
+            "correct": "b",
+            "explanation": "Deepfake se asal aur jhoot information ko pehchanne ke liye awareness hona zaroori hai."
+          },
+          {
+            "q": "Agar kisi video mein koi mashhoor shakhs asal se alag nazar aaye, to yeh kya ho sakta hai?",
+            "a": "Video asli hai",
+            "b": "Video deepfake ho sakta hai",
+            "c": "Video clip ko edit kiya gaya hai",
+            "d": "Video mein koi khudai hai",
+            "correct": "b",
+            "explanation": "Agar mashhoor shakhs ki shakl mein koi significant badlaav aaye to yeh deepfake ho sakta hai."
+          },
+          {
+            "q": "Deepfake ka istemal kis cheez ke liye hota hai?",
+            "a": "Entertainment ya satire",
+            "b": "Sirf dikhawa karne ke liye",
+            "c": "Taqreer karne ke liye",
+            "d": "Khud ko darshana ke liye",
+            "correct": "a",
+            "explanation": "Deepfake ka istemal aksar entertainment aur satire ke liye hota hai lekin ismein galat istemal bhi hota hai."
+          },
+          {
+            "q": "Agar aapko koi video suspicious lage, aap kya karenge?",
+            "a": "Seedha usay share kar denge",
+            "b": "Usay fake ya asli jaanchne ki koshish karenge",
+            "c": "Video ko ignore karenge",
+            "d": "Sab ko dikhayenge",
+            "correct": "b",
+            "explanation": "Suspicious video dekhnay par hamesha pehle jaanch karna chahiye ke yeh asli hai ya deepfake."
+          }
+        ]
+      }
+    },
+    {
+      "title": "AI jobs",
+      "description": "AI se kaunse kaam hote hain",
+      "lesson": "## HOOK\nKya aapne kabhi socha hai ke aaj kal duniya mein kaise log AI ke through jobs kar rahe hain? Jaise ke ek chai wala apni dukaan mein AI ka istemal karke logon ki pasand ka khayal rakhta hai, waise hi bohot saare log AI ke zariye naye kaam kar rahe hain.\n\n## SAMJHAO\nAI (Artificial Intelligence) wo technology hai jo machines ko sochne aur samajhne ki salahiyat deti hai. Aaj kal, bohot si companies AI ka istemal karti hain taake kaam jaldi aur behtar kiya ja sake. Jaise ke, jab aap Facebook par jaate hain, to AI aapko aise dost ya pages dikhata hai jo aapko pasand aa sakte hain. \n\nAI jobs ka concept bhi isi tarah kaam karta hai. Log AI ki madad se naye products aur services develop karte hain. Iska matlab hai ke log programming, data analysis, aur machine learning jaise skills seekhte hain taake wo AI ke maidan mein kaam kar saken. \n\nPakistan mein, kuch companies hain jo AI par kaam kar rahi hain, jaise ke Basecamp, jo AI-based apps banate hain. Ye companies AI ko istemal karke naye naye features aur solution tayar kar rahi hain jo logon ki zindagi asaan banate hain.\n\nAam tor par, AI ka istemal healthcare, education aur transport jaise fields mein bhi hota hai. Hospitals mein AI doctors ki madad karta hai taake wo behtar diagnosis kar saken, aur schools mein students ka track rakhne wala software develop kiya jata hai.\n\n## MISAAL\nChalo, ab hum real-life example lete hain. Socho ke aaj kal bazaar mein aisi selling apps hain jo AI ka istemal karte hain. Jab aap Zoom app par dosti ya family ke sath video call karte hain, to wahaan AI ka istemal hota hai jo aapki video ko better banata hai. Aise hi bikri waalon ko bhi AI ki madad se yeh maloom hota hai ke kis product ki demand hai, isi wajah se wo behtar sales kar sakte hain.\n\n## KARO\nActivity: Chalo ab ek chota sa AI project karte hain! Apne ghar ya school mein ek simple survey tayar karo jisme sab logon ke pasandida khanay ke bare mein poocha jaye. Phir is data ko ek table mein likho. Dekho ke kaunse khanay sabse zyada pasand kiya gaya. Isko ek AI ki tarah socho – tum ne data ikattha kiya, ab tum usko analyse kar rahe ho. Is se tumhein pata chalega ke logon ko kya pasand hai, bilkul jaise AI market trends ko samajhne ki koshish karta hai.\n\n## SAWAAL\n1. AI kya hai aur iska istemal kis kis field mein hota hai?\n2. Aapke hisaab se Pakistan mein AI se kaunse naye kaam sajhaye ja sakte hain?\n3. Aap ne ghar ya school mein kareeb kisi ne kaha tha ke AI ki madad se kaise kaam kiye ja rahe hain?\n\nUstaad Ji",
+      "quiz": {
+        "title": "AI jobs Quiz",
+        "questions": [
+          {
+            "q": "AI kis field mein kaam kar sakta hai?",
+            "a": "Health care",
+            "b": "Gardening",
+            "c": "Fishing",
+            "d": "Cooking",
+            "correct": "a",
+            "explanation": "AI health care mein bimariyon ka pata lagane aur ilaaj mein madad karta hai."
+          },
+          {
+            "q": "AI ka istemal kis kaam ke liye hota hai?",
+            "a": "Khelna",
+            "b": "Data analysis",
+            "c": "Painting",
+            "d": "Khichdi banana",
+            "correct": "b",
+            "explanation": "AI data analysis ke zariye bahut se information ko jaanchne aur samajhne mein madad deta hai."
+          },
+          {
+            "q": "AI kis kaam ke liye mashhoor hai?",
+            "a": "Robotics",
+            "b": "Sports coaching",
+            "c": "Film directing",
+            "d": "Street cleaning",
+            "correct": "c",
+            "explanation": "AI film directing mein special effects aur animations banane mein madadgar hota hai."
+          },
+          {
+            "q": "AI kis cheez ko behtar banane mein madadgar hai?",
+            "a": "Transportation",
+            "b": "Puzzles",
+            "c": "Gardening tools",
+            "d": "Restaurants",
+            "correct": "a",
+            "explanation": "AI transportation ke system ko smarter aur efficient banane mein madad karta hai."
+          },
+          {
+            "q": "AI ka kaam kis cheez ko samajhna hai?",
+            "a": "Bachon ki seekhayi",
+            "b": "Doodh udhar dena",
+            "c": "Khilone banana",
+            "d": "Kapde silna",
+            "correct": "d",
+            "explanation": "AI bachon ki seekhayi ko behtar banane ke liye naye tarikeon ko samajhta hai."
+          }
+        ]
+      }
+    }
+  ]
+}

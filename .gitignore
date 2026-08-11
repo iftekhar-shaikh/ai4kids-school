@@ -1,0 +1,40 @@
+# ===== SECRETS ? never commit =====
+ai_config.json
+.streamlit/secrets.toml
+*.keystore
+*.key
+*.pem
+
+# ===== STUDENT DATA ? never leaves the PC / stays on the Railway disk =====
+students.json
+record_room/
+homework_diary.json
+ghalti_copy.json
+quiz_cache.json
+lesson_cache.json
+checkpoint_cache.json
+fitb_cache.json
+juma_test_cache.json
+urdu_summary_cache.json
+agent_cache.json
+tts_cache/
+
+# ===== junk =====
+__pycache__/
+*.pyc
+_old/
+_snapshots/
+lesson_images/_original/
+*.zip
+*.log
+open_check*.txt
+line_check.txt
+triples*.txt
+test.txt
+
+# ===== ADDED AFTER SAFETY SCAN ? never publish =====
+inference-swapping.md
+HANDOFF.md
+*.bak
+*.lnk
+ai4kids_school_backup.py
