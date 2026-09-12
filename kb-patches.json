@@ -1,0 +1,59 @@
+[
+  {
+    "file": "kb/grade_5/math.json",
+    "match_title": "Numbers 10 lakh tak",
+    "add": {
+      "interactive_file": "interactives/g5-place-value.html",
+      "interactive_label": "Khelo — Place Value Machine"
+    }
+  },
+  {
+    "file": "kb/grade_5/math.json",
+    "match_title": "HCF aur LCM",
+    "add": {
+      "interactive_file": "interactives/g5-hcf-lcm.html",
+      "interactive_label": "Khelo — HCF aur LCM"
+    }
+  },
+  {
+    "file": "kb/grade_5/math.json",
+    "match_title": "Perimeter aur area",
+    "add": {
+      "interactive_file": "interactives/g5-perimeter-area.html",
+      "interactive_label": "Khelo — Perimeter aur Area"
+    }
+  },
+  {
+    "file": "kb/grade_5/science.json",
+    "match_title": "Cells",
+    "add": {
+      "interactive_file": "interactives/g5-cells.html",
+      "interactive_label": "Khelo — Cells"
+    }
+  },
+  {
+    "file": "kb/grade_5/science.json",
+    "match_title": "Khoon ka nizam",
+    "add": {
+      "interactive_file": "interactives/g5-khoon-nizam.html",
+      "interactive_label": "Khelo — Khoon aur aasaab"
+    }
+  },
+  {
+    "file": "kb/grade_5/science.json",
+    "match_title": "Energy — forms",
+    "note": "Topic may not exist yet — add a new topic or retarget. HTML file is ready.",
+    "add": {
+      "interactive_file": "interactives/g5-energy.html",
+      "interactive_label": "Khelo — Energy forms"
+    }
+  },
+  {
+    "file": "kb/grade_5/ai.json",
+    "match_title": "AI ethics",
+    "add": {
+      "interactive_file": "interactives/g5-ai-literacy.html",
+      "interactive_label": "Khelo — AI is a pattern machine"
+    }
+  }
+]

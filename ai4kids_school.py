@@ -1061,6 +1061,44 @@ def load_kb_topic_full(subject_key, grade, topic_title):
             return topic
     return None
 
+
+def render_topic_interactive(subject_key, grade, topic_title):
+    """Embed a Class 5 HTML micro-lesson (interactives/) above the text sabaq."""
+    import streamlit.components.v1 as components
+    topic = load_kb_topic_full(subject_key, grade, topic_title) or {}
+    rel = topic.get("interactive_file")
+    if not rel:
+        FALLBACK = {
+            (5, "math", "Numbers 10 lakh tak"): "interactives/g5-place-value.html",
+            (5, "math", "HCF aur LCM"): "interactives/g5-hcf-lcm.html",
+            (5, "math", "Perimeter aur area"): "interactives/g5-perimeter-area.html",
+            (5, "science", "Cells"): "interactives/g5-cells.html",
+            (5, "science", "Khoon ka nizam"): "interactives/g5-khoon-nizam.html",
+            (5, "science", "Energy — forms"): "interactives/g5-energy.html",
+            (5, "ai", "AI ethics"): "interactives/g5-ai-literacy.html",
+        }
+        rel = FALLBACK.get((int(grade), subject_key, topic_title))
+    if not rel:
+        return False
+    fpath = _app(rel)
+    if not os.path.exists(fpath):
+        st.warning(f"Interactive file missing: {rel}")
+        return False
+    label = topic.get("interactive_label") or "Khelo — interactive"
+    st.markdown(
+        f'<div style="padding:10px 14px;background:#f5eef8;border-left:4px solid #8e44ad;'
+        f'border-radius:0 10px 10px 0;margin:8px 0"><b>{label}</b><br>'
+        f'<span style="font-size:0.85em">Neeche khelo — phir quiz lo.</span></div>',
+        unsafe_allow_html=True,
+    )
+    try:
+        html = open(fpath, encoding="utf-8").read()
+        components.html(html, height=720, scrolling=True)
+        return True
+    except Exception as e:
+        st.error(f"Interactive nahi khul saki: {e}")
+        return False
+
 def simple_text_fallback(lesson_str, max_words=70):
     """When a KB topic has no text_simple yet (pre-enrichment), build a short,
     plain Roman-Urdu blurb from the lesson markdown so SIMPLE mode still works."""
@@ -3082,6 +3120,7 @@ elif st.session_state.mode == "student":
                         unsafe_allow_html=True)
 
                     if not st.session_state.get("show_simple_quiz"):
+                        render_topic_interactive(sk, grade, r["topic"])
                         _res = render_simple_lesson(sk, grade, r["topic"], student, subj)
                         if _res == "quiz":
                             st.session_state.show_simple_quiz = True
@@ -3107,6 +3146,9 @@ elif st.session_state.mode == "student":
                 if _vis_std:
                     st.markdown(_vis_std, unsafe_allow_html=True)
                 render_money_photos(r["topic"])
+
+                # Class 5 HTML micro-lesson (if wired in KB)
+                render_topic_interactive(sk, grade, r["topic"])
 
                 # Action buttons ABOVE lesson content (always visible)
                 c1, c2, c3 = st.columns(3)

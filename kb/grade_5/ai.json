@@ -277,7 +277,9 @@
             "explanation": "AI ka ghalat istemal ek bara masla ban sakta hai jo logon ke liye khatarnaak ho sakta hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g5-ai-literacy.html",
+      "interactive_label": "Khelo — AI is a pattern machine"
     },
     {
       "title": "AI project",

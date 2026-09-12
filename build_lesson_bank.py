@@ -2,7 +2,8 @@
 Build lesson_bank.html from KB JSON files
 Run: python build_lesson_bank.py
 """
-import json, os
+import json, os, base64
+from pathlib import Path
 
 KB_DIR = "kb"
 OUT = "lesson_bank.html"
@@ -41,6 +42,8 @@ for grade in range(1, 6):
                 "lesson": topic.get("lesson", ""),
                 "quiz_count": len(qs),
                 "questions": qs,
+                "interactive_file": topic.get("interactive_file", ""),
+                "interactive_label": topic.get("interactive_label", ""),
             })
 
 print(f"Found {len(all_topics)} topics — building HTML...")
@@ -86,6 +89,7 @@ body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f5f5f0;color:#2c3e50}
 .tag{padding:2px 8px;border-radius:10px;font-size:0.75rem;background:#eee;color:#555}
 .tag.has-lesson{background:#e8f8f5;color:#16a085}
 .tag.has-quiz{background:#fef9e7;color:#d68910}
+.tag.has-interactive{background:#f5eef8;color:#8e44ad}
 .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;
   background:rgba(0,0,0,.5);z-index:200;overflow-y:auto}
 .modal.open{display:flex;align-items:flex-start;justify-content:center;padding:20px}
@@ -180,6 +184,7 @@ for i, t in enumerate(all_topics):
   <div class="card-footer">
     {'<span class="tag has-lesson">📖 Lesson</span>' if t['lesson'] else '<span class="tag">No lesson</span>'}
     {'<span class="tag has-quiz">📝 ' + str(t['quiz_count']) + ' MCQs</span>' if t['quiz_count'] else ''}
+    {'<span class="tag has-interactive">🎮 Interactive</span>' if t.get('interactive_file') else ''}
   </div>
 </div>""")
 
@@ -193,6 +198,14 @@ lines.append('<div id="modal-content"></div>')
 lines.append('</div></div>')
 
 # JS data + logic
+for t in all_topics:
+    t["interactive_b64"] = ""
+    rel = t.get("interactive_file") or ""
+    if rel:
+        ip = Path(os.path.dirname(os.path.abspath(__file__))) / rel
+        if ip.exists():
+            t["interactive_b64"] = base64.b64encode(ip.read_bytes()).decode("ascii")
+
 topics_json = json.dumps([{
     "grade": t["grade"],
     "subj": t["subj_name"],
@@ -202,6 +215,9 @@ topics_json = json.dumps([{
     "desc": t["desc"],
     "lesson": t["lesson"],
     "questions": t["questions"],
+    "interactive_file": t.get("interactive_file") or "",
+    "interactive_label": t.get("interactive_label") or "",
+    "interactive_b64": t.get("interactive_b64") or "",
 } for t in all_topics], ensure_ascii=False)
 
 lines.append(f"""<script>
@@ -248,6 +264,11 @@ function openModal(i) {{
     html += `<div class="lesson-text" id="lessonText">${{t.lesson.replace(/</g,'&lt;').replace(/>/g,'&gt;')}}</div>`;
   }} else {{
     html += '<p style="color:#999;padding:10px">Lesson abhi available nahi hai.</p>';
+  }}
+  if (t.interactive_b64) {{
+    const label = t.interactive_label || 'Khelo — interactive';
+    html += `<div style="margin:14px 0;padding:10px 12px;background:#f5eef8;border-left:4px solid #8e44ad;border-radius:0 10px 10px 0"><b>🎮 ${{label}}</b><br><span style="font-size:0.85rem">Neeche khelo — phir quiz lo.</span></div>`;
+    html += `<iframe src="data:text/html;base64,${{t.interactive_b64}}" title="Interactive" style="width:100%;height:640px;border:2px solid #eee;border-radius:12px;background:#fff"></iframe>`;
   }}
   if (t.questions && t.questions.length) {{
     window.__curQuestions = t.questions;

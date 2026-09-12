@@ -57,7 +57,9 @@
             "explanation": "Khoon jism ko oxygen aur nutrients pohanchata hai jo zindagi ke liye zaroori hain."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g5-khoon-nizam.html",
+      "interactive_label": "Khelo — Khoon aur aasaab"
     },
     {
       "title": "Cells",
@@ -112,7 +114,9 @@
             "explanation": "Animal cells mein cell wall nahi hoti, jabke plant cells mein cell wall hoti hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g5-cells.html",
+      "interactive_label": "Khelo — Cells"
     },
     {
       "title": "Bijli ke circuits",
@@ -330,6 +334,63 @@
             "d": "Kisi ko online sharminda karna",
             "correct": "b",
             "explanation": "Cyberbullying se murad hai kisi ko online dauraan takleef dena jo ke bilkul galat hai."
+          }
+        ]
+      }
+    },
+    {
+      "title": "Energy — forms",
+      "description": "SNC: Energy transforms — light, heat, sound, movement; never disappears",
+      "interactive_file": "interactives/g5-energy.html",
+      "interactive_label": "Khelo — Energy forms",
+      "lesson": "## HOOK\nSadi, socho bulb, fan, aur solar panel — energy kahan se aati hai aur kahan jati hai?\n\n## SAMJHAO\nEnergy kabhi khatam nahi hoti — sirf shape badalti hai. Filament bulb zyada heat banata hai, saver bulb zyada light. Fan electricity ko movement + thodi heat + awaaz mein badalta hai. Solar light ko electricity + heat mein badalta hai.\n\n## MISAAL\nIslamabad ki chhat par solar panel: dhoop aati hai, ghar mein fan chalta hai.\n\n## KARO\nGhar mein 3 devices chuno aur likho: input energy aur output forms.\n\n## SAWAAL\n1. Energy kabhi khatam hoti hai?\n2. Fan kis energy ko kis forms mein badalta hai?\n3. Solar panel ka input kya hai?",
+      "quiz": {
+        "title": "Energy — forms Quiz",
+        "questions": [
+          {
+            "q": "Energy kya karti hai?",
+            "a": "Khatam ho jati hai",
+            "b": "Sirf shape badalti hai",
+            "c": "Sirf light hoti hai",
+            "d": "Sirf heat hoti hai",
+            "correct": "b",
+            "explanation": "Energy conserve hoti hai — forms badalti hain."
+          },
+          {
+            "q": "Purana filament bulb zyada kya banata hai?",
+            "a": "Light",
+            "b": "Heat",
+            "c": "Sound",
+            "d": "Wind",
+            "correct": "b",
+            "explanation": "Filament bulb ki zyada energy heat ban jati hai."
+          },
+          {
+            "q": "Solar panel ka input kya hai?",
+            "a": "Sound",
+            "b": "Light (dhoop)",
+            "c": "Petrol",
+            "d": "Wind only",
+            "correct": "b",
+            "explanation": "Solar light/dhoop ko electricity mein badalta hai."
+          },
+          {
+            "q": "Fan electricity ko mainly kis mein badalta hai?",
+            "a": "Movement",
+            "b": "Petrol",
+            "c": "Water",
+            "d": "Ice",
+            "correct": "a",
+            "explanation": "Fan movement (plus thodi heat/sound) banata hai."
+          },
+          {
+            "q": "Agar energy disappear na ho, to kya kehlaata hai?",
+            "a": "Magic",
+            "b": "Conservation of energy",
+            "c": "Gravity",
+            "d": "Friction only",
+            "correct": "b",
+            "explanation": "Yeh conservation of energy ka idea hai."
           }
         ]
       }

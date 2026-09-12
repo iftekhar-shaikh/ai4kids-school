@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Human Body — خون اور اعصاب | AI4Kids Class 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f2eef0;
+    --bg-deep:#e3dade;
+    --organ:#d9c3c8;
+    --organ-on:#b8455c;
+    --organ-deep:#8d2f43;
+    --lung:#c9a9b4;
+    --oxy:#c9302e;
+    --deoxy:#3a6bb5;
+    --nerve:#c9a24a;
+    --nerve-on:#a8761c;
+    --body-fill:#faf3f5;
+    --body-line:#cbb6bc;
+    --ink:#241c20;
+    --ink-soft:#54464c;
+    --paper:#fdfaf3;
+    --line:#ded5c4;
+    --accent:#8d2f43;
+    --good:#2e7d4f;
+
+    --fs-cap:clamp(12px, 3.2vw, 13px);
+    --fs-xs:clamp(14px, 3.7vw, 15px);
+    --fs-sm:clamp(16px, 4.2vw, 17px);
+    --fs-md:clamp(17px, 4.6vw, 19px);
+    --fs-lg:clamp(20px, 5.4vw, 23px);
+    --fs-xl:clamp(27px, 7.4vw, 33px);
+    --lh:1.5;
+  }
+  /* Urdu is set larger than Latin — Nastaliq reads smaller at the same size. */
+  body.urdu{
+    --fs-cap:clamp(13px, 3.5vw, 15px);
+    --fs-xs:clamp(15px, 4.1vw, 17px);
+    --fs-sm:clamp(17px, 4.7vw, 19px);
+    --fs-md:clamp(19px, 5.2vw, 21px);
+    --fs-lg:clamp(22px, 6vw, 25px);
+    --fs-xl:clamp(26px, 7vw, 31px);
+    --lh:2.1;
+  }
+
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--oxy);outline-offset:2px}
+
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+
+  /* system tabs */
+  .tabs{display:flex;gap:8px;margin:0 0 14px}
+  .tabs button{
+    flex:1;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:10px 8px;font:inherit;font-weight:800;
+    font-size:var(--fs-xs);cursor:pointer;min-height:52px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:linear-gradient(180deg,var(--bg) 0%,var(--bg-deep) 100%);
+  }
+  .scene svg{display:block;width:100%;height:auto}
+  .part{transition:fill .4s ease,stroke .4s ease}
+  .vessel{fill:none;stroke-width:7;stroke-linecap:round;stroke-linejoin:round}
+  .v-blue{stroke:var(--deoxy);opacity:.45}
+  .v-red{stroke:var(--oxy);opacity:.45}
+  .nervepath{fill:none;stroke:var(--nerve);stroke-width:5;stroke-linecap:round;opacity:.6}
+  .chamber{fill:var(--organ);stroke:var(--ink);stroke-width:2;transition:fill .4s ease}
+  .chamber.on{fill:var(--organ-on)}
+  .lit{fill:var(--nerve-on)}
+  #trav{transition:transform .65s cubic-bezier(.4,.1,.3,1)}
+  #travDot{transition:fill .5s ease,r .4s ease}
+  .pulse{animation:pulse 1.4s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:.25}50%{opacity:.65}}
+  .act{display:none}
+  .act.show{display:block}
+  .beat{animation:beat .9s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+  @keyframes beat{0%,100%{transform:scale(1)}45%{transform:scale(1.16)}}
+  .beat.hard{animation-duration:.7s}
+  .zip{opacity:0}
+  .act.show .zip{animation:zip 1.2s ease-in infinite}
+  .zip:nth-of-type(2){animation-delay:.4s}
+  .zip:nth-of-type(3){animation-delay:.8s}
+  @keyframes zip{0%{opacity:0}20%{opacity:1}100%{opacity:0}}
+  .o2{fill:var(--oxy)} .co2{fill:var(--deoxy)}
+  .flyO{animation:flyO 1.8s ease-out infinite}
+  .flyC{animation:flyC 1.8s ease-out infinite .6s}
+  @keyframes flyO{0%{opacity:0;transform:translate(0,0)}25%{opacity:1}100%{opacity:0;transform:translate(0,26px)}}
+  @keyframes flyC{0%{opacity:0;transform:translate(0,0)}25%{opacity:1}100%{opacity:0;transform:translate(0,-26px)}}
+  .cap{fill:var(--ink-soft);font-size:var(--fs-cap);font-weight:700;
+       font-family:"Baloo Bhaijaan 2",sans-serif}
+  body.urdu .cap{font-family:"Noto Nastaliq Urdu",serif}
+  .actlbl{fill:var(--accent);font-size:var(--fs-cap);font-weight:800;
+          font-family:"Baloo Bhaijaan 2",sans-serif}
+  body.urdu .actlbl{font-family:"Noto Nastaliq Urdu",serif}
+
+  .readout{
+    margin-top:-18px;position:relative;z-index:2;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .stagechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+  .stagechip.ur{padding:2px 14px 7px}
+  .sname{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+  .sname.ur{line-height:1.95}
+  .sjob{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+
+  .facts{display:flex;gap:10px;margin-top:16px}
+  .fact{flex:1;border:2px solid var(--line);border-radius:14px;padding:11px 10px;text-align:center}
+  .fact em{display:block;font-style:normal;font-size:var(--fs-cap);color:var(--ink-soft);
+           font-weight:600;margin-bottom:4px}
+  .fact b{display:block;font-size:var(--fs-sm);font-weight:800;line-height:1.3}
+  .fact.now{border-color:var(--accent);background:#f8edf0}
+  .fact.now b{color:var(--accent)}
+
+  .why-note{
+    margin:12px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.55;
+    border-left:3px solid var(--accent);padding-left:11px;
+  }
+  .why-note b{color:var(--accent);font-weight:800}
+  body.urdu .why-note{
+    border-left:0;border-right:3px solid var(--accent);padding-left:0;padding-right:11px;
+    line-height:var(--lh);
+  }
+
+  .drive{margin-top:22px}
+  .drive h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 12px;color:var(--ink-soft)}
+  .btns{display:flex;gap:10px}
+  .btns button{
+    border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);
+    font:inherit;font-weight:800;font-size:var(--fs-sm);cursor:pointer;min-height:54px;padding:0 16px;
+  }
+  .btns .go{flex:1;background:var(--ink);color:var(--paper)}
+  .btns button:disabled{opacity:.35;cursor:default}
+  .btns button:active:not(:disabled){transform:scale(.97)}
+  .track{display:flex;gap:5px;margin-top:16px}
+  .track i{flex:1;height:9px;border-radius:999px;background:#e2d8dc;transition:background .4s ease}
+  .track i.done{background:var(--accent)}
+
+  .stops{margin-top:22px}
+  .stops h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 12px;color:var(--ink-soft)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .schip{
+    border:2px solid var(--line);background:var(--paper);border-radius:999px;padding:8px 14px;
+    font:inherit;font-size:var(--fs-cap);font-weight:600;color:var(--ink);cursor:pointer;min-height:44px;
+  }
+  .schip[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:50px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--good);background:#e9f2ec;font-weight:600}
+  .opt.wrong{border-color:var(--organ-on);background:#f9e9ec}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;
+      grid-template-columns:1fr 1fr;
+      grid-template-areas:
+        "bar   bar"
+        "head  head"
+        "tabs  tabs"
+        "left  right"
+        "quiz  quiz"
+        "foot  foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar}
+    .head{grid-area:head}
+    .tabs{grid-area:tabs}
+    .left{grid-area:left}
+    .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px}
+    footer{grid-area:foot}
+    .drive{margin-top:0}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .pulse,.beat,.act.show .zip,.flyO,.flyC{animation:none;opacity:.6}
+    *{transition-duration:.01ms !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 5</span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunein">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 id="title"></h1>
+  <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group">
+    <button type="button" id="tabCirc" aria-pressed="true"></button>
+    <button type="button" id="tabNerve" aria-pressed="false"></button>
+  </div>
+
+  <div class="left">
+  <div class="scene">
+    <svg viewBox="0 0 300 300" role="img" id="svg" aria-label="A diagram of the body system being followed">
+
+      <!-- ============ CIRCULATION ============ -->
+      <g id="sceneCirc">
+        <path class="vessel v-blue" d="M92 250 L70 250 L70 132 L104 132"/>
+        <path class="vessel v-blue" d="M104 170 L48 170 L48 54 L92 54"/>
+        <path class="vessel v-red"  d="M208 54 L252 54 L252 132 L196 132"/>
+        <path class="vessel v-red"  d="M196 170 L230 170 L230 250 L208 250"/>
+
+        <rect class="part" id="lungs" x="92" y="32" width="116" height="44" rx="16"
+              fill="var(--lung)" stroke="var(--ink)" stroke-width="2"/>
+        <text x="150" y="60" text-anchor="middle" class="cap" id="lungLbl"></text>
+
+        <rect class="chamber" id="c0" x="104" y="112" width="46" height="40" rx="9"/>
+        <rect class="chamber" id="c1" x="104" y="154" width="46" height="40" rx="9"/>
+        <rect class="chamber" id="c3" x="150" y="112" width="46" height="40" rx="9"/>
+        <rect class="chamber" id="c4" x="150" y="154" width="46" height="40" rx="9"/>
+        <rect x="104" y="112" width="92" height="82" rx="10" fill="none"
+              stroke="var(--ink)" stroke-width="2.5"/>
+        <text x="150" y="208" text-anchor="middle" class="cap" id="heartLbl"></text>
+
+        <rect class="part" id="bodyBox" x="92" y="228" width="116" height="44" rx="14"
+              fill="var(--organ)" stroke="var(--ink)" stroke-width="2"/>
+        <text x="150" y="256" text-anchor="middle" class="cap" id="bodyLbl"></text>
+
+        <!-- actions -->
+        <g class="act" id="aC0"><circle class="pulse" cx="127" cy="132" r="21" fill="var(--organ-on)"/></g>
+        <g class="act" id="aC1"><rect class="beat" x="104" y="154" width="46" height="40" rx="9"
+                                      fill="none" stroke="var(--organ-deep)" stroke-width="3"/></g>
+        <g class="act" id="aC2">
+          <circle class="o2 flyO" cx="134" cy="46" r="5"/>
+          <circle class="o2 flyO" cx="166" cy="42" r="5"/>
+          <circle class="co2 flyC" cx="150" cy="62" r="5"/>
+        </g>
+        <g class="act" id="aC3"><circle class="pulse" cx="173" cy="132" r="21" fill="var(--organ-on)"/></g>
+        <g class="act" id="aC4"><rect class="beat hard" x="150" y="154" width="46" height="40" rx="9"
+                                      fill="none" stroke="var(--organ-deep)" stroke-width="4"/></g>
+        <g class="act" id="aC5">
+          <circle class="o2 flyO" cx="132" cy="238" r="5"/>
+          <circle class="o2 flyO" cx="168" cy="234" r="5"/>
+          <circle class="co2 flyC" cx="150" cy="258" r="5"/>
+        </g>
+      </g>
+
+      <!-- ============ NERVES ============ -->
+      <g id="sceneNerve">
+        <path d="M150 26 C126 26 112 44 112 64 C112 84 126 96 140 100 L140 112
+                 C104 120 84 142 82 180 L82 268 L218 268 L218 180
+                 C216 142 196 120 160 112 L160 100 C174 96 188 84 188 64
+                 C188 44 174 26 150 26 Z"
+              fill="var(--body-fill)" stroke="var(--body-line)" stroke-width="2.5"/>
+
+        <ellipse class="part" id="brain" cx="150" cy="60" rx="26" ry="21"
+                 fill="var(--organ)" stroke="var(--ink)" stroke-width="2"/>
+        <path class="nervepath" id="cord" d="M150 82 L150 210"/>
+        <path class="nervepath" id="armNerve" d="M150 140 L200 140 L238 176"/>
+        <circle class="part" id="finger" cx="246" cy="184" r="9"
+                fill="var(--organ)" stroke="var(--ink)" stroke-width="2"/>
+        <path d="M256 196 C250 204 254 212 262 210 C268 208 268 200 256 196 Z"
+              fill="var(--oxy)" opacity=".8"/>
+        <text x="246" y="228" text-anchor="middle" class="cap" id="hotLbl"></text>
+        <ellipse id="muscle" class="part" cx="182" cy="126" rx="17" ry="10"
+                 fill="var(--organ)" stroke="var(--ink)" stroke-width="2"
+                 transform="rotate(-28 182 126)"/>
+
+        <g class="act" id="aN0"><circle class="pulse" cx="246" cy="184" r="17" fill="var(--nerve-on)"/></g>
+        <g class="act" id="aN1">
+          <circle class="zip" cx="226" cy="166" r="5" fill="var(--nerve-on)"/>
+          <circle class="zip" cx="204" cy="146" r="5" fill="var(--nerve-on)"/>
+          <circle class="zip" cx="178" cy="140" r="5" fill="var(--nerve-on)"/>
+        </g>
+        <g class="act" id="aN2"><circle class="pulse" cx="150" cy="142" r="16" fill="var(--nerve-on)"/></g>
+        <g class="act" id="aN3">
+          <ellipse class="beat hard" cx="182" cy="126" rx="20" ry="13" fill="none"
+                   stroke="var(--nerve-on)" stroke-width="3" transform="rotate(-28 182 126)"/>
+        </g>
+        <g class="act" id="aN4"><ellipse class="pulse" cx="150" cy="60" rx="32" ry="27" fill="var(--nerve-on)"/></g>
+      </g>
+
+      <!-- the traveller, shared by both systems -->
+      <g id="trav">
+        <circle id="travGlow" r="14" fill="var(--oxy)" opacity=".25"/>
+        <circle id="travDot" r="8" fill="var(--oxy)"/>
+      </g>
+
+      <text id="actLbl" x="150" y="20" text-anchor="middle" class="actlbl"></text>
+    </svg>
+  </div>
+
+  <div class="readout">
+    <span class="stagechip" id="stagechip"></span>
+    <p class="sname" id="sname"></p>
+    <p class="sjob" id="sjob"></p>
+
+    <div class="facts">
+      <div class="fact now">
+        <em id="lblState"></em>
+        <b id="valState"></b>
+      </div>
+      <div class="fact">
+        <em id="lblTime"></em>
+        <b id="valTime"></b>
+      </div>
+    </div>
+
+    <p class="why-note"><b id="whyLbl"></b> <span id="whyText"></span></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="drive">
+    <h2 id="driveHead"></h2>
+    <div class="btns">
+      <button type="button" id="back"></button>
+      <button type="button" class="go" id="next"></button>
+    </div>
+    <div class="track" id="track"></div>
+  </div>
+
+  <div class="stops">
+    <h2 id="stopsHead"></h2>
+    <div class="chips" id="chips" role="group"></div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <h2 id="quizHead" style="font-size:var(--fs-lg);font-weight:800;margin:0 0 18px"></h2>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad's bilingual AI and coding school. WhatsApp 0337 1468899" data-ur="اے آئی فور کڈز — اسلام آباد کا دو زبانوں والا اے آئی اور کوڈنگ سکول۔ واٹس ایپ 0337 1468899"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var lang = "en";
+  var mode = "circ";
+  var step = 0;
+
+  var CIRC = [
+    { x:127, y:132, red:false, act:{en:"Filling up", ur:"بھر رہا ہے"},
+      en:"Right upper chamber", ur:"دایاں اوپری خانہ",
+      state:{en:"Low on oxygen", ur:"آکسیجن کم"},
+      time:{en:"just arrived", ur:"ابھی پہنچا"},
+      job:{en:"Blood coming back from the whole body arrives here. It has given its oxygen away and is carrying waste gas instead.",
+           ur:"پورے جسم سے واپس آنے والا خون یہاں پہنچتا ہے۔ یہ اپنی آکسیجن دے چکا ہے اور اب فضلہ گیس اٹھائے ہوئے ہے۔"},
+      why:{en:"Blue on the diagram does not mean blue blood. Blood low on oxygen is a dark red. Diagrams use blue so you can tell the two apart at a glance.",
+           ur:"نقشے پر نیلے رنگ کا مطلب نیلا خون نہیں۔ کم آکسیجن والا خون گہرا سرخ ہوتا ہے۔ نقشوں میں نیلا صرف اس لیے ہے کہ دونوں میں فرق فوراً نظر آ جائے۔"} },
+
+    { x:127, y:174, red:false, act:{en:"Squeezing hard", ur:"زور سے دبا رہا ہے"},
+      en:"Right lower chamber", ur:"دایاں نچلا خانہ",
+      state:{en:"Low on oxygen", ur:"آکسیجن کم"},
+      time:{en:"a fraction of a second", ur:"سیکنڈ کا معمولی حصہ"},
+      job:{en:"This chamber squeezes and pushes the blood out to the lungs. It is a short trip, so this pump does not need to be very strong.",
+           ur:"یہ خانہ دبا کر خون کو پھیپھڑوں کی طرف بھیجتا ہے۔ سفر چھوٹا ہے، اس لیے اس پمپ کو زیادہ طاقتور ہونے کی ضرورت نہیں۔"},
+      why:{en:"The heart is not one bag. It is four rooms, and blood passes through a different pair on each half of the journey.",
+           ur:"دل ایک تھیلی نہیں۔ یہ چار کمرے ہیں، اور خون سفر کے ہر آدھے حصے میں الگ جوڑی سے گزرتا ہے۔"} },
+
+    { x:150, y:54, red:true, act:{en:"Swapping gases", ur:"گیسوں کا تبادلہ"},
+      en:"Lungs", ur:"پھیپھڑے",
+      state:{en:"Now full of oxygen", ur:"اب آکسیجن سے بھرپور"},
+      time:{en:"one breath", ur:"ایک سانس"},
+      job:{en:"Here the blood drops off the waste gas you breathe out, and picks up fresh oxygen from the air you breathe in. Watch it change colour.",
+           ur:"یہاں خون وہ فضلہ گیس چھوڑ دیتا ہے جو آپ سانس کے ساتھ باہر نکالتے ہیں، اور سانس میں لی گئی تازہ آکسیجن اٹھا لیتا ہے۔ رنگ بدلتے دیکھیں۔"},
+      why:{en:"This is the only stop where the blood changes. Everywhere else it is just being moved along.",
+           ur:"یہ واحد پڑاؤ ہے جہاں خون خود بدلتا ہے۔ باقی ہر جگہ اسے صرف آگے بھیجا جا رہا ہوتا ہے۔"} },
+
+    { x:173, y:132, red:true, act:{en:"Filling up", ur:"بھر رہا ہے"},
+      en:"Left upper chamber", ur:"بایاں اوپری خانہ",
+      state:{en:"Full of oxygen", ur:"آکسیجن سے بھرپور"},
+      time:{en:"back at the heart", ur:"دل پر واپس"},
+      job:{en:"The blood comes back to the heart a second time — now loaded with oxygen and ready to be sent out to the body.",
+           ur:"خون دوسری بار دل پر واپس آتا ہے — اب آکسیجن سے لدا ہوا اور جسم کو بھیجے جانے کے لیے تیار۔"},
+      why:{en:"Here is the part almost everybody gets wrong. Blood does not pass through the heart once per lap. It passes through twice: once on the way to the lungs, once on the way to the body.",
+           ur:"یہی وہ بات ہے جو تقریباً سب غلط سمجھتے ہیں۔ خون ایک چکر میں دل سے ایک بار نہیں گزرتا۔ دو بار گزرتا ہے: ایک بار پھیپھڑوں کی طرف جاتے ہوئے، ایک بار جسم کی طرف جاتے ہوئے۔"} },
+
+    { x:173, y:174, red:true, act:{en:"The strongest push", ur:"سب سے زوردار دھکا"},
+      en:"Left lower chamber", ur:"بایاں نچلا خانہ",
+      state:{en:"Full of oxygen", ur:"آکسیجن سے بھرپور"},
+      time:{en:"one heartbeat", ur:"دل کی ایک دھڑکن"},
+      job:{en:"The strongest of the four. It has to push blood all the way to your toes and up to your brain, so its wall is much thicker than the others.",
+           ur:"چاروں میں سب سے طاقتور۔ اسے خون پاؤں کی انگلیوں تک اور دماغ تک پہنچانا ہوتا ہے، اس لیے اس کی دیوار باقی سب سے کہیں موٹی ہے۔"},
+      why:{en:"Put two fingers on your wrist. That thump you feel is this chamber squeezing. At your age it does it about 80 times a minute, all day and all night.",
+           ur:"کلائی پر دو انگلیاں رکھیں۔ جو دھڑکن محسوس ہوتی ہے وہ اسی خانے کا دبنا ہے۔ آپ کی عمر میں یہ منٹ میں تقریباً 80 بار ہوتا ہے، دن رات۔"} },
+
+    { x:150, y:250, red:false, act:{en:"Handing over oxygen", ur:"آکسیجن دے رہا ہے"},
+      en:"The body", ur:"جسم",
+      state:{en:"Oxygen given away", ur:"آکسیجن دے دی"},
+      time:{en:"full lap: about a minute", ur:"پورا چکر: تقریباً ایک منٹ"},
+      job:{en:"Every muscle and organ takes the oxygen it needs and hands back its waste gas. The blood turns dark again and heads back to the heart.",
+           ur:"ہر پٹھہ اور ہر عضو اپنی ضرورت کی آکسیجن لے لیتا ہے اور اپنی فضلہ گیس واپس دے دیتا ہے۔ خون دوبارہ گہرا ہو جاتا ہے اور دل کی طرف چل پڑتا ہے۔"},
+      why:{en:"One drop of blood finishes this whole lap in about a minute, and then starts again. It never stops, not once, for your whole life.",
+           ur:"خون کا ایک قطرہ یہ پورا چکر تقریباً ایک منٹ میں مکمل کرتا ہے، اور پھر دوبارہ شروع کر دیتا ہے۔ یہ کبھی نہیں رکتا، پوری زندگی ایک بار بھی نہیں۔"} }
+  ];
+
+  var NERVE = [
+    { x:246, y:184, nerve:true, act:{en:"Feeling it", ur:"محسوس کرنا"},
+      en:"Fingertip", ur:"انگلی کا سرا",
+      state:{en:"Touched something hot", ur:"گرم چیز چھو لی"},
+      time:{en:"0 seconds", ur:"0 سیکنڈ"},
+      job:{en:"Tiny sensors in your skin notice the heat instantly and fire off an electrical signal.",
+           ur:"جلد میں موجود ننھے محسوس کرنے والے فوراً گرمی بھانپ لیتے ہیں اور ایک برقی اشارہ چھوڑ دیتے ہیں۔"},
+      why:{en:"Your fingertips are packed with far more of these sensors than your back is. That is why a fingertip feels so much more than your shoulder does.",
+           ur:"انگلیوں کے سروں پر یہ محسوس کرنے والے کمر کے مقابلے میں کہیں زیادہ ہوتے ہیں۔ اسی لیے انگلی کندھے سے کہیں زیادہ محسوس کرتی ہے۔"} },
+
+    { x:196, y:142, nerve:true, act:{en:"Racing up the arm", ur:"بازو میں دوڑ رہا ہے"},
+      en:"Nerve in the arm", ur:"بازو کا عصب",
+      state:{en:"Signal on its way", ur:"اشارہ راستے میں"},
+      time:{en:"about 0.01 seconds", ur:"تقریباً 0.01 سیکنڈ"},
+      job:{en:"The signal shoots along the nerve like electricity along a wire, heading for the spinal cord.",
+           ur:"اشارہ عصب کے ساتھ ساتھ ایسے دوڑتا ہے جیسے تار میں بجلی، اور حرام مغز کی طرف بڑھتا ہے۔"},
+      why:{en:"Nerve signals travel at around a hundred metres every second — faster than any car on the motorway.",
+           ur:"اعصابی اشارے تقریباً سو میٹر فی سیکنڈ چلتے ہیں — موٹروے کی کسی بھی گاڑی سے تیز۔"} },
+
+    { x:150, y:142, nerve:true, act:{en:"Deciding — here, not the brain", ur:"فیصلہ — یہیں، دماغ میں نہیں"},
+      en:"Spinal cord", ur:"حرام مغز",
+      state:{en:"Decision made", ur:"فیصلہ ہو گیا"},
+      time:{en:"about 0.02 seconds", ur:"تقریباً 0.02 سیکنڈ"},
+      job:{en:"The spinal cord does not wait to ask the brain. It sends the order straight back to the arm: pull away, now.",
+           ur:"حرام مغز دماغ سے پوچھنے کا انتظار نہیں کرتا۔ وہ فوراً بازو کو حکم بھیج دیتا ہے: ابھی ہٹاؤ۔"},
+      why:{en:"This shortcut is called a reflex. Waiting for the brain would cost you a fraction of a second — and on something hot, that fraction is the difference between a scare and a burn.",
+           ur:"اس مختصر راستے کو reflex کہتے ہیں۔ دماغ کا انتظار کرنے میں سیکنڈ کا ایک حصہ لگتا — اور گرم چیز پر وہی حصہ ڈر اور جلنے کے درمیان فرق ہوتا ہے۔"} },
+
+    { x:182, y:126, nerve:true, act:{en:"Pulling the hand back", ur:"ہاتھ پیچھے کھینچنا"},
+      en:"Arm muscle", ur:"بازو کا پٹھہ",
+      state:{en:"Hand already moved", ur:"ہاتھ ہٹ چکا"},
+      time:{en:"about 0.15 seconds", ur:"تقریباً 0.15 سیکنڈ"},
+      job:{en:"The muscle tightens and yanks your hand away from the heat. All of this has happened without you deciding anything.",
+           ur:"پٹھہ سکڑتا ہے اور ہاتھ کو گرمی سے دور کھینچ لیتا ہے۔ یہ سب آپ کے کوئی فیصلہ کیے بغیر ہو چکا ہے۔"},
+      why:{en:"Try it in your head: you have never once thought the words “move my hand” before pulling it off something hot. The order came from your spine.",
+           ur:"سوچ کر دیکھیں: گرم چیز سے ہاتھ ہٹانے سے پہلے آپ نے کبھی سوچا ہی نہیں کہ “ہاتھ ہٹاؤں”۔ حکم حرام مغز سے آیا تھا۔"} },
+
+    { x:150, y:60, nerve:true, act:{en:"Now you feel it", ur:"اب محسوس ہوتا ہے"},
+      en:"Brain", ur:"دماغ",
+      state:{en:"Pain arrives last", ur:"درد سب سے آخر میں"},
+      time:{en:"about 0.3 seconds", ur:"تقریباً 0.3 سیکنڈ"},
+      job:{en:"Only now does the message reach the brain, and only now do you feel the pain and say “ouch”. Your hand was safe long before that.",
+           ur:"اب جا کر پیغام دماغ تک پہنچتا ہے، اور اب آپ کو درد محسوس ہوتا ہے اور آپ “آہ” کہتے ہیں۔ ہاتھ اس سے کہیں پہلے محفوظ ہو چکا تھا۔"},
+      why:{en:"This is the surprise: your hand moved first and you felt it afterwards. Your body protected you before you even knew there was a problem.",
+           ur:"یہی حیرت کی بات ہے: ہاتھ پہلے ہٹا، محسوس بعد میں ہوا۔ جسم نے آپ کو بچا لیا اس سے پہلے کہ آپ کو مسئلے کا پتا بھی چلتا۔"} }
+  ];
+
+  var T = {
+    tabCirc:{en:"Blood", ur:"خون کا نظام"},
+    tabNerve:{en:"Nerves", ur:"اعصابی نظام"},
+    titleCirc:{en:"Follow one drop of blood around your body",
+               ur:"خون کے ایک قطرے کے ساتھ پورے جسم کا چکر"},
+    subCirc:{en:"It passes through the heart twice. Most people think once.",
+             ur:"یہ دل سے دو بار گزرتا ہے۔ زیادہ تر لوگ ایک بار سمجھتے ہیں۔"},
+    titleNerve:{en:"You touch something hot. What happens first?",
+                ur:"آپ گرم چیز کو ہاتھ لگاتے ہیں۔ سب سے پہلے کیا ہوتا ہے؟"},
+    subNerve:{en:"Your hand moves before your brain even knows.",
+              ur:"ہاتھ اس سے پہلے ہٹ جاتا ہے کہ دماغ کو خبر ہو۔"},
+    driveHead:{en:"Move along the journey", ur:"سفر میں آگے بڑھیں"},
+    stopsHead:{en:"Or jump to a stop", ur:"یا سیدھا کسی پڑاؤ پر جائیں"},
+    next:{en:"Next →", ur:"→ آگے"},
+    back:{en:"← Back", ur:"واپس ←"},
+    restart:{en:"Start again", ur:"دوبارہ شروع"},
+    stage:{en:"Stop {n} of {t}", ur:"{t} میں سے {n} واں پڑاؤ"},
+    stateLbl:{en:"Right now", ur:"اس وقت"},
+    timeLbl:{en:"Time so far", ur:"اب تک کا وقت"},
+    whyLbl:{en:"Notice:", ur:"غور کریں:"},
+    quiz:{en:"Check yourself", ur:"اپنا امتحان لیں"},
+    lungs:{en:"Lungs", ur:"پھیپھڑے"},
+    heart:{en:"Heart", ur:"دل"},
+    body:{en:"The body", ur:"جسم"},
+    hot:{en:"something hot", ur:"گرم چیز"}
+  };
+
+  var QUIZ = [
+    { q:{en:"In one full lap around the body, how many times does blood pass through the heart?",
+         ur:"جسم کے ایک پورے چکر میں خون دل سے کتنی بار گزرتا ہے؟"},
+      o:[{en:"Once", ur:"ایک بار"},{en:"Twice", ur:"دو بار"},
+         {en:"Four times", ur:"چار بار"},{en:"It never goes back to the heart", ur:"وہ دل پر واپس جاتا ہی نہیں"}],
+      a:1,
+      f:{en:"Twice. Once through the right side on its way to the lungs, and once through the left side on its way out to the body.",
+         ur:"دو بار۔ ایک بار دائیں طرف سے پھیپھڑوں کی طرف جاتے ہوئے، اور ایک بار بائیں طرف سے جسم کی طرف جاتے ہوئے۔"} },
+
+    { q:{en:"What does blood pick up in the lungs, and what does it leave behind?",
+         ur:"خون پھیپھڑوں میں کیا لیتا ہے اور کیا چھوڑتا ہے؟"},
+      o:[{en:"It picks up oxygen and leaves waste gas behind",
+          ur:"آکسیجن لیتا ہے اور فضلہ گیس چھوڑ دیتا ہے"},
+         {en:"It picks up food and leaves water behind", ur:"خوراک لیتا ہے اور پانی چھوڑ دیتا ہے"},
+         {en:"It picks up waste gas and leaves oxygen behind",
+          ur:"فضلہ گیس لیتا ہے اور آکسیجن چھوڑ دیتا ہے"},
+         {en:"It picks up nothing, it only passes through", ur:"کچھ نہیں لیتا، صرف گزر جاتا ہے"}],
+      a:0,
+      f:{en:"The gas it leaves behind is the one you breathe out. Blood is the delivery service: oxygen out to every cell, waste gas back to the lungs.",
+         ur:"جو گیس وہ چھوڑتا ہے وہی آپ سانس کے ساتھ باہر نکالتے ہیں۔ خون ایک ڈلیوری سروس ہے: آکسیجن ہر خلیے تک، اور فضلہ گیس واپس پھیپھڑوں تک۔"} },
+
+    { q:{en:"You touch something hot. Which happens first?",
+         ur:"آپ گرم چیز کو ہاتھ لگاتے ہیں۔ پہلے کیا ہوتا ہے؟"},
+      o:[{en:"Your brain feels the pain, then you pull your hand away",
+          ur:"دماغ کو درد محسوس ہوتا ہے، پھر آپ ہاتھ ہٹاتے ہیں"},
+         {en:"Your hand pulls away, and you feel the pain afterwards",
+          ur:"ہاتھ ہٹ جاتا ہے، اور درد بعد میں محسوس ہوتا ہے"},
+         {en:"Both happen at exactly the same instant", ur:"دونوں بالکل ایک ہی لمحے ہوتے ہیں"},
+         {en:"Nothing happens until you decide to move", ur:"جب تک آپ فیصلہ نہ کریں کچھ نہیں ہوتا"}],
+      a:1,
+      f:{en:"The hand moves at about 0.15 seconds, the pain arrives at about 0.3. Your body saved you before you knew anything was wrong.",
+         ur:"ہاتھ تقریباً 0.15 سیکنڈ پر ہٹتا ہے، درد تقریباً 0.3 پر پہنچتا ہے۔ جسم نے آپ کو بچا لیا اس سے پہلے کہ آپ کو کچھ پتا چلتا۔"} },
+
+    { q:{en:"In a reflex like that, where is the decision to move actually made?",
+         ur:"ایسے reflex میں ہٹنے کا فیصلہ اصل میں کہاں ہوتا ہے؟"},
+      o:[{en:"In the brain", ur:"دماغ میں"},
+         {en:"In the spinal cord", ur:"حرام مغز میں"},
+         {en:"In the fingertip itself", ur:"خود انگلی کے سرے میں"},
+         {en:"In the heart", ur:"دل میں"}],
+      a:1,
+      f:{en:"The spinal cord answers on its own and sends the order straight back, without waiting for the brain. That shortcut is what makes a reflex so fast.",
+         ur:"حرام مغز خود جواب دیتا ہے اور دماغ کا انتظار کیے بغیر حکم سیدھا واپس بھیج دیتا ہے۔ یہی مختصر راستہ reflex کو اتنا تیز بناتا ہے۔"} }
+  ];
+
+  function $(id){ return document.getElementById(id); }
+  function t(o){ return o[lang]; }
+  function stops(){ return (mode === "circ") ? CIRC : NERVE; }
+
+  var LRI = "\u2066", PDI = "\u2069";
+  var LATIN_RUN = /[A-Za-z0-9][A-Za-z0-9 .,+()\/@_-]*[A-Za-z0-9]|[A-Za-z0-9]/g;
+  function isolate(s){ return s.replace(LATIN_RUN, function(m){ return LRI + m + PDI; }); }
+
+  function setText(el, str){
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+
+  /* ---------- controls ---------- */
+  $("tabCirc").addEventListener("click", function(){ switchMode("circ"); });
+  $("tabNerve").addEventListener("click", function(){ switchMode("nerve"); });
+
+  function switchMode(m){
+    if (mode === m) return;
+    mode = m; step = 0;
+    buildStops();
+    render();
+  }
+
+  $("next").addEventListener("click", function(){
+    var n = stops().length;
+    step = (step >= n - 1) ? 0 : step + 1;
+    render();
+  });
+  $("back").addEventListener("click", function(){
+    if (step > 0){ step--; render(); }
+  });
+
+  function buildStops(){
+    var list = stops();
+    var tr = $("track"); tr.innerHTML = "";
+    for (var i=0;i<list.length;i++) tr.appendChild(document.createElement("i"));
+    var ch = $("chips"); ch.innerHTML = "";
+    list.forEach(function(s, i){
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "schip";
+      b.setAttribute("data-i", i); b.setAttribute("aria-pressed","false");
+      b.addEventListener("click", function(){ step = i; render(); });
+      ch.appendChild(b);
+    });
+  }
+
+  /* ---------- render ---------- */
+  function render(){
+    var list = stops();
+    var s = list[step];
+    var circ = (mode === "circ");
+
+    $("sceneCirc").style.display  = circ ? "" : "none";
+    $("sceneNerve").style.display = circ ? "none" : "";
+
+    // heart chambers light up only for their own stop
+    ["c0","c1","c3","c4"].forEach(function(id, i){
+      var stepFor = [0,1,3,4][i];
+      $(id).classList.toggle("on", circ && step === stepFor);
+    });
+    $("lungs").setAttribute("fill", (circ && step === 2) ? "var(--organ-on)" : "var(--lung)");
+    $("bodyBox").setAttribute("fill", (circ && step === 5) ? "var(--organ-on)" : "var(--organ)");
+    $("brain").setAttribute("fill",  (!circ && step === 4) ? "var(--nerve-on)" : "var(--organ)");
+    $("finger").setAttribute("fill", (!circ && step === 0) ? "var(--nerve-on)" : "var(--organ)");
+    $("muscle").setAttribute("fill", (!circ && step === 3) ? "var(--nerve-on)" : "var(--organ)");
+
+    // only this stop's action plays
+    Array.prototype.forEach.call(document.querySelectorAll(".act"), function(g){
+      var id = g.id;
+      var want = (circ ? "aC" : "aN") + step;
+      g.classList.toggle("show", id === want);
+    });
+    $("actLbl").textContent = t(s.act);
+    $("actLbl").setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+
+    // move the traveller and colour it
+    $("trav").style.transform = "translate(" + s.x + "px," + s.y + "px)";
+    var col = circ ? (s.red ? "var(--oxy)" : "var(--deoxy)") : "var(--nerve-on)";
+    $("travDot").setAttribute("fill", col);
+    $("travGlow").setAttribute("fill", col);
+
+    Array.prototype.forEach.call($("track").children, function(p, i){
+      p.classList.toggle("done", i <= step);
+    });
+    Array.prototype.forEach.call($("chips").children, function(b, i){
+      b.setAttribute("aria-pressed", i === step ? "true" : "false");
+      b.textContent = list[i][lang];
+    });
+
+    setText($("stagechip"), t(T.stage).replace("{n}", String(step + 1))
+                                      .replace("{t}", String(list.length)));
+    setText($("sname"), s[lang]);
+    setText($("sjob"), t(s.job));
+    setText($("lblState"), t(T.stateLbl));
+    setText($("valState"), t(s.state));
+    setText($("lblTime"), t(T.timeLbl));
+    setText($("valTime"), t(s.time));
+    $("whyLbl").textContent = t(T.whyLbl);
+    setText($("whyText"), t(s.why));
+
+    setText($("next"), (step >= list.length - 1) ? t(T.restart) : t(T.next));
+    setText($("back"), t(T.back));
+    $("back").disabled = (step === 0);
+
+    setText($("title"), circ ? t(T.titleCirc) : t(T.titleNerve));
+    setText($("subtitle"), circ ? t(T.subCirc) : t(T.subNerve));
+    $("tabCirc").setAttribute("aria-pressed", circ ? "true" : "false");
+    $("tabNerve").setAttribute("aria-pressed", circ ? "false" : "true");
+    setText($("tabCirc"), t(T.tabCirc));
+    setText($("tabNerve"), t(T.tabNerve));
+
+    $("lungLbl").textContent  = t(T.lungs);
+    $("heartLbl").textContent = t(T.heart);
+    $("bodyLbl").textContent  = t(T.body);
+    $("hotLbl").textContent   = t(T.hot);
+    [$("lungLbl"),$("heartLbl"),$("bodyLbl"),$("hotLbl")].forEach(function(el){
+      el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+    });
+
+    lastSpoken = s[lang] + ". " + t(s.job);
+  }
+
+  var lastSpoken = "";
+
+  /* ---------- quiz ---------- */
+  function buildQuiz(){
+    var box = $("quizBox");
+    box.innerHTML = "";
+    QUIZ.forEach(function(item){
+      var wrap = document.createElement("div");
+      wrap.className = "q";
+      var q = document.createElement("p");
+      setText(q, t(item.q));
+      wrap.appendChild(q);
+      var fb = document.createElement("p");
+      fb.className = "fb";
+      item.o.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt" + (lang === "ur" ? " ur" : "");
+        b.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+        b.textContent = t(opt);
+        b.addEventListener("click", function(){
+          if (wrap.getAttribute("data-done") === "1") return;
+          wrap.setAttribute("data-done","1");
+          Array.prototype.forEach.call(wrap.querySelectorAll(".opt"), function(x, xi){
+            if (xi === item.a) x.classList.add("right");
+            else if (xi === oi) x.classList.add("wrong");
+          });
+          setText(fb, t(item.f));
+          fb.classList.add("show","fb");
+        });
+        wrap.appendChild(b);
+      });
+      wrap.appendChild(fb);
+      box.appendChild(wrap);
+    });
+  }
+
+  function applyLang(){
+    document.body.classList.toggle("urdu", lang === "ur");
+    var lb = $("langBtn");
+    lb.textContent = (lang === "en") ? "اردو" : "English";
+    lb.setAttribute("aria-pressed", lang === "ur" ? "true" : "false");
+
+    Array.prototype.forEach.call(document.querySelectorAll("[data-en]"), function(el){
+      setText(el, el.getAttribute(lang === "en" ? "data-en" : "data-ur"));
+    });
+
+    setText($("driveHead"), t(T.driveHead));
+    setText($("stopsHead"), t(T.stopsHead));
+    setText($("quizHead"), t(T.quiz));
+
+    buildQuiz();
+    render();
+  }
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en";
+    applyLang();
+  });
+
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      window.speechSynthesis.cancel();
+      var u = new SpeechSynthesisUtterance(lastSpoken);
+      u.lang = (lang === "ur") ? "ur-PK" : "en-US";
+      u.rate = 0.92;
+      var voices = window.speechSynthesis.getVoices() || [];
+      for (var i=0;i<voices.length;i++){
+        if (voices[i].lang && voices[i].lang.toLowerCase().indexOf(lang === "ur" ? "ur" : "en") === 0){
+          u.voice = voices[i]; break;
+        }
+      }
+      window.speechSynthesis.speak(u);
+    }catch(e){ /* no voice available — stay quiet */ }
+  });
+
+  buildStops();
+  applyLang();
+})();
+</script>
+</body>
+</html>

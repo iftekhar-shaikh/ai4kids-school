@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>HCF aur LCM — AI4Kids Math Adventure | Class 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#f2eee4;
+    --board-deep:#e5dccb;
+    --a:#2f6fb5;
+    --b:#c9702e;
+    --both:#7a5aa8;
+    --gold:#e8b23d;
+    --left:#c4453a;
+    --ok:#2e7d4f;
+    --ink:#2a2419;
+    --ink-soft:#574e3e;
+    --paper:#fdfaf3;
+    --line:#ded5c4;
+    --accent:#5b4a8f;
+
+    --fs-cap:clamp(12px, 3.2vw, 13px);
+    --fs-xs:clamp(14px, 3.7vw, 15px);
+    --fs-sm:clamp(16px, 4.2vw, 17px);
+    --fs-md:clamp(17px, 4.6vw, 19px);
+    --fs-lg:clamp(20px, 5.4vw, 23px);
+    --fs-xl:clamp(27px, 7.4vw, 33px);
+    --lh:1.5;
+  }
+  /* Urdu is set larger than Latin — Nastaliq reads smaller at the same size. */
+  body.urdu{
+    --fs-cap:clamp(13px, 3.5vw, 15px);
+    --fs-xs:clamp(15px, 4.1vw, 17px);
+    --fs-sm:clamp(17px, 4.7vw, 19px);
+    --fs-md:clamp(19px, 5.2vw, 21px);
+    --fs-lg:clamp(22px, 6vw, 25px);
+    --fs-xl:clamp(26px, 7vw, 31px);
+    --lh:2.1;
+  }
+
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+  .stars{display:flex;align-items:center;gap:6px;font-weight:800;font-size:var(--fs-xs);
+         background:#fff6e2;border:2px solid var(--gold);border-radius:999px;padding:7px 13px}
+
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+
+  .tabs{display:flex;gap:8px;margin:0 0 14px}
+  .tabs button{
+    flex:1;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:10px 8px;font:inherit;font-weight:800;
+    font-size:var(--fs-xs);cursor:pointer;min-height:54px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .tabs button .badge{color:var(--gold)}
+
+  .story{
+    background:#fff8ea;border:2px dashed var(--gold);border-radius:16px;padding:13px 15px;
+    font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;margin-bottom:14px;
+  }
+  body.urdu .story{line-height:var(--lh)}
+  .story b{color:var(--ink)}
+
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:linear-gradient(180deg,var(--board) 0%,var(--board-deep) 100%);
+  }
+  .scene svg{display:block;width:100%;height:auto}
+  .blk{transition:fill .25s ease}
+  .hit{animation:pop .5s ease-out}
+  @keyframes pop{0%{transform:scale(.5);opacity:0}60%{transform:scale(1.2)}100%{transform:scale(1)}}
+
+  .readout{
+    margin-top:-18px;position:relative;z-index:2;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+  .statechip.ur{padding:2px 14px 7px}
+  .statechip.win{background:var(--ok)}
+  .headline{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+  .headline.ur{line-height:1.95}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+
+  .bound{
+    margin:10px 0 0;border:2px solid var(--ok);background:#eaf3ee;border-radius:12px;
+    padding:9px 12px;font-size:var(--fs-cap);color:var(--ok);font-weight:700;line-height:1.55;
+  }
+  body.urdu .bound{line-height:var(--lh)}
+  .hintbox{
+    margin-top:14px;border:2px solid var(--a);background:#eaf1f9;border-radius:14px;
+    padding:11px 14px;font-size:var(--fs-xs);color:var(--a);font-weight:700;line-height:1.55;
+    display:none;
+  }
+  .hintbox.show{display:block}
+  body.urdu .hintbox{line-height:var(--lh)}
+
+  .work{
+    margin-top:14px;border:2px solid var(--accent);background:#f1eef8;border-radius:14px;
+    padding:11px 14px;font-size:var(--fs-xs);color:var(--accent);line-height:1.6;display:none;
+  }
+  .work.show{display:block}
+  .work b{font-weight:800}
+  .work code{font-family:"Baloo Bhaijaan 2",monospace;font-weight:800;font-size:var(--fs-sm)}
+
+  .panel{margin-top:22px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .row{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .row .name{flex:none;width:38%;max-width:160px;font-size:var(--fs-xs);font-weight:700}
+  .stepper{display:flex;align-items:center;gap:10px;flex:1;justify-content:center}
+  .stepper button{
+    width:50px;height:50px;border-radius:14px;border:2px solid var(--ink);background:var(--paper);
+    font:inherit;font-size:var(--fs-lg);font-weight:800;cursor:pointer;color:var(--ink);
+  }
+  .stepper button:disabled{opacity:.3;cursor:default}
+  .stepper .val{min-width:64px;text-align:center;font-size:var(--fs-xl);font-weight:800}
+  .btns{display:flex;gap:9px;margin-top:8px;flex-wrap:wrap}
+  .btns button{
+    border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);
+    font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:50px;
+    padding:0 14px;flex:1;
+  }
+  .btns .go{background:var(--ink);color:var(--paper)}
+  .btns button:active{transform:scale(.97)}
+
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .pchip{
+    border:2px solid var(--line);background:var(--paper);border-radius:999px;padding:8px 14px;
+    font:inherit;font-size:var(--fs-cap);font-weight:800;color:var(--ink);cursor:pointer;min-height:44px;
+  }
+  .pchip[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+  .pchip .done{color:var(--gold)}
+
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .qhead{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+  .qhead h2{font-size:var(--fs-lg);font-weight:800;margin:0;flex:1}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:50px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+  .opt.wrong{border-color:var(--left);background:#fbeae8}
+  .opt.reveal{border-color:var(--ok);border-style:dashed}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;
+      grid-template-columns:1fr 1fr;
+      grid-template-areas:
+        "bar   bar"
+        "head  head"
+        "tabs  tabs"
+        "story story"
+        "left  right"
+        "quiz  quiz"
+        "foot  foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+    .story{grid-area:story} .left{grid-area:left} .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+    .panel{margin-top:0}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .hit{animation:none}
+    *{transition-duration:.01ms !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 5</span>
+    <span class="stars" id="starBox">⭐ <span id="starCount">0</span></span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 id="title"></h1>
+  <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group">
+    <button type="button" id="tabH" aria-pressed="true"></button>
+    <button type="button" id="tabL" aria-pressed="false"></button>
+  </div>
+
+  <p class="story" id="story"></p>
+
+  <div class="left">
+  <div class="scene">
+    <svg viewBox="0 0 340 230" role="img" id="svg" aria-label="A visual model of the numbers being worked on">
+      <g id="field"></g>
+    </svg>
+  </div>
+
+  <div class="readout">
+    <span class="statechip" id="statechip"></span>
+    <p class="headline" id="headline"></p>
+    <p class="detail" id="detail"></p>
+    <p class="bound" id="bound"></p>
+    <p class="hintbox" id="hintbox"></p>
+    <div class="work" id="work"></div>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="panel">
+    <h2 id="ctlHead"></h2>
+    <div class="row">
+      <span class="name" id="ctlName"></span>
+      <div class="stepper">
+        <button type="button" id="minus">−</button>
+        <span class="val" id="tryVal">1</span>
+        <button type="button" id="plus">+</button>
+      </div>
+    </div>
+    <div class="btns">
+      <button type="button" class="go" id="checkBtn"></button>
+      <button type="button" id="hintBtn"></button>
+    </div>
+    <div class="btns">
+      <button type="button" id="teachBtn"></button>
+      <button type="button" id="resetBtn"></button>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2 id="pairHead"></h2>
+    <div class="chips" id="pairs" role="group"></div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <div class="qhead">
+      <h2 id="quizHead"></h2>
+      <button type="button" class="chip" id="newQuiz"></button>
+    </div>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad's bilingual AI and coding school. WhatsApp 0337 1468899" data-ur="اے آئی فور کڈز — اسلام آباد کا دو زبانوں والا اے آئی اور کوڈنگ سکول۔ واٹس ایپ 0337 1468899"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var lang  = "en";
+  var mode  = "hcf";
+  var stars = 0;
+  var teach = false;
+  var hintLevel = 0;
+  var wrongTries = 0;
+  var msg = null;          // {kind, a, b}
+
+  var HPAIRS = [[12,18],[8,12],[15,25],[24,36]];
+  var LPAIRS = [[4,6],[3,5],[6,8],[4,10]];
+  var hPair = 0, lPair = 0;
+  var tryN  = 1;
+  var solved = { hcf:{}, lcm:{} };
+
+  function gcd(a,b){ while(b){ var t=a%b; a=b; b=t; } return a; }
+  function lcm(a,b){ return a/gcd(a,b)*b; }
+  function pf(n){
+    var out = [], d = 2;
+    while (n > 1){ while (n % d === 0){ out.push(d); n /= d; } d++; }
+    return out;
+  }
+  function pfStr(n){ return pf(n).join(" \u00d7 "); }
+
+  function pair(){ return (mode === "hcf") ? HPAIRS[hPair] : LPAIRS[lPair]; }
+  function answer(){ var p = pair(); return (mode === "hcf") ? gcd(p[0],p[1]) : lcm(p[0],p[1]); }
+  function maxTry(){ var p = pair(); return (mode === "hcf") ? Math.min(p[0],p[1]) : lcm(p[0],p[1]) + 6; }
+  function key(){ return (mode === "hcf" ? hPair : lPair); }
+  function isSolved(){ return !!solved[mode][key()]; }
+
+  var T = {
+    tabH:{en:"HCF — sharing out", ur:"HCF — برابر بانٹنا"},
+    tabL:{en:"LCM — meeting again", ur:"LCM — دوبارہ ملنا"},
+    titleH:{en:"What is the biggest group that splits both evenly?",
+            ur:"سب سے بڑا گروپ کون سا ہے جو دونوں کو برابر بانٹ دے؟"},
+    subH:{en:"Try a group size. If even one block is left over, that size does not work.",
+          ur:"کوئی گروپ سائز آزمائیں۔ اگر ایک ٹکڑا بھی بچ جائے تو وہ سائز کام نہیں کرتا۔"},
+    titleL:{en:"When do the two teams practise on the same day again?",
+            ur:"دونوں ٹیمیں دوبارہ ایک ہی دن پریکٹس کب کریں گی؟"},
+    subL:{en:"Walk along the days and find the first day both teams land on.",
+          ur:"دنوں پر چلیں اور وہ پہلا دن ڈھونڈیں جس پر دونوں ٹیمیں آئیں۔"},
+    storyH:{en:"Sadi has {a} laddus and {b} barfis. He wants to make identical plates — every plate with the same number of laddus and the same number of barfis, and nothing left over. What is the biggest number of plates he can make?",
+            ur:"سعدی کے پاس {a} لڈو اور {b} برفی ہیں۔ وہ ایک جیسی پلیٹیں بنانا چاہتا ہے — ہر پلیٹ میں لڈو برابر، برفی برابر، اور کچھ بھی بچے نہیں۔ وہ زیادہ سے زیادہ کتنی پلیٹیں بنا سکتا ہے؟"},
+    storyL:{en:"Two cricket teams use the same ground. The blue team practises every {a} days, the orange team every {b} days. Today they are both there. After how many days will they both be there again?",
+            ur:"دو کرکٹ ٹیمیں ایک ہی گراؤنڈ استعمال کرتی ہیں۔ نیلی ٹیم ہر {a} دن بعد پریکٹس کرتی ہے، نارنجی ہر {b} دن بعد۔ آج دونوں موجود ہیں۔ کتنے دن بعد دونوں دوبارہ اکٹھی ہوں گی؟"},
+    ctlHeadH:{en:"Pick a group size", ur:"گروپ سائز چنیں"},
+    ctlHeadL:{en:"Walk along the days", ur:"دنوں پر چلیں"},
+    ctlNameH:{en:"Blocks per group", ur:"ہر گروپ میں ٹکڑے"},
+    ctlNameL:{en:"Day number", ur:"دن نمبر"},
+    pairHeadH:{en:"Other plate problems", ur:"اور پلیٹ والے سوال"},
+    pairHeadL:{en:"Other team problems", ur:"اور ٹیم والے سوال"},
+    check:{en:"Check this", ur:"یہ چیک کریں"},
+    hint:{en:"Give me a hint", ur:"اشارہ دیں"},
+    teachOn:{en:"Hide the working", ur:"طریقہ چھپائیں"},
+    teachOff:{en:"Teacher: show working", ur:"ٹیچر: طریقہ دکھائیں"},
+    reset:{en:"Start this one again", ur:"یہ دوبارہ شروع کریں"},
+    quiz:{en:"Quiz — 5 sawaal", ur:"کوئز — 5 سوال"},
+    newQuiz:{en:"New questions", ur:"نئے سوال"},
+    ready:{en:"Ready", ur:"تیار"},
+    tryIt:{en:"Have a guess first, then check.", ur:"پہلے اندازہ لگائیں، پھر چیک کریں۔"},
+    won:{en:"Got it!", ur:"مل گیا!"},
+    // HCF messages
+    hBoth:{en:"{n} splits both evenly — but is it the biggest one that does?",
+           ur:"{n} دونوں کو برابر بانٹ دیتا ہے — مگر کیا یہی سب سے بڑا ہے؟"},
+    hLeft:{en:"Not this one. {x} left over from {a}, and {y} left over from {b}.",
+           ur:"یہ نہیں۔ {a} میں سے {x} بچ گئے، اور {b} میں سے {y} بچ گئے۔"},
+    hLeftOne:{en:"Close. {a} splits evenly, but {b} has {y} left over. It has to work for both.",
+              ur:"قریب تھے۔ {a} برابر بٹ گیا، مگر {b} میں سے {y} بچ گئے۔ دونوں پر چلنا ضروری ہے۔"},
+    hWin:{en:"{n} is the HCF. No bigger group divides both {a} and {b} without leftovers.",
+          ur:"{n} ہی HCF ہے۔ اس سے بڑا کوئی گروپ {a} اور {b} دونوں کو بغیر بچت کے نہیں بانٹ سکتا۔"},
+    // LCM messages
+    lBoth:{en:"Day {n} — both teams are here. This is the first such day.",
+           ur:"دن {n} — دونوں ٹیمیں موجود ہیں۔ یہی پہلا ایسا دن ہے۔"},
+    lOne:{en:"Day {n} — only the {who} team is here.",
+          ur:"دن {n} — یہاں صرف {who} ٹیم ہے۔"},
+    lNone:{en:"Day {n} — neither team is here today.", ur:"دن {n} — آج کوئی ٹیم نہیں آئی۔"},
+    lLater:{en:"Day {n} — both are here, but this is not the first time. Look for the earliest.",
+            ur:"دن {n} — دونوں موجود ہیں، مگر یہ پہلی بار نہیں۔ سب سے پہلا دن ڈھونڈیں۔"},
+    blue:{en:"blue", ur:"نیلی"}, orange:{en:"orange", ur:"نارنجی"},
+    // hints
+    hintsH:[
+      {en:"Start small. Does 2 divide both numbers with nothing left over?",
+       ur:"چھوٹے سے شروع کریں۔ کیا 2 دونوں عدد کو بغیر بچت کے بانٹ دیتا ہے؟"},
+      {en:"Several sizes work. You want the biggest one that works, so try larger sizes and keep the largest that leaves nothing.",
+       ur:"کئی سائز چلتے ہیں۔ آپ کو سب سے بڑا چاہیے، تو بڑے سائز آزمائیں اور وہ رکھیں جس پر کچھ نہ بچے۔"},
+      {en:"Break both numbers into primes and take what they share. {pa} and {pb} — the common ones multiply to give the answer.",
+       ur:"دونوں عدد کو اعداد اولیہ میں توڑیں اور مشترک والے لیں۔ {pa} اور {pb} — مشترک والوں کا حاصل ضرب ہی جواب ہے۔"}
+    ],
+    hintsL:[
+      {en:"Write out the days each team comes: {ma} … and {mb} … Which day appears in both lists first?",
+       ur:"ہر ٹیم کے دن لکھیں: {ma} … اور {mb} … کون سا دن دونوں فہرستوں میں پہلے آتا ہے؟"},
+      {en:"You do not have to check every day. Only the days the blue team comes can ever be the answer.",
+       ur:"ہر دن چیک کرنے کی ضرورت نہیں۔ جواب صرف ان دنوں میں سے ہو سکتا ہے جب نیلی ٹیم آتی ہے۔"},
+      {en:"A shortcut worth knowing: {a} × {b} ÷ HCF = LCM. Here that is {a} × {b} ÷ {g} = {ans}.",
+       ur:"ایک کام کا شارٹ کٹ: {a} × {b} ÷ HCF = LCM۔ یہاں یہ ہے {a} × {b} ÷ {g} = {ans}۔"}
+    ],
+    workH:{en:"<b>Working</b><br>{a} = <code>{pa}</code><br>{b} = <code>{pb}</code><br>Shared primes: <code>{sh}</code><br>HCF = <code>{ans}</code>",
+           ur:"<b>طریقہ</b><br>{a} = <code>{pa}</code><br>{b} = <code>{pb}</code><br>مشترک اعداد اولیہ: <code>{sh}</code><br>HCF = <code>{ans}</code>"},
+    workL:{en:"<b>Working</b><br>Multiples of {a}: <code>{ma}</code><br>Multiples of {b}: <code>{mb}</code><br>First shared one: <code>{ans}</code><br>Check: {a} × {b} ÷ {g} = <code>{ans}</code>",
+           ur:"<b>طریقہ</b><br>{a} کے مضاعف: <code>{ma}</code><br>{b} کے مضاعف: <code>{mb}</code><br>پہلا مشترک: <code>{ans}</code><br>جانچ: {a} × {b} ÷ {g} = <code>{ans}</code>"},
+    starEarn:{en:"You earned a star.", ur:"آپ کو ایک ستارہ ملا۔"},
+    boundH:{en:"The group size can never go past {min}. A group bigger than {min} cannot divide {min} at all — so the HCF is never bigger than the smaller number.",
+            ur:"گروپ سائز {min} سے آگے جا ہی نہیں سکتا۔ {min} سے بڑا گروپ {min} کو بانٹ ہی نہیں سکتا — اسی لیے HCF کبھی چھوٹے عدد سے بڑا نہیں ہوتا۔"},
+    boundHTop:{en:"You have reached {min}, the largest this can ever be. The HCF is {min} or smaller — never more.",
+               ur:"آپ {min} تک پہنچ گئے، یہ زیادہ سے زیادہ یہی ہو سکتا ہے۔ HCF {min} یا اس سے کم ہوگا — زیادہ کبھی نہیں۔"},
+    boundL:{en:"Nothing before day {max} can be the answer — the {max}-day team has not even come once yet. So the LCM is never smaller than the bigger number.",
+            ur:"دن {max} سے پہلے کوئی دن جواب ہو ہی نہیں سکتا — {max} دن والی ٹیم تو ابھی ایک بار بھی نہیں آئی۔ اسی لیے LCM کبھی بڑے عدد سے چھوٹا نہیں ہوتا۔"},
+    boundLPast:{en:"Day {max} has passed, so from here on both teams have each come at least once. The answer is at or after day {max}.",
+                ur:"دن {max} گزر چکا، تو اب دونوں ٹیمیں کم از کم ایک بار آ چکی ہیں۔ جواب {max} یا اس کے بعد ہی ہوگا۔"}
+  };
+
+  /* ---------- question bank ---------- */
+  var BANK = [
+    { q:{en:"What does HCF stand for in plain words?", ur:"HCF کا سیدھا سا مطلب کیا ہے؟"},
+      o:[{en:"The biggest number that divides both numbers with nothing left over",
+          ur:"سب سے بڑا عدد جو دونوں کو بغیر بچت کے بانٹ دے"},
+         {en:"The smallest number both can divide into", ur:"سب سے چھوٹا عدد جسے دونوں بانٹ سکیں"},
+         {en:"The sum of both numbers", ur:"دونوں عدد کا مجموعہ"},
+         {en:"The difference between them", ur:"دونوں کا فرق"}],
+      a:0,
+      f:{en:"Highest Common Factor — highest means biggest, common means shared by both, factor means it divides evenly.",
+         ur:"Highest Common Factor — highest یعنی سب سے بڑا، common یعنی دونوں میں مشترک، factor یعنی بغیر بچت کے بانٹ دے۔"} },
+    { q:{en:"HCF of 12 and 18?", ur:"12 اور 18 کا HCF؟"},
+      o:[{en:"2", ur:"2"},{en:"3", ur:"3"},{en:"6", ur:"6"},{en:"36", ur:"36"}], a:2,
+      f:{en:"2 and 3 both work, but 6 is the biggest that works. 36 is far too big — it does not divide 12 at all.",
+         ur:"2 اور 3 بھی چلتے ہیں، مگر 6 سب سے بڑا ہے جو چلتا ہے۔ 36 بہت بڑا ہے — وہ تو 12 کو بانٹتا ہی نہیں۔"} },
+    { q:{en:"LCM of 4 and 6?", ur:"4 اور 6 کا LCM؟"},
+      o:[{en:"2", ur:"2"},{en:"10", ur:"10"},{en:"12", ur:"12"},{en:"24", ur:"24"}], a:2,
+      f:{en:"24 is a common multiple too, but it is not the lowest. The first day both teams meet is day 12.",
+         ur:"24 بھی مشترک مضاعف ہے، مگر سب سے چھوٹا نہیں۔ دونوں ٹیمیں پہلی بار 12ویں دن ملتی ہیں۔"} },
+    { q:{en:"Two ropes are 15 m and 25 m. You cut both into equal pieces, as long as possible, with nothing wasted. How long is each piece?",
+         ur:"دو رسیاں 15 میٹر اور 25 میٹر کی ہیں۔ دونوں کو برابر ٹکڑوں میں کاٹنا ہے، جتنے لمبے ہو سکیں، اور کچھ ضائع نہ ہو۔ ہر ٹکڑا کتنا لمبا ہوگا؟"},
+      o:[{en:"3 m", ur:"3 میٹر"},{en:"5 m", ur:"5 میٹر"},
+         {en:"10 m", ur:"10 میٹر"},{en:"75 m", ur:"75 میٹر"}], a:1,
+      f:{en:"Cutting into equal pieces with nothing wasted is an HCF question. HCF of 15 and 25 is 5.",
+         ur:"برابر ٹکڑوں میں کاٹنا اور کچھ ضائع نہ ہونا HCF کا سوال ہے۔ 15 اور 25 کا HCF 5 ہے۔"} },
+    { q:{en:"One bus leaves every 12 minutes, another every 18 minutes. They just left together. When do they next leave together?",
+         ur:"ایک بس ہر 12 منٹ بعد نکلتی ہے، دوسری ہر 18 منٹ بعد۔ ابھی دونوں ساتھ نکلی ہیں۔ اگلی بار ساتھ کب نکلیں گی؟"},
+      o:[{en:"After 6 minutes", ur:"6 منٹ بعد"},{en:"After 30 minutes", ur:"30 منٹ بعد"},
+         {en:"After 36 minutes", ur:"36 منٹ بعد"},{en:"After 216 minutes", ur:"216 منٹ بعد"}], a:2,
+      f:{en:"Meeting again is an LCM question. 6 is the HCF, not the answer. 216 is 12 × 18, which is a common multiple but not the lowest.",
+         ur:"دوبارہ ملنا LCM کا سوال ہے۔ 6 تو HCF ہے، جواب نہیں۔ 216 یعنی 12 × 18 مشترک مضاعف تو ہے مگر سب سے چھوٹا نہیں۔"} },
+    { q:{en:"Which is always true?", ur:"ہمیشہ کون سی بات درست ہے؟"},
+      o:[{en:"The HCF is never bigger than the smaller number",
+          ur:"HCF کبھی چھوٹے عدد سے بڑا نہیں ہوتا"},
+         {en:"The HCF is always bigger than both numbers", ur:"HCF ہمیشہ دونوں عدد سے بڑا ہوتا ہے"},
+         {en:"The LCM is always smaller than both numbers", ur:"LCM ہمیشہ دونوں سے چھوٹا ہوتا ہے"},
+         {en:"The HCF and LCM are always equal", ur:"HCF اور LCM ہمیشہ برابر ہوتے ہیں"}], a:0,
+      f:{en:"A factor cannot be bigger than the number it divides. And the LCM is never smaller than the bigger number — the two facts are mirror images.",
+         ur:"کوئی factor اس عدد سے بڑا نہیں ہو سکتا جسے وہ بانٹتا ہے۔ اور LCM کبھی بڑے عدد سے چھوٹا نہیں ہوتا — دونوں باتیں ایک دوسرے کا عکس ہیں۔"} },
+    { q:{en:"HCF of 8 and 12?", ur:"8 اور 12 کا HCF؟"},
+      o:[{en:"2", ur:"2"},{en:"4", ur:"4"},{en:"8", ur:"8"},{en:"24", ur:"24"}], a:1,
+      f:{en:"8 does not divide 12 evenly, so it cannot be the answer. 4 is the biggest that divides both.",
+         ur:"8، 12 کو برابر نہیں بانٹتا، تو وہ جواب نہیں ہو سکتا۔ 4 سب سے بڑا ہے جو دونوں کو بانٹتا ہے۔"} },
+    { q:{en:"LCM of 3 and 5?", ur:"3 اور 5 کا LCM؟"},
+      o:[{en:"1", ur:"1"},{en:"8", ur:"8"},{en:"15", ur:"15"},{en:"30", ur:"30"}], a:2,
+      f:{en:"3 and 5 share no factor except 1, so their LCM is simply 3 × 5 = 15. That shortcut only works when the HCF is 1.",
+         ur:"3 اور 5 میں 1 کے سوا کوئی مشترک factor نہیں، تو ان کا LCM سیدھا 3 × 5 = 15 ہے۔ یہ شارٹ کٹ صرف تب چلتا ہے جب HCF 1 ہو۔"} },
+    { q:{en:"A word problem says 'largest equal groups with nothing left over'. Is it HCF or LCM?",
+         ur:"کسی سوال میں لکھا ہو 'سب سے بڑے برابر گروپ، کچھ بچے نہیں' — یہ HCF ہے یا LCM؟"},
+      o:[{en:"HCF", ur:"HCF"},{en:"LCM", ur:"LCM"},
+         {en:"Neither", ur:"کوئی نہیں"},{en:"Both give the same answer", ur:"دونوں کا جواب ایک ہی ہوگا"}], a:0,
+      f:{en:"Splitting things up into equal shares points to HCF. Things coming round again and meeting points to LCM. Spotting which one is asked is half the work.",
+         ur:"چیزوں کو برابر حصوں میں بانٹنا HCF کی طرف اشارہ ہے۔ چیزوں کا دوبارہ آ کر ملنا LCM کی طرف۔ یہ پہچاننا ہی آدھا کام ہے۔"} },
+    { q:{en:"For 6 and 8: HCF is 2. What is the LCM?", ur:"6 اور 8 کے لیے: HCF 2 ہے۔ LCM کیا ہوگا؟"},
+      o:[{en:"14", ur:"14"},{en:"24", ur:"24"},{en:"48", ur:"48"},{en:"96", ur:"96"}], a:1,
+      f:{en:"Use the shortcut: 6 × 8 ÷ 2 = 24. Multiplying them and dividing by the HCF always gives the LCM.",
+         ur:"شارٹ کٹ لگائیں: 6 × 8 ÷ 2 = 24۔ دونوں کو ضرب دے کر HCF سے تقسیم کرنے پر ہمیشہ LCM ملتا ہے۔"} }
+  ];
+  var quizSet = [];
+
+  function $(id){ return document.getElementById(id); }
+  function t(o){ return o[lang]; }
+
+  var LRI = "\u2066", PDI = "\u2069";
+  var LATIN_RUN = /[A-Za-z0-9][A-Za-z0-9 .,+()\/@_\u00d7\u00f7-]*[A-Za-z0-9]|[A-Za-z0-9]/g;
+  function isolate(s){ return s.replace(LATIN_RUN, function(m){ return LRI + m + PDI; }); }
+  function setText(el, str){
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+  function fill(s, map){
+    Object.keys(map).forEach(function(k){ s = s.split("{"+k+"}").join(map[k]); });
+    return s;
+  }
+
+  var NS = "http://www.w3.org/2000/svg";
+  function mk(tag, a){
+    var e = document.createElementNS(NS, tag);
+    for (var k in a) e.setAttribute(k, a[k]);
+    return e;
+  }
+
+  /* ---------- the picture ---------- */
+  function drawField(){
+    var g = $("field"); g.innerHTML = "";
+    var p = pair();
+    if (mode === "hcf") drawBlocks(g, p[0], p[1]);
+    else drawDays(g, p[0], p[1]);
+  }
+
+  function drawBlocks(g, a, b){
+    [[a, 22, "var(--a)"], [b, 126, "var(--b)"]].forEach(function(set){
+      var n = set[0], y0 = set[1], col = set[2];
+      var lab = mk("text", {x:8, y:y0 - 6, "font-size":"13", "font-weight":"800",
+                            fill:col, "font-family":"Baloo Bhaijaan 2, sans-serif"});
+      lab.textContent = String(n);
+      g.appendChild(lab);
+
+      var full = Math.floor(n / tryN), rem = n % tryN;
+      var x = 34, y = y0, W = 12, GAP = 2, GRP = 9;
+      var idx = 0;
+      for (var gi=0; gi<full; gi++){
+        if (x + tryN*(W+GAP) > 332){ x = 34; y += W + 14; }
+        g.appendChild(mk("rect", {x:x-3, y:y-3, width:tryN*(W+GAP)+2, height:W+6, rx:5,
+                                  fill:"none", stroke:col, "stroke-width":1.6, opacity:.55}));
+        for (var k=0;k<tryN;k++){
+          g.appendChild(mk("rect", {x:x, y:y, width:W, height:W, rx:2.5, fill:col, "class":"blk"}));
+          x += W + GAP; idx++;
+        }
+        x += GRP;
+      }
+      for (var r=0;r<rem;r++){
+        if (x + W > 332){ x = 34; y += W + 14; }
+        g.appendChild(mk("rect", {x:x, y:y, width:W, height:W, rx:2.5,
+                                  fill:"var(--left)", "class":"blk hit"}));
+        x += W + GAP;
+      }
+      if (rem){
+        var rt = mk("text", {x:x + 6, y:y + W - 1, "font-size":"11", "font-weight":"800",
+                             fill:"var(--left)", "font-family":"Baloo Bhaijaan 2, sans-serif"});
+        rt.textContent = "+" + rem;
+        g.appendChild(rt);
+      }
+    });
+  }
+
+  function drawDays(g, a, b){
+    var maxD = lcm(a,b) + 6;
+    var W = 320 / maxD;
+    g.appendChild(mk("line", {x1:10, y1:118, x2:330, y2:118,
+                              stroke:"var(--ink-soft)", "stroke-width":2}));
+    for (var d=1; d<=maxD; d++){
+      var x = 10 + (d - 0.5) * W;
+      var isA = d % a === 0, isB = d % b === 0;
+      g.appendChild(mk("line", {x1:x, y1:113, x2:x, y2:123,
+                                stroke:"var(--ink-soft)", "stroke-width":1, opacity:.5}));
+      if (isA) g.appendChild(mk("circle", {cx:x, cy:96, r:Math.min(7, W/2.2),
+                                           fill: isB ? "var(--both)" : "var(--a)"}));
+      if (isB) g.appendChild(mk("circle", {cx:x, cy:140, r:Math.min(7, W/2.2),
+                                           fill: isA ? "var(--both)" : "var(--b)"}));
+      if (d === tryN){
+        g.appendChild(mk("rect", {x:x - W/2, y:70, width:W, height:96, rx:4,
+                                  fill:"var(--gold)", opacity:.28, "class":"hit"}));
+        var dt = mk("text", {x:x, y:186, "text-anchor":"middle", "font-size":"15",
+                             "font-weight":"800", fill:"var(--ink)",
+                             "font-family":"Baloo Bhaijaan 2, sans-serif"});
+        dt.textContent = String(d);
+        g.appendChild(dt);
+      }
+    }
+    var la = mk("text", {x:10, y:66, "font-size":"12", "font-weight":"800", fill:"var(--a)",
+                         "font-family":"Baloo Bhaijaan 2, sans-serif"});
+    la.textContent = "\u2022 " + a;
+    var lb = mk("text", {x:10, y:170, "font-size":"12", "font-weight":"800", fill:"var(--b)",
+                         "font-family":"Baloo Bhaijaan 2, sans-serif"});
+    lb.textContent = "\u2022 " + b;
+    g.appendChild(la); g.appendChild(lb);
+  }
+
+  /* ---------- checking ---------- */
+  function check(){
+    var p = pair(), a = p[0], b = p[1], ans = answer();
+    if (mode === "hcf"){
+      var ra = a % tryN, rb = b % tryN;
+      if (ra === 0 && rb === 0){
+        if (tryN === ans){ win(); }
+        else msg = { kind:"hBoth", n:tryN };
+      } else if (ra === 0 || rb === 0){
+        msg = { kind:"hLeftOne", a: ra === 0 ? a : b, b: ra === 0 ? b : a, y: ra === 0 ? rb : ra };
+        miss();
+      } else {
+        msg = { kind:"hLeft", a:a, b:b, x:ra, y:rb };
+        miss();
+      }
+    } else {
+      var inA = tryN % a === 0, inB = tryN % b === 0;
+      if (inA && inB){
+        if (tryN === ans) win();
+        else { msg = { kind:"lLater", n:tryN }; miss(); }
+      } else if (inA || inB){
+        msg = { kind:"lOne", n:tryN, who: inA ? t(T.blue) : t(T.orange) };
+        miss();
+      } else { msg = { kind:"lNone", n:tryN }; miss(); }
+    }
+    render();
+  }
+
+  function win(){
+    msg = { kind:"win" };
+    if (!isSolved()){
+      solved[mode][key()] = true;
+      stars += 3;
+    }
+    hintLevel = 0; wrongTries = 0;
+  }
+  function miss(){
+    wrongTries++;
+    if (wrongTries >= 2 && hintLevel < 3) hintLevel = Math.min(3, hintLevel + 1);
+  }
+
+  /* ---------- controls ---------- */
+  $("minus").addEventListener("click", function(){ if (tryN > 1){ tryN--; msg = null; render(); } });
+  $("plus").addEventListener("click", function(){ if (tryN < maxTry()){ tryN++; msg = null; render(); } });
+  $("checkBtn").addEventListener("click", check);
+  $("hintBtn").addEventListener("click", function(){
+    hintLevel = Math.min(3, hintLevel + 1); render();
+  });
+  $("teachBtn").addEventListener("click", function(){ teach = !teach; render(); });
+  $("resetBtn").addEventListener("click", function(){
+    tryN = 1; msg = null; hintLevel = 0; wrongTries = 0; render();
+  });
+  $("tabH").addEventListener("click", function(){ setMode("hcf"); });
+  $("tabL").addEventListener("click", function(){ setMode("lcm"); });
+  function setMode(m){
+    if (mode === m) return;
+    mode = m; tryN = 1; msg = null; hintLevel = 0; wrongTries = 0;
+    buildPairs(); render();
+  }
+
+  function buildPairs(){
+    var box = $("pairs"); box.innerHTML = "";
+    var list = (mode === "hcf") ? HPAIRS : LPAIRS;
+    list.forEach(function(p, i){
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "pchip";
+      b.setAttribute("data-i", i);
+      b.addEventListener("click", function(){
+        if (mode === "hcf") hPair = i; else lPair = i;
+        tryN = 1; msg = null; hintLevel = 0; wrongTries = 0; render();
+      });
+      box.appendChild(b);
+    });
+  }
+
+  /* ---------- render ---------- */
+  function render(){
+    drawField();
+    var p = pair(), a = p[0], b = p[1], ans = answer(), g = gcd(a,b);
+
+    $("starCount").textContent = String(stars);
+    $("tabH").setAttribute("aria-pressed", mode === "hcf" ? "true" : "false");
+    $("tabL").setAttribute("aria-pressed", mode === "lcm" ? "true" : "false");
+    $("tabH").innerHTML = ""; $("tabL").innerHTML = "";
+    var th = document.createElement("span"); th.textContent = t(T.tabH);
+    var tl = document.createElement("span"); tl.textContent = t(T.tabL);
+    $("tabH").appendChild(th); $("tabL").appendChild(tl);
+    var dh = Object.keys(solved.hcf).length, dl = Object.keys(solved.lcm).length;
+    if (dh){ var s1 = document.createElement("span"); s1.className = "badge";
+             s1.textContent = " " + Array(dh + 1).join("\u2605"); $("tabH").appendChild(s1); }
+    if (dl){ var s2 = document.createElement("span"); s2.className = "badge";
+             s2.textContent = " " + Array(dl + 1).join("\u2605"); $("tabL").appendChild(s2); }
+
+    setText($("title"), mode === "hcf" ? t(T.titleH) : t(T.titleL));
+    setText($("subtitle"), mode === "hcf" ? t(T.subH) : t(T.subL));
+    setText($("story"), fill(mode === "hcf" ? t(T.storyH) : t(T.storyL), {a:a, b:b}));
+
+    setText($("ctlHead"), mode === "hcf" ? t(T.ctlHeadH) : t(T.ctlHeadL));
+    setText($("ctlName"), mode === "hcf" ? t(T.ctlNameH) : t(T.ctlNameL));
+    setText($("pairHead"), mode === "hcf" ? t(T.pairHeadH) : t(T.pairHeadL));
+    $("tryVal").textContent = String(tryN);
+    $("minus").disabled = (tryN <= 1);
+    $("plus").disabled = (tryN >= maxTry());
+    setText($("checkBtn"), t(T.check));
+    setText($("hintBtn"), t(T.hint));
+    setText($("teachBtn"), teach ? t(T.teachOn) : t(T.teachOff));
+    setText($("resetBtn"), t(T.reset));
+    setText($("quizHead"), t(T.quiz));
+    setText($("newQuiz"), t(T.newQuiz));
+
+    var list = (mode === "hcf") ? HPAIRS : LPAIRS;
+    Array.prototype.forEach.call($("pairs").children, function(btn, i){
+      btn.innerHTML = "";
+      var sp = document.createElement("span");
+      sp.textContent = list[i][0] + " & " + list[i][1];
+      btn.appendChild(sp);
+      if (solved[mode][i]){
+        var st = document.createElement("span"); st.className = "done"; st.textContent = " \u2605";
+        btn.appendChild(st);
+      }
+      btn.setAttribute("aria-pressed", i === (mode === "hcf" ? hPair : lPair) ? "true" : "false");
+    });
+
+    // the message
+    var chip = $("statechip");
+    chip.classList.toggle("win", !!msg && msg.kind === "win");
+    if (!msg){
+      setText(chip, t(T.ready));
+      setText($("headline"), a + " & " + b);
+      setText($("detail"), t(T.tryIt));
+    } else if (msg.kind === "win"){
+      setText(chip, t(T.won));
+      setText($("headline"), (mode === "hcf" ? "HCF" : "LCM") + " = " + ans);
+      setText($("detail"), mode === "hcf"
+        ? fill(t(T.hWin), {n:ans, a:a, b:b})
+        : fill(t(T.lBoth), {n:ans}));
+    } else {
+      setText(chip, t(T.ready));
+      var m = msg;
+      var txt = ({
+        hBoth: function(){ return fill(t(T.hBoth), {n:m.n}); },
+        hLeft: function(){ return fill(t(T.hLeft), {a:m.a, b:m.b, x:m.x, y:m.y}); },
+        hLeftOne: function(){ return fill(t(T.hLeftOne), {a:m.a, b:m.b, y:m.y}); },
+        lOne: function(){ return fill(t(T.lOne), {n:m.n, who:m.who}); },
+        lNone: function(){ return fill(t(T.lNone), {n:m.n}); },
+        lLater: function(){ return fill(t(T.lLater), {n:m.n}); }
+      })[m.kind]();
+      setText($("headline"), a + " & " + b);
+      setText($("detail"), txt);
+    }
+
+    // the boundary rule, stated while the child is playing rather than only in the quiz
+    var bmin = Math.min(a,b), bmax = Math.max(a,b);
+    setText($("bound"), mode === "hcf"
+      ? fill(t(tryN >= bmin ? T.boundHTop : T.boundH), {min:bmin})
+      : fill(t(tryN >= bmax ? T.boundLPast : T.boundL), {max:bmax}));
+
+    // hints, which escalate but never just hand over the answer
+    var hb = $("hintbox");
+    hb.classList.toggle("show", hintLevel > 0);
+    if (hintLevel > 0){
+      var hints = (mode === "hcf") ? T.hintsH : T.hintsL;
+      var h = t(hints[Math.min(hintLevel, 3) - 1]);
+      setText(hb, fill(h, {
+        a:a, b:b, g:g, ans:ans,
+        pa:pfStr(a), pb:pfStr(b),
+        ma:[a, a*2, a*3, a*4].join(", "),
+        mb:[b, b*2, b*3, b*4].join(", ")
+      }));
+    }
+
+    // teacher working
+    var w = $("work");
+    w.classList.toggle("show", teach);
+    if (teach){
+      var shared = [], ca = pf(a).slice(), cb = pf(b).slice();
+      ca.forEach(function(x){
+        var j = cb.indexOf(x);
+        if (j >= 0){ shared.push(x); cb.splice(j,1); }
+      });
+      var tpl = (mode === "hcf") ? t(T.workH) : t(T.workL);
+      w.innerHTML = fill(tpl, {
+        a:a, b:b, ans:ans, g:g,
+        pa:pfStr(a), pb:pfStr(b),
+        sh: shared.length ? shared.join(" \u00d7 ") : "1",
+        ma:[a, a*2, a*3, a*4, a*5].join(", "),
+        mb:[b, b*2, b*3, b*4, b*5].join(", ")
+      });
+      w.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+      w.classList.toggle("ur", lang === "ur");
+    }
+
+    lastSpoken = t(T.story ? T.tryIt : T.tryIt);
+    lastSpoken = fill(mode === "hcf" ? t(T.storyH) : t(T.storyL), {a:a, b:b});
+  }
+
+  var lastSpoken = "";
+
+  /* ---------- quiz ---------- */
+  function pickQuiz(){
+    var idx = BANK.map(function(_, i){ return i; });
+    for (var i = idx.length - 1; i > 0; i--){
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = idx[i]; idx[i] = idx[j]; idx[j] = tmp;
+    }
+    quizSet = idx.slice(0, 5).map(function(i){ return BANK[i]; });
+  }
+
+  function buildQuiz(){
+    var box = $("quizBox");
+    box.innerHTML = "";
+    quizSet.forEach(function(item){
+      var wrap = document.createElement("div");
+      wrap.className = "q";
+      var q = document.createElement("p");
+      setText(q, t(item.q));
+      wrap.appendChild(q);
+      var fb = document.createElement("p");
+      fb.className = "fb";
+      item.o.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt" + (lang === "ur" ? " ur" : "") + (teach && oi === item.a ? " reveal" : "");
+        b.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+        b.textContent = t(opt);
+        b.addEventListener("click", function(){
+          if (wrap.getAttribute("data-done") === "1") return;
+          wrap.setAttribute("data-done","1");
+          if (oi === item.a){ stars += 1; $("starCount").textContent = String(stars); }
+          Array.prototype.forEach.call(wrap.querySelectorAll(".opt"), function(x, xi){
+            if (xi === item.a) x.classList.add("right");
+            else if (xi === oi) x.classList.add("wrong");
+          });
+          setText(fb, t(item.f));
+          fb.classList.add("show","fb");
+        });
+        wrap.appendChild(b);
+      });
+      wrap.appendChild(fb);
+      box.appendChild(wrap);
+    });
+  }
+
+  $("newQuiz").addEventListener("click", function(){ pickQuiz(); buildQuiz(); });
+
+  function applyLang(){
+    document.body.classList.toggle("urdu", lang === "ur");
+    var lb = $("langBtn");
+    lb.textContent = (lang === "en") ? "اردو" : "English";
+    lb.setAttribute("aria-pressed", lang === "ur" ? "true" : "false");
+    Array.prototype.forEach.call(document.querySelectorAll("[data-en]"), function(el){
+      setText(el, el.getAttribute(lang === "en" ? "data-en" : "data-ur"));
+    });
+    buildQuiz();
+    render();
+  }
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en";
+    applyLang();
+  });
+
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      window.speechSynthesis.cancel();
+      var u = new SpeechSynthesisUtterance(lastSpoken);
+      u.lang = (lang === "ur") ? "ur-PK" : "en-US";
+      u.rate = 0.9;
+      var voices = window.speechSynthesis.getVoices() || [];
+      for (var i=0;i<voices.length;i++){
+        if (voices[i].lang && voices[i].lang.toLowerCase().indexOf(lang === "ur" ? "ur" : "en") === 0){
+          u.voice = voices[i]; break;
+        }
+      }
+      window.speechSynthesis.speak(u);
+    }catch(e){ /* no voice available — stay quiet */ }
+  });
+
+  buildPairs();
+  pickQuiz();
+  applyLang();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cells — خلیے | AI4Kids Class 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#e9ecec;
+    --board-deep:#d5dbdb;
+    --scope:#20282b;
+    --wall:#4d7a3a;
+    --wall-deep:#345526;
+    --cyto-p:#cfe3c0;
+    --cyto-a:#f0d6d6;
+    --memb:#b2607a;
+    --nuc:#5b4a8f;
+    --chloro:#3f8a45;
+    --vac:#a8cfe0;
+    --mito:#c4703a;
+    --ink:#1f2933;
+    --ink-soft:#4a5661;
+    --paper:#fdfaf3;
+    --line:#ded5c4;
+    --accent:#345526;
+
+    --fs-cap:clamp(12px, 3.2vw, 13px);
+    --fs-xs:clamp(14px, 3.7vw, 15px);
+    --fs-sm:clamp(16px, 4.2vw, 17px);
+    --fs-md:clamp(17px, 4.6vw, 19px);
+    --fs-lg:clamp(20px, 5.4vw, 23px);
+    --fs-xl:clamp(27px, 7.4vw, 33px);
+    --lh:1.5;
+  }
+  /* Urdu is set larger than Latin — Nastaliq reads smaller at the same size. */
+  body.urdu{
+    --fs-cap:clamp(13px, 3.5vw, 15px);
+    --fs-xs:clamp(15px, 4.1vw, 17px);
+    --fs-sm:clamp(17px, 4.7vw, 19px);
+    --fs-md:clamp(19px, 5.2vw, 21px);
+    --fs-lg:clamp(22px, 6vw, 25px);
+    --fs-xl:clamp(26px, 7vw, 31px);
+    --lh:2.1;
+  }
+
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--chloro);outline-offset:2px}
+
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+
+  .tabs{display:flex;gap:8px;margin:0 0 14px}
+  .tabs button{
+    flex:1;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:10px 8px;font:inherit;font-weight:800;
+    font-size:var(--fs-xs);cursor:pointer;min-height:52px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:linear-gradient(180deg,var(--board) 0%,var(--board-deep) 100%);
+  }
+  .scene svg{display:block;width:100%;height:auto}
+  .bit{cursor:pointer}
+  .bit .hit{fill:transparent}
+  .ring{fill:none;stroke:#fff;stroke-width:3;opacity:0;transition:opacity .25s ease}
+  .bit.sel .ring{opacity:.95}
+  .scalebar{stroke:#fff;stroke-width:2.5;stroke-linecap:round}
+  .scaletxt{fill:#fff;font-size:var(--fs-cap);font-weight:800;
+            font-family:"Baloo Bhaijaan 2",sans-serif}
+  body.urdu .scaletxt{font-family:"Noto Nastaliq Urdu",serif}
+
+  .readout{
+    margin-top:-18px;position:relative;z-index:2;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .zoomchip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+            padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+  .zoomchip.ur{padding:2px 14px 7px}
+  .pname{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+  .pname.ur{line-height:1.95}
+  .pjob{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+
+  .facts{display:flex;gap:10px;margin-top:16px}
+  .fact{flex:1;border:2px solid var(--line);border-radius:14px;padding:11px 10px;text-align:center}
+  .fact em{display:block;font-style:normal;font-size:var(--fs-cap);color:var(--ink-soft);
+           font-weight:600;margin-bottom:4px}
+  .fact b{display:block;font-size:var(--fs-sm);font-weight:800;line-height:1.3}
+  .fact.only{border-color:var(--wall);background:#eaf2e4}
+  .fact.only b{color:var(--wall-deep)}
+  .fact.both{border-color:var(--memb);background:#f8ecf0}
+  .fact.both b{color:var(--memb)}
+
+  .why-note{
+    margin:12px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.55;
+    border-left:3px solid var(--accent);padding-left:11px;
+  }
+  .why-note b{color:var(--accent);font-weight:800}
+  body.urdu .why-note{
+    border-left:0;border-right:3px solid var(--accent);padding-left:0;padding-right:11px;
+    line-height:var(--lh);
+  }
+
+  .zoom{margin-top:22px}
+  .zoom h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 12px;color:var(--ink-soft)}
+  .seg{display:flex;gap:6px}
+  .seg button{
+    flex:1;height:52px;border-radius:12px;border:2px solid var(--ink);
+    background:var(--paper);cursor:pointer;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);color:var(--ink);
+  }
+  .seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .seg button:active{transform:scale(.96)}
+
+  .parts{margin-top:22px}
+  .parts h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 12px;color:var(--ink-soft)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .pchip{
+    display:flex;align-items:center;gap:7px;
+    border:2px solid var(--line);background:var(--paper);border-radius:999px;padding:8px 14px;
+    font:inherit;font-size:var(--fs-cap);font-weight:600;color:var(--ink);cursor:pointer;min-height:44px;
+  }
+  .pchip i{width:13px;height:13px;border-radius:4px;flex:none}
+  .pchip[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+  .locked{color:var(--ink-soft);font-size:var(--fs-cap);font-weight:600;line-height:1.55}
+
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:50px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--chloro);background:#e6f4ec;font-weight:600}
+  .opt.wrong{border-color:var(--mito);background:#fbeee4}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;
+      grid-template-columns:1fr 1fr;
+      grid-template-areas:
+        "bar   bar"
+        "head  head"
+        "tabs  tabs"
+        "left  right"
+        "quiz  quiz"
+        "foot  foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar}
+    .head{grid-area:head}
+    .tabs{grid-area:tabs}
+    .left{grid-area:left}
+    .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px}
+    footer{grid-area:foot}
+    .zoom{margin-top:0}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    *{transition-duration:.01ms !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 5</span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunein">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 data-en="Keep zooming in. Everything alive is built the same way." data-ur="زوم بڑھاتے جائیں۔ ہر زندہ چیز ایک ہی طرح بنی ہے۔"></h1>
+  <p class="sub" data-en="A leaf and your own cheek look nothing alike — until you look closely enough." data-ur="پتّہ اور آپ کا گال بالکل مختلف لگتے ہیں — جب تک کافی قریب سے نہ دیکھیں۔"></p>
+  </div>
+
+  <div class="tabs" role="group">
+    <button type="button" id="tabPlant" aria-pressed="true"></button>
+    <button type="button" id="tabAnimal" aria-pressed="false"></button>
+  </div>
+
+  <div class="left">
+  <div class="scene">
+    <svg viewBox="0 0 300 300" role="img" id="svg" aria-label="A microscope view that gets closer as the zoom is turned up">
+      <defs>
+        <clipPath id="fov"><circle cx="150" cy="138" r="106"/></clipPath>
+      </defs>
+      <rect x="0" y="0" width="300" height="300" fill="var(--scope)"/>
+      <g clip-path="url(#fov)">
+        <rect x="44" y="32" width="212" height="212" fill="#f4f1e8"/>
+        <g id="field"></g>
+      </g>
+      <circle cx="150" cy="138" r="106" fill="none" stroke="#0d1214" stroke-width="7"/>
+      <circle cx="150" cy="138" r="110" fill="none" stroke="#3d4a4e" stroke-width="3"/>
+
+      <line class="scalebar" id="sbar" x1="60" y1="272" x2="140" y2="272"/>
+      <line class="scalebar" x1="60" y1="266" x2="60" y2="278"/>
+      <line class="scalebar" x1="140" y1="266" x2="140" y2="278"/>
+      <text x="150" y="277" class="scaletxt" id="sTxt"></text>
+    </svg>
+  </div>
+
+  <div class="readout">
+    <span class="zoomchip" id="zoomchip"></span>
+    <p class="pname" id="pname"></p>
+    <p class="pjob" id="pjob"></p>
+
+    <div class="facts" id="facts">
+      <div class="fact both">
+        <em id="lblFound"></em>
+        <b id="valFound"></b>
+      </div>
+      <div class="fact">
+        <em id="lblSize"></em>
+        <b id="valSize"></b>
+      </div>
+    </div>
+
+    <p class="why-note"><b id="whyLbl"></b> <span id="whyText"></span></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="zoom">
+    <h2 id="zoomHead"></h2>
+    <div class="seg" id="seg" role="group"></div>
+  </div>
+
+  <div class="parts">
+    <h2 id="partsHead"></h2>
+    <div class="chips" id="chips" role="group"></div>
+    <p class="locked" id="locked"></p>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <h2 id="quizHead" style="font-size:var(--fs-lg);font-weight:800;margin:0 0 18px"></h2>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad's bilingual AI and coding school. WhatsApp 0337 1468899" data-ur="اے آئی فور کڈز — اسلام آباد کا دو زبانوں والا اے آئی اور کوڈنگ سکول۔ واٹس ایپ 0337 1468899"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var lang   = "en";
+  var sample = "plant";
+  var zoom   = 0;        // 0 = naked eye, 3 = 400x
+  var part   = null;
+
+  var ZOOMS = [
+    { mag:{en:"Just your eyes", ur:"صرف آنکھ"},  across:{en:"about 8 cm", ur:"تقریباً 8 سینٹی میٹر"} },
+    { mag:{en:"10 times",  ur:"10 گنا"},   across:{en:"about 8 mm", ur:"تقریباً 8 ملی میٹر"} },
+    { mag:{en:"100 times", ur:"100 گنا"},  across:{en:"about 0.8 mm", ur:"تقریباً 0.8 ملی میٹر"} },
+    { mag:{en:"400 times", ur:"400 گنا"},  across:{en:"about 0.2 mm", ur:"تقریباً 0.2 ملی میٹر"} }
+  ];
+
+  var SEEN = [
+    { plant:{en:"A leaf", ur:"ایک پتّہ"}, animal:{en:"The inside of your cheek", ur:"آپ کے گال کا اندرونی حصہ"},
+      job:{plant:{en:"Just a leaf. Flat, green, and smooth to your eye. Nothing here hints at what it is built from.",
+                  ur:"بس ایک پتّہ۔ چپٹا، سبز، اور آنکھ کو ہموار۔ یہاں کچھ اشارہ نہیں ملتا کہ یہ کس چیز سے بنا ہے۔"},
+           animal:{en:"Just soft pink skin. Smooth, wet, ordinary. Turn the zoom up.",
+                   ur:"بس نرم گلابی جلد۔ ہموار، گیلی، عام سی۔ زوم بڑھائیں۔"}} },
+    { plant:{en:"Veins in the leaf", ur:"پتّے کی رگیں"}, animal:{en:"Fine lines on the surface", ur:"سطح پر باریک لکیریں"},
+      job:{plant:{en:"Now the veins show up — the pipes that carry water through the leaf. Still no cells in sight.",
+                  ur:"اب رگیں نظر آنے لگیں — وہ نالیاں جو پتّے میں پانی لے جاتی ہیں۔ خلیے ابھی بھی نظر نہیں آ رہے۔"},
+           animal:{en:"Faint lines and folds appear. This is about as far as a hand lens will take you.",
+                   ur:"ہلکی لکیریں اور سلوٹیں نظر آنے لگیں۔ عام عدسہ اس سے آگے نہیں لے جا سکتا۔"}} },
+    { plant:{en:"Something repeating", ur:"کچھ دہراتا ہوا"}, animal:{en:"Something repeating", ur:"کچھ دہراتا ہوا"},
+      job:{plant:{en:"A pattern appears — the same little box, over and over, like bricks in a wall.",
+                  ur:"ایک ترتیب نظر آتی ہے — وہی چھوٹا سا خانہ، بار بار، جیسے دیوار میں اینٹیں۔"},
+           animal:{en:"Blurry shapes, all roughly the same size, packed together. Turn it up once more.",
+                   ur:"دھندلی شکلیں، سب تقریباً ایک جتنی، ایک دوسرے سے جُڑی ہوئی۔ ایک بار اور بڑھائیں۔"}} },
+    { plant:{en:"Plant cells", ur:"پودے کے خلیے"}, animal:{en:"Cheek cells", ur:"گال کے خلیے"},
+      job:{plant:{en:"These are cells. Tap any part of one to find out what it does.",
+                  ur:"یہ خلیے ہیں۔ کسی بھی حصے کو دبا کر دیکھیں وہ کیا کام کرتا ہے۔"},
+           animal:{en:"These are cells too — rounder and softer, but the same idea. Tap a part.",
+                   ur:"یہ بھی خلیے ہیں — زیادہ گول اور نرم، مگر خیال وہی ہے۔ کسی حصے کو دبائیں۔"}} }
+  ];
+
+  var PARTS = {
+    plant:[
+      { id:"wall", c:"var(--wall)", en:"Cell wall", ur:"خلیے کی دیوار", only:true,
+        size:{en:"a stiff outer box", ur:"سخت بیرونی خانہ"},
+        job:{en:"A stiff outer box around the whole cell. It is why a leaf holds its shape and a stick is hard.",
+             ur:"پورے خلیے کے گرد ایک سخت خانہ۔ اسی وجہ سے پتّہ اپنی شکل قائم رکھتا ہے اور لکڑی سخت ہوتی ہے۔"},
+        why:{en:"Your cells have no wall. That is the whole reason a plant can stand up on its own and you need a skeleton to do it.",
+             ur:"آپ کے خلیوں میں دیوار نہیں ہوتی۔ یہی وجہ ہے کہ پودا خود کھڑا رہ سکتا ہے اور آپ کو اس کے لیے ہڈیوں کا ڈھانچہ چاہیے۔"} },
+      { id:"memb", c:"var(--memb)", en:"Cell membrane", ur:"خلیے کی جھلی", only:false,
+        size:{en:"a thin skin", ur:"باریک جھلی"},
+        job:{en:"A thin skin just inside the wall. It decides what is allowed in and what has to stay out.",
+             ur:"دیوار کے بالکل اندر ایک باریک جھلی۔ یہ فیصلہ کرتی ہے کہ کیا اندر آئے گا اور کیا باہر رہے گا۔"},
+        why:{en:"Every living cell has one, plant or animal. It is the cell's front door and its guard at the same time.",
+             ur:"ہر زندہ خلیے میں یہ ہوتی ہے، پودے کا ہو یا جانور کا۔ یہ خلیے کا دروازہ بھی ہے اور پہرے دار بھی۔"} },
+      { id:"nuc", c:"var(--nuc)", en:"Nucleus", ur:"مرکزہ", only:false,
+        size:{en:"the control room", ur:"کنٹرول روم"},
+        job:{en:"The control room. It holds the instructions for everything the cell does and passes them on when the cell divides.",
+             ur:"کنٹرول روم۔ خلیہ جو کچھ کرتا ہے، اس کی ساری ہدایات یہیں ہوتی ہیں، اور خلیہ تقسیم ہو تو یہی آگے منتقل کرتا ہے۔"},
+        why:{en:"Both plant and animal cells have one. Take it out and the cell no longer knows what to do.",
+             ur:"پودے اور جانور دونوں کے خلیوں میں یہ ہوتا ہے۔ نکال دیں تو خلیے کو پتا ہی نہیں چلتا کہ کرنا کیا ہے۔"} },
+      { id:"chl", c:"var(--chloro)", en:"Chloroplast", ur:"سبز دانہ (Chloroplast)", only:true,
+        size:{en:"the green grains", ur:"سبز دانے"},
+        job:{en:"The green grains. This is where the plant makes its own food from sunlight, water and air.",
+             ur:"سبز دانے۔ یہیں پودا دھوپ، پانی اور ہوا سے اپنی خوراک خود بناتا ہے۔"},
+        why:{en:"Remember photosynthesis? This is the exact spot inside the leaf where it happens. Chlorophyll lives in here — which is why leaves look green.",
+             ur:"photosynthesis یاد ہے؟ پتّے کے اندر بالکل یہی وہ جگہ ہے جہاں یہ ہوتا ہے۔ chlorophyll یہیں رہتا ہے — اسی لیے پتّے سبز نظر آتے ہیں۔"} },
+      { id:"vac", c:"var(--vac)", en:"Vacuole", ur:"خلیے کا رس خانہ", only:true,
+        size:{en:"a big water store", ur:"پانی کا بڑا ذخیرہ"},
+        job:{en:"A large bag of water that fills most of the cell and presses outwards, keeping the plant firm.",
+             ur:"پانی کی بڑی تھیلی جو خلیے کا زیادہ تر حصہ گھیرے رکھتی ہے اور باہر کی طرف دباؤ ڈال کر پودے کو تنا ہوا رکھتی ہے۔"},
+        why:{en:"When a plant is not watered, these empty out and the whole plant droops. That is exactly what wilting is.",
+             ur:"پودے کو پانی نہ ملے تو یہ خالی ہو جاتی ہیں اور پورا پودا جھک جاتا ہے۔ مرجھانا بالکل یہی ہے۔"} }
+    ],
+    animal:[
+      { id:"memb", c:"var(--memb)", en:"Cell membrane", ur:"خلیے کی جھلی", only:false,
+        size:{en:"a thin skin", ur:"باریک جھلی"},
+        job:{en:"The outer skin of the cell. With no wall outside it, an animal cell can bend and change shape.",
+             ur:"خلیے کی بیرونی جھلی۔ باہر کوئی دیوار نہ ہونے کی وجہ سے جانور کا خلیہ مڑ سکتا ہے اور شکل بدل سکتا ہے۔"},
+        why:{en:"This is why your body is soft and a tree trunk is not. Same idea of a cell, one part missing.",
+             ur:"اسی لیے آپ کا جسم نرم ہے اور درخت کا تنا نہیں۔ خلیے کا خیال وہی ہے، بس ایک حصہ کم ہے۔"} },
+      { id:"nuc", c:"var(--nuc)", en:"Nucleus", ur:"مرکزہ", only:false,
+        size:{en:"the control room", ur:"کنٹرول روم"},
+        job:{en:"The control room, same job as in a plant cell. It holds the instructions that make you you.",
+             ur:"کنٹرول روم، وہی کام جو پودے کے خلیے میں ہے۔ اس میں وہ ہدایات ہیں جو آپ کو آپ بناتی ہیں۔"},
+        why:{en:"Nearly every cell in your body carries a full copy of those instructions — a skin cell, a bone cell, all of them.",
+             ur:"آپ کے جسم کا تقریباً ہر خلیہ ان ہدایات کی مکمل نقل رکھتا ہے — جلد کا خلیہ ہو یا ہڈی کا، سب۔"} },
+      { id:"cyt", c:"var(--cyto-a)", en:"Cytoplasm", ur:"سائٹوپلازم", only:false,
+        size:{en:"jelly filling the cell", ur:"خلیے میں بھری جیلی"},
+        job:{en:"The jelly that fills the cell. Everything else floats in it and all the cell's work happens here.",
+             ur:"وہ جیلی جو خلیے کو بھرتی ہے۔ باقی سب کچھ اسی میں تیرتا ہے اور خلیے کے سارے کام یہیں ہوتے ہیں۔"},
+        why:{en:"Plant cells have this too. Most of what a cell is made of is simply water.",
+             ur:"پودے کے خلیوں میں بھی یہ ہوتا ہے۔ خلیہ زیادہ تر بس پانی ہی سے بنا ہوتا ہے۔"} },
+      { id:"mit", c:"var(--mito)", en:"Mitochondria", ur:"مائٹوکونڈریا", only:true,
+        size:{en:"the power stations", ur:"بجلی گھر"},
+        job:{en:"The power stations. They take the glucose brought by your blood and release the energy locked inside it.",
+             ur:"بجلی گھر۔ یہ اس گلوکوز کو لیتے ہیں جو خون لاتا ہے، اور اس میں بند توانائی خارج کرتے ہیں۔"},
+        why:{en:"Follow the chain: a plant makes glucose, you eat it, your small intestine passes it into your blood, and here is where it finally becomes the energy to run and think.",
+             ur:"سلسلہ دیکھیں: پودا گلوکوز بناتا ہے، آپ اسے کھاتے ہیں، چھوٹی آنت اسے خون میں پہنچاتی ہے، اور آخرکار یہیں وہ دوڑنے اور سوچنے کی توانائی بنتا ہے۔"} }
+    ]
+  };
+
+  var T = {
+    tabPlant:{en:"Leaf", ur:"پتّہ"},
+    tabAnimal:{en:"Your cheek", ur:"آپ کا گال"},
+    zoomHead:{en:"Turn up the microscope", ur:"خوردبین کا زوم بڑھائیں"},
+    partsHead:{en:"Parts of the cell", ur:"خلیے کے حصے"},
+    locked:{en:"Turn the zoom all the way up to see inside a cell.",
+            ur:"خلیے کے اندر دیکھنے کے لیے زوم پورا بڑھائیں۔"},
+    foundLbl:{en:"Found in", ur:"کہاں پایا جاتا ہے"},
+    sizeLbl:{en:"What it is", ur:"یہ کیا ہے"},
+    bothCells:{en:"Plant and animal cells", ur:"پودے اور جانور دونوں کے خلیوں میں"},
+    plantOnly:{en:"Plant cells only", ur:"صرف پودے کے خلیوں میں"},
+    animalOnly:{en:"Animal cells only", ur:"صرف جانور کے خلیوں میں"},
+    acrossLbl:{en:"View is about", ur:"نظر آنے والا حصہ"},
+    magLbl:{en:"Magnification", ur:"زوم"},
+    whyLbl:{en:"Notice:", ur:"غور کریں:"},
+    quiz:{en:"Check yourself", ur:"اپنا امتحان لیں"},
+    zoomWhy:[
+      {en:"Cells were only discovered after the microscope was invented. For all of history before that, nobody knew living things were built from small repeating units.",
+       ur:"خلیے خوردبین ایجاد ہونے کے بعد ہی دریافت ہوئے۔ اس سے پہلے پوری تاریخ میں کسی کو معلوم نہیں تھا کہ زندہ چیزیں چھوٹے دہرائے جانے والے حصوں سے بنی ہیں۔"},
+      {en:"A hand lens gets you this far and no further. Cells are still far too small to show up.",
+       ur:"عام عدسہ آپ کو یہاں تک لے جاتا ہے، اس سے آگے نہیں۔ خلیے ابھی بھی دکھائی دینے کے لیے بہت چھوٹے ہیں۔"},
+      {en:"Watch what appears: the same shape, again and again. That repetition is the clue that gave cells their name — they looked like the small rooms, or cells, of a monastery.",
+       ur:"دیکھیں کیا نمودار ہوتا ہے: وہی شکل، بار بار۔ یہی دہراؤ وہ سراغ تھا جس سے خلیوں کو نام ملا — یہ چھوٹے کمروں جیسے لگے تھے۔"},
+      {en:"About ten thousand of these would fit across your fingertip. Every single one is alive, and there are trillions of them in you.",
+       ur:"ان میں سے تقریباً دس ہزار آپ کی انگلی کے سرے پر سما جائیں۔ ان میں سے ہر ایک زندہ ہے، اور آپ کے اندر ان کی تعداد کھربوں میں ہے۔"}
+    ]
+  };
+
+  var QUIZ = [
+    { q:{en:"What are all living things built from?", ur:"تمام زندہ چیزیں کس چیز سے بنی ہوتی ہیں؟"},
+      o:[{en:"Cells", ur:"خلیے"},{en:"Bones", ur:"ہڈیاں"},
+         {en:"Water only", ur:"صرف پانی"},{en:"Air", ur:"ہوا"}],
+      a:0,
+      f:{en:"A leaf, a cheek, a fish, a mushroom — zoom in far enough on any of them and you find the same thing: cells. That is why a cell is called the basic unit of life.",
+         ur:"پتّہ، گال، مچھلی، کھمبی — کسی پر بھی کافی زوم کریں تو وہی چیز ملتی ہے: خلیے۔ اسی لیے خلیے کو زندگی کی بنیادی اکائی کہتے ہیں۔"} },
+
+    { q:{en:"Which two parts does a plant cell have that an animal cell does not?",
+         ur:"پودے کے خلیے میں وہ کون سے دو حصے ہوتے ہیں جو جانور کے خلیے میں نہیں ہوتے؟"},
+      o:[{en:"A nucleus and a membrane", ur:"مرکزہ اور جھلی"},
+         {en:"A cell wall and chloroplasts", ur:"خلیے کی دیوار اور سبز دانے"},
+         {en:"Cytoplasm and a nucleus", ur:"سائٹوپلازم اور مرکزہ"},
+         {en:"A membrane and cytoplasm", ur:"جھلی اور سائٹوپلازم"}],
+      a:1,
+      f:{en:"The wall makes a plant stiff enough to stand up, and the chloroplasts let it make its own food. You have neither — which is why you need a skeleton and why you have to eat.",
+         ur:"دیوار پودے کو اتنا سخت بناتی ہے کہ وہ کھڑا رہ سکے، اور سبز دانے اسے اپنی خوراک خود بنانے دیتے ہیں۔ آپ کے پاس یہ دونوں نہیں — اسی لیے آپ کو ڈھانچہ چاہیے اور کھانا بھی۔"} },
+
+    { q:{en:"Which part of a cell holds the instructions and acts as its control room?",
+         ur:"خلیے کا کون سا حصہ ہدایات رکھتا ہے اور کنٹرول روم کا کام کرتا ہے؟"},
+      o:[{en:"The membrane", ur:"جھلی"},{en:"The vacuole", ur:"رس خانہ"},
+         {en:"The nucleus", ur:"مرکزہ"},{en:"The cell wall", ur:"خلیے کی دیوار"}],
+      a:2,
+      f:{en:"The nucleus, in both plant and animal cells. It is usually the darkest, most obvious blob under a microscope.",
+         ur:"مرکزہ، پودے اور جانور دونوں کے خلیوں میں۔ خوردبین کے نیچے یہ عام طور پر سب سے گہرا اور نمایاں حصہ ہوتا ہے۔"} },
+
+    { q:{en:"A plant makes glucose. You eat the plant. Where does that glucose finally become energy you can use?",
+         ur:"پودا گلوکوز بناتا ہے۔ آپ پودا کھاتے ہیں۔ وہ گلوکوز آخرکار کہاں آپ کے کام کی توانائی بنتا ہے؟"},
+      o:[{en:"In the stomach", ur:"معدے میں"},
+         {en:"In the mitochondria inside your cells", ur:"آپ کے خلیوں کے اندر مائٹوکونڈریا میں"},
+         {en:"In the small intestine", ur:"چھوٹی آنت میں"},
+         {en:"In the lungs", ur:"پھیپھڑوں میں"}],
+      a:1,
+      f:{en:"The stomach breaks food down, the small intestine passes glucose into the blood, the blood delivers it — and the mitochondria inside each cell finally release the energy from it.",
+         ur:"معدہ کھانا توڑتا ہے، چھوٹی آنت گلوکوز کو خون میں پہنچاتی ہے، خون اسے تقسیم کرتا ہے — اور ہر خلیے کے اندر مائٹوکونڈریا آخرکار اس سے توانائی خارج کرتے ہیں۔"} }
+  ];
+
+  function $(id){ return document.getElementById(id); }
+  function t(o){ return o[lang]; }
+
+  var LRI = "\u2066", PDI = "\u2069";
+  var LATIN_RUN = /[A-Za-z0-9][A-Za-z0-9 .,+()\/@_-]*[A-Za-z0-9]|[A-Za-z0-9]/g;
+  function isolate(s){ return s.replace(LATIN_RUN, function(m){ return LRI + m + PDI; }); }
+
+  function setText(el, str){
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+
+  var NS = "http://www.w3.org/2000/svg";
+  function mk(tag, a){
+    var e = document.createElementNS(NS, tag);
+    for (var k in a) e.setAttribute(k, a[k]);
+    return e;
+  }
+
+  /* ---------- the view down the microscope ---------- */
+  function drawField(){
+    var g = $("field");
+    g.innerHTML = "";
+    var plant = (sample === "plant");
+
+    if (zoom === 0){
+      if (plant){
+        g.appendChild(mk("path", {d:"M150 40 C92 66 74 132 106 196 C128 236 172 236 194 196 C226 132 208 66 150 40 Z",
+                                  fill:"#5f9b46"}));
+        g.appendChild(mk("path", {d:"M150 44 L150 232", stroke:"#3f7530", "stroke-width":4}));
+      } else {
+        g.appendChild(mk("rect", {x:44, y:32, width:212, height:212, fill:"#f0c6c2"}));
+        g.appendChild(mk("path", {d:"M60 120 C110 104 190 152 244 128", stroke:"#e0aca8",
+                                  "stroke-width":6, fill:"none"}));
+      }
+      return;
+    }
+
+    if (zoom === 1){
+      g.appendChild(mk("rect", {x:44, y:32, width:212, height:212,
+                                fill: plant ? "#68a84d" : "#f2cdc9"}));
+      var vcol = plant ? "#3f7530" : "#e3b0ac";
+      g.appendChild(mk("path", {d:"M150 24 L150 252", stroke:vcol, "stroke-width":8, fill:"none"}));
+      [-70,-30,30,70].forEach(function(o){
+        g.appendChild(mk("path", {d:"M150 "+(138+o)+" C190 "+(138+o*1.3)+" 220 "+(138+o*1.7)+" 256 "+(138+o*2),
+                                  stroke:vcol, "stroke-width":4, fill:"none"}));
+        g.appendChild(mk("path", {d:"M150 "+(138+o)+" C110 "+(138+o*1.3)+" 80 "+(138+o*1.7)+" 44 "+(138+o*2),
+                                  stroke:vcol, "stroke-width":4, fill:"none"}));
+      });
+      return;
+    }
+
+    if (zoom === 2){
+      g.appendChild(mk("rect", {x:44, y:32, width:212, height:212,
+                                fill: plant ? "#cfe3c0" : "#f6dedc"}));
+      for (var r=0;r<5;r++){
+        for (var c=0;c<5;c++){
+          if (plant){
+            g.appendChild(mk("rect", {x:48 + c*42, y:36 + r*42, width:38, height:38, rx:5,
+                                      fill:"none", stroke:"#9dbd8a", "stroke-width":3}));
+          } else {
+            g.appendChild(mk("ellipse", {cx:68 + c*42, cy:56 + r*42, rx:20, ry:16,
+                                         fill:"none", stroke:"#dcb2ae", "stroke-width":3}));
+          }
+        }
+      }
+      return;
+    }
+
+    // zoom 3 — the cells themselves, with tappable parts
+    if (plant){
+      [[62,52],[158,52],[62,150],[158,150]].forEach(function(p, i){
+        var x = p[0], y = p[1];
+        g.appendChild(mk("rect", {x:x, y:y, width:88, height:90, rx:7, fill:"var(--cyto-p)"}));
+        addBit(g, "wall", mk("rect", {x:x, y:y, width:88, height:90, rx:7, fill:"none",
+                                      stroke:"var(--wall)", "stroke-width":7}), x+44, y+45, 50);
+        addBit(g, "memb", mk("rect", {x:x+6, y:y+6, width:76, height:78, rx:5, fill:"none",
+                                      stroke:"var(--memb)", "stroke-width":3}), x+44, y+45, 42);
+        addBit(g, "vac", mk("rect", {x:x+18, y:y+18, width:52, height:54, rx:9,
+                                     fill:"var(--vac)", opacity:.75}), x+44, y+45, 30);
+        if (i === 0 || i === 3){
+          addBit(g, "nuc", mk("circle", {cx:x+26, cy:y+66, r:10, fill:"var(--nuc)"}), x+26, y+66, 13);
+        }
+        [[x+18,y+14],[x+70,y+20],[x+72,y+70],[x+16,y+34]].forEach(function(q){
+          addBit(g, "chl", mk("ellipse", {cx:q[0], cy:q[1], rx:7, ry:5,
+                                          fill:"var(--chloro)"}), q[0], q[1], 9);
+        });
+      });
+    } else {
+      [[96,86],[196,64],[172,178],[74,190]].forEach(function(p, i){
+        var x = p[0], y = p[1];
+        addBit(g, "cyt", mk("ellipse", {cx:x, cy:y, rx:52, ry:40, fill:"var(--cyto-a)"}), x, y, 44);
+        addBit(g, "memb", mk("ellipse", {cx:x, cy:y, rx:52, ry:40, fill:"none",
+                                         stroke:"var(--memb)", "stroke-width":5}), x, y+40, 20);
+        addBit(g, "nuc", mk("circle", {cx:x, cy:y, r:14, fill:"var(--nuc)"}), x, y, 17);
+        [[x-30,y-18],[x+28,y+16],[x+6,y-26]].forEach(function(q){
+          addBit(g, "mit", mk("ellipse", {cx:q[0], cy:q[1], rx:9, ry:5,
+                                          fill:"var(--mito)"}), q[0], q[1], 11);
+        });
+      });
+    }
+  }
+
+  function addBit(g, id, shape, hx, hy, hr){
+    var b = mk("g", {"class":"bit" + (part === id ? " sel" : "")});
+    b.appendChild(shape);
+    b.appendChild(mk("circle", {cx:hx, cy:hy, r:hr, "class":"ring"}));
+    var hit = mk("circle", {cx:hx, cy:hy, r:hr, "class":"hit"});
+    hit.addEventListener("click", function(){ part = id; render(); });
+    b.appendChild(hit);
+    g.appendChild(b);
+  }
+
+  /* ---------- controls ---------- */
+  $("tabPlant").addEventListener("click", function(){ setSample("plant"); });
+  $("tabAnimal").addEventListener("click", function(){ setSample("animal"); });
+  function setSample(s){
+    if (sample === s) return;
+    sample = s; part = null;
+    buildChips(); render();
+  }
+
+  ZOOMS.forEach(function(z, i){
+    var b = document.createElement("button");
+    b.type = "button";
+    b.setAttribute("data-i", i); b.setAttribute("aria-pressed","false");
+    b.addEventListener("click", function(){
+      zoom = i;
+      if (zoom < 3) part = null;
+      render();
+    });
+    $("seg").appendChild(b);
+  });
+
+  function buildChips(){
+    var box = $("chips"); box.innerHTML = "";
+    PARTS[sample].forEach(function(p){
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "pchip";
+      b.setAttribute("data-id", p.id); b.setAttribute("aria-pressed","false");
+      var dot = document.createElement("i"); dot.style.background = p.c;
+      var lab = document.createElement("span");
+      b.appendChild(dot); b.appendChild(lab);
+      b.addEventListener("click", function(){ zoom = 3; part = p.id; render(); });
+      box.appendChild(b);
+    });
+  }
+
+  /* ---------- render ---------- */
+  function render(){
+    drawField();
+
+    Array.prototype.forEach.call($("seg").children, function(b, i){
+      b.setAttribute("aria-pressed", i === zoom ? "true" : "false");
+      b.textContent = t(ZOOMS[i].mag);
+    });
+
+    var list = PARTS[sample];
+    Array.prototype.forEach.call($("chips").children, function(b){
+      var id = b.getAttribute("data-id");
+      var p = list.filter(function(x){ return x.id === id; })[0];
+      b.setAttribute("aria-pressed", (zoom === 3 && part === id) ? "true" : "false");
+      b.lastChild.textContent = p[lang];
+    });
+    $("locked").textContent = (zoom === 3) ? "" : t(T.locked);
+    $("locked").setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+
+    // scale bar text
+    $("sTxt").textContent = t(ZOOMS[zoom].across);
+    $("sTxt").setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+
+    setText($("zoomchip"), t(T.magLbl) + ": " + t(ZOOMS[zoom].mag));
+
+    var chosen = (zoom === 3 && part) ? list.filter(function(x){ return x.id === part; })[0] : null;
+
+    if (chosen){
+      setText($("pname"), chosen[lang]);
+      setText($("pjob"), t(chosen.job));
+      setText($("lblFound"), t(T.foundLbl));
+      setText($("valFound"), chosen.only
+        ? (sample === "plant" ? t(T.plantOnly) : t(T.animalOnly))
+        : t(T.bothCells));
+      $("facts").children[0].className = "fact " + (chosen.only ? "only" : "both");
+      setText($("lblSize"), t(T.sizeLbl));
+      setText($("valSize"), t(chosen.size));
+      setText($("whyText"), t(chosen.why));
+      lastSpoken = chosen[lang] + ". " + t(chosen.job);
+    } else {
+      var seen = SEEN[zoom];
+      setText($("pname"), t(seen[sample]));
+      setText($("pjob"), t(seen.job[sample]));
+      setText($("lblFound"), t(T.magLbl));
+      setText($("valFound"), t(ZOOMS[zoom].mag));
+      $("facts").children[0].className = "fact both";
+      setText($("lblSize"), t(T.acrossLbl));
+      setText($("valSize"), t(ZOOMS[zoom].across));
+      setText($("whyText"), t(T.zoomWhy[zoom]));
+      lastSpoken = t(seen[sample]) + ". " + t(seen.job[sample]);
+    }
+    $("whyLbl").textContent = t(T.whyLbl);
+
+    $("tabPlant").setAttribute("aria-pressed", sample === "plant" ? "true" : "false");
+    $("tabAnimal").setAttribute("aria-pressed", sample === "animal" ? "true" : "false");
+    setText($("tabPlant"), t(T.tabPlant));
+    setText($("tabAnimal"), t(T.tabAnimal));
+  }
+
+  var lastSpoken = "";
+
+  /* ---------- quiz ---------- */
+  function buildQuiz(){
+    var box = $("quizBox");
+    box.innerHTML = "";
+    QUIZ.forEach(function(item){
+      var wrap = document.createElement("div");
+      wrap.className = "q";
+      var q = document.createElement("p");
+      setText(q, t(item.q));
+      wrap.appendChild(q);
+      var fb = document.createElement("p");
+      fb.className = "fb";
+      item.o.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt" + (lang === "ur" ? " ur" : "");
+        b.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+        b.textContent = t(opt);
+        b.addEventListener("click", function(){
+          if (wrap.getAttribute("data-done") === "1") return;
+          wrap.setAttribute("data-done","1");
+          Array.prototype.forEach.call(wrap.querySelectorAll(".opt"), function(x, xi){
+            if (xi === item.a) x.classList.add("right");
+            else if (xi === oi) x.classList.add("wrong");
+          });
+          setText(fb, t(item.f));
+          fb.classList.add("show","fb");
+        });
+        wrap.appendChild(b);
+      });
+      wrap.appendChild(fb);
+      box.appendChild(wrap);
+    });
+  }
+
+  function applyLang(){
+    document.body.classList.toggle("urdu", lang === "ur");
+    var lb = $("langBtn");
+    lb.textContent = (lang === "en") ? "اردو" : "English";
+    lb.setAttribute("aria-pressed", lang === "ur" ? "true" : "false");
+
+    Array.prototype.forEach.call(document.querySelectorAll("[data-en]"), function(el){
+      setText(el, el.getAttribute(lang === "en" ? "data-en" : "data-ur"));
+    });
+
+    setText($("zoomHead"), t(T.zoomHead));
+    setText($("partsHead"), t(T.partsHead));
+    setText($("quizHead"), t(T.quiz));
+
+    buildQuiz();
+    render();
+  }
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en";
+    applyLang();
+  });
+
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      window.speechSynthesis.cancel();
+      var u = new SpeechSynthesisUtterance(lastSpoken);
+      u.lang = (lang === "ur") ? "ur-PK" : "en-US";
+      u.rate = 0.92;
+      var voices = window.speechSynthesis.getVoices() || [];
+      for (var i=0;i<voices.length;i++){
+        if (voices[i].lang && voices[i].lang.toLowerCase().indexOf(lang === "ur" ? "ur" : "en") === 0){
+          u.voice = voices[i]; break;
+        }
+      }
+      window.speechSynthesis.speak(u);
+    }catch(e){ /* no voice available — stay quiet */ }
+  });
+
+  buildChips();
+  applyLang();
+})();
+</script>
+</body>
+</html>

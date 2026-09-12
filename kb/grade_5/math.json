@@ -57,7 +57,9 @@
             "explanation": "5,00,000 ko 1000 se divide karne par 5,000 milta hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g5-place-value.html",
+      "interactive_label": "Khelo — Place Value Machine"
     },
     {
       "title": "HCF aur LCM",
@@ -112,7 +114,9 @@
             "explanation": "14 aur 35 ka common factor 7 hai, jo inka HCF hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g5-hcf-lcm.html",
+      "interactive_label": "Khelo — HCF aur LCM"
     },
     {
       "title": "Decimals aur percentage",
@@ -332,7 +336,9 @@
             "explanation": "Chauras ka perimeter = 4 x lambai, to lambai = perimeter / 4 = 36 / 4 = 9 meter."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g5-perimeter-area.html",
+      "interactive_label": "Khelo — Perimeter aur Area"
     }
   ]
 }

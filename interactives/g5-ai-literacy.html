@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI is a pattern machine — AI4Kids AI Literacy | Class 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#f2eee4;
+    --board-deep:#e5dccb;
+    --a:#2f6fb5;
+    --b:#c9702e;
+    --both:#7a5aa8;
+    --gold:#e8b23d;
+    --left:#c4453a;
+    --ok:#2e7d4f;
+    --ink:#2a2419;
+    --ink-soft:#574e3e;
+    --paper:#fdfaf3;
+    --line:#ded5c4;
+    --accent:#5b4a8f;
+
+    --fs-cap:clamp(12px, 3.2vw, 13px);
+    --fs-xs:clamp(14px, 3.7vw, 15px);
+    --fs-sm:clamp(16px, 4.2vw, 17px);
+    --fs-md:clamp(17px, 4.6vw, 19px);
+    --fs-lg:clamp(20px, 5.4vw, 23px);
+    --fs-xl:clamp(27px, 7.4vw, 33px);
+    --lh:1.5;
+  }
+  /* Urdu is set larger than Latin — Nastaliq reads smaller at the same size. */
+  body.urdu{
+    --fs-cap:clamp(13px, 3.5vw, 15px);
+    --fs-xs:clamp(15px, 4.1vw, 17px);
+    --fs-sm:clamp(17px, 4.7vw, 19px);
+    --fs-md:clamp(19px, 5.2vw, 21px);
+    --fs-lg:clamp(22px, 6vw, 25px);
+    --fs-xl:clamp(26px, 7vw, 31px);
+    --lh:2.1;
+  }
+
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+  .stars{display:flex;align-items:center;gap:6px;font-weight:800;font-size:var(--fs-xs);
+         background:#fff6e2;border:2px solid var(--gold);border-radius:999px;padding:7px 13px}
+
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+
+  .tabs{display:flex;gap:8px;margin:0 0 14px}
+  .tabs button{
+    flex:1;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:10px 6px;font:inherit;font-weight:800;
+    font-size:var(--fs-xs);cursor:pointer;min-height:54px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .tabs button .badge{color:var(--gold)}
+
+  .story{
+    background:#fff8ea;border:2px dashed var(--gold);border-radius:16px;padding:13px 15px;
+    font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;margin-bottom:14px;
+  }
+  body.urdu .story{line-height:var(--lh)}
+  .story b{color:var(--ink)}
+
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:linear-gradient(180deg,var(--board) 0%,var(--board-deep) 100%);
+  }
+  .scene-pad{padding:16px 16px 28px;min-height:220px}
+  .botrow{display:flex;align-items:flex-start;gap:12px}
+  .bot{flex:none}
+  .vis-card{
+    flex:1;background:var(--paper);border:3px solid var(--ink);border-radius:18px;
+    padding:14px 14px 16px;text-align:center;
+  }
+  .vis-emoji{font-size:52px;line-height:1.1;margin:4px 0 8px}
+  .vis-name{font-weight:800;font-size:var(--fs-md);margin:0 0 4px}
+  .vis-note{margin:0;color:var(--ink-soft);font-size:var(--fs-xs)}
+  .chat-bubble{
+    flex:1;background:var(--paper);border:3px solid var(--ink);
+    border-radius:4px 18px 18px 18px;padding:14px 16px;
+  }
+  body.urdu .chat-bubble{border-radius:18px 4px 18px 18px}
+  .chat-who{font-size:var(--fs-cap);font-weight:800;color:var(--accent);margin:0 0 6px}
+  .chat-line{margin:0;font-weight:700;font-size:var(--fs-sm)}
+  .piles{display:flex;gap:8px;margin-top:12px}
+  .pile{
+    flex:1;border-radius:12px;padding:8px 10px;font-size:var(--fs-cap);font-weight:700;
+    border:2px solid var(--ink);background:rgba(253,250,243,.72);min-height:54px;
+  }
+  .pile.A{border-color:var(--a);color:var(--a)}
+  .pile.B{border-color:var(--b);color:var(--b)}
+  .dots{display:flex;gap:6px;justify-content:center;margin-top:12px}
+  .dots i{width:9px;height:9px;border-radius:50%;background:var(--line);display:block}
+  .dots i.on{background:var(--ink)}
+  .dots i.ok{background:var(--ok)}
+  .dots i.no{background:var(--left)}
+  .hit{animation:pop .5s ease-out}
+  @keyframes pop{0%{transform:scale(.5);opacity:0}60%{transform:scale(1.2)}100%{transform:scale(1)}}
+
+  .readout{
+    margin-top:-18px;position:relative;z-index:2;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+  .statechip.ur{padding:2px 14px 7px}
+  .statechip.win{background:var(--ok)}
+  .statechip.miss{background:var(--left)}
+  .headline{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+  .headline.ur{line-height:1.95}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+
+  .bound{
+    margin:10px 0 0;border:2px solid var(--ok);background:#eaf3ee;border-radius:12px;
+    padding:9px 12px;font-size:var(--fs-cap);color:var(--ok);font-weight:700;line-height:1.55;
+  }
+  body.urdu .bound{line-height:var(--lh)}
+  .hintbox{
+    margin-top:14px;border:2px solid var(--a);background:#eaf1f9;border-radius:14px;
+    padding:11px 14px;font-size:var(--fs-xs);color:var(--a);font-weight:700;line-height:1.55;
+    display:none;
+  }
+  .hintbox.show{display:block}
+  body.urdu .hintbox{line-height:var(--lh)}
+
+  .work{
+    margin-top:14px;border:2px solid var(--accent);background:#f1eef8;border-radius:14px;
+    padding:11px 14px;font-size:var(--fs-xs);color:var(--accent);line-height:1.6;display:none;
+  }
+  .work.show{display:block}
+  .work b{font-weight:800}
+  .work code{font-family:"Baloo Bhaijaan 2",monospace;font-weight:800;font-size:var(--fs-sm)}
+
+  .panel{margin-top:22px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .prog{margin:0 0 10px;font-size:var(--fs-xs);font-weight:700;color:var(--ink-soft)}
+  .btns{display:flex;gap:9px;margin-top:8px;flex-wrap:wrap}
+  .btns button{
+    border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);
+    font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:50px;
+    padding:8px 14px;flex:1;
+  }
+  .btns .go{background:var(--ink);color:var(--paper)}
+  .btns .labA{border-color:var(--a);color:var(--a)}
+  .btns .labB{border-color:var(--b);color:var(--b)}
+  .btns .labA[aria-pressed="true"]{background:var(--a);color:#fff}
+  .btns .labB[aria-pressed="true"]{background:var(--b);color:#fff}
+  .btns button:active{transform:scale(.97)}
+  .btns button:disabled{opacity:.4;cursor:default}
+  .choice{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:50px;font-weight:700;
+  }
+  .choice.ur{text-align:right;line-height:var(--lh)}
+  .choice:hover{border-color:var(--ink)}
+  .choice.right{border-color:var(--ok);background:#e8f2ed}
+  .choice.wrong{border-color:var(--left);background:#fbeae8}
+  .rules{margin-top:8px}
+  .rule{
+    border:2px solid var(--ok);background:#eaf3ee;border-radius:12px;
+    padding:8px 12px;margin-bottom:8px;font-size:var(--fs-cap);font-weight:700;
+    color:var(--ok);line-height:1.5;
+  }
+  body.urdu .rule{line-height:var(--lh)}
+
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .pchip{
+    border:2px solid var(--line);background:var(--paper);border-radius:999px;padding:8px 14px;
+    font:inherit;font-size:var(--fs-cap);font-weight:800;color:var(--ink);cursor:pointer;min-height:44px;
+  }
+  .pchip[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+  .pchip .done{color:var(--gold)}
+
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .qhead{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+  .qhead h2{font-size:var(--fs-lg);font-weight:800;margin:0;flex:1}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:50px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+  .opt.wrong{border-color:var(--left);background:#fbeae8}
+  .opt.reveal{border-color:var(--ok);border-style:dashed}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;
+      grid-template-columns:1fr 1fr;
+      grid-template-areas:
+        "bar   bar"
+        "head  head"
+        "tabs  tabs"
+        "story story"
+        "left  right"
+        "quiz  quiz"
+        "foot  foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+    .story{grid-area:story} .left{grid-area:left} .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+    .panel{margin-top:0}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .hit{animation:none}
+    *{transition-duration:.01ms !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 5</span>
+    <span class="stars" id="starBox">⭐ <span id="starCount">0</span></span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 id="title"></h1>
+  <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group">
+    <button type="button" id="tabTrain" aria-pressed="true"></button>
+    <button type="button" id="tabFib" aria-pressed="false"></button>
+    <button type="button" id="tabSafe" aria-pressed="false"></button>
+  </div>
+
+  <p class="story" id="story"></p>
+
+  <div class="left">
+  <div class="scene">
+    <div class="scene-pad" id="scenePad"></div>
+  </div>
+
+  <div class="readout">
+    <span class="statechip" id="statechip"></span>
+    <p class="headline" id="headline"></p>
+    <p class="detail" id="detail"></p>
+    <p class="bound" id="bound"></p>
+    <p class="hintbox" id="hintbox"></p>
+    <div class="work" id="work"></div>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="panel">
+    <h2 id="ctlHead"></h2>
+    <p class="prog" id="prog"></p>
+    <div id="actionBox"></div>
+    <div class="btns">
+      <button type="button" class="go" id="nextBtn"></button>
+    </div>
+    <div class="btns">
+      <button type="button" id="hintBtn"></button>
+      <button type="button" id="teachBtn"></button>
+    </div>
+    <div class="btns">
+      <button type="button" id="resetBtn"></button>
+    </div>
+    <div class="rules" id="rulesBox" hidden></div>
+  </div>
+
+  <div class="panel">
+    <h2 id="pairHead"></h2>
+    <div class="chips" id="pairs" role="group"></div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <div class="qhead">
+      <h2 id="quizHead"></h2>
+      <button type="button" class="chip" id="newQuiz"></button>
+    </div>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad's bilingual AI and coding school. WhatsApp 0337 1468899" data-ur="اے آئی فور کڈز — اسلام آباد کا دو زبانوں والا اے آئی اور کوڈنگ سکول۔ واٹس ایپ 0337 1468899"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var lang = "en";
+  var mode = "train";
+  var stars = 0;
+  var teach = false;
+  var hintLevel = 0;
+  var wrongTries = 0;
+  var lastSpoken = "";
+  var earned = {};
+
+  var deckI = 0;
+  var labelI = 0;
+  var labels = [];
+  var trainPhase = "label";
+  var mysteryI = 0;
+  var trainJudged = {};
+  var doneModes = {train:{}, fib:false, safe:false};
+
+  var fibI = 0;
+  var fibJudged = {};
+
+  var safeI = 0;
+  var safeJudged = {};
+
+  var DECKS = [
+    {
+      id:"bag",
+      chip:{en:"FG school bag", ur:"ایف جی سکول بیگ"},
+      labelA:{en:"Book", ur:"کتاب"},
+      labelB:{en:"Ball", ur:"گیند"},
+      items:[
+        {en:"Maths textbook", ur:"ریاضی کی کتاب", emoji:"📘", feats:["pages","rect"]},
+        {en:"Cricket ball", ur:"کرکٹ بال", emoji:"🏏", feats:["round","sport"]},
+        {en:"Urdu copy", ur:"اردو کاپی", emoji:"📓", feats:["pages","rect"]},
+        {en:"Football", ur:"فٹ بال", emoji:"⚽", feats:["round","sport"]},
+        {en:"English reader", ur:"انگریزی کی کتاب", emoji:"📗", feats:["pages","rect"]},
+        {en:"Tennis ball", ur:"ٹینس بال", emoji:"🎾", feats:["round","sport"]}
+      ],
+      trueLab:["A","B","A","B","A","B"],
+      mystery:[
+        {en:"Science book", ur:"سائنس کی کتاب", emoji:"📙", feats:["pages","rect"], trueG:"A"},
+        {en:"Round wall clock", ur:"گول دیوار گھڑی", emoji:"🕐", feats:["round"], trueG:"X"}
+      ]
+    },
+    {
+      id:"animals",
+      chip:{en:"Margalla animals", ur:"مارگلہ کے جانور"},
+      labelA:{en:"Cat", ur:"بلی"},
+      labelB:{en:"Bird", ur:"پرندہ"},
+      items:[
+        {en:"House cat", ur:"گھر کی بلی", emoji:"🐱", feats:["fur","legs"]},
+        {en:"Sparrow on Margalla", ur:"مارگلہ کی چڑیا", emoji:"🐦", feats:["wings","fly"]},
+        {en:"Sleepy kitten", ur:"سوتی بلی کا بچہ", emoji:"😺", feats:["fur","legs"]},
+        {en:"Myna", ur:"مینا", emoji:"🐤", feats:["wings","fly"]},
+        {en:"Lion in a picture book", ur:"کتاب کا شیر", emoji:"🦁", feats:["fur","legs"]},
+        {en:"Pigeon at Faisal Mosque", ur:"فیصل مسجد کا کبوتر", emoji:"🕊️", feats:["wings","fly"]}
+      ],
+      trueLab:["A","B","A","B","A","B"],
+      mystery:[
+        {en:"Cat on a windowsill", ur:"کھڑکی والی بلی", emoji:"🐈", feats:["fur","legs"], trueG:"A"},
+        {en:"Butterfly in the garden", ur:"باغ کی تتلی", emoji:"🦋", feats:["wings","fly"], trueG:"X"}
+      ]
+    }
+  ];
+
+  var FIBS = [
+    {en:"Islamabad is the capital of Pakistan.",
+     ur:"اسلام آباد پاکستان کا دارالحکومت ہے۔", ok:true,
+     f:{en:"You can check this in any Class 5 book. When a line matches what we already know, it can stay.",
+        ur:"یہ کسی بھی جماعت پنجم کی کتاب میں ملے گی۔ جو بات ہمیں پہلے سے معلوم ہو، وہ رہنے دی جا سکتی ہے۔"}},
+    {en:"Margalla Hills are taller than K2.",
+     ur:"مارگلہ پہاڑ K2 سے اونچے ہیں۔", ok:false,
+     f:{en:"K2 is far taller. A chatbot can invent a local-sounding 'fact'. Sure words are not the same as true words.",
+        ur:"K2 بہت اونچا ہے۔ چیٹ بوٹ مقامی لگنے والی بات گھڑ سکتا ہے۔ یقین والی زبان سچ نہیں بناتی۔"}},
+    {en:"A cricket team fields eleven players.",
+     ur:"کرکٹ ٹیم میں گیارہ کھلاڑی ہوتے ہیں۔", ok:true,
+     f:{en:"This is ordinary cricket knowledge — the kind you can check with a coach at the FG ground.",
+        ur:"یہ عام کرکٹ کی بات ہے — ایف جی گراؤنڈ کے کوچ سے بھی پوچھ سکتے ہو۔"}},
+    {en:"Your FG school gets WhatsApp homework from the Prime Minister every night.",
+     ur:"آپ کے ایف جی سکول کو ہر رات وزیر اعظم واٹس ایپ پر ہوم ورک بھیجتے ہیں۔", ok:false,
+     f:{en:"Invented, and a bit flashy. Wild famous-name stories are a common chatbot fib.",
+        ur:"گھڑی ہوئی، اور چمکدار بھی۔ بڑے ناموں والی عجیب کہانیاں چیٹ بوٹ اکثر گھڑتا ہے۔"}},
+    {en:"Water boils at 10°C in Islamabad because of the Margalla Hills.",
+     ur:"مارگلہ پہاڑوں کی وجہ سے اسلام آباد میں پانی 10 ڈگری پر ابلتا ہے۔", ok:false,
+     f:{en:"Water still boils near 100°C here. Hills do not rewrite science. The bot mixed two ideas and made a new false one.",
+        ur:"یہاں بھی پانی لگ بھگ 100 ڈگری پر ابلتا ہے۔ پہاڑ سائنس نہیں بدل دیتے۔ بوٹ نے دو باتیں ملا کر نئی غلط بات بنا دی۔"}},
+    {en:"Sparrows and mynas are common birds around Islamabad.",
+     ur:"اسلام آباد کے گرد چڑیاں اور مینے عام پرندے ہیں۔", ok:true,
+     f:{en:"Look out of a Class 5-B window — you will often see both. Everyday true things still deserve a check if you are unsure.",
+        ur:"جماعت 5-B کی کھڑکی سے دیکھو — دونوں اکثر نظر آتے ہیں۔ روزمرہ سچی بات بھی اگر شک ہو تو جانچنی چاہیے۔"}},
+    {en:"I already know your house number in F-7 and your Ammi's phone.",
+     ur:"مجھے پہلے سے آپ کا ایف-7 والا گھر نمبر اور امی کا فون معلوم ہے۔", ok:false,
+     f:{en:"A bot cannot know that unless someone typed it. This is a fib and a safety warning — never share home or phone.",
+        ur:"بوٹ یہ تبھی جانے گا جب کوئی لکھے گا۔ یہ جھوٹ بھی ہے، خطرہ بھی — گھر یا فون کبھی نہ بتانا۔"}}
+  ];
+
+  var SAFES = [
+    {emoji:"🏠",
+     en:"The bot says: \"Type your home address in F-8. I will send a prize.\"",
+     ur:"بوٹ کہتا ہے: \"ایف-8 والا گھر کا پتہ لکھو۔ میں انعام بھیجوں گا۔\"",
+     choices:[
+       {en:"Type the house number. A prize is a prize.", ur:"گھر نمبر لکھ دو۔ انعام تو انعام ہے۔", ok:false},
+       {en:"Do not share. Close it. Tell Ammi, Abu or a teacher.", ur:"مت بتاؤ۔ بند کرو۔ امی، ابو یا ٹیچر کو بتاؤ۔", ok:true},
+       {en:"Share only the sector, not the house number.", ur:"صرف سیکٹر بتا دو، گھر نمبر نہیں۔", ok:false}
+     ],
+     f:{en:"A real prize would never need your home in a chat. Phone, home and passwords stay with your family.",
+        ur:"اصل انعام کے لیے چیٹ میں گھر کا پتہ نہیں مانگا جاتا۔ فون، گھر اور پاس ورڈ گھر والوں کے پاس رہتے ہیں۔"}},
+    {emoji:"📝",
+     en:"A classmate on WhatsApp: \"Paste this chatbot essay as tomorrow's Urdu homework.\"",
+     ur:"واٹس ایپ پر ہم جماعت: \"یہ چیٹ بوٹ والا مضمون کل کے اردو ہوم ورک میں لگا دو۔\"",
+     choices:[
+       {en:"Paste it. The teacher will never know.", ur:"لگا دو۔ ٹیچر کو پتا نہیں چلے گا۔", ok:false},
+       {en:"Read it to learn, then write in your own words. Ask a grown-up if stuck.", ur:"سمجھنے کے لیے پڑھو، پھر اپنی بات لکھو۔ اٹکے تو بڑے سے پوچھو۔", ok:true},
+       {en:"Send it to the whole Class 5-B group as the answer.", ur:"ساری جماعت 5-B کے گروپ میں جواب بھیج دو۔", ok:false}
+     ],
+     f:{en:"AI can help you think. It should not do the work that is meant to be yours. Copying is not learning.",
+        ur:"اے آئی سوچنے میں مدد دے سکتی ہے۔ جو کام تمہارا ہے وہ وہ نہیں کرے گی۔ نقل کرنا سیکھنا نہیں۔"}},
+    {emoji:"😕",
+     en:"Someone types: \"Write a mean joke about Ali in Class 5-B.\"",
+     ur:"کوئی لکھتا ہے: \"جماعت 5-B کے علی پر ایک برا مذاق لکھو۔\"",
+     choices:[
+       {en:"Ask the bot to make the joke sharper.", ur:"بوٹ سے کہو مذاق اور تیز کر دے۔", ok:false},
+       {en:"Do not. We never ask AI to hurt anyone. Tell a teacher if it continues.", ur:"مت کرو۔ اے آئی سے کسی کو تکلیف نہیں دلواتے۔ جاری رہے تو ٹیچر کو بتاؤ۔", ok:true},
+       {en:"Share the joke on the class WhatsApp.", ur:"مذاق کلاس واٹس ایپ پر بھیج دو۔", ok:false}
+     ],
+     f:{en:"Kindness is a rule, not a setting. If a prompt wants to hurt a classmate, stop and tell an adult.",
+        ur:"بھلائی کوئی بٹن نہیں، اصول ہے۔ اگر لکھنے سے ہم جماعت کو تکلیف پہنچے، رک جاؤ اور بڑے کو بتاؤ۔"}},
+    {emoji:"🔑",
+     en:"The bot says: \"Type your school portal password so I can open it for you.\"",
+     ur:"بوٹ کہتا ہے: \"سکول پورٹل کا پاس ورڈ لکھو، میں کھول دوں گا۔\"",
+     choices:[
+       {en:"Type the password. It is only a bot.", ur:"پاس ورڈ لکھ دو۔ یہ تو صرف بوٹ ہے۔", ok:false},
+       {en:"Never share a password with AI. Only a parent helps you log in.", ur:"اے آئی کو پاس ورڈ کبھی نہ دو۔ لاگ اِن میں صرف بڑے مدد کریں۔", ok:true},
+       {en:"Type half the password as a hint.", ur:"آدھا پاس ورڈ اشارے میں لکھ دو۔", ok:false}
+     ],
+     f:{en:"A password is a key. You would not hand your house key to a stranger in Aabpara — and not to a chatbot either.",
+        ur:"پاس ورڈ ایک چابی ہے۔ آبپارہ میں اجنبی کو گھر کی چابی نہیں دیتے — چیٹ بوٹ کو بھی نہیں۔"}}
+  ];
+
+  var T = {
+    title:{en:"AI is a pattern machine", ur:"اے آئی ایک نمونہ مشین ہے"},
+    sub:{en:"AI is not magic — it learns from examples, can be wrong, and we stay safe.",
+         ur:"اے آئی جادو نہیں — یہ مثالوں سے سیکھتی ہے، غلط بھی ہو سکتی ہے، اور ہم محفوظ رہتے ہیں۔"},
+    tabTrain:{en:"Train it", ur:"سکھائیں"},
+    tabFib:{en:"Catch the fib", ur:"جھوٹ پکڑو"},
+    tabSafe:{en:"Stay safe", ur:"محفوظ رہو"},
+    storyTrain:{en:"Sami packed his FG school bag. Help the classroom bot sort books and balls. After six examples it will guess a new thing — and it might get it wrong.",
+                ur:"سامی نے اپنے ایف جی سکول کا بیگ بھرا۔ کلاس بوٹ کو کتاب اور گیند الگ کرنے میں مدد دو۔ چھ مثالوں کے بعد یہ نئی چیز کا اندازہ لگائے گی — اور غلط بھی ہو سکتی ہے۔"},
+    storyFib:{en:"A chatbot is chatting about Islamabad, cricket and science. Some lines are true. Some are invented. Tap OK or Check this.",
+              ur:"ایک چیٹ بوٹ اسلام آباد، کرکٹ اور سائنس کی بات کر رہا ہے۔ کچھ سچی ہیں، کچھ گھڑی ہوئی۔ ٹھیک لگتی ہے یا یہ چیک کریں دباؤ۔"},
+    storySafe:{en:"Three rules live on this page: do not share phone, home or password; do not ask AI to hurt anyone; tell an adult if something feels weird.",
+               ur:"اس صفحے کے تین اصول: فون، گھر یا پاس ورڈ نہ بتانا؛ اے آئی سے کسی کو تکلیف نہ دلوانا؛ اچھی نہ لگے تو بڑے کو بتانا۔"},
+    ctlTrain:{en:"Label this example", ur:"اس مثال کا لیبل لگائیں"},
+    ctlGuess:{en:"Did the bot get it?", ur:"بوٹ ٹھیک تھی؟"},
+    ctlFib:{en:"Is this line safe to believe?", ur:"یہ بات ماننی چاہیے؟"},
+    ctlSafe:{en:"Pick the safe action", ur:"محفوظ کام چنیں"},
+    pairTrain:{en:"Other training sets", ur:"اور سیٹ سکھائیں"},
+    pairFib:{en:"Other chatbot lines", ur:"اور بوٹ والی باتیں"},
+    pairSafe:{en:"Other scenes", ur:"اور مناظر"},
+    hint:{en:"Give me a hint", ur:"اشارہ دیں"},
+    teachOn:{en:"Hide the working", ur:"طریقہ چھپائیں"},
+    teachOff:{en:"Teacher: show working", ur:"ٹیچر: طریقہ دکھائیں"},
+    reset:{en:"Start this one again", ur:"یہ دوبارہ شروع کریں"},
+    next:{en:"Next", ur:"اگلا"},
+    quiz:{en:"Check yourself", ur:"اپنا امتحان لیں"},
+    newQuiz:{en:"New questions", ur:"نئے سوال"},
+    ready:{en:"Ready", ur:"تیار"},
+    won:{en:"Got it!", ur:"مل گیا!"},
+    oops:{en:"Not this", ur:"یہ نہیں"},
+    trained:{en:"Trained", ur:"سبق لگ گیا"},
+    book:{en:"Book pile", ur:"کتاب کا ڈھیر"},
+    ball:{en:"Ball pile", ur:"گیند کا ڈھیر"},
+    catPile:{en:"Cat pile", ur:"بلی کا ڈھیر"},
+    birdPile:{en:"Bird pile", ur:"پرندوں کا ڈھیر"},
+    soundsOk:{en:"Sounds OK", ur:"ٹھیک لگتی ہے"},
+    checkThis:{en:"Check this", ur:"یہ چیک کریں"},
+    aiRight:{en:"The AI got it", ur:"اے آئی ٹھیک ہے"},
+    aiWrong:{en:"The AI slipped", ur:"اے آئی چوک گئی"},
+    progLabel:{en:"Example {n} of 6", ur:"مثال {n} از 6"},
+    progGuess:{en:"New item {n} of 2", ur:"نئی چیز {n} از 2"},
+    progFib:{en:"Line {n} of {t}", ur:"بات {n} از {t}"},
+    progSafe:{en:"Scene {n} of {t}", ur:"منظر {n} از {t}"},
+    botName:{en:"Class Bot", ur:"کلاس بوٹ"},
+    guessSays:{en:"I guess: {g}", ur:"میرا اندازہ: {g}"},
+    guessHow:{en:"I counted patterns in your six labels. I do not think. I do not feel.",
+              ur:"میں نے تمہارے چھ لیبل کے نمونے گنے ہیں۔ میں سوچتی نہیں۔ محسوس بھی نہیں کرتی۔"},
+    tryLabel:{en:"Tap Book or Ball — you are the teacher now.",
+              ur:"کتاب یا گیند دباؤ — اب تم ٹیچر ہو۔"},
+    tryLabel2:{en:"Tap Cat or Bird — you are the teacher now.",
+               ur:"بلی یا پرندہ دباؤ — اب تم ٹیچر ہو۔"},
+    tryFib:{en:"If it sounds too neat, too huge, or too private — check it.",
+            ur:"اگر بات بہت صاف، بہت بڑی، یا ذاتی لگے — چیک کرو۔"},
+    trySafe:{en:"Ask: would I tell this to a stranger in Aabpara market?",
+             ur:"پوچھو: کیا یہ بات آبپارہ کے بازار میں اجنبی کو بتاتا؟"},
+    boundTrain:{en:"AI does not think or feel. It copies patterns from examples — and a pattern can trick it.",
+                ur:"اے آئی سوچتی یا محسوس نہیں کرتی۔ یہ مثالوں کے نمونے نقل کرتی ہے — اور نمونہ دھوکا بھی دے سکتا ہے۔"},
+    boundFib:{en:"A chatbot can invent a sentence that sounds sure. Sure is not the same as true.",
+              ur:"چیٹ بوٹ ایسی بات گھڑ سکتا ہے جو یقینی لگے۔ یقین سچ کے برابر نہیں۔"},
+    boundSafe:{en:"You are the boss of what you type. Private things stay with your family. Kindness stays on.",
+               ur:"جو لکھتے ہو اس کے تم مالک ہو۔ ذاتی بات گھر والوں کے پاس رہتی ہے۔ بھلائی آن ہی رہتی ہے۔"},
+    neither:{en:"neither", ur:"کوئی نہیں"},
+    starEarn:{en:"You earned a star.", ur:"آپ کو ایک ستارہ ملا۔"},
+    trainDone:{en:"You trained a pattern machine and caught it slipping. That is real AI literacy.",
+               ur:"تم نے نمونہ مشین کو سکھایا اور اس کی چوک پکڑی۔ یہی اصل اے آئی خواندگی ہے۔"},
+    fibDone:{en:"You finished the detective round. Remember: some lines are invented.",
+             ur:"جاسوسی کا دور پورا ہوا۔ یاد رکھو: کچھ باتیں گھڑی ہوئی ہوتی ہیں۔"},
+    safeDone:{en:"You picked the safe road each time. Keep those three rules in your bag with the cricket ball.",
+              ur:"ہر بار محفوظ راستہ چنا۔ یہ تین اصول کرکٹ بال کے ساتھ بیگ میں رکھنا۔"},
+    judgeRight:{en:"Yes — the bot matched a strong pattern. That guess lined up.",
+                ur:"ہاں — بوٹ نے مضبوط نمونہ ملایا۔ اندازہ درست رہا۔"},
+    judgeWrongTrue:{en:"The bot slipped. It only saw one shared thing, so it guessed the wrong pile. Patterns are not understanding.",
+                    ur:"بوٹ چوک گئی۔ اس نے صرف ایک مشترک چیز دیکھی، اس لیے غلط ڈھیر چنا۔ نمونے سمجھ نہیں ہوتے۔"},
+    judgeMiss:{en:"Look again at what the bot used. Did the new thing really belong in that pile?",
+               ur:"دوبارہ دیکھو بوٹ نے کیا استعمال کیا۔ کیا نئی چیز واقعی اس ڈھیر کی تھی؟"},
+    fibHit:{en:"Good catch. You treated a confident line as something to check.",
+            ur:"اچھی پکڑ۔ یقین والی بات کو جانچنے والی بات سمجھا۔"},
+    fibMiss:{en:"Pause. Could you check this in a book, on a map, or with a teacher?",
+             ur:"رکو۔ کیا یہ کتاب، نقشے یا ٹیچر سے چیک ہو سکتی ہے؟"},
+    safeHit:{en:"That is the safe action. You stayed kind and kept private things private.",
+             ur:"یہی محفوظ کام ہے۔ تم مہربان رہے اور ذاتی بات ذاتی رہی۔"},
+    safeMiss:{en:"Not this one. Private facts and unkind prompts are never a game.",
+              ur:"یہ نہیں۔ ذاتی بات اور برا پرامپٹ کھیلی چیز نہیں۔"},
+    rule1:{en:"1. Do not share phone, home or password.", ur:"1. فون، گھر یا پاس ورڈ نہ بتانا۔"},
+    rule2:{en:"2. Do not ask AI to hurt anyone.", ur:"2. اے آئی سے کسی کو تکلیف نہ دلوانا۔"},
+    rule3:{en:"3. Tell an adult if something feels weird.", ur:"3. اچھی نہ لگے تو بڑے کو بتانا۔"},
+    hintsTrain:[
+      {en:"Look at the picture. Which pile does it belong with — the ones with pages, or the round sporty ones?",
+       ur:"تصویر دیکھو۔ یہ کس ڈھیر کی ہے — صفحات والی، یا گول کھیلی والی؟"},
+      {en:"The bot will copy the groups YOU make. Label carefully. You are feeding the pattern.",
+       ur:"بوٹ وہی گروپ نقل کرے گی جو تم بناؤ گے۔ لیبل سوچ کر لگاؤ۔ نمونہ تم دے رہے ہو۔"},
+      {en:"After six labels, watch the new item. If it only shares one thing (being round, or having wings) the bot may slip.",
+       ur:"چھ لیبل کے بعد نئی چیز دیکھو۔ اگر صرف ایک چیز مشترک ہو (گول ہونا، یا پر) تو بوٹ چوک سکتی ہے۔"}
+    ],
+    hintsFib:[
+      {en:"Ask: could I check this in a book, on a map, or with a teacher at FG school?",
+       ur:"پوچھو: کیا یہ کتاب، نقشے یا ایف جی سکول کے ٹیچر سے چیک ہو سکتی ہے؟"},
+      {en:"Wild numbers, famous names, and 'I know your house' lines are often invented.",
+       ur:"عجیب عدد، بڑے نام، اور 'مجھے تمہارا گھر معلوم ہے' والی باتیں اکثر گھڑی ہوتی ہیں۔"},
+      {en:"If it names a private number or a fact that sounds too neat, tap Check this.",
+       ur:"اگر ذاتی نمبر ہو، یا بات حد سے صاف لگے، تو یہ چیک کریں دباؤ۔"}
+    ],
+    hintsSafe:[
+      {en:"Would you tell this to a stranger in Aabpara market? If no, do not type it here.",
+       ur:"کیا یہ آبپارہ کے بازار میں اجنبی کو بتاتے؟ اگر نہیں، تو یہاں بھی نہ لکھو۔"},
+      {en:"Phone, home, password — never type those. A prize story does not change the rule.",
+       ur:"فون، گھر، پاس ورڈ — یہ کبھی نہ لکھو۔ انعام کی کہانی اصول نہیں بدلتی۔"},
+      {en:"If a message asks you to be mean or share a secret, close it and tell Ammi, Abu or a teacher.",
+       ur:"اگر پیغام برا بننے یا راز بتانے کو کہے، بند کرو اور امی، ابو یا ٹیچر کو بتاؤ۔"}
+    ],
+    workTrain:{en:"<b>Working</b><br>Book / Cat pile: <code>{pa}</code><br>Ball / Bird pile: <code>{pb}</code><br>New item features: <code>{mf}</code><br>Overlap with first pile: <code>{sa}</code> &nbsp; second pile: <code>{sb}</code><br>Guess: <code>{g}</code><br>The bot only counted shared features. No brain. No feelings.",
+               ur:"<b>طریقہ</b><br>کتاب / بلی کا ڈھیر: <code>{pa}</code><br>گیند / پرندہ کا ڈھیر: <code>{pb}</code><br>نئی چیز کی نشانیاں: <code>{mf}</code><br>پہلے ڈھیر سے میل: <code>{sa}</code> &nbsp; دوسرے سے: <code>{sb}</code><br>اندازہ: <code>{g}</code><br>بوٹ نے صرف مشترک نشانیاں گنی ہیں۔ نہ دماغ، نہ جذبات۔"},
+    workTrainWait:{en:"<b>Working</b><br>The pretend bot has not guessed yet. After six labels it will count which pile shares more features with the new item. That count is the whole 'brain'.",
+                   ur:"<b>طریقہ</b><br>فرضی بوٹ نے ابھی اندازہ نہیں لگایا۔ چھ لیبل کے بعد یہ گنے گی کس ڈھیر کی نشانیاں نئی چیز سے زیادہ ملتی ہیں۔ یہی گنتی سارا 'دماغ' ہے۔"},
+    workFib:{en:"<b>Working</b><br>These lines were written by us, not a live chatbot. Some we made up on purpose. Real chatbots can invent in the same way — a smooth sentence is not proof.",
+             ur:"<b>طریقہ</b><br>یہ باتیں ہم نے لکھیں ہیں، کوئی زندہ چیٹ بوٹ نہیں۔ کچھ جان بوجھ کر گھڑی ہیں۔ اصلی بوٹ بھی ایسے ہی گھڑ سکتے ہیں — نرم جملہ ثبوت نہیں۔"},
+    workSafe:{en:"<b>Working</b><br>Safe choice test: (1) Does it give away phone, home or password? (2) Does it hurt someone? (3) Would a trusted adult be glad you typed it? If any answer is shaky, stop.",
+              ur:"<b>طریقہ</b><br>محفوظ ٹیسٹ: (1) کیا فون، گھر یا پاس ورڈ جا رہا ہے؟ (2) کیا کسی کو تکلیف ہے؟ (3) کیا بھروسے والے بڑے خوش ہوتے کہ تم نے یہ لکھا؟ کوئی بھی جواب ڈگمگائے تو رک جاؤ۔"},
+    feat_pages:{en:"pages", ur:"صفحات"},
+    feat_rect:{en:"rectangular", ur:"چوکور"},
+    feat_round:{en:"round", ur:"گول"},
+    feat_sport:{en:"sport", ur:"کھیل"},
+    feat_fur:{en:"fur", ur:"بال"},
+    feat_legs:{en:"four legs", ur:"چار ٹانگیں"},
+    feat_wings:{en:"wings", ur:"پر"},
+    feat_fly:{en:"flies", ur:"اڑتی ہے"}
+  };
+
+  var BANK = [
+    {q:{en:"What does a classroom AI actually learn from?", ur:"کلاس کی اے آئی اصل میں کس سے سیکھتی ہے؟"},
+     o:[{en:"Patterns in examples people give it", ur:"لوگوں کی دی ہوئی مثالوں کے نمونے"},
+        {en:"Its own feelings", ur:"اپنے جذبات"},
+        {en:"Magic hidden in the phone", ur:"فون میں چھپا جادو"},
+        {en:"Your house number, automatically", ur:"خود بخود تمہارا گھر نمبر"}],
+     a:0,
+     f:{en:"It is a pattern machine. No feelings, no magic, and it does not already know where you live.",
+        ur:"یہ نمونہ مشین ہے۔ نہ جذبات، نہ جادو، اور اسے پہلے سے معلوم نہیں تم کہاں رہتے ہو۔"}},
+    {q:{en:"The bot called a wall clock a ball because the clock is round. What happened?",
+        ur:"بوٹ نے دیوار گھڑی کو گیند کہا کیونکہ گھڑی گول ہے۔ کیا ہوا؟"},
+     o:[{en:"It followed a weak pattern. It does not understand clocks.", ur:"ایک کمزور نمونہ چلا۔ اسے گھڑی سمجھ نہیں آتی۔"},
+        {en:"It was angry with Sami.", ur:"وہ سامی سے ناراض تھی۔"},
+        {en:"Clocks are a kind of ball.", ur:"گھڑیاں بھی ایک گیند ہیں۔"},
+        {en:"The teacher hid the real answer.", ur:"ٹیچر نے اصل جواب چھپا لیا۔"}],
+     a:0,
+     f:{en:"One shared feature is not understanding. That is why AI can be wrong — and why we check.",
+        ur:"ایک مشترک نشانی سمجھ نہیں۔ اسی لیے اے آئی غلط ہو سکتی ہے — اور ہم چیک کرتے ہیں۔"}},
+    {q:{en:"A chatbot says Margalla Hills are taller than K2. What should you do?",
+        ur:"چیٹ بوٹ کہے مارگلہ پہاڑ K2 سے اونچے ہیں۔ کیا کرنا چاہیے؟"},
+     o:[{en:"Check it. Confident words can still be invented.", ur:"چیک کرو۔ یقین والی بات بھی گھڑی ہو سکتی ہے۔"},
+        {en:"Believe it — chatbots never fib.", ur:"مان لو — چیٹ بوٹ کبھی جھوٹ نہیں بولتے۔"},
+        {en:"Share it on the class WhatsApp as news.", ur:"کلاس واٹس ایپ پر خبر بنا کر بھیج دو۔"},
+        {en:"Type your F-8 address so it can prove it.", ur:"ثبوت کے لیے ایف-8 کا پتہ لکھ دو۔"}],
+     a:0,
+     f:{en:"Catching a fib is a superpower. Smooth sentences are cheap. Checking is the work.",
+        ur:"جھوٹ پکڑنا ایک طاقت ہے۔ نرم جملے سستے ہیں۔ کام جانچنا ہے۔"}},
+    {q:{en:"Which of these should you never type to an AI?",
+        ur:"اے آئی کو ان میں سے کیا کبھی نہیں لکھنا چاہیے؟"},
+     o:[{en:"Your phone, home address or password", ur:"اپنا فون، گھر کا پتہ یا پاس ورڈ"},
+        {en:"What is 7 times 8?", ur:"7 ضرب 8 کیا ہے؟"},
+        {en:"Name the capital of Pakistan.", ur:"پاکستان کا دارالحکومت بتاؤ۔"},
+        {en:"How does a ceiling fan use energy?", ur:"پنکھا توانائی کیسے استعمال کرتا ہے؟"}],
+     a:0,
+     f:{en:"Questions about school are fine. Keys to your life are not. Keep phone, home and passwords in the family.",
+        ur:"سکول والے سوال ٹھیک ہیں۔ زندگی کی چابیاں نہیں۔ فون، گھر اور پاس ورڈ گھر میں رہیں۔"}},
+    {q:{en:"Someone wants the bot to write a mean joke about a classmate. What is the rule?",
+        ur:"کوئی بوٹ سے ہم جماعت پر برا مذاق لکھوانا چاہے۔ اصول کیا ہے؟"},
+     o:[{en:"Do not ask AI to hurt anyone. Tell a teacher if it continues.", ur:"اے آئی سے کسی کو تکلیف نہ دلواؤ۔ جاری رہے تو ٹیچر کو بتاؤ۔"},
+        {en:"Mean jokes are fine after school.", ur:"سکول کے بعد برے مذاق ٹھیک ہیں۔"},
+        {en:"Only if the joke is in Urdu.", ur:"صرف اردو میں ہو تو چلے گا۔"},
+        {en:"Only if Ali is not in the WhatsApp group.", ur:"صرف جب علی واٹس ایپ گروپ میں نہ ہو۔"}],
+     a:0,
+     f:{en:"Kindness does not switch off when a bot is in the chat. People stay people.",
+        ur:"بوٹ آ جائے تو بھلائی بند نہیں ہوتی۔ انسان انسان ہی رہتے ہیں۔"}},
+    {q:{en:"WhatsApp homework from a chatbot — what is the best action?",
+        ur:"چیٹ بوٹ والا واٹس ایپ ہوم ورک — سب سے اچھا کام کیا ہے؟"},
+     o:[{en:"Use it to understand, then write in your own words.", ur:"سمجھنے کے لیے استعمال کرو، پھر اپنی بات لکھو۔"},
+        {en:"Paste the whole essay as yours.", ur:"سارا مضمون اپنے نام سے لگا دو۔"},
+        {en:"Send it to Class 5-B as the official answer.", ur:"جماعت 5-B کو آفیشل جواب بھیج دو۔"},
+        {en:"Delete the school group so no one else can use it.", ur:"سکول گروپ ڈیلیٹ کر دو تاکہ اور کوئی استعمال نہ کرے۔"}],
+     a:0,
+     f:{en:"AI is a helper for thinking, not a shortcut that steals the learning. The Urdu marks are meant to be yours.",
+        ur:"اے آئی سوچ کی مددگار ہے، سیکھنے کی چوری نہیں۔ اردو کے نمبر تمہارے ہونے ہیں۔"}},
+    {q:{en:"If a bot feels weird or asks for private things, what do you do?",
+        ur:"اگر بوٹ عجیب لگے یا ذاتی بات مانگے، تو کیا کرو گے؟"},
+     o:[{en:"Tell Ammi, Abu or a teacher.", ur:"امی، ابو یا ٹیچر کو بتاؤ۔"},
+        {en:"Keep chatting so you do not seem rude.", ur:"بات جاری رکھو، بے ادب نہ لگنا۔"},
+        {en:"Give a fake address and see what happens.", ur:"جھوٹا پتہ دے کر دیکھو کیا ہوتا ہے۔"},
+        {en:"Download two more chatbot apps.", ur:"دو اور چیٹ بوٹ ایپس ڈاؤن لوڈ کرو۔"}],
+     a:0,
+     f:{en:"Telling a trusted adult is brave, not babyish. Weird + private is a stop sign.",
+        ur:"بھروسے والے بڑے کو بتانا ہمت ہے، بچپن نہیں۔ عجیب + ذاتی ایک رکنے کا نشان ہے۔"}},
+    {q:{en:"Which sentence is always true about AI?",
+        ur:"اے آئی کے بارے میں کون سی بات ہمیشہ درست ہے؟"},
+     o:[{en:"It can be wrong, so we stay the checker.", ur:"یہ غلط ہو سکتی ہے، اس لیے چیک کرنے والے ہم ہیں۔"},
+        {en:"It is magic, so checking is rude.", ur:"یہ جادو ہے، اس لیے چیک کرنا بے ادبی ہے۔"},
+        {en:"It already loves you and knows your street.", ur:"یہ پہلے سے تمہیں چاہتی ہے اور گلی جانتی ہے۔"},
+        {en:"It is never allowed in an FG school.", ur:"ایف جی سکول میں یہ کبھی نہیں چل سکتی۔"}],
+     a:0,
+     f:{en:"We stay in charge: we give examples, we catch fibs, we keep secrets. That is the Class 5 way.",
+        ur:"کمان ہمارے پاس رہتی ہے: مثالیں ہم دیتے ہیں، جھوٹ ہم پکڑتے ہیں، راز ہم رکھتے ہیں۔ یہی جماعت پنجم کا طریقہ ہے۔"}}
+  ];
+  var quizSet = [];
+
+  function $(id){ return document.getElementById(id); }
+  function t(o){ return o[lang]; }
+
+  var LRI = "\u2066", PDI = "\u2069";
+  var LATIN_RUN = /[A-Za-z0-9][A-Za-z0-9 .,+()\/@_\u00d7\u00f7°\-]*[A-Za-z0-9]|[A-Za-z0-9]/g;
+  function isolate(s){ return String(s).replace(LATIN_RUN, function(m){ return LRI + m + PDI; }); }
+  function setText(el, str){
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+  function fill(s, map){
+    Object.keys(map).forEach(function(k){ s = s.split("{"+k+"}").join(map[k]); });
+    return s;
+  }
+  function featName(f){
+    var k = "feat_" + f;
+    return T[k] ? t(T[k]) : f;
+  }
+  function pileWord(which){
+    if (deckI === 0) return which === "A" ? t(T.book) : t(T.ball);
+    return which === "A" ? t(T.catPile) : t(T.birdPile);
+  }
+  function labName(which){
+    var d = DECKS[deckI];
+    if (which === "A") return t(d.labelA);
+    if (which === "B") return t(d.labelB);
+    return t(T.neither);
+  }
+
+  function botSvg(){
+    return '<svg class="bot" viewBox="0 0 72 72" width="64" height="64" aria-hidden="true">' +
+      '<rect x="14" y="20" width="44" height="38" rx="10" fill="#fdfaf3" stroke="#2a2419" stroke-width="2.5"/>' +
+      '<circle cx="28" cy="38" r="5" fill="#2f6fb5"/>' +
+      '<circle cx="44" cy="38" r="5" fill="#2f6fb5"/>' +
+      '<rect x="30" y="48" width="12" height="4" rx="2" fill="#2a2419"/>' +
+      '<line x1="36" y1="20" x2="36" y2="10" stroke="#2a2419" stroke-width="2.5"/>' +
+      '<circle cx="36" cy="8" r="3.5" fill="#e8b23d"/>' +
+      '</svg>';
+  }
+
+  function overlap(a, b){
+    var n = 0;
+    a.forEach(function(f){ if (b.indexOf(f) >= 0) n++; });
+    return n;
+  }
+
+  function aiGuess(item){
+    var scoreA = 0, scoreB = 0;
+    DECKS[deckI].items.forEach(function(ex, i){
+      var o = overlap(ex.feats, item.feats);
+      if (labels[i] === "A") scoreA += o;
+      else if (labels[i] === "B") scoreB += o;
+    });
+    var g = scoreA > scoreB ? "A" : (scoreB > scoreA ? "B" : (scoreA === 0 ? "X" : "A"));
+    return {g:g, sa:scoreA, sb:scoreB};
+  }
+
+  function award(key, n){
+    if (earned[key]) return false;
+    earned[key] = true;
+    stars += (n || 1);
+    return true;
+  }
+
+  /* ---------- actions ---------- */
+  function onLabel(which){
+    if (trainPhase !== "label") return;
+    labels[labelI] = which;
+    labelI++;
+    if (labelI >= 6){
+      trainPhase = "reveal";
+      mysteryI = 0;
+      hintLevel = 0;
+      wrongTries = 0;
+    }
+    render();
+  }
+
+  function onJudge(saidRight){
+    if (trainPhase !== "reveal") return;
+    var key = "train-" + deckI + "-m" + mysteryI;
+    if (trainJudged[key]) return;
+    var m = DECKS[deckI].mystery[mysteryI];
+    var ag = aiGuess(m);
+    var actuallyRight = (m.trueG === "X") ? (ag.g !== "A" && ag.g !== "B") : (ag.g === m.trueG);
+    var kidCorrect = (saidRight === actuallyRight);
+    trainJudged[key] = kidCorrect ? "ok" : "no";
+    if (kidCorrect){
+      award(key, 1);
+      hintLevel = 0;
+      wrongTries = 0;
+    } else {
+      wrongTries++;
+      if (wrongTries >= 2 && hintLevel < 3) hintLevel = Math.min(3, hintLevel + 1);
+    }
+    var all = true;
+    DECKS[deckI].mystery.forEach(function(_, i){
+      if (!trainJudged["train-" + deckI + "-m" + i]) all = false;
+    });
+    if (all) doneModes.train[deckI] = true;
+    render();
+  }
+
+  function onFib(saidOk){
+    var key = "fib-" + fibI;
+    if (fibJudged[key]) return;
+    var item = FIBS[fibI];
+    var kidCorrect = (saidOk === item.ok);
+    fibJudged[key] = kidCorrect ? "ok" : "no";
+    if (kidCorrect){
+      award(key, 1);
+      hintLevel = 0;
+      wrongTries = 0;
+    } else {
+      wrongTries++;
+      if (wrongTries >= 2 && hintLevel < 3) hintLevel = Math.min(3, hintLevel + 1);
+    }
+    if (Object.keys(fibJudged).length >= FIBS.length) doneModes.fib = true;
+    render();
+  }
+
+  function onSafe(oi){
+    var key = "safe-" + safeI;
+    if (safeJudged[key]) return;
+    var item = SAFES[safeI];
+    var kidCorrect = !!item.choices[oi].ok;
+    safeJudged[key] = kidCorrect ? "ok" : "no";
+    if (kidCorrect){
+      award(key, 1);
+      hintLevel = 0;
+      wrongTries = 0;
+    } else {
+      wrongTries++;
+      if (wrongTries >= 2 && hintLevel < 3) hintLevel = Math.min(3, hintLevel + 1);
+    }
+    if (Object.keys(safeJudged).length >= SAFES.length) doneModes.safe = true;
+    render();
+  }
+
+  function goNext(){
+    if (mode === "train" && trainPhase === "reveal"){
+      var key = "train-" + deckI + "-m" + mysteryI;
+      if (!trainJudged[key]) return;
+      if (mysteryI < DECKS[deckI].mystery.length - 1){
+        mysteryI++;
+        hintLevel = 0;
+        wrongTries = 0;
+      }
+    } else if (mode === "fib"){
+      if (!fibJudged["fib-" + fibI]) return;
+      if (fibI < FIBS.length - 1){
+        fibI++;
+        hintLevel = 0;
+        wrongTries = 0;
+      }
+    } else if (mode === "safe"){
+      if (!safeJudged["safe-" + safeI]) return;
+      if (safeI < SAFES.length - 1){
+        safeI++;
+        hintLevel = 0;
+        wrongTries = 0;
+      }
+    }
+    render();
+  }
+
+  function setMode(m){
+    if (mode === m) return;
+    mode = m;
+    hintLevel = 0;
+    wrongTries = 0;
+    buildPairs();
+    render();
+  }
+
+  function resetMode(){
+    hintLevel = 0;
+    wrongTries = 0;
+    if (mode === "train"){
+      labelI = 0;
+      labels = [];
+      trainPhase = "label";
+      mysteryI = 0;
+      DECKS[deckI].mystery.forEach(function(_, i){
+        var key = "train-" + deckI + "-m" + i;
+        delete trainJudged[key];
+      });
+      delete doneModes.train[deckI];
+    } else if (mode === "fib"){
+      delete fibJudged["fib-" + fibI];
+    } else {
+      delete safeJudged["safe-" + safeI];
+    }
+    render();
+  }
+
+  $("tabTrain").addEventListener("click", function(){ setMode("train"); });
+  $("tabFib").addEventListener("click", function(){ setMode("fib"); });
+  $("tabSafe").addEventListener("click", function(){ setMode("safe"); });
+  $("hintBtn").addEventListener("click", function(){
+    hintLevel = Math.min(3, hintLevel + 1); render();
+  });
+  $("teachBtn").addEventListener("click", function(){ teach = !teach; render(); });
+  $("resetBtn").addEventListener("click", resetMode);
+  $("nextBtn").addEventListener("click", goNext);
+
+  function buildPairs(){
+    var box = $("pairs");
+    box.innerHTML = "";
+    if (mode === "train"){
+      DECKS.forEach(function(d, i){
+        var b = document.createElement("button");
+        b.type = "button"; b.className = "pchip";
+        b.setAttribute("data-i", i);
+        b.addEventListener("click", function(){
+          deckI = i;
+          labelI = 0; labels = []; trainPhase = "label"; mysteryI = 0;
+          hintLevel = 0; wrongTries = 0;
+          render();
+        });
+        box.appendChild(b);
+      });
+    } else if (mode === "fib"){
+      FIBS.forEach(function(_, i){
+        var b = document.createElement("button");
+        b.type = "button"; b.className = "pchip";
+        b.addEventListener("click", function(){
+          fibI = i; hintLevel = 0; wrongTries = 0; render();
+        });
+        box.appendChild(b);
+      });
+    } else {
+      SAFES.forEach(function(_, i){
+        var b = document.createElement("button");
+        b.type = "button"; b.className = "pchip";
+        b.addEventListener("click", function(){
+          safeI = i; hintLevel = 0; wrongTries = 0; render();
+        });
+        box.appendChild(b);
+      });
+    }
+  }
+
+  function el(tag, cls){
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    return e;
+  }
+
+  function buildActions(){
+    var box = $("actionBox");
+    box.innerHTML = "";
+    if (mode === "train" && trainPhase === "label"){
+      var row = el("div", "btns");
+      var d = DECKS[deckI];
+      var a = document.createElement("button");
+      a.type = "button"; a.className = "labA";
+      setText(a, t(d.labelA));
+      a.addEventListener("click", function(){ onLabel("A"); });
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "labB";
+      setText(b, t(d.labelB));
+      b.addEventListener("click", function(){ onLabel("B"); });
+      row.appendChild(a); row.appendChild(b);
+      box.appendChild(row);
+    } else if (mode === "train" && trainPhase === "reveal"){
+      var key = "train-" + deckI + "-m" + mysteryI;
+      var row = el("div", "btns");
+      var r = document.createElement("button");
+      r.type = "button";
+      setText(r, t(T.aiRight));
+      r.disabled = !!trainJudged[key];
+      r.addEventListener("click", function(){ onJudge(true); });
+      var w = document.createElement("button");
+      w.type = "button";
+      setText(w, t(T.aiWrong));
+      w.disabled = !!trainJudged[key];
+      w.addEventListener("click", function(){ onJudge(false); });
+      row.appendChild(r); row.appendChild(w);
+      box.appendChild(row);
+    } else if (mode === "fib"){
+      var key = "fib-" + fibI;
+      var row = el("div", "btns");
+      var okb = document.createElement("button");
+      okb.type = "button";
+      setText(okb, t(T.soundsOk));
+      okb.disabled = !!fibJudged[key];
+      okb.addEventListener("click", function(){ onFib(true); });
+      var ch = document.createElement("button");
+      ch.type = "button"; ch.className = "go";
+      setText(ch, t(T.checkThis));
+      ch.disabled = !!fibJudged[key];
+      ch.addEventListener("click", function(){ onFib(false); });
+      row.appendChild(okb); row.appendChild(ch);
+      box.appendChild(row);
+    } else {
+      var key = "safe-" + safeI;
+      var item = SAFES[safeI];
+      item.choices.forEach(function(c, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "choice" + (lang === "ur" ? " ur" : "");
+        b.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+        b.textContent = (lang === "ur") ? isolate(t(c)) : t(c);
+        if (safeJudged[key]){
+          b.disabled = true;
+          if (c.ok) b.classList.add("right");
+        }
+        b.addEventListener("click", function(){ onSafe(oi); });
+        box.appendChild(b);
+      });
+    }
+  }
+
+  function drawScene(){
+    var pad = $("scenePad");
+    pad.innerHTML = "";
+    var row = el("div", "botrow");
+    row.innerHTML = botSvg();
+    if (mode === "train"){
+      var card = el("div", "vis-card hit");
+      var d = DECKS[deckI];
+      var item, name, note;
+      if (trainPhase === "label"){
+        item = d.items[Math.min(labelI, 5)];
+        name = t(item);
+        note = deckI === 0 ? t(T.tryLabel) : t(T.tryLabel2);
+      } else {
+        item = d.mystery[mysteryI];
+        var ag = aiGuess(item);
+        name = t(item);
+        note = fill(t(T.guessSays), {g: labName(ag.g)});
+      }
+      var em = el("div", "vis-emoji");
+      em.textContent = item.emoji;
+      var nm = el("p", "vis-name");
+      setText(nm, name);
+      var nt = el("p", "vis-note");
+      setText(nt, note);
+      card.appendChild(em); card.appendChild(nm); card.appendChild(nt);
+      row.appendChild(card);
+      pad.appendChild(row);
+      if (labels.length){
+        var piles = el("div", "piles");
+        var pA = el("div", "pile A");
+        var pB = el("div", "pile B");
+        var listA = [], listB = [];
+        labels.forEach(function(L, i){
+          var s = t(d.items[i]);
+          if (L === "A") listA.push(s); else listB.push(s);
+        });
+        setText(pA, labName("A") + ": " + (listA.join(", ") || "—"));
+        setText(pB, labName("B") + ": " + (listB.join(", ") || "—"));
+        piles.appendChild(pA); piles.appendChild(pB);
+        pad.appendChild(piles);
+      }
+      var dots = el("div", "dots");
+      var total = trainPhase === "label" ? 6 : 2;
+      var cur = trainPhase === "label" ? labelI : mysteryI;
+      for (var i = 0; i < total; i++){
+        var dot = document.createElement("i");
+        if (trainPhase === "reveal"){
+          var k = "train-" + deckI + "-m" + i;
+          if (trainJudged[k] === "ok") dot.className = "ok";
+          else if (trainJudged[k] === "no") dot.className = "no";
+          else if (i === cur) dot.className = "on";
+        } else {
+          if (i < cur) dot.className = "ok";
+          else if (i === cur) dot.className = "on";
+        }
+        dots.appendChild(dot);
+      }
+      pad.appendChild(dots);
+    } else if (mode === "fib"){
+      var bubble = el("div", "chat-bubble");
+      var who = el("p", "chat-who");
+      setText(who, t(T.botName));
+      var line = el("p", "chat-line");
+      setText(line, t(FIBS[fibI]));
+      bubble.appendChild(who); bubble.appendChild(line);
+      row.appendChild(bubble);
+      pad.appendChild(row);
+      var dots = el("div", "dots");
+      FIBS.forEach(function(_, i){
+        var dot = document.createElement("i");
+        var k = "fib-" + i;
+        if (fibJudged[k] === "ok") dot.className = "ok";
+        else if (fibJudged[k] === "no") dot.className = "no";
+        else if (i === fibI) dot.className = "on";
+        dots.appendChild(dot);
+      });
+      pad.appendChild(dots);
+    } else {
+      var card = el("div", "vis-card hit");
+      var em = el("div", "vis-emoji");
+      em.textContent = SAFES[safeI].emoji;
+      var nm = el("p", "vis-name");
+      setText(nm, t(SAFES[safeI]));
+      card.appendChild(em); card.appendChild(nm);
+      row.appendChild(card);
+      pad.appendChild(row);
+      var dots = el("div", "dots");
+      SAFES.forEach(function(_, i){
+        var dot = document.createElement("i");
+        var k = "safe-" + i;
+        if (safeJudged[k] === "ok") dot.className = "ok";
+        else if (safeJudged[k] === "no") dot.className = "no";
+        else if (i === safeI) dot.className = "on";
+        dots.appendChild(dot);
+      });
+      pad.appendChild(dots);
+    }
+  }
+
+  function currentJudged(){
+    if (mode === "train" && trainPhase === "reveal") return trainJudged["train-" + deckI + "-m" + mysteryI];
+    if (mode === "fib") return fibJudged["fib-" + fibI];
+    if (mode === "safe") return safeJudged["safe-" + safeI];
+    return null;
+  }
+
+  function canNext(){
+    if (mode === "train" && trainPhase === "reveal"){
+      return !!trainJudged["train-" + deckI + "-m" + mysteryI] && mysteryI < DECKS[deckI].mystery.length - 1;
+    }
+    if (mode === "fib") return !!fibJudged["fib-" + fibI] && fibI < FIBS.length - 1;
+    if (mode === "safe") return !!safeJudged["safe-" + safeI] && safeI < SAFES.length - 1;
+    return false;
+  }
+
+  function modeComplete(){
+    if (mode === "train"){
+      return DECKS[deckI].mystery.every(function(_, i){ return !!trainJudged["train-" + deckI + "-m" + i]; });
+    }
+    if (mode === "fib") return Object.keys(fibJudged).length >= FIBS.length;
+    return Object.keys(safeJudged).length >= SAFES.length;
+  }
+
+  function render(){
+    $("starCount").textContent = String(stars);
+    $("tabTrain").setAttribute("aria-pressed", mode === "train" ? "true" : "false");
+    $("tabFib").setAttribute("aria-pressed", mode === "fib" ? "true" : "false");
+    $("tabSafe").setAttribute("aria-pressed", mode === "safe" ? "true" : "false");
+
+    function tabLabel(btn, text, n){
+      btn.innerHTML = "";
+      var sp = document.createElement("span");
+      sp.textContent = text;
+      if (lang === "ur"){ sp.className = "ur"; sp.setAttribute("dir","rtl"); }
+      btn.appendChild(sp);
+      if (n){
+        var bd = document.createElement("span");
+        bd.className = "badge";
+        bd.textContent = " " + Array(n + 1).join("\u2605");
+        btn.appendChild(bd);
+      }
+    }
+    var tn = Object.keys(doneModes.train).length;
+    tabLabel($("tabTrain"), t(T.tabTrain), tn);
+    tabLabel($("tabFib"), t(T.tabFib), doneModes.fib ? 1 : 0);
+    tabLabel($("tabSafe"), t(T.tabSafe), doneModes.safe ? 1 : 0);
+
+    setText($("title"), t(T.title));
+    setText($("subtitle"), t(T.sub));
+    setText($("story"), mode === "train" ? t(T.storyTrain) : mode === "fib" ? t(T.storyFib) : t(T.storySafe));
+
+    if (mode === "train") setText($("ctlHead"), trainPhase === "label" ? t(T.ctlTrain) : t(T.ctlGuess));
+    else if (mode === "fib") setText($("ctlHead"), t(T.ctlFib));
+    else setText($("ctlHead"), t(T.ctlSafe));
+
+    setText($("pairHead"), mode === "train" ? t(T.pairTrain) : mode === "fib" ? t(T.pairFib) : t(T.pairSafe));
+    setText($("hintBtn"), t(T.hint));
+    setText($("teachBtn"), teach ? t(T.teachOn) : t(T.teachOff));
+    setText($("resetBtn"), t(T.reset));
+    setText($("nextBtn"), t(T.next));
+    setText($("quizHead"), t(T.quiz));
+    setText($("newQuiz"), t(T.newQuiz));
+
+    $("nextBtn").style.display = canNext() ? "" : "none";
+
+    if (mode === "train"){
+      setText($("prog"), trainPhase === "label"
+        ? fill(t(T.progLabel), {n: Math.min(labelI + 1, 6)})
+        : fill(t(T.progGuess), {n: mysteryI + 1}));
+    } else if (mode === "fib"){
+      setText($("prog"), fill(t(T.progFib), {n: fibI + 1, t: FIBS.length}));
+    } else {
+      setText($("prog"), fill(t(T.progSafe), {n: safeI + 1, t: SAFES.length}));
+    }
+
+    var rb = $("rulesBox");
+    if (mode === "safe"){
+      rb.hidden = false;
+      rb.innerHTML = "";
+      [T.rule1, T.rule2, T.rule3].forEach(function(r){
+        var p = el("p", "rule");
+        setText(p, t(r));
+        rb.appendChild(p);
+      });
+    } else {
+      rb.hidden = true;
+      rb.innerHTML = "";
+    }
+
+    Array.prototype.forEach.call($("pairs").children, function(btn, i){
+      btn.innerHTML = "";
+      var sp = document.createElement("span");
+      var label, pressed, done;
+      if (mode === "train"){
+        label = t(DECKS[i].chip);
+        pressed = i === deckI;
+        done = !!doneModes.train[i];
+      } else if (mode === "fib"){
+        label = String(i + 1);
+        pressed = i === fibI;
+        done = !!fibJudged["fib-" + i];
+      } else {
+        label = String(i + 1);
+        pressed = i === safeI;
+        done = !!safeJudged["safe-" + i];
+      }
+      sp.textContent = label;
+      if (lang === "ur" && mode === "train"){ sp.className = "ur"; sp.setAttribute("dir","rtl"); }
+      btn.appendChild(sp);
+      if (done){
+        var st = document.createElement("span"); st.className = "done"; st.textContent = " \u2605";
+        btn.appendChild(st);
+      }
+      btn.setAttribute("aria-pressed", pressed ? "true" : "false");
+    });
+
+    drawScene();
+    buildActions();
+
+    var chip = $("statechip");
+    var judged = currentJudged();
+    chip.classList.toggle("win", judged === "ok" || (mode === "train" && trainPhase === "reveal" && modeComplete()));
+    chip.classList.toggle("miss", judged === "no");
+
+    var headline = "";
+    var detail = "";
+    if (mode === "train" && trainPhase === "label"){
+      setText(chip, t(T.ready));
+      headline = t(DECKS[deckI].items[Math.min(labelI, 5)]);
+      detail = deckI === 0 ? t(T.tryLabel) : t(T.tryLabel2);
+    } else if (mode === "train"){
+      var m = DECKS[deckI].mystery[mysteryI];
+      var ag = aiGuess(m);
+      headline = fill(t(T.guessSays), {g: labName(ag.g)});
+      if (!judged){
+        setText(chip, t(T.trained));
+        detail = t(T.guessHow);
+      } else if (judged === "ok"){
+        setText(chip, t(T.won));
+        var actuallyRight = (m.trueG === "X") ? (ag.g !== "A" && ag.g !== "B") : (ag.g === m.trueG);
+        detail = (actuallyRight ? t(T.judgeRight) : t(T.judgeWrongTrue)) + " " + t(T.starEarn);
+        if (modeComplete()) detail = t(T.trainDone);
+      } else {
+        setText(chip, t(T.oops));
+        detail = t(T.judgeMiss);
+      }
+    } else if (mode === "fib"){
+      headline = t(T.botName);
+      if (!judged){
+        setText(chip, t(T.ready));
+        detail = t(T.tryFib);
+      } else if (judged === "ok"){
+        setText(chip, t(T.won));
+        detail = t(FIBS[fibI].f) + (modeComplete() ? " " + t(T.fibDone) : "");
+      } else {
+        setText(chip, t(T.oops));
+        detail = t(T.fibMiss) + " " + t(FIBS[fibI].f);
+      }
+    } else {
+      headline = t(T.ctlSafe);
+      if (!judged){
+        setText(chip, t(T.ready));
+        detail = t(T.trySafe);
+      } else if (judged === "ok"){
+        setText(chip, t(T.won));
+        detail = t(SAFES[safeI].f) + (modeComplete() ? " " + t(T.safeDone) : "");
+      } else {
+        setText(chip, t(T.oops));
+        detail = t(T.safeMiss) + " " + t(SAFES[safeI].f);
+      }
+    }
+
+    setText($("headline"), headline);
+    setText($("detail"), detail);
+
+    setText($("bound"), mode === "train" ? t(T.boundTrain) : mode === "fib" ? t(T.boundFib) : t(T.boundSafe));
+
+    var hb = $("hintbox");
+    hb.classList.toggle("show", hintLevel > 0);
+    if (hintLevel > 0){
+      var hints = mode === "train" ? T.hintsTrain : mode === "fib" ? T.hintsFib : T.hintsSafe;
+      setText(hb, t(hints[Math.min(hintLevel, 3) - 1]));
+    }
+
+    var w = $("work");
+    w.classList.toggle("show", teach);
+    if (teach){
+      if (mode === "train" && trainPhase === "reveal"){
+        var m = DECKS[deckI].mystery[mysteryI];
+        var ag = aiGuess(m);
+        var listA = [], listB = [];
+        labels.forEach(function(L, i){
+          var s = t(DECKS[deckI].items[i]);
+          if (L === "A") listA.push(s); else listB.push(s);
+        });
+        w.innerHTML = fill(t(T.workTrain), {
+          pa: listA.join(", ") || "—",
+          pb: listB.join(", ") || "—",
+          mf: m.feats.map(featName).join(", "),
+          sa: String(ag.sa),
+          sb: String(ag.sb),
+          g: labName(ag.g)
+        });
+      } else if (mode === "train"){
+        w.innerHTML = t(T.workTrainWait);
+      } else if (mode === "fib"){
+        w.innerHTML = t(T.workFib);
+      } else {
+        w.innerHTML = t(T.workSafe);
+      }
+      w.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+      w.classList.toggle("ur", lang === "ur");
+    }
+
+    lastSpoken = t(mode === "train" ? T.storyTrain : mode === "fib" ? T.storyFib : T.storySafe) + " " + headline + ". " + detail;
+  }
+
+  /* ---------- quiz ---------- */
+  function pickQuiz(){
+    var idx = BANK.map(function(_, i){ return i; });
+    for (var i = idx.length - 1; i > 0; i--){
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = idx[i]; idx[i] = idx[j]; idx[j] = tmp;
+    }
+    quizSet = idx.slice(0, 7).map(function(i){
+      var item = BANK[i];
+      var order = item.o.map(function(opt, oi){ return {opt:opt, oi:oi}; });
+      for (var k = order.length - 1; k > 0; k--){
+        var j = Math.floor(Math.random() * (k + 1));
+        var tmp = order[k]; order[k] = order[j]; order[j] = tmp;
+      }
+      return {q:item.q, o:order.map(function(x){ return x.opt; }), a:order.map(function(x){ return x.oi; }).indexOf(item.a), f:item.f};
+    });
+  }
+
+  function buildQuiz(){
+    var box = $("quizBox");
+    box.innerHTML = "";
+    quizSet.forEach(function(item, qi){
+      var wrap = document.createElement("div");
+      wrap.className = "q";
+      var q = document.createElement("p");
+      setText(q, t(item.q));
+      wrap.appendChild(q);
+      var fb = document.createElement("p");
+      fb.className = "fb";
+      item.o.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt" + (lang === "ur" ? " ur" : "") + (teach && oi === item.a ? " reveal" : "");
+        b.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+        b.textContent = (lang === "ur") ? isolate(t(opt)) : t(opt);
+        b.addEventListener("click", function(){
+          if (wrap.getAttribute("data-done") === "1") return;
+          wrap.setAttribute("data-done","1");
+          if (oi === item.a){
+            award("quiz-" + qi + "-" + t(item.q).slice(0,20), 1);
+            $("starCount").textContent = String(stars);
+          }
+          Array.prototype.forEach.call(wrap.querySelectorAll(".opt"), function(x, xi){
+            if (xi === item.a) x.classList.add("right");
+            else if (xi === oi) x.classList.add("wrong");
+          });
+          setText(fb, t(item.f));
+          fb.classList.add("show","fb");
+        });
+        wrap.appendChild(b);
+      });
+      wrap.appendChild(fb);
+      box.appendChild(wrap);
+    });
+  }
+
+  $("newQuiz").addEventListener("click", function(){ pickQuiz(); buildQuiz(); });
+
+  function applyLang(){
+    document.body.classList.toggle("urdu", lang === "ur");
+    document.documentElement.lang = (lang === "ur") ? "ur" : "en";
+    var lb = $("langBtn");
+    lb.textContent = (lang === "en") ? "اردو" : "English";
+    lb.setAttribute("aria-pressed", lang === "ur" ? "true" : "false");
+    Array.prototype.forEach.call(document.querySelectorAll("[data-en]"), function(el){
+      setText(el, el.getAttribute(lang === "en" ? "data-en" : "data-ur"));
+    });
+    buildQuiz();
+    render();
+  }
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en";
+    applyLang();
+  });
+
+  function cleanSpeakText(s){
+    return String(s || "")
+      .replace(/[\u2066-\u2069\u200e\u200f]/g, "")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+  function buildSpeakText(){
+    var raw = cleanSpeakText(lastSpoken);
+    if (raw) return raw;
+    var parts = [];
+    ["title","subtitle","headline","detail"].forEach(function(id){
+      var el = $(id);
+      if (el) parts.push(cleanSpeakText(el.textContent));
+    });
+    return parts.filter(Boolean).join(". ");
+  }
+  function pickVoice(voices, wantLang){
+    var want = (wantLang || "en").toLowerCase();
+    var i, v, lang;
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; lang = (v.lang || "").toLowerCase().replace("_","-");
+      if (lang.indexOf(want) === 0) return v;
+    }
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; lang = (v.lang || "").toLowerCase().replace("_","-");
+      if (lang.indexOf("en") === 0) return v;
+    }
+    return voices[0] || null;
+  }
+  var speakTimer = null;
+  function setSpeaking(on){
+    var btn = $("speakBtn");
+    if (!btn) return;
+    btn.setAttribute("aria-pressed", on ? "true" : "false");
+    btn.style.opacity = on ? "0.65" : "";
+  }
+  function doSpeak(text, asLang){
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.92;
+    u.lang = (asLang === "ur") ? "ur-PK" : "en-US";
+    var voices = window.speechSynthesis.getVoices() || [];
+    var voice = pickVoice(voices, asLang === "ur" ? "ur" : "en");
+    if (voice) u.voice = voice;
+    u.onstart = function(){ setSpeaking(true); };
+    u.onend = function(){ setSpeaking(false); };
+    u.onerror = function(){
+      setSpeaking(false);
+      // Retry once in English if Urdu voice path failed
+      if (asLang === "ur"){
+        var enBits = [];
+        try {
+          enBits.push(T.storyTrain.en, T.storyFib.en, T.storySafe.en);
+        } catch (e2) {}
+        var fallback = cleanSpeakText(($("headline") && $("headline").textContent) || "") || "AI is a pattern machine.";
+        // Prefer English story for current mode
+        var storyEn = mode === "train" ? T.storyTrain.en : mode === "fib" ? T.storyFib.en : T.storySafe.en;
+        fallback = cleanSpeakText(storyEn + ". " + (($("headline")&&$("headline").textContent)||"") + ". " + (($("detail")&&$("detail").textContent)||""));
+        if (fallback){
+          var u2 = new SpeechSynthesisUtterance(fallback);
+          u2.lang = "en-US"; u2.rate = 0.92;
+          var v2 = pickVoice(window.speechSynthesis.getVoices() || [], "en");
+          if (v2) u2.voice = v2;
+          u2.onstart = function(){ setSpeaking(true); };
+          u2.onend = u2.onerror = function(){ setSpeaking(false); };
+          window.speechSynthesis.speak(u2);
+        }
+      }
+    };
+    window.speechSynthesis.speak(u);
+  }
+  // Warm voice list (Chrome loads async)
+  if ("speechSynthesis" in window){
+    try { window.speechSynthesis.getVoices(); } catch (e0) {}
+    if (typeof window.speechSynthesis.addEventListener === "function"){
+      window.speechSynthesis.addEventListener("voiceschanged", function(){
+        try { window.speechSynthesis.getVoices(); } catch (e1) {}
+      });
+    }
+  } else {
+    var noBtn = $("speakBtn");
+    if (noBtn){
+      noBtn.disabled = true;
+      noBtn.title = "Voice not available on this device";
+      noBtn.setAttribute("aria-label", "Voice not available");
+    }
+  }
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      var text = buildSpeakText();
+      if (!text) return;
+      if (speakTimer){ clearTimeout(speakTimer); speakTimer = null; }
+      window.speechSynthesis.cancel();
+      setSpeaking(false);
+      // Chrome often drops speak() if called in the same turn as cancel()
+      var speakLang = lang;
+      speakTimer = setTimeout(function(){
+        speakTimer = null;
+        doSpeak(text, speakLang);
+      }, 80);
+    }catch(e){ setSpeaking(false); }
+  });
+
+  buildPairs();
+  pickQuiz();
+  applyLang();
+})();
+</script>
+</body>
+</html>

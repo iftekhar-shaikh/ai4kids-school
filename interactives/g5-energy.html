@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Energy — توانائی کی شکلیں | AI4Kids Class 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#eef1f6;
+    --board-deep:#dbe2ea;
+    --heat:#c9402e;
+    --light:#e8a83d;
+    --sound:#7a5aa8;
+    --elec:#2f6fb5;
+    --move:#2e7d4f;
+    --chem:#a0632c;
+    --ink:#1f2933;
+    --ink-soft:#4a5661;
+    --paper:#fdfaf3;
+    --line:#ded5c4;
+    --accent:#3a4a5c;
+
+    --fs-cap:clamp(12px, 3.2vw, 13px);
+    --fs-xs:clamp(14px, 3.7vw, 15px);
+    --fs-sm:clamp(16px, 4.2vw, 17px);
+    --fs-md:clamp(17px, 4.6vw, 19px);
+    --fs-lg:clamp(20px, 5.4vw, 23px);
+    --fs-xl:clamp(27px, 7.4vw, 33px);
+    --lh:1.5;
+  }
+  /* Urdu is set larger than Latin — Nastaliq reads smaller at the same size. */
+  body.urdu{
+    --fs-cap:clamp(13px, 3.5vw, 15px);
+    --fs-xs:clamp(15px, 4.1vw, 17px);
+    --fs-sm:clamp(17px, 4.7vw, 19px);
+    --fs-md:clamp(19px, 5.2vw, 21px);
+    --fs-lg:clamp(22px, 6vw, 25px);
+    --fs-xl:clamp(26px, 7vw, 31px);
+    --lh:2.1;
+  }
+
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--light);outline-offset:2px}
+
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 16px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:linear-gradient(180deg,var(--board) 0%,var(--board-deep) 100%);
+  }
+  .scene svg{display:block;width:100%;height:auto}
+  .stream{stroke-linecap:round;fill:none;stroke-dasharray:9 13;opacity:.25;
+          transition:opacity .3s ease}
+  .on .stream{opacity:1;animation:run 1s linear infinite}
+  @keyframes run{to{stroke-dashoffset:-22}}
+  .cap{fill:var(--ink-soft);font-size:var(--fs-cap);font-weight:700;
+       font-family:"Baloo Bhaijaan 2",sans-serif}
+  body.urdu .cap{font-family:"Noto Nastaliq Urdu",serif}
+  .pct{font-size:var(--fs-cap);font-weight:800;font-family:"Baloo Bhaijaan 2",sans-serif}
+  #device{transition:opacity .3s ease}
+  .glowpart{opacity:.15;transition:opacity .3s ease}
+  .on .glowpart{opacity:1}
+  #blades{transform-origin:160px 110px}
+  .on #blades{animation:spin .6s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  .readout{
+    margin-top:-18px;position:relative;z-index:2;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px;
+             background:var(--accent)}
+  .statechip.ur{padding:2px 14px 7px}
+  .dname{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+  .dname.ur{line-height:1.95}
+  .ddesc{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+
+  .split{margin-top:16px}
+  .splitbar{display:flex;height:22px;border-radius:8px;overflow:hidden;border:2px solid var(--ink)}
+  .splitbar i{display:block;transition:width .5s ease}
+  .keys{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:10px;font-size:var(--fs-cap);
+        color:var(--ink-soft);font-weight:600}
+  .keys span{display:flex;align-items:center;gap:6px}
+  .keys b{display:inline-block;width:12px;height:12px;border-radius:3px;flex:none}
+  .total{margin:10px 0 0;font-size:var(--fs-cap);font-weight:800;color:var(--accent);
+         text-align:center}
+
+  .why-note{
+    margin:14px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.55;
+    border-left:3px solid var(--accent);padding-left:11px;
+  }
+  .why-note b{color:var(--accent);font-weight:800}
+  body.urdu .why-note{
+    border-left:0;border-right:3px solid var(--accent);padding-left:0;padding-right:11px;
+    line-height:var(--lh);
+  }
+
+  .ctl{margin-top:22px}
+  .ctl h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .bigbtn{
+    width:100%;border:2px solid var(--ink);border-radius:16px;background:var(--paper);color:var(--ink);
+    font:inherit;font-weight:800;font-size:var(--fs-md);cursor:pointer;min-height:58px;
+  }
+  .bigbtn.on{background:var(--ink);color:var(--paper)}
+  .bigbtn:active{transform:scale(.98)}
+
+  .picker{margin-top:22px}
+  .picker h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .dchip{
+    border:2px solid var(--line);background:var(--paper);border-radius:999px;padding:8px 14px;
+    font:inherit;font-size:var(--fs-cap);font-weight:600;color:var(--ink);cursor:pointer;min-height:44px;
+  }
+  .dchip[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:50px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--move);background:#e6f4ec;font-weight:600}
+  .opt.wrong{border-color:var(--heat);background:#fbeae4}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;
+      grid-template-columns:1fr 1fr;
+      grid-template-areas:
+        "bar   bar"
+        "head  head"
+        "left  right"
+        "quiz  quiz"
+        "foot  foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar}
+    .head{grid-area:head}
+    .left{grid-area:left}
+    .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px}
+    footer{grid-area:foot}
+    .ctl{margin-top:0}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .on .stream,.on #blades{animation:none}
+    *{transition-duration:.01ms !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 5</span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunein">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 data-en="Switch on a bulb. Where does the energy go?" data-ur="بلب جلائیں۔ توانائی جاتی کہاں ہے؟"></h1>
+  <p class="sub" data-en="Energy never disappears. It only changes into other forms." data-ur="توانائی کبھی ختم نہیں ہوتی۔ یہ صرف دوسری شکلوں میں بدلتی ہے۔"></p>
+  </div>
+
+  <div class="left">
+  <div class="scene">
+    <svg id="svg" viewBox="0 0 320 220" role="img" aria-label="Energy going into a device on one side and coming out in different forms on the other">
+      <text x="46" y="22" text-anchor="middle" class="cap" id="inLbl"></text>
+      <text x="252" y="22" text-anchor="middle" class="cap" id="outLbl"></text>
+
+      <g id="inFlow"></g>
+      <g id="device"></g>
+      <g id="outFlow"></g>
+    </svg>
+  </div>
+
+  <div class="readout">
+    <span class="statechip" id="statechip"></span>
+    <p class="dname" id="dname"></p>
+    <p class="ddesc" id="ddesc"></p>
+
+    <div class="split">
+      <div class="splitbar" id="splitbar"></div>
+      <div class="keys" id="keys"></div>
+      <p class="total" id="total"></p>
+    </div>
+
+    <p class="why-note"><b id="whyLbl"></b> <span id="whyText"></span></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="ctl">
+    <h2 id="ctlHead"></h2>
+    <button type="button" class="bigbtn" id="onBtn"></button>
+  </div>
+
+  <div class="picker">
+    <h2 id="pickHead"></h2>
+    <div class="chips" id="chips" role="group"></div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <h2 id="quizHead" style="font-size:var(--fs-lg);font-weight:800;margin:0 0 18px"></h2>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad's bilingual AI and coding school. WhatsApp 0337 1468899" data-ur="اے آئی فور کڈز — اسلام آباد کا دو زبانوں والا اے آئی اور کوڈنگ سکول۔ واٹس ایپ 0337 1468899"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var lang = "en";
+  var on   = true;
+  var sel  = 0;
+
+  var F = {
+    elec:{en:"Electrical", ur:"برقی توانائی", c:"var(--elec)"},
+    heat:{en:"Heat",       ur:"حرارت",        c:"var(--heat)"},
+    light:{en:"Light",     ur:"روشنی",        c:"var(--light)"},
+    sound:{en:"Sound",     ur:"آواز",         c:"var(--sound)"},
+    move:{en:"Movement",   ur:"حرکت",         c:"var(--move)"},
+    chem:{en:"Stored in fuel", ur:"ایندھن میں محفوظ", c:"var(--chem)"}
+  };
+
+  // Fixed lane for every form, so the same colour is always in the same place no
+  // matter which device is selected. Heat sits last everywhere, so the child can
+  // watch the red band grow or shrink from device to device.
+  var ORDER = { light:0, elec:1, move:2, sound:3, heat:9 };
+  function ordered(list){
+    return list.slice().sort(function(a,b){ return ORDER[a[0]] - ORDER[b[0]]; });
+  }
+
+  // out shares always add to 100 — that is the point of the whole app
+  var D = [
+    { en:"Old filament bulb", ur:"پرانا بلب", icon:"bulb", inn:"elec",
+      out:[["heat",90],["light",10]],
+      desc:{en:"You switch it on for light, but only a tenth of the electricity becomes light. The rest turns into heat.",
+            ur:"آپ اسے روشنی کے لیے جلاتے ہیں، مگر بجلی کا صرف دسواں حصہ روشنی بنتا ہے۔ باقی سب حرارت بن جاتا ہے۔"},
+      note:{en:"Hold your hand near an old bulb that has been on a while — you can feel the heat from a distance. That warmth is most of your electricity bill, doing nothing useful.",
+            ur:"دیر سے جلتے پرانے بلب کے قریب ہاتھ لے جائیں — دور سے ہی گرمی محسوس ہوتی ہے۔ وہی گرمی آپ کے بجلی کے بل کا بڑا حصہ ہے، اور کوئی کام نہیں آ رہی۔"} },
+
+    { en:"Energy saver", ur:"انرجی سیور", icon:"led", inn:"elec",
+      out:[["light",25],["heat",75]],
+      desc:{en:"The same job, the same brightness — but most of the electricity actually becomes light this time.",
+            ur:"وہی کام، وہی روشنی — مگر اس بار بجلی کا زیادہ تر حصہ واقعی روشنی بنتا ہے۔"},
+      note:{en:"Compare this bar with the old bulb's. Nothing about the room changed — only how much of the electricity was wasted as heat. That is the whole reason these cost less to run.",
+            ur:"اس پٹی کا پرانے بلب سے موازنہ کریں۔ کمرے میں کچھ نہیں بدلا — صرف یہ کہ کتنی بجلی حرارت بن کر ضائع ہوئی۔ یہی وجہ ہے کہ ان کا خرچ کم آتا ہے۔"} },
+
+    { en:"Ceiling fan", ur:"پنکھا", icon:"fan", inn:"elec",
+      out:[["move",80],["heat",14],["sound",6]],
+      desc:{en:"Electricity becomes movement. A little of it also leaks away as heat in the motor and as the sound you hear.",
+            ur:"بجلی حرکت میں بدلتی ہے۔ تھوڑی سی موٹر کی گرمی اور آپ کو سنائی دینے والی آواز میں بھی نکل جاتی ہے۔"},
+      note:{en:"A fan does not cool the air at all — it only moves it. It actually adds a little heat to the room. It cools you because moving air carries sweat away from your skin.",
+            ur:"پنکھا ہوا کو ٹھنڈا نہیں کرتا — صرف اسے حرکت دیتا ہے۔ بلکہ کمرے میں تھوڑی گرمی بڑھا دیتا ہے۔ آپ کو ٹھنڈک اس لیے لگتی ہے کہ چلتی ہوا جِلد سے پسینہ اڑا لے جاتی ہے۔"} },
+
+    { en:"Speaker", ur:"اسپیکر", icon:"speaker", inn:"elec",
+      out:[["sound",55],["heat",45]],
+      desc:{en:"Electricity becomes sound. Sound is made by something moving back and forth very fast, pushing the air.",
+            ur:"بجلی آواز میں بدلتی ہے۔ آواز اس وقت بنتی ہے جب کوئی چیز بہت تیزی سے آگے پیچھے ہل کر ہوا کو دھکیلتی ہے۔"},
+      note:{en:"Put a finger lightly on a speaker while it is playing. You can feel it shaking. That shaking is the sound, before it reaches your ear.",
+            ur:"چلتے ہوئے اسپیکر پر ہلکا سا انگلی رکھیں۔ وہ کانپتا محسوس ہوگا۔ یہی کپکپی آواز ہے، اس سے پہلے کہ وہ آپ کے کان تک پہنچے۔"} },
+
+    { en:"Candle", ur:"موم بتی", icon:"candle", inn:"chem",
+      out:[["heat",88],["light",12]],
+      desc:{en:"Here the energy was stored inside the wax. Burning releases it, mostly as heat and a little as light.",
+            ur:"یہاں توانائی موم کے اندر محفوظ تھی۔ جلنے سے وہ باہر آتی ہے — زیادہ تر حرارت، اور تھوڑی سی روشنی۔"},
+      note:{en:"A candle is not a light that also gets hot. It is a heater that happens to glow. This is why a room with many candles gets warm so quickly.",
+            ur:"موم بتی ایسی روشنی نہیں جو ساتھ گرم بھی ہو۔ یہ دراصل حرارت ہے جو ساتھ چمکتی بھی ہے۔ اسی لیے کئی موم بتیوں والا کمرہ جلد گرم ہو جاتا ہے۔"} },
+
+    { en:"Solar panel", ur:"سولر پینل", icon:"solar", inn:"light",
+      out:[["heat",80],["elec",20]],
+      desc:{en:"This one runs the other way round. Light goes in, and electricity comes out.",
+            ur:"یہ الٹا کام کرتا ہے۔ روشنی اندر جاتی ہے، اور بجلی باہر آتی ہے۔"},
+      note:{en:"Notice the arrow directions. Everything else here turns electricity into something. A solar panel turns something into electricity — which is why so many roofs in Islamabad now have them.",
+            ur:"تیروں کا رخ دیکھیں۔ باقی سب چیزیں بجلی کو کسی اور شکل میں بدلتی ہیں۔ سولر پینل کسی اور شکل کو بجلی بناتا ہے — اسی لیے اسلام آباد کی بہت سی چھتوں پر یہ لگ چکے ہیں۔"} }
+  ];
+
+  var T = {
+    ctlHead:{en:"Power", ur:"چلائیں"},
+    pickHead:{en:"Pick a device", ur:"کوئی چیز چنیں"},
+    onBtn:{en:"It is ON — tap to switch off", ur:"چل رہا ہے — بند کرنے کے لیے دبائیں"},
+    offBtn:{en:"It is OFF — tap to switch on", ur:"بند ہے — چلانے کے لیے دبائیں"},
+    inLbl:{en:"goes in", ur:"اندر جاتی ہے"},
+    outLbl:{en:"comes out", ur:"باہر آتی ہے"},
+    running:{en:"Running", ur:"چل رہا ہے"},
+    stopped:{en:"Switched off", ur:"بند ہے"},
+    total:{en:"In and out always add up to the same. Nothing is lost.",
+           ur:"اندر جانے والی اور باہر آنے والی توانائی ہمیشہ برابر ہوتی ہے۔ کچھ ضائع نہیں ہوتا۔"},
+    offDesc:{en:"Nothing is going in, so nothing is coming out. Switch it on to see where the energy goes.",
+             ur:"کچھ اندر نہیں جا رہا، اس لیے کچھ باہر نہیں آ رہا۔ چلا کر دیکھیں کہ توانائی کہاں جاتی ہے۔"},
+    whyLbl:{en:"Notice:", ur:"غور کریں:"},
+    quiz:{en:"Check yourself", ur:"اپنا امتحان لیں"}
+  };
+
+  var QUIZ = [
+    { q:{en:"An old filament bulb turns most of its electricity into which form of energy?",
+         ur:"پرانا بلب اپنی زیادہ تر بجلی کو کس شکل میں بدل دیتا ہے؟"},
+      o:[{en:"Light", ur:"روشنی"},{en:"Heat", ur:"حرارت"},
+         {en:"Sound", ur:"آواز"},{en:"Movement", ur:"حرکت"}],
+      a:1,
+      f:{en:"Only about a tenth becomes light. The rest becomes heat — which is why an old bulb is too hot to touch and an energy saver is not.",
+         ur:"صرف دسواں حصہ روشنی بنتا ہے۔ باقی حرارت بن جاتا ہے — اسی لیے پرانا بلب چھونے کے قابل نہیں ہوتا اور انرجی سیور ہوتا ہے۔"} },
+
+    { q:{en:"In a solar panel, what goes in and what comes out?",
+         ur:"سولر پینل میں کیا اندر جاتا ہے اور کیا باہر آتا ہے؟"},
+      o:[{en:"Electricity goes in, light comes out", ur:"بجلی اندر جاتی ہے، روشنی باہر آتی ہے"},
+         {en:"Light goes in, electricity comes out", ur:"روشنی اندر جاتی ہے، بجلی باہر آتی ہے"},
+         {en:"Heat goes in, sound comes out", ur:"حرارت اندر جاتی ہے، آواز باہر آتی ہے"},
+         {en:"Nothing goes in, electricity is created from nothing",
+          ur:"کچھ اندر نہیں جاتا، بجلی خود بخود بن جاتی ہے"}],
+      a:1,
+      f:{en:"It works the opposite way to a bulb. And note the last option: energy is never made out of nothing — it always has to come from somewhere.",
+         ur:"یہ بلب کے بالکل الٹ کام کرتا ہے۔ اور آخری آپشن پر غور کریں: توانائی کبھی خود بخود نہیں بنتی — اسے کہیں نہ کہیں سے آنا ہی پڑتا ہے۔"} },
+
+    { q:{en:"A fan ran all afternoon. Where did the electricity it used end up?",
+         ur:"ایک پنکھا سارا دوپہر چلتا رہا۔ جو بجلی اس نے استعمال کی، وہ کہاں گئی؟"},
+      o:[{en:"It disappeared completely", ur:"وہ بالکل ختم ہو گئی"},
+         {en:"It became moving air, a warm motor and sound — all of it spread out into the room",
+          ur:"وہ چلتی ہوا، گرم موٹر اور آواز بن گئی — سب کچھ کمرے میں پھیل گیا"},
+         {en:"It went back into the wires", ur:"وہ واپس تاروں میں چلی گئی"},
+         {en:"It is stored inside the fan for the next time you switch it on",
+          ur:"وہ پنکھے کے اندر جمع ہے، اگلی بار چلانے کے لیے"}],
+      a:1,
+      f:{en:"Energy is never destroyed, only changed and spread out. Every bit that went in came out again — as moving air, a warm motor, and a hum you could hear. A fan stores nothing: switch it off and the electricity simply stops going in.",
+         ur:"توانائی کبھی ختم نہیں ہوتی، صرف بدلتی اور پھیلتی ہے۔ جو کچھ اندر گیا تھا وہ سب باہر آ گیا — چلتی ہوا، گرم موٹر، اور وہ آواز جو سنائی دیتی تھی۔ پنکھا کچھ جمع نہیں کرتا: بند کریں تو بجلی کا اندر جانا رک جاتا ہے، بس۔"} }
+  ];
+
+  function $(id){ return document.getElementById(id); }
+  function t(o){ return o[lang]; }
+
+  var LRI = "\u2066", PDI = "\u2069";
+  var LATIN_RUN = /[A-Za-z0-9][A-Za-z0-9 .,+()\/@_-]*[A-Za-z0-9]|[A-Za-z0-9]/g;
+  function isolate(s){ return s.replace(LATIN_RUN, function(m){ return LRI + m + PDI; }); }
+
+  function setText(el, str){
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+
+  var NS = "http://www.w3.org/2000/svg";
+  function mk(tag, a){
+    var e = document.createElementNS(NS, tag);
+    for (var k in a) e.setAttribute(k, a[k]);
+    return e;
+  }
+
+  function drawDevice(g, kind){
+    g.innerHTML = "";
+    var box = mk("rect", {x:126, y:74, width:68, height:72, rx:12,
+                          fill:"#f7f9fb", stroke:"var(--ink)", "stroke-width":2.5});
+    g.appendChild(box);
+    if (kind === "bulb" || kind === "led"){
+      g.appendChild(mk("circle", {cx:160, cy:104, r:17, fill:"var(--light)", "class":"glowpart"}));
+      g.appendChild(mk("circle", {cx:160, cy:104, r:17, fill:"none",
+                                  stroke:"var(--ink)", "stroke-width":2}));
+      g.appendChild(mk("rect", {x:151, y:122, width:18, height:9, rx:2, fill:"#98a3ad"}));
+      if (kind === "led"){
+        g.appendChild(mk("path", {d:"M152 104 L158 96 L160 106 L166 98",
+                                  fill:"none", stroke:"var(--ink)", "stroke-width":2.2,
+                                  "stroke-linecap":"round"}));
+      }
+    } else if (kind === "fan"){
+      var b = mk("g", {id:"blades"});
+      [0,120,240].forEach(function(a){
+        b.appendChild(mk("ellipse", {cx:160, cy:92, rx:8, ry:19, fill:"#98a3ad",
+                                     stroke:"var(--ink)", "stroke-width":1.6,
+                                     transform:"rotate("+a+" 160 110)"}));
+      });
+      g.appendChild(b);
+      g.appendChild(mk("circle", {cx:160, cy:110, r:6, fill:"var(--ink)"}));
+    } else if (kind === "speaker"){
+      g.appendChild(mk("rect", {x:142, y:86, width:36, height:48, rx:5, fill:"#98a3ad",
+                                stroke:"var(--ink)", "stroke-width":2}));
+      g.appendChild(mk("circle", {cx:160, cy:110, r:12, fill:"#f7f9fb",
+                                  stroke:"var(--ink)", "stroke-width":2}));
+      g.appendChild(mk("circle", {cx:160, cy:110, r:5, fill:"var(--ink)"}));
+    } else if (kind === "candle"){
+      g.appendChild(mk("rect", {x:150, y:104, width:20, height:36, rx:3, fill:"#f0e6cf",
+                                stroke:"var(--ink)", "stroke-width":2}));
+      g.appendChild(mk("path", {d:"M160 82 C152 92 154 102 160 102 C166 102 168 92 160 82 Z",
+                                fill:"var(--light)", "class":"glowpart"}));
+    } else {
+      g.appendChild(mk("rect", {x:136, y:88, width:48, height:44, rx:4, fill:"#2c3f5c",
+                                stroke:"var(--ink)", "stroke-width":2}));
+      [100,112,124].forEach(function(y){
+        g.appendChild(mk("line", {x1:138, y1:y, x2:182, y2:y,
+                                  stroke:"#5f7fa8", "stroke-width":1.6}));
+      });
+      g.appendChild(mk("line", {x1:160, y1:90, x2:160, y2:130,
+                                stroke:"#5f7fa8", "stroke-width":1.6}));
+    }
+  }
+
+  function stream(g, x1, x2, y, col, w){
+    g.appendChild(mk("line", {x1:x1, y1:y, x2:x2, y2:y, stroke:col,
+                              "stroke-width":w, "class":"stream"}));
+    var dir = (x2 > x1) ? 1 : -1;
+    g.appendChild(mk("path", {d:"M"+(x2 - dir*9)+" "+(y-6)+" L"+x2+" "+y+" L"+(x2 - dir*9)+" "+(y+6),
+                              fill:"none", stroke:col, "stroke-width":Math.max(2.5, w*0.55),
+                              "stroke-linecap":"round", "stroke-linejoin":"round"}));
+  }
+
+  /* ---------- controls ---------- */
+  $("onBtn").addEventListener("click", function(){ on = !on; render(); });
+
+  D.forEach(function(d, i){
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "dchip";
+    b.setAttribute("data-i", i); b.setAttribute("aria-pressed","false");
+    b.addEventListener("click", function(){ sel = i; render(); });
+    $("chips").appendChild(b);
+  });
+
+  /* ---------- render ---------- */
+  function render(){
+    var d = D[sel];
+
+    $("svg").classList.toggle("on", on);
+    drawDevice($("device"), d.icon);
+
+    // one thick stream in
+    var gi = $("inFlow"); gi.innerHTML = "";
+    stream(gi, 22, 120, 110, F[d.inn].c, 13);
+    var it = mk("text", {x:46, y:132, "text-anchor":"middle", "class":"cap"});
+    it.textContent = t(F[d.inn]);
+    it.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+    gi.appendChild(it);
+
+    // the outputs, thickness set by share, stacked in the fixed lane order
+    var outs = ordered(d.out);
+    var go = $("outFlow"); go.innerHTML = "";
+    var totalH = 0;
+    outs.forEach(function(o){ totalH += Math.max(7, o[1] * 0.62); });
+    var y = 110 - totalH / 2 - (outs.length - 1) * 9 / 2;
+    outs.forEach(function(o){
+      var w = Math.max(7, o[1] * 0.62);
+      y += w / 2;
+      stream(go, 200, 292, y, F[o[0]].c, w);
+      var lab = mk("text", {x:246, y:y - w/2 - 5, "text-anchor":"middle", "class":"pct",
+                            fill:F[o[0]].c});
+      lab.textContent = o[1] + "%";
+      go.appendChild(lab);
+      y += w / 2 + 9;
+    });
+
+    // the bar underneath, which always fills completely
+    var bar = $("splitbar"); bar.innerHTML = "";
+    var keys = $("keys"); keys.innerHTML = "";
+    outs.forEach(function(o){
+      var seg = document.createElement("i");
+      seg.style.width = o[1] + "%";
+      seg.style.background = F[o[0]].c;
+      bar.appendChild(seg);
+
+      var k = document.createElement("span");
+      var sw = document.createElement("b"); sw.style.background = F[o[0]].c;
+      var tx = document.createElement("em");
+      tx.style.fontStyle = "normal";
+      tx.textContent = t(F[o[0]]) + " " + o[1] + "%";
+      k.appendChild(sw); k.appendChild(tx);
+      keys.appendChild(k);
+    });
+
+    Array.prototype.forEach.call($("chips").children, function(b, i){
+      b.setAttribute("aria-pressed", i === sel ? "true" : "false");
+      b.textContent = D[i][lang];
+    });
+
+    setText($("statechip"), on ? t(T.running) : t(T.stopped));
+    setText($("dname"), d[lang]);
+    setText($("ddesc"), on ? t(d.desc) : t(T.offDesc));
+    setText($("total"), t(T.total));
+    setText($("onBtn"), on ? t(T.onBtn) : t(T.offBtn));
+    $("onBtn").classList.toggle("on", on);
+    $("inLbl").textContent = t(T.inLbl);
+    $("outLbl").textContent = t(T.outLbl);
+    [$("inLbl"),$("outLbl")].forEach(function(el){
+      el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+    });
+
+    $("whyLbl").textContent = t(T.whyLbl);
+    setText($("whyText"), t(d.note));
+
+    lastSpoken = d[lang] + ". " + t(d.desc);
+  }
+
+  var lastSpoken = "";
+
+  /* ---------- quiz ---------- */
+  function buildQuiz(){
+    var box = $("quizBox");
+    box.innerHTML = "";
+    QUIZ.forEach(function(item){
+      var wrap = document.createElement("div");
+      wrap.className = "q";
+      var q = document.createElement("p");
+      setText(q, t(item.q));
+      wrap.appendChild(q);
+      var fb = document.createElement("p");
+      fb.className = "fb";
+      item.o.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt" + (lang === "ur" ? " ur" : "");
+        b.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+        b.textContent = t(opt);
+        b.addEventListener("click", function(){
+          if (wrap.getAttribute("data-done") === "1") return;
+          wrap.setAttribute("data-done","1");
+          Array.prototype.forEach.call(wrap.querySelectorAll(".opt"), function(x, xi){
+            if (xi === item.a) x.classList.add("right");
+            else if (xi === oi) x.classList.add("wrong");
+          });
+          setText(fb, t(item.f));
+          fb.classList.add("show","fb");
+        });
+        wrap.appendChild(b);
+      });
+      wrap.appendChild(fb);
+      box.appendChild(wrap);
+    });
+  }
+
+  function applyLang(){
+    document.body.classList.toggle("urdu", lang === "ur");
+    var lb = $("langBtn");
+    lb.textContent = (lang === "en") ? "اردو" : "English";
+    lb.setAttribute("aria-pressed", lang === "ur" ? "true" : "false");
+
+    Array.prototype.forEach.call(document.querySelectorAll("[data-en]"), function(el){
+      setText(el, el.getAttribute(lang === "en" ? "data-en" : "data-ur"));
+    });
+
+    setText($("ctlHead"), t(T.ctlHead));
+    setText($("pickHead"), t(T.pickHead));
+    setText($("quizHead"), t(T.quiz));
+
+    buildQuiz();
+    render();
+  }
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en";
+    applyLang();
+  });
+
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      window.speechSynthesis.cancel();
+      var u = new SpeechSynthesisUtterance(lastSpoken);
+      u.lang = (lang === "ur") ? "ur-PK" : "en-US";
+      u.rate = 0.92;
+      var voices = window.speechSynthesis.getVoices() || [];
+      for (var i=0;i<voices.length;i++){
+        if (voices[i].lang && voices[i].lang.toLowerCase().indexOf(lang === "ur" ? "ur" : "en") === 0){
+          u.voice = voices[i]; break;
+        }
+      }
+      window.speechSynthesis.speak(u);
+    }catch(e){ /* no voice available — stay quiet */ }
+  });
+
+  applyLang();
+})();
+</script>
+</body>
+</html>

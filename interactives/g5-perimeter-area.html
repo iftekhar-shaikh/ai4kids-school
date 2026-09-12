@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Perimeter aur Area — محیط اور رقبہ | AI4Kids Class 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#eff2f0;
+    --board-deep:#dee4e1;
+    --grid:#c3ccc8;
+    --peri:#d4701f;
+    --peri-deep:#9c4e10;
+    --area:#2f6fb5;
+    --area-deep:#1f4d80;
+    --ok:#2e7d4f;
+    --ink:#1f2933;
+    --ink-soft:#4a5661;
+    --paper:#fdfaf3;
+    --line:#ded5c4;
+    --accent:#1f4d80;
+
+    --fs-cap:clamp(12px, 3.2vw, 13px);
+    --fs-xs:clamp(14px, 3.7vw, 15px);
+    --fs-sm:clamp(16px, 4.2vw, 17px);
+    --fs-md:clamp(17px, 4.6vw, 19px);
+    --fs-lg:clamp(20px, 5.4vw, 23px);
+    --fs-xl:clamp(27px, 7.4vw, 33px);
+    --lh:1.5;
+  }
+  /* Urdu is set larger than Latin — Nastaliq reads smaller at the same size. */
+  body.urdu{
+    --fs-cap:clamp(13px, 3.5vw, 15px);
+    --fs-xs:clamp(15px, 4.1vw, 17px);
+    --fs-sm:clamp(17px, 4.7vw, 19px);
+    --fs-md:clamp(19px, 5.2vw, 21px);
+    --fs-lg:clamp(22px, 6vw, 25px);
+    --fs-xl:clamp(26px, 7vw, 31px);
+    --lh:2.1;
+  }
+
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--peri);outline-offset:2px}
+
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+
+  .tabs{display:flex;gap:8px;margin:0 0 14px}
+  .tabs button{
+    flex:1;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:10px 8px;font:inherit;font-weight:800;
+    font-size:var(--fs-xs);cursor:pointer;min-height:54px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:linear-gradient(180deg,var(--board) 0%,var(--board-deep) 100%);
+  }
+  .scene svg{display:block;width:100%;height:auto}
+  .sq{transition:opacity .2s ease}
+
+  .readout{
+    margin-top:-18px;position:relative;z-index:2;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .shapechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+  .shapechip.ur{padding:2px 14px 7px}
+
+  .two{display:flex;gap:10px;margin-bottom:12px}
+  .card{flex:1;border:3px solid var(--line);border-radius:16px;padding:12px 10px;text-align:center}
+  .card.p{border-color:var(--peri);background:#fbf1e7}
+  .card.a{border-color:var(--area);background:#eaf1f9}
+  .card em{display:block;font-style:normal;font-size:var(--fs-cap);color:var(--ink-soft);
+           font-weight:700;margin-bottom:4px}
+  .card b{display:block;font-size:var(--fs-xl);font-weight:800;line-height:1.1}
+  .card.p b{color:var(--peri-deep)}
+  .card.a b{color:var(--area-deep)}
+  .card .unit{display:block;font-size:var(--fs-cap);font-weight:700;margin-top:3px;
+              color:var(--ink-soft)}
+  .card .sumline{display:block;font-size:var(--fs-cap);font-weight:700;margin-top:6px;
+                 color:var(--ink-soft)}
+
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+  .why-note{
+    margin:12px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.55;
+    border-left:3px solid var(--accent);padding-left:11px;
+  }
+  .why-note b{color:var(--accent);font-weight:800}
+  body.urdu .why-note{
+    border-left:0;border-right:3px solid var(--accent);padding-left:0;padding-right:11px;
+    line-height:var(--lh);
+  }
+
+  .panel{margin-top:22px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .row{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .row .name{flex:none;width:36%;max-width:150px;font-size:var(--fs-xs);font-weight:700}
+  .stepper{display:flex;align-items:center;gap:10px;flex:1;justify-content:center}
+  .stepper button{
+    width:50px;height:50px;border-radius:14px;border:2px solid var(--ink);background:var(--paper);
+    font:inherit;font-size:var(--fs-lg);font-weight:800;cursor:pointer;color:var(--ink);
+  }
+  .stepper button:disabled{opacity:.3;cursor:default}
+  .stepper .val{min-width:56px;text-align:center;font-size:var(--fs-xl);font-weight:800}
+
+  .btns{display:flex;gap:9px;margin-top:6px}
+  .btns button{
+    border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);
+    font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:50px;
+    padding:0 12px;flex:1;
+  }
+  .btns button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .pchip{
+    border:2px solid var(--line);background:var(--paper);border-radius:999px;padding:8px 14px;
+    font:inherit;font-size:var(--fs-cap);font-weight:800;color:var(--ink);cursor:pointer;min-height:44px;
+  }
+  .pchip[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+  .pchip.best{border-color:var(--ok)}
+
+  .bars{margin-top:14px}
+  .barrow{display:flex;align-items:center;gap:9px;margin-bottom:7px;font-size:var(--fs-cap);
+          font-weight:700;color:var(--ink-soft)}
+  .barrow .lab{flex:none;width:64px;text-align:right}
+  .barrow .track{flex:1;height:16px;background:#e3e8e6;border-radius:999px;overflow:hidden}
+  .barrow .track i{display:block;height:100%;background:var(--area);transition:width .4s ease}
+  .barrow.best .track i{background:var(--ok)}
+  .barrow.peri .track i{background:var(--peri)}
+  .barrow.peri.best .track i{background:var(--ok)}
+  .barrow .num{flex:none;width:34px;color:var(--ink);font-weight:800}
+
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:50px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+  .opt.wrong{border-color:var(--peri);background:#fbeee4}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;
+      grid-template-columns:1fr 1fr;
+      grid-template-areas:
+        "bar   bar" "head  head" "tabs  tabs"
+        "left  right" "quiz  quiz" "foot  foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+    .left{grid-area:left} .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+    .panel{margin-top:0}
+  }
+
+  @media (prefers-reduced-motion:reduce){ *{transition-duration:.01ms !important} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 5</span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 id="title"></h1>
+  <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group">
+    <button type="button" id="tabBuild" aria-pressed="true"></button>
+    <button type="button" id="tabSame" aria-pressed="false"></button>
+    <button type="button" id="tabArea" aria-pressed="false"></button>
+  </div>
+
+  <div class="left">
+  <div class="scene">
+    <svg viewBox="0 0 390 214" role="img" id="svg" aria-label="A centimetre grid with a rectangle drawn on it">
+      <g id="field"></g>
+    </svg>
+  </div>
+
+  <div class="readout">
+    <span class="shapechip" id="shapechip"></span>
+    <div class="two">
+      <div class="card p">
+        <em id="pLbl"></em>
+        <b id="pVal">0</b>
+        <span class="unit" id="pUnit"></span>
+        <span class="sumline" id="pSum"></span>
+      </div>
+      <div class="card a">
+        <em id="aLbl"></em>
+        <b id="aVal">0</b>
+        <span class="unit" id="aUnit"></span>
+        <span class="sumline" id="aSum"></span>
+      </div>
+    </div>
+    <p class="detail" id="detail"></p>
+    <p class="why-note"><b id="whyLbl"></b> <span id="whyText"></span></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="panel" id="buildPanel">
+    <h2 id="buildHead"></h2>
+    <div class="row">
+      <span class="name" id="lenName"></span>
+      <div class="stepper">
+        <button type="button" id="lMinus">−</button>
+        <span class="val" id="lVal">6</span>
+        <button type="button" id="lPlus">+</button>
+      </div>
+    </div>
+    <div class="row">
+      <span class="name" id="widName"></span>
+      <div class="stepper">
+        <button type="button" id="wMinus">−</button>
+        <span class="val" id="wVal">3</span>
+        <button type="button" id="wPlus">+</button>
+      </div>
+    </div>
+    <div class="btns">
+      <button type="button" id="showP"></button>
+      <button type="button" id="showA"></button>
+    </div>
+  </div>
+
+  <div class="panel" id="samePanel">
+    <h2 id="sameHead"></h2>
+    <div class="chips" id="periChips" role="group"></div>
+    <div class="bars" id="bars"></div>
+  </div>
+
+  <div class="panel" id="areaPanel">
+    <h2 id="areaHead"></h2>
+    <div class="chips" id="areaChips" role="group"></div>
+    <div class="bars" id="abars"></div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <h2 id="quizHead" style="font-size:var(--fs-lg);font-weight:800;margin:0 0 18px"></h2>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad's bilingual AI and coding school. WhatsApp 0337 1468899" data-ur="اے آئی فور کڈز — اسلام آباد کا دو زبانوں والا اے آئی اور کوڈنگ سکول۔ واٹس ایپ 0337 1468899"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var lang = "en";
+  var tab  = "build";
+  var L = 6, W = 3;          // length and width in centimetre squares
+  var showPeri = true, showArea = true;
+  var periFix = 16;          // the fixed perimeter in the comparison tab
+  var pickIdx = 0;
+
+  var MAXL = 12, MAXW = 6;
+  var PERIS  = [12, 16, 20, 24];
+  var AREAS  = [12, 16, 24, 36];
+  var areaFix = 24;
+
+  // every rectangle with this area that still fits on the grid
+  function optionsForArea(A){
+    var out = [];
+    for (var w = 1; w <= MAXW; w++){
+      if (A % w) continue;
+      var l = A / w;
+      if (l <= MAXL && l >= w) out.push([l, w]);
+    }
+    return out;
+  }
+
+  function optionsFor(p){
+    var half = p / 2, out = [];
+    for (var w = 1; w <= Math.floor(half / 2); w++){
+      var l = half - w;
+      if (l <= MAXL && w <= MAXW) out.push([l, w]);
+    }
+    return out;
+  }
+
+  var T = {
+    tabBuild:{en:"Build a shape", ur:"شکل بنائیں"},
+    tabSame:{en:"Same perimeter, different area", ur:"محیط ایک، رقبہ مختلف"},
+    tabArea:{en:"Same area, different perimeter", ur:"رقبہ ایک، محیط مختلف"},
+    titleArea:{en:"Now the other way round: same floor, very different fence.",
+               ur:"اب الٹا: فرش ایک جیسا، باڑ بالکل مختلف۔"},
+    subArea:{en:"Keep the number of squares the same. See how much edge you need.",
+             ur:"خانوں کی تعداد وہی رکھیں۔ دیکھیں کتنا کنارہ درکار ہے۔"},
+    areaHead:{en:"Pick an area", ur:"ایک رقبہ چنیں"},
+    detArea:{en:"The area is fixed at {a} square cm. Tap each shape and watch only the perimeter change.",
+             ur:"رقبہ {a} مربع سینٹی میٹر پر مقرر ہے۔ ہر شکل دبائیں اور دیکھیں صرف محیط بدلتا ہے۔"},
+    whyArea:{en:"Every shape here has exactly the same number of squares inside. But the long thin one needs far more fence than the square one. Same floor, very different cost.",
+             ur:"یہاں ہر شکل کے اندر خانوں کی تعداد بالکل ایک جتنی ہے۔ مگر لمبی پتلی شکل کو مربع والی سے کہیں زیادہ باڑ چاہیے۔ فرش وہی، خرچ بالکل مختلف۔"},
+    whyAreaBest:{en:"This is the square-shaped one, and it needs the least fence of all. Long and thin always wastes edge — that is why rooms and fields are rarely made long and narrow.",
+                 ur:"یہ مربع کے قریب والی شکل ہے، اور اسے سب سے کم باڑ چاہیے۔ لمبی پتلی شکل ہمیشہ کنارہ ضائع کرتی ہے — اسی لیے کمرے اور کھیت شاذ ہی لمبے اور تنگ بنائے جاتے ہیں۔"},
+    titleBuild:{en:"Perimeter and area are two different measurements.",
+                ur:"محیط اور رقبہ دو الگ پیمائشیں ہیں۔"},
+    subBuild:{en:"Change the rectangle and watch which measurement moves, and by how much.",
+              ur:"شکل بدلیں اور دیکھیں کون سا عدد بدلتا ہے، اور کتنا۔"},
+    titleSame:{en:"Two shapes can have the same perimeter and completely different areas.",
+               ur:"دو شکلوں کا محیط ایک جیسا ہو سکتا ہے اور رقبہ بالکل مختلف۔"},
+    subSame:{en:"Keep the fence the same length. See how much floor you get.",
+             ur:"باڑ کی لمبائی وہی رکھیں۔ دیکھیں فرش کتنا ملتا ہے۔"},
+    buildHead:{en:"Change the rectangle", ur:"مستطیل بدلیں"},
+    sameHead:{en:"Pick a perimeter", ur:"ایک محیط چنیں"},
+    lenName:{en:"Length", ur:"لمبائی"},
+    widName:{en:"Width", ur:"چوڑائی"},
+    showP:{en:"Perimeter", ur:"محیط"},
+    showA:{en:"Area", ur:"رقبہ"},
+    pLbl:{en:"Perimeter — distance all the way around", ur:"محیط — چاروں طرف کا کل فاصلہ"},
+    aLbl:{en:"Area — squares covered inside", ur:"رقبہ — اندر کے ڈھکے ہوئے خانے"},
+    cm:{en:"cm", ur:"سینٹی میٹر"},
+    cm2:{en:"square cm", ur:"مربع سینٹی میٹر"},
+    shape:{en:"{l} by {w}", ur:"{l} × {w}"},
+    quiz:{en:"Check yourself", ur:"اپنا امتحان لیں"},
+    whyLbl:{en:"Notice:", ur:"غور کریں:"},
+    detBuild:{en:"Perimeter counts the steps around the outside of the shape. Area counts the squares covered inside it. Two different measurements, in two different units.",
+              ur:"محیط شکل کے باہر کی طرف کے قدم گنتا ہے۔ رقبہ اندر ڈھکے ہوئے خانے گنتا ہے۔ دو الگ پیمائشیں، اور دونوں کی اکائی بھی الگ۔"},
+    whyUnits:{en:"Look at the units. Perimeter is a length, so it is in cm. Area is squares, so it is in square cm. If your answer has the wrong unit, it is the wrong answer even when the number is right.",
+              ur:"اکائیوں کو دیکھیں۔ محیط ایک لمبائی ہے، تو یہ سینٹی میٹر میں ہے۔ رقبہ خانے ہیں، تو یہ مربع سینٹی میٹر میں ہے۔ اگر اکائی غلط ہو تو جواب غلط ہے، چاہے عدد ٹھیک ہو۔"},
+    whySame18:{en:"Look carefully — both numbers are {n}. But one is {n} cm of perimeter and the other is {n} square cm of area. They are not the same thing; the numbers just happen to land together here. Change the width by one and watch them split apart.",
+               ur:"غور سے دیکھیں — دونوں عدد {n} ہیں۔ مگر ایک {n} سینٹی میٹر محیط ہے اور دوسرا {n} مربع سینٹی میٹر رقبہ۔ یہ ایک چیز نہیں؛ یہاں اتفاقاً دونوں عدد ایک جیسے آ گئے ہیں۔ چوڑائی ایک بڑھا کر دیکھیں، دونوں الگ ہو جائیں گے۔"},
+    whySquare:{en:"You just made a square. Out of every rectangle with this perimeter, the square holds the most inside. The closer to square, the more area you get for the same fence.",
+               ur:"آپ نے مربع بنا لیا۔ اس محیط والی تمام مستطیلوں میں سے مربع سب سے زیادہ اندر سماتا ہے۔ جتنا مربع کے قریب، اتنا ہی زیادہ رقبہ اسی باڑ میں۔"},
+    whySame:{en:"Every shape here uses exactly the same length of fence. Look at how much the floor changes. This is why the two must never be mixed up.",
+             ur:"یہاں ہر شکل میں باڑ کی لمبائی بالکل ایک جتنی ہے۔ دیکھیں فرش کتنا بدل جاتا ہے۔ اسی لیے ان دونوں کو کبھی نہیں ملانا چاہیے۔"},
+    detSame:{en:"The perimeter is fixed at {p} cm. Tap each shape and watch only the area change.",
+             ur:"محیط {p} سینٹی میٹر پر مقرر ہے۔ ہر شکل دبائیں اور دیکھیں صرف رقبہ بدلتا ہے۔"},
+    pSum:{en:"{l}+{w}+{l}+{w}", ur:"{l}+{w}+{l}+{w}"},
+    aSum:{en:"{l} × {w}", ur:"{l} × {w}"}
+  };
+
+  var QUIZ = [
+    { q:{en:"A rectangle is 5 cm long and 3 cm wide. What is its perimeter?",
+         ur:"ایک مستطیل 5 سینٹی میٹر لمبی اور 3 سینٹی میٹر چوڑی ہے۔ اس کا محیط کتنا ہوگا؟"},
+      o:[{en:"8 cm", ur:"8 سینٹی میٹر"},{en:"15 cm", ur:"15 سینٹی میٹر"},
+         {en:"16 cm", ur:"16 سینٹی میٹر"},{en:"15 square cm", ur:"15 مربع سینٹی میٹر"}],
+      a:2,
+      f:{en:"Walk all the way round: 5 + 3 + 5 + 3 = 16 cm. 15 is the area, not the perimeter — and 15 square cm is the area with its correct unit.",
+         ur:"پورا چکر لگائیں: 5 + 3 + 5 + 3 = 16 سینٹی میٹر۔ 15 تو رقبہ ہے، محیط نہیں — اور 15 مربع سینٹی میٹر رقبہ اپنی درست اکائی کے ساتھ ہے۔"} },
+
+    { q:{en:"The same rectangle, 5 cm by 3 cm. What is its area?",
+         ur:"وہی مستطیل، 5 × 3 سینٹی میٹر۔ اس کا رقبہ کتنا ہوگا؟"},
+      o:[{en:"16 square cm", ur:"16 مربع سینٹی میٹر"},{en:"15 square cm", ur:"15 مربع سینٹی میٹر"},
+         {en:"15 cm", ur:"15 سینٹی میٹر"},{en:"8 square cm", ur:"8 مربع سینٹی میٹر"}],
+      a:1,
+      f:{en:"Count the squares inside: 5 rows of 3, which is 15. And because they are squares, the unit is square cm — not cm.",
+         ur:"اندر کے خانے گنیں: 3 کی 5 قطاریں، یعنی 15۔ اور چونکہ یہ خانے ہیں، اکائی مربع سینٹی میٹر ہے — سینٹی میٹر نہیں۔"} },
+
+    { q:{en:"Your father wants to put a fence around a field. Does he need the perimeter or the area?",
+         ur:"آپ کے والد کھیت کے گرد باڑ لگانا چاہتے ہیں۔ انہیں محیط چاہیے یا رقبہ؟"},
+      o:[{en:"Perimeter", ur:"محیط"},{en:"Area", ur:"رقبہ"},
+         {en:"Both added together", ur:"دونوں جمع کر کے"},{en:"Neither", ur:"کوئی نہیں"}],
+      a:0,
+      f:{en:"A fence runs along the edge, so it is perimeter. But grass to cover the field, or tiles for a floor, would be area. Ask yourself: along the edge, or across the inside?",
+         ur:"باڑ کنارے کے ساتھ ساتھ جاتی ہے، تو یہ محیط ہے۔ مگر کھیت میں گھاس، یا فرش کی ٹائلیں، وہ رقبہ ہوگا۔ خود سے پوچھیں: کنارے کے ساتھ، یا اندر کے آر پار؟"} },
+
+    { q:{en:"Two rectangles both have a perimeter of 16 cm. Must they have the same area?",
+         ur:"دو مستطیلوں کا محیط 16 سینٹی میٹر ہے۔ کیا ان کا رقبہ بھی برابر ہوگا؟"},
+      o:[{en:"Yes, always", ur:"ہاں، ہمیشہ"},
+         {en:"No — 7 by 1 gives 7, but 4 by 4 gives 16", ur:"نہیں — 7 × 1 سے 7، مگر 4 × 4 سے 16"},
+         {en:"Yes, if both are rectangles", ur:"ہاں، اگر دونوں مستطیل ہوں"},
+         {en:"Only if one is a square", ur:"صرف تب جب ایک مربع ہو"}],
+      a:1,
+      f:{en:"Same fence, very different floor. A long thin shape wastes the space; the closer to a square, the more area you get from the same perimeter.",
+         ur:"باڑ وہی، فرش بالکل مختلف۔ لمبی پتلی شکل جگہ ضائع کرتی ہے؛ جتنا مربع کے قریب، اسی محیط سے اتنا زیادہ رقبہ۔"} },
+
+    { q:{en:"A square has sides of 3 cm. You double every side to 6 cm. What happens to the area?",
+         ur:"ایک مربع کا ہر ضلع 3 سینٹی میٹر ہے۔ آپ ہر ضلع دوگنا کر کے 6 کر دیتے ہیں۔ رقبے کا کیا ہوگا؟"},
+      o:[{en:"It doubles, from 9 to 18", ur:"دوگنا ہو جائے گا، 9 سے 18"},
+         {en:"It becomes four times, from 9 to 36", ur:"چار گنا ہو جائے گا، 9 سے 36"},
+         {en:"It stays the same", ur:"وہی رہے گا"},
+         {en:"It becomes three times, from 9 to 27", ur:"تین گنا ہو جائے گا، 9 سے 27"}],
+      a:1,
+      f:{en:"The perimeter doubles, from 12 to 24 cm. But the area goes from 3×3=9 to 6×6=36 — four times, because both sides grew. Try it on the grid.",
+         ur:"محیط دوگنا ہوتا ہے، 12 سے 24۔ مگر رقبہ 3×3=9 سے 6×6=36 ہو جاتا ہے — چار گنا، کیونکہ دونوں اضلاع بڑھے۔ گرڈ پر بنا کر دیکھیں۔"} },
+
+    { q:{en:"Which of these could be an area?", ur:"ان میں سے رقبہ کون سا ہو سکتا ہے؟"},
+      o:[{en:"24 cm", ur:"24 سینٹی میٹر"},{en:"24 square cm", ur:"24 مربع سینٹی میٹر"},
+         {en:"24 kg", ur:"24 کلوگرام"},{en:"24 minutes", ur:"24 منٹ"}],
+      a:1,
+      f:{en:"Area is always counted in squares, so the unit is always a square unit — square cm, square metres, square kilometres. Seeing 'square' in the unit tells you it is an area before you even read the question.",
+         ur:"رقبہ ہمیشہ خانوں میں گنا جاتا ہے، تو اکائی بھی ہمیشہ مربع والی ہوگی — مربع سینٹی میٹر، مربع میٹر۔ اکائی میں 'مربع' دیکھتے ہی پتا چل جاتا ہے کہ یہ رقبہ ہے، سوال پڑھنے سے پہلے۔"} }
+  ];
+
+  function $(id){ return document.getElementById(id); }
+  function t(o){ return o[lang]; }
+
+  var LRI = "\u2066", PDI = "\u2069";
+  var LATIN_RUN = /[A-Za-z0-9][A-Za-z0-9 .,+()\/@_\u00d7-]*[A-Za-z0-9]|[A-Za-z0-9]/g;
+  function isolate(s){ return s.replace(LATIN_RUN, function(m){ return LRI + m + PDI; }); }
+  function setText(el, str){
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+  function fill(s, m){ Object.keys(m).forEach(function(k){ s = s.split("{"+k+"}").join(m[k]); }); return s; }
+
+  var NS = "http://www.w3.org/2000/svg";
+  function mk(tag, a){
+    var e = document.createElementNS(NS, tag);
+    for (var k in a) e.setAttribute(k, a[k]);
+    return e;
+  }
+
+  /* ---------- the grid ---------- */
+  var CELL = 26, GX = 26, GY = 16;
+
+  function dims(){
+    if (tab === "build") return [L, W];
+    var o = (tab === "same") ? optionsFor(periFix) : optionsForArea(areaFix);
+    return o[Math.min(pickIdx, o.length - 1)];
+  }
+
+  function drawField(){
+    var g = $("field"); g.innerHTML = "";
+    var d = dims(), l = d[0], w = d[1];
+
+    // faint grid so a child can count squares even outside the shape
+    for (var i=0;i<=MAXL;i++){
+      g.appendChild(mk("line", {x1:GX+i*CELL, y1:GY, x2:GX+i*CELL, y2:GY+MAXW*CELL,
+                                stroke:"var(--grid)", "stroke-width":1, opacity:.55}));
+    }
+    for (var j=0;j<=MAXW;j++){
+      g.appendChild(mk("line", {x1:GX, y1:GY+j*CELL, x2:GX+MAXL*CELL, y2:GY+j*CELL,
+                                stroke:"var(--grid)", "stroke-width":1, opacity:.55}));
+    }
+
+    // the inside, one square at a time
+    if (showArea){
+      for (var r=0;r<w;r++){
+        for (var c=0;c<l;c++){
+          g.appendChild(mk("rect", {x:GX+c*CELL+1.5, y:GY+r*CELL+1.5,
+                                    width:CELL-3, height:CELL-3, rx:3,
+                                    fill:"var(--area)", opacity:.28, "class":"sq"}));
+        }
+      }
+      var at = mk("text", {x:GX + l*CELL/2, y:GY + w*CELL/2 + 7, "text-anchor":"middle",
+                           "font-size":"22", "font-weight":"800", fill:"var(--area-deep)",
+                           "font-family":"Baloo Bhaijaan 2, sans-serif", opacity:.85});
+      at.textContent = String(l*w);
+      g.appendChild(at);
+    }
+
+    // the edge, numbered one step at a time
+    if (showPeri){
+      g.appendChild(mk("rect", {x:GX, y:GY, width:l*CELL, height:w*CELL,
+                                fill:"none", stroke:"var(--peri)", "stroke-width":5}));
+      var n = 0;
+      function tick(x, y, dx, dy){
+        n++;
+        var tx = mk("text", {x:x + dx, y:y + dy, "text-anchor":"middle", "font-size":"11",
+                             "font-weight":"800", fill:"var(--peri-deep)",
+                             "font-family":"Baloo Bhaijaan 2, sans-serif"});
+        tx.textContent = String(n);
+        g.appendChild(tx);
+      }
+      for (var a=0;a<l;a++) tick(GX+a*CELL+CELL/2, GY, 0, -5);            // top
+      for (var b=0;b<w;b++) tick(GX+l*CELL, GY+b*CELL+CELL/2, 11, 4);     // right
+      for (var c2=l-1;c2>=0;c2--) tick(GX+c2*CELL+CELL/2, GY+w*CELL, 0, 15); // bottom
+      for (var d2=w-1;d2>=0;d2--) tick(GX, GY+d2*CELL+CELL/2, -11, 4);    // left
+    }
+
+    // side labels
+    var ll = mk("text", {x:GX + l*CELL/2, y:GY + w*CELL + 34, "text-anchor":"middle",
+                         "font-size":"13", "font-weight":"800", fill:"var(--ink-soft)",
+                         "font-family":"Baloo Bhaijaan 2, sans-serif"});
+    ll.textContent = l + " cm";
+    g.appendChild(ll);
+    var wl = mk("text", {x:GX + l*CELL + 30, y:GY + w*CELL/2 + 5, "text-anchor":"start",
+                         "font-size":"13", "font-weight":"800", fill:"var(--ink-soft)",
+                         "font-family":"Baloo Bhaijaan 2, sans-serif"});
+    wl.textContent = w + " cm";
+    g.appendChild(wl);
+  }
+
+  /* ---------- controls ---------- */
+  $("lMinus").addEventListener("click", function(){ if (L > 1){ L--; render(); } });
+  $("lPlus").addEventListener("click",  function(){ if (L < MAXL){ L++; render(); } });
+  $("wMinus").addEventListener("click", function(){ if (W > 1){ W--; render(); } });
+  $("wPlus").addEventListener("click",  function(){ if (W < MAXW){ W++; render(); } });
+  $("showP").addEventListener("click", function(){
+    showPeri = !showPeri; if (!showPeri && !showArea) showArea = true; render();
+  });
+  $("showA").addEventListener("click", function(){
+    showArea = !showArea; if (!showPeri && !showArea) showPeri = true; render();
+  });
+  $("tabBuild").addEventListener("click", function(){ setTab("build"); });
+  $("tabSame").addEventListener("click",  function(){ setTab("same"); });
+  $("tabArea").addEventListener("click",  function(){ setTab("area"); });
+  function setTab(x){
+    if (tab === x) return;
+    tab = x; pickIdx = 0; showPeri = true; showArea = true; render();
+  }
+
+  AREAS.forEach(function(a){
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "pchip";
+    b.setAttribute("data-a", String(a));
+    b.textContent = a + " \u25a1";
+    b.addEventListener("click", function(){ areaFix = a; pickIdx = 0; render(); });
+    $("areaChips").appendChild(b);
+  });
+
+  PERIS.forEach(function(p, i){
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "pchip";
+    b.setAttribute("data-p", String(p));
+    b.textContent = p + " cm";
+    b.addEventListener("click", function(){ periFix = p; pickIdx = 0; render(); });
+    $("periChips").appendChild(b);
+  });
+
+  /* ---------- render ---------- */
+  function render(){
+    drawField();
+    var d = dims(), l = d[0], w = d[1];
+    var per = 2*(l + w), ar = l*w;
+
+    $("buildPanel").style.display = (tab === "build") ? "" : "none";
+    $("samePanel").style.display  = (tab === "same")  ? "" : "none";
+    $("areaPanel").style.display  = (tab === "area")  ? "" : "none";
+    $("tabBuild").setAttribute("aria-pressed", tab === "build" ? "true" : "false");
+    $("tabSame").setAttribute("aria-pressed",  tab === "same"  ? "true" : "false");
+    $("tabArea").setAttribute("aria-pressed",  tab === "area"  ? "true" : "false");
+    setText($("tabBuild"), t(T.tabBuild));
+    setText($("tabSame"),  t(T.tabSame));
+    setText($("tabArea"),  t(T.tabArea));
+    setText($("areaHead"), t(T.areaHead));
+    Array.prototype.forEach.call($("areaChips").children, function(b){
+      b.setAttribute("aria-pressed", (+b.getAttribute("data-a") === areaFix) ? "true" : "false");
+    });
+
+    setText($("title"), tab === "build" ? t(T.titleBuild)
+                      : tab === "same"  ? t(T.titleSame) : t(T.titleArea));
+    setText($("subtitle"), tab === "build" ? t(T.subBuild)
+                         : tab === "same"  ? t(T.subSame) : t(T.subArea));
+
+    $("lVal").textContent = String(l);
+    $("wVal").textContent = String(w);
+    $("lMinus").disabled = (L <= 1); $("lPlus").disabled = (L >= MAXL);
+    $("wMinus").disabled = (W <= 1); $("wPlus").disabled = (W >= MAXW);
+    setText($("buildHead"), t(T.buildHead));
+    setText($("sameHead"), t(T.sameHead));
+    setText($("lenName"), t(T.lenName));
+    setText($("widName"), t(T.widName));
+    setText($("showP"), t(T.showP));
+    setText($("showA"), t(T.showA));
+    $("showP").setAttribute("aria-pressed", showPeri ? "true" : "false");
+    $("showA").setAttribute("aria-pressed", showArea ? "true" : "false");
+    setText($("quizHead"), t(T.quiz));
+
+    setText($("shapechip"), fill(t(T.shape), {l:l, w:w}));
+    setText($("pLbl"), t(T.pLbl));
+    setText($("aLbl"), t(T.aLbl));
+    $("pVal").textContent = String(per);
+    $("aVal").textContent = String(ar);
+    setText($("pUnit"), t(T.cm));
+    setText($("aUnit"), t(T.cm2));
+    setText($("pSum"), fill(t(T.pSum), {l:l, w:w}));
+    setText($("aSum"), fill(t(T.aSum), {l:l, w:w}));
+
+    var opts = optionsFor(periFix);
+    Array.prototype.forEach.call($("periChips").children, function(b){
+      b.setAttribute("aria-pressed", (+b.getAttribute("data-p") === periFix) ? "true" : "false");
+    });
+
+    if (tab === "same" || tab === "area"){
+      var isSame = (tab === "same");
+      var list2 = isSame ? opts : optionsForArea(areaFix);
+      // in the same-perimeter tab the bars show area (bigger is better);
+      // in the same-area tab they show perimeter (smaller is better)
+      var vals = list2.map(function(o){ return isSame ? o[0]*o[1] : 2*(o[0]+o[1]); });
+      var top  = Math.max.apply(null, vals);
+      var best = isSame ? top : Math.min.apply(null, vals);
+
+      setText($("detail"), isSame ? fill(t(T.detSame), {p:periFix})
+                                  : fill(t(T.detArea), {a:areaFix}));
+
+      var bars = $(isSame ? "bars" : "abars"); bars.innerHTML = "";
+      list2.forEach(function(o, i){
+        var val = vals[i];
+        var row = document.createElement("button");
+        row.type = "button";
+        row.className = "barrow" + (isSame ? "" : " peri") + (val === best ? " best" : "");
+        row.style.width = "100%"; row.style.background = "none";
+        row.style.border = "none"; row.style.cursor = "pointer";
+        row.style.padding = "2px 0"; row.style.borderRadius = "8px";
+        var lab = document.createElement("span"); lab.className = "lab";
+        lab.textContent = o[0] + " \u00d7 " + o[1];
+        var tr = document.createElement("span"); tr.className = "track";
+        var fillEl = document.createElement("i");
+        fillEl.style.width = Math.round(val / top * 100) + "%";
+        tr.appendChild(fillEl);
+        var num = document.createElement("span"); num.className = "num";
+        num.textContent = String(val);
+        row.appendChild(lab); row.appendChild(tr); row.appendChild(num);
+        row.addEventListener("click", function(){ pickIdx = i; render(); });
+        if (i === Math.min(pickIdx, list2.length - 1)) row.style.outline = "2px solid var(--ink)";
+        bars.appendChild(row);
+      });
+      setText($("whyText"), isSame ? t(T.whySame)
+                                   : (2*(l+w) === best ? t(T.whyAreaBest) : t(T.whyArea)));
+    } else {
+      setText($("detail"), t(T.detBuild));
+      var why = (per === ar) ? fill(t(T.whySame18), {n:per})
+              : (l === w)     ? t(T.whySquare)
+                              : t(T.whyUnits);
+      setText($("whyText"), why);
+    }
+
+    $("whyLbl").textContent = t(T.whyLbl);
+    lastSpoken = fill(t(T.shape), {l:l, w:w}) + ". " +
+                 t(T.pLbl) + " " + per + " " + t(T.cm) + ". " +
+                 t(T.aLbl) + " " + ar + " " + t(T.cm2) + ".";
+  }
+
+  var lastSpoken = "";
+
+  /* ---------- quiz ---------- */
+  function buildQuiz(){
+    var box = $("quizBox"); box.innerHTML = "";
+    QUIZ.forEach(function(item){
+      var wrap = document.createElement("div"); wrap.className = "q";
+      var q = document.createElement("p"); setText(q, t(item.q)); wrap.appendChild(q);
+      var fb = document.createElement("p"); fb.className = "fb";
+      item.o.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt" + (lang === "ur" ? " ur" : "");
+        b.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+        b.textContent = t(opt);
+        b.addEventListener("click", function(){
+          if (wrap.getAttribute("data-done") === "1") return;
+          wrap.setAttribute("data-done","1");
+          Array.prototype.forEach.call(wrap.querySelectorAll(".opt"), function(x, xi){
+            if (xi === item.a) x.classList.add("right");
+            else if (xi === oi) x.classList.add("wrong");
+          });
+          setText(fb, t(item.f));
+          fb.classList.add("show","fb");
+        });
+        wrap.appendChild(b);
+      });
+      wrap.appendChild(fb);
+      box.appendChild(wrap);
+    });
+  }
+
+  function applyLang(){
+    document.body.classList.toggle("urdu", lang === "ur");
+    var lb = $("langBtn");
+    lb.textContent = (lang === "en") ? "اردو" : "English";
+    lb.setAttribute("aria-pressed", lang === "ur" ? "true" : "false");
+    Array.prototype.forEach.call(document.querySelectorAll("[data-en]"), function(el){
+      setText(el, el.getAttribute(lang === "en" ? "data-en" : "data-ur"));
+    });
+    buildQuiz();
+    render();
+  }
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en";
+    applyLang();
+  });
+
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      window.speechSynthesis.cancel();
+      var u = new SpeechSynthesisUtterance(lastSpoken);
+      u.lang = (lang === "ur") ? "ur-PK" : "en-US";
+      u.rate = 0.92;
+      var voices = window.speechSynthesis.getVoices() || [];
+      for (var i=0;i<voices.length;i++){
+        if (voices[i].lang && voices[i].lang.toLowerCase().indexOf(lang === "ur" ? "ur" : "en") === 0){
+          u.voice = voices[i]; break;
+        }
+      }
+      window.speechSynthesis.speak(u);
+    }catch(e){ /* no voice available — stay quiet */ }
+  });
+
+  applyLang();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Place Value Machine — خانوں والی مشین | AI4Kids Class 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#eef1f6;
+    --board-deep:#dde3ec;
+    --cell:#ffffff;
+    --cell-line:#b9c3d1;
+    --lakh:#7a5aa8;
+    --thou:#2f6fb5;
+    --unit:#3f8a68;
+    --dec:#c9702e;
+    --new:#e8b23d;
+    --ink:#1f2933;
+    --ink-soft:#4a5661;
+    --paper:#fdfaf3;
+    --line:#ded5c4;
+    --accent:#2f4f7a;
+    --warn:#b8452e;
+
+    --fs-cap:clamp(12px, 3.2vw, 13px);
+    --fs-xs:clamp(14px, 3.7vw, 15px);
+    --fs-sm:clamp(16px, 4.2vw, 17px);
+    --fs-md:clamp(17px, 4.6vw, 19px);
+    --fs-lg:clamp(20px, 5.4vw, 23px);
+    --fs-xl:clamp(27px, 7.4vw, 33px);
+    --lh:1.5;
+  }
+  /* Urdu is set larger than Latin — Nastaliq reads smaller at the same size. */
+  body.urdu{
+    --fs-cap:clamp(13px, 3.5vw, 15px);
+    --fs-xs:clamp(15px, 4.1vw, 17px);
+    --fs-sm:clamp(17px, 4.7vw, 19px);
+    --fs-md:clamp(19px, 5.2vw, 21px);
+    --fs-lg:clamp(22px, 6vw, 25px);
+    --fs-xl:clamp(26px, 7vw, 31px);
+    --lh:2.1;
+  }
+
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--new);outline-offset:2px}
+
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:linear-gradient(180deg,var(--board) 0%,var(--board-deep) 100%);
+  }
+  .scene svg{display:block;width:100%;height:auto}
+  #digits{transition:transform .45s cubic-bezier(.35,.05,.25,1)}
+  #digits.instant{transition:none}
+  .newcell{animation:pop .7s ease-out}
+  @keyframes pop{0%{opacity:0;transform:scale(.4)}55%{opacity:1;transform:scale(1.25)}100%{transform:scale(1)}}
+
+  .readout{
+    margin-top:-18px;position:relative;z-index:2;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .valchip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+           padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+  .valchip.ur{padding:2px 14px 7px}
+  .readnum{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+  .readnum.ur{line-height:1.95}
+  .said{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+
+  .rule{
+    margin-top:16px;border:2px solid var(--accent);background:#eef2f8;border-radius:14px;
+    padding:12px 14px;font-size:var(--fs-xs);font-weight:700;color:var(--accent);line-height:1.55;
+  }
+  body.urdu .rule{line-height:var(--lh)}
+  .rule.warn{border-color:var(--warn);background:#fbece8;color:var(--warn)}
+
+  .why-note{
+    margin:12px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.55;
+    border-left:3px solid var(--accent);padding-left:11px;
+  }
+  .why-note b{color:var(--accent);font-weight:800}
+  body.urdu .why-note{
+    border-left:0;border-right:3px solid var(--accent);padding-left:0;padding-right:11px;
+    line-height:var(--lh);
+  }
+
+  .panel{margin-top:22px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .ops{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+  .ops button{
+    border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);
+    font:inherit;font-weight:800;font-size:var(--fs-sm);cursor:pointer;min-height:54px;
+  }
+  .ops button.mul{background:var(--ink);color:var(--paper)}
+  .ops button:disabled{opacity:.3;cursor:default}
+  .ops button:active:not(:disabled){transform:scale(.96)}
+
+  .starts{margin-top:20px}
+  .starts h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .nchip{
+    border:2px solid var(--line);background:var(--paper);border-radius:999px;padding:8px 14px;
+    font:inherit;font-size:var(--fs-cap);font-weight:700;color:var(--ink);cursor:pointer;min-height:44px;
+  }
+  .nchip[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:50px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--unit);background:#e8f2ed;font-weight:600}
+  .opt.wrong{border-color:var(--warn);background:#fbece8}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;
+      grid-template-columns:1fr 1fr;
+      grid-template-areas:
+        "bar   bar"
+        "head  head"
+        "left  right"
+        "quiz  quiz"
+        "foot  foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar}
+    .head{grid-area:head}
+    .left{grid-area:left}
+    .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px}
+    footer{grid-area:foot}
+    .panel{margin-top:0}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    #digits{transition:none}
+    .newcell{animation:none}
+    *{transition-duration:.01ms !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 5</span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="sysBtn" aria-pressed="false"></button>
+  </div>
+
+  <div class="head">
+  <h1 data-en="Multiplying by 10 does not add a zero" data-ur="10 سے ضرب دینے پر صفر نہیں لگتا"></h1>
+  <p class="sub" data-en="Watch what actually happens: every digit moves one box to the left." data-ur="دیکھیں اصل میں کیا ہوتا ہے: ہر ہندسہ ایک خانہ بائیں جاتا ہے۔"></p>
+  </div>
+
+  <div class="left">
+  <div class="scene">
+    <svg viewBox="0 0 360 190" role="img" id="svg" aria-label="A place value board with one box for each place">
+      <g id="labels"></g>
+      <g id="cells"></g>
+      <g id="digits"></g>
+      <g id="pointer"></g>
+    </svg>
+  </div>
+
+  <div class="readout">
+    <span class="valchip" id="valchip"></span>
+    <p class="readnum" id="readnum"></p>
+    <p class="said" id="said"></p>
+    <p class="rule" id="rule"></p>
+    <p class="why-note"><b id="whyLbl"></b> <span id="whyText"></span></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="panel">
+    <h2 id="opsHead"></h2>
+    <div class="ops" id="ops"></div>
+  </div>
+
+  <div class="starts">
+    <h2 id="startHead"></h2>
+    <div class="chips" id="chips" role="group"></div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <h2 id="quizHead" style="font-size:var(--fs-lg);font-weight:800;margin:0 0 18px"></h2>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad's bilingual AI and coding school. WhatsApp 0337 1468899" data-ur="اے آئی فور کڈز — اسلام آباد کا دو زبانوں والا اے آئی اور کوڈنگ سکول۔ واٹس ایپ 0337 1468899"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var lang = "en";
+  var intl = false;          // false = lakh system, true = international
+  var busy = false;
+
+  // The value is kept as a whole number of hundredths, so no decimal drift.
+  var v = 4300000;           // = 43,000
+  var lastOp = null;
+  var flash = [];            // columns that were just filled with a new zero
+
+  var MAXV = 100000000;      // 10,00,000 — the Class 5 ceiling
+
+  // column 0 is the leftmost (ten lakh), 6 is units, 7 and 8 are the decimals
+  var COLS = [
+    { lakh:{en:"Ten lakh", ur:"دس لاکھ"},   intl:{en:"Million", ur:"ملین"},        c:"var(--lakh)" },
+    { lakh:{en:"Lakh", ur:"لاکھ"},          intl:{en:"Hundred thousand", ur:"لاکھ"}, c:"var(--lakh)" },
+    { lakh:{en:"Ten thousand", ur:"دس ہزار"}, intl:{en:"Ten thousand", ur:"دس ہزار"}, c:"var(--thou)" },
+    { lakh:{en:"Thousand", ur:"ہزار"},      intl:{en:"Thousand", ur:"ہزار"},        c:"var(--thou)" },
+    { lakh:{en:"Hundred", ur:"سو"},         intl:{en:"Hundred", ur:"سو"},           c:"var(--unit)" },
+    { lakh:{en:"Ten", ur:"دس"},             intl:{en:"Ten", ur:"دس"},               c:"var(--unit)" },
+    { lakh:{en:"Unit", ur:"اکائی"},         intl:{en:"Unit", ur:"اکائی"},           c:"var(--unit)" },
+    { lakh:{en:"Tenth", ur:"دسواں"},        intl:{en:"Tenth", ur:"دسواں"},          c:"var(--dec)" },
+    { lakh:{en:"Hundredth", ur:"سواں"},     intl:{en:"Hundredth", ur:"سواں"},       c:"var(--dec)" }
+  ];
+
+  var STARTS = [
+    { v:4300000, label:"43,000" },
+    { v:500000,  label:"5,000" },
+    { v:120000,  label:"1,200" },
+    { v:25000,   label:"250" },
+    { v:70,      label:"0.7" },
+    { v:7,       label:"0.07" }
+  ];
+
+  var T = {
+    opsHead:{en:"Multiply or divide", ur:"ضرب دیں یا تقسیم کریں"},
+    startHead:{en:"Start from", ur:"یہاں سے شروع کریں"},
+    sysLakh:{en:"Lakh system", ur:"لاکھ والا نظام"},
+    sysIntl:{en:"International", ur:"بین الاقوامی"},
+    valLbl:{en:"The number now", ur:"اب عدد"},
+    whyLbl:{en:"Notice:", ur:"غور کریں:"},
+    quiz:{en:"Check yourself", ur:"اپنا امتحان لیں"},
+    start:{en:"Press a button and watch the digits, not the zeros.",
+           ur:"کوئی بٹن دبائیں اور ہندسوں کو دیکھیں، صفروں کو نہیں۔"},
+    moved:{en:"Every digit moved {n} {box} to the {dir}.",
+           ur:"ہر ہندسہ {n} {box} {dir} گیا۔"},
+    left:{en:"left", ur:"بائیں"},
+    right:{en:"right", ur:"دائیں"},
+    box1:{en:"box", ur:"خانہ"},
+    boxN:{en:"boxes", ur:"خانے"},
+    tooBig:{en:"That goes past ten lakh, which is as far as Class 5 goes. Try a smaller number or divide instead.",
+            ur:"یہ دس لاکھ سے آگے نکل جاتا ہے، اور کلاس 5 کی حد یہی ہے۔ چھوٹا عدد لیں یا تقسیم کریں۔"},
+    tooSmall:{en:"That would need a third decimal place, which is past Class 5. Try dividing by less.",
+              ur:"اس کے لیے تیسرا اعشاریہ چاہیے، جو کلاس 5 سے آگے ہے۔ کم سے تقسیم کریں۔"},
+    whyStart:{en:"Look at the board before you press anything. Each box is a place, and each place is ten times the one on its right.",
+              ur:"کچھ دبانے سے پہلے بورڈ کو دیکھیں۔ ہر خانہ ایک درجہ ہے، اور ہر درجہ اپنے دائیں والے سے دس گنا بڑا ہے۔"},
+    whyZero:{en:"A zero appeared at the end — but nobody added it. It appeared because a box was left empty when the digits moved across, and an empty box has to be filled with zero.",
+             ur:"آخر میں ایک صفر نمودار ہوا — مگر اسے کسی نے لگایا نہیں۔ وہ اس لیے آیا کہ ہندسے سرکنے پر ایک خانہ خالی رہ گیا، اور خالی خانے میں صفر ڈالنا پڑتا ہے۔"},
+    whyDec:{en:"Here is where the zero rule breaks. 0.7 times 10 is 7, not 0.70 — and 0.70 is the same number as 0.7, so adding a zero changed nothing. Moving the digit is what actually happened.",
+            ur:"یہیں صفر والا قاعدہ ٹوٹ جاتا ہے۔ 0.7 کو 10 سے ضرب دیں تو 7 بنتا ہے، 0.70 نہیں — اور 0.70 تو وہی عدد ہے جو 0.7 ہے، یعنی صفر لگانے سے کچھ بدلا ہی نہیں۔ اصل میں ہندسہ سرکا تھا۔"},
+    whyDiv:{en:"Dividing moves the digits the other way. The rule is the same rule, just running backwards.",
+            ur:"تقسیم کرنے پر ہندسے دوسری طرف سرکتے ہیں۔ قاعدہ وہی ہے، بس الٹی سمت میں۔"},
+    whySys:{en:"The same number, grouped two different ways. In the lakh system the commas fall after 3 digits then every 2. Internationally they fall every 3. Pick one and stick to it — mixing them in one page is what confuses people.",
+            ur:"وہی عدد، دو مختلف طریقوں سے گروپ کیا ہوا۔ لاکھ والے نظام میں کاما پہلے 3 ہندسوں کے بعد، پھر ہر 2 کے بعد آتا ہے۔ بین الاقوامی میں ہر 3 کے بعد۔ ایک نظام چنیں اور اسی پر رہیں — دونوں کو ایک صفحے پر ملانا ہی الجھن کی جڑ ہے۔"}
+  };
+
+  var QUIZ = [
+    { q:{en:"What number is 4,50,000?", ur:"4,50,000 کون سا عدد ہے؟"},
+      o:[{en:"Forty five thousand", ur:"پینتالیس ہزار"},
+         {en:"Four lakh fifty thousand", ur:"چار لاکھ پچاس ہزار"},
+         {en:"Forty five lakh", ur:"پینتالیس لاکھ"},
+         {en:"Four thousand five hundred", ur:"چار ہزار پانچ سو"}],
+      a:1,
+      f:{en:"Read it from the commas. In the lakh system the last comma marks thousands and the one before it marks lakhs. Most Class 5 mistakes are reading mistakes, not calculation mistakes.",
+         ur:"کاما سے پڑھیں۔ لاکھ والے نظام میں آخری کاما ہزار بتاتا ہے اور اس سے پہلے والا لاکھ۔ کلاس 5 کی زیادہ تر غلطیاں حساب کی نہیں، پڑھنے کی ہوتی ہیں۔"} },
+
+    { q:{en:"In 3,200 × 10 = 32,000, the digit 2 was in the hundreds box. Which box is it in now?",
+         ur:"3,200 × 10 = 32,000 میں ہندسہ 2 پہلے سو کے خانے میں تھا۔ اب کس خانے میں ہے؟"},
+      o:[{en:"Tens", ur:"دس"},{en:"Hundreds, it did not move", ur:"سو، وہ ہلا ہی نہیں"},
+         {en:"Thousands", ur:"ہزار"},{en:"Ten thousands", ur:"دس ہزار"}],
+      a:2,
+      f:{en:"Every digit moved exactly one box to the left, so the 2 went from hundreds to thousands. The zero at the end is just the empty units box being filled.",
+         ur:"ہر ہندسہ بالکل ایک خانہ بائیں گیا، تو 2 سو سے ہزار میں چلا گیا۔ آخر کا صفر صرف خالی اکائی کا خانہ بھرنے سے آیا ہے۔"} },
+
+    { q:{en:"6,000 became 6,00,000. What was it multiplied by?",
+         ur:"6,000 سے 6,00,000 بن گیا۔ کس سے ضرب دی گئی؟"},
+      o:[{en:"10", ur:"10"},{en:"100", ur:"100"},
+         {en:"1,000", ur:"1,000"},{en:"6", ur:"6"}],
+      a:1,
+      f:{en:"Count the boxes the 6 moved: thousands to lakhs is two boxes, and two boxes means times 100. Working backwards like this is the real test of whether you understood it.",
+         ur:"گنیں کہ 6 کتنے خانے سرکا: ہزار سے لاکھ تک دو خانے، اور دو خانے کا مطلب 100 سے ضرب۔ اس طرح الٹا سوچنا ہی اصل امتحان ہے کہ سمجھ آئی یا نہیں۔"} },
+
+    { q:{en:"What is 0.7 × 10?", ur:"0.7 × 10 کتنا ہوگا؟"},
+      o:[{en:"0.70", ur:"0.70"},{en:"7", ur:"7"},
+         {en:"0.07", ur:"0.07"},{en:"70", ur:"70"}],
+      a:1,
+      f:{en:"If you added a zero you got 0.70 — which is exactly the same as 0.7, so nothing happened. The 7 moves one box left, out of the tenths and into the units. This is why the zero rule is worth forgetting.",
+         ur:"اگر آپ نے صفر لگایا تو 0.70 بنا — جو بالکل وہی ہے جو 0.7 ہے، یعنی کچھ ہوا ہی نہیں۔ 7 ایک خانہ بائیں سرکتا ہے، دسویں سے اکائی میں۔ اسی لیے صفر والا قاعدہ بھول جانا بہتر ہے۔"} },
+
+    { q:{en:"Without working it out exactly: is 8,000 × 100 more or less than ten lakh?",
+         ur:"بغیر پورا حساب کیے: 8,000 × 100 دس لاکھ سے زیادہ ہے یا کم؟"},
+      o:[{en:"Less than ten lakh", ur:"دس لاکھ سے کم"},
+         {en:"More than ten lakh", ur:"دس لاکھ سے زیادہ"},
+         {en:"Exactly ten lakh", ur:"بالکل دس لاکھ"},
+         {en:"You cannot tell without working it out", ur:"حساب کیے بغیر بتایا ہی نہیں جا سکتا"}],
+      a:0,
+      f:{en:"Count the boxes: 8,000 moves two boxes left and becomes 8,00,000 — eight lakh, which is less than ten lakh. Estimating first tells you roughly where the answer should land, so you notice straight away if your working goes wrong.",
+         ur:"خانے گنیں: 8,000 دو خانے بائیں جا کر 8,00,000 بنتا ہے — آٹھ لاکھ، جو دس لاکھ سے کم ہے۔ پہلے اندازہ لگانے سے پتا چل جاتا ہے کہ جواب کہاں کے آس پاس ہونا چاہیے، تو حساب غلط ہو تو فوراً پکڑا جاتا ہے۔"} },
+
+    { q:{en:"A school has 1,200 children. Each pays a fee of 1,000 rupees. What is the total, and in what unit?",
+         ur:"ایک اسکول میں 1,200 بچے ہیں۔ ہر بچے کی فیس 1,000 روپے ہے۔ کل کتنا بنے گا، اور کس چیز میں؟"},
+      o:[{en:"12,00,000 children", ur:"12,00,000 بچے"},
+         {en:"12,00,000 rupees", ur:"12,00,000 روپے"},
+         {en:"1,200 rupees", ur:"1,200 روپے"},
+         {en:"12,000 rupees", ur:"12,000 روپے"}],
+      a:1,
+      f:{en:"Rupees per child times children gives rupees, never children. Always check what the answer is counting — a number with the wrong unit is a wrong answer.",
+         ur:"فی بچہ روپے کو بچوں سے ضرب دیں تو روپے ملتے ہیں، بچے نہیں۔ ہمیشہ دیکھیں کہ جواب کس چیز کی گنتی ہے — غلط اکائی والا عدد غلط جواب ہے۔"} }
+  ];
+
+  function $(id){ return document.getElementById(id); }
+  function t(o){ return o[lang]; }
+
+  var LRI = "\u2066", PDI = "\u2069";
+  var LATIN_RUN = /[A-Za-z0-9][A-Za-z0-9 .,+()\/@_-]*[A-Za-z0-9]|[A-Za-z0-9]/g;
+  function isolate(s){ return s.replace(LATIN_RUN, function(m){ return LRI + m + PDI; }); }
+
+  function setText(el, str){
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+
+  var NS = "http://www.w3.org/2000/svg";
+  function mk(tag, a){
+    var e = document.createElementNS(NS, tag);
+    for (var k in a) e.setAttribute(k, a[k]);
+    return e;
+  }
+
+  /* ---------- number handling ---------- */
+  function digitsOf(val){
+    var ip = Math.floor(val / 100);
+    var fr = val % 100;
+    var istr = String(ip);
+    while (istr.length < 7) istr = "0" + istr;
+    var fstr = String(fr);
+    while (fstr.length < 2) fstr = "0" + fstr;
+    var out = (istr + fstr).split("");
+
+    // hide leading zeros, but always keep the units box
+    var firstSig = 0;
+    while (firstSig < 6 && out[firstSig] === "0") { out[firstSig] = ""; firstSig++; }
+    // hide trailing decimal zeros
+    if (out[8] === "0") out[8] = "";
+    if (out[7] === "0" && out[8] === "") out[7] = "";
+    return out;
+  }
+
+  function group(val){
+    var ip = Math.floor(val / 100), fr = val % 100;
+    var s = String(ip), g;
+    if (intl){
+      g = s.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    } else {
+      if (s.length > 3){
+        var last3 = s.slice(-3), rest = s.slice(0, -3);
+        rest = rest.replace(/\B(?=(\d{2})+(?!\d))/g, ",");
+        g = rest + "," + last3;
+      } else g = s;
+    }
+    var f = String(fr);
+    while (f.length < 2) f = "0" + f;
+    f = f.replace(/0+$/, "");
+    return f ? g + "." + f : g;
+  }
+
+  // read aloud as digits plus place names — how people actually say big numbers
+  function saidAs(val){
+    var ip = Math.floor(val / 100), fr = val % 100;
+    var parts = [];
+    var lakhWord = { en:"lakh", ur:"لاکھ" }, thouWord = { en:"thousand", ur:"ہزار" };
+    if (intl){
+      var mil = Math.floor(ip / 1000000);
+      var th  = Math.floor((ip % 1000000) / 1000);
+      var rest = ip % 1000;
+      if (mil) parts.push(mil + " " + t({en:"million", ur:"ملین"}));
+      if (th)  parts.push(th + " " + t(thouWord));
+      if (rest) parts.push(String(rest));
+    } else {
+      var lk = Math.floor(ip / 100000);
+      var tz = Math.floor((ip % 100000) / 1000);
+      var r2 = ip % 1000;
+      if (lk) parts.push(lk + " " + t(lakhWord));
+      if (tz) parts.push(tz + " " + t(thouWord));
+      if (r2) parts.push(String(r2));
+    }
+    if (!parts.length && !fr) parts.push("0");
+    var s = parts.join(" ");
+    if (fr){
+      var f = String(fr); while (f.length < 2) f = "0" + f;
+      f = f.replace(/0+$/, "");
+      var unitName = (f.length === 1)
+        ? t({en:"tenths", ur:"دسویں حصے"})
+        : t({en:"hundredths", ur:"سویں حصے"});
+      s = (s ? s + " " + t({en:"and", ur:"اور"}) + " " : "") + f + " " + unitName;
+    }
+    return s;
+  }
+
+  /* ---------- the board ---------- */
+  var X0 = 14, CW = 36, YTOP = 52, CH = 56;
+
+  function drawBoard(){
+    var gl = $("labels"), gc = $("cells");
+    gl.innerHTML = ""; gc.innerHTML = "";
+    COLS.forEach(function(col, i){
+      var x = X0 + i * CW;
+      if (i === 7){
+        gc.appendChild(mk("circle", {cx:x - 2, cy:YTOP + CH - 4, r:3.4, fill:"var(--ink)"}));
+      }
+      gc.appendChild(mk("rect", {x:x + 2, y:YTOP, width:CW - 4, height:CH, rx:7,
+                                 fill:"var(--cell)", stroke:"var(--cell-line)", "stroke-width":2}));
+      gc.appendChild(mk("rect", {x:x + 2, y:YTOP, width:CW - 4, height:6, rx:3,
+                                 fill:col.c, opacity:.85}));
+      var name = t(intl ? col.intl : col.lakh);
+      var words = name.split(" ");
+      words.forEach(function(w, k){
+        var tx = mk("text", {x:x + CW/2, y:26 + k*12, "text-anchor":"middle",
+                             "font-size":"9.5", fill:"var(--ink-soft)",
+                             "font-family": lang === "ur" ? "Noto Nastaliq Urdu, serif"
+                                                          : "Baloo Bhaijaan 2, sans-serif"});
+        tx.textContent = w;
+        gl.appendChild(tx);
+      });
+    });
+  }
+
+  function drawDigits(){
+    var g = $("digits");
+    g.innerHTML = "";
+    var d = digitsOf(v);
+    d.forEach(function(ch, i){
+      if (ch === "") return;
+      var isNew = flash.indexOf(i) >= 0;
+      var tx = mk("text", {x:X0 + i*CW + CW/2, y:YTOP + CH/2 + 10, "text-anchor":"middle",
+                           "font-size":"27", "font-weight":"800", fill:"var(--ink)",
+                           "font-family":"Baloo Bhaijaan 2, sans-serif"});
+      if (isNew){ tx.setAttribute("fill", "var(--dec)"); tx.setAttribute("class", "newcell"); }
+      tx.textContent = ch;
+      g.appendChild(tx);
+    });
+    var p = $("pointer"); p.innerHTML = "";
+    var lbl = mk("text", {x:180, y:172, "text-anchor":"middle", "font-size":"12",
+                          "font-weight":"800", fill:"var(--accent)",
+                          "font-family": lang === "ur" ? "Noto Nastaliq Urdu, serif"
+                                                       : "Baloo Bhaijaan 2, sans-serif"});
+    lbl.textContent = group(v);
+    p.appendChild(lbl);
+  }
+
+  /* ---------- operations ---------- */
+  function apply(mult, shift){
+    if (busy) return;
+    var nv = mult ? v * shift : v / shift;
+    if (mult && nv > MAXV){ warn(T.tooBig); return; }
+    if (!mult && (v % shift !== 0)){ warn(T.tooSmall); return; }
+
+    busy = true;
+    var steps = Math.round(Math.log(shift) / Math.log(10));
+    var dir = mult ? -1 : 1;                  // multiply moves the digits left
+    var g = $("digits");
+    g.classList.remove("instant");
+    g.style.transform = "translateX(" + (dir * steps * CW) + "px)";
+
+    setTimeout(function(){
+      var before = digitsOf(v);
+      v = nv;
+      var after = digitsOf(v);
+      flash = [];
+      for (var i=0;i<9;i++){
+        if (after[i] === "0" && before[i] === "") flash.push(i);
+      }
+      lastOp = { mult:mult, steps:steps };
+      g.classList.add("instant");
+      g.style.transform = "translateX(0)";
+      busy = false;
+      render();
+    }, 460);
+  }
+
+  var warnMsg = null;
+  function warn(msg){
+    warnMsg = msg;
+    render();
+    setTimeout(function(){ warnMsg = null; render(); }, 2600);
+  }
+
+  /* ---------- controls ---------- */
+  [[true,10],[true,100],[true,1000],[false,10],[false,100],[false,1000]].forEach(function(p){
+    var b = document.createElement("button");
+    b.type = "button";
+    if (p[0]) b.className = "mul";
+    b.textContent = (p[0] ? "\u00d7" : "\u00f7") + p[1];
+    b.setAttribute("data-m", p[0] ? "1" : "0");
+    b.setAttribute("data-s", String(p[1]));
+    b.addEventListener("click", function(){ apply(p[0], p[1]); });
+    $("ops").appendChild(b);
+  });
+
+  STARTS.forEach(function(st, i){
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "nchip";
+    b.setAttribute("data-i", i);
+    b.textContent = st.label;
+    b.addEventListener("click", function(){
+      if (busy) return;
+      v = st.v; lastOp = null; flash = []; render();
+    });
+    $("chips").appendChild(b);
+  });
+
+  $("sysBtn").addEventListener("click", function(){
+    intl = !intl;
+    render();
+  });
+
+  /* ---------- render ---------- */
+  function render(){
+    drawBoard();
+    drawDigits();
+
+    $("sysBtn").setAttribute("aria-pressed", intl ? "true" : "false");
+    setText($("sysBtn"), intl ? t(T.sysIntl) : t(T.sysLakh));
+
+    Array.prototype.forEach.call($("chips").children, function(b, i){
+      b.setAttribute("aria-pressed", (v === STARTS[i].v) ? "true" : "false");
+    });
+    Array.prototype.forEach.call($("ops").children, function(b){
+      var m = b.getAttribute("data-m") === "1", s = +b.getAttribute("data-s");
+      b.disabled = m ? (v * s > MAXV) : (v % s !== 0);
+    });
+
+    setText($("valchip"), t(T.valLbl));
+    setText($("readnum"), group(v));
+    setText($("said"), saidAs(v));
+
+    var r = $("rule");
+    r.classList.toggle("warn", !!warnMsg);
+    if (warnMsg){
+      setText(r, t(warnMsg));
+    } else if (!lastOp){
+      setText(r, t(T.start));
+    } else {
+      var boxWord = (lastOp.steps === 1) ? t(T.box1) : t(T.boxN);
+      setText(r, t(T.moved).replace("{n}", String(lastOp.steps))
+                           .replace("{box}", boxWord)
+                           .replace("{dir}", lastOp.mult ? t(T.left) : t(T.right)));
+    }
+
+    $("whyLbl").textContent = t(T.whyLbl);
+    var why = T.whyStart;
+    if (v < 100) why = T.whyDec;                       // sitting on a decimal
+    else if (lastOp && !lastOp.mult) why = T.whyDiv;
+    else if (flash.length) why = T.whyZero;
+    else if (lastOp) why = T.whySys;
+    setText($("whyText"), t(why));
+  }
+
+  /* ---------- quiz ---------- */
+  function buildQuiz(){
+    var box = $("quizBox");
+    box.innerHTML = "";
+    QUIZ.forEach(function(item){
+      var wrap = document.createElement("div");
+      wrap.className = "q";
+      var q = document.createElement("p");
+      setText(q, t(item.q));
+      wrap.appendChild(q);
+      var fb = document.createElement("p");
+      fb.className = "fb";
+      item.o.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt" + (lang === "ur" ? " ur" : "");
+        b.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+        b.textContent = t(opt);
+        b.addEventListener("click", function(){
+          if (wrap.getAttribute("data-done") === "1") return;
+          wrap.setAttribute("data-done","1");
+          Array.prototype.forEach.call(wrap.querySelectorAll(".opt"), function(x, xi){
+            if (xi === item.a) x.classList.add("right");
+            else if (xi === oi) x.classList.add("wrong");
+          });
+          setText(fb, t(item.f));
+          fb.classList.add("show","fb");
+        });
+        wrap.appendChild(b);
+      });
+      wrap.appendChild(fb);
+      box.appendChild(wrap);
+    });
+  }
+
+  function applyLang(){
+    document.body.classList.toggle("urdu", lang === "ur");
+    var lb = $("langBtn");
+    lb.textContent = (lang === "en") ? "اردو" : "English";
+    lb.setAttribute("aria-pressed", lang === "ur" ? "true" : "false");
+    Array.prototype.forEach.call(document.querySelectorAll("[data-en]"), function(el){
+      setText(el, el.getAttribute(lang === "en" ? "data-en" : "data-ur"));
+    });
+    setText($("opsHead"), t(T.opsHead));
+    setText($("startHead"), t(T.startHead));
+    setText($("quizHead"), t(T.quiz));
+    buildQuiz();
+    render();
+  }
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en";
+    applyLang();
+  });
+
+  applyLang();
+})();
+</script>
+</body>
+</html>
