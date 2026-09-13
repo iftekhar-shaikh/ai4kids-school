@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fractions advanced — Different denominators | AI4Kids Class 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#ebe4f7;
+    --board-deep:#d9cef0;
+    --a:#5b4a8f;
+    --b:#c9702e;
+    --both:#7a5aa8;
+    --gold:#e8b23d;
+    --left:#c4453a;
+    --ok:#2e7d4f;
+    --ink:#1e2a36;
+    --ink-soft:#4a5a6b;
+    --paper:#faf8fc;
+    --line:#d4c8e8;
+    --accent:#5b4a8f;
+    --fire:#e85d4c;
+    --pizza:#e8a54b;
+    --slice:#d4543a;
+    --bar-a:#6b5b95;
+    --bar-b:#e07a3d;
+    --fs-cap:clamp(12px, 3.2vw, 13px);
+    --fs-xs:clamp(14px, 3.7vw, 15px);
+    --fs-sm:clamp(16px, 4.2vw, 17px);
+    --fs-md:clamp(17px, 4.6vw, 19px);
+    --fs-lg:clamp(20px, 5.4vw, 23px);
+    --fs-xl:clamp(27px, 7.4vw, 33px);
+    --lh:1.5;
+  }
+  body.urdu{
+    --fs-cap:clamp(13px, 3.5vw, 15px);
+    --fs-xs:clamp(15px, 4.1vw, 17px);
+    --fs-sm:clamp(17px, 4.7vw, 19px);
+    --fs-md:clamp(19px, 5.2vw, 21px);
+    --fs-lg:clamp(22px, 6vw, 25px);
+    --fs-xl:clamp(26px, 7vw, 31px);
+    --lh:2.1;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  .stars{display:flex;align-items:center;gap:6px;font-weight:800;font-size:var(--fs-xs);
+         background:#fff6e2;border:2px solid var(--gold);border-radius:999px;padding:7px 13px}
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+  .tabs{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
+  .tabs button{
+    flex:1 1 22%;min-width:72px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:10px 6px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:54px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .tabs button .badge{color:var(--gold)}
+  .story{
+    background:#f0eaf8;border:2px dashed var(--a);border-radius:16px;padding:13px 15px;
+    font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;margin-bottom:14px;
+  }
+  body.urdu .story{line-height:var(--lh)}
+  .story b{color:var(--ink)}
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:linear-gradient(180deg,var(--board) 0%,var(--board-deep) 100%);
+  }
+  .scene-pad{padding:16px;min-height:240px}
+  .readout{
+    margin-top:-18px;position:relative;z-index:2;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+  .statechip.ur{padding:2px 14px 7px}
+  .statechip.win{background:var(--ok)}
+  .statechip.miss{background:var(--left)}
+  .headline{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+  .headline.ur{line-height:1.95}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+  .hintbox{
+    margin-top:14px;border:2px solid var(--a);background:#f0eaf8;border-radius:14px;
+    padding:11px 14px;font-size:var(--fs-xs);color:var(--a);font-weight:700;line-height:1.55;
+    display:none;
+  }
+  .hintbox.show{display:block}
+  body.urdu .hintbox{line-height:var(--lh)}
+  .panel{margin-top:22px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .prog{margin:0 0 10px;font-size:var(--fs-xs);font-weight:700;color:var(--ink-soft)}
+  .btns{display:flex;gap:9px;margin-top:8px;flex-wrap:wrap}
+  .btns button{
+    border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);
+    font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:50px;
+    padding:8px 14px;flex:1;
+  }
+  .btns .go{background:var(--ink);color:var(--paper)}
+  .btns button:active{transform:scale(.97)}
+  .btns button:disabled{opacity:.4;cursor:default}
+  .frac{
+    display:inline-flex;flex-direction:column;align-items:center;justify-content:center;
+    font-weight:800;font-size:var(--fs-lg);line-height:1.1;vertical-align:middle;
+    min-width:36px;margin:0 4px;
+  }
+  .frac .num,.frac .den{padding:2px 6px}
+  .frac .line{width:100%;height:3px;background:var(--ink);border-radius:2px;margin:1px 0}
+  .frac-row{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin:8px 0}
+  .op{font-size:var(--fs-xl);font-weight:800;color:var(--a)}
+  .eq{font-size:var(--fs-xl);font-weight:800}
+  .fbar-wrap{margin:10px 0}
+  .fbar-lab{font-size:var(--fs-cap);font-weight:800;margin-bottom:4px;color:var(--ink-soft)}
+  .fbar{
+    display:flex;height:36px;border:2px solid var(--ink);border-radius:10px;overflow:hidden;
+    background:#fff;
+  }
+  .fbar i{
+    display:block;height:100%;border-right:1px solid rgba(30,42,54,.25);flex:1;
+    background:#fff;
+  }
+  .fbar i.on{background:var(--bar-a)}
+  .fbar.b i.on{background:var(--bar-b)}
+  .fbar i:last-child{border-right:none}
+  .pizza-row{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin:8px 0}
+  .pizza{
+    width:110px;height:110px;border-radius:50%;border:3px solid var(--ink);
+    background:conic-gradient(var(--slice) 0deg, var(--pizza) 0deg);
+    position:relative;box-shadow:inset 0 0 0 2px rgba(0,0,0,.06);
+  }
+  .pizza::after{
+    content:"";position:absolute;inset:42%;background:#fff;border-radius:50%;
+    border:2px solid var(--ink);
+  }
+  .choice-grid{display:flex;flex-direction:column;gap:8px}
+  .choice{
+    border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);
+    font:inherit;font-weight:800;font-size:var(--fs-sm);cursor:pointer;min-height:52px;
+    padding:10px 14px;text-align:left;width:100%;
+  }
+  .choice.ur{text-align:right;font-weight:400;line-height:var(--lh)}
+  .choice.picked{border-color:var(--gold);box-shadow:0 0 0 3px rgba(232,178,61,.35)}
+  .choice.right{border-color:var(--ok);background:#e8f2ed}
+  .choice.wrong{border-color:var(--left);background:#fbeae8}
+  .choice:disabled{cursor:default;opacity:.95}
+  .toggle-row{display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+  .toggle-row .chip{flex:1;text-align:center}
+  .area-grid{
+    display:grid;gap:2px;margin:10px auto;border:3px solid var(--ink);border-radius:12px;
+    overflow:hidden;max-width:220px;background:var(--ink);
+  }
+  .area-grid span{
+    background:#fff;aspect-ratio:1;display:flex;align-items:center;justify-content:center;
+    font-size:11px;font-weight:800;
+  }
+  .area-grid span.on{background:var(--both);color:#fff}
+  .kcf{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:10px 0}
+  .kcf .step{
+    border:2px dashed var(--a);border-radius:12px;padding:8px 12px;font-weight:800;
+    font-size:var(--fs-xs);background:#fff;min-width:72px;text-align:center;
+  }
+  .kcf .step.done{border-style:solid;border-color:var(--ok);background:#e8f2ed}
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .qhead{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+  .qhead h2{font-size:var(--fs-lg);font-weight:800;margin:0;flex:1}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:50px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+  .opt.wrong{border-color:var(--left);background:#fbeae8}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;
+      grid-template-columns:1fr 1fr;
+      grid-template-areas:
+        "bar   bar"
+        "head  head"
+        "tabs  tabs"
+        "story story"
+        "left  right"
+        "quiz  quiz"
+        "foot  foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+    .story{grid-area:story} .left{grid-area:left} .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+    .panel{margin-top:0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition-duration:.01ms !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 5</span>
+    <span class="stars" id="starBox">⭐ <span id="starCount">0</span></span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 id="title"></h1>
+  <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group">
+    <button type="button" id="tabEq" aria-pressed="true"></button>
+    <button type="button" id="tabAdd" aria-pressed="false"></button>
+    <button type="button" id="tabMul" aria-pressed="false"></button>
+  </div>
+
+  <p class="story" id="story"></p>
+
+  <div class="left">
+  <div class="scene">
+    <div class="scene-pad" id="scenePad"></div>
+  </div>
+  <div class="readout">
+    <span class="statechip" id="statechip"></span>
+    <p class="headline" id="headline"></p>
+    <p class="detail" id="detail"></p>
+    <p class="hintbox" id="hintbox"></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="panel">
+    <h2 id="ctlHead"></h2>
+    <p class="prog" id="prog"></p>
+    <div id="actionBox"></div>
+    <div class="btns">
+      <button type="button" class="go" id="nextBtn"></button>
+    </div>
+    <div class="btns">
+      <button type="button" id="hintBtn"></button>
+      <button type="button" id="resetBtn"></button>
+    </div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <div class="qhead">
+      <h2 id="quizHead"></h2>
+      <button type="button" class="chip" id="newQuiz"></button>
+    </div>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad bilingual AI school. Offline play · WhatsApp 0337 1468899"
+       data-ur="اے آئی فور کڈز — اسلام آباد۔ آف لائن کھیلو۔ واٹس ایپ 0337 1468899"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  function $(id){ return document.getElementById(id); }
+  function isolate(s){ return "\u2066" + s + "\u2069"; }
+  function setText(el, str){
+    if (!el) return;
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+  function setHtml(el, html){
+    if (!el) return;
+    el.innerHTML = html;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+  function t(o){ return (o && o[lang]) || (o && o.en) || ""; }
+
+  var lang = "en";
+  var mode = "eq";
+  var stars = 0;
+  var awarded = {};
+  var doneModes = {eq:false, add:false, mul:false};
+
+  var T = {
+    title:{en:"Fractions advanced", ur:"کسر — اعلیٰ"},
+    sub:{en:"Different denominators · multiply & divide — SNC Class 5 / FBISE",
+         ur:"مختلف مخارج · ضرب و تقسیم — جماعت ۵ / ایف بی آئی ایس ای"},
+    tabEq:{en:"Same vs different", ur:"ایک جیسا بمقابلہ مختلف"},
+    tabAdd:{en:"Add / subtract", ur:"جمع / تفریق"},
+    tabMul:{en:"Multiply / divide", ur:"ضرب / تقسیم"},
+    storyEq:{en:"Same denominator → compare tops. Different → make <b>equivalent</b> first (multiply top & bottom by the same number).",
+             ur:"ایک جیسا مخرج → اوپر والے دیکھو۔ مختلف → پہلے <b>مساوی کسر</b> بناؤ (اوپر اور نیچے ایک ہی عدد سے ضرب)۔"},
+    storyAdd:{en:"Unlike denominators: find a <b>common denominator</b>, rewrite both, then add or subtract. Watch the pizza & bars!",
+              ur:"مختلف مخارج: <b>مشترک مخرج</b> ڈھونڈو، دونوں بدل کر لکھو، پھر جمع یا تفریق۔ پیزا اور بار دیکھو!"},
+    storyMul:{en:"Multiply: tops × tops, bottoms × bottoms (area model). Divide: <b>Keep · Change · Flip</b> then multiply.",
+              ur:"ضرب: اوپر × اوپر، نیچے × نیچے (رقبہ ماڈل)۔ تقسیم: <b>رکھو · بدلاؤ · الٹا</b> پھر ضرب۔"},
+    ctl:{en:"Your turn", ur:"تمہاری باری"},
+    next:{en:"Next", ur:"اگلا"},
+    hint:{en:"Hint", ur:"اشارہ"},
+    reset:{en:"Reset", ur:"ری سیٹ"},
+    quiz:{en:"Check yourself", ur:"اپنا امتحان"},
+    newQuiz:{en:"New quiz", ur:"نیا کوئز"},
+    nice:{en:"Shabash!", ur:"شاباش!"},
+    oops:{en:"Try again", ur:"دوبارہ کوشش"},
+    tipEq:{en:"Tip: 1/2 = 2/4 = 3/6 — multiply numerator and denominator by the same number.",
+           ur:"نکتہ: ۱/۲ = ۲/۴ = ۳/۶ — صورت اور مخرج کو ایک ہی عدد سے ضرب دو۔"},
+    tipAdd:{en:"Tip: for 1/2 + 1/3, common denominator is 6 → 3/6 + 2/6 = 5/6.",
+            ur:"نکتہ: ۱/۲ + ۱/۳ کے لیے مشترک مخرج ۶ → ۳/۶ + ۲/۶ = ۵/۶۔"},
+    tipMul:{en:"Tip: 2/3 × 1/4 = 2/12 = 1/6. For ÷ flip the second fraction.",
+            ur:"نکتہ: ۲/۳ × ۱/۴ = ۲/۱۲ = ۱/۶۔ تقسیم میں دوسری کسر الٹی کرو۔"},
+    pickEq:{en:"Which pair is equivalent?", ur:"کون سی جوڑی مساوی ہے؟"},
+    pickCmp:{en:"Which fraction is larger?", ur:"کون سی کسر بڑی ہے؟"},
+    pickCommon:{en:"Pick the common denominator", ur:"مشترک مخرج چنو"},
+    pickSum:{en:"What is the answer?", ur:"جواب کیا ہے؟"},
+    pickMul:{en:"What is the product?", ur:"حاصل ضرب کیا ہے؟"},
+    pickDiv:{en:"What is the quotient? (Keep·Change·Flip)", ur:"خارج قسمت کیا ہے؟ (رکھو·بدلاؤ·الٹا)"},
+    modeMul:{en:"Multiply ×", ur:"ضرب ×"},
+    modeDiv:{en:"Divide ÷", ur:"تقسیم ÷"},
+    keep:{en:"Keep", ur:"رکھو"},
+    change:{en:"Change ÷ to ×", ur:"÷ کو × میں بدلاؤ"},
+    flip:{en:"Flip 2nd", ur:"دوسری الٹی"},
+    progEq:{en:"Rounds", ur:"دور"},
+    progAdd:{en:"Problems", ur:"مسائل"},
+    progMul:{en:"Problems", ur:"مسائل"},
+    equal:{en:"Equal / equivalent", ur:"برابر / مساوی"},
+    bigger:{en:"Larger", ur:"بڑی"},
+    sameDen:{en:"Same denominator", ur:"ایک جیسا مخرج"},
+    diffDen:{en:"Different denominators", ur:"مختلف مخارج"}
+  };
+
+  /* ---------- data ---------- */
+  var EQ_ROUNDS = [
+    {kind:"equiv", a:[1,2], b:[2,4], opts:[[1,3],[3,6],[2,5],[1,4]], ans:1,
+     why:{en:"1/2 ×2/2 = 2/4, and 1/2 ×3/3 = 3/6.", ur:"۱/۲ ×۲/۲ = ۲/۴، اور ۱/۲ ×۳/۳ = ۳/۶۔"}},
+    {kind:"equiv", a:[2,3], b:[4,6], opts:[[3,5],[4,6],[2,5],[1,2]], ans:1,
+     why:{en:"2/3 ×2/2 = 4/6.", ur:"۲/۳ ×۲/۲ = ۴/۶۔"}},
+    {kind:"cmp", a:[2,5], b:[3,5], opts:"b",
+     why:{en:"Same denominator: compare numerators — 3 > 2.", ur:"ایک جیسا مخرج: صورت دیکھو — ۳ > ۲۔"}},
+    {kind:"cmp", a:[1,2], b:[1,3], opts:"a",
+     why:{en:"Different denominators: 1/2 = 3/6 > 1/3 = 2/6.", ur:"مختلف مخارج: ۱/۲ = ۳/۶ > ۱/۳ = ۲/۶۔"}},
+    {kind:"equiv", a:[3,4], b:[6,8], opts:[[5,8],[6,8],[3,5],[2,3]], ans:1,
+     why:{en:"3/4 ×2/2 = 6/8.", ur:"۳/۴ ×۲/۲ = ۶/۸۔"}},
+    {kind:"cmp", a:[3,8], b:[1,2], opts:"b",
+     why:{en:"1/2 = 4/8 > 3/8.", ur:"۱/۲ = ۴/۸ > ۳/۸۔"}}
+  ];
+
+  var ADD_ROUNDS = [
+    {op:"+", a:[1,2], b:[1,3], common:6, rewritten:[[3,6],[2,6]], ans:[5,6],
+     commons:[4,5,6,12]},
+    {op:"+", a:[1,4], b:[1,2], common:4, rewritten:[[1,4],[2,4]], ans:[3,4],
+     commons:[2,3,4,8]},
+    {op:"-", a:[3,4], b:[1,2], common:4, rewritten:[[3,4],[2,4]], ans:[1,4],
+     commons:[2,4,6,8]},
+    {op:"+", a:[2,5], b:[1,10], common:10, rewritten:[[4,10],[1,10]], ans:[5,10],
+     commons:[5,10,15,20]},
+    {op:"-", a:[5,6], b:[1,3], common:6, rewritten:[[5,6],[2,6]], ans:[3,6],
+     commons:[3,6,9,12]}
+  ];
+
+  var MUL_ROUNDS = [
+    {op:"×", a:[1,2], b:[1,3], ans:[1,6]},
+    {op:"×", a:[2,3], b:[1,4], ans:[2,12]},
+    {op:"×", a:[3,4], b:[2,5], ans:[6,20]},
+    {op:"÷", a:[1,2], b:[1,4], ans:[4,2], flip:[4,1]},
+    {op:"÷", a:[2,3], b:[1,3], ans:[6,3], flip:[3,1]},
+    {op:"÷", a:[3,4], b:[1,2], ans:[6,4], flip:[2,1]},
+    {op:"×", a:[1,3], b:[3,5], ans:[3,15]},
+    {op:"÷", a:[1,2], b:[1,3], ans:[3,2], flip:[3,1]}
+  ];
+
+  var QUIZ = [
+    {q:{en:"1/2 and 2/4 are…", ur:"۱/۲ اور ۲/۴ ہیں…"},
+     opts:[{en:"Different values", ur:"مختلف قیمتیں"},{en:"Equivalent fractions", ur:"مساوی کسر"},{en:"Improper only", ur:"صرف غیر مختلط"},{en:"Not fractions", ur:"کسر نہیں"}], a:1},
+    {q:{en:"To add 1/2 + 1/3 you first need…", ur:"۱/۲ + ۱/۳ جمع کرنے سے پہلے چاہیے…"},
+     opts:[{en:"A common denominator (6)", ur:"مشترک مخرج (۶)"},{en:"To multiply only tops", ur:"صرف اوپر ضرب"},{en:"To ignore bottoms", ur:"نیچے نظر انداز"},{en:"A calculator only", ur:"صرف کیلکولیٹر"}], a:0},
+    {q:{en:"1/2 + 1/3 = ?", ur:"۱/۲ + ۱/۳ = ؟"},
+     opts:[{en:"2/5", ur:"۲/۵"},{en:"5/6", ur:"۵/۶"},{en:"1/6", ur:"۱/۶"},{en:"2/6", ur:"۲/۶"}], a:1},
+    {q:{en:"2/3 × 1/4 = ?", ur:"۲/۳ × ۱/۴ = ؟"},
+     opts:[{en:"2/7", ur:"۲/۷"},{en:"3/8", ur:"۳/۸"},{en:"2/12", ur:"۲/۱۲"},{en:"8/3", ur:"۸/۳"}], a:2},
+    {q:{en:"To divide fractions: Keep · Change · Flip means…", ur:"کسر تقسیم: رکھو · بدلاؤ · الٹا یعنی…"},
+     opts:[{en:"Delete both fractions", ur:"دونوں کسر مٹاؤ"},
+           {en:"Keep 1st, change ÷ to ×, flip 2nd, then multiply", ur:"پہلی رکھو، ÷ کو ×، دوسری الٹی، پھر ضرب"},
+           {en:"Only flip the first", ur:"صرف پہلی الٹی"},
+           {en:"Add denominators", ur:"مخارج جمع کرو"}], a:1}
+  ];
+
+  var eq = {idx:0, answered:false, correct:0, step:0};
+  var add = {idx:0, step:0, answered:false, correct:0}; /* 0=pick common, 1=pick answer */
+  var mul = {idx:0, answered:false, correct:0, kcf:0}; /* kcf 0..3 for divide */
+  var quizSet = [];
+
+  function award(key, n){
+    if (awarded[key]) return;
+    awarded[key] = true;
+    stars += (n || 1);
+    $("starCount").textContent = String(stars);
+  }
+
+  function gcd(a,b){ a=Math.abs(a); b=Math.abs(b); while(b){ var t=a%b; a=b; b=t; } return a||1; }
+  function simp(n,d){ var g=gcd(n,d); return [n/g, d/g]; }
+  function fracEq(a,b){ return a[0]*b[1] === a[1]*b[0]; }
+  function fracStr(f){ return f[0] + "/" + f[1]; }
+
+  function fracHtml(f, cls){
+    return '<span class="frac'+(cls?" "+cls:"")+'"><span class="num">'+f[0]+'</span><span class="line"></span><span class="den">'+f[1]+'</span></span>';
+  }
+
+  function barHtml(f, which){
+    var n=f[0], d=f[1], cells="", i;
+    for (i=0;i<d;i++) cells += '<i class="'+(i<n?"on":"")+'"></i>';
+    return '<div class="fbar-wrap"><div class="fbar-lab">'+fracStr(f)+'</div><div class="fbar '+(which||"")+'">'+cells+'</div></div>';
+  }
+
+  function pizzaHtml(f){
+    var deg = (f[0]/f[1])*360;
+    return '<div class="pizza" style="background:conic-gradient(var(--slice) 0deg '+deg+'deg, var(--pizza) '+deg+'deg 360deg)" title="'+fracStr(f)+'"></div>';
+  }
+
+  function shuffle(arr){
+    var a = arr.slice(), i, j, tmp;
+    for (i = a.length - 1; i > 0; i--){
+      j = Math.floor(Math.random() * (i + 1));
+      tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  function storyHtml(){
+    var s = mode === "eq" ? T.storyEq : mode === "add" ? T.storyAdd : T.storyMul;
+    return t(s);
+  }
+
+  /* ---------- EQ mode ---------- */
+  function renderEq(){
+    var r = EQ_ROUNDS[eq.idx % EQ_ROUNDS.length];
+    var pad = $("scenePad");
+    pad.innerHTML = "";
+    var row = document.createElement("div");
+    row.className = "frac-row";
+    row.innerHTML = fracHtml(r.a) + '<span class="op">'+(r.kind==="cmp"?"?":"=") +'</span>' + fracHtml(r.b);
+    pad.appendChild(row);
+    var bars = document.createElement("div");
+    bars.innerHTML = barHtml(r.a,"") + barHtml(r.b,"b");
+    pad.appendChild(bars);
+
+    var chip = $("statechip");
+    chip.className = "statechip" + (eq.answered ? (eq.lastOk?" win":" miss") : "");
+    setText(chip, r.kind === "equiv" ? t(T.equal) : t(T.diffDen));
+
+    setText($("headline"), r.kind === "equiv" ? t(T.pickEq) : t(T.pickCmp));
+    setText($("detail"), eq.answered && r.why ? t(r.why) : (r.a[1]===r.b[1] ? t(T.sameDen) : t(T.diffDen)));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+    var grid = document.createElement("div");
+    grid.className = "choice-grid";
+
+    if (r.kind === "equiv"){
+      r.opts.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "choice";
+        b.innerHTML = fracHtml(r.a) + ' = ' + fracHtml(opt);
+        if (eq.answered){
+          b.disabled = true;
+          if (oi === r.ans) b.classList.add("right");
+          else if (eq.picked === oi) b.classList.add("wrong");
+        }
+        b.addEventListener("click", function(){
+          if (eq.answered) return;
+          eq.answered = true;
+          eq.picked = oi;
+          eq.lastOk = (oi === r.ans);
+          if (eq.lastOk){
+            eq.correct++;
+            award("eq-"+eq.idx, 2);
+            if (eq.correct >= 3) doneModes.eq = true;
+          }
+          renderAll();
+        });
+        grid.appendChild(b);
+      });
+    } else {
+      [["a", r.a], ["b", r.b]].forEach(function(pair){
+        var key = pair[0], f = pair[1];
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "choice";
+        b.innerHTML = t(T.bigger) + ": " + fracHtml(f);
+        if (eq.answered){
+          b.disabled = true;
+          if (key === r.opts) b.classList.add("right");
+          else if (eq.picked === key) b.classList.add("wrong");
+        }
+        b.addEventListener("click", function(){
+          if (eq.answered) return;
+          eq.answered = true;
+          eq.picked = key;
+          eq.lastOk = (key === r.opts);
+          if (eq.lastOk){
+            eq.correct++;
+            award("eq-"+eq.idx, 2);
+            if (eq.correct >= 3) doneModes.eq = true;
+          }
+          renderAll();
+        });
+        grid.appendChild(b);
+      });
+    }
+    box.appendChild(grid);
+    setText($("prog"), t(T.progEq) + ": " + (eq.idx+1) + "/" + EQ_ROUNDS.length +
+      (doneModes.eq ? " ★" : ""));
+  }
+
+  /* ---------- ADD mode ---------- */
+  function renderAdd(){
+    var r = ADD_ROUNDS[add.idx % ADD_ROUNDS.length];
+    var pad = $("scenePad");
+    pad.innerHTML = "";
+    var pizzas = document.createElement("div");
+    pizzas.className = "pizza-row";
+    pizzas.innerHTML = pizzaHtml(r.a) + '<span class="op">' + r.op + '</span>' + pizzaHtml(r.b);
+    pad.appendChild(pizzas);
+    var row = document.createElement("div");
+    row.className = "frac-row";
+    row.innerHTML = fracHtml(r.a) + '<span class="op">'+r.op+'</span>' + fracHtml(r.b) +
+      (add.step >= 1 ? '<span class="eq">=</span>' + fracHtml(r.rewritten[0]) + '<span class="op">'+r.op+'</span>' + fracHtml(r.rewritten[1]) : "") +
+      (add.step >= 2 && add.answered ? '<span class="eq">=</span>' + fracHtml(r.ans) : "");
+    pad.appendChild(row);
+    if (add.step >= 1){
+      var bars = document.createElement("div");
+      bars.innerHTML = barHtml(r.rewritten[0],"") + barHtml(r.rewritten[1],"b");
+      pad.appendChild(bars);
+    }
+
+    var chip = $("statechip");
+    chip.className = "statechip" + (add.answered ? (add.lastOk?" win":" miss") : "");
+    setText(chip, add.step === 0 ? t(T.pickCommon) : t(T.pickSum));
+
+    setText($("headline"), add.step === 0 ? t(T.pickCommon) : t(T.pickSum));
+    setText($("detail"), add.answered && add.lastOk
+      ? (lang==="en"
+          ? ("Common den "+r.common+": "+fracStr(r.rewritten[0])+" "+r.op+" "+fracStr(r.rewritten[1])+" = "+fracStr(r.ans))
+          : ("مشترک مخرج "+r.common+": "+fracStr(r.rewritten[0])+" "+r.op+" "+fracStr(r.rewritten[1])+" = "+fracStr(r.ans)))
+      : (lang==="en" ? "Unlike denominators — make them match first." : "مخارج مختلف — پہلے برابر کرو۔"));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+    var grid = document.createElement("div");
+    grid.className = "choice-grid";
+
+    if (add.step === 0){
+      r.commons.forEach(function(c){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "choice";
+        b.textContent = String(c);
+        b.addEventListener("click", function(){
+          if (add.step !== 0) return;
+          if (c === r.common){
+            add.step = 1;
+            award("add-common-"+add.idx, 1);
+            renderAll();
+          } else {
+            b.classList.add("wrong");
+            setTimeout(function(){ b.classList.remove("wrong"); }, 500);
+          }
+        });
+        grid.appendChild(b);
+      });
+    } else {
+      var distractors = [
+        r.ans,
+        [r.a[0]+r.b[0], r.a[1]+r.b[1]],
+        [r.ans[0]+1, r.ans[1]],
+        simp(r.a[0]*r.b[0], r.a[1]*r.b[1])
+      ];
+      var seen = {}, opts = [];
+      distractors.forEach(function(f){
+        var k = fracStr(f);
+        if (!seen[k] && f[1] > 0){ seen[k]=1; opts.push(f); }
+      });
+      while (opts.length < 4){
+        var fake = [r.ans[0], r.ans[1]+opts.length];
+        if (!seen[fracStr(fake)]){ seen[fracStr(fake)]=1; opts.push(fake); }
+      }
+      opts = shuffle(opts).slice(0,4);
+      var ansIdx = 0;
+      opts.forEach(function(f,i){ if (fracEq(f, r.ans)) ansIdx = i; });
+
+      opts.forEach(function(f, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "choice";
+        b.innerHTML = fracHtml(f);
+        if (add.answered){
+          b.disabled = true;
+          if (fracEq(f, r.ans)) b.classList.add("right");
+          else if (add.picked === oi) b.classList.add("wrong");
+        }
+        b.addEventListener("click", function(){
+          if (add.answered) return;
+          add.answered = true;
+          add.picked = oi;
+          add.lastOk = fracEq(f, r.ans);
+          add.step = 2;
+          if (add.lastOk){
+            add.correct++;
+            award("add-"+add.idx, 2);
+            if (add.correct >= 3) doneModes.add = true;
+          }
+          renderAll();
+        });
+        grid.appendChild(b);
+      });
+    }
+    box.appendChild(grid);
+    setText($("prog"), t(T.progAdd) + ": " + (add.idx+1) + "/" + ADD_ROUNDS.length +
+      (doneModes.add ? " ★" : ""));
+  }
+
+  /* ---------- MUL / DIV mode ---------- */
+  function renderMul(){
+    var r = MUL_ROUNDS[mul.idx % MUL_ROUNDS.length];
+    var isDiv = r.op === "÷";
+    var pad = $("scenePad");
+    pad.innerHTML = "";
+
+    var row = document.createElement("div");
+    row.className = "frac-row";
+    row.innerHTML = fracHtml(r.a) + '<span class="op">'+r.op+'</span>' + fracHtml(r.b);
+    pad.appendChild(row);
+
+    if (!isDiv){
+      var rows = r.a[1], cols = r.b[1], onR = r.a[0], onC = r.b[0];
+      var grid = document.createElement("div");
+      grid.className = "area-grid";
+      grid.style.gridTemplateColumns = "repeat("+cols+", 1fr)";
+      var i, j;
+      for (i=0;i<rows;i++){
+        for (j=0;j<cols;j++){
+          var cell = document.createElement("span");
+          if (i < onR && j < onC) cell.className = "on";
+          grid.appendChild(cell);
+        }
+      }
+      pad.appendChild(grid);
+      var cap = document.createElement("p");
+      cap.style.textAlign = "center";
+      cap.style.fontWeight = "800";
+      cap.style.fontSize = "var(--fs-xs)";
+      cap.textContent = (lang==="en")
+        ? ("Shaded: "+r.a[0]+"×"+r.b[0]+" / "+r.a[1]+"×"+r.b[1]+" = "+fracStr(r.ans))
+        : ("رنگین: "+r.a[0]+"×"+r.b[0]+" / "+r.a[1]+"×"+r.b[1]+" = "+fracStr(r.ans));
+      if (mul.answered && mul.lastOk) pad.appendChild(cap);
+    } else {
+      var kcf = document.createElement("div");
+      kcf.className = "kcf";
+      var steps = [
+        {lab:t(T.keep), done: mul.kcf >= 1},
+        {lab:t(T.change), done: mul.kcf >= 2},
+        {lab:t(T.flip), done: mul.kcf >= 3}
+      ];
+      steps.forEach(function(s){
+        var d = document.createElement("div");
+        d.className = "step" + (s.done ? " done" : "");
+        d.textContent = s.lab;
+        kcf.appendChild(d);
+      });
+      pad.appendChild(kcf);
+      if (mul.kcf >= 3){
+        var row2 = document.createElement("div");
+        row2.className = "frac-row";
+        row2.innerHTML = fracHtml(r.a) + '<span class="op">×</span>' + fracHtml(r.flip) +
+          (mul.answered ? '<span class="eq">=</span>' + fracHtml(r.ans) : "");
+        pad.appendChild(row2);
+      }
+    }
+
+    var chip = $("statechip");
+    chip.className = "statechip" + (mul.answered ? (mul.lastOk?" win":" miss") : "");
+    setText(chip, isDiv ? t(T.modeDiv) : t(T.modeMul));
+
+    setText($("headline"), isDiv ? t(T.pickDiv) : t(T.pickMul));
+    setText($("detail"), isDiv
+      ? (lang==="en" ? "Tap Keep → Change → Flip, then pick the answer." : "رکھو → بدلاؤ → الٹا ٹیپ کرو، پھر جواب چنو۔")
+      : (lang==="en" ? "Area model: count shaded cells over total cells." : "رقبہ ماڈل: رنگین خانے کل خانوں پر۔"));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+
+    if (isDiv && mul.kcf < 3){
+      var go = document.createElement("button");
+      go.type = "button";
+      go.className = "choice";
+      go.textContent = mul.kcf === 0 ? t(T.keep) : mul.kcf === 1 ? t(T.change) : t(T.flip);
+      if (lang === "ur"){ go.classList.add("ur"); go.setAttribute("dir","rtl"); }
+      go.addEventListener("click", function(){
+        mul.kcf++;
+        if (mul.kcf === 3) award("mul-kcf-"+mul.idx, 1);
+        renderAll();
+      });
+      box.appendChild(go);
+    } else {
+      var distractors = [r.ans, [r.a[0]*r.b[0], r.a[1]+r.b[1]], [r.a[0]+r.b[0], r.a[1]*r.b[1]], simp(r.ans[0], r.ans[1]+1)];
+      if (isDiv) distractors.push([r.a[0]*r.b[0], r.a[1]*r.b[1]]);
+      var seen = {}, opts = [];
+      distractors.forEach(function(f){
+        var s = simp(f[0], f[1]);
+        var k = fracStr(s);
+        if (!seen[k] && s[1] > 0){ seen[k]=1; opts.push(s); }
+      });
+      // also include unsimplified ans for multiply practice
+      if (!isDiv && !seen[fracStr(r.ans)]){ opts.unshift(r.ans); seen[fracStr(r.ans)]=1; }
+      while (opts.length < 4){
+        var fake = simp(r.ans[0]+opts.length, r.ans[1]);
+        if (!seen[fracStr(fake)]){ seen[fracStr(fake)]=1; opts.push(fake); }
+      }
+      opts = shuffle(opts).slice(0,4);
+      // ensure ans present
+      var has = opts.some(function(f){ return fracEq(f, r.ans); });
+      if (!has) opts[0] = simp(r.ans[0], r.ans[1]);
+
+      var grid = document.createElement("div");
+      grid.className = "choice-grid";
+      opts.forEach(function(f, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "choice";
+        b.innerHTML = fracHtml(f);
+        if (mul.answered){
+          b.disabled = true;
+          if (fracEq(f, r.ans) || fracEq(f, simp(r.ans[0],r.ans[1]))) b.classList.add("right");
+          else if (mul.picked === oi) b.classList.add("wrong");
+        }
+        b.addEventListener("click", function(){
+          if (mul.answered) return;
+          mul.answered = true;
+          mul.picked = oi;
+          mul.lastOk = fracEq(f, r.ans) || fracEq(f, simp(r.ans[0], r.ans[1]));
+          if (mul.lastOk){
+            mul.correct++;
+            award("mul-"+mul.idx, 2);
+            if (mul.correct >= 3) doneModes.mul = true;
+          }
+          renderAll();
+        });
+        grid.appendChild(b);
+      });
+      box.appendChild(grid);
+    }
+    setText($("prog"), t(T.progMul) + ": " + (mul.idx+1) + "/" + MUL_ROUNDS.length +
+      (doneModes.mul ? " ★" : ""));
+  }
+
+  /* ---------- mode switch ---------- */
+  function setMode(m){
+    mode = m;
+    $("tabEq").setAttribute("aria-pressed", m==="eq"?"true":"false");
+    $("tabAdd").setAttribute("aria-pressed", m==="add"?"true":"false");
+    $("tabMul").setAttribute("aria-pressed", m==="mul"?"true":"false");
+    var badge = function(done){ return done ? ' <span class="badge">★</span>' : ""; };
+    $("tabEq").innerHTML = t(T.tabEq) + badge(doneModes.eq);
+    $("tabAdd").innerHTML = t(T.tabAdd) + badge(doneModes.add);
+    $("tabMul").innerHTML = t(T.tabMul) + badge(doneModes.mul);
+    if (lang === "ur"){
+      ["tabEq","tabAdd","tabMul"].forEach(function(id){
+        $(id).classList.add("ur"); $(id).setAttribute("dir","rtl");
+      });
+    } else {
+      ["tabEq","tabAdd","tabMul"].forEach(function(id){
+        $(id).classList.remove("ur"); $(id).setAttribute("dir","ltr");
+      });
+    }
+    setHtml($("story"), storyHtml());
+    renderAll();
+  }
+
+  function renderAll(){
+    if (mode === "eq") renderEq();
+    else if (mode === "add") renderAdd();
+    else renderMul();
+  }
+
+  function next(){
+    if (mode === "eq"){
+      eq.idx = (eq.idx + 1) % EQ_ROUNDS.length;
+      eq.answered = false; eq.picked = null; eq.lastOk = false;
+    } else if (mode === "add"){
+      add.idx = (add.idx + 1) % ADD_ROUNDS.length;
+      add.step = 0; add.answered = false; add.picked = null; add.lastOk = false;
+    } else {
+      mul.idx = (mul.idx + 1) % MUL_ROUNDS.length;
+      mul.answered = false; mul.picked = null; mul.lastOk = false; mul.kcf = 0;
+    }
+    renderAll();
+  }
+
+  function resetMode(){
+    if (mode === "eq"){
+      eq.answered = false; eq.picked = null; eq.lastOk = false;
+    } else if (mode === "add"){
+      add.step = 0; add.answered = false; add.picked = null; add.lastOk = false;
+    } else {
+      mul.answered = false; mul.picked = null; mul.lastOk = false; mul.kcf = 0;
+    }
+    renderAll();
+  }
+
+  function showHint(){
+    var hb = $("hintbox");
+    var msg = mode === "eq" ? t(T.tipEq) : mode === "add" ? t(T.tipAdd) : t(T.tipMul);
+    setText(hb, msg);
+    hb.classList.add("show");
+  }
+
+  /* ---------- quiz ---------- */
+  function pickQuiz(){ quizSet = shuffle(QUIZ).slice(0, 5); }
+
+  function renderQuiz(){
+    var box = $("quizBox");
+    box.innerHTML = "";
+    quizSet.forEach(function(item, qi){
+      var q = document.createElement("div");
+      q.className = "q";
+      var p = document.createElement("p");
+      setText(p, (qi+1) + ". " + t(item.q));
+      q.appendChild(p);
+      item.opts.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt" + (lang === "ur" ? " ur" : "");
+        b.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+        b.textContent = (lang === "ur") ? isolate(t(opt)) : t(opt);
+        b.addEventListener("click", function(){
+          if (b.parentNode.querySelector(".opt.right, .opt.wrong")) return;
+          var ok = (oi === item.a);
+          b.classList.add(ok ? "right" : "wrong");
+          if (!ok){
+            var correct = b.parentNode.querySelectorAll(".opt")[item.a];
+            if (correct) correct.classList.add("right");
+          } else {
+            award("quiz-" + qi, 1);
+          }
+          var fb = document.createElement("p");
+          fb.className = "fb show";
+          setText(fb, ok ? t(T.nice) : (lang==="en"?"Look at the green answer.":"سبز جواب دیکھو۔"));
+          q.appendChild(fb);
+        });
+        q.appendChild(b);
+      });
+      box.appendChild(q);
+    });
+  }
+
+  function applyLang(){
+    document.body.classList.toggle("urdu", lang === "ur");
+    document.documentElement.lang = (lang === "ur") ? "ur" : "en";
+    var lb = $("langBtn");
+    lb.textContent = (lang === "en") ? "اردو" : "English";
+    lb.setAttribute("aria-pressed", lang === "ur" ? "true" : "false");
+    setText($("title"), t(T.title));
+    setText($("subtitle"), t(T.sub));
+    setText($("ctlHead"), t(T.ctl));
+    setText($("quizHead"), t(T.quiz));
+    $("nextBtn").textContent = t(T.next);
+    $("hintBtn").textContent = t(T.hint);
+    $("resetBtn").textContent = t(T.reset);
+    $("newQuiz").textContent = t(T.newQuiz);
+    if (lang === "ur"){
+      ["nextBtn","hintBtn","resetBtn","newQuiz"].forEach(function(id){
+        $(id).classList.add("ur"); $(id).setAttribute("dir","rtl");
+      });
+    } else {
+      ["nextBtn","hintBtn","resetBtn","newQuiz"].forEach(function(id){
+        $(id).classList.remove("ur"); $(id).setAttribute("dir","ltr");
+      });
+    }
+    document.querySelectorAll("footer [data-en]").forEach(function(el){
+      setText(el, el.getAttribute(lang === "en" ? "data-en" : "data-ur"));
+    });
+    setMode(mode);
+    renderQuiz();
+  }
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en";
+    applyLang();
+  });
+  $("tabEq").addEventListener("click", function(){ setMode("eq"); });
+  $("tabAdd").addEventListener("click", function(){ setMode("add"); });
+  $("tabMul").addEventListener("click", function(){ setMode("mul"); });
+  $("nextBtn").addEventListener("click", next);
+  $("hintBtn").addEventListener("click", showHint);
+  $("resetBtn").addEventListener("click", resetMode);
+  $("newQuiz").addEventListener("click", function(){ pickQuiz(); renderQuiz(); });
+
+  /* ---------- speak (cancel → delay 80ms) ---------- */
+  function cleanSpeakText(s){
+    return String(s || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  }
+  function buildSpeakText(){
+    var bits = [];
+    bits.push(t(T.title));
+    bits.push(cleanSpeakText(storyHtml()));
+    bits.push(cleanSpeakText(($("headline") && $("headline").textContent) || ""));
+    bits.push(cleanSpeakText(($("detail") && $("detail").textContent) || ""));
+    bits.push(mode === "eq" ? t(T.tipEq) : mode === "add" ? t(T.tipAdd) : t(T.tipMul));
+    return bits.filter(Boolean).join(". ");
+  }
+  function pickVoice(voices, want){
+    var i, v, L;
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf(want) === 0) return v;
+    }
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf("en") === 0) return v;
+    }
+    return voices[0] || null;
+  }
+  var speakTimer = null;
+  function setSpeaking(on){
+    var btn = $("speakBtn");
+    if (!btn) return;
+    btn.setAttribute("aria-pressed", on ? "true" : "false");
+    btn.style.opacity = on ? "0.65" : "";
+  }
+  function doSpeak(text, asLang){
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.92;
+    u.lang = (asLang === "ur") ? "ur-PK" : "en-US";
+    var voices = window.speechSynthesis.getVoices() || [];
+    var voice = pickVoice(voices, asLang === "ur" ? "ur" : "en");
+    if (voice) u.voice = voice;
+    u.onstart = function(){ setSpeaking(true); };
+    u.onend = function(){ setSpeaking(false); };
+    u.onerror = function(){
+      setSpeaking(false);
+      if (asLang === "ur"){
+        var fallback = cleanSpeakText(
+          T.title.en + ". " + T.storyEq.en.replace(/<[^>]+>/g," ") + ". " + T.tipEq.en
+        );
+        var u2 = new SpeechSynthesisUtterance(fallback);
+        u2.lang = "en-US"; u2.rate = 0.92;
+        var v2 = pickVoice(window.speechSynthesis.getVoices() || [], "en");
+        if (v2) u2.voice = v2;
+        u2.onstart = function(){ setSpeaking(true); };
+        u2.onend = u2.onerror = function(){ setSpeaking(false); };
+        window.speechSynthesis.speak(u2);
+      }
+    };
+    window.speechSynthesis.speak(u);
+  }
+  if ("speechSynthesis" in window){
+    try { window.speechSynthesis.getVoices(); } catch (e0) {}
+    if (typeof window.speechSynthesis.addEventListener === "function"){
+      window.speechSynthesis.addEventListener("voiceschanged", function(){
+        try { window.speechSynthesis.getVoices(); } catch (e1) {}
+      });
+    }
+  } else {
+    var noBtn = $("speakBtn");
+    if (noBtn){
+      noBtn.disabled = true;
+      noBtn.title = "Voice not available on this device";
+    }
+  }
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      var text = buildSpeakText();
+      if (!text) return;
+      if (speakTimer){ clearTimeout(speakTimer); speakTimer = null; }
+      window.speechSynthesis.cancel();
+      setSpeaking(false);
+      var speakLang = lang;
+      speakTimer = setTimeout(function(){
+        speakTimer = null;
+        doSpeak(text, speakLang);
+      }, 80);
+    }catch(e){ setSpeaking(false); }
+  });
+
+  pickQuiz();
+  applyLang();
+})();
+</script>
+</body>
+</html>

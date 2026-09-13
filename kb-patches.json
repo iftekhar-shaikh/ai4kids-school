@@ -90,10 +90,10 @@
   },
   {
     "file": "kb/grade_5/math.json",
-    "match_title": "Decimals aur percentage",
+    "match_title": "Fractions advanced",
     "add": {
-      "interactive_file": "interactives/g5-decimals-percentage.html",
-      "interactive_label": "Khelo — Decimals aur percentage"
+      "interactive_file": "interactives/g5-fractions-advanced.html",
+      "interactive_label": "Khelo — Fractions advanced"
     }
   }
 ]
