@@ -1085,6 +1085,7 @@ def render_topic_interactive(subject_key, grade, topic_title):
             (4, "science", "Taqat aur harkat"): "interactives/g4-taqat-aur-harkat.html",
             (5, "ai", "Neural network"): "interactives/g5-neural-network.html",
             (5, "ai", "Prompt engineering"): "interactives/g5-prompt-engineering.html",
+            (5, "ai", "AI project"): "interactives/g5-ai-project.html",
             (5, "ai", "Computer vision"): "interactives/g5-computer-vision.html",
             (5, "ai", "Binary lab — jama/tafreeq"): "interactives/g5-binary-lab.html",
         }

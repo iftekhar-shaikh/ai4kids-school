@@ -340,7 +340,9 @@
             "explanation": "AI projects sab age ke logon ke liye banaaye ja sakte hain."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g5-ai-project.html",
+      "interactive_label": "Khelo — AI project / Idea se plan"
     },
     {
       "title": "Binary lab — jama/tafreeq",
