@@ -95,5 +95,13 @@
       "interactive_file": "interactives/g5-fractions-advanced.html",
       "interactive_label": "Khelo — Fractions advanced"
     }
+  },
+  {
+    "file": "kb/grade_5/math.json",
+    "match_title": "Geometry shapes",
+    "add": {
+      "interactive_file": "interactives/g5-geometry-shapes.html",
+      "interactive_label": "Khelo — Geometry shapes"
+    }
   }
 ]

@@ -283,7 +283,9 @@
             "explanation": "Yeh isosceles musallas hai kyunki iski do sides barabar hain."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g5-geometry-shapes.html",
+      "interactive_label": "Khelo — Geometry shapes"
     },
     {
       "title": "Perimeter aur area",
