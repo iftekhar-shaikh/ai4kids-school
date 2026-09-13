@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NLP — کمپیوٹر زبان کیسے سمجھتا ہے | AI4Kids</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#edeff5;
+    --board-deep:#dde1ea;
+    --tok:#3a5ba0;
+    --tok-deep:#26407a;
+    --num:#7a5aa8;
+    --good:#2e7d4f;
+    --bad:#c4453a;
+    --neutral:#8d96a3;
+    --hot:#d4701f;
+    --ink:#1f2933;
+    --ink-soft:#4a5661;
+    --paper:#fdfaf3;
+    --line:#ded5c4;
+    --accent:#26407a;
+
+    --fs-cap:clamp(12px, 3.2vw, 13px);
+    --fs-xs:clamp(14px, 3.7vw, 15px);
+    --fs-sm:clamp(16px, 4.2vw, 17px);
+    --fs-md:clamp(17px, 4.6vw, 19px);
+    --fs-lg:clamp(20px, 5.4vw, 23px);
+    --fs-xl:clamp(27px, 7.4vw, 33px);
+    --lh:1.5;
+  }
+  /* Urdu is set larger than Latin — Nastaliq reads smaller at the same size. */
+  body.urdu{
+    --fs-cap:clamp(13px, 3.5vw, 15px);
+    --fs-xs:clamp(15px, 4.1vw, 17px);
+    --fs-sm:clamp(17px, 4.7vw, 19px);
+    --fs-md:clamp(19px, 5.2vw, 21px);
+    --fs-lg:clamp(22px, 6vw, 25px);
+    --fs-xl:clamp(26px, 7vw, 31px);
+    --lh:2.1;
+  }
+
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--hot);outline-offset:2px}
+
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+
+  .tabs{display:flex;gap:7px;margin:0 0 14px}
+  .tabs button{
+    flex:1;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:9px 6px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:56px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+
+  /* the stage is plain HTML here, because words have to wrap like text */
+  .scene{
+    border-radius:22px;border:3px solid var(--ink);padding:16px 14px;
+    background:linear-gradient(180deg,var(--board) 0%,var(--board-deep) 100%);
+    min-height:190px;
+  }
+  .stageLbl{font-size:var(--fs-cap);font-weight:700;color:var(--ink-soft);margin:0 0 8px}
+  .sentence{font-size:var(--fs-md);font-weight:700;margin:0 0 14px;line-height:1.6}
+  .toks{display:flex;flex-wrap:wrap;gap:8px}
+  .tok{
+    background:#fff;border:2px solid var(--tok);border-radius:11px;
+    padding:7px 11px;text-align:center;min-width:52px;
+  }
+  .tok .w{display:block;font-size:var(--fs-xs);font-weight:800;color:var(--tok-deep)}
+  .tok .id{display:block;font-size:var(--fs-cap);font-weight:800;color:var(--num);margin-top:3px}
+  .tok.unk{border-color:var(--hot)} .tok.unk .id{color:var(--hot)}
+  .tok.pos{border-color:var(--good)} .tok.pos .id{color:var(--good)}
+  .tok.neg{border-color:var(--bad)}  .tok.neg .id{color:var(--bad)}
+  .tok.nul{border-color:var(--neutral)} .tok.nul .id{color:var(--neutral)}
+  .tok.next{border-style:dashed;border-color:var(--hot);background:#fdf3ea}
+
+  .bars{margin-top:12px}
+  .brow{display:flex;align-items:center;gap:9px;margin-bottom:7px;width:100%;
+        background:none;border:none;padding:3px 0;cursor:pointer;border-radius:8px}
+  .brow .w{flex:none;width:78px;text-align:right;font-size:var(--fs-cap);font-weight:800;color:var(--ink)}
+  .brow .track{flex:1;height:18px;background:#e2e6ee;border-radius:999px;overflow:hidden}
+  .brow .track i{display:block;height:100%;background:var(--tok);transition:width .4s ease}
+  .brow.top .track i{background:var(--hot)}
+  .brow .n{flex:none;width:62px;font-size:var(--fs-cap);font-weight:800;color:var(--ink-soft)}
+
+  .readout{
+    margin-top:14px;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+  .statechip.ur{padding:2px 14px 7px}
+  .statechip.good{background:var(--good)} .statechip.bad{background:var(--bad)}
+  .headline{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+  .headline.ur{line-height:1.95}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+
+  .why-note{
+    margin:12px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.55;
+    border-left:3px solid var(--accent);padding-left:11px;
+  }
+  .why-note b{color:var(--accent);font-weight:800}
+  body.urdu .why-note{
+    border-left:0;border-right:3px solid var(--accent);padding-left:0;padding-right:11px;
+    line-height:var(--lh);
+  }
+  .oops{
+    margin:12px 0 0;border:2px dashed var(--bad);border-radius:14px;padding:11px 13px;
+    font-size:var(--fs-xs);color:var(--bad);font-weight:700;line-height:1.55;display:none;
+  }
+  .oops.show{display:block}
+  body.urdu .oops{line-height:var(--lh)}
+
+  .panel{margin-top:22px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .schip{
+    border:2px solid var(--line);background:var(--paper);border-radius:14px;padding:9px 13px;
+    font:inherit;font-size:var(--fs-cap);font-weight:600;color:var(--ink);cursor:pointer;min-height:46px;
+    text-align:left;
+  }
+  .schip[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+  .btns{display:flex;gap:9px;margin-top:10px}
+  .btns button{
+    border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);
+    font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:50px;padding:0 14px;flex:1;
+  }
+  .btns .go{background:var(--ink);color:var(--paper)}
+
+  .vocab{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+  .vchip{
+    display:flex;align-items:baseline;gap:5px;
+    background:#f3f4f7;border:2px solid #e3e5ea;
+    border-radius:8px;padding:4px 8px;font-size:var(--fs-cap);font-weight:700;
+    opacity:.4;transition:opacity .25s ease,background .25s ease,border-color .25s ease;
+  }
+  .vchip .vw{color:var(--ink-soft)}
+  .vchip .vn{color:var(--ink-soft);font-weight:800}
+  .vchip.used{
+    opacity:1;border-color:var(--tok);background:#dfe6fa;
+    box-shadow:0 2px 0 rgba(38,64,122,.18);
+  }
+  .vchip.used .vw{color:var(--tok-deep)}
+  .vchip.used .vn{color:var(--num)}
+  .vchip.miss{
+    opacity:1;border-color:var(--hot);background:#fdf0e2;border-style:dashed;
+  }
+  .vchip.miss .vw{color:var(--hot)} .vchip.miss .vn{color:var(--hot)}
+  .vcount{margin-top:9px;font-size:var(--fs-cap);font-weight:800;color:var(--tok-deep)}
+  .corpus{margin-top:12px;font-size:var(--fs-cap);color:var(--ink-soft);line-height:1.7}
+  .corpus b{color:var(--ink)}
+  body.urdu .corpus{line-height:var(--lh)}
+
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:50px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--good);background:#e8f2ed;font-weight:600}
+  .opt.wrong{border-color:var(--bad);background:#fbeae8}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
+      grid-template-areas:"bar bar" "head head" "tabs tabs" "left right" "quiz quiz" "foot foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+    .left{grid-area:left} .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+    .panel{margin-top:0}
+  }
+  @media (prefers-reduced-motion:reduce){ *{transition-duration:.01ms !important} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · NLP</span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 id="title"></h1>
+  <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group">
+    <button type="button" id="tabTok" aria-pressed="true"></button>
+    <button type="button" id="tabNext" aria-pressed="false"></button>
+    <button type="button" id="tabFeel" aria-pressed="false"></button>
+  </div>
+
+  <div class="left">
+  <div class="scene">
+    <p class="stageLbl" id="stageLbl"></p>
+    <p class="sentence" id="sentence"></p>
+    <div class="toks" id="toks"></div>
+    <div class="bars" id="bars"></div>
+  </div>
+
+  <div class="readout">
+    <span class="statechip" id="statechip"></span>
+    <p class="headline" id="headline"></p>
+    <p class="detail" id="detail"></p>
+    <p class="oops" id="oops"></p>
+    <p class="why-note"><b id="whyLbl"></b> <span id="whyText"></span></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="panel">
+    <h2 id="panelHead"></h2>
+    <div class="chips" id="chips" role="group"></div>
+    <div class="btns" id="btns"></div>
+    <p class="corpus" id="corpus"></p>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <h2 id="quizHead" style="font-size:var(--fs-lg);font-weight:800;margin:0 0 18px"></h2>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad's bilingual AI and coding school. WhatsApp 0337 1468899" data-ur="اے آئی فور کڈز — اسلام آباد کا دو زبانوں والا اے آئی اور کوڈنگ سکول۔ واٹس ایپ 0337 1468899"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var lang = "en";
+  var tab  = "tok";
+  var tokI = 0;
+  var feelI = 0;
+  var built = ["main"];     // the sentence the child is building word by word
+
+  /* ---------- the machine's dictionary ---------- */
+  var VOCAB = ["main","woh","hum","school","ghar","khana","cricket","chai",
+               "ja","kha","khel","pi","raha","rahe","hoon","hai","hain",
+               "achha","bura","mazedar","nahin","bohot","yeh","tha"];
+  function idOf(w){
+    var i = VOCAB.indexOf(w);
+    return i < 0 ? -1 : i + 1;        // 1-based, so 0 can mean "not in the list"
+  }
+
+  /* ---------- the tiny pile of sentences the machine learns from ---------- */
+  var CORPUS = [
+    "main school ja raha hoon",
+    "main school ja raha hoon",
+    "main school ja raha hoon",
+    "main ghar ja raha hoon",
+    "main khana kha raha hoon",
+    "main cricket khel raha hoon",
+    "woh school ja raha hai",
+    "woh cricket khel raha hai",
+    "hum cricket khel rahe hain",
+    "hum khana kha rahe hain"
+  ];
+  var NEXT = {};
+  CORPUS.forEach(function(s){
+    var w = s.split(" ");
+    for (var i=0;i<w.length-1;i++){
+      NEXT[w[i]] = NEXT[w[i]] || {};
+      NEXT[w[i]][w[i+1]] = (NEXT[w[i]][w[i+1]] || 0) + 1;
+    }
+  });
+  function nextOptions(w){
+    var m = NEXT[w] || {};
+    var out = Object.keys(m).map(function(k){ return [k, m[k]]; });
+    out.sort(function(a,b){ return b[1] - a[1]; });
+    return out;
+  }
+
+  /* ---------- sentences to tokenise ---------- */
+  var SENTS = [
+    "main school ja raha hoon",
+    "woh cricket khel raha hai",
+    "yeh khana bohot mazedar hai",
+    "main pizza kha raha hoon"        // pizza is deliberately missing from the vocabulary
+  ];
+
+  /* ---------- the word-scoring list ---------- */
+  var LEX = { achha:1, mazedar:1, khush:1, pyara:1, bura:-1, udaas:-1, ganda:-1 };
+  var FEELS = [
+    { s:"yeh khana bohot mazedar hai", trick:false },
+    { s:"aaj ka din bura tha",          trick:false },
+    { s:"yeh khana achha nahin hai",    trick:true  }
+  ];
+
+  var T = {
+    tabTok:{en:"Words into numbers", ur:"لفظ سے نمبر"},
+    tabNext:{en:"Guess the next word", ur:"اگلا لفظ"},
+    tabFeel:{en:"Happy or upset?", ur:"خوش یا ناخوش؟"},
+    titleTok:{en:"A computer cannot read. It can only count.",
+              ur:"کمپیوٹر پڑھ نہیں سکتا۔ وہ صرف گن سکتا ہے۔"},
+    subTok:{en:"So the first thing it does with a sentence is turn every word into a number.",
+            ur:"اس لیے جملے کے ساتھ اس کا پہلا کام ہر لفظ کو نمبر میں بدلنا ہوتا ہے۔"},
+    titleNext:{en:"How does your phone guess the next word?",
+               ur:"آپ کا فون اگلا لفظ کیسے بوجھ لیتا ہے؟"},
+    subNext:{en:"It is not magic. It counted what usually came next, in sentences it saw before.",
+             ur:"یہ جادو نہیں۔ اس نے پہلے دیکھے ہوئے جملوں میں گنا تھا کہ عموماً اگلا لفظ کیا آتا ہے۔"},
+    titleFeel:{en:"Can a machine tell if a sentence is happy?",
+               ur:"کیا مشین بتا سکتی ہے کہ جملہ خوش ہے یا نہیں؟"},
+    subFeel:{en:"It gives each word a score and adds them up. Watch where that goes wrong.",
+             ur:"یہ ہر لفظ کو نمبر دیتی ہے اور جوڑ لیتی ہے۔ دیکھیں یہ کہاں غلط ہو جاتا ہے۔"},
+    headTok:{en:"Pick a sentence", ur:"کوئی جملہ چنیں"},
+    headNext:{en:"Tap a word to add it", ur:"لفظ دبا کر جملے میں شامل کریں"},
+    headFeel:{en:"Pick a sentence", ur:"کوئی جملہ چنیں"},
+    stageTok:{en:"The sentence, cut into pieces", ur:"جملہ، ٹکڑوں میں کٹا ہوا"},
+    stageNext:{en:"Your sentence so far", ur:"اب تک آپ کا جملہ"},
+    stageFeel:{en:"Every word gets a score", ur:"ہر لفظ کو ایک نمبر ملتا ہے"},
+    tokChip:{en:"{n} pieces", ur:"{n} ٹکڑے"},
+    tokHead:{en:"This is what the machine actually sees", ur:"مشین اصل میں یہی دیکھتی ہے"},
+    tokDet:{en:"Each piece is called a token. The machine looks every token up in its list and writes down its number. From here on it works only with those numbers — the words are gone.",
+            ur:"ہر ٹکڑے کو token کہتے ہیں۔ مشین ہر token کو اپنی فہرست میں ڈھونڈ کر اس کا نمبر لکھ لیتی ہے۔ اس کے بعد وہ صرف انہی نمبروں کے ساتھ کام کرتی ہے — الفاظ ختم۔"},
+    tokWhy:{en:"The same word always gets the same number, every single time. That is how the machine can tell that two sentences used the same word, without ever knowing what the word means.",
+            ur:"ایک ہی لفظ کو ہر بار وہی نمبر ملتا ہے، ہمیشہ۔ اسی سے مشین پہچانتی ہے کہ دو جملوں میں ایک ہی لفظ آیا ہے — حالانکہ اسے لفظ کا مطلب معلوم ہی نہیں۔"},
+    tokUnk:{en:"One word is not in the list, so the machine writes a question mark. A word it has never seen is a word it cannot use. This is why these systems need to read an enormous amount of text first.",
+            ur:"ایک لفظ فہرست میں نہیں، تو مشین سوالیہ نشان لکھ دیتی ہے۔ جو لفظ اس نے کبھی دیکھا ہی نہیں، وہ اسے استعمال نہیں کر سکتی۔ اسی لیے ایسے نظاموں کو پہلے بہت بڑی مقدار میں تحریر پڑھنی پڑتی ہے۔"},
+    nextChip:{en:"After \u201c{w}\u201d", ur:"\u201c{w}\u201d کے بعد"},
+    nextHead:{en:"It counted, it did not think.", ur:"اس نے گنا ہے، سوچا نہیں۔"},
+    nextDet:{en:"Out of the sentences it learned from, these are the words that came after \u201c{w}\u201d, and how many times each one did. The longest bar is its best guess.",
+             ur:"جن جملوں سے اس نے سیکھا، ان میں \u201c{w}\u201d کے بعد یہ الفاظ آئے، اور ہر ایک کتنی بار۔ سب سے لمبی پٹی اس کا بہترین اندازہ ہے۔"},
+    nextEnd:{en:"Nothing ever came after this word, so the machine has no guess left. Start again.",
+             ur:"اس لفظ کے بعد کبھی کچھ آیا ہی نہیں، تو مشین کے پاس کوئی اندازہ نہیں بچا۔ دوبارہ شروع کریں۔"},
+    nextWhy:{en:"Your phone does exactly this, only with millions of sentences instead of ten. There is no understanding anywhere in it — only counting what usually follows what.",
+             ur:"آپ کا فون بالکل یہی کرتا ہے، بس دس کے بجائے لاکھوں جملوں کے ساتھ۔ اس میں کہیں سمجھ نہیں ہے — صرف یہ گنتی ہے کہ عموماً کس کے بعد کیا آتا ہے۔"},
+    feelHead:{en:"Score: {t}", ur:"کل نمبر: {t}"},
+    feelHappy:{en:"The machine says: happy.", ur:"مشین کہتی ہے: خوش۔"},
+    feelSad:{en:"The machine says: upset.", ur:"مشین کہتی ہے: ناخوش۔"},
+    feelFlat:{en:"The machine says: neither.", ur:"مشین کہتی ہے: کوئی نہیں۔"},
+    feelDet:{en:"Good words score +1, bad words score −1, and everything else scores 0. Add them all up and look at the sign.",
+             ur:"اچھے الفاظ کو +1، برے الفاظ کو −1، اور باقی سب کو 0۔ سب جوڑیں اور دیکھیں جواب مثبت ہے یا منفی۔"},
+    feelWhy:{en:"This trick works surprisingly often, and it is how the simplest systems sort reviews and messages. But it only ever adds up single words.",
+             ur:"یہ ترکیب حیرت انگیز حد تک اکثر کام کر جاتی ہے، اور سادہ ترین نظام اسی سے تبصرے اور پیغامات چھانٹتے ہیں۔ مگر یہ صرف تنہا الفاظ جوڑتی ہے، اور کچھ نہیں۔"},
+    feelOops:{en:"Read the sentence yourself. It clearly means the food is NOT good — but the machine saw the word \u201cachha\u201d, scored +1, and called it happy. It never noticed \u201cnahin\u201d, because \u201cnahin\u201d on its own is neither good nor bad. This is exactly the kind of mistake AI makes, and exactly why a person still has to check its work.",
+              ur:"جملہ خود پڑھیں۔ اس کا صاف مطلب ہے کہ کھانا اچھا **نہیں** ہے — مگر مشین نے لفظ \u201cاچھا\u201d دیکھا، +1 دیا، اور اسے خوش کہہ دیا۔ اس نے \u201cنہیں\u201d پر غور ہی نہیں کیا، کیونکہ تنہا \u201cنہیں\u201d نہ اچھا ہے نہ برا۔ AI بالکل اسی قسم کی غلطی کرتی ہے، اور اسی لیے انسان کا جانچنا ضروری رہتا ہے۔"},
+    corpusLbl:{en:"The ten sentences it learned from:", ur:"وہ دس جملے جن سے اس نے سیکھا:"},
+    lexLbl:{en:"Its whole list of good and bad words:", ur:"اچھے اور برے الفاظ کی اس کی پوری فہرست:"},
+    vocabLbl:{en:"This is the machine's whole dictionary. These {n} words are the only words it knows — there is nothing else anywhere inside it. Your phone's dictionary has tens of thousands, which is why almost nothing is new to it.",
+              ur:"یہ مشین کی پوری لغت ہے۔ بس یہی {n} الفاظ وہ جانتی ہے — اس کے اندر اور کچھ ہے ہی نہیں۔ آپ کے فون کی لغت میں دسیوں ہزار الفاظ ہوتے ہیں، اسی لیے اسے شاید ہی کوئی لفظ نیا لگتا ہو۔"},
+    vocabUsed:{en:"This sentence lit up {u} of the {n} words. Everything faded is a word the machine knows but did not need this time.",
+               ur:"اس جملے نے {n} میں سے {u} الفاظ روشن کیے۔ جو دھندلے ہیں وہ مشین جانتی تو ہے، مگر اس بار ان کی ضرورت نہیں پڑی۔"},
+    vocabMiss:{en:"Look for \u201c{w}\u201d in the list below. It is not there — so the machine had no number to write.",
+               ur:"نیچے فہرست میں \u201c{w}\u201d ڈھونڈیں۔ وہ ہے ہی نہیں — اسی لیے مشین کے پاس لکھنے کو کوئی نمبر نہ تھا۔"},
+    restart:{en:"Start again", ur:"دوبارہ شروع"},
+    undo:{en:"Undo one word", ur:"ایک لفظ واپس"},
+    whyLbl:{en:"Notice:", ur:"غور کریں:"},
+    quiz:{en:"Check yourself", ur:"اپنا امتحان لیں"}
+  };
+
+  var QUIZ = [
+    { q:{en:"What is the first thing a computer does with a sentence?",
+         ur:"کمپیوٹر کسی جملے کے ساتھ سب سے پہلے کیا کرتا ہے؟"},
+      o:[{en:"It reads and understands the meaning", ur:"وہ پڑھ کر مطلب سمجھتا ہے"},
+         {en:"It cuts it into pieces and turns each piece into a number",
+          ur:"وہ اسے ٹکڑوں میں کاٹ کر ہر ٹکڑے کو نمبر بنا دیتا ہے"},
+         {en:"It translates it into English", ur:"وہ اسے انگریزی میں ترجمہ کرتا ہے"},
+         {en:"It draws a picture of it", ur:"وہ اس کی تصویر بناتا ہے"}],
+      a:1,
+      f:{en:"Computers work with numbers, never with letters. Cutting text into pieces is called tokenising, and each piece is a token.",
+         ur:"کمپیوٹر نمبروں پر کام کرتا ہے، حروف پر کبھی نہیں۔ تحریر کو ٹکڑوں میں کاٹنے کو tokenising کہتے ہیں، اور ہر ٹکڑا ایک token ہے۔"} },
+
+    { q:{en:"A word appears that is not in the machine's dictionary. What happens?",
+         ur:"کوئی ایسا لفظ آ جائے جو مشین کی لغت میں نہیں۔ کیا ہوگا؟"},
+      o:[{en:"The machine guesses its meaning from the letters",
+          ur:"مشین حروف سے اس کا مطلب بوجھ لے گی"},
+         {en:"The machine has no number for it and marks it as unknown",
+          ur:"مشین کے پاس اس کا نمبر نہیں، وہ اسے نامعلوم لکھ دے گی"},
+         {en:"The whole sentence is deleted", ur:"پورا جملہ مٹا دیا جائے گا"},
+         {en:"It automatically adds it with the meaning", ur:"وہ خود بخود مطلب کے ساتھ شامل کر لے گی"}],
+      a:1,
+      f:{en:"It can only work with words it has seen before. That is why these systems are fed enormous amounts of text — so that very few words are new to them.",
+         ur:"وہ صرف انہی الفاظ پر کام کر سکتی ہے جو پہلے دیکھ چکی ہو۔ اسی لیے ایسے نظاموں کو بہت بڑی مقدار میں تحریر پڑھائی جاتی ہے — تاکہ بہت کم لفظ ان کے لیے نئے رہیں۔"} },
+
+    { q:{en:"How does a phone keyboard guess the next word?",
+         ur:"فون کا کی بورڈ اگلا لفظ کیسے بوجھتا ہے؟"},
+      o:[{en:"It understands what you are trying to say", ur:"وہ سمجھ لیتا ہے کہ آپ کیا کہنا چاہتے ہیں"},
+         {en:"It counts which word usually came next in text it has seen",
+          ur:"وہ گنتا ہے کہ دیکھی ہوئی تحریر میں عموماً اگلا لفظ کون سا آیا"},
+         {en:"It picks a word at random", ur:"وہ کوئی لفظ اٹکل سے چن لیتا ہے"},
+         {en:"It asks the internet every time", ur:"وہ ہر بار انٹرنیٹ سے پوچھتا ہے"}],
+      a:1,
+      f:{en:"Counting, not understanding. It is the same idea you used in the app, just with millions of sentences instead of ten.",
+         ur:"گنتی، سمجھ نہیں۔ یہ وہی خیال ہے جو آپ نے ایپ میں استعمال کیا، بس دس کے بجائے لاکھوں جملوں کے ساتھ۔"} },
+
+    { q:{en:"The machine scores \u201cyeh khana achha nahin hai\u201d as happy. Why is it wrong?",
+         ur:"مشین \u201cیہ کھانا اچھا نہیں ہے\u201d کو خوش کہتی ہے۔ یہ غلط کیوں ہے؟"},
+      o:[{en:"It counted the word \u201cachha\u201d but ignored \u201cnahin\u201d, which flips the meaning",
+          ur:"اس نے \u201cاچھا\u201d گنا مگر \u201cنہیں\u201d کو نظر انداز کر دیا، جو مطلب الٹ دیتا ہے"},
+         {en:"The sentence is too long", ur:"جملہ بہت لمبا ہے"},
+         {en:"It does not know Urdu", ur:"اسے اردو نہیں آتی"},
+         {en:"It is not wrong, the sentence is happy", ur:"یہ غلط نہیں، جملہ خوش ہی ہے"}],
+      a:0,
+      f:{en:"It adds up single words and never looks at how they fit together. One small word can turn a whole sentence around, and a machine that only counts will miss it.",
+         ur:"یہ تنہا الفاظ جوڑتی ہے اور کبھی نہیں دیکھتی کہ وہ آپس میں کیسے جڑے ہیں۔ ایک چھوٹا سا لفظ پورا جملہ الٹ سکتا ہے، اور صرف گننے والی مشین اسے پکڑ نہیں پاتی۔"} },
+
+    { q:{en:"What does NLP stand for, in plain words?", ur:"NLP کا سیدھا سا مطلب کیا ہے؟"},
+      o:[{en:"Teaching computers to work with the language people actually speak and write",
+          ur:"کمپیوٹر کو اس زبان پر کام کرنا سکھانا جو لوگ واقعی بولتے اور لکھتے ہیں"},
+         {en:"A new programming language", ur:"ایک نئی پروگرامنگ زبان"},
+         {en:"A way of drawing pictures", ur:"تصویریں بنانے کا طریقہ"},
+         {en:"A type of computer", ur:"کمپیوٹر کی ایک قسم"}],
+      a:0,
+      f:{en:"Natural Language Processing. \u201cNatural language\u201d means Urdu, English, Punjabi — the languages people grew up speaking, as opposed to the languages computers are programmed in.",
+         ur:"Natural Language Processing۔ \u201cNatural language\u201d سے مراد اردو، انگریزی، پنجابی — وہ زبانیں جو لوگ بول کر بڑے ہوتے ہیں، نہ کہ وہ زبانیں جن میں کمپیوٹر پروگرام ہوتا ہے۔"} },
+
+    { q:{en:"Which of these is the honest thing to say about a system like this?",
+         ur:"ایسے نظام کے بارے میں ان میں سے سچی بات کون سی ہے؟"},
+      o:[{en:"It understands language the way a person does", ur:"یہ زبان انسان کی طرح سمجھتا ہے"},
+         {en:"It finds patterns in words very well, but does not understand meaning",
+          ur:"یہ الفاظ میں ترتیب بہت اچھی پکڑتا ہے، مگر مطلب نہیں سمجھتا"},
+         {en:"It is always right", ur:"یہ ہمیشہ درست ہوتا ہے"},
+         {en:"It is useless", ur:"یہ بےکار ہے"},],
+      a:1,
+      f:{en:"Both extremes are wrong. It is genuinely useful and genuinely limited — which is why the person using it has to keep checking it.",
+         ur:"دونوں انتہائیں غلط ہیں۔ یہ واقعی کارآمد بھی ہے اور واقعی محدود بھی — اسی لیے استعمال کرنے والے کو جانچتے رہنا پڑتا ہے۔"} }
+  ];
+
+  function $(id){ return document.getElementById(id); }
+  function t(o){ return o[lang]; }
+
+  var LRI = "\u2066", PDI = "\u2069";
+  var LATIN_RUN = /[A-Za-z0-9][A-Za-z0-9 .,%+()\/@_\u2212-]*[A-Za-z0-9]|[A-Za-z0-9]/g;
+  function isolate(s){ return s.replace(LATIN_RUN, function(m){ return LRI + m + PDI; }); }
+  function setText(el, str){
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+  function fill(s, m){ Object.keys(m).forEach(function(k){ s = s.split("{"+k+"}").join(m[k]); }); return s; }
+
+  function tokCard(word, second, cls){
+    var d = document.createElement("div");
+    d.className = "tok" + (cls ? " " + cls : "");
+    var w = document.createElement("span"); w.className = "w"; w.textContent = word;
+    var i = document.createElement("span"); i.className = "id"; i.textContent = second;
+    d.appendChild(w); d.appendChild(i);
+    d.setAttribute("dir","ltr");
+    return d;
+  }
+
+  /* ---------- render ---------- */
+  function render(){
+    ["Tok","Next","Feel"].forEach(function(x){
+      $("tab"+x).setAttribute("aria-pressed", tab === x.toLowerCase() ? "true" : "false");
+    });
+    setText($("tabTok"), t(T.tabTok));
+    setText($("tabNext"), t(T.tabNext));
+    setText($("tabFeel"), t(T.tabFeel));
+    $("whyLbl").textContent = t(T.whyLbl);
+    setText($("quizHead"), t(T.quiz));
+
+    var toks = $("toks"), bars = $("bars"), chips = $("chips"), btns = $("btns");
+    toks.innerHTML = ""; bars.innerHTML = ""; chips.innerHTML = ""; btns.innerHTML = "";
+    $("oops").classList.remove("show");
+    var chipEl = $("statechip");
+    chipEl.className = "statechip";
+
+    if (tab === "tok"){
+      setText($("title"), t(T.titleTok));
+      setText($("subtitle"), t(T.subTok));
+      setText($("stageLbl"), t(T.stageTok));
+      setText($("panelHead"), t(T.headTok));
+      var s = SENTS[tokI], words = s.split(" ");
+      setText($("sentence"), s);
+      var anyUnk = false;
+      words.forEach(function(w){
+        var id = idOf(w);
+        if (id < 0) anyUnk = true;
+        toks.appendChild(tokCard(w, id < 0 ? "?" : String(id), id < 0 ? "unk" : ""));
+      });
+      setText(chipEl, fill(t(T.tokChip), {n:words.length}));
+      setText($("headline"), t(T.tokHead));
+      setText($("detail"), t(T.tokDet));
+      setText($("whyText"), anyUnk ? t(T.tokUnk) : t(T.tokWhy));
+      SENTS.forEach(function(x, i){
+        var b = document.createElement("button");
+        b.type = "button"; b.className = "schip";
+        b.textContent = x; b.setAttribute("dir","ltr");
+        b.setAttribute("aria-pressed", i === tokI ? "true" : "false");
+        b.addEventListener("click", function(){ tokI = i; render(); });
+        chips.appendChild(b);
+      });
+      var box = $("corpus");
+      box.innerHTML = "";
+      var lb0 = document.createElement("div");
+      lb0.textContent = fill(t(T.vocabLbl), {n:VOCAB.length});
+      lb0.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+      box.appendChild(lb0);
+
+      if (anyUnk){
+        var miss = words.filter(function(w){ return idOf(w) < 0; })[0];
+        var lb1 = document.createElement("div");
+        lb1.style.color = "var(--hot)";
+        lb1.style.marginTop = "6px";
+        lb1.textContent = fill(t(T.vocabMiss), {w:miss});
+        lb1.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+        box.appendChild(lb1);
+      }
+
+      // the dictionary itself, every entry, with the ones this sentence used lit up
+      var vb = document.createElement("div");
+      vb.className = "vocab";
+      VOCAB.forEach(function(w, i){
+        var c = document.createElement("span");
+        c.className = "vchip" + (words.indexOf(w) >= 0 ? " used" : "");
+        var vw = document.createElement("span"); vw.className = "vw"; vw.textContent = w;
+        var vn = document.createElement("span"); vn.className = "vn"; vn.textContent = i + 1;
+        c.appendChild(vw); c.appendChild(vn);
+        c.setAttribute("dir","ltr");
+        vb.appendChild(c);
+      });
+      words.forEach(function(w){
+        if (idOf(w) >= 0) return;
+        var c = document.createElement("span");
+        c.className = "vchip miss";
+        var vw = document.createElement("span"); vw.className = "vw"; vw.textContent = w;
+        var vn = document.createElement("span"); vn.className = "vn"; vn.textContent = "?";
+        c.appendChild(vw); c.appendChild(vn);
+        c.setAttribute("dir","ltr");
+        vb.appendChild(c);
+      });
+      box.appendChild(vb);
+
+      var used = 0;
+      VOCAB.forEach(function(w){ if (words.indexOf(w) >= 0) used++; });
+      var cnt = document.createElement("div");
+      cnt.className = "vcount";
+      cnt.textContent = fill(t(T.vocabUsed), {u:used, n:VOCAB.length});
+      cnt.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+      box.appendChild(cnt);
+
+      lastSpoken = s;
+      return;
+    }
+
+    if (tab === "next"){
+      setText($("title"), t(T.titleNext));
+      setText($("subtitle"), t(T.subNext));
+      setText($("stageLbl"), t(T.stageNext));
+      setText($("panelHead"), t(T.headNext));
+      setText($("sentence"), built.join(" "));
+      built.forEach(function(w){ toks.appendChild(tokCard(w, String(idOf(w)), "")); });
+
+      var last = built[built.length - 1];
+      var opts = nextOptions(last);
+      var total = opts.reduce(function(a,o){ return a + o[1]; }, 0);
+      setText(chipEl, fill(t(T.nextChip), {w:last}));
+      setText($("headline"), t(T.nextHead));
+      setText($("detail"), opts.length ? fill(t(T.nextDet), {w:last}) : t(T.nextEnd));
+      setText($("whyText"), t(T.nextWhy));
+
+      opts.forEach(function(o, i){
+        var row = document.createElement("button");
+        row.type = "button"; row.className = "brow" + (i === 0 ? " top" : "");
+        var w = document.createElement("span"); w.className = "w";
+        w.textContent = o[0]; w.setAttribute("dir","ltr");
+        var tr = document.createElement("span"); tr.className = "track";
+        var f = document.createElement("i");
+        f.style.width = Math.round(o[1] / opts[0][1] * 100) + "%";
+        tr.appendChild(f);
+        var n = document.createElement("span"); n.className = "n";
+        n.textContent = o[1] + "/" + total; n.setAttribute("dir","ltr");
+        row.appendChild(w); row.appendChild(tr); row.appendChild(n);
+        row.addEventListener("click", function(){ built.push(o[0]); render(); });
+        bars.appendChild(row);
+      });
+
+      var u = document.createElement("button"); u.type = "button";
+      u.addEventListener("click", function(){ if (built.length > 1){ built.pop(); render(); } });
+      setText(u, t(T.undo));
+      var r = document.createElement("button"); r.type = "button"; r.className = "go";
+      r.addEventListener("click", function(){ built = ["main"]; render(); });
+      setText(r, t(T.restart));
+      btns.appendChild(u); btns.appendChild(r);
+
+      var cp = document.createElement("span");
+      $("corpus").innerHTML = "";
+      var lb = document.createElement("b"); lb.textContent = t(T.corpusLbl);
+      lb.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+      $("corpus").appendChild(lb);
+      CORPUS.forEach(function(line){
+        var d = document.createElement("div"); d.textContent = line; d.setAttribute("dir","ltr");
+        $("corpus").appendChild(d);
+      });
+      lastSpoken = built.join(" ");
+      return;
+    }
+
+    // feeling
+    setText($("title"), t(T.titleFeel));
+    setText($("subtitle"), t(T.subFeel));
+    setText($("stageLbl"), t(T.stageFeel));
+    setText($("panelHead"), t(T.headFeel));
+    var f2 = FEELS[feelI], ws = f2.s.split(" "), total2 = 0;
+    setText($("sentence"), f2.s);
+    ws.forEach(function(w){
+      var sc = LEX[w] || 0;
+      total2 += sc;
+      toks.appendChild(tokCard(w, sc > 0 ? "+1" : (sc < 0 ? "\u22121" : "0"),
+                               sc > 0 ? "pos" : (sc < 0 ? "neg" : "nul")));
+    });
+    setText(chipEl, fill(t(T.feelHead), {t: total2 > 0 ? "+" + total2 : String(total2)}));
+    chipEl.className = "statechip " + (total2 > 0 ? "good" : (total2 < 0 ? "bad" : ""));
+    setText($("headline"), total2 > 0 ? t(T.feelHappy)
+                         : total2 < 0 ? t(T.feelSad) : t(T.feelFlat));
+    setText($("detail"), t(T.feelDet));
+    setText($("whyText"), t(T.feelWhy));
+    if (f2.trick){
+      setText($("oops"), t(T.feelOops));
+      $("oops").classList.add("show");
+    }
+    FEELS.forEach(function(x, i){
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "schip";
+      b.textContent = x.s; b.setAttribute("dir","ltr");
+      b.setAttribute("aria-pressed", i === feelI ? "true" : "false");
+      b.addEventListener("click", function(){ feelI = i; render(); });
+      chips.appendChild(b);
+    });
+    $("corpus").innerHTML = "";
+    var lb2 = document.createElement("b"); lb2.textContent = t(T.lexLbl);
+    lb2.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+    $("corpus").appendChild(lb2);
+    var d2 = document.createElement("div"); d2.setAttribute("dir","ltr");
+    d2.textContent = Object.keys(LEX).map(function(k){
+      return k + " " + (LEX[k] > 0 ? "+1" : "\u22121");
+    }).join("   ");
+    $("corpus").appendChild(d2);
+    lastSpoken = f2.s;
+  }
+
+  var lastSpoken = "";
+
+  ["Tok","Next","Feel"].forEach(function(x){
+    $("tab"+x).addEventListener("click", function(){
+      var m = x.toLowerCase();
+      if (tab === m) return;
+      tab = m; render();
+    });
+  });
+
+  /* ---------- quiz ---------- */
+  function buildQuiz(){
+    var box = $("quizBox"); box.innerHTML = "";
+    QUIZ.forEach(function(item){
+      var wrap = document.createElement("div"); wrap.className = "q";
+      var q = document.createElement("p"); setText(q, t(item.q)); wrap.appendChild(q);
+      var fb = document.createElement("p"); fb.className = "fb";
+      item.o.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt" + (lang === "ur" ? " ur" : "");
+        b.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+        b.textContent = t(opt);
+        b.addEventListener("click", function(){
+          if (wrap.getAttribute("data-done") === "1") return;
+          wrap.setAttribute("data-done","1");
+          Array.prototype.forEach.call(wrap.querySelectorAll(".opt"), function(x, xi){
+            if (xi === item.a) x.classList.add("right");
+            else if (xi === oi) x.classList.add("wrong");
+          });
+          setText(fb, t(item.f));
+          fb.classList.add("show","fb");
+        });
+        wrap.appendChild(b);
+      });
+      wrap.appendChild(fb); box.appendChild(wrap);
+    });
+  }
+
+  function applyLang(){
+    document.body.classList.toggle("urdu", lang === "ur");
+    var lb = $("langBtn");
+    lb.textContent = (lang === "en") ? "اردو" : "English";
+    lb.setAttribute("aria-pressed", lang === "ur" ? "true" : "false");
+    Array.prototype.forEach.call(document.querySelectorAll("[data-en]"), function(el){
+      setText(el, el.getAttribute(lang === "en" ? "data-en" : "data-ur"));
+    });
+    buildQuiz(); render();
+  }
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en"; applyLang();
+  });
+
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      window.speechSynthesis.cancel();
+      var u = new SpeechSynthesisUtterance(lastSpoken);
+      u.lang = (lang === "ur") ? "ur-PK" : "en-US";
+      u.rate = 0.92;
+      var voices = window.speechSynthesis.getVoices() || [];
+      for (var i=0;i<voices.length;i++){
+        if (voices[i].lang && voices[i].lang.toLowerCase().indexOf(lang === "ur" ? "ur" : "en") === 0){
+          u.voice = voices[i]; break;
+        }
+      }
+      window.speechSynthesis.speak(u);
+    }catch(e){ /* no voice available — stay quiet */ }
+  });
+
+  applyLang();
+})();
+</script>
+</body>
+</html>

@@ -71,5 +71,13 @@
       "interactive_file": "interactives/g5-neural-network.html",
       "interactive_label": "Khelo — Neural network / Dimaag jaisa computer"
     }
+  },
+  {
+    "file": "kb/grade_5/ai.json",
+    "match_title": "NLP basics",
+    "add": {
+      "interactive_file": "interactives/g5-nlp-basics.html",
+      "interactive_label": "Khelo — NLP basics / AI language"
+    }
   }
 ]
