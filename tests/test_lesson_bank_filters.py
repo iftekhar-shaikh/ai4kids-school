@@ -168,5 +168,14 @@ def main():
     sys.exit(0)
 
 
+
+
+def test_no_duplicate_openmodal():
+    html = (ROOT / "lesson_bank.html").read_text(encoding="utf-8")
+    compact = "".join(html.split())
+    assert "function openModal(i){function openModal(i){" not in compact
+    assert html.count("function openModal(") == 1
+    assert "onclick=\"setFilter(" in html or "onclick='setFilter(" in html or 'onclick="setFilter(' in html
+
 if __name__ == "__main__":
     main()

@@ -148,16 +148,16 @@ body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f5f5f0;color:#2c3e50}
 <div class="controls">
   <input class="search" id="search" placeholder="Search... تلاش کریں (e.g. fractions, robot, grammar)" oninput="filterCards()">
   <div class="filters" id="gradeFilters">
-    <button type="button" class="filter-btn active" data-grade="all">All</button>
+    <button type="button" class="filter-btn active" data-grade="all" onclick="setFilter('grade','all',event)">All</button>
 """)
 
 for g in range(1, 6):
-    lines.append(f'    <button type="button" class="filter-btn" data-grade="{g}">Grade {g}</button>')
+    lines.append(f'    <button type="button" class="filter-btn" data-grade="{g}" onclick="setFilter(\'grade\',\'{g}\',event)">Grade {g}</button>')
 
 lines.append('  </div>\n  <div class="filters" id="subjFilters">')
-lines.append('    <button type="button" class="filter-btn active" data-subj="all">All subjects</button>')
+lines.append('    <button type="button" class="filter-btn active" data-subj="all" onclick="setFilter(\'subj\',\'all\',event)">All subjects</button>')
 for sk, sm in SUBJ_META.items():
-    lines.append(f'    <button type="button" class="filter-btn" data-subj="{sk}">{sm["emoji"]} {sm["name"]}</button>')
+    lines.append(f'    <button type="button" class="filter-btn" data-subj="{sk}" onclick="setFilter(\'subj\',\'{sk}\',event)">{sm["emoji"]} {sm["name"]}</button>')
 
 lines.append(f"""  </div>
 </div>
@@ -282,7 +282,7 @@ if (document.readyState === 'loading') {{
   wireFilters();
 }}
 
-function openModal(i) {{function openModal(i) {{
+function openModal(i) {{
   const t = ALL[i];
   let html = `<h2>${{t.emoji}} ${{t.title}}</h2>
   <p class="meta">${{t.subj}} • Grade ${{t.grade}} • ${{t.desc}}</p>`;
