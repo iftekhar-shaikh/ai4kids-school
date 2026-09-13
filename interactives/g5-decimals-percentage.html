@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Decimals aur Percentage — اعشاریہ اور فیصد | AI4Kids Class 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#eef2f1;
+    --board-deep:#dde4e2;
+    --empty:#ffffff;
+    --grid:#b9c6c3;
+    --fillc:#2e8b6e;
+    --fillc-deep:#1d6b53;
+    --alt:#c96a2e;
+    --alt-deep:#9a4c1c;
+    --ink:#1f2933;
+    --ink-soft:#4a5661;
+    --paper:#fdfaf3;
+    --line:#ded5c4;
+    --accent:#1d6b53;
+    --warn:#b8452e;
+
+    --fs-cap:clamp(12px, 3.2vw, 13px);
+    --fs-xs:clamp(14px, 3.7vw, 15px);
+    --fs-sm:clamp(16px, 4.2vw, 17px);
+    --fs-md:clamp(17px, 4.6vw, 19px);
+    --fs-lg:clamp(20px, 5.4vw, 23px);
+    --fs-xl:clamp(27px, 7.4vw, 33px);
+    --lh:1.5;
+  }
+  /* Urdu is set larger than Latin — Nastaliq reads smaller at the same size. */
+  body.urdu{
+    --fs-cap:clamp(13px, 3.5vw, 15px);
+    --fs-xs:clamp(15px, 4.1vw, 17px);
+    --fs-sm:clamp(17px, 4.7vw, 19px);
+    --fs-md:clamp(19px, 5.2vw, 21px);
+    --fs-lg:clamp(22px, 6vw, 25px);
+    --fs-xl:clamp(26px, 7vw, 31px);
+    --lh:2.1;
+  }
+
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--fillc);outline-offset:2px}
+
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+
+  .tabs{display:flex;gap:7px;margin:0 0 14px}
+  .tabs button{
+    flex:1;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:9px 6px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:54px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:linear-gradient(180deg,var(--board) 0%,var(--board-deep) 100%);
+  }
+  .scene svg{display:block;width:100%;height:auto}
+  .cellsq{transition:fill .18s ease}
+
+  .readout{
+    margin-top:-18px;position:relative;z-index:2;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .namechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+            padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+  .namechip.ur{padding:2px 14px 7px}
+
+  .three{display:flex;gap:8px;margin-bottom:12px}
+  .nm{flex:1;border:3px solid var(--fillc);background:#e9f4f0;border-radius:14px;
+      padding:11px 6px;text-align:center}
+  .nm em{display:block;font-style:normal;font-size:var(--fs-cap);color:var(--ink-soft);
+         font-weight:700;margin-bottom:4px}
+  .nm b{display:block;font-size:var(--fs-lg);font-weight:800;color:var(--fillc-deep);line-height:1.15}
+
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+  .why-note{
+    margin:12px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.55;
+    border-left:3px solid var(--accent);padding-left:11px;
+  }
+  .why-note b{color:var(--accent);font-weight:800}
+  body.urdu .why-note{
+    border-left:0;border-right:3px solid var(--accent);padding-left:0;padding-right:11px;
+    line-height:var(--lh);
+  }
+  .trap{
+    margin:12px 0 0;border:2px dashed var(--warn);border-radius:14px;padding:11px 13px;
+    font-size:var(--fs-xs);color:var(--warn);font-weight:700;line-height:1.55;
+  }
+  body.urdu .trap{line-height:var(--lh)}
+
+  .money{display:flex;gap:8px;margin-top:12px}
+  .mcard{flex:1;border:2px solid var(--line);border-radius:14px;padding:11px 8px;text-align:center}
+  .mcard em{display:block;font-style:normal;font-size:var(--fs-cap);color:var(--ink-soft);
+            font-weight:700;margin-bottom:4px}
+  .mcard b{display:block;font-size:var(--fs-md);font-weight:800;line-height:1.2}
+  .mcard.off{border-color:var(--alt);background:#fbf0e8}
+  .mcard.off b{color:var(--alt-deep)}
+  .mcard.pay{border-color:var(--fillc);background:#e9f4f0}
+  .mcard.pay b{color:var(--fillc-deep)}
+
+  .panel{margin-top:22px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .stepper{display:flex;align-items:center;gap:8px;justify-content:center}
+  .stepper button{
+    min-width:52px;height:52px;border-radius:14px;border:2px solid var(--ink);background:var(--paper);
+    font:inherit;font-size:var(--fs-sm);font-weight:800;cursor:pointer;color:var(--ink);
+  }
+  .stepper button:disabled{opacity:.3;cursor:default}
+  .stepper .val{min-width:70px;text-align:center;font-size:var(--fs-xl);font-weight:800}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .pchip{
+    border:2px solid var(--line);background:var(--paper);border-radius:999px;padding:8px 14px;
+    font:inherit;font-size:var(--fs-cap);font-weight:800;color:var(--ink);cursor:pointer;min-height:44px;
+  }
+  .pchip[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:50px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--fillc);background:#e9f4f0;font-weight:600}
+  .opt.wrong{border-color:var(--warn);background:#fbece8}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
+      grid-template-areas:"bar bar" "head head" "tabs tabs" "left right" "quiz quiz" "foot foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+    .left{grid-area:left} .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+    .panel{margin-top:0}
+  }
+  @media (prefers-reduced-motion:reduce){ *{transition-duration:.01ms !important} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 5</span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 id="title"></h1>
+  <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group">
+    <button type="button" id="tabOne" aria-pressed="true"></button>
+    <button type="button" id="tabCmp" aria-pressed="false"></button>
+    <button type="button" id="tabShop" aria-pressed="false"></button>
+  </div>
+
+  <div class="left">
+  <div class="scene">
+    <svg viewBox="0 0 340 300" role="img" id="svg" aria-label="A hundred square grid with some squares shaded"></svg>
+  </div>
+
+  <div class="readout">
+    <span class="namechip" id="namechip"></span>
+    <div class="three" id="three"></div>
+    <p class="detail" id="detail"></p>
+    <div class="money" id="money"></div>
+    <p class="trap" id="trap"></p>
+    <p class="why-note"><b id="whyLbl"></b> <span id="whyText"></span></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="panel" id="onePanel">
+    <h2 id="oneHead"></h2>
+    <div class="stepper">
+      <button type="button" id="m10">−10</button>
+      <button type="button" id="m1">−1</button>
+      <span class="val" id="nVal">25</span>
+      <button type="button" id="p1">+1</button>
+      <button type="button" id="p10">+10</button>
+    </div>
+  </div>
+
+  <div class="panel" id="cmpPanel">
+    <h2 id="cmpHead"></h2>
+    <div class="chips" id="cmpChips" role="group"></div>
+  </div>
+
+  <div class="panel" id="shopPanel">
+    <h2 id="priceHead"></h2>
+    <div class="chips" id="priceChips" role="group"></div>
+    <h2 id="offHead" style="margin-top:16px"></h2>
+    <div class="stepper">
+      <button type="button" id="offM">−5</button>
+      <span class="val" id="offVal">25%</span>
+      <button type="button" id="offP">+5</button>
+    </div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <h2 id="quizHead" style="font-size:var(--fs-lg);font-weight:800;margin:0 0 18px"></h2>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad's bilingual AI and coding school. WhatsApp 0337 1468899" data-ur="اے آئی فور کڈز — اسلام آباد کا دو زبانوں والا اے آئی اور کوڈنگ سکول۔ واٹس ایپ 0337 1468899"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var lang = "en";
+  var tab  = "one";
+  var n    = 25;            // shaded squares out of 100
+  var cmpI = 0;
+  var price = 800, off = 25;
+
+  var PAIRS = [
+    { a:25, b:70,  la:"0.25", lb:"0.7"  },
+    { a:50, b:50,  la:"0.5",  lb:"0.50" },
+    { a:9,  b:90,  la:"0.09", lb:"0.9"  },
+    { a:40, b:40,  la:"0.4",  lb:"0.400"}
+  ];
+  var PRICES = [500, 800, 1200, 2000];
+
+  function dec(k){
+    if (k % 10 === 0) return (k/100).toFixed(1);
+    return (k/100).toFixed(2);
+  }
+  function frac(k){ return k + "/100"; }
+
+  var T = {
+    tabOne:{en:"One thing, three names", ur:"ایک چیز، تین نام"},
+    tabCmp:{en:"Which is bigger?", ur:"کون سا بڑا ہے؟"},
+    tabShop:{en:"In the shop", ur:"دکان پر"},
+    titleOne:{en:"A fraction, a decimal and a percentage can be the same thing.",
+              ur:"کسر، اعشاریہ اور فیصد ایک ہی چیز ہو سکتے ہیں۔"},
+    subOne:{en:"Shade some squares out of 100 and watch all three names change together.",
+            ur:"100 میں سے کچھ خانے بھریں اور دیکھیں تینوں نام ایک ساتھ بدلتے ہیں۔"},
+    titleCmp:{en:"A longer decimal is not a bigger number.",
+              ur:"لمبا اعشاریہ بڑا عدد نہیں ہوتا۔"},
+    subCmp:{en:"This is the mistake almost every child makes. Shade both and see for yourself.",
+            ur:"یہ وہ غلطی ہے جو تقریباً ہر بچہ کرتا ہے۔ دونوں کو بھر کر خود دیکھ لیں۔"},
+    titleShop:{en:"Percentage is just 'out of every hundred'.",
+               ur:"فیصد کا مطلب صرف 'ہر سو میں سے' ہے۔"},
+    subShop:{en:"Pick a price and a discount, and watch where the money goes.",
+             ur:"قیمت اور رعایت چنیں، اور دیکھیں پیسہ کہاں جاتا ہے۔"},
+    oneHead:{en:"Shade squares out of 100", ur:"100 میں سے خانے بھریں"},
+    cmpHead:{en:"Compare these", ur:"ان کا موازنہ کریں"},
+    priceHead:{en:"Price of the shirt", ur:"قمیض کی قیمت"},
+    offHead:{en:"Discount", ur:"رعایت"},
+    fracLbl:{en:"Fraction", ur:"کسر"},
+    decLbl:{en:"Decimal", ur:"اعشاریہ"},
+    pctLbl:{en:"Percentage", ur:"فیصد"},
+    shaded:{en:"{n} out of 100 shaded", ur:"100 میں سے {n} خانے بھرے"},
+    said:{en:"{r} full rows and {c} more squares. Each row is one tenth, each square is one hundredth.",
+          ur:"{r} پوری قطاریں اور {c} خانے مزید۔ ہر قطار ایک دسواں حصہ ہے، ہر خانہ ایک سواں۔"},
+    saidRows:{en:"{r} full rows, and each row is one tenth of the grid.",
+              ur:"{r} پوری قطاریں، اور ہر قطار گرڈ کا ایک دسواں حصہ ہے۔"},
+    whyOne:{en:"All three boxes are describing the very same shading. Nothing changed except the way we wrote it down. Percentage is the easiest to say out loud, which is why shops use it.",
+            ur:"تینوں خانے بالکل اسی بھرے ہوئے حصے کو بیان کر رہے ہیں۔ صرف لکھنے کا انداز بدلا ہے، اور کچھ نہیں۔ فیصد بولنے میں سب سے آسان ہے، اسی لیے دکانیں یہی استعمال کرتی ہیں۔"},
+    whyTenth:{en:"You are on a whole number of tenths, so the decimal only needs one digit. 0.70 and 0.7 shade exactly the same squares — the extra zero adds nothing.",
+              ur:"آپ پورے دسویں حصوں پر ہیں، تو اعشاریے کو صرف ایک ہندسہ چاہیے۔ 0.70 اور 0.7 بالکل وہی خانے بھرتے ہیں — زائد صفر کچھ نہیں بڑھاتا۔"},
+    cmpBig:{en:"{big} is bigger.", ur:"{big} بڑا ہے۔"},
+    cmpEq:{en:"They are exactly equal.", ur:"دونوں بالکل برابر ہیں۔"},
+    cmpDet:{en:"Count the shaded squares in each grid. The numbers after the point do not decide which is bigger — the amount of shading does.",
+            ur:"ہر گرڈ میں بھرے ہوئے خانے گنیں۔ اعشاریے کے بعد والے ہندسے یہ طے نہیں کرتے کہ کون بڑا ہے — بھرا ہوا حصہ طے کرتا ہے۔"},
+    trap25:{en:"Here is the trap. 25 is bigger than 7, so 0.25 looks bigger than 0.7. But 0.7 means seven tenths — seven whole rows — while 0.25 is only two rows and five squares. Always compare the first digit after the point first.",
+            ur:"یہاں پھندا ہے۔ 25، 7 سے بڑا ہے، تو 0.25 بڑا لگتا ہے۔ مگر 0.7 کا مطلب سات دسویں حصے ہیں — سات پوری قطاریں — جبکہ 0.25 صرف دو قطاریں اور پانچ خانے ہیں۔ ہمیشہ اعشاریے کے فوراً بعد والا ہندسہ پہلے دیکھیں۔"},
+    trapZero:{en:"A zero at the end of a decimal changes nothing at all. 0.5, 0.50 and 0.500 shade exactly the same squares. A zero in front of other digits is a different story — that one does change the number.",
+              ur:"اعشاریے کے آخر میں صفر کچھ نہیں بدلتا۔ 0.5، 0.50 اور 0.500 بالکل وہی خانے بھرتے ہیں۔ مگر دوسرے ہندسوں سے پہلے والا صفر الگ بات ہے — وہ عدد بدل دیتا ہے۔"},
+    trap09:{en:"0.09 and 0.9 look almost the same written down, but one is nine squares and the other is ninety. The zero straight after the point pushes the 9 down into the hundredths.",
+            ur:"0.09 اور 0.9 لکھے ہوئے تقریباً ایک جیسے لگتے ہیں، مگر ایک نو خانے ہے اور دوسرا نوے۔ اعشاریے کے فوراً بعد والا صفر 9 کو سویں حصوں میں دھکیل دیتا ہے۔"},
+    origLbl:{en:"Full price", ur:"پوری قیمت"},
+    offLbl:{en:"Discount", ur:"رعایت"},
+    payLbl:{en:"You pay", ur:"آپ دیتے ہیں"},
+    shopDet:{en:"The shaded part of the grid is the discount. The white part is what you still pay.",
+             ur:"گرڈ کا بھرا ہوا حصہ رعایت ہے۔ سفید حصہ وہ ہے جو آپ پھر بھی دیتے ہیں۔"},
+    whyShop:{en:"{off}% means {off} rupees off every 100 rupees. The price has {h} hundreds in it, so the discount is {off} × {h} = {amt} rupees. Work it out per hundred and the sum stays easy.",
+             ur:"{off}% کا مطلب ہے ہر 100 روپے پر {off} روپے کم۔ قیمت میں {h} سو ہیں، تو رعایت {off} × {h} = {amt} روپے بنی۔ ہر سو کے حساب سے سوچیں تو حساب آسان رہتا ہے۔"},
+    whyLbl:{en:"Notice:", ur:"غور کریں:"},
+    quiz:{en:"Check yourself", ur:"اپنا امتحان لیں"}
+  };
+
+  var QUIZ = [
+    { q:{en:"Which is bigger, 0.25 or 0.7?", ur:"0.25 اور 0.7 میں بڑا کون سا ہے؟"},
+      o:[{en:"0.25, because 25 is bigger than 7", ur:"0.25، کیونکہ 25، 7 سے بڑا ہے"},
+         {en:"0.7, because seven tenths is more than twenty five hundredths",
+          ur:"0.7، کیونکہ سات دسویں حصے پچیس سویں حصوں سے زیادہ ہیں"},
+         {en:"They are equal", ur:"دونوں برابر ہیں"},
+         {en:"0.25, because it has more digits", ur:"0.25، کیونکہ اس میں ہندسے زیادہ ہیں"}],
+      a:1,
+      f:{en:"Shade them both: 0.7 fills seven whole rows, 0.25 fills two rows and five squares. More digits never means a bigger number.",
+         ur:"دونوں کو بھر کر دیکھیں: 0.7 سات پوری قطاریں بھرتا ہے، 0.25 دو قطاریں اور پانچ خانے۔ زیادہ ہندسوں کا مطلب کبھی بڑا عدد نہیں ہوتا۔"} },
+
+    { q:{en:"Are 0.5 and 0.50 the same number?", ur:"کیا 0.5 اور 0.50 ایک ہی عدد ہیں؟"},
+      o:[{en:"No, 0.50 is ten times bigger", ur:"نہیں، 0.50 دس گنا بڑا ہے"},
+         {en:"Yes, they are exactly equal", ur:"ہاں، دونوں بالکل برابر ہیں"},
+         {en:"No, 0.5 is bigger", ur:"نہیں، 0.5 بڑا ہے"},
+         {en:"Only if you round them", ur:"صرف تب جب گول کر لیں"}],
+      a:1,
+      f:{en:"Both shade fifty squares. A zero on the end of a decimal adds nothing — it is like writing 5 rupees as 5.00 rupees.",
+         ur:"دونوں پچاس خانے بھرتے ہیں۔ اعشاریے کے آخر میں صفر کچھ نہیں بڑھاتا — جیسے 5 روپے کو 5.00 روپے لکھنا۔"} },
+
+    { q:{en:"Write 45% as a decimal.", ur:"45% کو اعشاریے میں لکھیں۔"},
+      o:[{en:"4.5", ur:"4.5"},{en:"0.45", ur:"0.45"},
+         {en:"45.0", ur:"45.0"},{en:"0.045", ur:"0.045"}],
+      a:1,
+      f:{en:"45% means 45 out of 100, which is 45/100, which is 0.45. Percentage, fraction and decimal are three names for one amount.",
+         ur:"45% کا مطلب 100 میں سے 45، یعنی 45/100، یعنی 0.45۔ فیصد، کسر اور اعشاریہ ایک ہی مقدار کے تین نام ہیں۔"} },
+
+    { q:{en:"7/10 written as a percentage is…", ur:"7/10 کو فیصد میں لکھیں تو…"},
+      o:[{en:"7%", ur:"7%"},{en:"17%", ur:"17%"},
+         {en:"70%", ur:"70%"},{en:"0.7%", ur:"0.7%"}],
+      a:2,
+      f:{en:"Percentage is always out of 100. Seven tenths is seven rows of ten squares, which is 70 squares out of 100 — so 70%.",
+         ur:"فیصد ہمیشہ 100 میں سے ہوتا ہے۔ سات دسویں حصے یعنی دس خانوں کی سات قطاریں، یعنی 100 میں سے 70 خانے — تو 70%۔"} },
+
+    { q:{en:"A shirt costs 800 rupees and has 25% off. How much is the discount?",
+         ur:"ایک قمیض 800 روپے کی ہے اور اس پر 25% رعایت ہے۔ رعایت کتنی بنی؟"},
+      o:[{en:"25 rupees", ur:"25 روپے"},{en:"200 rupees", ur:"200 روپے"},
+         {en:"600 rupees", ur:"600 روپے"},{en:"775 rupees", ur:"775 روپے"}],
+      a:1,
+      f:{en:"25 rupees off every hundred. 800 has eight hundreds in it, so 25 × 8 = 200 rupees off. You then pay 600.",
+         ur:"ہر سو پر 25 روپے کم۔ 800 میں آٹھ سو ہیں، تو 25 × 8 = 200 روپے رعایت۔ پھر آپ 600 دیتے ہیں۔"} },
+
+    { q:{en:"Which of these is the largest?", ur:"ان میں سے سب سے بڑا کون سا ہے؟"},
+      o:[{en:"0.09", ur:"0.09"},{en:"0.4", ur:"0.4"},
+         {en:"0.25", ur:"0.25"},{en:"0.109", ur:"0.109"}],
+      a:1,
+      f:{en:"Look only at the first digit after the point: 0, 4, 2, 1. The 4 wins. 0.109 has the most digits and is nearly the smallest — length tells you nothing.",
+         ur:"صرف اعشاریے کے فوراً بعد والا ہندسہ دیکھیں: 0، 4، 2، 1۔ 4 جیت گیا۔ 0.109 میں ہندسے سب سے زیادہ ہیں مگر وہ تقریباً سب سے چھوٹا ہے — لمبائی کچھ نہیں بتاتی۔"} }
+  ];
+
+  function $(id){ return document.getElementById(id); }
+  function t(o){ return o[lang]; }
+
+  var LRI = "\u2066", PDI = "\u2069";
+  var LATIN_RUN = /[A-Za-z0-9][A-Za-z0-9 .,%+()\/@_\u00d7-]*[A-Za-z0-9%]|[A-Za-z0-9]/g;
+  function isolate(s){ return s.replace(LATIN_RUN, function(m){ return LRI + m + PDI; }); }
+  function setText(el, str){
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+  function fill(s, m){ Object.keys(m).forEach(function(k){ s = s.split("{"+k+"}").join(m[k]); }); return s; }
+
+  var NS = "http://www.w3.org/2000/svg";
+  function mk(tag, a){
+    var e = document.createElementNS(NS, tag);
+    for (var k in a) e.setAttribute(k, a[k]);
+    return e;
+  }
+
+  /* ---------- grids ---------- */
+  function grid(g, x0, y0, cell, k, col){
+    for (var i=0;i<100;i++){
+      var r = Math.floor(i/10), c = i%10;
+      g.appendChild(mk("rect", {x:x0 + c*cell, y:y0 + r*cell, width:cell-1.5, height:cell-1.5, rx:2,
+                                fill: i < k ? col : "var(--empty)",
+                                stroke:"var(--grid)", "stroke-width":1, "class":"cellsq"}));
+    }
+    // a heavier line every ten, so rows read as tenths
+    for (var j=0;j<=10;j++){
+      g.appendChild(mk("line", {x1:x0, y1:y0 + j*cell - 0.75, x2:x0 + 10*cell - 1.5, y2:y0 + j*cell - 0.75,
+                                stroke:"var(--ink-soft)", "stroke-width": j%10===0 ? 2 : 0.8, opacity:.5}));
+      g.appendChild(mk("line", {x1:x0 + j*cell - 0.75, y1:y0, x2:x0 + j*cell - 0.75, y2:y0 + 10*cell - 1.5,
+                                stroke:"var(--ink-soft)", "stroke-width": j%10===0 ? 2 : 0.8, opacity:.5}));
+    }
+  }
+
+  function drawScene(){
+    var svg = $("svg");
+    svg.innerHTML = "";
+    var g = mk("g", {});
+    svg.appendChild(g);
+
+    if (tab === "cmp"){
+      svg.setAttribute("viewBox", "0 0 340 230");
+      var p = PAIRS[cmpI], cell = 14;
+      grid(g, 16, 40, cell, p.a, "var(--fillc)");
+      grid(g, 184, 40, cell, p.b, "var(--alt)");
+      [[16+70, p.la, "var(--fillc-deep)", p.a], [184+70, p.lb, "var(--alt-deep)", p.b]].forEach(function(s){
+        var lab = mk("text", {x:s[0], y:30, "text-anchor":"middle", "font-size":"20",
+                              "font-weight":"800", fill:s[2],
+                              "font-family":"Baloo Bhaijaan 2, sans-serif"});
+        lab.textContent = s[1];
+        g.appendChild(lab);
+        var cnt = mk("text", {x:s[0], y:200, "text-anchor":"middle", "font-size":"13",
+                              "font-weight":"800", fill:s[2],
+                              "font-family":"Baloo Bhaijaan 2, sans-serif"});
+        cnt.textContent = s[3] + " / 100";
+        g.appendChild(cnt);
+      });
+      return;
+    }
+
+    svg.setAttribute("viewBox", "0 0 340 300");
+    var k = (tab === "shop") ? off : n;
+    grid(g, 40, 26, 26, k, tab === "shop" ? "var(--alt)" : "var(--fillc)");
+    var big = mk("text", {x:170, y:288, "text-anchor":"middle", "font-size":"18",
+                          "font-weight":"800", fill:"var(--ink-soft)",
+                          "font-family":"Baloo Bhaijaan 2, sans-serif"});
+    big.textContent = k + " / 100";
+    g.appendChild(big);
+  }
+
+  /* ---------- controls ---------- */
+  function setN(v){ n = Math.max(0, Math.min(100, v)); render(); }
+  $("m10").addEventListener("click", function(){ setN(n-10); });
+  $("m1").addEventListener("click",  function(){ setN(n-1); });
+  $("p1").addEventListener("click",  function(){ setN(n+1); });
+  $("p10").addEventListener("click", function(){ setN(n+10); });
+
+  PAIRS.forEach(function(p, i){
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "pchip";
+    b.setAttribute("data-i", i);
+    b.textContent = p.la + " vs " + p.lb;
+    b.addEventListener("click", function(){ cmpI = i; render(); });
+    $("cmpChips").appendChild(b);
+  });
+
+  PRICES.forEach(function(pr){
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "pchip";
+    b.setAttribute("data-p", String(pr));
+    b.textContent = "Rs " + pr;
+    b.addEventListener("click", function(){ price = pr; render(); });
+    $("priceChips").appendChild(b);
+  });
+  $("offM").addEventListener("click", function(){ off = Math.max(0, off-5); render(); });
+  $("offP").addEventListener("click", function(){ off = Math.min(100, off+5); render(); });
+
+  ["One","Cmp","Shop"].forEach(function(x){
+    $("tab"+x).addEventListener("click", function(){
+      var m = x.toLowerCase();
+      if (tab === m) return;
+      tab = m; render();
+    });
+  });
+
+  /* ---------- render ---------- */
+  function cards(list){
+    var box = $("three"); box.innerHTML = "";
+    list.forEach(function(c){
+      var d = document.createElement("div"); d.className = "nm";
+      var em = document.createElement("em"); em.textContent = c[0];
+      em.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+      var b = document.createElement("b"); b.textContent = c[1];
+      b.setAttribute("dir","ltr");
+      d.appendChild(em); d.appendChild(b); box.appendChild(d);
+    });
+  }
+
+  function render(){
+    drawScene();
+
+    ["One","Cmp","Shop"].forEach(function(x){
+      $("tab"+x).setAttribute("aria-pressed", tab === x.toLowerCase() ? "true" : "false");
+    });
+    setText($("tabOne"), t(T.tabOne));
+    setText($("tabCmp"), t(T.tabCmp));
+    setText($("tabShop"), t(T.tabShop));
+    $("onePanel").style.display  = (tab === "one")  ? "" : "none";
+    $("cmpPanel").style.display  = (tab === "cmp")  ? "" : "none";
+    $("shopPanel").style.display = (tab === "shop") ? "" : "none";
+    setText($("oneHead"), t(T.oneHead));
+    setText($("cmpHead"), t(T.cmpHead));
+    setText($("priceHead"), t(T.priceHead));
+    setText($("offHead"), t(T.offHead));
+    setText($("quizHead"), t(T.quiz));
+    $("whyLbl").textContent = t(T.whyLbl);
+
+    $("money").style.display = (tab === "shop") ? "" : "none";
+    $("trap").style.display  = (tab === "cmp")  ? "" : "none";
+
+    Array.prototype.forEach.call($("cmpChips").children, function(b, i){
+      b.setAttribute("aria-pressed", i === cmpI ? "true" : "false");
+    });
+    Array.prototype.forEach.call($("priceChips").children, function(b){
+      b.setAttribute("aria-pressed", (+b.getAttribute("data-p") === price) ? "true" : "false");
+    });
+
+    if (tab === "one"){
+      setText($("title"), t(T.titleOne));
+      setText($("subtitle"), t(T.subOne));
+      $("nVal").textContent = String(n);
+      $("m10").disabled = (n <= 0); $("m1").disabled = (n <= 0);
+      $("p1").disabled = (n >= 100); $("p10").disabled = (n >= 100);
+      setText($("namechip"), fill(t(T.shaded), {n:n}));
+      cards([[t(T.fracLbl), frac(n)], [t(T.decLbl), dec(n)], [t(T.pctLbl), n + "%"]]);
+      var rows = Math.floor(n/10), extra = n % 10;
+      setText($("detail"), extra === 0 ? fill(t(T.saidRows), {r:rows})
+                                       : fill(t(T.said), {r:rows, c:extra}));
+      setText($("whyText"), extra === 0 ? t(T.whyTenth) : t(T.whyOne));
+      lastSpoken = frac(n) + ", " + dec(n) + ", " + n + "%";
+      return;
+    }
+
+    if (tab === "cmp"){
+      var p = PAIRS[cmpI];
+      setText($("title"), t(T.titleCmp));
+      setText($("subtitle"), t(T.subCmp));
+      var big = (p.a === p.b) ? null : (p.a > p.b ? p.la : p.lb);
+      setText($("namechip"), big ? fill(t(T.cmpBig), {big:big}) : t(T.cmpEq));
+      cards([[p.la, p.a + "/100"], [t(T.decLbl), big || "="], [p.lb, p.b + "/100"]]);
+      setText($("detail"), t(T.cmpDet));
+      setText($("trap"), cmpI === 0 ? t(T.trap25)
+                       : cmpI === 2 ? t(T.trap09) : t(T.trapZero));
+      setText($("whyText"), t(T.cmpDet));
+      lastSpoken = p.la + " , " + p.lb;
+      return;
+    }
+
+    // shop
+    setText($("title"), t(T.titleShop));
+    setText($("subtitle"), t(T.subShop));
+    $("offVal").textContent = off + "%";
+    $("offM").disabled = (off <= 0); $("offP").disabled = (off >= 100);
+    var amt = price * off / 100, pay = price - amt;
+    setText($("namechip"), off + "% \u2014 " + price);
+    cards([[t(T.fracLbl), off + "/100"], [t(T.decLbl), dec(off)], [t(T.pctLbl), off + "%"]]);
+    var mbox = $("money"); mbox.innerHTML = "";
+    [[t(T.origLbl), "Rs " + price, ""], [t(T.offLbl), "\u2212 Rs " + amt, "off"],
+     [t(T.payLbl), "Rs " + pay, "pay"]].forEach(function(c){
+      var d = document.createElement("div"); d.className = "mcard " + c[2];
+      var em = document.createElement("em"); em.textContent = c[0];
+      em.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+      var b = document.createElement("b"); b.textContent = c[1]; b.setAttribute("dir","ltr");
+      d.appendChild(em); d.appendChild(b); mbox.appendChild(d);
+    });
+    setText($("detail"), t(T.shopDet));
+    setText($("whyText"), fill(t(T.whyShop), {off:off, h:price/100, amt:amt}));
+    lastSpoken = off + "% of " + price + " is " + amt;
+  }
+
+  var lastSpoken = "";
+
+  /* ---------- quiz ---------- */
+  function buildQuiz(){
+    var box = $("quizBox"); box.innerHTML = "";
+    QUIZ.forEach(function(item){
+      var wrap = document.createElement("div"); wrap.className = "q";
+      var q = document.createElement("p"); setText(q, t(item.q)); wrap.appendChild(q);
+      var fb = document.createElement("p"); fb.className = "fb";
+      item.o.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt" + (lang === "ur" ? " ur" : "");
+        b.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+        b.textContent = t(opt);
+        b.addEventListener("click", function(){
+          if (wrap.getAttribute("data-done") === "1") return;
+          wrap.setAttribute("data-done","1");
+          Array.prototype.forEach.call(wrap.querySelectorAll(".opt"), function(x, xi){
+            if (xi === item.a) x.classList.add("right");
+            else if (xi === oi) x.classList.add("wrong");
+          });
+          setText(fb, t(item.f));
+          fb.classList.add("show","fb");
+        });
+        wrap.appendChild(b);
+      });
+      wrap.appendChild(fb); box.appendChild(wrap);
+    });
+  }
+
+  function applyLang(){
+    document.body.classList.toggle("urdu", lang === "ur");
+    var lb = $("langBtn");
+    lb.textContent = (lang === "en") ? "اردو" : "English";
+    lb.setAttribute("aria-pressed", lang === "ur" ? "true" : "false");
+    Array.prototype.forEach.call(document.querySelectorAll("[data-en]"), function(el){
+      setText(el, el.getAttribute(lang === "en" ? "data-en" : "data-ur"));
+    });
+    buildQuiz(); render();
+  }
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en"; applyLang();
+  });
+
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      window.speechSynthesis.cancel();
+      var u = new SpeechSynthesisUtterance(lastSpoken);
+      u.lang = (lang === "ur") ? "ur-PK" : "en-US";
+      u.rate = 0.92;
+      var voices = window.speechSynthesis.getVoices() || [];
+      for (var i=0;i<voices.length;i++){
+        if (voices[i].lang && voices[i].lang.toLowerCase().indexOf(lang === "ur" ? "ur" : "en") === 0){
+          u.voice = voices[i]; break;
+        }
+      }
+      window.speechSynthesis.speak(u);
+    }catch(e){ /* no voice available — stay quiet */ }
+  });
+
+  applyLang();
+})();
+</script>
+</body>
+</html>

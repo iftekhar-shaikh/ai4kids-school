@@ -1072,6 +1072,7 @@ def render_topic_interactive(subject_key, grade, topic_title):
             (5, "math", "Numbers 10 lakh tak"): "interactives/g5-place-value.html",
             (5, "math", "HCF aur LCM"): "interactives/g5-hcf-lcm.html",
             (5, "math", "Perimeter aur area"): "interactives/g5-perimeter-area.html",
+            (5, "math", "Decimals aur percentage"): "interactives/g5-decimals-percentage.html",
             (5, "science", "Cells"): "interactives/g5-cells.html",
             (5, "science", "Khoon ka nizam"): "interactives/g5-khoon-nizam.html",
             (5, "science", "Energy — forms"): "interactives/g5-energy.html",

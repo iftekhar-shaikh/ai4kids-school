@@ -87,5 +87,13 @@
       "interactive_file": "interactives/g5-ai-project.html",
       "interactive_label": "Khelo — AI project / Idea se plan"
     }
+  },
+  {
+    "file": "kb/grade_5/math.json",
+    "match_title": "Decimals aur percentage",
+    "add": {
+      "interactive_file": "interactives/g5-decimals-percentage.html",
+      "interactive_label": "Khelo — Decimals aur percentage"
+    }
   }
 ]
