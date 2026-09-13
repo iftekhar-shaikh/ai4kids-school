@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Water Cycle — پانی کا چکر | AI4Kids Class 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sky:#d6ecf7;
+    --sky-deep:#a8d3ea;
+    --water:#2b7fbf;
+    --water-deep:#1a5b8f;
+    --vapour:#8fc4e0;
+    --cloud:#e9eff4;
+    --cloud-dark:#b9c7d2;
+    --rock:#8a8f7d;
+    --rock-dark:#6e7364;
+    --grass:#4e8b5a;
+    --sun:#f2a104;
+    --ink:#1f2933;
+    --ink-soft:#4a5661;
+    --paper:#fdfaf3;
+    --line:#ded5c4;
+
+    /* One type scale for the whole app. Sizes grow with the viewport so the
+       text stays readable on a phone without breaking on a laptop. */
+    --fs-xs:clamp(14px, 3.7vw, 15px);
+    --fs-sm:clamp(16px, 4.2vw, 17px);
+    --fs-md:clamp(17px, 4.6vw, 19px);
+    --fs-lg:clamp(20px, 5.4vw, 23px);
+    --fs-xl:clamp(27px, 7.4vw, 33px);
+    --lh:1.5;
+  }
+  /* Nastaliq strokes are finer and its letters stack, so Urdu needs to be BIGGER
+     than Latin at the same reading distance — not smaller. Switching the language
+     re-defines the whole scale in one place. */
+  body.urdu{
+    --fs-xs:clamp(15px, 4.1vw, 17px);
+    --fs-sm:clamp(17px, 4.7vw, 19px);
+    --fs-md:clamp(19px, 5.2vw, 21px);
+    --fs-lg:clamp(22px, 6vw, 25px);
+    --fs-xl:clamp(26px, 7vw, 31px);
+    --lh:2.1;
+  }
+
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--water-deep);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 16px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:linear-gradient(180deg,var(--sky) 0%,var(--sky-deep) 100%);
+  }
+  .scene svg{display:block;width:100%;height:auto}
+
+  #cloudG{transition:transform .6s ease,opacity .6s ease;transform-origin:210px 62px}
+  #lake{transition:y .6s ease,height .6s ease}
+  #sunBall{transition:opacity .4s ease}
+  .vap{opacity:0;animation:up 3.4s linear infinite}
+  .vap:nth-of-type(2){animation-delay:1.1s}
+  .vap:nth-of-type(3){animation-delay:2.2s}
+  .vap:nth-of-type(4){animation-delay:.6s}
+  @keyframes up{
+    0%{opacity:0;transform:translateY(0)}
+    25%{opacity:.85}
+    100%{opacity:0;transform:translateY(-118px)}
+  }
+  .rain{opacity:0;stroke:var(--water);stroke-width:3;stroke-linecap:round}
+  .raining .rain{animation:fall 1.1s linear infinite}
+  .raining .rain:nth-of-type(2){animation-delay:.25s}
+  .raining .rain:nth-of-type(3){animation-delay:.5s}
+  .raining .rain:nth-of-type(4){animation-delay:.75s}
+  @keyframes fall{
+    0%{opacity:0;transform:translateY(0)}
+    20%{opacity:.9}
+    100%{opacity:0;transform:translateY(96px)}
+  }
+
+  .readout{
+    margin-top:-18px;position:relative;z-index:2;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .stage{display:inline-block;background:var(--water);color:#fff;border-radius:999px;
+         padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+  .stage.ur{padding:2px 14px 7px}
+  .verdict{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+  .verdict.ur{line-height:1.95}
+  .why{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+
+  /* cloud saturation */
+  .cloudfill{margin-top:16px}
+  .cf-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;
+          font-size:var(--fs-xs);font-weight:600;color:var(--ink-soft);margin-bottom:6px}
+  .cf-top span:last-child{flex:none;font-weight:800;color:var(--ink)}
+  .cf-bar{height:16px;border-radius:999px;background:#e8e2d4;overflow:hidden;
+          border:2px solid var(--ink)}
+  .cf-bar i{display:block;height:100%;width:0;background:var(--cloud-dark);
+            transition:width .4s ease,background .4s ease}
+  .cloudfill.full .cf-top{color:var(--water-deep)}
+  .cloudfill.full .cf-bar i{background:var(--water)}
+
+  /* water tally */
+  .tally{margin-top:16px}
+  .track{display:flex;height:18px;border-radius:999px;overflow:hidden;border:2px solid var(--ink)}
+  .track i{display:block;transition:width .5s ease}
+  .track .t-lake{background:var(--water)}
+  .track .t-vap{background:var(--vapour)}
+  .track .t-cloud{background:var(--cloud-dark)}
+  .keys{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 12px;margin-top:10px;
+        font-size:var(--fs-xs);color:var(--ink-soft)}
+  .keys span{display:flex;align-items:center;gap:6px}
+  .keys b{display:inline-block;width:12px;height:12px;border-radius:3px;flex:none}
+  .total{margin:12px 0 0;font-size:var(--fs-xs);font-weight:600;color:var(--water-deep)}
+
+  .ctl{margin-top:22px}
+  .ctl h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 12px;color:var(--ink-soft)}
+  .row{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .row .icon{font-size:var(--fs-lg);width:30px;text-align:center;flex:none}
+  .row .name{flex:none;width:34%;max-width:150px;font-size:var(--fs-xs);font-weight:600}
+  .seg{display:flex;gap:6px;flex:1}
+  .seg button{
+    flex:1;height:44px;border-radius:10px;border:2px solid var(--ink);
+    background:var(--paper);cursor:pointer;padding:0;
+    transition:background .15s ease,transform .1s ease;
+  }
+  .seg button:active{transform:scale(.94)}
+  .seg[data-key="heat"] button[aria-pressed="true"]{background:var(--sun)}
+  .seg[data-key="cool"] button[aria-pressed="true"]{background:var(--vapour)}
+
+  .steps{margin-top:20px;border:3px dashed var(--line);border-radius:16px;padding:12px 16px}
+  .steps ol{margin:0;padding:0;list-style:none;counter-reset:s}
+  .steps li{
+    counter-increment:s;position:relative;padding:9px 0 9px 38px;font-size:var(--fs-xs);
+    font-weight:600;color:var(--ink-soft);border-bottom:1px solid var(--line);
+  }
+  .steps li:last-child{border-bottom:0}
+  .steps li::before{
+    content:counter(s);position:absolute;left:0;top:9px;width:26px;height:26px;border-radius:50%;
+    background:var(--line);color:var(--ink);font-size:var(--fs-xs);font-weight:800;
+    display:flex;align-items:center;justify-content:center;
+    font-family:"Baloo Bhaijaan 2",sans-serif;
+  }
+  .steps li.on{color:var(--ink)}
+  .steps li.on::before{background:var(--water);color:#fff}
+  .steps li.ur{padding:9px 38px 9px 0;text-align:right}
+  .steps li.ur::before{left:auto;right:0}
+
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:50px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--grass);background:#e6f4ec;font-weight:600}
+  .opt.wrong{border-color:#b85c38;background:#fbeae4}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+
+  /* On a laptop the app used to sit in a thin column with empty space either
+     side. Two columns fill the screen and keep the scene visible while the
+     child works the controls — which also frames better in a screen recording. */
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;
+      grid-template-columns:1fr 1fr;
+      grid-template-areas:
+        "bar   bar"
+        "head  head"
+        "left  right"
+        "quiz  quiz"
+        "foot  foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar}
+    .head{grid-area:head}
+    .left{grid-area:left}
+    .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px}
+    footer{grid-area:foot}
+    .ctl{margin-top:0}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .vap,.raining .rain{animation:none;opacity:.6}
+    *{transition-duration:.01ms !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 5</span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunein">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 data-en="Where does rain come from?" data-ur="بارش آخر آتی کہاں سے ہے؟"></h1>
+  <p class="sub" data-en="Turn up the sun. Watch the same water travel and come back." data-ur="سورج کی گرمی بڑھائیں۔ دیکھیں وہی پانی سفر کر کے واپس آتا ہے۔"></p>
+  </div>
+
+  <div class="left">
+  <div class="scene">
+    <svg id="svg" viewBox="0 0 300 300" role="img" aria-label="A lake in a valley with the sun, clouds and rain">
+      <!-- sun -->
+      <g>
+        <circle id="sunBall" cx="52" cy="46" r="20" fill="var(--sun)"/>
+        <g stroke="var(--sun)" stroke-width="4" stroke-linecap="round" opacity=".7">
+          <line x1="52" y1="14" x2="52" y2="22"/><line x1="20" y1="46" x2="28" y2="46"/>
+          <line x1="30" y1="24" x2="36" y2="30"/><line x1="30" y1="68" x2="36" y2="62"/>
+        </g>
+      </g>
+
+      <!-- cloud -->
+      <g id="cloudG" opacity="0">
+        <ellipse class="cbody" cx="188" cy="66" rx="30" ry="20" fill="var(--cloud)"/>
+        <ellipse class="cbody" cx="218" cy="58" rx="34" ry="24" fill="var(--cloud)"/>
+        <ellipse class="cbody" cx="246" cy="70" rx="26" ry="18" fill="var(--cloud)"/>
+        <ellipse class="cbase" cx="216" cy="80" rx="46" ry="14" fill="var(--cloud-dark)"/>
+      </g>
+
+      <!-- rain -->
+      <g id="rainG">
+        <line class="rain" x1="192" y1="94" x2="188" y2="108"/>
+        <line class="rain" x1="212" y1="94" x2="208" y2="108"/>
+        <line class="rain" x1="232" y1="94" x2="228" y2="108"/>
+        <line class="rain" x1="252" y1="94" x2="248" y2="108"/>
+      </g>
+
+      <!-- mountains -->
+      <path d="M0 214 L54 140 L104 214 Z" fill="var(--rock)"/>
+      <path d="M64 214 L132 122 L200 214 Z" fill="var(--rock-dark)"/>
+      <path d="M118 122 L132 108 L146 122 Z" fill="#f2f5f7"/>
+      <path d="M170 214 L232 152 L300 214 Z" fill="var(--rock)"/>
+      <rect x="0" y="212" width="300" height="12" fill="var(--grass)"/>
+
+      <!-- vapour -->
+      <g id="vapG" fill="var(--vapour)">
+        <circle class="vap" cx="96" cy="238" r="6"/>
+        <circle class="vap" cx="128" cy="244" r="5"/>
+        <circle class="vap" cx="156" cy="236" r="7"/>
+        <circle class="vap" cx="184" cy="246" r="5"/>
+      </g>
+
+      <!-- lake -->
+      <rect x="0" y="252" width="300" height="48" fill="var(--water-deep)"/>
+      <rect id="lake" x="0" y="252" width="300" height="48" fill="var(--water)"/>
+    </svg>
+  </div>
+
+  <div class="readout">
+    <span class="stage" id="stage"></span>
+    <p class="verdict" id="verdict"></p>
+    <p class="why" id="why"></p>
+
+    <div class="cloudfill">
+      <div class="cf-top">
+        <span id="cfLabel"></span>
+        <span id="cfPct">0%</span>
+      </div>
+      <div class="cf-bar"><i id="cfFill"></i></div>
+    </div>
+
+    <div class="tally">
+      <div class="track">
+        <i class="t-lake"  id="barLake"></i>
+        <i class="t-vap"   id="barVap"></i>
+        <i class="t-cloud" id="barCloud"></i>
+      </div>
+      <div class="keys">
+        <span><b style="background:var(--water)"></b><em id="kLake"></em></span>
+        <span><b style="background:var(--vapour)"></b><em id="kVap"></em></span>
+        <span><b style="background:var(--cloud-dark)"></b><em id="kCloud"></em></span>
+      </div>
+      <p class="total" id="total"></p>
+    </div>
+  </div>
+
+  </div>
+
+  <div class="right">
+  <div class="ctl">
+    <h2 id="ctlHead"></h2>
+    <div class="row">
+      <span class="icon" aria-hidden="true">☀️</span>
+      <span class="name" id="n-heat"></span>
+      <div class="seg" data-key="heat" role="group" aria-label="Sun heat"></div>
+    </div>
+    <div class="row">
+      <span class="icon" aria-hidden="true">🧊</span>
+      <span class="name" id="n-cool"></span>
+      <div class="seg" data-key="cool" role="group" aria-label="Cold air high up"></div>
+    </div>
+  </div>
+
+  <div class="steps">
+    <ol id="stepList"></ol>
+  </div>
+
+  </div>
+
+  <div class="quiz">
+    <h2 id="quizHead" style="font-size:var(--fs-lg);font-weight:800;margin:0 0 18px"></h2>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad's bilingual AI and coding school. WhatsApp 0337 1468899" data-ur="اے آئی فور کڈز — اسلام آباد کا دو زبانوں والا اے آئی اور کوڈنگ سکول۔ واٹس ایپ 0337 1468899"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var lang  = "en";
+  var ctrl  = { heat:0, cool:0 };
+  var W     = { lake:100, vap:0, cloud:0 };   // always sums to 100
+  var raining = false;
+
+  // How much water this cloud can hold before it saturates and must rain.
+  var CAP = 34;
+
+  var T = {
+    ctlHead:{en:"Change the weather and watch the water move",
+             ur:"موسم بدلیں اور دیکھیں پانی کہاں جاتا ہے"},
+    heat:{en:"Sun heat", ur:"سورج کی گرمی"},
+    cool:{en:"Cold air up high", ur:"اوپر ہوا کی ٹھنڈک"},
+    kLake:{en:"In the lake", ur:"جھیل میں"},
+    cfFilling:{en:"Light — droplets are still small",
+               ur:"ہلکا — قطرے ابھی چھوٹے ہیں"},
+    cfHeavy:{en:"Getting heavy — droplets are joining together",
+             ur:"بھاری ہو رہا ہے — قطرے آپس میں مل رہے ہیں"},
+    cfFull:{en:"Too heavy to hold up. Gravity pulls it down — rain.",
+            ur:"اتنا بھاری کہ ہوا سنبھال نہیں سکتی۔ کشش ثقل کھینچ لیتی ہے — بارش۔"},
+    cfEmpty:{en:"Getting lighter — the cloud is giving the water back",
+             ur:"ہلکا ہو رہا ہے — بادل پانی واپس دے رہا ہے"},
+    kVap:{en:"In the air", ur:"ہوا میں"},
+    kCloud:{en:"In the cloud", ur:"بادل میں"},
+    total:{en:"Total water: always 100. Not one drop is ever lost.",
+           ur:"کل پانی: ہمیشہ 100۔ ایک قطرہ بھی ضائع نہیں ہوتا۔"},
+    quiz:{en:"Check yourself", ur:"اپنا امتحان لیں"},
+    steps:{
+      en:["Evaporation — water rises as vapour",
+          "Condensation — vapour cools into a cloud",
+          "Precipitation — the cloud drops rain",
+          "Collection — water gathers again"],
+      ur:["بخارات بننا — پانی بھاپ بن کر اوپر جاتا ہے",
+          "بادل بننا — بھاپ ٹھنڈی ہو کر بادل بنتی ہے",
+          "بارش — بادل پانی برساتا ہے",
+          "جمع ہونا — پانی دوبارہ اکٹھا ہو جاتا ہے"]
+    },
+    idle:{s:{en:"Waiting", ur:"انتظار"},
+      v:{en:"Nothing is moving.", ur:"کچھ حرکت نہیں ہو رہی۔"},
+      w:{en:"The water cycle runs on the sun. Give it some heat and watch.",
+         ur:"پانی کا چکر سورج سے چلتا ہے۔ تھوڑی گرمی دیں اور دیکھیں۔"}},
+    evap:{s:{en:"Evaporation", ur:"بخارات بننا"},
+      v:{en:"The lake is rising into the air.", ur:"جھیل کا پانی ہوا میں جا رہا ہے۔"},
+      w:{en:"Sun heat turns water into vapour. You cannot see it, but it is going up right now.",
+         ur:"سورج کی گرمی پانی کو بھاپ بنا دیتی ہے۔ نظر نہیں آتی، مگر ابھی اوپر جا رہی ہے۔"}},
+    stuck:{s:{en:"Stuck in the air", ur:"ہوا میں پھنسا ہوا"},
+      v:{en:"Vapour is rising but no cloud is forming.", ur:"بھاپ اوپر جا رہی ہے مگر بادل نہیں بن رہا۔"},
+      w:{en:"Vapour needs cold air up high to turn back into droplets. Add some cold.",
+         ur:"بھاپ کو بادل بننے کے لیے اوپر ٹھنڈک چاہیے۔ تھوڑی ٹھنڈک بڑھائیں۔"}},
+    cond:{s:{en:"Condensation", ur:"بادل بننا"},
+      v:{en:"A cloud is forming, and getting heavier.", ur:"بادل بن رہا ہے، اور بھاری ہوتا جا رہا ہے۔"},
+      w:{en:"Cold air turns vapour back into tiny droplets. As more droplets join, each one grows and the cloud gets heavier and darker.",
+         ur:"ٹھنڈی ہوا بھاپ کو ننھے قطروں میں بدل دیتی ہے۔ جتنے زیادہ قطرے ملتے ہیں، ہر قطرہ بڑا ہوتا جاتا ہے اور بادل بھاری اور گہرا ہوتا جاتا ہے۔"}},
+    rain:{s:{en:"Precipitation", ur:"بارش"},
+      v:{en:"The cloud got too heavy.", ur:"بادل بہت بھاری ہو گیا۔"},
+      w:{en:"Air can hold light droplets, but not heavy ones. Once they are too heavy, gravity pulls them down — that is rain. This is why rain clouds look dark and hang low.",
+         ur:"ہوا ہلکے قطرے سنبھال لیتی ہے، بھاری نہیں۔ جب قطرے بہت بھاری ہو جائیں تو کشش ثقل انہیں نیچے کھینچ لیتی ہے — یہی بارش ہے۔ اسی لیے برسنے والے بادل گہرے اور نیچے جھکے ہوئے لگتے ہیں۔"}},
+    dry:{s:{en:"Dried up", ur:"خشک"},
+      v:{en:"The lake is empty.", ur:"جھیل خالی ہو گئی۔"},
+      w:{en:"All the water is up in the sky now. Add cold air so it can come back down.",
+         ur:"سارا پانی اوپر آسمان میں ہے۔ ٹھنڈک بڑھائیں تاکہ واپس آ سکے۔"}}
+  };
+
+  var QUIZ = [
+    { q:{en:"What does the sun's heat turn lake water into?",
+         ur:"سورج کی گرمی جھیل کے پانی کو کس چیز میں بدل دیتی ہے؟"},
+      o:[{en:"Ice", ur:"برف"},{en:"Water vapour", ur:"بھاپ (Water vapour)"},
+         {en:"Mud", ur:"کیچڑ"},{en:"Salt", ur:"نمک"}],
+      a:1,
+      f:{en:"This step is called evaporation. The vapour is invisible, which is why you never see it happen.",
+         ur:"اس مرحلے کو evaporation کہتے ہیں۔ بھاپ نظر نہیں آتی، اسی لیے یہ ہوتا ہوا دکھائی نہیں دیتا۔"} },
+    { q:{en:"Why does vapour turn into a cloud when it goes high up?",
+         ur:"بھاپ اوپر جا کر بادل کیوں بن جاتی ہے؟"},
+      o:[{en:"Because it gets colder up there", ur:"کیونکہ اوپر ٹھنڈ زیادہ ہوتی ہے"},
+         {en:"Because it gets hotter up there", ur:"کیونکہ اوپر گرمی زیادہ ہوتی ہے"},
+         {en:"Because the wind pushes it", ur:"کیونکہ ہوا اسے دھکیلتی ہے"},
+         {en:"Because birds carry it", ur:"کیونکہ پرندے اسے لے جاتے ہیں"}],
+      a:0,
+      f:{en:"Cold turns vapour back into tiny droplets. That is condensation.",
+         ur:"ٹھنڈک بھاپ کو دوبارہ ننھے قطروں میں بدل دیتی ہے۔ اسی کو condensation کہتے ہیں۔"} },
+    { q:{en:"After it rains, is that water gone forever?",
+         ur:"بارش ہونے کے بعد کیا وہ پانی ہمیشہ کے لیے ختم ہو جاتا ہے؟"},
+      o:[{en:"Yes, new water is made each time", ur:"ہاں، ہر بار نیا پانی بنتا ہے"},
+         {en:"No, the same water goes round and round", ur:"نہیں، وہی پانی گھومتا رہتا ہے"},
+         {en:"Yes, it disappears into the soil", ur:"ہاں، مٹی میں غائب ہو جاتا ہے"},
+         {en:"No, it turns into air", ur:"نہیں، وہ ہوا بن جاتا ہے"}],
+      a:1,
+      f:{en:"The rain falling on Islamabad today may have been in a river a hundred years ago. It is the same water, on a loop.",
+         ur:"آج اسلام آباد پر برسنے والا پانی سو سال پہلے کسی دریا میں ہو سکتا ہے۔ وہی پانی، بس چکر لگاتا رہتا ہے۔"} }
+  ];
+
+  function $(id){ return document.getElementById(id); }
+  function t(o){ return o[lang]; }
+
+  /* Latin runs inside Urdu RTL text must be isolated, or numbers flip order. */
+  var LRI = "\u2066", PDI = "\u2069";
+  var LATIN_RUN = /[A-Za-z0-9][A-Za-z0-9 .,+()\/@_-]*[A-Za-z0-9]|[A-Za-z0-9]/g;
+  function isolate(s){ return s.replace(LATIN_RUN, function(m){ return LRI + m + PDI; }); }
+
+  function setText(el, str){
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+
+  /* ---------- controls ---------- */
+  Array.prototype.forEach.call(document.querySelectorAll(".seg"), function(seg){
+    var key = seg.getAttribute("data-key");
+    for (var i=1;i<=5;i++){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.setAttribute("aria-pressed","false");
+      b.setAttribute("aria-label", key + " level " + i);
+      b.setAttribute("data-level", String(i));
+      b.addEventListener("click", (function(k,lvl){
+        return function(){ ctrl[k] = (ctrl[k] === lvl) ? lvl-1 : lvl; paintSegs(); };
+      })(key,i));
+      seg.appendChild(b);
+    }
+  });
+
+  function paintSegs(){
+    Array.prototype.forEach.call(document.querySelectorAll(".seg"), function(seg){
+      var key = seg.getAttribute("data-key");
+      Array.prototype.forEach.call(seg.children, function(btn){
+        btn.setAttribute("aria-pressed",
+          (+btn.getAttribute("data-level") <= ctrl[key]) ? "true" : "false");
+      });
+    });
+  }
+
+  /* ---------- simulation ---------- */
+  function move(from, to, amount){
+    var a = Math.min(amount, W[from]);
+    W[from] -= a; W[to] += a;
+  }
+
+  function mix(a, b, f){
+    return "rgb(" + Math.round(a[0] + (b[0]-a[0])*f) + "," +
+                    Math.round(a[1] + (b[1]-a[1])*f) + "," +
+                    Math.round(a[2] + (b[2]-a[2])*f) + ")";
+  }
+
+  function tick(){
+    // A smaller lake has less surface, so it evaporates more slowly. More vapour in
+    // the air condenses faster. Both rates being proportional is what makes the
+    // cycle settle into a loop instead of piling all the water in one place.
+    if (ctrl.heat > 0) move("lake", "vap", ctrl.heat * 0.55 * (W.lake / 100));
+    if (ctrl.cool > 0) move("vap", "cloud", ctrl.cool * 0.055 * W.vap);
+
+    if (W.cloud >= CAP)        raining = true;
+    if (W.cloud <= CAP * 0.25) raining = false;
+    // A saturated cloud empties fast. This is what makes rain arrive in visible
+    // bursts — fill, burst, refill — instead of drizzling forever at one level.
+    if (raining) move("cloud", "lake", 0.8 + W.cloud * 0.22);
+
+    draw();
+  }
+
+  function phase(){
+    if (raining) return "rain";
+    if (W.cloud > 4 && ctrl.cool > 0 && W.vap > 2) return "cond";
+    if (W.lake <= 2 && ctrl.cool === 0) return "dry";
+    if (W.vap > 12 && ctrl.cool === 0) return "stuck";
+    if (ctrl.heat > 0 && W.lake > 2) return "evap";
+    return "idle";
+  }
+
+  var STEP_OF = { evap:0, stuck:0, cond:1, rain:2, dry:0, idle:-1 };
+
+  function draw(){
+    // lake level
+    var h = 8 + (W.lake / 100) * 40;
+    $("lake").setAttribute("y", String(300 - h));
+    $("lake").setAttribute("height", String(h));
+
+    // vapour visibility
+    $("vapG").setAttribute("opacity", String(Math.min(1, W.vap / 22)));
+
+    // cloud
+    var c = $("cloudG");
+    c.setAttribute("opacity", String(Math.min(1, W.cloud / 16)));
+    var sink = Math.min(W.cloud, CAP) / CAP * 12;
+    c.style.transform = "translateY(" + sink + "px) scale(" +
+      (0.5 + Math.min(W.cloud, 45) / 45 * 0.7) + ")";
+
+    // sun
+    $("sunBall").style.opacity = String(0.3 + ctrl.heat * 0.14);
+    $("svg").classList.toggle("raining", raining);
+
+    // cloud saturation, shown as a share of the cloud's own capacity
+    var fill = Math.min(100, Math.round(W.cloud / CAP * 100));
+    var f = fill / 100;
+    $("cfFill").style.width = fill + "%";
+    $("cfPct").textContent = fill + "%";
+    var box = document.querySelector(".cloudfill");
+    box.classList.toggle("full", fill >= 96);
+    setText($("cfLabel"),
+      raining     ? t(T.cfEmpty) :
+      fill >= 96  ? t(T.cfFull)  :
+      fill >= 35  ? t(T.cfHeavy) : t(T.cfFilling));
+
+    // A heavy cloud is a dark cloud, and it hangs lower. This is the whole reason
+    // rain happens, so it has to be visible and not just written in the text.
+    var body = mix([233,239,244], [118,130,142], f);
+    var base = mix([185,199,210], [74,84,94], f);
+    Array.prototype.forEach.call(document.querySelectorAll(".cbody"), function(e){ e.setAttribute("fill", body); });
+    Array.prototype.forEach.call(document.querySelectorAll(".cbase"), function(e){ e.setAttribute("fill", base); });
+
+    // tally bar
+    $("barLake").style.width  = W.lake  + "%";
+    $("barVap").style.width   = W.vap   + "%";
+    $("barCloud").style.width = W.cloud + "%";
+
+    // words
+    var p = phase(), m = T[p];
+    setText($("stage"), t(m.s));
+    setText($("verdict"), t(m.v));
+    setText($("why"), t(m.w));
+    lastSpoken = t(m.v) + " " + t(m.w);
+
+    var on = STEP_OF[p];
+    Array.prototype.forEach.call($("stepList").children, function(li, i){
+      li.classList.toggle("on", i === on || (p === "rain" && i === 3 && W.lake > 40));
+    });
+  }
+
+  var lastSpoken = "";
+
+  /* ---------- quiz ---------- */
+  function buildQuiz(){
+    var box = $("quizBox");
+    box.innerHTML = "";
+    QUIZ.forEach(function(item){
+      var wrap = document.createElement("div");
+      wrap.className = "q";
+
+      var p = document.createElement("p");
+      setText(p, t(item.q));
+      wrap.appendChild(p);
+
+      var fb = document.createElement("p");
+      fb.className = "fb";
+
+      item.o.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt" + (lang === "ur" ? " ur" : "");
+        b.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+        b.textContent = t(opt);
+        b.addEventListener("click", function(){
+          if (wrap.getAttribute("data-done") === "1") return;
+          wrap.setAttribute("data-done","1");
+          Array.prototype.forEach.call(wrap.querySelectorAll(".opt"), function(x, xi){
+            if (xi === item.a) x.classList.add("right");
+            else if (xi === oi) x.classList.add("wrong");
+          });
+          setText(fb, t(item.f));
+          fb.classList.add("show","fb");
+          if (lang === "ur") fb.classList.add("ur");
+        });
+        wrap.appendChild(b);
+      });
+
+      wrap.appendChild(fb);
+      box.appendChild(wrap);
+    });
+  }
+
+  function buildSteps(){
+    var ol = $("stepList");
+    ol.innerHTML = "";
+    T.steps[lang].forEach(function(s){
+      var li = document.createElement("li");
+      li.textContent = (lang === "ur") ? isolate(s) : s;
+      if (lang === "ur"){ li.className = "ur"; li.setAttribute("dir","rtl"); }
+      ol.appendChild(li);
+    });
+  }
+
+  /* ---------- language ---------- */
+  function applyLang(){
+    document.body.classList.toggle("urdu", lang === "ur");
+    var lb = $("langBtn");
+    lb.textContent = (lang === "en") ? "اردو" : "English";
+    lb.setAttribute("aria-pressed", lang === "ur" ? "true" : "false");
+
+    Array.prototype.forEach.call(document.querySelectorAll("[data-en]"), function(el){
+      setText(el, el.getAttribute(lang === "en" ? "data-en" : "data-ur"));
+    });
+
+    setText($("ctlHead"), t(T.ctlHead));
+    setText($("n-heat"), t(T.heat));
+    setText($("n-cool"), t(T.cool));
+    setText($("total"),  t(T.total));
+    $("kLake").textContent  = t(T.kLake);
+    $("kVap").textContent   = t(T.kVap);
+    $("kCloud").textContent = t(T.kCloud);
+
+    buildSteps();
+    buildQuiz();
+    draw();
+  }
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en";
+    applyLang();
+  });
+
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      window.speechSynthesis.cancel();
+      var u = new SpeechSynthesisUtterance(lastSpoken);
+      u.lang = (lang === "ur") ? "ur-PK" : "en-US";
+      u.rate = 0.92;
+      var voices = window.speechSynthesis.getVoices() || [];
+      for (var i=0;i<voices.length;i++){
+        if (voices[i].lang && voices[i].lang.toLowerCase().indexOf(lang === "ur" ? "ur" : "en") === 0){
+          u.voice = voices[i]; break;
+        }
+      }
+      window.speechSynthesis.speak(u);
+    }catch(e){ /* no voice available — stay quiet */ }
+  });
+
+  paintSegs();
+  applyLang();
+  setInterval(tick, 220);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,891 @@
+<title>Bit Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;600&family=Noto+Nastaliq+Urdu:wght@400;600;700&display=swap">
+<style>
+  :root{
+    --ink:#131c26;
+    --ink-soft:#4a5a6b;
+    --ink-faint:#7b8b9b;
+    --paper:#eef1f5;
+    --surface:#ffffff;
+    --surface-2:#e3e8ee;
+    --line:#c9d2dc;
+    --accent:#2b5f8e;
+    --accent-soft:#dbe6f1;
+    --on:#e8a33d;
+    --on-ink:#3d2a05;
+    --carry:#c2413b;
+    --borrow:#5b62c4;
+    --good:#1f8a70;
+    --bad:#c2413b;
+    --shadow:0 1px 2px rgba(19,28,38,.07), 0 6px 18px rgba(19,28,38,.06);
+    --cell:46px;
+    --gap:7px;
+    --f-display:"Bricolage Grotesque", "Trebuchet MS", sans-serif;
+    --f-body:"Source Sans 3", "Segoe UI", sans-serif;
+    --f-mono:"IBM Plex Mono", ui-monospace, monospace;
+    --f-urdu:"Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ink:#e7edf3;
+      --ink-soft:#a8b7c6;
+      --ink-faint:#7d8e9e;
+      --paper:#111a23;
+      --surface:#1a2733;
+      --surface-2:#22323f;
+      --line:#33475a;
+      --accent:#7db4e6;
+      --accent-soft:#1d3242;
+      --on:#f0b04f;
+      --on-ink:#2c1c02;
+      --carry:#f08079;
+      --borrow:#9aa0ee;
+      --good:#4dc2a4;
+      --bad:#f08079;
+      --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.28);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ink:#e7edf3;
+    --ink-soft:#a8b7c6;
+    --ink-faint:#7d8e9e;
+    --paper:#111a23;
+    --surface:#1a2733;
+    --surface-2:#22323f;
+    --line:#33475a;
+    --accent:#7db4e6;
+    --accent-soft:#1d3242;
+    --on:#f0b04f;
+    --on-ink:#2c1c02;
+    --carry:#f08079;
+    --borrow:#9aa0ee;
+    --good:#4dc2a4;
+    --bad:#f08079;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.28);
+  }
+
+  *{box-sizing:border-box}
+  body{background:var(--paper); color:var(--ink); font-family:var(--f-body); font-size:17px; line-height:1.6;}
+  #app{max-width:940px; margin:0 auto; padding:0 18px 72px;}
+  #app[dir="rtl"]{font-family:var(--f-urdu); line-height:2.15; font-size:16px;}
+  #app[dir="rtl"] h1,#app[dir="rtl"] h2,#app[dir="rtl"] h3,#app[dir="rtl"] .eyebrow,#app[dir="rtl"] button{font-family:var(--f-urdu);}
+
+  h1,h2,h3{font-family:var(--f-display); text-wrap:balance; margin:0; line-height:1.15;}
+  h1{font-size:clamp(30px,5.2vw,46px); font-weight:800; letter-spacing:-.02em;}
+  h2{font-size:clamp(22px,3.4vw,29px); font-weight:700; letter-spacing:-.01em;}
+  h3{font-size:19px; font-weight:700;}
+  #app[dir="rtl"] h1{line-height:1.7}
+  #app[dir="rtl"] h2{line-height:1.8}
+  p{margin:0; max-width:66ch;}
+  #app[dir="rtl"] p{margin-inline-start:auto}
+
+  .eyebrow{font-family:var(--f-mono); font-size:11.5px; letter-spacing:.13em; text-transform:uppercase; color:var(--ink-faint); font-weight:600;}
+  #app[dir="rtl"] .eyebrow{letter-spacing:0; text-transform:none; font-size:13px;}
+
+  /* ---- header ---- */
+  header{display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:16px; padding:34px 0 20px;}
+  .brand{display:flex; flex-direction:column; gap:8px;}
+  .lamps{display:flex; gap:5px;}
+  .lamps i{width:15px; height:15px; border-radius:3px; background:var(--surface-2); border:1px solid var(--line); display:block;}
+  .lamps i.lit{background:var(--on); border-color:var(--on);}
+  .tools{display:flex; gap:8px; align-items:center;}
+
+  button{font-family:var(--f-body); font-size:15px; color:inherit; cursor:pointer; border-radius:9px; border:1px solid var(--line); background:var(--surface); padding:8px 14px; transition:background .15s, border-color .15s, transform .08s;}
+  button:hover{border-color:var(--accent);}
+  button:active{transform:translateY(1px);}
+  button:focus-visible{outline:3px solid var(--accent); outline-offset:2px;}
+  .btn-primary{background:var(--accent); border-color:var(--accent); color:#fff; font-weight:600;}
+  :root[data-theme="dark"] .btn-primary{color:#0d1720;}
+  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .btn-primary{color:#0d1720;}}
+  .btn-primary:hover{filter:brightness(1.08);}
+
+  /* ---- tabs ---- */
+  nav{position:sticky; top:0; z-index:20; background:color-mix(in srgb, var(--paper) 88%, transparent); backdrop-filter:blur(8px); border-bottom:1px solid var(--line); margin-bottom:26px;}
+  .tabs{display:flex; gap:4px; overflow-x:auto; padding:9px 0; scrollbar-width:none;}
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{white-space:nowrap; border-color:transparent; background:transparent; padding:7px 13px; font-weight:600; color:var(--ink-soft);}
+  .tab[aria-selected="true"]{background:var(--ink); color:var(--paper); border-color:var(--ink);}
+
+  section[hidden]{display:none !important}
+  .stack{display:flex; flex-direction:column; gap:22px;}
+  .panel{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:22px; box-shadow:var(--shadow); display:flex; flex-direction:column; gap:14px;}
+  .panel.plain{background:transparent; border:none; box-shadow:none; padding:0;}
+
+  /* ---- place value board ---- */
+  .board{display:flex; gap:var(--gap); justify-content:center; flex-wrap:wrap; direction:ltr;}
+  .pv{display:flex; flex-direction:column; align-items:center; gap:5px;}
+  .pv small{font-family:var(--f-mono); font-size:11px; color:var(--ink-faint);}
+  .bit{width:var(--cell); height:var(--cell); border-radius:8px; display:grid; place-items:center; font-family:var(--f-mono); font-size:21px; font-weight:600; border:1.5px solid var(--line); background:var(--surface-2); color:var(--ink-faint); transition:background .18s, color .18s, border-color .18s;}
+  button.bit{cursor:pointer;}
+  .bit.on{background:var(--on); border-color:var(--on); color:var(--on-ink);}
+  .readout{text-align:center; font-family:var(--f-mono); font-size:15px; color:var(--ink-soft); font-variant-numeric:tabular-nums;}
+  .readout b{color:var(--ink); font-size:22px;}
+
+  /* ---- rule chips ---- */
+  .rules{display:grid; grid-template-columns:repeat(auto-fit,minmax(158px,1fr)); gap:10px; direction:ltr;}
+  .rule{border:1px solid var(--line); border-radius:11px; padding:12px 14px; background:var(--surface); display:flex; flex-direction:column; gap:3px;}
+  .rule code{font-family:var(--f-mono); font-size:17px; font-weight:600;}
+  .rule span{font-size:13px; color:var(--ink-soft); font-family:var(--f-body); line-height:1.4;}
+  #app[dir="rtl"] .rule span{font-family:var(--f-urdu); line-height:1.9; text-align:right; direction:rtl;}
+  .rule.hi{border-color:var(--carry); background:color-mix(in srgb, var(--carry) 9%, var(--surface));}
+  .rule.hi.br{border-color:var(--borrow); background:color-mix(in srgb, var(--borrow) 10%, var(--surface));}
+
+  /* ---- calculation grid ---- */
+  .calcwrap{overflow-x:auto; padding:6px 2px 2px;}
+  .calc{direction:ltr; display:flex; flex-direction:column; gap:var(--gap); width:max-content; margin:0 auto; font-variant-numeric:tabular-nums;}
+  .row{display:flex; gap:var(--gap); align-items:center;}
+  .op{width:30px; text-align:right; font-family:var(--f-mono); font-size:22px; color:var(--ink-soft); flex:none;}
+  .cell{width:var(--cell); height:var(--cell); flex:none; display:grid; place-items:center; font-family:var(--f-mono); font-size:21px; font-weight:600; border-radius:8px; border:1.5px solid transparent;}
+  .cell.mark{width:var(--cell); height:22px; font-size:13px; font-weight:600;}
+  .cell.mark.carry{color:var(--carry);}
+  .cell.mark.borrow{color:var(--borrow);}
+  .cell.digit{background:var(--surface-2); border-color:var(--line);}
+  .cell.one{background:var(--on); border-color:var(--on); color:var(--on-ink);}
+  .cell.res{border-color:var(--line); background:var(--surface);}
+  .cell.res.filled{background:var(--accent-soft); border-color:var(--accent); color:var(--ink);}
+  .cell.cur{box-shadow:0 0 0 3px color-mix(in srgb, var(--accent) 45%, transparent);}
+  .cell.blank{opacity:.25;}
+  .row.barrow{margin:2px 0;}
+  .row.barrow .line{flex:1 1 auto; height:2.5px; background:var(--ink); border-radius:2px;}
+  .colnote{font-family:var(--f-mono); font-size:10.5px; color:var(--ink-faint); text-align:center; width:var(--cell); flex:none;}
+
+  .explain{border-inline-start:3px solid var(--accent); background:var(--accent-soft); border-radius:0 10px 10px 0; padding:13px 16px; font-size:16px;}
+  #prHint{direction:ltr; font-family:var(--f-mono); font-size:16px;}
+  #app[dir="rtl"] #prHint{text-align:right;}
+  #app[dir="rtl"] .explain{border-radius:10px 0 0 10px;}
+  .explain.done{border-color:var(--good); background:color-mix(in srgb, var(--good) 13%, var(--surface));}
+  .controls{display:flex; gap:9px; flex-wrap:wrap; align-items:center;}
+  .seg{display:flex; border:1px solid var(--line); border-radius:9px; overflow:hidden;}
+  .seg button{border:none; border-radius:0; background:transparent; padding:8px 16px;}
+  .seg button[aria-pressed="true"]{background:var(--ink); color:var(--paper);}
+
+  .choice{display:flex; gap:10px; direction:ltr; justify-content:center;}
+  .choice button{width:64px; height:56px; font-family:var(--f-mono); font-size:26px; font-weight:600;}
+  .feedback{font-weight:600; min-height:26px;}
+  .ok{color:var(--good)} .no{color:var(--bad)}
+
+  .qopts{display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:10px; direction:ltr;}
+  .qopt{font-family:var(--f-mono); font-size:20px; font-weight:600; padding:14px 8px;}
+  .qopt.right{background:color-mix(in srgb,var(--good) 20%,var(--surface)); border-color:var(--good);}
+  .qopt.wrong{background:color-mix(in srgb,var(--bad) 18%,var(--surface)); border-color:var(--bad);}
+  .qbar{height:8px; border-radius:5px; background:var(--surface-2); overflow:hidden;}
+  .qbar div{height:100%; background:var(--accent); width:0; transition:width .3s;}
+  .scoreline{display:flex; justify-content:space-between; font-family:var(--f-mono); font-size:13px; color:var(--ink-soft); direction:ltr;}
+  .stars{font-size:34px; letter-spacing:6px; color:var(--on); text-align:center;}
+
+  input[type="number"],input[type="text"]{font-family:var(--f-mono); font-size:20px; padding:9px 12px; border-radius:9px; border:1.5px solid var(--line); background:var(--surface); color:var(--ink); width:150px;}
+  input:focus-visible{outline:3px solid var(--accent); outline-offset:1px;}
+  label{font-size:14px; color:var(--ink-soft); font-weight:600;}
+  .field{display:flex; flex-direction:column; gap:6px;}
+  .fields{display:flex; gap:16px; flex-wrap:wrap; align-items:flex-end;}
+
+  .tip{font-size:14.5px; color:var(--ink-soft);}
+  .kv{display:grid; grid-template-columns:auto 1fr; gap:6px 14px; font-size:15px;}
+  .kv code{font-family:var(--f-mono); color:var(--accent); font-weight:600;}
+  footer{margin-top:38px; padding-top:16px; border-top:1px solid var(--line); font-size:13.5px; color:var(--ink-faint); display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;}
+
+  @media (prefers-reduced-motion: reduce){*{transition:none !important; animation:none !important}}
+  @media (max-width:560px){ :root{--cell:38px; --gap:5px} .bit{font-size:18px} .cell{font-size:18px} }
+</style>
+
+<div id="app" dir="ltr">
+  <header>
+    <div class="brand">
+      <div class="lamps" aria-hidden="true"><i class="lit"></i><i></i><i class="lit"></i><i class="lit"></i><i></i><i class="lit"></i></div>
+      <h1 data-t="title">Bit Lab</h1>
+      <p class="tip" data-t="tagline">Add and subtract binary numbers, one column at a time. Grade 7.</p>
+    </div>
+    <div class="tools">
+      <button id="langBtn" class="btn-primary">اردو</button>
+    </div>
+  </header>
+
+  <nav><div class="tabs" role="tablist" id="tabs"></div></nav>
+
+  <!-- ============ LEARN ============ -->
+  <section id="sec-learn" class="stack">
+    <div class="panel">
+      <span class="eyebrow" data-t="l_eyebrow">The idea</span>
+      <h2 data-t="l_h1">A number made of switches</h2>
+      <p data-t="l_p1">A computer has no fingers. It only has switches, and a switch is either <b>off (0)</b> or <b>on (1)</b>. So every number inside a computer is written with just those two digits. That is called <b>binary</b>.</p>
+      <p data-t="l_p2">In our normal (decimal) numbers each place is worth ten times the one on its right: 1, 10, 100, 1000. In binary each place is worth <b>two times</b> the one on its right: 1, 2, 4, 8, 16, 32...</p>
+    </div>
+
+    <div class="panel">
+      <span class="eyebrow" data-t="l_eyebrow2">Try it</span>
+      <h3 data-t="l_h2">Tap the switches and watch the number change</h3>
+      <div class="board" id="learnBoard"></div>
+      <div class="readout" id="learnOut"></div>
+      <div class="controls"><button id="learnRand" data-t="l_random">Give me a number</button><button id="learnClear" data-t="l_clear">All off</button></div>
+      <p class="tip" data-t="l_tip">Add up only the values under the lit switches. That total is the number. 1 0 1 1 = 8 + 2 + 1 = 11.</p>
+    </div>
+
+    <div class="panel">
+      <h3 data-t="l_h3">Where you already meet binary</h3>
+      <div class="kv" id="lifeList"></div>
+    </div>
+  </section>
+
+  <!-- ============ RULES ============ -->
+  <section id="sec-rules" class="stack" hidden>
+    <div class="panel">
+      <span class="eyebrow" data-t="r_eyebrow">Addition</span>
+      <h2 data-t="r_h1">Only four things can happen</h2>
+      <p data-t="r_p1">Binary addition works exactly like the addition you already do — you just run out of digits much sooner. In decimal you carry after 9. In binary you carry after 1.</p>
+      <div class="rules" id="addRules"></div>
+      <p class="tip" data-t="r_p2">The red rules are the only ones that make a carry. Everything else is easy.</p>
+    </div>
+    <div class="panel">
+      <span class="eyebrow" data-t="r_eyebrow2">Subtraction</span>
+      <h2 data-t="r_h2">Three easy ones and one borrow</h2>
+      <p data-t="r_p3">Subtracting is the same story in reverse. When the top digit is too small you <b>borrow</b> 1 from the column on the left. That borrowed 1 is worth <b>2</b> when it arrives, because each place is worth double the one to its right.</p>
+      <div class="rules" id="subRules"></div>
+      <p class="tip" data-t="r_p4">In this app the top number is always the bigger one, so the answer never goes below zero.</p>
+    </div>
+  </section>
+
+  <!-- ============ EXAMPLE ============ -->
+  <section id="sec-example" class="stack" hidden>
+    <div class="panel">
+      <span class="eyebrow" data-t="e_eyebrow">Worked example</span>
+      <h2 data-t="e_h1">Watch it happen, column by column</h2>
+      <div class="controls">
+        <div class="seg" id="exMode">
+          <button data-mode="add" aria-pressed="true" data-t="e_add">Addition</button>
+          <button data-mode="sub" aria-pressed="false" data-t="e_sub">Subtraction</button>
+        </div>
+        <button id="exNew" data-t="e_new">New example</button>
+      </div>
+      <div class="calcwrap"><div class="calc" id="exCalc"></div></div>
+      <div class="explain" id="exExplain"></div>
+      <div class="controls">
+        <button id="exStep" class="btn-primary" data-t="e_step">Next step →</button>
+        <button id="exAll" data-t="e_all">Show all steps</button>
+        <button id="exReset" data-t="e_reset">Start over</button>
+      </div>
+      <p class="tip" data-t="e_tip">Always start at the right-hand column, exactly like normal arithmetic.</p>
+    </div>
+  </section>
+
+  <!-- ============ PRACTICE ============ -->
+  <section id="sec-practice" class="stack" hidden>
+    <div class="panel">
+      <span class="eyebrow" data-t="p_eyebrow">Guided practice</span>
+      <h2 data-t="p_h1">Your turn — one column at a time</h2>
+      <div class="controls">
+        <div class="seg" id="prMode">
+          <button data-mode="add" aria-pressed="true" data-t="e_add">Addition</button>
+          <button data-mode="sub" aria-pressed="false" data-t="e_sub">Subtraction</button>
+        </div>
+        <button id="prNew" data-t="p_new">New question</button>
+      </div>
+      <div class="calcwrap"><div class="calc" id="prCalc"></div></div>
+      <div class="explain" id="prAsk"></div>
+      <div class="choice"><button data-v="0" class="prChoice">0</button><button data-v="1" class="prChoice">1</button></div>
+      <div class="feedback" id="prFeed"></div>
+      <p class="tip" id="prHint"></p>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section id="sec-quiz" class="stack" hidden>
+    <div class="panel">
+      <span class="eyebrow" data-t="q_eyebrow">Quiz</span>
+      <h2 id="qTitle" data-t="q_h1">Eight questions</h2>
+      <div class="scoreline"><span id="qCount"></span><span id="qScore"></span></div>
+      <div class="qbar"><div id="qFill"></div></div>
+      <div id="qBody" class="stack"></div>
+    </div>
+  </section>
+
+  <!-- ============ CONVERTER ============ -->
+  <section id="sec-convert" class="stack" hidden>
+    <div class="panel">
+      <span class="eyebrow" data-t="c_eyebrow">Converter</span>
+      <h2 data-t="c_h1">Decimal ⇄ Binary</h2>
+      <div class="fields">
+        <div class="field"><label data-t="c_dec">Decimal (0–255)</label><input id="cDec" type="number" min="0" max="255" value="45"></div>
+        <div class="field"><label data-t="c_bin">Binary</label><input id="cBin" type="text" maxlength="8" value="00101101"></div>
+      </div>
+      <div class="board" id="cBoard"></div>
+      <div class="readout" id="cOut"></div>
+      <p class="tip" data-t="c_tip">Type in either box, or tap the switches. Handy for checking your own homework.</p>
+    </div>
+  </section>
+
+  <footer>
+    <span data-t="f_made">Built for AI4Kids · Grade 7 mathematics</span>
+    <span data-t="f_hint">Tip: teach the carry rule first, then the borrow rule.</span>
+  </footer>
+</div>
+
+<script>
+/* ============================================================
+   STRINGS
+   ============================================================ */
+const S = {
+  en:{
+    dir:"ltr", other:"اردو",
+    title:"Bit Lab",
+    tagline:"Add and subtract binary numbers, one column at a time. Grade 7.",
+    tabs:["Learn","Rules","Example","Practice","Quiz","Converter"],
+    l_eyebrow:"The idea", l_eyebrow2:"Try it",
+    l_h1:"A number made of switches",
+    l_p1:"A computer has no fingers. It only has switches, and a switch is either <b>off (0)</b> or <b>on (1)</b>. So every number inside a computer is written with just those two digits. That is called <b>binary</b>.",
+    l_p2:"In our normal (decimal) numbers each place is worth ten times the one on its right: 1, 10, 100, 1000. In binary each place is worth <b>two times</b> the one on its right: 1, 2, 4, 8, 16, 32…",
+    l_h2:"Tap the switches and watch the number change",
+    l_h3:"Where you already meet binary",
+    l_random:"Give me a number", l_clear:"All off",
+    l_tip:"Add up only the values under the lit switches. That total is the number. 1 0 1 1 = 8 + 2 + 1 = 11.",
+    life:[["Your phone's WiFi bars","are switches too — on or off"],
+          ["A cricket scoreboard light","one lamp = one bit"],
+          ["Every photo you take","is millions of 0s and 1s"],
+          ["8 bits together","are called one byte"]],
+    binaryIs:"binary", decimalIs:"in decimal",
+    r_eyebrow:"Addition", r_eyebrow2:"Subtraction",
+    r_h1:"Only four things can happen",
+    r_p1:"Binary addition works exactly like the addition you already do — you just run out of digits much sooner. In decimal you carry after 9. In binary you carry after 1.",
+    r_p2:"The red rules are the only ones that make a carry. Everything else is easy.",
+    r_h2:"Three easy ones and one borrow",
+    r_p3:"Subtracting is the same story in reverse. When the top digit is too small you <b>borrow</b> 1 from the column on the left. That borrowed 1 is worth <b>2</b> when it arrives, because each place is worth double the one to its right.",
+    r_p4:"In this app the top number is always the bigger one, so the answer never goes below zero.",
+    addRules:[["0 + 0 = 0","Nothing plus nothing.",0],
+              ["0 + 1 = 1","One switch on.",0],
+              ["1 + 0 = 1","Same thing, other way round.",0],
+              ["1 + 1 = 10","Two! But there is no digit 2 — so write 0 and carry 1.",1],
+              ["1 + 1 + 1 = 11","Three, when a carry arrives. Write 1 and carry 1.",1]],
+    subRules:[["0 − 0 = 0","Nothing taken away.",0],
+              ["1 − 0 = 1","Nothing taken away.",0],
+              ["1 − 1 = 0","Both gone.",0],
+              ["0 − 1 = 1","Can't be done here — borrow 1 from the left. It arrives worth 2, and 2 − 1 = 1.",1]],
+    e_eyebrow:"Worked example", e_h1:"Watch it happen, column by column",
+    e_add:"Addition", e_sub:"Subtraction", e_new:"New example",
+    e_step:"Next step →", e_all:"Show all steps", e_reset:"Start over",
+    e_tip:"Always start at the right-hand column, exactly like normal arithmetic.",
+    e_intro:"Press <b>Next step</b> to work through the columns from right to left.",
+    e_final:c=>`Done. The answer is <b>${c.bin}</b> — that is <b>${c.dec}</b> in decimal.`,
+    e_lead:"The last carry has nowhere to go, so it becomes a new digit at the front.",
+    p_eyebrow:"Guided practice", p_h1:"Your turn — one column at a time", p_new:"New question",
+    p_ask:pv=>`Which digit goes in the column worth <b>${pv}</b>?`,
+    p_right:"Correct!", p_wrong:"Not quite — look at the rule again.",
+    p_done:c=>`Well done! ${c.bin} is ${c.dec} in decimal. Press New question for another.`,
+    q_eyebrow:"Quiz", q_h1:"Eight questions",
+    q_count:(a,b)=>`Question ${a} of ${b}`, q_score:s=>`Score: ${s}`,
+    q_prompt:"What is the answer?", q_next:"Next question →", q_finish:"See my score",
+    q_correct:"Correct!", q_wrong:a=>`The answer was ${a}.`,
+    q_result:(s,t)=>`You scored ${s} out of ${t}`,
+    q_again:"Try the quiz again",
+    q_msg:[ "Go back to the Rules page and try once more — you'll get it.",
+            "Good start. Practise the carry rule and try again.",
+            "Nicely done. Almost there!",
+            "Excellent — you can add and subtract in binary."],
+    c_eyebrow:"Converter", c_h1:"Decimal ⇄ Binary", c_dec:"Decimal (0–255)", c_bin:"Binary",
+    c_tip:"Type in either box, or tap the switches. Handy for checking your own homework.",
+    f_made:"Built for AI4Kids · Grade 7 mathematics",
+    f_hint:"Tip: teach the carry rule first, then the borrow rule.",
+    colWorth:"worth",
+    addStep:(a,b,cin,sum,d,co)=>`Column worth ${cin.pv}: ${a} + ${b}${cin.v?` + carry ${cin.v}`:""} = ${sum}. Write <b>${d}</b>${co?", and carry <b>1</b> to the next column on the left.":"."}`,
+    subStep:(a,b,bin,d,bo)=>bo
+      ? `Column worth ${bin.pv}: ${a} − ${b}${bin.v?" − borrow 1":""} can't be done, so borrow <b>1</b> from the left — it is worth <b>2</b> here. ${2+a-(bin.v||0)} − ${b} = <b>${d}</b>.`
+      : `Column worth ${bin.pv}: ${a} − ${b}${bin.v?" − borrow 1":""} = <b>${d}</b>.`
+  },
+  ur:{
+    dir:"rtl", other:"English",
+    title:"بٹ لیب",
+    tagline:"بائنری اعداد کی جمع اور تفریق — ایک ایک خانہ کر کے۔ ساتویں جماعت۔",
+    tabs:["سیکھیں","اصول","مثال","مشق","کوئز","کنورٹر"],
+    l_eyebrow:"تصور", l_eyebrow2:"خود آزمائیں",
+    l_h1:"سوئچ سے بنا ہوا عدد",
+    l_p1:"کمپیوٹر کے پاس انگلیاں نہیں ہوتیں، صرف سوئچ ہوتے ہیں۔ اور سوئچ یا تو <b>بند (0)</b> ہوتا ہے یا <b>کھلا (1)</b>۔ اسی لیے کمپیوٹر کے اندر ہر عدد صرف انہی دو ہندسوں سے لکھا جاتا ہے۔ اسے <b>بائنری</b> کہتے ہیں۔",
+    l_p2:"ہمارے عام (اعشاری) نظام میں ہر خانہ اپنے دائیں والے سے <b>دس گنا</b> ہوتا ہے: ۱، ۱۰، ۱۰۰۔ بائنری میں ہر خانہ اپنے دائیں والے سے <b>دو گنا</b> ہوتا ہے: 1، 2، 4، 8، 16، 32…",
+    l_h2:"سوئچ دبائیں اور عدد بدلتا ہوا دیکھیں",
+    l_h3:"بائنری آپ کو کہاں کہاں ملتی ہے",
+    l_random:"کوئی عدد دیں", l_clear:"سب بند کریں",
+    l_tip:"صرف روشن سوئچ کے نیچے لکھی قیمتیں جمع کریں۔ وہی عدد ہے۔ 1 0 1 1 = 8 + 2 + 1 = 11۔",
+    life:[["موبائل کے وائی فائی سگنل","یہ بھی سوئچ ہیں — کھلے یا بند"],
+          ["کرکٹ اسکور بورڈ کا بلب","ایک بلب یعنی ایک بٹ"],
+          ["آپ کی ہر تصویر","لاکھوں صفر اور ایک سے بنی ہے"],
+          ["آٹھ بٹ مل کر","ایک بائٹ کہلاتے ہیں"]],
+    binaryIs:"بائنری", decimalIs:"اعشاری میں",
+    r_eyebrow:"جمع", r_eyebrow2:"تفریق",
+    r_h1:"صرف چار صورتیں بنتی ہیں",
+    r_p1:"بائنری جمع بالکل اسی طرح ہوتی ہے جیسے آپ روز کرتے ہیں — بس ہندسے بہت جلدی ختم ہو جاتے ہیں۔ اعشاری میں 9 کے بعد حاصل بنتا ہے، بائنری میں 1 کے بعد۔",
+    r_p2:"سرخ رنگ والے اصول ہی حاصل بناتے ہیں۔ باقی سب آسان ہیں۔",
+    r_h2:"تین آسان اور ایک ادھار",
+    r_p3:"تفریق بھی یہی کہانی ہے، مگر الٹی۔ جب اوپر والا ہندسہ چھوٹا پڑ جائے تو بائیں خانے سے <b>1 ادھار</b> لیں۔ یہاں پہنچ کر اس ادھار کی قیمت <b>2</b> ہو جاتی ہے، کیونکہ ہر خانہ اپنے دائیں والے سے دگنا ہوتا ہے۔",
+    r_p4:"اس ایپ میں اوپر والا عدد ہمیشہ بڑا ہوتا ہے، اس لیے جواب کبھی منفی نہیں آئے گا۔",
+    addRules:[["0 + 0 = 0","کچھ نہیں جمع کچھ نہیں۔",0],
+              ["0 + 1 = 1","ایک سوئچ کھلا ہے۔",0],
+              ["1 + 0 = 1","وہی بات، بس ترتیب الٹی۔",0],
+              ["1 + 1 = 10","دو! مگر بائنری میں 2 کا ہندسہ ہے ہی نہیں — تو 0 لکھیں اور 1 حاصل رکھیں۔",1],
+              ["1 + 1 + 1 = 11","تین، جب حاصل بھی آ جائے۔ 1 لکھیں اور 1 حاصل رکھیں۔",1]],
+    subRules:[["0 − 0 = 0","کچھ نہیں نکالا۔",0],
+              ["1 − 0 = 1","کچھ نہیں نکالا۔",0],
+              ["1 − 1 = 0","دونوں ختم۔",0],
+              ["0 − 1 = 1","یہاں نہیں نکل سکتا — بائیں سے 1 ادھار لیں۔ وہ یہاں 2 بن کر آتا ہے، اور 2 − 1 = 1۔",1]],
+    e_eyebrow:"حل شدہ مثال", e_h1:"ہر خانہ الگ الگ، اپنی آنکھوں سے دیکھیں",
+    e_add:"جمع", e_sub:"تفریق", e_new:"نئی مثال",
+    e_step:"← اگلا مرحلہ", e_all:"سارے مرحلے دکھائیں", e_reset:"دوبارہ شروع",
+    e_tip:"ہمیشہ دائیں طرف والے خانے سے شروع کریں، بالکل عام حساب کی طرح۔",
+    e_intro:"<b>اگلا مرحلہ</b> دبائیں اور دائیں سے بائیں ایک ایک خانہ حل کریں۔",
+    e_final:c=>`مکمل۔ جواب ہے <b>${c.bin}</b> — یعنی اعشاری میں <b>${c.dec}</b>۔`,
+    e_lead:"آخری حاصل کے لیے کوئی خانہ باقی نہیں، اس لیے وہ سب سے آگے نیا ہندسہ بن جاتا ہے۔",
+    p_eyebrow:"رہنمائی کے ساتھ مشق", p_h1:"اب آپ کی باری — ایک وقت میں ایک خانہ", p_new:"نیا سوال",
+    p_ask:pv=>`<b>${pv}</b> والے خانے میں کون سا ہندسہ آئے گا؟`,
+    p_right:"شاباش، درست!", p_wrong:"ابھی نہیں — اصول دوبارہ دیکھیں۔",
+    p_done:c=>`بہت خوب! ${c.bin} کا مطلب اعشاری میں ${c.dec} ہے۔ نیا سوال دبائیں۔`,
+    q_eyebrow:"کوئز", q_h1:"آٹھ سوال",
+    q_count:(a,b)=>`سوال ${a} از ${b}`, q_score:s=>`سکور: ${s}`,
+    q_prompt:"جواب کیا ہوگا؟", q_next:"← اگلا سوال", q_finish:"میرا سکور دیکھیں",
+    q_correct:"درست!", q_wrong:a=>`درست جواب ${a} تھا۔`,
+    q_result:(s,t)=>`آپ نے ${t} میں سے ${s} حاصل کیے`,
+    q_again:"کوئز دوبارہ کریں",
+    q_msg:[ "اصول والا صفحہ دوبارہ پڑھیں اور پھر کوشش کریں — ضرور آ جائے گا۔",
+            "اچھی شروعات۔ حاصل کا اصول دہرائیں اور دوبارہ کریں۔",
+            "بہت اچھے۔ بس تھوڑا سا باقی ہے!",
+            "زبردست — آپ کو بائنری جمع اور تفریق آ گئی ہے۔"],
+    c_eyebrow:"کنورٹر", c_h1:"اعشاری ⇄ بائنری", c_dec:"اعشاری (0–255)", c_bin:"بائنری",
+    c_tip:"کسی بھی خانے میں لکھیں، یا سوئچ دبائیں۔ اپنا کام خود جانچنے کے لیے مفید ہے۔",
+    f_made:"AI4Kids کے لیے · ساتویں جماعت ریاضی",
+    f_hint:"مشورہ: پہلے حاصل کا اصول پڑھائیں، پھر ادھار کا۔",
+    colWorth:"قیمت",
+    addStep:(a,b,cin,sum,d,co)=>`${cin.pv} والا خانہ: ${a} + ${b}${cin.v?` + حاصل ${cin.v}`:""} = ${sum}۔ <b>${d}</b> لکھیں${co?"، اور <b>1</b> حاصل بائیں خانے میں لے جائیں۔":"۔"}`,
+    subStep:(a,b,bin,d,bo)=>bo
+      ? `${bin.pv} والا خانہ: ${a} − ${b}${bin.v?" − ادھار 1":""} نہیں نکل سکتا، اس لیے بائیں سے <b>1</b> ادھار لیں — یہاں اس کی قیمت <b>2</b> ہے۔ ${2+a-(bin.v||0)} − ${b} = <b>${d}</b>۔`
+      : `${bin.pv} والا خانہ: ${a} − ${b}${bin.v?" − ادھار 1":""} = <b>${d}</b>۔`
+  }
+};
+
+let lang = "en";
+try{ const v = localStorage.getItem("bitlab-lang"); if(v==="ur"||v==="en") lang=v; }catch(e){}
+const t = k => S[lang][k];
+
+/* ============================================================
+   MATH ENGINE
+   ============================================================ */
+const bin = (n,w=0)=>n.toString(2).padStart(w,"0");
+const dec = s=>parseInt(s,2);
+const pv  = (len,i)=>Math.pow(2,len-1-i);        // place value of index i
+const rnd = (a,b)=>a+Math.floor(Math.random()*(b-a+1));
+
+function addSteps(A,B){
+  const n=A.length, res=[], steps=[], carryAbove=new Array(n).fill(null);
+  let carry=0;
+  for(let i=n-1;i>=0;i--){
+    const a=+A[i], b=+B[i], sum=a+b+carry, d=sum%2, co=sum>1?1:0;
+    steps.push({i,a,b,cin:carry,sum,d,co});
+    res[i]=d; if(co){ if(i>0) carryAbove[i-1]=1; }
+    carry=co;
+  }
+  return {steps, digits:res, carryAbove, lead:carry, value:(carry?"1":"")+res.join("")};
+}
+function subSteps(A,B){
+  const n=A.length, res=[], steps=[], borrowAbove=new Array(n).fill(null);
+  let borrow=0;
+  for(let i=n-1;i>=0;i--){
+    const a=+A[i], b=+B[i];
+    let d=a-b-borrow, bo=0;
+    if(d<0){ d+=2; bo=1; }
+    steps.push({i,a,b,bin:borrow,d,bo});
+    res[i]=d; if(bo && i>0) borrowAbove[i-1]=1;
+    borrow=bo;
+  }
+  return {steps, digits:res, borrowAbove, lead:0, value:res.join("")};
+}
+function makeProblem(mode,bits){
+  const max=Math.pow(2,bits)-1;
+  if(mode==="add"){
+    let a=rnd(3,max), b=rnd(3,max);
+    if((a&b)===0) b |= (a & -a);                 // guarantee at least one carry
+    return {a,b,bits};
+  }
+  let a=rnd(6,max), b=rnd(2,a-1);
+  return {a,b,bits};
+}
+
+/* ============================================================
+   RENDER: calculation grid
+   ============================================================ */
+function cell(txt,cls){ const d=document.createElement("div"); d.className="cell "+(cls||""); d.textContent=txt===null?"":txt; return d; }
+function markCell(txt,cls){ const d=document.createElement("div"); d.className="cell mark "+(cls||""); d.textContent=txt===null?"":txt; return d; }
+
+/* opts: {mode, A, B, calc, revealed (count of steps shown), curIndex, showResult:boolean|array} */
+function renderCalc(host, o){
+  host.innerHTML="";
+  const n=o.A.length, ext=1;
+  const mk=(cls)=>{const r=document.createElement("div"); r.className="row "+(cls||""); return r;};
+  const gutter=(txt)=>{const g=document.createElement("div"); g.className="op"; g.textContent=txt||""; return g;};
+
+  // marks row (carry / borrow)
+  const mrow=mk(); mrow.appendChild(gutter(""));
+  const markCls = o.mode==="add" ? "carry" : "borrow";
+  const marks = o.mode==="add" ? o.calc.carryAbove : o.calc.borrowAbove;
+  const leadMark = (o.mode==="add" && o.calc.lead && o.revealed>=n) ? 1 : null;
+  mrow.appendChild(markCell(leadMark?"1":"", markCls));
+  for(let i=0;i<n;i++){
+    // a mark above column i was produced by column i+1
+    const produced = (i+1<=n-1) ? (n-1-(i+1)) : -1;   // step order index of column i+1
+    const show = marks[i] && o.revealed > produced && produced>=0;
+    mrow.appendChild(markCell(show?"1":"", markCls));
+  }
+  host.appendChild(mrow);
+
+  // operand A
+  const r1=mk(); r1.appendChild(gutter(""));
+  r1.appendChild(cell("", "blank"));
+  for(let i=0;i<n;i++) r1.appendChild(cell(o.A[i], "digit "+(o.A[i]==="1"?"one":"")));
+  host.appendChild(r1);
+
+  // operand B
+  const r2=mk(); r2.appendChild(gutter(o.mode==="add"?"+":"−"));
+  r2.appendChild(cell("", "blank"));
+  for(let i=0;i<n;i++) r2.appendChild(cell(o.B[i], "digit "+(o.B[i]==="1"?"one":"")));
+  host.appendChild(r2);
+
+  // bar (a row, so it always matches the grid width in either text direction)
+  const rb=mk("barrow"); rb.appendChild(gutter(""));
+  const line=document.createElement("div"); line.className="line";
+  rb.appendChild(line); host.appendChild(rb);
+
+  // result
+  const r3=mk(); r3.appendChild(gutter(""));
+  const leadShown = o.mode==="add" && o.calc.lead && o.revealed>=n;
+  r3.appendChild(cell(leadShown?"1":"", leadShown?"res filled":"res"));
+  for(let i=0;i<n;i++){
+    const stepIdx=n-1-i;
+    const shown = o.revealed > stepIdx;
+    const c = cell(shown?o.calc.digits[i]:"", "res "+(shown?"filled":""));
+    if(o.curIndex===i) c.classList.add("cur");
+    r3.appendChild(c);
+  }
+  host.appendChild(r3);
+
+  // place-value notes
+  const r4=mk(); r4.appendChild(gutter(""));
+  const sp=document.createElement("div"); sp.className="colnote"; sp.textContent=(o.mode==="add"&&o.calc.lead)?String(Math.pow(2,n)):""; r4.appendChild(sp);
+  for(let i=0;i<n;i++){ const d=document.createElement("div"); d.className="colnote"; d.textContent=pv(n,i); r4.appendChild(d); }
+  host.appendChild(r4);
+}
+
+/* ============================================================
+   SECTION: LEARN
+   ============================================================ */
+const LEARN_BITS=6;
+let learnVal=11;
+function drawLearn(){
+  const host=document.getElementById("learnBoard"); host.innerHTML="";
+  const s=bin(learnVal,LEARN_BITS);
+  for(let i=0;i<LEARN_BITS;i++){
+    const wrap=document.createElement("div"); wrap.className="pv";
+    const b=document.createElement("button");
+    b.className="bit"+(s[i]==="1"?" on":""); b.textContent=s[i];
+    b.setAttribute("aria-label", "bit "+pv(LEARN_BITS,i));
+    b.onclick=()=>{ learnVal ^= pv(LEARN_BITS,i); drawLearn(); };
+    const sm=document.createElement("small"); sm.textContent=pv(LEARN_BITS,i);
+    wrap.appendChild(b); wrap.appendChild(sm); host.appendChild(wrap);
+  }
+  const parts=[]; for(let i=0;i<LEARN_BITS;i++) if(s[i]==="1") parts.push(pv(LEARN_BITS,i));
+  document.getElementById("learnOut").innerHTML =
+    `${s} &nbsp;=&nbsp; ${parts.length?parts.join(" + ")+" = ":""}<b>${learnVal}</b>`;
+}
+document.getElementById("learnRand").onclick=()=>{learnVal=rnd(5,63); drawLearn();};
+document.getElementById("learnClear").onclick=()=>{learnVal=0; drawLearn();};
+
+function drawLife(){
+  const host=document.getElementById("lifeList"); host.innerHTML="";
+  t("life").forEach(([k,v])=>{
+    const a=document.createElement("code"); a.textContent=k;
+    const b=document.createElement("span"); b.textContent=v;
+    host.appendChild(a); host.appendChild(b);
+  });
+}
+
+/* ============================================================
+   SECTION: RULES
+   ============================================================ */
+function drawRules(){
+  const mk=(host,list,extra)=>{
+    host.innerHTML="";
+    list.forEach(([code,note,hi])=>{
+      const d=document.createElement("div"); d.className="rule"+(hi?" hi "+extra:"");
+      const c=document.createElement("code"); c.textContent=code;
+      const s=document.createElement("span"); s.textContent=note;
+      d.appendChild(c); d.appendChild(s); host.appendChild(d);
+    });
+  };
+  mk(document.getElementById("addRules"), t("addRules"), "");
+  mk(document.getElementById("subRules"), t("subRules"), "br");
+}
+
+/* ============================================================
+   SECTION: EXAMPLE
+   ============================================================ */
+const ex={mode:"add", A:"", B:"", calc:null, revealed:0};
+function exBuild(){
+  const p=makeProblem(ex.mode,5);
+  let a=p.a,b=p.b;
+  const w=Math.max(bin(a).length, bin(b).length);
+  ex.A=bin(a,w); ex.B=bin(b,w);
+  ex.calc = ex.mode==="add" ? addSteps(ex.A,ex.B) : subSteps(ex.A,ex.B);
+  ex.revealed=0;
+  exDraw();
+  document.getElementById("exExplain").className="explain";
+  document.getElementById("exExplain").innerHTML=t("e_intro");
+}
+function exDraw(){
+  const n=ex.A.length;
+  const cur = ex.revealed<n ? (n-1-ex.revealed) : -1;
+  renderCalc(document.getElementById("exCalc"), {mode:ex.mode,A:ex.A,B:ex.B,calc:ex.calc,revealed:ex.revealed,curIndex:cur});
+}
+function exNext(){
+  const n=ex.A.length;
+  if(ex.revealed>=n) return;
+  const st=ex.calc.steps[ex.revealed];
+  ex.revealed++;
+  exDraw();
+  const box=document.getElementById("exExplain");
+  const place={pv:pv(n,st.i), v: ex.mode==="add"?st.cin:st.bin};
+  let html = ex.mode==="add"
+    ? t("addStep")(st.a,st.b,place,st.sum,st.d,st.co)
+    : t("subStep")(st.a,st.b,place,st.d,st.bo);
+  if(ex.revealed>=n){
+    if(ex.mode==="add" && ex.calc.lead) html += " " + t("e_lead");
+    html += "<br>" + t("e_final")({bin:ex.calc.value, dec:dec(ex.calc.value)});
+    box.className="explain done";
+  } else box.className="explain";
+  box.innerHTML=html;
+}
+document.getElementById("exStep").onclick=exNext;
+document.getElementById("exAll").onclick=()=>{ while(ex.revealed<ex.A.length) exNext(); };
+document.getElementById("exReset").onclick=()=>{ ex.revealed=0; exDraw(); const b=document.getElementById("exExplain"); b.className="explain"; b.innerHTML=t("e_intro"); };
+document.getElementById("exNew").onclick=exBuild;
+document.querySelectorAll("#exMode button").forEach(b=>b.onclick=()=>{
+  document.querySelectorAll("#exMode button").forEach(x=>x.setAttribute("aria-pressed", String(x===b)));
+  ex.mode=b.dataset.mode; exBuild();
+});
+
+/* ============================================================
+   SECTION: PRACTICE
+   ============================================================ */
+const pr={mode:"add", A:"", B:"", calc:null, revealed:0, done:false};
+function prBuild(){
+  const p=makeProblem(pr.mode,4);
+  const w=Math.max(bin(p.a).length, bin(p.b).length);
+  pr.A=bin(p.a,w); pr.B=bin(p.b,w);
+  pr.calc = pr.mode==="add" ? addSteps(pr.A,pr.B) : subSteps(pr.A,pr.B);
+  pr.revealed=0; pr.done=false;
+  prDraw(); prAsk();
+  document.getElementById("prFeed").textContent="";
+}
+function prDraw(){
+  const n=pr.A.length;
+  const cur = pr.revealed<n ? (n-1-pr.revealed) : -1;
+  renderCalc(document.getElementById("prCalc"), {mode:pr.mode,A:pr.A,B:pr.B,calc:pr.calc,revealed:pr.revealed,curIndex:cur});
+}
+function prAsk(){
+  const n=pr.A.length, box=document.getElementById("prAsk"), hint=document.getElementById("prHint");
+  const btns=document.querySelectorAll(".prChoice");
+  if(pr.revealed>=n){
+    pr.done=true;
+    box.className="explain done";
+    box.innerHTML=t("p_done")({bin:pr.calc.value, dec:dec(pr.calc.value)});
+    btns.forEach(b=>b.disabled=true); hint.textContent="";
+    return;
+  }
+  btns.forEach(b=>b.disabled=false);
+  const st=pr.calc.steps[pr.revealed];
+  box.className="explain";
+  box.innerHTML=t("p_ask")(pv(n,st.i));
+  const place={pv:pv(n,st.i), v: pr.mode==="add"?st.cin:st.bin};
+  hint.innerHTML = pr.mode==="add"
+    ? `${st.a} + ${st.b}${st.cin?" + "+st.cin:""} = ?`
+    : `${st.a} − ${st.b}${st.bin?" − 1":""} = ?`;
+}
+document.querySelectorAll(".prChoice").forEach(b=>b.onclick=()=>{
+  if(pr.done) return;
+  const st=pr.calc.steps[pr.revealed], feed=document.getElementById("prFeed");
+  if(+b.dataset.v === st.d){
+    feed.textContent=t("p_right"); feed.className="feedback ok";
+    pr.revealed++; prDraw(); prAsk();
+  } else {
+    feed.textContent=t("p_wrong"); feed.className="feedback no";
+  }
+});
+document.getElementById("prNew").onclick=prBuild;
+document.querySelectorAll("#prMode button").forEach(b=>b.onclick=()=>{
+  document.querySelectorAll("#prMode button").forEach(x=>x.setAttribute("aria-pressed", String(x===b)));
+  pr.mode=b.dataset.mode; prBuild();
+});
+
+/* ============================================================
+   SECTION: QUIZ
+   ============================================================ */
+const QN=8;
+let quiz={i:0, score:0, qs:[], answered:false};
+function buildQuiz(){
+  const qs=[];
+  for(let k=0;k<QN;k++){
+    const mode = k%2===0 ? "add" : "sub";
+    const bits = k<4?4:5;
+    const p=makeProblem(mode,bits);
+    const w=Math.max(bin(p.a).length, bin(p.b).length);
+    const A=bin(p.a,w), B=bin(p.b,w);
+    const answer = mode==="add" ? p.a+p.b : p.a-p.b;
+    const pool=new Set([answer]);
+    const cands=[answer+1,answer-1,answer+2,answer^1,answer^2,answer+4,answer-2];
+    const wrong=[];
+    for(const c of cands){ if(c>=0 && !pool.has(c) && wrong.length<3){ pool.add(c); wrong.push(c);} }
+    const all=[answer,...wrong];
+    const width=Math.max(...all.map(v=>bin(v).length));
+    const opts=all.map(v=>bin(v,width));
+    for(let x=opts.length-1;x>0;x--){ const y=Math.floor(Math.random()*(x+1)); [opts[x],opts[y]]=[opts[y],opts[x]]; }
+    qs.push({mode,A,B,a:p.a,b:p.b,answer:bin(answer,width),opts});
+  }
+  quiz={i:0,score:0,qs,answered:false};
+  drawQuiz();
+}
+function drawQuiz(){
+  const body=document.getElementById("qBody");
+  document.getElementById("qFill").style.width=(quiz.i/QN*100)+"%";
+  document.getElementById("qCount").textContent=t("q_count")(Math.min(quiz.i+1,QN),QN);
+  document.getElementById("qScore").textContent=t("q_score")(quiz.score);
+  body.innerHTML="";
+
+  if(quiz.i>=QN){
+    document.getElementById("qFill").style.width="100%";
+    document.getElementById("qCount").textContent="";
+    const stars=document.createElement("div"); stars.className="stars";
+    const filled=Math.round(quiz.score/QN*5);
+    stars.textContent="★".repeat(filled)+"☆".repeat(5-filled);
+    const h=document.createElement("h3"); h.style.textAlign="center"; h.textContent=t("q_result")(quiz.score,QN);
+    const msg=document.createElement("p"); msg.style.textAlign="center"; msg.style.margin="0 auto";
+    const band = quiz.score<=2?0 : quiz.score<=4?1 : quiz.score<=6?2 : 3;
+    msg.textContent=t("q_msg")[band];
+    const btn=document.createElement("button"); btn.className="btn-primary"; btn.textContent=t("q_again");
+    btn.style.alignSelf="center"; btn.onclick=buildQuiz;
+    body.appendChild(stars); body.appendChild(h); body.appendChild(msg); body.appendChild(btn);
+    return;
+  }
+
+  const q=quiz.qs[quiz.i];
+  const calc = q.mode==="add" ? addSteps(q.A,q.B) : subSteps(q.A,q.B);
+  const wrap=document.createElement("div"); wrap.className="calcwrap";
+  const grid=document.createElement("div"); grid.className="calc";
+  wrap.appendChild(grid); body.appendChild(wrap);
+  renderCalc(grid,{mode:q.mode,A:q.A,B:q.B,calc,revealed:-1,curIndex:-1});
+
+  const ask=document.createElement("div"); ask.className="explain"; ask.textContent=t("q_prompt");
+  body.appendChild(ask);
+
+  const opts=document.createElement("div"); opts.className="qopts";
+  q.opts.forEach(o=>{
+    const b=document.createElement("button"); b.className="qopt"; b.textContent=o;
+    b.onclick=()=>{
+      if(quiz.answered) return;
+      quiz.answered=true;
+      const right = o===q.answer;
+      if(right) quiz.score++;
+      opts.querySelectorAll("button").forEach(x=>{
+        if(x.textContent===q.answer) x.classList.add("right");
+        else if(x===b) x.classList.add("wrong");
+        x.disabled=true;
+      });
+      ask.className="explain "+(right?"done":"");
+      ask.innerHTML = right ? t("q_correct") : t("q_wrong")(q.answer);
+      document.getElementById("qScore").textContent=t("q_score")(quiz.score);
+      next.hidden=false;
+    };
+    opts.appendChild(b);
+  });
+  body.appendChild(opts);
+
+  const next=document.createElement("button"); next.className="btn-primary"; next.hidden=true;
+  next.style.alignSelf="flex-start";
+  next.textContent = quiz.i===QN-1 ? t("q_finish") : t("q_next");
+  next.onclick=()=>{ quiz.i++; quiz.answered=false; drawQuiz(); };
+  body.appendChild(next);
+}
+
+/* ============================================================
+   SECTION: CONVERTER
+   ============================================================ */
+let convVal=45;
+function drawConv(){
+  const s=bin(convVal,8);
+  document.getElementById("cDec").value=convVal;
+  document.getElementById("cBin").value=s;
+  const host=document.getElementById("cBoard"); host.innerHTML="";
+  for(let i=0;i<8;i++){
+    const wrap=document.createElement("div"); wrap.className="pv";
+    const b=document.createElement("button"); b.className="bit"+(s[i]==="1"?" on":""); b.textContent=s[i];
+    b.setAttribute("aria-label","bit "+pv(8,i));
+    b.onclick=()=>{ convVal ^= pv(8,i); drawConv(); };
+    const sm=document.createElement("small"); sm.textContent=pv(8,i);
+    wrap.appendChild(b); wrap.appendChild(sm); host.appendChild(wrap);
+  }
+  const parts=[]; for(let i=0;i<8;i++) if(s[i]==="1") parts.push(pv(8,i));
+  document.getElementById("cOut").innerHTML = parts.length ? `${parts.join(" + ")} = <b>${convVal}</b>` : `<b>0</b>`;
+}
+document.getElementById("cDec").oninput=e=>{
+  let v=parseInt(e.target.value,10); if(isNaN(v)) return;
+  convVal=Math.max(0,Math.min(255,v));
+  const s=bin(convVal,8); document.getElementById("cBin").value=s;
+  redrawConvBits(s);
+};
+document.getElementById("cBin").oninput=e=>{
+  const raw=e.target.value.replace(/[^01]/g,"").slice(0,8);
+  e.target.value=raw;
+  convVal = raw? dec(raw) : 0;
+  document.getElementById("cDec").value=convVal;
+  redrawConvBits(bin(convVal,8));
+};
+function redrawConvBits(s){
+  const host=document.getElementById("cBoard");
+  [...host.querySelectorAll(".bit")].forEach((b,i)=>{ b.textContent=s[i]; b.classList.toggle("on", s[i]==="1"); });
+  const parts=[]; for(let i=0;i<8;i++) if(s[i]==="1") parts.push(pv(8,i));
+  document.getElementById("cOut").innerHTML = parts.length ? `${parts.join(" + ")} = <b>${convVal}</b>` : `<b>0</b>`;
+}
+
+/* ============================================================
+   TABS + LANGUAGE
+   ============================================================ */
+const SECTIONS=["learn","rules","example","practice","quiz","convert"];
+let active="learn";
+function drawTabs(){
+  const host=document.getElementById("tabs"); host.innerHTML="";
+  t("tabs").forEach((label,i)=>{
+    const b=document.createElement("button"); b.className="tab"; b.type="button";
+    b.setAttribute("role","tab"); b.textContent=label;
+    b.setAttribute("aria-selected", String(SECTIONS[i]===active));
+    b.onclick=()=>{ active=SECTIONS[i]; showSection(); };
+    host.appendChild(b);
+  });
+}
+function showSection(){
+  SECTIONS.forEach(s=>{ document.getElementById("sec-"+s).hidden = (s!==active); });
+  drawTabs();
+}
+function applyLang(){
+  const app=document.getElementById("app");
+  app.dir = S[lang].dir;
+  document.getElementById("langBtn").textContent = S[lang].other;
+  document.querySelectorAll("[data-t]").forEach(el=>{
+    const v=S[lang][el.dataset.t];
+    if(typeof v==="string") el.innerHTML=v;
+  });
+  drawTabs(); drawLife(); drawRules(); drawLearn();
+  const box=document.getElementById("exExplain");
+  if(ex.revealed===0){ box.innerHTML=t("e_intro"); box.className="explain"; }
+  prAsk();
+  drawQuiz();
+  try{ localStorage.setItem("bitlab-lang", lang); }catch(e){}
+}
+document.getElementById("langBtn").onclick=()=>{ lang = lang==="en"?"ur":"en"; applyLang(); };
+
+/* ---- boot ---- */
+drawLearn(); drawLife(); drawRules();
+exBuild(); prBuild(); buildQuiz(); drawConv();
+applyLang(); showSection();
+</script>

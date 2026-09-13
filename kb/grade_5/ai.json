@@ -335,6 +335,63 @@
           }
         ]
       }
+    },
+    {
+      "title": "Binary lab — jama/tafreeq",
+      "description": "Bits se jama aur tafreeq — computer numbers ka bunyadi lab",
+      "lesson": "## HOOK\nSadi, computer sirf 0 aur 1 samajhta hai. Phir woh 2+3 kaise karta hai?\n\n## SAMJHAO\nBinary mein har digit bit hai — 0 ya 1. Jama karte waqt carry ban sakta hai, bilkul daswi (decimal) jama ki tarah, lekin base 2 par.\n\n## MISAAL\n1 + 1 = 10 (binary) — yani decimal 2.\n\n## KARO\nNeeche interactive lab mein bits jama/tafreeq karke dekho.\n\n## SAWAAL\n1. Bit kya hoti hai?\n2. Binary 10 decimal mein kya hai?\n3. Carry kab banta hai?",
+      "quiz": {
+        "title": "Binary lab Quiz",
+        "questions": [
+          {
+            "q": "Bit kis value ki hoti hai?",
+            "a": "0 ya 1",
+            "b": "0 se 9",
+            "c": "A se Z",
+            "d": "Sirf 2",
+            "correct": "a",
+            "explanation": "Bit binary digit hai — 0 ya 1."
+          },
+          {
+            "q": "Binary 10 decimal mein?",
+            "a": "10",
+            "b": "2",
+            "c": "1",
+            "d": "0",
+            "correct": "b",
+            "explanation": "1*2 + 0 = 2."
+          },
+          {
+            "q": "1+1 binary mein?",
+            "a": "2",
+            "b": "10",
+            "c": "11",
+            "d": "01",
+            "correct": "b",
+            "explanation": "Carry ke sath 10 banta hai."
+          },
+          {
+            "q": "Computer numbers kis base mein store karta hai?",
+            "a": "10",
+            "b": "2",
+            "c": "16 only",
+            "d": "5",
+            "correct": "b",
+            "explanation": "Binary base-2."
+          },
+          {
+            "q": "Lab ka maqsad?",
+            "a": "Drawing",
+            "b": "Bits se hisaab samajhna",
+            "c": "Urdu poetry",
+            "d": "Running",
+            "correct": "b",
+            "explanation": "Binary jama/tafreeq practice."
+          }
+        ]
+      },
+      "interactive_file": "interactives/g5-binary-lab.html",
+      "interactive_label": "Khelo — Binary lab — jama/tafreeq"
     }
   ]
 }

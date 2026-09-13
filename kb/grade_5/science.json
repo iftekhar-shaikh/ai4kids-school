@@ -171,7 +171,9 @@
             "explanation": "Lamp ek circuit ka part hota hai jo bijli se chamakta hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g5-bijli-circuits.html",
+      "interactive_label": "Khelo — Bijli ke circuits"
     },
     {
       "title": "Magnet ki taqat",
@@ -226,7 +228,9 @@
             "explanation": "Magnetism ka istemal electric motors aur generators mein hota hai jo bijli banate hain."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g5-magnetism.html",
+      "interactive_label": "Khelo — Magnet ki taqat"
     },
     {
       "title": "Ecosystem",

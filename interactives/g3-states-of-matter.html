@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>States of Matter — مادے کی حالتیں | AI4Kids Class 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --room:#eef3f7;
+    --room-deep:#d9e5ee;
+    --glass:#b8cede;
+    --ice:#9ec9e8;
+    --liquid:#2b7fbf;
+    --gas:#b6c6d2;
+    --cold:#4a8fd0;
+    --hot:#c9502e;
+    --ink:#1f2933;
+    --ink-soft:#4a5661;
+    --paper:#fdfaf3;
+    --line:#ded5c4;
+    --accent:#1a5b8f;
+    --good:#2e7d4f;
+
+    --fs-cap:clamp(12px, 3.2vw, 13px);
+    --fs-xs:clamp(14px, 3.7vw, 15px);
+    --fs-sm:clamp(16px, 4.2vw, 17px);
+    --fs-md:clamp(17px, 4.6vw, 19px);
+    --fs-lg:clamp(20px, 5.4vw, 23px);
+    --fs-xl:clamp(27px, 7.4vw, 33px);
+    --lh:1.5;
+  }
+  /* Urdu is set larger than Latin — Nastaliq reads smaller at the same size. */
+  body.urdu{
+    --fs-cap:clamp(13px, 3.5vw, 15px);
+    --fs-xs:clamp(15px, 4.1vw, 17px);
+    --fs-sm:clamp(17px, 4.7vw, 19px);
+    --fs-md:clamp(19px, 5.2vw, 21px);
+    --fs-lg:clamp(22px, 6vw, 25px);
+    --fs-xl:clamp(26px, 7vw, 31px);
+    --lh:2.1;
+  }
+
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--hot);outline-offset:2px}
+
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 16px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:linear-gradient(180deg,var(--room) 0%,var(--room-deep) 100%);
+  }
+  .scene svg{display:block;width:100%;height:auto}
+  .dot{transition:fill .6s ease,r .6s ease}
+  .tick{fill:var(--ink-soft);font-size:var(--fs-cap);font-weight:700;
+        font-family:"Baloo Bhaijaan 2",sans-serif}
+  #surface{transition:opacity .5s ease}
+  #tFill{transition:y .3s ease,height .3s ease,fill .5s ease}
+
+  .readout{
+    margin-top:-18px;position:relative;z-index:2;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px;
+             background:var(--accent);transition:background .4s ease}
+  .statechip.ur{padding:2px 14px 7px}
+  .sname{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+  .sname.ur{line-height:1.95}
+  .sdesc{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+
+  .facts{display:flex;gap:10px;margin-top:16px}
+  .fact{flex:1;border:2px solid var(--line);border-radius:14px;padding:11px 10px;text-align:center}
+  .fact em{display:block;font-style:normal;font-size:var(--fs-cap);color:var(--ink-soft);
+           font-weight:600;margin-bottom:4px}
+  .fact b{display:block;font-size:var(--fs-sm);font-weight:800;line-height:1.3}
+  .fact.count{border-color:var(--good);background:#eaf4ee}
+  .fact.count b{color:var(--good);font-size:var(--fs-lg)}
+
+  .why-note{
+    margin:12px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.55;
+    border-left:3px solid var(--accent);padding-left:11px;
+  }
+  .why-note b{color:var(--accent);font-weight:800}
+  body.urdu .why-note{
+    border-left:0;border-right:3px solid var(--accent);padding-left:0;padding-right:11px;
+    line-height:var(--lh);
+  }
+
+  .heat{margin-top:22px}
+  .heat h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 12px;color:var(--ink-soft)}
+  .step{display:flex;align-items:center;justify-content:center;gap:14px}
+  .step button{
+    width:56px;height:56px;border-radius:16px;border:2px solid var(--ink);background:var(--paper);
+    font:inherit;font-size:var(--fs-lg);font-weight:800;cursor:pointer;color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",sans-serif;
+  }
+  .step button:active:not(:disabled){transform:scale(.94)}
+  .step button:disabled{opacity:.35;cursor:default}
+  .step .val{min-width:130px;text-align:center;font-size:var(--fs-xl);font-weight:800}
+
+  .jump{margin-top:22px}
+  .jump h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 12px;color:var(--ink-soft)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .jchip{
+    border:2px solid var(--line);background:var(--paper);border-radius:999px;padding:8px 14px;
+    font:inherit;font-size:var(--fs-xs);font-weight:600;color:var(--ink);cursor:pointer;min-height:44px;
+  }
+  .jchip[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:50px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--good);background:#e6f4ec;font-weight:600}
+  .opt.wrong{border-color:var(--hot);background:#fbeae4}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;
+      grid-template-columns:1fr 1fr;
+      grid-template-areas:
+        "bar   bar"
+        "head  head"
+        "left  right"
+        "quiz  quiz"
+        "foot  foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar}
+    .head{grid-area:head}
+    .left{grid-area:left}
+    .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px}
+    footer{grid-area:foot}
+    .heat{margin-top:0}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    *{transition-duration:.01ms !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 5</span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunein">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 data-en="Ice, water and steam are the same thing" data-ur="برف، پانی اور بھاپ ایک ہی چیز ہیں"></h1>
+  <p class="sub" data-en="Change the temperature and watch the particles. Count them as you go." data-ur="درجۂ حرارت بدلیں اور ذرات کو دیکھیں۔ ساتھ ساتھ انہیں گنتے جائیں۔"></p>
+  </div>
+
+  <div class="left">
+  <div class="scene">
+    <svg viewBox="0 0 300 300" role="img" aria-label="A glass of water with its particles, next to a thermometer">
+      <!-- thermometer -->
+      <rect x="30" y="46" width="16" height="212" rx="8" fill="#fff" stroke="var(--glass)" stroke-width="2"/>
+      <rect id="tFill" x="33" y="150" width="10" height="105" rx="5" fill="var(--liquid)"/>
+      <circle cx="38" cy="262" r="13" fill="var(--liquid)" id="tBulb"/>
+      <line x1="48" y1="226" x2="58" y2="226" stroke="var(--ink-soft)" stroke-width="2"/>
+      <text x="62" y="230" class="tick">0°C</text>
+      <line x1="48" y1="84" x2="58" y2="84" stroke="var(--ink-soft)" stroke-width="2"/>
+      <text x="62" y="88" class="tick">100°C</text>
+
+      <!-- chai glass -->
+      <path d="M116 108 L124 268 Q125 276 134 276 L214 276 Q223 276 224 268 L232 108"
+            fill="rgba(255,255,255,.45)" stroke="var(--glass)" stroke-width="3"
+            stroke-linejoin="round"/>
+      <line id="surface" x1="126" y1="196" x2="222" y2="196"
+            stroke="var(--liquid)" stroke-width="3" opacity="0"/>
+
+      <g id="dots"></g>
+    </svg>
+  </div>
+
+  <div class="readout">
+    <span class="statechip" id="statechip"></span>
+    <p class="sname" id="sname"></p>
+    <p class="sdesc" id="sdesc"></p>
+
+    <div class="facts">
+      <div class="fact">
+        <em id="lblShape"></em>
+        <b id="valShape"></b>
+      </div>
+      <div class="fact count">
+        <em id="lblCount"></em>
+        <b id="valCount">24</b>
+      </div>
+    </div>
+
+    <p class="why-note"><b id="whyLbl"></b> <span id="whyText"></span></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="heat">
+    <h2 id="heatHead"></h2>
+    <div class="step">
+      <button type="button" id="cool" aria-label="Thanda karein">−</button>
+      <span class="val"><span id="tempVal">25</span>°C</span>
+      <button type="button" id="warm" aria-label="Garam karein">+</button>
+    </div>
+  </div>
+
+  <div class="jump">
+    <h2 id="jumpHead"></h2>
+    <div class="chips" id="chips" role="group"></div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <h2 id="quizHead" style="font-size:var(--fs-lg);font-weight:800;margin:0 0 18px"></h2>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad's bilingual AI and coding school. WhatsApp 0337 1468899" data-ur="اے آئی فور کڈز — اسلام آباد کا دو زبانوں والا اے آئی اور کوڈنگ سکول۔ واٹس ایپ 0337 1468899"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var lang = "en";
+  var temp = 25;
+  var N    = 24;          // never changes — that is the whole lesson
+
+  var T = {
+    heatHead:{en:"Heat it or cool it", ur:"گرم کریں یا ٹھنڈا کریں"},
+    jumpHead:{en:"Or jump straight to", ur:"یا سیدھا یہاں جائیں"},
+    shapeLbl:{en:"Shape and space", ur:"شکل اور جگہ"},
+    countLbl:{en:"Particles in the glass", ur:"گلاس میں ذرات"},
+    whyLbl:{en:"Notice:", ur:"غور کریں:"},
+    quiz:{en:"Check yourself", ur:"اپنا امتحان لیں"},
+    jumps:[
+      {t:-15, en:"Ice", ur:"برف"},
+      {t:25,  en:"Water", ur:"پانی"},
+      {t:110, en:"Steam", ur:"بھاپ"}
+    ],
+    solid:{
+      name:{en:"Solid — ice", ur:"ٹھوس — برف"},
+      chip:{en:"Below 0°C", ur:"0°C سے نیچے"},
+      shape:{en:"Keeps its own shape", ur:"اپنی شکل خود رکھتی ہے"},
+      desc:{en:"The particles are locked in rows. They still shake, but each one stays in its own place and cannot swap with its neighbour.",
+            ur:"ذرات قطاروں میں جکڑے ہوئے ہیں۔ یہ ہلتے ضرور ہیں، مگر ہر ذرہ اپنی جگہ پر رہتا ہے اور پڑوسی سے جگہ نہیں بدل سکتا۔"},
+      why:{en:"Colder does not mean the shaking stops — it means the shaking gets smaller. Drop the temperature and watch the wobble shrink.",
+           ur:"زیادہ ٹھنڈ کا مطلب ہلنا بند ہونا نہیں — ہلنا کم ہو جانا ہے۔ درجۂ حرارت گرائیں اور دیکھیں لرزش کم ہوتی جاتی ہے۔"}
+    },
+    liquid:{
+      name:{en:"Liquid — water", ur:"مائع — پانی"},
+      chip:{en:"0°C to 100°C", ur:"0°C سے 100°C تک"},
+      shape:{en:"Takes the glass's shape", ur:"گلاس کی شکل لے لیتا ہے"},
+      desc:{en:"The particles still touch each other, but now they can slide past. That sliding is why water pours, and why it settles flat at the bottom.",
+            ur:"ذرات اب بھی ایک دوسرے سے لگے ہوئے ہیں، مگر اب پھسل کر آگے پیچھے ہو سکتے ہیں۔ اسی پھسلن کی وجہ سے پانی ڈھلتا ہے اور نیچے جا کر سیدھا بیٹھ جاتا ہے۔"},
+      why:{en:"Raise the temperature from 5 to 95 and the particles move faster and faster — but they stay together the whole time. It is still water at 95°C.",
+           ur:"درجۂ حرارت 5 سے 95 تک بڑھائیں، ذرات تیز سے تیز تر ہوتے جائیں گے — مگر ساتھ ساتھ ہی رہیں گے۔ 95°C پر بھی یہ پانی ہی ہے۔"}
+    },
+    gas:{
+      name:{en:"Gas — steam", ur:"گیس — بھاپ"},
+      chip:{en:"Above 100°C", ur:"100°C سے اوپر"},
+      shape:{en:"Fills the whole glass", ur:"پورا گلاس بھر دیتی ہے"},
+      desc:{en:"The particles have broken away from each other and fly around freely, filling every corner of the glass.",
+            ur:"ذرات ایک دوسرے سے الگ ہو کر آزادانہ اڑ رہے ہیں اور گلاس کا ہر کونا بھر رہے ہیں۔"},
+      why:{en:"Real steam is invisible. The white cloud you see above a cup of chai is not steam — it is steam that has already cooled back into tiny droplets of water.",
+           ur:"اصل بھاپ نظر نہیں آتی۔ چائے کے کپ کے اوپر جو سفید بادل دکھتا ہے وہ بھاپ نہیں — وہ بھاپ ہے جو ٹھنڈی ہو کر دوبارہ پانی کے ننھے قطروں میں بدل چکی ہے۔"}
+    }
+  };
+
+  var QUIZ = [
+    { q:{en:"What is the difference between ice, water and steam?",
+         ur:"برف، پانی اور بھاپ میں فرق کیا ہے؟"},
+      o:[{en:"They are made of completely different particles",
+          ur:"یہ بالکل مختلف ذرات سے بنے ہیں"},
+         {en:"Only how the same particles are arranged and how fast they move",
+          ur:"صرف یہ کہ وہی ذرات کس ترتیب میں ہیں اور کتنی تیزی سے ہل رہے ہیں"},
+         {en:"Steam has extra particles added to it", ur:"بھاپ میں کچھ اضافی ذرات شامل ہو جاتے ہیں"},
+         {en:"Ice loses some of its particles", ur:"برف کے کچھ ذرات ختم ہو جاتے ہیں"}],
+      a:1,
+      f:{en:"The counter in the glass never changes — 24 particles in all three states. Nothing is added and nothing is lost. Only the arrangement and the speed change.",
+         ur:"گلاس کا شمار کبھی نہیں بدلتا — تینوں حالتوں میں 24 ذرات۔ نہ کچھ شامل ہوتا ہے، نہ ختم۔ صرف ترتیب اور رفتار بدلتی ہے۔"} },
+
+    { q:{en:"At what temperature does water boil and turn into steam?",
+         ur:"پانی کس درجۂ حرارت پر ابل کر بھاپ بنتا ہے؟"},
+      o:[{en:"0°C", ur:"0°C"},{en:"50°C", ur:"50°C"},
+         {en:"100°C", ur:"100°C"},{en:"200°C", ur:"200°C"}],
+      a:2,
+      f:{en:"Water freezes at 0°C and boils at 100°C. Between those two numbers it stays liquid.",
+         ur:"پانی 0°C پر جمتا ہے اور 100°C پر ابلتا ہے۔ ان دو عددوں کے بیچ میں یہ مائع رہتا ہے۔"} },
+
+    { q:{en:"The white cloud you see above a hot cup of chai — what is it?",
+         ur:"گرم چائے کے کپ کے اوپر جو سفید بادل نظر آتا ہے، وہ کیا ہے؟"},
+      o:[{en:"Steam, which you can see", ur:"بھاپ، جو نظر آتی ہے"},
+         {en:"Smoke from the stove", ur:"چولہے کا دھواں"},
+         {en:"Tiny drops of water, cooled back from steam",
+          ur:"پانی کے ننھے قطرے، جو بھاپ کے ٹھنڈا ہونے سے بنے"},
+         {en:"Air escaping from the chai", ur:"چائے سے نکلنے والی ہوا"}],
+      a:2,
+      f:{en:"Steam itself is invisible. Look closely at a kettle: there is a clear gap right at the spout — that gap is the real steam. The white cloud starts a little further out, where it has already cooled.",
+         ur:"اصل بھاپ نظر نہیں آتی۔ کیتلی کو غور سے دیکھیں: ٹونٹی کے بالکل پاس ایک صاف خلا ہوتا ہے — وہی اصل بھاپ ہے۔ سفید بادل ذرا آگے سے شروع ہوتا ہے، جہاں وہ ٹھنڈی ہو چکی ہوتی ہے۔"} }
+  ];
+
+  function $(id){ return document.getElementById(id); }
+  function t(o){ return o[lang]; }
+
+  var LRI = "\u2066", PDI = "\u2069";
+  var LATIN_RUN = /[A-Za-z0-9][A-Za-z0-9 .,+()\/@_°-]*[A-Za-z0-9°]|[A-Za-z0-9]/g;
+  function isolate(s){ return s.replace(LATIN_RUN, function(m){ return LRI + m + PDI; }); }
+
+  function setText(el, str){
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+
+  var NS = "http://www.w3.org/2000/svg";
+  function mk(tag, attrs){
+    var e = document.createElementNS(NS, tag);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    return e;
+  }
+
+  /* ---------- particles ---------- */
+  // The glass interior. Solid and liquid sit in the lower part; gas fills it all.
+  var BOX = { x0:130, x1:218, yTop:116, yLiq:198, yBot:266 };
+
+  var P = [];
+  (function build(){
+    var cols = 6, rows = 4;
+    for (var r=0;r<rows;r++){
+      for (var c=0;c<cols;c++){
+        var hx = BOX.x0 + 8 + c * ((BOX.x1 - BOX.x0 - 16) / (cols - 1));
+        var hy = BOX.yLiq + 10 + r * ((BOX.yBot - BOX.yLiq - 22) / (rows - 1));
+        P.push({ hx:hx, hy:hy, x:hx, y:hy,
+                 vx:(Math.random()-0.5), vy:(Math.random()-0.5),
+                 ph:Math.random()*6.28 });
+      }
+    }
+  })();
+
+  var els = P.map(function(p){
+    var e = mk("circle", {cx:p.x, cy:p.y, r:6, fill:"var(--liquid)", "class":"dot"});
+    $("dots").appendChild(e);
+    return e;
+  });
+
+  function stateOf(T_){ return T_ < 0 ? "solid" : (T_ < 100 ? "liquid" : "gas"); }
+
+  var clock = 0;
+  function tick(){
+    clock += 0.08;
+    var st = stateOf(temp);
+
+    if (st === "solid"){
+      // locked in a lattice; colder simply means a smaller wobble
+      var amp = 0.8 + (temp + 20) / 20 * 1.8;
+      P.forEach(function(p, i){
+        p.x = p.hx + amp * Math.sin(clock * 3 + p.ph);
+        p.y = p.hy + amp * Math.cos(clock * 2.6 + p.ph * 1.7);
+      });
+    } else {
+      var gas   = (st === "gas");
+      var speed = gas ? (2.6 + (temp - 100) * 0.05) : (0.5 + temp / 100 * 1.6);
+      var top   = gas ? BOX.yTop : BOX.yLiq;
+      P.forEach(function(p){
+        var sp = Math.sqrt(p.vx*p.vx + p.vy*p.vy) || 1;
+        p.vx = p.vx / sp * speed;
+        p.vy = p.vy / sp * speed;
+        p.x += p.vx; p.y += p.vy;
+      });
+
+      // In a liquid the particles touch but do not sit on top of each other. Without
+      // this they bunch into a clump and leave gaps, which teaches the wrong picture.
+      // A gas needs no such rule — its particles really are far apart and free.
+      if (!gas){
+        for (var a=0;a<P.length;a++){
+          for (var b=a+1;b<P.length;b++){
+            var dx = P[b].x - P[a].x, dy = P[b].y - P[a].y;
+            var d  = Math.sqrt(dx*dx + dy*dy) || 0.01;
+            if (d < 13){
+              var push = (13 - d) / d * 0.4;
+              P[a].x -= dx * push; P[a].y -= dy * push;
+              P[b].x += dx * push; P[b].y += dy * push;
+            }
+          }
+        }
+      }
+
+      P.forEach(function(p){
+        if (p.x < BOX.x0){ p.x = BOX.x0; p.vx = Math.abs(p.vx); }
+        if (p.x > BOX.x1){ p.x = BOX.x1; p.vx = -Math.abs(p.vx); }
+        if (p.y < top){    p.y = top;    p.vy = Math.abs(p.vy); }
+        if (p.y > BOX.yBot){ p.y = BOX.yBot; p.vy = -Math.abs(p.vy); }
+      });
+    }
+
+    for (var i=0;i<P.length;i++){
+      els[i].setAttribute("cx", P[i].x.toFixed(1));
+      els[i].setAttribute("cy", P[i].y.toFixed(1));
+    }
+  }
+
+  /* ---------- controls ---------- */
+  function setTemp(v){
+    temp = Math.max(-20, Math.min(120, v));
+    render();
+  }
+  $("cool").addEventListener("click", function(){ setTemp(temp - 5); });
+  $("warm").addEventListener("click", function(){ setTemp(temp + 5); });
+
+  T.jumps.forEach(function(j, i){
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "jchip";
+    b.setAttribute("data-i", i); b.setAttribute("aria-pressed","false");
+    b.addEventListener("click", function(){ setTemp(j.t); });
+    $("chips").appendChild(b);
+  });
+
+  /* ---------- render ---------- */
+  function render(){
+    var st = stateOf(temp);
+    var m  = T[st];
+
+    $("tempVal").textContent = String(temp);
+    $("cool").disabled = (temp <= -20);
+    $("warm").disabled = (temp >= 120);
+
+    // thermometer: -20°C sits at y 255, 120°C at y 55
+    var y = 255 - (temp + 20) / 140 * 200;
+    $("tFill").setAttribute("y", String(y));
+    $("tFill").setAttribute("height", String(255 - y));
+    var col = (st === "solid") ? "var(--cold)" : (st === "gas" ? "var(--hot)" : "var(--liquid)");
+    $("tFill").setAttribute("fill", col);
+    $("tBulb").setAttribute("fill", col);
+    $("statechip").style.background = (st === "solid") ? "var(--cold)"
+                                    : (st === "gas") ? "var(--hot)" : "var(--accent)";
+
+    // particle look
+    var dotFill = (st === "solid") ? "var(--ice)" : (st === "gas" ? "var(--gas)" : "var(--liquid)");
+    var dotR    = (st === "gas") ? 5 : 6;
+    els.forEach(function(e){ e.setAttribute("fill", dotFill); e.setAttribute("r", dotR); });
+    $("surface").setAttribute("opacity", st === "liquid" ? "1" : "0");
+
+    // chips
+    Array.prototype.forEach.call($("chips").children, function(b, i){
+      b.textContent = T.jumps[i][lang];
+      b.setAttribute("aria-pressed", stateOf(T.jumps[i].t) === st ? "true" : "false");
+    });
+
+    setText($("statechip"), t(m.chip));
+    setText($("sname"), t(m.name));
+    setText($("sdesc"), t(m.desc));
+    setText($("lblShape"), t(T.shapeLbl));
+    setText($("valShape"), t(m.shape));
+    setText($("lblCount"), t(T.countLbl));
+    $("valCount").textContent = String(N);
+    $("whyLbl").textContent = t(T.whyLbl);
+    setText($("whyText"), t(m.why));
+
+    lastSpoken = t(m.name) + ". " + t(m.desc);
+  }
+
+  var lastSpoken = "";
+
+  /* ---------- quiz ---------- */
+  function buildQuiz(){
+    var box = $("quizBox");
+    box.innerHTML = "";
+    QUIZ.forEach(function(item){
+      var wrap = document.createElement("div");
+      wrap.className = "q";
+      var q = document.createElement("p");
+      setText(q, t(item.q));
+      wrap.appendChild(q);
+      var fb = document.createElement("p");
+      fb.className = "fb";
+      item.o.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt" + (lang === "ur" ? " ur" : "");
+        b.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+        b.textContent = t(opt);
+        b.addEventListener("click", function(){
+          if (wrap.getAttribute("data-done") === "1") return;
+          wrap.setAttribute("data-done","1");
+          Array.prototype.forEach.call(wrap.querySelectorAll(".opt"), function(x, xi){
+            if (xi === item.a) x.classList.add("right");
+            else if (xi === oi) x.classList.add("wrong");
+          });
+          setText(fb, t(item.f));
+          fb.classList.add("show","fb");
+        });
+        wrap.appendChild(b);
+      });
+      wrap.appendChild(fb);
+      box.appendChild(wrap);
+    });
+  }
+
+  function applyLang(){
+    document.body.classList.toggle("urdu", lang === "ur");
+    var lb = $("langBtn");
+    lb.textContent = (lang === "en") ? "اردو" : "English";
+    lb.setAttribute("aria-pressed", lang === "ur" ? "true" : "false");
+
+    Array.prototype.forEach.call(document.querySelectorAll("[data-en]"), function(el){
+      setText(el, el.getAttribute(lang === "en" ? "data-en" : "data-ur"));
+    });
+
+    setText($("heatHead"), t(T.heatHead));
+    setText($("jumpHead"), t(T.jumpHead));
+    setText($("quizHead"), t(T.quiz));
+
+    buildQuiz();
+    render();
+  }
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en";
+    applyLang();
+  });
+
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      window.speechSynthesis.cancel();
+      var u = new SpeechSynthesisUtterance(lastSpoken);
+      u.lang = (lang === "ur") ? "ur-PK" : "en-US";
+      u.rate = 0.92;
+      var voices = window.speechSynthesis.getVoices() || [];
+      for (var i=0;i<voices.length;i++){
+        if (voices[i].lang && voices[i].lang.toLowerCase().indexOf(lang === "ur" ? "ur" : "en") === 0){
+          u.voice = voices[i]; break;
+        }
+      }
+      window.speechSynthesis.speak(u);
+    }catch(e){ /* no voice available — stay quiet */ }
+  });
+
+  applyLang();
+  setInterval(tick, 40);
+})();
+</script>
+</body>
+</html>

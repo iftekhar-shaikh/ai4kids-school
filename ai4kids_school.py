@@ -1076,6 +1076,14 @@ def render_topic_interactive(subject_key, grade, topic_title):
             (5, "science", "Khoon ka nizam"): "interactives/g5-khoon-nizam.html",
             (5, "science", "Energy — forms"): "interactives/g5-energy.html",
             (5, "ai", "AI ethics"): "interactives/g5-ai-literacy.html",
+            (5, "science", "Bijli ke circuits"): "interactives/g5-bijli-circuits.html",
+            (5, "science", "Magnet ki taqat"): "interactives/g5-magnetism.html",
+            (4, "science", "Solar system"): "interactives/g4-solar-system.html",
+            (3, "science", "Paani ka safar"): "interactives/g3-paani-ka-safar.html",
+            (3, "science", "Matter: solid liquid gas"): "interactives/g3-states-of-matter.html",
+            (4, "science", "Hazam ka nizam"): "interactives/g4-hazam-ka-nizam.html",
+            (4, "science", "Taqat aur harkat"): "interactives/g4-taqat-aur-harkat.html",
+            (5, "ai", "Binary lab — jama/tafreeq"): "interactives/g5-binary-lab.html",
         }
         rel = FALLBACK.get((int(grade), subject_key, topic_title))
     if not rel:

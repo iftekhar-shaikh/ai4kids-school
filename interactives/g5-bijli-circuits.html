@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Circuits — بجلی کا راستہ | AI4Kids Class 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#eaeef3;
+    --board-deep:#d7dee6;
+    --wire:#414d5c;
+    --wire-live:#e8a33d;
+    --bulb-off:#c7d0d9;
+    --bulb-on:#ffc94d;
+    --metal:#8f9aa6;
+    --cond:#2e7d4f;
+    --insul:#b85c38;
+    --ink:#1f2933;
+    --ink-soft:#4a5661;
+    --paper:#fdfaf3;
+    --line:#ded5c4;
+    --accent:#2f5d8a;
+
+    --fs-cap:clamp(12px, 3.2vw, 13px);
+    --fs-xs:clamp(14px, 3.7vw, 15px);
+    --fs-sm:clamp(16px, 4.2vw, 17px);
+    --fs-md:clamp(17px, 4.6vw, 19px);
+    --fs-lg:clamp(20px, 5.4vw, 23px);
+    --fs-xl:clamp(27px, 7.4vw, 33px);
+    --lh:1.5;
+  }
+  /* Urdu is set larger than Latin — Nastaliq reads smaller at the same size. */
+  body.urdu{
+    --fs-cap:clamp(13px, 3.5vw, 15px);
+    --fs-xs:clamp(15px, 4.1vw, 17px);
+    --fs-sm:clamp(17px, 4.7vw, 19px);
+    --fs-md:clamp(19px, 5.2vw, 21px);
+    --fs-lg:clamp(22px, 6vw, 25px);
+    --fs-xl:clamp(26px, 7vw, 31px);
+    --lh:2.1;
+  }
+
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--wire-live);outline-offset:2px}
+
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 16px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:linear-gradient(180deg,var(--board) 0%,var(--board-deep) 100%);
+  }
+  .scene svg{display:block;width:100%;height:auto}
+
+  .wire{fill:none;stroke:var(--wire);stroke-width:7;stroke-linecap:round;stroke-linejoin:round}
+  .flow{fill:none;stroke:var(--wire-live);stroke-width:7;stroke-linecap:round;stroke-linejoin:round;
+        stroke-dasharray:10 18;opacity:0;transition:opacity .3s ease}
+  .live .flow{opacity:1;animation:run 1.1s linear infinite}
+  @keyframes run{to{stroke-dashoffset:-28}}
+  #glass{fill:var(--bulb-off);transition:fill .3s ease}
+  #glow{fill:var(--bulb-on);opacity:0;transition:opacity .3s ease}
+  .live #glow{opacity:.45;animation:flicker 2.6s ease-in-out infinite}
+  @keyframes flicker{0%,100%{opacity:.4}50%{opacity:.55}}
+  #filament{fill:none;stroke:var(--metal);stroke-width:2.4;transition:stroke .3s ease}
+  .live #filament{stroke:#c9502e}
+  #lever{transition:transform .25s ease;transform-origin:132px 210px}
+  .open #lever{transform:rotate(-32deg)}
+  #slotFill{transition:fill .3s ease}
+  .block{opacity:0;transition:opacity .3s ease;pointer-events:none}
+  .block.show{opacity:1}
+  .block circle{fill:var(--insul)}
+  .block path{stroke:#fff;stroke-width:3;stroke-linecap:round}
+  .term{fill:var(--ink);font-size:var(--fs-sm);font-weight:800;
+        font-family:"Baloo Bhaijaan 2",sans-serif}
+  .cap{fill:var(--ink-soft);font-size:var(--fs-cap);font-weight:700;
+       font-family:"Baloo Bhaijaan 2",sans-serif}
+  body.urdu .cap{font-family:"Noto Nastaliq Urdu",serif}
+
+  .readout{
+    margin-top:-18px;position:relative;z-index:2;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px;
+             background:var(--insul);transition:background .3s ease}
+  .statechip.ur{padding:2px 14px 7px}
+  .verdict{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+  .verdict.ur{line-height:1.95}
+  .why{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+
+  .facts{display:flex;gap:10px;margin-top:16px}
+  .fact{flex:1;border:2px solid var(--line);border-radius:14px;padding:11px 10px;text-align:center}
+  .fact em{display:block;font-style:normal;font-size:var(--fs-cap);color:var(--ink-soft);
+           font-weight:600;margin-bottom:4px}
+  .fact b{display:block;font-size:var(--fs-sm);font-weight:800;line-height:1.3}
+  .fact.cond{border-color:var(--cond);background:#e9f2ec}
+  .fact.cond b{color:var(--cond)}
+  .fact.insul{border-color:var(--insul);background:#fbeae4}
+  .fact.insul b{color:var(--insul)}
+
+  .why-note{
+    margin:12px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.55;
+    border-left:3px solid var(--accent);padding-left:11px;
+  }
+  .why-note b{color:var(--accent);font-weight:800}
+  body.urdu .why-note{
+    border-left:0;border-right:3px solid var(--accent);padding-left:0;padding-right:11px;
+    line-height:var(--lh);
+  }
+
+  .safety{
+    margin-top:16px;border:2px dashed var(--insul);border-radius:14px;padding:11px 13px;
+    font-size:var(--fs-xs);color:var(--insul);font-weight:600;line-height:1.55;
+  }
+  body.urdu .safety{line-height:var(--lh)}
+
+  .ctl{margin-top:22px}
+  .ctl h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 12px;color:var(--ink-soft)}
+  .bigbtn{
+    width:100%;border:2px solid var(--ink);border-radius:16px;background:var(--ink);color:var(--paper);
+    font:inherit;font-weight:800;font-size:var(--fs-md);cursor:pointer;min-height:58px;
+  }
+  .bigbtn.off{background:var(--paper);color:var(--ink)}
+  .bigbtn:active{transform:scale(.98)}
+
+  .picker{margin-top:22px}
+  .picker h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 12px;color:var(--ink-soft)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .mchip{
+    display:flex;align-items:center;gap:7px;
+    border:2px solid var(--line);background:var(--paper);border-radius:999px;padding:8px 14px;
+    font:inherit;font-size:var(--fs-xs);font-weight:600;color:var(--ink);cursor:pointer;min-height:44px;
+  }
+  .mchip i{width:13px;height:13px;border-radius:4px;flex:none}
+  .mchip[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:50px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--cond);background:#e6f4ec;font-weight:600}
+  .opt.wrong{border-color:var(--insul);background:#fbeae4}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;
+      grid-template-columns:1fr 1fr;
+      grid-template-areas:
+        "bar   bar"
+        "head  head"
+        "left  right"
+        "quiz  quiz"
+        "foot  foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar}
+    .head{grid-area:head}
+    .left{grid-area:left}
+    .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px}
+    footer{grid-area:foot}
+    .ctl{margin-top:0}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .live .flow{animation:none}
+    .live #glow{animation:none}
+    *{transition-duration:.01ms !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 5</span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunein">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 data-en="Make the bulb light up" data-ur="بلب کو جلا کر دکھائیں"></h1>
+  <p class="sub" data-en="Close the switch. Then try putting different things in the gap." data-ur="سوئچ بند کریں۔ پھر خالی جگہ میں مختلف چیزیں رکھ کر دیکھیں۔"></p>
+  </div>
+
+  <div class="left">
+  <div class="scene">
+    <svg id="svg" viewBox="0 0 300 260" role="img" aria-label="A battery, a bulb, a switch and a gap for testing materials, joined by wires">
+
+      <!-- wires -->
+      <path class="wire" id="wA" d="M46 104 L46 44 L254 44 L254 106"/>
+      <path class="flow" d="M46 104 L46 44 L254 44 L254 106"/>
+      <path class="wire" id="wB" d="M254 154 L254 210 L168 210"/>
+      <path class="flow" d="M254 154 L254 210 L168 210"/>
+      <path class="wire" id="wC" d="M132 210 L46 210 L46 156"/>
+      <path class="flow" d="M132 210 L46 210 L46 156"/>
+
+      <!-- battery -->
+      <rect x="30" y="104" width="32" height="52" rx="6" fill="#5b6b7c"/>
+      <rect x="30" y="104" width="32" height="16" rx="6" fill="#8f9aa6"/>
+      <text x="46" y="100" text-anchor="middle" class="term">+</text>
+      <text x="46" y="176" text-anchor="middle" class="term">−</text>
+
+      <!-- bulb, sitting on the top wire -->
+      <g id="bulb">
+        <circle id="glow" cx="150" cy="26" r="26"/>
+        <circle id="glass" cx="150" cy="26" r="17"/>
+        <path id="filament" d="M143 32 L146 20 L150 32 L154 20 L157 32"/>
+        <rect x="140" y="40" width="20" height="10" rx="2" fill="var(--metal)"/>
+      </g>
+
+      <!-- test gap -->
+      <circle cx="254" cy="106" r="5" fill="var(--metal)"/>
+      <circle cx="254" cy="154" r="5" fill="var(--metal)"/>
+      <rect id="slotFill" x="240" y="110" width="28" height="40" rx="6" fill="#c3ccd5"/>
+      <text id="slotLbl" x="254" y="180" text-anchor="middle" class="cap"></text>
+
+      <!-- switch -->
+      <circle cx="132" cy="210" r="6" fill="var(--metal)"/>
+      <circle cx="168" cy="210" r="6" fill="var(--metal)"/>
+      <line id="lever" x1="132" y1="210" x2="170" y2="210"
+            stroke="var(--wire)" stroke-width="7" stroke-linecap="round"/>
+      <text id="swLbl" x="150" y="238" text-anchor="middle" class="cap"></text>
+
+      <g id="xSlot" class="block">
+        <circle cx="254" cy="130" r="12"/>
+        <path d="M249 125 L259 135 M259 125 L249 135"/>
+      </g>
+      <g id="xSw" class="block">
+        <circle cx="150" cy="210" r="12"/>
+        <path d="M145 205 L155 215 M155 205 L145 215"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="readout">
+    <span class="statechip" id="statechip"></span>
+    <p class="verdict" id="verdict"></p>
+    <p class="why" id="why"></p>
+
+    <div class="facts">
+      <div class="fact" id="fMat">
+        <em id="lblMat"></em>
+        <b id="valMat"></b>
+      </div>
+      <div class="fact" id="fPath">
+        <em id="lblPath"></em>
+        <b id="valPath"></b>
+      </div>
+    </div>
+
+    <p class="why-note"><b id="whyLbl"></b> <span id="whyText"></span></p>
+    <p class="safety" id="safety"></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="ctl">
+    <h2 id="ctlHead"></h2>
+    <button type="button" class="bigbtn off" id="swBtn"></button>
+  </div>
+
+  <div class="picker">
+    <h2 id="pickHead"></h2>
+    <div class="chips" id="chips" role="group"></div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <h2 id="quizHead" style="font-size:var(--fs-lg);font-weight:800;margin:0 0 18px"></h2>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad's bilingual AI and coding school. WhatsApp 0337 1468899" data-ur="اے آئی فور کڈز — اسلام آباد کا دو زبانوں والا اے آئی اور کوڈنگ سکول۔ واٹس ایپ 0337 1468899"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var lang = "en";
+  var closed = false;   // switch
+  var sel = 0;          // material in the gap
+
+  var M = [
+    { en:"Copper wire", ur:"تانبے کا تار", c:"#c9763f", ok:true,
+      note:{en:"Almost every wire in your house is copper inside. It lets electricity through better than nearly anything else you can afford.",
+            ur:"آپ کے گھر کا تقریباً ہر تار اندر سے تانبے کا ہے۔ یہ بجلی کو باقی سستی چیزوں سے کہیں بہتر گزرنے دیتا ہے۔"} },
+    { en:"Plastic ruler", ur:"پلاسٹک کا اسکیل", c:"#4a8fd0", ok:false,
+      note:{en:"Plastic blocks electricity completely. That is exactly why it is wrapped around every wire you touch.",
+            ur:"پلاسٹک بجلی کو بالکل روک دیتا ہے۔ اسی لیے ہر اُس تار کے اوپر چڑھایا جاتا ہے جسے آپ ہاتھ لگاتے ہیں۔"} },
+    { en:"Iron key", ur:"لوہے کی چابی", c:"#8f9aa6", ok:true,
+      note:{en:"Metals conduct. Iron, copper, steel, aluminium — if it is a metal, electricity can pass through it.",
+            ur:"دھاتیں بجلی گزارتی ہیں۔ لوہا، تانبا، اسٹیل، ایلومینیم — اگر دھات ہے تو بجلی گزر سکتی ہے۔"} },
+    { en:"Rubber eraser", ur:"ربڑ", c:"#d4a3a3", ok:false,
+      note:{en:"Rubber is such a good blocker that electricians wear rubber gloves and rubber-soled shoes at work.",
+            ur:"ربڑ اتنا اچھا روکنے والا ہے کہ بجلی کا کام کرنے والے ربڑ کے دستانے اور ربڑ والے جوتے پہنتے ہیں۔"} },
+    { en:"Coin", ur:"سکہ", c:"#b9a06a", ok:true,
+      note:{en:"A coin is metal, so it conducts. This is also why you must never poke a coin into a socket.",
+            ur:"سکہ دھات کا ہے، اس لیے بجلی گزارتا ہے۔ اسی وجہ سے سکہ کبھی ساکٹ میں نہیں ڈالنا چاہیے۔"} },
+    { en:"Piece of wood", ur:"لکڑی کا ٹکڑا", c:"#a67b4d", ok:false,
+      note:{en:"Dry wood blocks electricity. Wet wood is a different story — water changes everything, which is why you never touch switches with wet hands.",
+            ur:"خشک لکڑی بجلی روکتی ہے۔ گیلی لکڑی کا معاملہ الگ ہے — پانی سب کچھ بدل دیتا ہے، اسی لیے گیلے ہاتھوں سے سوئچ کو کبھی ہاتھ نہ لگائیں۔"} },
+    { en:"Pencil lead", ur:"پنسل کا سیسہ", c:"#4c4c52", ok:true,
+      note:{en:"Here is the surprise. The wooden part of a pencil blocks electricity, but the grey lead inside is graphite — and graphite conducts, even though it is not a metal.",
+            ur:"یہاں حیرت ہے۔ پنسل کی لکڑی بجلی روکتی ہے، مگر اندر کا سرمئی سیسہ گریفائٹ ہے — اور گریفائٹ بجلی گزارتا ہے، حالانکہ یہ دھات نہیں۔"} },
+    { en:"Paper", ur:"کاغذ", c:"#e5ddc9", ok:false,
+      note:{en:"Paper blocks electricity. Being thin makes no difference — thin and blocking are two separate things.",
+            ur:"کاغذ بجلی روکتا ہے۔ پتلا ہونے سے کوئی فرق نہیں پڑتا — پتلا ہونا اور روکنا دو الگ باتیں ہیں۔"} }
+  ];
+
+  var T = {
+    ctlHead:{en:"The switch", ur:"سوئچ"},
+    pickHead:{en:"Put something in the gap", ur:"خالی جگہ میں کوئی چیز رکھیں"},
+    swOn:{en:"Switch is ON — tap to open it", ur:"سوئچ آن ہے — کھولنے کے لیے دبائیں"},
+    swOff:{en:"Switch is OFF — tap to close it", ur:"سوئچ آف ہے — بند کرنے کے لیے دبائیں"},
+    swCapOn:{en:"switch closed", ur:"سوئچ بند"},
+    swCapOff:{en:"switch open", ur:"سوئچ کھلا"},
+    matLbl:{en:"This thing is", ur:"یہ چیز ہے"},
+    pathLbl:{en:"The path is", ur:"راستہ ہے"},
+    cond:{en:"A conductor", ur:"موصل (Conductor)"},
+    insul:{en:"An insulator", ur:"غیر موصل (Insulator)"},
+    whole:{en:"Complete", ur:"مکمل"},
+    broken:{en:"Broken", ur:"ٹوٹا ہوا"},
+    whyLbl:{en:"Notice:", ur:"غور کریں:"},
+    quiz:{en:"Check yourself", ur:"اپنا امتحان لیں"},
+    safety:{en:"Only ever try this with a small battery. Never with a wall switch, a socket, or anything plugged in.",
+            ur:"یہ تجربہ صرف چھوٹی بیٹری کے ساتھ کریں۔ دیوار کے سوئچ، ساکٹ یا پلگ لگی کسی چیز کے ساتھ ہرگز نہیں۔"},
+    on:{chip:{en:"Circuit complete", ur:"سرکٹ مکمل"},
+        v:{en:"The bulb is lit.", ur:"بلب جل رہا ہے۔"},
+        w:{en:"Electricity is leaving the battery, going all the way round, and coming back. A full loop with no break anywhere.",
+           ur:"بجلی بیٹری سے نکل کر پورا چکر کاٹ کر واپس پہنچ رہی ہے۔ ایک مکمل راستہ، کہیں سے ٹوٹا ہوا نہیں۔"}},
+    offSwitch:{chip:{en:"Circuit broken", ur:"سرکٹ ٹوٹا ہوا"},
+        v:{en:"The bulb is dark.", ur:"بلب نہیں جل رہا۔"},
+        w:{en:"The switch is open, so there is a gap in the loop. Electricity cannot jump a gap — the path has to be joined all the way round.",
+           ur:"سوئچ کھلا ہے، اس لیے راستے میں خلا ہے۔ بجلی خلا کو پھلانگ نہیں سکتی — راستہ پورے چکر میں جُڑا ہونا چاہیے۔"}},
+    offMat:{chip:{en:"Circuit broken", ur:"سرکٹ ٹوٹا ہوا"},
+        v:{en:"The bulb is dark.", ur:"بلب نہیں جل رہا۔"},
+        w:{en:"The switch is closed, but the thing in the gap will not let electricity through. A closed loop is not enough — every part of it has to be a conductor.",
+           ur:"سوئچ تو بند ہے، مگر خلا میں رکھی چیز بجلی گزرنے نہیں دیتی۔ صرف راستہ جُڑا ہونا کافی نہیں — راستے کا ہر حصہ موصل ہونا چاہیے۔"}}
+  };
+
+  var QUIZ = [
+    { q:{en:"What does a bulb need in order to light up?",
+         ur:"بلب کو جلنے کے لیے کیا چاہیے؟"},
+      o:[{en:"A complete path for electricity, all the way round and back to the battery",
+          ur:"بجلی کے لیے مکمل راستہ، پورا چکر کاٹ کر واپس بیٹری تک"},
+         {en:"Just a battery touching it", ur:"صرف ایک بیٹری جو اسے چھو رہی ہو"},
+         {en:"A switch, whether open or closed", ur:"ایک سوئچ، چاہے کھلا ہو یا بند"},
+         {en:"Sunlight falling on it", ur:"اس پر پڑنے والی دھوپ"}],
+      a:0,
+      f:{en:"Electricity has to go out from the battery and come back to it. Break the loop anywhere — the switch, the gap, a loose wire — and everything stops.",
+         ur:"بجلی کو بیٹری سے نکل کر واپس بیٹری تک پہنچنا ہوتا ہے۔ راستہ کہیں سے بھی ٹوٹ جائے — سوئچ، خلا، یا ڈھیلا تار — سب رک جاتا ہے۔"} },
+
+    { q:{en:"Which one of these is a conductor?",
+         ur:"ان میں سے موصل (conductor) کون سا ہے؟"},
+      o:[{en:"Plastic ruler", ur:"پلاسٹک کا اسکیل"},{en:"Rubber eraser", ur:"ربڑ"},
+         {en:"Iron key", ur:"لوہے کی چابی"},{en:"Paper", ur:"کاغذ"}],
+      a:2,
+      f:{en:"Metals conduct. A quick rule that works most of the time: if it is a metal, electricity can pass through it.",
+         ur:"دھاتیں بجلی گزارتی ہیں۔ ایک آسان اصول جو اکثر کام کرتا ہے: اگر چیز دھات ہے تو بجلی گزر سکتی ہے۔"} },
+
+    { q:{en:"Why is every wire in your house wrapped in plastic?",
+         ur:"آپ کے گھر کے ہر تار پر پلاسٹک کیوں چڑھا ہوتا ہے؟"},
+      o:[{en:"To make the wire look nicer", ur:"تاکہ تار خوبصورت لگے"},
+         {en:"Because plastic blocks electricity, so it stays in the wire and away from your hand",
+          ur:"کیونکہ پلاسٹک بجلی روکتا ہے، تو بجلی تار کے اندر رہتی ہے اور ہاتھ تک نہیں پہنچتی"},
+         {en:"To make the electricity travel faster", ur:"تاکہ بجلی تیز چلے"},
+         {en:"To keep the wire warm", ur:"تاکہ تار گرم رہے"}],
+      a:1,
+      f:{en:"The copper inside carries the electricity; the plastic outside keeps it there. Conductor on the inside, insulator on the outside — that is what a wire is.",
+         ur:"اندر کا تانبا بجلی لے جاتا ہے؛ باہر کا پلاسٹک اسے وہیں روکے رکھتا ہے۔ اندر موصل، باہر غیر موصل — تار اسی کا نام ہے۔"} }
+  ];
+
+  function $(id){ return document.getElementById(id); }
+  function t(o){ return o[lang]; }
+
+  var LRI = "\u2066", PDI = "\u2069";
+  var LATIN_RUN = /[A-Za-z0-9][A-Za-z0-9 .,+()\/@_-]*[A-Za-z0-9]|[A-Za-z0-9]/g;
+  function isolate(s){ return s.replace(LATIN_RUN, function(m){ return LRI + m + PDI; }); }
+
+  function setText(el, str){
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+
+  /* ---------- controls ---------- */
+  $("swBtn").addEventListener("click", function(){ closed = !closed; render(); });
+
+  M.forEach(function(m, i){
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "mchip";
+    b.setAttribute("data-i", i); b.setAttribute("aria-pressed","false");
+    var dot = document.createElement("i"); dot.style.background = m.c;
+    var lab = document.createElement("span");
+    b.appendChild(dot); b.appendChild(lab);
+    b.addEventListener("click", function(){ sel = i; render(); });
+    $("chips").appendChild(b);
+  });
+
+  /* ---------- render ---------- */
+  function render(){
+    var m   = M[sel];
+    var lit = closed && m.ok;
+
+    $("svg").classList.toggle("live", lit);
+    $("svg").classList.toggle("open", !closed);
+    $("slotFill").setAttribute("fill", m.c);
+
+    // show the break exactly where it is
+    $("xSw").classList.toggle("show", !closed);
+    $("xSlot").classList.toggle("show", !m.ok);
+
+    $("swBtn").classList.toggle("off", !closed);
+    setText($("swBtn"), closed ? t(T.swOn) : t(T.swOff));
+    $("swLbl").textContent = closed ? t(T.swCapOn) : t(T.swCapOff);
+    $("slotLbl").textContent = m[lang];
+    $("swLbl").setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+    $("slotLbl").setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+
+    Array.prototype.forEach.call($("chips").children, function(b, i){
+      b.setAttribute("aria-pressed", i === sel ? "true" : "false");
+      b.lastChild.textContent = M[i][lang];
+    });
+
+    // which message fits: lit, blocked by the switch, or blocked by the material
+    var msg = lit ? T.on : (!closed ? T.offSwitch : T.offMat);
+    $("statechip").style.background = lit ? "var(--cond)" : "var(--insul)";
+    setText($("statechip"), t(msg.chip));
+    setText($("verdict"), t(msg.v));
+    setText($("why"), t(msg.w));
+
+    setText($("lblMat"), t(T.matLbl));
+    setText($("valMat"), m.ok ? t(T.cond) : t(T.insul));
+    $("fMat").className = "fact " + (m.ok ? "cond" : "insul");
+
+    setText($("lblPath"), t(T.pathLbl));
+    setText($("valPath"), closed ? t(T.whole) : t(T.broken));
+    $("fPath").className = "fact " + (closed ? "cond" : "insul");
+
+    $("whyLbl").textContent = t(T.whyLbl);
+    setText($("whyText"), t(m.note));
+    setText($("safety"), t(T.safety));
+
+    lastSpoken = t(msg.v) + " " + t(msg.w);
+  }
+
+  var lastSpoken = "";
+
+  /* ---------- quiz ---------- */
+  function buildQuiz(){
+    var box = $("quizBox");
+    box.innerHTML = "";
+    QUIZ.forEach(function(item){
+      var wrap = document.createElement("div");
+      wrap.className = "q";
+      var q = document.createElement("p");
+      setText(q, t(item.q));
+      wrap.appendChild(q);
+      var fb = document.createElement("p");
+      fb.className = "fb";
+      item.o.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt" + (lang === "ur" ? " ur" : "");
+        b.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+        b.textContent = t(opt);
+        b.addEventListener("click", function(){
+          if (wrap.getAttribute("data-done") === "1") return;
+          wrap.setAttribute("data-done","1");
+          Array.prototype.forEach.call(wrap.querySelectorAll(".opt"), function(x, xi){
+            if (xi === item.a) x.classList.add("right");
+            else if (xi === oi) x.classList.add("wrong");
+          });
+          setText(fb, t(item.f));
+          fb.classList.add("show","fb");
+        });
+        wrap.appendChild(b);
+      });
+      wrap.appendChild(fb);
+      box.appendChild(wrap);
+    });
+  }
+
+  function applyLang(){
+    document.body.classList.toggle("urdu", lang === "ur");
+    var lb = $("langBtn");
+    lb.textContent = (lang === "en") ? "اردو" : "English";
+    lb.setAttribute("aria-pressed", lang === "ur" ? "true" : "false");
+
+    Array.prototype.forEach.call(document.querySelectorAll("[data-en]"), function(el){
+      setText(el, el.getAttribute(lang === "en" ? "data-en" : "data-ur"));
+    });
+
+    setText($("ctlHead"), t(T.ctlHead));
+    setText($("pickHead"), t(T.pickHead));
+    setText($("quizHead"), t(T.quiz));
+
+    buildQuiz();
+    render();
+  }
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en";
+    applyLang();
+  });
+
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      window.speechSynthesis.cancel();
+      var u = new SpeechSynthesisUtterance(lastSpoken);
+      u.lang = (lang === "ur") ? "ur-PK" : "en-US";
+      u.rate = 0.92;
+      var voices = window.speechSynthesis.getVoices() || [];
+      for (var i=0;i<voices.length;i++){
+        if (voices[i].lang && voices[i].lang.toLowerCase().indexOf(lang === "ur" ? "ur" : "en") === 0){
+          u.voice = voices[i]; break;
+        }
+      }
+      window.speechSynthesis.speak(u);
+    }catch(e){ /* no voice available — stay quiet */ }
+  });
+
+  applyLang();
+})();
+</script>
+</body>
+</html>

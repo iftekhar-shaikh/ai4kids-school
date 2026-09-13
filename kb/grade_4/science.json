@@ -57,7 +57,9 @@
             "explanation": "Doodh hazam naamsystem ko takharak karne wale padarth hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g4-hazam-ka-nizam.html",
+      "interactive_label": "Khelo — Hazam ka nizam"
     },
     {
       "title": "Taqat aur harkat",
@@ -112,7 +114,9 @@
             "explanation": "Khichna bhi ek taqat hai jo kisi cheez ko apni taraf kheechtay hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g4-taqat-aur-harkat.html",
+      "interactive_label": "Khelo — Taqat aur harkat"
     },
     {
       "title": "Simple machines",
@@ -332,7 +336,9 @@
             "explanation": "Tare garm hote hain aur unka saiz aur roshni alag-alag hoti hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g4-solar-system.html",
+      "interactive_label": "Khelo — Solar system"
     }
   ]
 }

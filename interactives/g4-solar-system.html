@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Solar System — نظامِ شمسی | AI4Kids Class 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --space:#101a2e;
+    --space-deep:#050a16;
+    --sun:#f2a104;
+    --ink:#1f2933;
+    --ink-soft:#4a5661;
+    --paper:#fdfaf3;
+    --line:#ded5c4;
+    --accent:#3d6fb5;
+    --accent-deep:#26497d;
+    --hot:#b85c38;
+
+    --fs-xs:clamp(14px, 3.7vw, 15px);
+    --fs-sm:clamp(16px, 4.2vw, 17px);
+    --fs-md:clamp(17px, 4.6vw, 19px);
+    --fs-lg:clamp(20px, 5.4vw, 23px);
+    --fs-xl:clamp(27px, 7.4vw, 33px);
+    --fs-cap:clamp(12px, 3.2vw, 13px);
+    --lh:1.5;
+  }
+  /* Nastaliq strokes are finer and its letters stack, so Urdu is set BIGGER than
+     Latin — the whole scale is redefined here rather than per element. */
+  body.urdu{
+    --fs-xs:clamp(15px, 4.1vw, 17px);
+    --fs-sm:clamp(17px, 4.7vw, 19px);
+    --fs-md:clamp(19px, 5.2vw, 21px);
+    --fs-lg:clamp(22px, 6vw, 25px);
+    --fs-xl:clamp(26px, 7vw, 31px);
+    --fs-cap:clamp(13px, 3.5vw, 15px);
+    --lh:2.1;
+  }
+
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent-deep);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 16px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:radial-gradient(circle at 50% 50%, var(--space) 0%, var(--space-deep) 100%);
+  }
+  .scene svg{display:block;width:100%;height:auto}
+  .orb{transform-origin:180px 180px;animation:spin linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .tag{animation:spinback linear infinite}
+  @keyframes spinback{to{transform:rotate(-360deg)}}
+  .tagtext{
+    fill:#fff;opacity:.8;font-size:11px;font-weight:800;pointer-events:none;
+    font-family:"Baloo Bhaijaan 2",sans-serif;
+  }
+  .sel .tagtext{opacity:1}
+  .path{fill:none;stroke:#ffffff;stroke-opacity:.13;stroke-width:1}
+  .planet{cursor:pointer;transition:r .3s ease}
+  .halo{fill:none;stroke:#fff;stroke-width:2.5;opacity:0;transition:opacity .3s ease}
+  .sel .halo{opacity:.95}
+  #sunLbl{
+    fill:#5b3a06;font-size:12px;font-weight:800;letter-spacing:.04em;pointer-events:none;
+    font-family:"Baloo Bhaijaan 2",sans-serif;
+  }
+  body.urdu #sunLbl{font-family:"Noto Nastaliq Urdu",serif;font-size:13px}
+  .skylbl{fill:#fff;opacity:.72;font-size:var(--fs-cap);font-weight:600;
+          font-family:"Baloo Bhaijaan 2",sans-serif}
+  .skylbl.big{opacity:.95;font-size:var(--fs-xs);font-weight:800}
+  body.urdu .skylbl{font-family:"Noto Nastaliq Urdu",serif}
+  .homering{fill:none;stroke:#fff;stroke-width:1.4;opacity:.6}
+  .scale-note{
+    position:absolute;left:10px;bottom:8px;color:#fff;opacity:.6;
+    font-size:var(--fs-cap);letter-spacing:.02em;
+  }
+
+  .readout{
+    margin-top:-18px;position:relative;z-index:2;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .pos{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+       padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+  .pos.ur{padding:2px 14px 7px}
+  .pname{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+  .pname.ur{line-height:1.95}
+  .pfact{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+
+  .compare{display:flex;align-items:stretch;gap:8px;margin-top:16px}
+  .side{
+    flex:1;border:2px solid var(--line);border-radius:14px;padding:11px 10px;text-align:center;
+  }
+  .side.there{border-color:var(--accent);background:#eef3fa}
+  .side em{display:block;font-style:normal;font-size:var(--fs-xs);color:var(--ink-soft);
+           font-weight:600;margin-bottom:4px}
+  .side b{display:block;font-size:var(--fs-lg);font-weight:800;line-height:1.2}
+  .side.there b{color:var(--accent-deep)}
+  .compare .arrow{align-self:center;font-size:var(--fs-lg);color:var(--ink-soft);flex:none}
+  .verdictline{
+    margin:10px 0 0;text-align:center;font-size:var(--fs-sm);font-weight:800;
+    color:var(--accent-deep);
+  }
+  .stat.year{
+    border:2px solid var(--line);border-radius:14px;padding:11px 12px;text-align:center;margin-top:14px;
+  }
+  .stat.year em{display:block;font-style:normal;font-size:var(--fs-xs);color:var(--ink-soft);
+                font-weight:600;margin-bottom:4px}
+  .stat.year b{display:block;font-size:var(--fs-lg);font-weight:800;line-height:1.2}
+  .why-note{
+    margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.55;
+    border-left:3px solid var(--accent);padding-left:11px;
+  }
+  .why-note b{color:var(--accent-deep);font-weight:800}
+  body.urdu .why-note{
+    border-left:0;border-right:3px solid var(--accent);padding-left:0;padding-right:11px;
+    line-height:var(--lh);
+  }
+
+  /* planet picker */
+  .picker{margin-top:22px}
+  .picker h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 12px;color:var(--ink-soft)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .pchip{
+    display:flex;align-items:center;gap:7px;border:2px solid var(--line);background:var(--paper);
+    border-radius:999px;padding:8px 14px;font:inherit;font-size:var(--fs-xs);font-weight:600;
+    color:var(--ink);cursor:pointer;min-height:44px;
+  }
+  .pchip i{width:13px;height:13px;border-radius:50%;flex:none}
+  .pchip[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+
+  /* weight stepper */
+  .weight{margin-top:22px;border:3px dashed var(--line);border-radius:16px;padding:14px 16px}
+  .weight h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 12px;color:var(--ink-soft)}
+  .step{display:flex;align-items:center;justify-content:center;gap:14px}
+  .step button{
+    width:52px;height:52px;border-radius:14px;border:2px solid var(--ink);background:var(--paper);
+    font:inherit;font-size:var(--fs-lg);font-weight:800;cursor:pointer;color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",sans-serif;
+  }
+  .step button:active{transform:scale(.94)}
+  .step .val{min-width:120px;text-align:center;font-size:var(--fs-xl);font-weight:800}
+  .step .val small{font-size:var(--fs-sm);font-weight:600;color:var(--ink-soft)}
+
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:50px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:#2e7d4f;background:#e6f4ec;font-weight:600}
+  .opt.wrong{border-color:var(--hot);background:#fbeae4}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;
+      grid-template-columns:1fr 1fr;
+      grid-template-areas:
+        "bar   bar"
+        "head  head"
+        "left  right"
+        "quiz  quiz"
+        "foot  foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar}
+    .head{grid-area:head}
+    .left{grid-area:left}
+    .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px}
+    footer{grid-area:foot}
+    .picker{margin-top:0}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .orb,.tag{animation:none}
+    *{transition-duration:.01ms !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 5</span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunein">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 data-en="How much would you weigh on Jupiter?" data-ur="مشتری پر آپ کا وزن کتنا ہوتا؟"></h1>
+  <p class="sub" data-en="Pick a planet. Your body stays the same — the number does not." data-ur="کوئی سیارہ چنیں۔ آپ کا جسم وہی رہتا ہے — عدد نہیں۔"></p>
+  </div>
+
+  <div class="left">
+  <div class="scene">
+    <svg id="svg" viewBox="0 0 360 360" role="img" aria-label="The sun with eight planets orbiting around it">
+      <g id="stars"></g>
+      <g id="paths"></g>
+      <circle cx="180" cy="180" r="20" fill="var(--sun)"/>
+      <circle cx="180" cy="180" r="27" fill="var(--sun)" opacity=".22"/>
+      <g id="orbits"></g>
+      <text id="sunLbl" x="180" y="180" text-anchor="middle" dominant-baseline="central"></text>
+      <text id="selLbl" class="skylbl big" x="14" y="26"></text>
+    </svg>
+    <span class="scale-note" id="scaleNote"></span>
+  </div>
+
+  <div class="readout">
+    <span class="pos" id="pos"></span>
+    <p class="pname" id="pname"></p>
+    <p class="pfact" id="pfact"></p>
+    <div class="compare">
+      <div class="side">
+        <em id="cmpEarthLbl"></em>
+        <b id="cmpEarthVal"></b>
+      </div>
+      <span class="arrow" aria-hidden="true">→</span>
+      <div class="side there">
+        <em id="cmpThereLbl"></em>
+        <b id="cmpThereVal"></b>
+      </div>
+    </div>
+    <p class="verdictline" id="cmpVerdict"></p>
+    <p class="why-note"><b id="whyLbl1"></b> <span id="whyWeight"></span></p>
+    <div class="stat year">
+      <em id="lblYear"></em>
+      <b id="valYear"></b>
+    </div>
+    <p class="why-note"><b id="whyLbl2"></b> <span id="whyYear"></span></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="picker">
+    <h2 id="pickHead"></h2>
+    <div class="chips" id="chips" role="group"></div>
+  </div>
+
+  <div class="weight">
+    <h2 id="wHead"></h2>
+    <div class="step">
+      <button type="button" id="minus" aria-label="Kam karein">−</button>
+      <span class="val"><span id="myKg">25</span><small> kg</small></span>
+      <button type="button" id="plus" aria-label="Barhaein">+</button>
+    </div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <h2 id="quizHead" style="font-size:var(--fs-lg);font-weight:800;margin:0 0 18px"></h2>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad's bilingual AI and coding school. WhatsApp 0337 1468899" data-ur="اے آئی فور کڈز — اسلام آباد کا دو زبانوں والا اے آئی اور کوڈنگ سکول۔ واٹس ایپ 0337 1468899"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var CX = 180;          // centre of the sky, in viewBox units
+  var lang = "en";
+  var sel  = 2;          // start on Earth so every other number has an anchor
+  var myKg = 25;
+
+  // r = orbit radius, size = drawn radius, spin = seconds per lap (compressed,
+  // but ordered correctly so outer planets are visibly slower), g = surface gravity
+  // relative to Earth, year = orbit time in Earth terms.
+  var P = [
+    {tag:"Me", en:"Mercury", ur:"عطارد", c:"#a8a29a", r:46,  size:4,  spin:14, g:0.38,
+     yr:{en:"88 Earth days",  ur:"88 زمینی دن"},
+     f:{en:"Closest to the sun and covered in craters. It has almost no air, so its sky is black even in daytime.",
+        ur:"سورج کے سب سے قریب، اور گڑھوں سے بھرا ہوا۔ یہاں ہوا نہ ہونے کے برابر ہے، اس لیے دن میں بھی آسمان کالا رہتا ہے۔"}},
+    {tag:"V", en:"Venus", ur:"زہرہ", c:"#e0b978", r:60,  size:5,  spin:20, g:0.91,
+     yr:{en:"225 Earth days", ur:"225 زمینی دن"},
+     f:{en:"The hottest planet — hot enough to melt lead. Thick clouds trap the heat and never let it out.",
+        ur:"سب سے گرم سیارہ — اتنا گرم کہ سیسہ پگھل جائے۔ گہرے بادل گرمی کو باہر نکلنے ہی نہیں دیتے۔"}},
+    {tag:"E", en:"Earth", ur:"زمین", c:"#3d8fc4", r:74,  size:5,  spin:26, g:1.00,
+     yr:{en:"365 days",       ur:"365 دن"},
+     f:{en:"Your home. The only planet we know of with liquid water on its surface — and the only one with life.",
+        ur:"آپ کا گھر۔ واحد سیارہ جس کی سطح پر بہتا ہوا پانی ہے — اور واحد جہاں زندگی ہے۔"}},
+    {tag:"Ma", en:"Mars", ur:"مریخ", c:"#c0603c", r:88,  size:4,  spin:34, g:0.38,
+     yr:{en:"687 Earth days", ur:"687 زمینی دن"},
+     f:{en:"The red planet. Its soil is full of rusted iron — the same rust you see on an old gate.",
+        ur:"سرخ سیارہ۔ اس کی مٹی میں زنگ آلود لوہا ہے — وہی زنگ جو پرانے گیٹ پر لگتا ہے۔"}},
+    {tag:"J", en:"Jupiter", ur:"مشتری", c:"#d09a68", r:108, size:11, spin:50, g:2.53,
+     yr:{en:"12 Earth years", ur:"12 زمینی سال"},
+     f:{en:"The biggest planet. A storm on it has been spinning for over 300 years — and Earth would fit inside it.",
+        ur:"سب سے بڑا سیارہ۔ اس پر ایک طوفان 300 سال سے چل رہا ہے — اور زمین اس طوفان کے اندر سما جائے۔"}},
+    {tag:"Sa", en:"Saturn", ur:"زحل", c:"#dcc07f", r:126, size:9,  spin:66, g:1.07, ring:true,
+     yr:{en:"29 Earth years", ur:"29 زمینی سال"},
+     f:{en:"Its rings are billions of pieces of ice and rock. It is huge, yet mostly gas — so you would weigh about the same as on Earth.",
+        ur:"اس کے حلقے اربوں برف اور پتھر کے ٹکڑوں سے بنے ہیں۔ بہت بڑا ہے، مگر زیادہ تر گیس — اس لیے آپ کا وزن تقریباً زمین جتنا ہی رہے گا۔"}},
+    {tag:"U", en:"Uranus", ur:"یورینس", c:"#8fd0d8", r:138, size:7,  spin:84, g:0.89,
+     yr:{en:"84 Earth years", ur:"84 زمینی سال"},
+     f:{en:"It rolls on its side like a ball instead of spinning like a top. Nobody is sure what knocked it over.",
+        ur:"یہ لٹو کی طرح گھومنے کے بجائے گیند کی طرح لڑھکتا ہے۔ کسی کو یقین سے پتا نہیں کہ اسے کس نے گرایا۔"}},
+    {tag:"N", en:"Neptune", ur:"نیپچون", c:"#3f6ec2", r:150, size:7,  spin:104, g:1.14,
+     yr:{en:"165 Earth years",ur:"165 زمینی سال"},
+     f:{en:"The windiest place we know — storms there blow faster than a passenger jet.",
+        ur:"سب سے تیز ہواؤں والی جگہ — یہاں طوفان مسافر جہاز سے بھی تیز چلتے ہیں۔"}}
+  ];
+
+  var T = {
+    pickHead:{en:"Tap a planet", ur:"کوئی سیارہ دبائیں"},
+    wHead:{en:"Your weight on Earth", ur:"زمین پر آپ کا وزن"},
+    pos:{en:"Planet {n} from the sun", ur:"سورج سے {n} واں سیارہ"},
+    sunName:{en:"Sun", ur:"سورج"},
+    onEarth:{en:"On Earth", ur:"زمین پر"},
+    heavier:{en:"{x} times heavier there", ur:"وہاں {x} گنا زیادہ بھاری"},
+    lighter:{en:"{x} times lighter there", ur:"وہاں {x} گنا ہلکا"},
+    same:{en:"Almost the same as on Earth", ur:"تقریباً زمین جتنا ہی"},
+    home:{en:"This is home. Every other number is compared to this one.",
+          ur:"یہی آپ کا گھر ہے۔ باقی سارے اعداد اسی سے ناپے جاتے ہیں۔"},
+    whyLbl:{en:"Why?", ur:"کیوں؟"},
+    whyWeight:{
+      en:"Weight is not how much stuff you are made of — it is how hard a planet pulls you. A planet with more material packed into it pulls harder. Your body never changes; only the pull does.",
+      ur:"وزن یہ نہیں کہ آپ میں کتنا مادہ ہے — وزن یہ ہے کہ سیارہ آپ کو کتنے زور سے کھینچتا ہے۔ جس سیارے میں زیادہ مادہ بھرا ہو، وہ زیادہ زور سے کھینچتا ہے۔ آپ کا جسم کبھی نہیں بدلتا، صرف کھنچاؤ بدلتا ہے۔"},
+    whyYear:{
+      en:"A year is one full lap around the sun. A farther planet has a much wider lap to travel, and the sun's pull on it is weaker so it also moves more slowly. A bigger circle at a slower speed takes far longer.",
+      ur:"سال کا مطلب ہے سورج کے گرد ایک پورا چکر۔ دور والے سیارے کا دائرہ کہیں بڑا ہوتا ہے، اور سورج کی کھنچاؤ کمزور ہونے کی وجہ سے وہ چلتا بھی سست ہے۔ بڑا دائرہ، سست رفتار — چکر میں بہت زیادہ وقت لگتا ہے۔"},
+    yearLbl:{en:"One year here", ur:"یہاں ایک سال"},
+    quiz:{en:"Check yourself", ur:"اپنا امتحان لیں"},
+    note:{en:"Sizes and distances are not to scale",
+          ur:"سائز اور فاصلے اصل پیمانے پر نہیں ہیں"}
+  };
+
+  var QUIZ = [
+    { q:{en:"Which planet is third from the sun?", ur:"سورج سے تیسرا سیارہ کون سا ہے؟"},
+      o:[{en:"Venus", ur:"زہرہ"},{en:"Earth", ur:"زمین"},
+         {en:"Mars", ur:"مریخ"},{en:"Mercury", ur:"عطارد"}],
+      a:1,
+      f:{en:"Mercury, Venus, Earth, Mars — the four rocky planets, in that order.",
+         ur:"عطارد، زہرہ، زمین، مریخ — یہ چاروں پتھریلے سیارے، اسی ترتیب سے۔"} },
+    { q:{en:"On which planet would you weigh the most?",
+         ur:"کس سیارے پر آپ کا وزن سب سے زیادہ ہوگا؟"},
+      o:[{en:"Mars", ur:"مریخ"},{en:"Saturn", ur:"زحل"},
+         {en:"Jupiter", ur:"مشتری"},{en:"Mercury", ur:"عطارد"}],
+      a:2,
+      f:{en:"Jupiter pulls about two and a half times as hard as Earth. Your body does not change — only the pull does.",
+         ur:"مشتری زمین سے تقریباً ڈھائی گنا زیادہ کھینچتا ہے۔ آپ کا جسم نہیں بدلتا — صرف کھنچاؤ بدلتا ہے۔"} },
+    { q:{en:"The farther a planet is from the sun, its year is…",
+         ur:"سیارہ سورج سے جتنا دور ہو، اس کا سال اتنا ہی…"},
+      o:[{en:"Longer", ur:"لمبا"},{en:"Shorter", ur:"چھوٹا"},
+         {en:"Exactly the same", ur:"بالکل ایک جیسا"},{en:"Always 365 days", ur:"ہمیشہ 365 دن"}],
+      a:0,
+      f:{en:"A farther planet has a wider lap to travel and moves more slowly along it. Both together make its year much longer — Neptune needs 165 Earth years for one lap.",
+         ur:"دور والے سیارے کا دائرہ بھی بڑا ہوتا ہے اور وہ اس پر چلتا بھی سست ہے۔ دونوں باتیں مل کر اس کا سال بہت لمبا کر دیتی ہیں — نیپچون کو ایک چکر کے لیے 165 زمینی سال چاہییں۔"} }
+  ];
+
+  function $(id){ return document.getElementById(id); }
+  function t(o){ return o[lang]; }
+
+  var LRI = "\u2066", PDI = "\u2069";
+  var LATIN_RUN = /[A-Za-z0-9][A-Za-z0-9 .,+()\/@_-]*[A-Za-z0-9]|[A-Za-z0-9]/g;
+  function isolate(s){ return s.replace(LATIN_RUN, function(m){ return LRI + m + PDI; }); }
+
+  function setText(el, str){
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+
+  var NS = "http://www.w3.org/2000/svg";
+  function mk(tag, attrs){
+    var e = document.createElementNS(NS, tag);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    return e;
+  }
+
+  /* ---------- build the sky ---------- */
+  (function stars(){
+    var g = $("stars"), seed = 7;
+    for (var i=0;i<46;i++){
+      seed = (seed * 9301 + 49297) % 233280;
+      var x = (seed / 233280) * 360;
+      seed = (seed * 9301 + 49297) % 233280;
+      var y = (seed / 233280) * 360;
+      g.appendChild(mk("circle", {cx:x.toFixed(1), cy:y.toFixed(1), r:0.9,
+                                  fill:"#fff", opacity:0.35 + (i%4)*0.12}));
+    }
+  })();
+
+  P.forEach(function(p, i){
+    $("paths").appendChild(mk("circle", {cx:CX, cy:CX, r:p.r, "class":"path"}));
+
+    var orb = mk("g", {"class":"orb", "data-i":i});
+    var startFrac = (i * 0.618) % 1;              // spread them around the sun
+    var delay = "-" + (p.spin * startFrac).toFixed(2) + "s";
+    orb.style.animationDuration = p.spin + "s";
+    orb.style.animationDelay = delay;
+
+    var body = mk("g", {"class":"body", "data-i":i});
+    if (p.ring){
+      body.appendChild(mk("ellipse", {cx:CX+p.r, cy:CX, rx:p.size*1.9, ry:p.size*0.5,
+                                      fill:"none", stroke:"#e8d9a8", "stroke-width":2.2, opacity:.85}));
+    }
+    body.appendChild(mk("circle", {cx:CX+p.r, cy:CX, r:p.size+7, "class":"halo"}));
+    // Earth keeps a permanent ring so a child can always find it in the sky
+    if (i === 2) body.appendChild(mk("circle", {cx:CX+p.r, cy:CX, r:p.size+4, "class":"homering"}));
+    body.appendChild(mk("circle", {cx:CX+p.r, cy:CX, r:p.size, fill:p.c, "class":"planet"}));
+    // The tag sits inside the spinning orbit, so it is spun back the other way at
+    // the same speed. Without this it would be upside down at the bottom of the lap.
+    var tag = mk("g", {"class":"tag"});
+    tag.style.transformOrigin = (CX + p.r) + "px " + CX + "px";
+    tag.style.animationDuration = p.spin + "s";
+    tag.style.animationDelay = delay;
+    var tx = mk("text", {x:CX+p.r, y:CX+p.size+13, "text-anchor":"middle", "class":"tagtext"});
+    tx.textContent = p.tag;
+    tag.appendChild(tx);
+    body.appendChild(tag);
+
+    orb.appendChild(body);
+    $("orbits").appendChild(orb);
+
+    body.addEventListener("click", function(){ sel = i; render(); });
+  });
+
+  /* ---------- picker chips ---------- */
+  P.forEach(function(p, i){
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "pchip";
+    b.setAttribute("data-i", i);
+    b.setAttribute("aria-pressed", "false");
+    var dot = document.createElement("i");
+    dot.style.background = p.c;
+    var lab = document.createElement("span");
+    b.appendChild(dot); b.appendChild(lab);
+    b.addEventListener("click", function(){ sel = i; render(); });
+    $("chips").appendChild(b);
+  });
+
+  /* ---------- weight stepper ---------- */
+  $("minus").addEventListener("click", function(){ myKg = Math.max(15, myKg - 1); render(); });
+  $("plus").addEventListener("click",  function(){ myKg = Math.min(90, myKg + 1); render(); });
+
+  /* ---------- render ---------- */
+  function render(){
+    var p = P[sel];
+
+    // highlight in the sky
+    Array.prototype.forEach.call(document.querySelectorAll(".body"), function(b){
+      b.classList.toggle("sel", +b.getAttribute("data-i") === sel);
+    });
+    // highlight in the picker
+    Array.prototype.forEach.call($("chips").children, function(b){
+      var i = +b.getAttribute("data-i");
+      b.setAttribute("aria-pressed", i === sel ? "true" : "false");
+      b.lastChild.textContent = P[i][lang];
+    });
+
+    setText($("pos"), t(T.pos).replace("{n}", String(sel + 1)));
+    setText($("pname"), p[lang]);
+    setText($("pfact"), t(p.f));
+
+    $("myKg").textContent = String(myKg);
+
+    // Always show Earth beside the planet. A lone number like "63.2 kg" means
+    // nothing to a child unless the number it came from is sitting next to it.
+    setText($("cmpEarthLbl"), t(T.onEarth));
+    setText($("cmpThereLbl"), p[lang]);
+    $("cmpEarthVal").textContent = myKg.toFixed(1) + " kg";
+    $("cmpThereVal").textContent = (myKg * p.g).toFixed(1) + " kg";
+
+    var line;
+    if (sel === 2)            line = t(T.home);
+    else if (p.g > 1.20)      line = t(T.heavier).replace("{x}", p.g.toFixed(1));
+    else if (p.g < 0.85)      line = t(T.lighter).replace("{x}", (1 / p.g).toFixed(1));
+    else                      line = t(T.same);
+    setText($("cmpVerdict"), line);
+
+    setText($("lblYear"), t(T.yearLbl));
+    setText($("valYear"), t(p.yr));
+
+    $("whyLbl1").textContent = t(T.whyLbl);
+    $("whyLbl2").textContent = t(T.whyLbl);
+    setText($("whyWeight"), t(T.whyWeight));
+    setText($("whyYear"), t(T.whyYear));
+
+    // name the sun, and name whichever planet is selected, inside the picture
+    $("sunLbl").textContent = t(T.sunName);
+    $("sunLbl").setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+    $("selLbl").textContent = p[lang];
+
+    lastSpoken = p[lang] + ". " + t(p.f);
+  }
+
+  var lastSpoken = "";
+
+  /* ---------- quiz ---------- */
+  function buildQuiz(){
+    var box = $("quizBox");
+    box.innerHTML = "";
+    QUIZ.forEach(function(item){
+      var wrap = document.createElement("div");
+      wrap.className = "q";
+
+      var q = document.createElement("p");
+      setText(q, t(item.q));
+      wrap.appendChild(q);
+
+      var fb = document.createElement("p");
+      fb.className = "fb";
+
+      item.o.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt" + (lang === "ur" ? " ur" : "");
+        b.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+        b.textContent = t(opt);
+        b.addEventListener("click", function(){
+          if (wrap.getAttribute("data-done") === "1") return;
+          wrap.setAttribute("data-done","1");
+          Array.prototype.forEach.call(wrap.querySelectorAll(".opt"), function(x, xi){
+            if (xi === item.a) x.classList.add("right");
+            else if (xi === oi) x.classList.add("wrong");
+          });
+          setText(fb, t(item.f));
+          fb.classList.add("show","fb");
+        });
+        wrap.appendChild(b);
+      });
+
+      wrap.appendChild(fb);
+      box.appendChild(wrap);
+    });
+  }
+
+  /* ---------- language ---------- */
+  function applyLang(){
+    document.body.classList.toggle("urdu", lang === "ur");
+    var lb = $("langBtn");
+    lb.textContent = (lang === "en") ? "اردو" : "English";
+    lb.setAttribute("aria-pressed", lang === "ur" ? "true" : "false");
+
+    Array.prototype.forEach.call(document.querySelectorAll("[data-en]"), function(el){
+      setText(el, el.getAttribute(lang === "en" ? "data-en" : "data-ur"));
+    });
+
+    setText($("pickHead"), t(T.pickHead));
+    setText($("wHead"), t(T.wHead));
+    setText($("quizHead"), t(T.quiz));
+    $("scaleNote").textContent = t(T.note);
+    $("scaleNote").setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+    $("scaleNote").className = "scale-note" + (lang === "ur" ? " ur" : "");
+
+    buildQuiz();
+    render();
+  }
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en";
+    applyLang();
+  });
+
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      window.speechSynthesis.cancel();
+      var u = new SpeechSynthesisUtterance(lastSpoken);
+      u.lang = (lang === "ur") ? "ur-PK" : "en-US";
+      u.rate = 0.92;
+      var voices = window.speechSynthesis.getVoices() || [];
+      for (var i=0;i<voices.length;i++){
+        if (voices[i].lang && voices[i].lang.toLowerCase().indexOf(lang === "ur" ? "ur" : "en") === 0){
+          u.voice = voices[i]; break;
+        }
+      }
+      window.speechSynthesis.speak(u);
+    }catch(e){ /* no voice available — stay quiet */ }
+  });
+
+  applyLang();
+})();
+</script>
+</body>
+</html>

@@ -167,7 +167,9 @@
             "explanation": "Ice pani ka thos roop hai jab woh thanda hota hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g3-states-of-matter.html",
+      "interactive_label": "Khelo — Matter: solid liquid gas"
     },
     {
       "title": "Paani ka safar",
@@ -222,7 +224,9 @@
             "explanation": "Paani ka safar water cycle ka hissa hai, jo paani ki stages ko samjhaata hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g3-paani-ka-safar.html",
+      "interactive_label": "Khelo — Paani ka safar"
     },
     {
       "title": "Din aur raat",
