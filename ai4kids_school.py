@@ -2229,11 +2229,12 @@ def render_html_viewers():
             st.error(f"Curriculum nahi khul saki: {e}")
     if st.session_state.get("view_lessonbank"):
         st.markdown("#### 📚 Lesson Bank")
+        st.caption("Agar Streamlit Fork page dikhe to in-app close / refresh use karein.")
         if st.button("✖️ Lesson Bank band karo", key="lb_close_top"):
             st.session_state.view_lessonbank = False; st.rerun()
         try:
             components.html(open(LESSON_BANK_PATH, encoding="utf-8").read(),
-                            height=650, scrolling=True)
+                            height=900, scrolling=True)
         except Exception as e:
             st.error(f"Lesson Bank nahi khul saki: {e}")
 

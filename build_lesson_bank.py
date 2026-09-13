@@ -62,12 +62,12 @@ body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f5f5f0;color:#2c3e50}
 .header{background:linear-gradient(135deg,#27ae60,#1abc9c);color:#fff;padding:24px;text-align:center}
 .header h1{font-size:1.8rem;margin-bottom:4px}
 .header p{font-size:0.95rem;opacity:0.9}
-.controls{background:#fff;padding:14px 20px;border-bottom:2px solid #eee;
+.controls{background:#fff;padding:18px 56px 14px 20px;border-bottom:2px solid #eee;
   display:flex;flex-wrap:wrap;gap:10px;align-items:center;position:sticky;top:0;z-index:100}
 .search{flex:1;min-width:200px;padding:8px 14px;border:2px solid #ddd;
   border-radius:20px;font-size:0.95rem;outline:none}
 .search:focus{border-color:#27ae60}
-.filters{display:flex;flex-wrap:wrap;gap:6px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;padding-right:8px;align-items:center}
 .filter-btn{padding:5px 12px;border:2px solid #ddd;border-radius:16px;
   background:#fff;cursor:pointer;font-size:0.85rem;transition:all .2s}
 .filter-btn.active{background:#27ae60;color:#fff;border-color:#27ae60}
@@ -148,16 +148,16 @@ body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f5f5f0;color:#2c3e50}
 <div class="controls">
   <input class="search" id="search" placeholder="Search... تلاش کریں (e.g. fractions, robot, grammar)" oninput="filterCards()">
   <div class="filters" id="gradeFilters">
-    <button class="filter-btn active" data-grade="all" onclick="setFilter('grade','all')">All</button>
+    <button type="button" class="filter-btn active" data-grade="all">All</button>
 """)
 
 for g in range(1, 6):
-    lines.append(f'    <button class="filter-btn" data-grade="{g}" onclick="setFilter(\'grade\',\'{g}\')">Grade {g}</button>')
+    lines.append(f'    <button type="button" class="filter-btn" data-grade="{g}">Grade {g}</button>')
 
 lines.append('  </div>\n  <div class="filters" id="subjFilters">')
-lines.append('    <button class="filter-btn active" data-subj="all" onclick="setFilter(\'subj\',\'all\')">All subjects</button>')
+lines.append('    <button type="button" class="filter-btn active" data-subj="all">All subjects</button>')
 for sk, sm in SUBJ_META.items():
-    lines.append(f'    <button class="filter-btn" data-subj="{sk}" onclick="setFilter(\'subj\',\'{sk}\')">{sm["emoji"]} {sm["name"]}</button>')
+    lines.append(f'    <button type="button" class="filter-btn" data-subj="{sk}">{sm["emoji"]} {sm["name"]}</button>')
 
 lines.append(f"""  </div>
 </div>
@@ -224,25 +224,36 @@ lines.append(f"""<script>
 const ALL = {topics_json};
 let gf = 'all', sf = 'all';
 
-function setFilter(type, val) {{
+function setFilter(type, val, event) {{
+  if (event && typeof event.preventDefault === 'function') {{
+    event.preventDefault();
+    if (typeof event.stopPropagation === 'function') event.stopPropagation();
+  }}
+  val = String(val);
   if (type==='grade') {{
     gf = val;
-    document.querySelectorAll('#gradeFilters .filter-btn').forEach(b => b.classList.toggle('active', b.dataset.grade===val));
+    document.querySelectorAll('#gradeFilters .filter-btn').forEach(b => {{
+      b.classList.toggle('active', String(b.dataset.grade)===gf);
+    }});
   }} else {{
     sf = val;
-    document.querySelectorAll('#subjFilters .filter-btn').forEach(b => b.classList.toggle('active', b.dataset.subj===val));
+    document.querySelectorAll('#subjFilters .filter-btn').forEach(b => {{
+      b.classList.toggle('active', String(b.dataset.subj)===sf);
+    }});
   }}
   filterCards();
 }}
 
 function filterCards() {{
-  const q = document.getElementById('search').value.toLowerCase();
+  const q = (document.getElementById('search').value || '').toLowerCase();
   const cards = document.querySelectorAll('.card');
   let vis = 0;
+  const gradeFilter = String(gf);
+  const subjFilter = String(sf);
   cards.forEach(c => {{
-    const gm = gf==='all' || c.dataset.grade===gf;
-    const sm = sf==='all' || c.dataset.subj===sf;
-    const qm = !q || c.dataset.search.toLowerCase().includes(q);
+    const gm = gradeFilter==='all' || String(c.dataset.grade)===gradeFilter;
+    const sm = subjFilter==='all' || String(c.dataset.subj)===subjFilter;
+    const qm = !q || (c.dataset.search || '').toLowerCase().includes(q);
     const show = gm && sm && qm;
     c.style.display = show ? '' : 'none';
     if (show) vis++;
@@ -251,7 +262,27 @@ function filterCards() {{
   document.getElementById('empty').style.display = vis ? 'none' : 'block';
 }}
 
-function openModal(i) {{
+function wireFilters() {{
+  document.querySelectorAll('#gradeFilters .filter-btn').forEach(b => {{
+    b.setAttribute('type', 'button');
+    b.addEventListener('click', function(e) {{
+      setFilter('grade', b.getAttribute('data-grade') || 'all', e);
+    }});
+  }});
+  document.querySelectorAll('#subjFilters .filter-btn').forEach(b => {{
+    b.setAttribute('type', 'button');
+    b.addEventListener('click', function(e) {{
+      setFilter('subj', b.getAttribute('data-subj') || 'all', e);
+    }});
+  }});
+}}
+if (document.readyState === 'loading') {{
+  document.addEventListener('DOMContentLoaded', wireFilters);
+}} else {{
+  wireFilters();
+}}
+
+function openModal(i) {{function openModal(i) {{
   const t = ALL[i];
   let html = `<h2>${{t.emoji}} ${{t.title}}</h2>
   <p class="meta">${{t.subj}} • Grade ${{t.grade}} • ${{t.desc}}</p>`;
