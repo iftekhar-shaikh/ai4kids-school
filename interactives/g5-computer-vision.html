@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Computer vision — AI aankhen | AI4Kids Class 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#e8f0f8;
+    --board-deep:#d4e4f2;
+    --a:#2f6fb5;
+    --b:#c9702e;
+    --both:#7a5aa8;
+    --gold:#e8b23d;
+    --left:#c4453a;
+    --ok:#2e7d4f;
+    --ink:#1e2a36;
+    --ink-soft:#4a5a6b;
+    --paper:#f7fafc;
+    --line:#c9d6e3;
+    --accent:#2b5f8e;
+    --fs-cap:clamp(12px, 3.2vw, 13px);
+    --fs-xs:clamp(14px, 3.7vw, 15px);
+    --fs-sm:clamp(16px, 4.2vw, 17px);
+    --fs-md:clamp(17px, 4.6vw, 19px);
+    --fs-lg:clamp(20px, 5.4vw, 23px);
+    --fs-xl:clamp(27px, 7.4vw, 33px);
+    --lh:1.5;
+  }
+  body.urdu{
+    --fs-cap:clamp(13px, 3.5vw, 15px);
+    --fs-xs:clamp(15px, 4.1vw, 17px);
+    --fs-sm:clamp(17px, 4.7vw, 19px);
+    --fs-md:clamp(19px, 5.2vw, 21px);
+    --fs-lg:clamp(22px, 6vw, 25px);
+    --fs-xl:clamp(26px, 7vw, 31px);
+    --lh:2.1;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  .stars{display:flex;align-items:center;gap:6px;font-weight:800;font-size:var(--fs-xs);
+         background:#fff6e2;border:2px solid var(--gold);border-radius:999px;padding:7px 13px}
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+  .tabs{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
+  .tabs button{
+    flex:1 1 22%;min-width:72px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:10px 6px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:54px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .tabs button .badge{color:var(--gold)}
+  .story{
+    background:#eaf1f9;border:2px dashed var(--a);border-radius:16px;padding:13px 15px;
+    font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;margin-bottom:14px;
+  }
+  body.urdu .story{line-height:var(--lh)}
+  .story b{color:var(--ink)}
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:linear-gradient(180deg,var(--board) 0%,var(--board-deep) 100%);
+  }
+  .scene-pad{padding:16px;min-height:200px}
+  .photo-frame{
+    background:var(--paper);border:3px solid var(--ink);border-radius:16px;
+    padding:18px 14px;text-align:center;position:relative;min-height:160px;
+  }
+  .photo-emoji{font-size:72px;line-height:1.1;margin:8px 0;user-select:none}
+  .photo-label{font-weight:800;font-size:var(--fs-md);margin:0 0 4px}
+  .photo-note{margin:0;color:var(--ink-soft);font-size:var(--fs-xs)}
+  .feat-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:14px}
+  .ftag{
+    border:2px solid var(--line);background:var(--paper);border-radius:999px;
+    padding:8px 12px;font:inherit;font-weight:800;font-size:var(--fs-cap);cursor:pointer;min-height:40px;
+  }
+  .ftag.on{border-color:var(--a);background:#eaf1f9;color:var(--a)}
+  .ftag.found{border-color:var(--ok);background:#e8f2ed;color:var(--ok)}
+  .bbox{
+    position:absolute;border:3px dashed var(--gold);border-radius:12px;
+    pointer-events:none;inset:18% 22%;opacity:0;transition:opacity .2s;
+  }
+  .bbox.show{opacity:1}
+  .edge-lines{
+    position:absolute;inset:12% 18%;border:3px solid var(--accent);border-radius:40% 40% 35% 35%;
+    opacity:0;pointer-events:none;transition:opacity .2s;
+  }
+  .edge-lines.show{opacity:.85}
+  .color-wash{
+    position:absolute;inset:0;border-radius:13px;opacity:0;pointer-events:none;
+    transition:opacity .2s;mix-blend-mode:multiply;
+  }
+  .color-wash.show{opacity:.35}
+  .sort-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:4px}
+  .sort-card{
+    border:2px solid var(--ink);background:var(--paper);border-radius:14px;
+    padding:10px 6px;text-align:center;cursor:pointer;font:inherit;min-height:88px;
+  }
+  .sort-card .em{font-size:36px;display:block;line-height:1.2}
+  .sort-card .nm{font-size:var(--fs-cap);font-weight:800;display:block;margin-top:4px}
+  .sort-card.picked{outline:3px solid var(--gold);outline-offset:1px}
+  .sort-card.done{opacity:.45;pointer-events:none}
+  .bins{display:flex;gap:8px;margin-top:12px}
+  .bin{
+    flex:1;border:2px dashed var(--line);border-radius:14px;padding:10px 8px;
+    text-align:center;min-height:72px;background:rgba(253,250,243,.6);
+  }
+  .bin h3{margin:0 0 6px;font-size:var(--fs-cap);font-weight:800}
+  .bin .slot{font-size:22px;min-height:28px;letter-spacing:2px}
+  .bin.ok-glow{border-color:var(--ok);background:#e8f2ed}
+  .bin.hot{border-color:var(--a);background:#eaf1f9}
+  .mix-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center}
+  .ai-guess{
+    background:#fff8ea;border:2px solid var(--gold);border-radius:14px;
+    padding:12px 14px;font-weight:700;font-size:var(--fs-sm);flex:1;min-width:160px;
+  }
+  .readout{
+    margin-top:-18px;position:relative;z-index:2;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+  .statechip.ur{padding:2px 14px 7px}
+  .statechip.win{background:var(--ok)}
+  .statechip.miss{background:var(--left)}
+  .headline{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+  .headline.ur{line-height:1.95}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+  .hintbox{
+    margin-top:14px;border:2px solid var(--a);background:#eaf1f9;border-radius:14px;
+    padding:11px 14px;font-size:var(--fs-xs);color:var(--a);font-weight:700;line-height:1.55;
+    display:none;
+  }
+  .hintbox.show{display:block}
+  body.urdu .hintbox{line-height:var(--lh)}
+  .panel{margin-top:22px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .prog{margin:0 0 10px;font-size:var(--fs-xs);font-weight:700;color:var(--ink-soft)}
+  .btns{display:flex;gap:9px;margin-top:8px;flex-wrap:wrap}
+  .btns button{
+    border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);
+    font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:50px;
+    padding:8px 14px;flex:1;
+  }
+  .btns .go{background:var(--ink);color:var(--paper)}
+  .btns .yes{border-color:var(--ok);color:var(--ok)}
+  .btns .no{border-color:var(--left);color:var(--left)}
+  .btns button:active{transform:scale(.97)}
+  .btns button:disabled{opacity:.4;cursor:default}
+  .choice{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:50px;font-weight:700;
+  }
+  .choice.ur{text-align:right;line-height:var(--lh)}
+  .choice:hover{border-color:var(--ink)}
+  .choice.right{border-color:var(--ok);background:#e8f2ed}
+  .choice.wrong{border-color:var(--left);background:#fbeae8}
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .qhead{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+  .qhead h2{font-size:var(--fs-lg);font-weight:800;margin:0;flex:1}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:50px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+  .opt.wrong{border-color:var(--left);background:#fbeae8}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;
+      grid-template-columns:1fr 1fr;
+      grid-template-areas:
+        "bar   bar"
+        "head  head"
+        "tabs  tabs"
+        "story story"
+        "left  right"
+        "quiz  quiz"
+        "foot  foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+    .story{grid-area:story} .left{grid-area:left} .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+    .panel{margin-top:0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition-duration:.01ms !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 5</span>
+    <span class="stars" id="starBox">⭐ <span id="starCount">0</span></span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 id="title"></h1>
+  <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group">
+    <button type="button" id="tabFeat" aria-pressed="true"></button>
+    <button type="button" id="tabSort" aria-pressed="false"></button>
+    <button type="button" id="tabMix" aria-pressed="false"></button>
+  </div>
+
+  <p class="story" id="story"></p>
+
+  <div class="left">
+  <div class="scene">
+    <div class="scene-pad" id="scenePad"></div>
+  </div>
+  <div class="readout">
+    <span class="statechip" id="statechip"></span>
+    <p class="headline" id="headline"></p>
+    <p class="detail" id="detail"></p>
+    <p class="hintbox" id="hintbox"></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="panel">
+    <h2 id="ctlHead"></h2>
+    <p class="prog" id="prog"></p>
+    <div id="actionBox"></div>
+    <div class="btns">
+      <button type="button" class="go" id="nextBtn"></button>
+    </div>
+    <div class="btns">
+      <button type="button" id="hintBtn"></button>
+      <button type="button" id="resetBtn"></button>
+    </div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <div class="qhead">
+      <h2 id="quizHead"></h2>
+      <button type="button" class="chip" id="newQuiz"></button>
+    </div>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad bilingual AI school. Offline play · no webcam. WhatsApp 0337 1468899"
+       data-ur="اے آئی فور کڈز — اسلام آباد۔ بغیر کیمرے کے کھیلو۔ واٹس ایپ 0337 1468899"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  function $(id){ return document.getElementById(id); }
+  function isolate(s){
+    // Keep digits/Latin readable inside RTL
+    return "\u2066" + s + "\u2069";
+  }
+  function setText(el, str){
+    if (!el) return;
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+  function t(o){ return (o && o[lang]) || (o && o.en) || ""; }
+
+  var lang = "en";
+  var mode = "feat";
+  var stars = 0;
+  var awarded = {};
+  var doneModes = {feat:false, sort:false, mix:false};
+
+  var T = {
+    title:{en:"Computer vision — AI aankhen", ur:"کمپیوٹر وژن — اے آئی آنکھیں"},
+    sub:{en:"Objects pehchano — color, shape, edges. No real camera.", ur:"چیزیں پہچانو — رنگ، شکل، کنارے۔ حقیقی کیمرہ نہیں۔"},
+    tabFeat:{en:"See features", ur:"فیچرز دیکھو"},
+    tabSort:{en:"Sort / classify", ur:"ترتیب دو"},
+    tabMix:{en:"Catch false ID", ur:"غلط پہچان"},
+    storyFeat:{en:"AI does not \"see\" like you. It looks for <b>color</b>, <b>shape</b>, and <b>edges</b> in a picture.",
+               ur:"اے آئی تمہاری طرح نہیں دیکھتی۔ تصویر میں <b>رنگ</b>، <b>شکل</b> اور <b>کنارے</b> ڈھونڈتی ہے۔"},
+    storySort:{en:"Train the sorter: put each emoji photo into the right group — fruit, vehicle, or animal.",
+               ur:"سorter سکھائیں: ہر تصویر کو درست گروپ میں رکھو — پھل، گاڑی، یا جانور۔"},
+    storyMix:{en:"Sometimes AI guesses wrong! Spot the false ID — that is how we stay smart around AI.",
+              ur:"کبھی اے آئی غلط اندازہ لگاتی ہے! جھوٹی پہچان پکڑو — یوں ہم ہوشیار رہتے ہیں۔"},
+    ctl:{en:"Your turn", ur:"تمہاری باری"},
+    next:{en:"Next photo", ur:"اگلی تصویر"},
+    hint:{en:"Hint", ur:"اشارہ"},
+    reset:{en:"Reset", ur:"ری سیٹ"},
+    quiz:{en:"Check yourself", ur:"اپنا امتحان"},
+    newQuiz:{en:"New quiz", ur:"نیا کوئز"},
+    looking:{en:"Looking…", ur:"دیکھ رہی ہے…"},
+    found:{en:"Features found!", ur:"فیچرز مل گئے!"},
+    tapTags:{en:"Tap each feature AI can use", ur:"ہر فیچر پر ٹیپ کرو جو اے آئی استعمال کرے"},
+    sorted:{en:"Nice sort!", ur:"زبردست ترتیب!"},
+    pickBin:{en:"Pick a photo, then tap a bin", ur:"تصویر چنو، پھر باکس پر ٹیپ کرو"},
+    wrongBin:{en:"Oops — try another bin", ur:"اوہ — دوسرا باکس آزماؤ"},
+    mixAsk:{en:"Is the AI guess correct?", ur:"کیا اے آئی کا اندازہ درست ہے؟"},
+    yes:{en:"Yes, correct", ur:"ہاں، درست"},
+    no:{en:"No, wrong!", ur:"نہیں، غلط!"},
+    catchOk:{en:"You caught it!", ur:"تم نے پکڑ لیا!"},
+    catchMiss:{en:"Not quite — think again", ur:"ٹھیک نہیں — دوبارہ سوچو"},
+    privacy:{en:"Privacy tip: we use emoji photos — never your real face.",
+             ur:"رازداری: ہم ایموجی تصاویر استعمال کرتے ہیں — کبھی اصل چہرہ نہیں۔"},
+    color:{en:"Color", ur:"رنگ"},
+    shape:{en:"Shape", ur:"شکل"},
+    edges:{en:"Edges", ur:"کنارے"},
+    fruit:{en:"Fruit", ur:"پھل"},
+    vehicle:{en:"Vehicle", ur:"گاڑی"},
+    animal:{en:"Animal", ur:"جانور"},
+    progFeat:{en:"Features tagged", ur:"فیچرز"},
+    progSort:{en:"Sorted", ur:"ترتیب"},
+    progMix:{en:"Rounds", ur:"دور"}
+  };
+
+  var FEATURE_PHOTOS = [
+    {emoji:"🍎", name:{en:"Apple", ur:"سیب"}, color:"#e85d4c", shape:{en:"round", ur:"گول"}, tip:{en:"Red + round + smooth edge → fruit guess.", ur:"سرخ + گول + ہموار کنارہ → پھل۔"}},
+    {emoji:"🚌", name:{en:"Bus", ur:"بس"}, color:"#e8b23d", shape:{en:"long box", ur:"لمبا ڈبہ"}, tip:{en:"Yellow + long rectangle + windows as edges.", ur:"پیلا + لمبا مستطیل + کھڑکیاں۔"}},
+    {emoji:"🐱", name:{en:"Cat", ur:"بلی"}, color:"#c9702e", shape:{en:"face + ears", ur:"چہرہ + کان"}, tip:{en:"Pointy ears and whisker edges help AI.", ur:"نوکیلے کان اور مونچھیں مدد کرتی ہیں۔"}},
+    {emoji:"⚽", name:{en:"Football", ur:"فٹبال"}, color:"#2a2419", shape:{en:"circle", ur:"دائرہ"}, tip:{en:"Black/white patches + perfect circle.", ur:"سیاہ/سفید دھبے + کامل دائرہ۔"}},
+    {emoji:"🕌", name:{en:"Masjid", ur:"مسجد"}, color:"#2f6fb5", shape:{en:"dome", ur:"گنبد"}, tip:{en:"Dome curve is a strong edge feature.", ur:"گنبد کا خم مضبوط کنارہ ہے۔"}}
+  ];
+
+  var SORT_ITEMS = [
+    {emoji:"🍌", name:{en:"Banana", ur:"کیلا"}, cat:"fruit"},
+    {emoji:"🍇", name:{en:"Grapes", ur:"انگور"}, cat:"fruit"},
+    {emoji:"🚗", name:{en:"Car", ur:"کار"}, cat:"vehicle"},
+    {emoji:"✈️", name:{en:"Plane", ur:"جہاز"}, cat:"vehicle"},
+    {emoji:"🐶", name:{en:"Dog", ur:"کتا"}, cat:"animal"},
+    {emoji:"🐦", name:{en:"Bird", ur:"پرندہ"}, cat:"animal"}
+  ];
+
+  var MIX_ROUNDS = [
+    {emoji:"🍊", real:{en:"Orange", ur:"مالٹا"}, guess:{en:"Basketball", ur:"باسکٹ بال"}, correct:false,
+     why:{en:"Round + orange color fooled the model — but no lines like a ball.", ur:"گول + نارنجی رنگ نے دھوکا دیا — مگر گیند کی لکیریں نہیں۔"}},
+    {emoji:"🚕", real:{en:"Taxi", ur:"ٹیکسی"}, guess:{en:"Taxi", ur:"ٹیکسی"}, correct:true,
+     why:{en:"Yellow car shape matched training photos of taxis.", ur:"پیلی گاڑی کی شکل ٹیکسی کی تصاویر سے ملی۔"}},
+    {emoji:"🍞", real:{en:"Bread", ur:"روٹی/ڈبل روٹی"}, guess:{en:"Cloud", ur:"بادل"}, correct:false,
+     why:{en:"Soft blob shape looked like a cloud — context matters!", ur:"نرم شکل بادل جیسی لگی — سیاق اہم ہے!"}},
+    {emoji:"🐘", real:{en:"Elephant", ur:"ہاتھی"}, guess:{en:"Elephant", ur:"ہاتھی"}, correct:true,
+     why:{en:"Big body + trunk edge pattern is distinctive.", ur:"بڑا جسم + سونڈ کا کنارہ نمایاں ہے۔"}},
+    {emoji:"🥒", real:{en:"Cucumber", ur:"کھیرا"}, guess:{en:"Snake", ur:"سانپ"}, correct:false,
+     why:{en:"Long green shape — AI needs more than one feature!", ur:"لمبی سبز شکل — ایک سے زیادہ فیچر چاہیے!"}}
+  ];
+
+  var QUIZ = [
+    {q:{en:"What does computer vision help a computer do?", ur:"کمپیوٹر وژن کمپیوٹر کی کیا مدد کرتی ہے؟"},
+     opts:[{en:"Hear music better", ur:"موسیقی سننا"},{en:"Understand pictures and find objects", ur:"تصویر سمجھنا اور چیزیں ڈھونڈنا"},{en:"Cook dinner", ur:"کھانا پکانا"},{en:"Fix a broken bike", ur:"سائیکل ٹھیک کرنا"}], a:1},
+    {q:{en:"Which clues does AI use in a photo?", ur:"تصویر میں اے آئی کن اشاروں سے کام لیتی ہے؟"},
+     opts:[{en:"Only the file name", ur:"صرف فائل کا نام"},{en:"Color, shape, and edges", ur:"رنگ، شکل اور کنارے"},{en:"Your password", ur:"پاس ورڈ"},{en:"The weather outside", ur:"موسم"}], a:1},
+    {q:{en:"Object detection means…", ur:"آبجیکٹ ڈیٹیکشن کا مطلب…"},
+     opts:[{en:"Drawing a cartoon", ur:"کارٹون بنانا"},{en:"Finding and naming things in an image", ur:"تصویر میں چیزیں ڈھونڈنا اور نام دینا"},{en:"Deleting photos", ur:"تصویر مٹانا"},{en:"Making the screen brighter", ur:"اسکرین روشن کرنا"}], a:1},
+    {q:{en:"Why might AI call a cucumber a snake?", ur:"اے آئی کھیرا کو سانپ کیوں کہہ سکتی ہے؟"},
+     opts:[{en:"It is angry", ur:"وہ ناراض ہے"},{en:"Long green shape can look similar — models make mistakes", ur:"لمبی سبز شکل ملتی جلتی لگ سکتی ہے — ماڈل غلطی کر سکتے ہیں"},{en:"Cucumbers are animals", ur:"کھیرا جانور ہے"},{en:"Snakes eat cucumbers", ur:"سانپ کھیرا کھاتے ہیں"}], a:1},
+    {q:{en:"Why does this game use emoji — not a real webcam?", ur:"یہ گیم حقیقی کیمرے کی بجائے ایموجی کیوں استعمال کرتی ہے؟"},
+     opts:[{en:"Emojis are prettier only", ur:"صرف خوبصورت ہیں"},{en:"To protect your privacy — no real face needed", ur:"رازداری کے لیے — حقیقی چہرہ نہیں چاہیے"},{en:"Webcams do not exist", ur:"کیمرے نہیں ہوتے"},{en:"Teachers dislike cameras always", ur:"استاد ہمیشہ کیمرے ناپسند کرتے ہیں"}], a:1}
+  ];
+
+  var featIdx = 0, featFound = {}, featRoundDone = false;
+  var sortState = {picked:null, placed:{}, order:[]};
+  var mixIdx = 0, mixAnswered = false;
+  var quizSet = [];
+
+  function award(key, n){
+    if (awarded[key]) return;
+    awarded[key] = true;
+    stars += (n || 1);
+    $("starCount").textContent = String(stars);
+  }
+
+  function storyHtml(){
+    var s = mode === "feat" ? T.storyFeat : mode === "sort" ? T.storySort : T.storyMix;
+    return t(s);
+  }
+
+  /* ---------- FEATURES MODE ---------- */
+  function renderFeat(){
+    var p = FEATURE_PHOTOS[featIdx];
+    var pad = $("scenePad");
+    pad.innerHTML = "";
+    var frame = document.createElement("div");
+    frame.className = "photo-frame";
+    frame.innerHTML =
+      '<div class="color-wash" id="cWash"></div>' +
+      '<div class="bbox" id="cBox"></div>' +
+      '<div class="edge-lines" id="cEdge"></div>' +
+      '<div class="photo-emoji">' + p.emoji + '</div>' +
+      '<p class="photo-label" id="pName"></p>' +
+      '<p class="photo-note" id="pNote"></p>' +
+      '<div class="feat-tags" id="featTags"></div>';
+    pad.appendChild(frame);
+    setText($("pName"), t(p.name));
+    setText($("pNote"), lang === "en" ? ("Shape clue: " + t(p.shape)) : ("شکل: " + t(p.shape)));
+    $("cWash").style.background = p.color;
+
+    var tags = $("featTags");
+    [["color", T.color],["shape", T.shape],["edges", T.edges]].forEach(function(pair){
+      var k = pair[0], lab = pair[1];
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "ftag" + (featFound[k] ? " found" : "");
+      b.textContent = t(lab);
+      if (lang === "ur"){ b.classList.add("ur"); b.setAttribute("dir","rtl"); }
+      b.addEventListener("click", function(){ toggleFeat(k); });
+      tags.appendChild(b);
+    });
+
+    setText($("statechip"), Object.keys(featFound).length >= 3 ? t(T.found) : t(T.looking));
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (Object.keys(featFound).length>=3?" win":"");
+    setText($("headline"), t(T.tapTags));
+    setText($("detail"), t(p.tip));
+    $("hintbox").classList.remove("show");
+    updateProg();
+    syncOverlays();
+    renderFeatActions();
+  }
+
+  function syncOverlays(){
+    var w = $("cWash"), b = $("cBox"), e = $("cEdge");
+    if (!w) return;
+    w.classList.toggle("show", !!featFound.color);
+    b.classList.toggle("show", !!featFound.shape);
+    e.classList.toggle("show", !!featFound.edges);
+  }
+
+  function toggleFeat(k){
+    featFound[k] = true;
+    syncOverlays();
+    renderFeat();
+    if (Object.keys(featFound).length >= 3){
+      award("feat-" + featIdx, 1);
+      featRoundDone = true;
+      doneModes.feat = true;
+      setText($("statechip"), t(T.found));
+      $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+    }
+    tabBadges();
+  }
+
+  function renderFeatActions(){
+    $("actionBox").innerHTML = "";
+  }
+
+  /* ---------- SORT MODE ---------- */
+  function shuffle(arr){
+    var a = arr.slice(), i, j, t;
+    for (i = a.length - 1; i > 0; i--){
+      j = Math.floor(Math.random() * (i + 1));
+      t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+
+  function ensureSortOrder(){
+    if (!sortState.order.length){
+      sortState.order = shuffle(SORT_ITEMS.map(function(_,i){ return i; }));
+      sortState.placed = {};
+      sortState.picked = null;
+    }
+  }
+
+  function renderSort(){
+    ensureSortOrder();
+    var pad = $("scenePad");
+    pad.innerHTML = "";
+    var grid = document.createElement("div");
+    grid.className = "sort-grid";
+    sortState.order.forEach(function(idx){
+      var item = SORT_ITEMS[idx];
+      var card = document.createElement("button");
+      card.type = "button";
+      card.className = "sort-card" + (sortState.placed[idx] ? " done" : "") + (sortState.picked === idx ? " picked" : "");
+      card.innerHTML = '<span class="em">' + item.emoji + '</span><span class="nm"></span>';
+      var nm = card.querySelector(".nm");
+      setText(nm, t(item.name));
+      card.addEventListener("click", function(){
+        if (sortState.placed[idx]) return;
+        sortState.picked = idx;
+        renderSort();
+      });
+      grid.appendChild(card);
+    });
+    pad.appendChild(grid);
+
+    var bins = document.createElement("div");
+    bins.className = "bins";
+    ["fruit","vehicle","animal"].forEach(function(cat){
+      var bin = document.createElement("div");
+      bin.className = "bin" + (sortState.picked !== null ? " hot" : "");
+      bin.innerHTML = "<h3></h3><div class=\"slot\"></div>";
+      setText(bin.querySelector("h3"), t(T[cat]));
+      var slot = bin.querySelector(".slot");
+      var placedEmojis = [];
+      Object.keys(sortState.placed).forEach(function(k){
+        var i = +k;
+        if (SORT_ITEMS[i].cat === cat) placedEmojis.push(SORT_ITEMS[i].emoji);
+      });
+      slot.textContent = placedEmojis.join(" ");
+      if (placedEmojis.length) bin.classList.add("ok-glow");
+      bin.addEventListener("click", function(){ placeInBin(cat); });
+      bins.appendChild(bin);
+    });
+    pad.appendChild(bins);
+
+    var done = Object.keys(sortState.placed).length;
+    setText($("statechip"), done >= SORT_ITEMS.length ? t(T.sorted) : t(T.pickBin));
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (done >= SORT_ITEMS.length ? " win" : "");
+    setText($("headline"), t(T.pickBin));
+    setText($("detail"), t(T.privacy));
+    $("hintbox").classList.remove("show");
+    $("actionBox").innerHTML = "";
+    updateProg();
+    if (done >= SORT_ITEMS.length){
+      doneModes.sort = true;
+      award("sort-all", 2);
+      tabBadges();
+    }
+  }
+
+  function placeInBin(cat){
+    if (sortState.picked === null) return;
+    var item = SORT_ITEMS[sortState.picked];
+    if (item.cat !== cat){
+      setText($("statechip"), t(T.wrongBin));
+      $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+      return;
+    }
+    sortState.placed[sortState.picked] = cat;
+    award("sort-" + sortState.picked, 1);
+    sortState.picked = null;
+    renderSort();
+  }
+
+  /* ---------- MIX MODE ---------- */
+  function renderMix(){
+    var r = MIX_ROUNDS[mixIdx];
+    var pad = $("scenePad");
+    pad.innerHTML = "";
+    var frame = document.createElement("div");
+    frame.className = "photo-frame";
+    frame.innerHTML =
+      '<div class="photo-emoji">' + r.emoji + '</div>' +
+      '<p class="photo-label" id="pName"></p>' +
+      '<div class="mix-row" style="margin-top:12px"><div class="ai-guess" id="aiGuess"></div></div>';
+    pad.appendChild(frame);
+    setText($("pName"), t(r.real));
+    var g = $("aiGuess");
+    g.textContent = (lang === "en" ? "AI says: " : "اے آئی کہتی ہے: ") + t(r.guess);
+    if (lang === "ur"){ g.classList.add("ur"); g.setAttribute("dir","rtl"); }
+
+    setText($("statechip"), t(T.mixAsk));
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"");
+    setText($("headline"), t(T.mixAsk));
+    setText($("detail"), mixAnswered ? t(r.why) : t(T.privacy));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+    if (!mixAnswered){
+      var row = document.createElement("div");
+      row.className = "btns";
+      var y = document.createElement("button");
+      y.type = "button"; y.className = "yes";
+      y.textContent = t(T.yes);
+      if (lang==="ur"){ y.classList.add("ur"); y.setAttribute("dir","rtl"); }
+      y.addEventListener("click", function(){ answerMix(true); });
+      var n = document.createElement("button");
+      n.type = "button"; n.className = "no";
+      n.textContent = t(T.no);
+      if (lang==="ur"){ n.classList.add("ur"); n.setAttribute("dir","rtl"); }
+      n.addEventListener("click", function(){ answerMix(false); });
+      row.appendChild(y); row.appendChild(n);
+      box.appendChild(row);
+    }
+    updateProg();
+  }
+
+  function answerMix(saidYes){
+    var r = MIX_ROUNDS[mixIdx];
+    var ok = (saidYes === r.correct);
+    mixAnswered = true;
+    if (ok){
+      award("mix-" + mixIdx, 1);
+      setText($("statechip"), t(T.catchOk));
+      $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+      doneModes.mix = true;
+    } else {
+      setText($("statechip"), t(T.catchMiss));
+      $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+    }
+    setText($("detail"), t(r.why));
+    tabBadges();
+    renderMix();
+  }
+
+  /* ---------- shared UI ---------- */
+  function updateProg(){
+    if (mode === "feat"){
+      $("prog").textContent = t(T.progFeat) + ": " + Object.keys(featFound).length + "/3 · " + (featIdx+1) + "/" + FEATURE_PHOTOS.length;
+    } else if (mode === "sort"){
+      $("prog").textContent = t(T.progSort) + ": " + Object.keys(sortState.placed).length + "/" + SORT_ITEMS.length;
+    } else {
+      $("prog").textContent = t(T.progMix) + ": " + (mixIdx+1) + "/" + MIX_ROUNDS.length;
+    }
+    if (lang === "ur"){ $("prog").setAttribute("dir","rtl"); $("prog").classList.add("ur"); }
+    else { $("prog").setAttribute("dir","ltr"); $("prog").classList.remove("ur"); }
+  }
+
+  function tabBadges(){
+    function lab(btn, text, ok){
+      btn.innerHTML = "";
+      var sp = document.createElement("span");
+      sp.textContent = text;
+      if (lang === "ur"){ sp.className = "ur"; sp.setAttribute("dir","rtl"); }
+      btn.appendChild(sp);
+      if (ok){
+        var b = document.createElement("span");
+        b.className = "badge"; b.textContent = " ★";
+        btn.appendChild(b);
+      }
+    }
+    lab($("tabFeat"), t(T.tabFeat), doneModes.feat);
+    lab($("tabSort"), t(T.tabSort), doneModes.sort);
+    lab($("tabMix"), t(T.tabMix), doneModes.mix);
+  }
+
+  function setMode(m){
+    mode = m;
+    $("tabFeat").setAttribute("aria-pressed", m === "feat" ? "true" : "false");
+    $("tabSort").setAttribute("aria-pressed", m === "sort" ? "true" : "false");
+    $("tabMix").setAttribute("aria-pressed", m === "mix" ? "true" : "false");
+    $("story").innerHTML = storyHtml();
+    if (lang === "ur"){ $("story").classList.add("ur"); $("story").setAttribute("dir","rtl"); }
+    else { $("story").classList.remove("ur"); $("story").setAttribute("dir","ltr"); }
+    if (m === "feat") renderFeat();
+    else if (m === "sort") renderSort();
+    else renderMix();
+    tabBadges();
+  }
+
+  function next(){
+    if (mode === "feat"){
+      featIdx = (featIdx + 1) % FEATURE_PHOTOS.length;
+      featFound = {};
+      featRoundDone = false;
+      renderFeat();
+    } else if (mode === "sort"){
+      sortState = {picked:null, placed:{}, order:[]};
+      renderSort();
+    } else {
+      mixIdx = (mixIdx + 1) % MIX_ROUNDS.length;
+      mixAnswered = false;
+      renderMix();
+    }
+  }
+
+  function resetMode(){
+    if (mode === "feat"){ featFound = {}; featRoundDone = false; renderFeat(); }
+    else if (mode === "sort"){ sortState = {picked:null, placed:{}, order:[]}; renderSort(); }
+    else { mixAnswered = false; renderMix(); }
+  }
+
+  function showHint(){
+    var hb = $("hintbox");
+    var msg;
+    if (mode === "feat"){
+      msg = lang === "en"
+        ? "Try Color first (wash), then Shape (box), then Edges (outline)."
+        : "پہلے رنگ، پھر شکل، پھر کنارے۔";
+    } else if (mode === "sort"){
+      msg = lang === "en"
+        ? "Banana & grapes → Fruit. Car & plane → Vehicle. Dog & bird → Animal."
+        : "کیلا/انگور → پھل۔ کار/جہاز → گاڑی۔ کتا/پرندہ → جانور۔";
+    } else {
+      var r = MIX_ROUNDS[mixIdx];
+      msg = lang === "en"
+        ? ("Real object is " + r.real.en + ". Is AI's label the same?")
+        : ("اصل چیز: " + r.real.ur + " — کیا لیبل وہی ہے؟");
+    }
+    setText(hb, msg);
+    hb.classList.add("show");
+  }
+
+  /* ---------- quiz ---------- */
+  function pickQuiz(){
+    quizSet = shuffle(QUIZ).slice(0, 5);
+  }
+
+  function renderQuiz(){
+    var box = $("quizBox");
+    box.innerHTML = "";
+    quizSet.forEach(function(item, qi){
+      var q = document.createElement("div");
+      q.className = "q";
+      var p = document.createElement("p");
+      setText(p, (qi+1) + ". " + t(item.q));
+      q.appendChild(p);
+      item.opts.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt" + (lang === "ur" ? " ur" : "");
+        b.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+        b.textContent = (lang === "ur") ? isolate(t(opt)) : t(opt);
+        b.addEventListener("click", function(){
+          if (b.parentNode.querySelector(".opt.right, .opt.wrong")) return;
+          var ok = (oi === item.a);
+          b.classList.add(ok ? "right" : "wrong");
+          if (!ok){
+            var correct = b.parentNode.querySelectorAll(".opt")[item.a];
+            if (correct) correct.classList.add("right");
+          } else {
+            award("quiz-" + qi, 1);
+          }
+          var fb = document.createElement("p");
+          fb.className = "fb show";
+          setText(fb, ok
+            ? (lang==="en"?"Shabash!":"شاباش!")
+            : (lang==="en"?"Look at the green answer.":"سبز جواب دیکھو۔"));
+          q.appendChild(fb);
+        });
+        q.appendChild(b);
+      });
+      box.appendChild(q);
+    });
+  }
+
+  function applyLang(){
+    document.body.classList.toggle("urdu", lang === "ur");
+    document.documentElement.lang = (lang === "ur") ? "ur" : "en";
+    var lb = $("langBtn");
+    lb.textContent = (lang === "en") ? "اردو" : "English";
+    lb.setAttribute("aria-pressed", lang === "ur" ? "true" : "false");
+    setText($("title"), t(T.title));
+    setText($("subtitle"), t(T.sub));
+    setText($("ctlHead"), t(T.ctl));
+    setText($("quizHead"), t(T.quiz));
+    $("nextBtn").textContent = t(T.next);
+    $("hintBtn").textContent = t(T.hint);
+    $("resetBtn").textContent = t(T.reset);
+    $("newQuiz").textContent = t(T.newQuiz);
+    if (lang === "ur"){
+      ["nextBtn","hintBtn","resetBtn","newQuiz"].forEach(function(id){
+        $(id).classList.add("ur"); $(id).setAttribute("dir","rtl");
+      });
+    } else {
+      ["nextBtn","hintBtn","resetBtn","newQuiz"].forEach(function(id){
+        $(id).classList.remove("ur"); $(id).setAttribute("dir","ltr");
+      });
+    }
+    document.querySelectorAll("footer [data-en]").forEach(function(el){
+      setText(el, el.getAttribute(lang === "en" ? "data-en" : "data-ur"));
+    });
+    setMode(mode);
+    renderQuiz();
+  }
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en";
+    applyLang();
+  });
+  $("tabFeat").addEventListener("click", function(){ setMode("feat"); });
+  $("tabSort").addEventListener("click", function(){ setMode("sort"); });
+  $("tabMix").addEventListener("click", function(){ setMode("mix"); });
+  $("nextBtn").addEventListener("click", next);
+  $("hintBtn").addEventListener("click", showHint);
+  $("resetBtn").addEventListener("click", resetMode);
+  $("newQuiz").addEventListener("click", function(){ pickQuiz(); renderQuiz(); });
+
+  /* ---------- speak (cancel → delay) ---------- */
+  function cleanSpeakText(s){
+    return String(s || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  }
+  function buildSpeakText(){
+    var bits = [];
+    bits.push(t(T.title));
+    bits.push(cleanSpeakText(storyHtml().replace(/<b>/g,"").replace(/<\/b>/g,"")));
+    bits.push(cleanSpeakText(($("headline") && $("headline").textContent) || ""));
+    bits.push(cleanSpeakText(($("detail") && $("detail").textContent) || ""));
+    bits.push(t(T.privacy));
+    return bits.filter(Boolean).join(". ");
+  }
+  function pickVoice(voices, want){
+    var i, v, L;
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf(want) === 0) return v;
+    }
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf("en") === 0) return v;
+    }
+    return voices[0] || null;
+  }
+  var speakTimer = null;
+  function setSpeaking(on){
+    var btn = $("speakBtn");
+    if (!btn) return;
+    btn.setAttribute("aria-pressed", on ? "true" : "false");
+    btn.style.opacity = on ? "0.65" : "";
+  }
+  function doSpeak(text, asLang){
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.92;
+    u.lang = (asLang === "ur") ? "ur-PK" : "en-US";
+    var voices = window.speechSynthesis.getVoices() || [];
+    var voice = pickVoice(voices, asLang === "ur" ? "ur" : "en");
+    if (voice) u.voice = voice;
+    u.onstart = function(){ setSpeaking(true); };
+    u.onend = function(){ setSpeaking(false); };
+    u.onerror = function(){
+      setSpeaking(false);
+      if (asLang === "ur"){
+        var fallback = cleanSpeakText(
+          T.title.en + ". " + T.storyFeat.en.replace(/<[^>]+>/g," ") + ". " + T.privacy.en
+        );
+        var u2 = new SpeechSynthesisUtterance(fallback);
+        u2.lang = "en-US"; u2.rate = 0.92;
+        var v2 = pickVoice(window.speechSynthesis.getVoices() || [], "en");
+        if (v2) u2.voice = v2;
+        u2.onstart = function(){ setSpeaking(true); };
+        u2.onend = u2.onerror = function(){ setSpeaking(false); };
+        window.speechSynthesis.speak(u2);
+      }
+    };
+    window.speechSynthesis.speak(u);
+  }
+  if ("speechSynthesis" in window){
+    try { window.speechSynthesis.getVoices(); } catch (e0) {}
+    if (typeof window.speechSynthesis.addEventListener === "function"){
+      window.speechSynthesis.addEventListener("voiceschanged", function(){
+        try { window.speechSynthesis.getVoices(); } catch (e1) {}
+      });
+    }
+  } else {
+    var noBtn = $("speakBtn");
+    if (noBtn){
+      noBtn.disabled = true;
+      noBtn.title = "Voice not available on this device";
+    }
+  }
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      var text = buildSpeakText();
+      if (!text) return;
+      if (speakTimer){ clearTimeout(speakTimer); speakTimer = null; }
+      window.speechSynthesis.cancel();
+      setSpeaking(false);
+      var speakLang = lang;
+      speakTimer = setTimeout(function(){
+        speakTimer = null;
+        doSpeak(text, speakLang);
+      }, 80);
+    }catch(e){ setSpeaking(false); }
+  });
+
+  pickQuiz();
+  applyLang();
+})();
+</script>
+</body>
+</html>

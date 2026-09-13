@@ -55,5 +55,13 @@
       "interactive_file": "interactives/g5-ai-literacy.html",
       "interactive_label": "Khelo — AI is a pattern machine"
     }
+  },
+  {
+    "file": "kb/grade_5/ai.json",
+    "match_title": "Computer vision",
+    "add": {
+      "interactive_file": "interactives/g5-computer-vision.html",
+      "interactive_label": "Khelo — Computer vision / AI aankhen"
+    }
   }
 ]

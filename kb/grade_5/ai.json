@@ -167,7 +167,9 @@
             "explanation": "AI tasveeron ko analysis karke cheezein pehchanata hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g5-computer-vision.html",
+      "interactive_label": "Khelo — Computer vision / AI aankhen"
     },
     {
       "title": "NLP basics",

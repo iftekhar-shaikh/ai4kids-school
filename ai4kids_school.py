@@ -1083,6 +1083,7 @@ def render_topic_interactive(subject_key, grade, topic_title):
             (3, "science", "Matter: solid liquid gas"): "interactives/g3-states-of-matter.html",
             (4, "science", "Hazam ka nizam"): "interactives/g4-hazam-ka-nizam.html",
             (4, "science", "Taqat aur harkat"): "interactives/g4-taqat-aur-harkat.html",
+            (5, "ai", "Computer vision"): "interactives/g5-computer-vision.html",
             (5, "ai", "Binary lab — jama/tafreeq"): "interactives/g5-binary-lab.html",
         }
         rel = FALLBACK.get((int(grade), subject_key, topic_title))
