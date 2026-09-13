@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Neural network — Dimaag jaisa computer | AI4Kids Class 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#ebe4f7;
+    --board-deep:#d9cef0;
+    --a:#5b4a8f;
+    --b:#c9702e;
+    --both:#7a5aa8;
+    --gold:#e8b23d;
+    --left:#c4453a;
+    --ok:#2e7d4f;
+    --ink:#1e2a36;
+    --ink-soft:#4a5a6b;
+    --paper:#faf8fc;
+    --line:#d4c8e8;
+    --accent:#5b4a8f;
+    --fire:#e85d4c;
+    --fs-cap:clamp(12px, 3.2vw, 13px);
+    --fs-xs:clamp(14px, 3.7vw, 15px);
+    --fs-sm:clamp(16px, 4.2vw, 17px);
+    --fs-md:clamp(17px, 4.6vw, 19px);
+    --fs-lg:clamp(20px, 5.4vw, 23px);
+    --fs-xl:clamp(27px, 7.4vw, 33px);
+    --lh:1.5;
+  }
+  body.urdu{
+    --fs-cap:clamp(13px, 3.5vw, 15px);
+    --fs-xs:clamp(15px, 4.1vw, 17px);
+    --fs-sm:clamp(17px, 4.7vw, 19px);
+    --fs-md:clamp(19px, 5.2vw, 21px);
+    --fs-lg:clamp(22px, 6vw, 25px);
+    --fs-xl:clamp(26px, 7vw, 31px);
+    --lh:2.1;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  .stars{display:flex;align-items:center;gap:6px;font-weight:800;font-size:var(--fs-xs);
+         background:#fff6e2;border:2px solid var(--gold);border-radius:999px;padding:7px 13px}
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+  .tabs{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
+  .tabs button{
+    flex:1 1 22%;min-width:72px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:10px 6px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:54px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .tabs button .badge{color:var(--gold)}
+  .story{
+    background:#f0eaf8;border:2px dashed var(--a);border-radius:16px;padding:13px 15px;
+    font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;margin-bottom:14px;
+  }
+  body.urdu .story{line-height:var(--lh)}
+  .story b{color:var(--ink)}
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:linear-gradient(180deg,var(--board) 0%,var(--board-deep) 100%);
+  }
+  .scene-pad{padding:16px;min-height:220px}
+  .readout{
+    margin-top:-18px;position:relative;z-index:2;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+  .statechip.ur{padding:2px 14px 7px}
+  .statechip.win{background:var(--ok)}
+  .statechip.miss{background:var(--left)}
+  .statechip.fire{background:var(--fire)}
+  .headline{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+  .headline.ur{line-height:1.95}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+  .hintbox{
+    margin-top:14px;border:2px solid var(--a);background:#f0eaf8;border-radius:14px;
+    padding:11px 14px;font-size:var(--fs-xs);color:var(--a);font-weight:700;line-height:1.55;
+    display:none;
+  }
+  .hintbox.show{display:block}
+  body.urdu .hintbox{line-height:var(--lh)}
+  .panel{margin-top:22px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .prog{margin:0 0 10px;font-size:var(--fs-xs);font-weight:700;color:var(--ink-soft)}
+  .btns{display:flex;gap:9px;margin-top:8px;flex-wrap:wrap}
+  .btns button{
+    border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);
+    font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:50px;
+    padding:8px 14px;flex:1;
+  }
+  .btns .go{background:var(--ink);color:var(--paper)}
+  .btns .yes{border-color:var(--ok);color:var(--ok)}
+  .btns .no{border-color:var(--left);color:var(--left)}
+  .btns button:active{transform:scale(.97)}
+  .btns button:disabled{opacity:.4;cursor:default}
+  .sig-row{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:12px}
+  .sig{
+    border:2px solid var(--ink);background:var(--paper);border-radius:14px;
+    padding:10px 12px;font:inherit;font-weight:800;font-size:var(--fs-cap);
+    cursor:pointer;min-height:48px;min-width:72px;
+  }
+  .sig:disabled{opacity:.4}
+  .neuron-stage{text-align:center;padding:8px 4px 4px;position:relative}
+  .neuron-body{
+    width:88px;height:88px;border-radius:50%;margin:18px auto 8px;
+    background:radial-gradient(circle at 35% 30%,#c9b8ef,#5b4a8f);
+    border:4px solid var(--ink);display:flex;align-items:center;justify-content:center;
+    font-size:36px;color:#fff;font-weight:800;position:relative;z-index:2;
+    transition:box-shadow .25s, transform .2s, background .25s;
+  }
+  .neuron-body.hot{
+    background:radial-gradient(circle at 35% 30%,#ffd4c8,#e85d4c);
+    box-shadow:0 0 0 8px rgba(232,93,76,.35),0 0 28px rgba(232,93,76,.55);
+    transform:scale(1.08);
+  }
+  .axon{
+    width:6px;height:48px;margin:0 auto;background:var(--line);border-radius:4px;
+    transition:background .25s, box-shadow .25s;
+  }
+  .axon.lit{background:var(--fire);box-shadow:0 0 12px var(--fire)}
+  .thresh-bar{
+    height:14px;background:#fff;border:2px solid var(--ink);border-radius:999px;
+    overflow:hidden;margin:10px auto 0;max-width:220px;
+  }
+  .thresh-fill{height:100%;width:0%;background:var(--a);transition:width .2s,background .2s}
+  .thresh-fill.ready{background:var(--fire)}
+  .net-svg{width:100%;height:200px;display:block}
+  .net-node{
+    cursor:pointer;stroke:var(--ink);stroke-width:3;
+  }
+  .net-node.picked{stroke:var(--gold);stroke-width:4}
+  .net-node.on{fill:#7a5aa8}
+  .link-btn{
+    border:2px solid var(--ink);background:var(--paper);border-radius:12px;
+    padding:10px 12px;font:inherit;font-weight:800;font-size:var(--fs-cap);
+    cursor:pointer;min-height:46px;margin:4px;
+  }
+  .link-btn.done{border-color:var(--ok);background:#e8f2ed;color:var(--ok)}
+  .ex-card{
+    background:var(--paper);border:3px solid var(--ink);border-radius:16px;
+    padding:14px;text-align:center;margin-bottom:10px;
+  }
+  .ex-emoji{font-size:56px;line-height:1.1;margin:4px 0}
+  .photo-label{font-weight:800;font-size:var(--fs-md);margin:0 0 4px}
+  .weight-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:8px}
+  .wchip{
+    border:2px solid var(--line);border-radius:999px;padding:6px 12px;
+    font-size:var(--fs-cap);font-weight:800;background:#fff;
+  }
+  .wchip.strong{border-color:var(--ok);color:var(--ok)}
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .qhead{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+  .qhead h2{font-size:var(--fs-lg);font-weight:800;margin:0;flex:1}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:50px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+  .opt.wrong{border-color:var(--left);background:#fbeae8}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;
+      grid-template-columns:1fr 1fr;
+      grid-template-areas:
+        "bar   bar"
+        "head  head"
+        "tabs  tabs"
+        "story story"
+        "left  right"
+        "quiz  quiz"
+        "foot  foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+    .story{grid-area:story} .left{grid-area:left} .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+    .panel{margin-top:0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition-duration:.01ms !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 5</span>
+    <span class="stars" id="starBox">⭐ <span id="starCount">0</span></span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 id="title"></h1>
+  <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group">
+    <button type="button" id="tabMeet" aria-pressed="true"></button>
+    <button type="button" id="tabLink" aria-pressed="false"></button>
+    <button type="button" id="tabTrain" aria-pressed="false"></button>
+  </div>
+
+  <p class="story" id="story"></p>
+
+  <div class="left">
+  <div class="scene">
+    <div class="scene-pad" id="scenePad"></div>
+  </div>
+  <div class="readout">
+    <span class="statechip" id="statechip"></span>
+    <p class="headline" id="headline"></p>
+    <p class="detail" id="detail"></p>
+    <p class="hintbox" id="hintbox"></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="panel">
+    <h2 id="ctlHead"></h2>
+    <p class="prog" id="prog"></p>
+    <div id="actionBox"></div>
+    <div class="btns">
+      <button type="button" class="go" id="nextBtn"></button>
+    </div>
+    <div class="btns">
+      <button type="button" id="hintBtn"></button>
+      <button type="button" id="resetBtn"></button>
+    </div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <div class="qhead">
+      <h2 id="quizHead"></h2>
+      <button type="button" class="chip" id="newQuiz"></button>
+    </div>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad bilingual AI school. Offline play · WhatsApp 0337 1468899"
+       data-ur="اے آئی فور کڈز — اسلام آباد۔ آف لائن کھیلو۔ واٹس ایپ 0337 1468899"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  function $(id){ return document.getElementById(id); }
+  function isolate(s){
+    return "\u2066" + s + "\u2069";
+  }
+  function setText(el, str){
+    if (!el) return;
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+  function t(o){ return (o && o[lang]) || (o && o.en) || ""; }
+
+  var lang = "en";
+  var mode = "meet";
+  var stars = 0;
+  var awarded = {};
+  var doneModes = {meet:false, link:false, train:false};
+
+  var T = {
+    title:{en:"Neural network — Dimaag jaisa computer", ur:"نیورل نیٹ ورک — دماغ جیسا کمپیوٹر"},
+    sub:{en:"Neurons, connections, and a tiny train-yourself net.", ur:"نیوران، کنکشنز، اور چھوٹا ٹریننگ نیٹ۔"},
+    tabMeet:{en:"Meet a neuron", ur:"نیوران سے ملو"},
+    tabLink:{en:"Connect the net", ur:"نیٹ جوڑو"},
+    tabTrain:{en:"Train the net", ur:"نیٹ سکھائیں"},
+    storyMeet:{en:"A <b>neuron</b> waits for signals. Add enough input and it <b>fires</b> — like a brain cell saying \"go!\"",
+               ur:"ایک <b>نیوران</b> سگنل کا انتظار کرتا ہے۔ کافی ان پٹ دو تو وہ <b>فائر</b> کرتا ہے — جیسے دماغ کا سیل \"چلو!\" کہے۔"},
+    storyLink:{en:"Link <b>input → hidden → output</b>. Connections carry messages — like friends passing a note in class.",
+               ur:"<b>ان پٹ → پوشیدہ → آؤٹ پٹ</b> جوڑو۔ کنکشنز پیغام لے جاتے ہیں — جیسے کلاس میں نوٹ۔"},
+    storyTrain:{en:"Show examples. Right answers <b>strengthen</b> links; wrong ones stay weak. That is how a net learns!",
+                ur:"مثالیں دکھاؤ۔ درست جواب <b>کنکشن مضبوط</b> کرتا ہے؛ غلط کمزور رہتا ہے۔ یوں نیٹ سیکھتا ہے!"},
+    ctl:{en:"Your turn", ur:"تمہاری باری"},
+    next:{en:"Next", ur:"اگلا"},
+    hint:{en:"Hint", ur:"اشارہ"},
+    reset:{en:"Reset", ur:"ری سیٹ"},
+    quiz:{en:"Check yourself", ur:"اپنا امتحان"},
+    newQuiz:{en:"New quiz", ur:"نیا کوئز"},
+    waiting:{en:"Waiting for input…", ur:"ان پٹ کا انتظار…"},
+    fired:{en:"Neuron fired!", ur:"نیوران فائر ہو گیا!"},
+    tapSignals:{en:"Tap signals to fill the neuron", ur:"سگنل ٹیپ کرو تاکہ نیوران بھرے"},
+    threshold:{en:"Reach the threshold to fire", ur:"فائر کے لیے حد تک پہنچو"},
+    linkNeed:{en:"Tap two nodes, then Connect", ur:"دو نوڈز ٹیپ کرو، پھر جوڑو"},
+    linkOk:{en:"Nice links!", ur:"زبردست لنکس!"},
+    connect:{en:"Connect", ur:"جوڑو"},
+    trainAsk:{en:"Is this a fruit or a ball?", ur:"یہ پھل ہے یا گیند؟"},
+    fruit:{en:"Fruit", ur:"پھل"},
+    ball:{en:"Ball", ur:"گیند"},
+    trainOk:{en:"Weights got stronger!", ur:"وزن مضبوط ہو گئے!"},
+    trainMiss:{en:"Try again — weights stay soft", ur:"دوبارہ — وزن نرم رہیں"},
+    trainDone:{en:"Tiny net trained!", ur:"چھوٹا نیٹ سکھ گیا!"},
+    progMeet:{en:"Fires", ur:"فائر"},
+    progLink:{en:"Links", ur:"لنکس"},
+    progTrain:{en:"Examples", ur:"مثالیں"},
+    tip:{en:"Tip: many neurons + strong links = smart guesses — like your brain.",
+         ur:"نکتہ: بہت سے نیوران + مضبوط لنکس = ہوشیار اندازہ — جیسے تمہارا دماغ۔"}
+  };
+
+  var SIGNALS = [
+    {emoji:"👀", label:{en:"See", ur:"دیکھو"}, w:1},
+    {emoji:"👂", label:{en:"Hear", ur:"سنو"}, w:1},
+    {emoji:"✋", label:{en:"Touch", ur:"چھوؤ"}, w:1},
+    {emoji:"💭", label:{en:"Think", ur:"سوچو"}, w:2}
+  ];
+
+  var NEED_LINKS = [
+    {from:"I1", to:"H1"},
+    {from:"I2", to:"H1"},
+    {from:"I1", to:"H2"},
+    {from:"H1", to:"O"},
+    {from:"H2", to:"O"}
+  ];
+
+  var TRAIN_EX = [
+    {emoji:"🍎", label:{en:"Apple", ur:"سیب"}, ans:"fruit"},
+    {emoji:"⚽", label:{en:"Football", ur:"فٹبال"}, ans:"ball"},
+    {emoji:"🍌", label:{en:"Banana", ur:"کیلا"}, ans:"fruit"},
+    {emoji:"🏀", label:{en:"Basketball", ur:"باسکٹ بال"}, ans:"ball"},
+    {emoji:"🍇", label:{en:"Grapes", ur:"انگور"}, ans:"fruit"},
+    {emoji:"🎾", label:{en:"Tennis ball", ur:"ٹینس بال"}, ans:"ball"}
+  ];
+
+  var QUIZ = [
+    {q:{en:"A neural network is most like…", ur:"نیورل نیٹ ورک سب سے زیادہ کس کی طرح ہے؟"},
+     opts:[{en:"A printer", ur:"پرنٹر"},{en:"A brain made of linked neurons", ur:"جوڑے ہوئے نیوران والا دماغ"},{en:"A bicycle", ur:"سائیکل"},{en:"A fridge", ur:"فریج"}], a:1},
+    {q:{en:"What happens when a neuron gets enough input?", ur:"جب نیوران کو کافی ان پٹ ملے تو کیا ہوتا ہے؟"},
+     opts:[{en:"It sleeps", ur:"سوجاتا ہے"},{en:"It fires a signal onward", ur:"آگے سگنل فائر کرتا ہے"},{en:"It deletes itself", ur:"خود مٹ جاتا ہے"},{en:"It plays music", ur:"موسیقی چلاتا ہے"}], a:1},
+    {q:{en:"Connections (links) between neurons…", ur:"نیوران کے درمیان کنکشنز…"},
+     opts:[{en:"Carry information", ur:"معلومات لے جاتے ہیں"},{en:"Cook food", ur:"کھانا پکاتے ہیں"},{en:"Only draw pictures", ur:"صرف تصویر بناتے ہیں"},{en:"Turn off the computer", ur:"کمپیوٹر بند کرتے ہیں"}], a:0},
+    {q:{en:"How does a tiny net \"learn\" from examples?", ur:"چھوٹا نیٹ مثالوں سے کیسے \"سیکھتا\" ہے؟"},
+     opts:[{en:"By guessing randomly forever", ur:"ہمیشہ بے ترتیب اندازے سے"},{en:"By strengthening links after correct answers", ur:"درست جواب پر لنکس مضبوط کر کے"},{en:"By closing its eyes", ur:"آنکھیں بند کر کے"},{en:"By deleting all links", ur:"سارے لنکس مٹا کر"}], a:1},
+    {q:{en:"Why do we say a neural net is like a dimaag?", ur:"نیورل نیٹ کو دماغ کیوں کہتے ہیں؟"},
+     opts:[{en:"It has hair", ur:"اس کے بال ہیں"},{en:"Many simple parts work together to recognise patterns", ur:"بہت سے سادہ حصے مل کر پیٹرن پہچانتے ہیں"},{en:"It only works at night", ur:"صرف رات کو چلتا ہے"},{en:"It needs chai", ur:"اسے چائے چاہیے"}], a:1}
+  ];
+
+  var meet = {act:0, threshold:4, fires:0, fired:false};
+  var link = {picked:null, done:{}, selected:[]};
+  var train = {idx:0, weights:{fruit:1, ball:1}, correct:0, answered:false};
+  var quizSet = [];
+
+  function award(key, n){
+    if (awarded[key]) return;
+    awarded[key] = true;
+    stars += (n || 1);
+    $("starCount").textContent = String(stars);
+  }
+
+  function storyHtml(){
+    var s = mode === "meet" ? T.storyMeet : mode === "link" ? T.storyLink : T.storyTrain;
+    return t(s);
+  }
+
+  function shuffle(arr){
+    var a = arr.slice(), i, j, tmp;
+    for (i = a.length - 1; i > 0; i--){
+      j = Math.floor(Math.random() * (i + 1));
+      tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  /* ---------- MEET A NEURON ---------- */
+  function renderMeet(){
+    var pad = $("scenePad");
+    pad.innerHTML = "";
+    var stage = document.createElement("div");
+    stage.className = "neuron-stage";
+    var pct = Math.min(100, Math.round((meet.act / meet.threshold) * 100));
+    var ready = meet.act >= meet.threshold;
+    stage.innerHTML =
+      '<div class="neuron-body' + (meet.fired ? " hot" : "") + '" id="nBody">⚡</div>' +
+      '<div class="axon' + (meet.fired ? " lit" : "") + '" id="nAxon"></div>' +
+      '<div class="thresh-bar"><div class="thresh-fill' + (ready ? " ready" : "") + '" style="width:' + pct + '%"></div></div>' +
+      '<div class="sig-row" id="sigRow"></div>';
+    pad.appendChild(stage);
+
+    var row = $("sigRow");
+    SIGNALS.forEach(function(s, i){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "sig";
+      b.disabled = meet.fired;
+      b.textContent = s.emoji + " " + t(s.label);
+      if (lang === "ur"){ b.classList.add("ur"); b.setAttribute("dir","rtl"); }
+      b.addEventListener("click", function(){ addSignal(s.w); });
+      row.appendChild(b);
+    });
+
+    setText($("statechip"), meet.fired ? t(T.fired) : t(T.waiting));
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (meet.fired ? " fire" : "");
+    setText($("headline"), t(T.tapSignals));
+    setText($("detail"), t(T.threshold) + " · " + meet.act + "/" + meet.threshold);
+    $("hintbox").classList.remove("show");
+    $("actionBox").innerHTML = "";
+    updateProg();
+  }
+
+  function addSignal(w){
+    if (meet.fired) return;
+    meet.act += w;
+    if (meet.act >= meet.threshold){
+      meet.fired = true;
+      meet.fires += 1;
+      award("meet-fire-" + meet.fires, 1);
+      doneModes.meet = true;
+      setText($("statechip"), t(T.fired));
+      $("statechip").className = "statechip fire" + (lang==="ur"?" ur":"");
+    }
+    renderMeet();
+    tabBadges();
+  }
+
+  /* ---------- CONNECT THE NET ---------- */
+  var NODE_POS = {
+    I1:{x:40,y:50,lab:{en:"In 1",ur:"ان ۱"}},
+    I2:{x:40,y:150,lab:{en:"In 2",ur:"ان ۲"}},
+    H1:{x:160,y:50,lab:{en:"Hid 1",ur:"پوش ۱"}},
+    H2:{x:160,y:150,lab:{en:"Hid 2",ur:"پوش ۲"}},
+    O:{x:280,y:100,lab:{en:"Out",ur:"آؤٹ"}}
+  };
+
+  function linkKey(a,b){
+    var pair = [a,b].sort();
+    return pair[0] + "-" + pair[1];
+  }
+
+  function isNeeded(a,b){
+    return NEED_LINKS.some(function(L){
+      return (L.from===a && L.to===b) || (L.from===b && L.to===a);
+    });
+  }
+
+  function renderLink(){
+    var pad = $("scenePad");
+    pad.innerHTML = "";
+    var svgNS = "http://www.w3.org/2000/svg";
+    var svg = document.createElementNS(svgNS, "svg");
+    svg.setAttribute("viewBox", "0 0 320 200");
+    svg.classList.add("net-svg");
+
+    // draw done links
+    NEED_LINKS.forEach(function(L){
+      var k = linkKey(L.from, L.to);
+      if (!link.done[k]) return;
+      var p1 = NODE_POS[L.from], p2 = NODE_POS[L.to];
+      var line = document.createElementNS(svgNS, "line");
+      line.setAttribute("x1", p1.x); line.setAttribute("y1", p1.y);
+      line.setAttribute("x2", p2.x); line.setAttribute("y2", p2.y);
+      line.setAttribute("stroke", "#2e7d4f");
+      line.setAttribute("stroke-width", "5");
+      line.setAttribute("stroke-linecap", "round");
+      svg.appendChild(line);
+    });
+
+    Object.keys(NODE_POS).forEach(function(id){
+      var p = NODE_POS[id];
+      var g = document.createElementNS(svgNS, "g");
+      g.style.cursor = "pointer";
+      var c = document.createElementNS(svgNS, "circle");
+      c.setAttribute("cx", p.x); c.setAttribute("cy", p.y); c.setAttribute("r", 22);
+      c.setAttribute("fill", link.selected.indexOf(id) >= 0 ? "#e8b23d" : "#7a5aa8");
+      c.setAttribute("stroke", "#1e2a36");
+      c.setAttribute("stroke-width", link.selected.indexOf(id) >= 0 ? "4" : "3");
+      var tx = document.createElementNS(svgNS, "text");
+      tx.setAttribute("x", p.x); tx.setAttribute("y", p.y + 5);
+      tx.setAttribute("text-anchor", "middle");
+      tx.setAttribute("fill", "#fff");
+      tx.setAttribute("font-size", "11");
+      tx.setAttribute("font-weight", "800");
+      tx.setAttribute("font-family", "Baloo Bhaijaan 2,sans-serif");
+      tx.textContent = t(p.lab);
+      g.appendChild(c); g.appendChild(tx);
+      g.addEventListener("click", function(){ pickNode(id); });
+      svg.appendChild(g);
+    });
+
+    pad.appendChild(svg);
+
+    var doneCount = Object.keys(link.done).length;
+    var all = NEED_LINKS.length;
+    setText($("statechip"), doneCount >= all ? t(T.linkOk) : t(T.linkNeed));
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (doneCount >= all ? " win" : "");
+    setText($("headline"), t(T.linkNeed));
+    setText($("detail"), t(T.tip));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "link-btn" + (doneCount >= all ? " done" : "");
+    btn.textContent = t(T.connect) + " (" + doneCount + "/" + all + ")";
+    if (lang === "ur"){ btn.classList.add("ur"); btn.setAttribute("dir","rtl"); }
+    btn.disabled = link.selected.length !== 2;
+    btn.addEventListener("click", tryConnect);
+    box.appendChild(btn);
+
+    if (doneCount >= all){
+      doneModes.link = true;
+      award("link-all", 2);
+    }
+    updateProg();
+    tabBadges();
+  }
+
+  function pickNode(id){
+    var i = link.selected.indexOf(id);
+    if (i >= 0){
+      link.selected.splice(i, 1);
+    } else {
+      if (link.selected.length >= 2) link.selected.shift();
+      link.selected.push(id);
+    }
+    renderLink();
+  }
+
+  function tryConnect(){
+    if (link.selected.length !== 2) return;
+    var a = link.selected[0], b = link.selected[1];
+    var k = linkKey(a, b);
+    if (!isNeeded(a, b)){
+      setText($("detail"), lang==="en"
+        ? "Those two do not need a direct link. Try input→hidden or hidden→output."
+        : "ان دو کا براہِ راست لنک نہیں۔ ان پٹ→پوشیدہ یا پوشیدہ→آؤٹ پٹ آزماؤ۔");
+      $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+      link.selected = [];
+      renderLink();
+      return;
+    }
+    if (!link.done[k]){
+      link.done[k] = true;
+      award("link-" + k, 1);
+    }
+    link.selected = [];
+    renderLink();
+  }
+
+  /* ---------- TRAIN ---------- */
+  function renderTrain(){
+    var ex = TRAIN_EX[train.idx % TRAIN_EX.length];
+    var pad = $("scenePad");
+    pad.innerHTML = "";
+    var card = document.createElement("div");
+    card.className = "ex-card";
+    card.innerHTML =
+      '<div class="ex-emoji">' + ex.emoji + '</div>' +
+      '<p class="photo-label" id="exName"></p>' +
+      '<div class="weight-row" id="wRow"></div>';
+    pad.appendChild(card);
+    setText($("exName"), t(ex.label));
+
+    var wr = $("wRow");
+    ["fruit","ball"].forEach(function(k){
+      var chip = document.createElement("span");
+      chip.className = "wchip" + (train.weights[k] >= 3 ? " strong" : "");
+      chip.textContent = t(T[k]) + " ×" + train.weights[k];
+      if (lang === "ur"){ chip.classList.add("ur"); chip.setAttribute("dir","rtl"); }
+      wr.appendChild(chip);
+    });
+
+    // mini net viz
+    var svgNS = "http://www.w3.org/2000/svg";
+    var svg = document.createElementNS(svgNS, "svg");
+    svg.setAttribute("viewBox", "0 0 280 90");
+    svg.style.width = "100%";
+    svg.style.height = "90px";
+    svg.style.display = "block";
+    svg.style.marginTop = "8px";
+    var wf = Math.min(8, 2 + train.weights.fruit);
+    var wb = Math.min(8, 2 + train.weights.ball);
+    [["40","45","140","30",wf,"#2e7d4f"],["40","45","140","60",wb,"#c9702e"],
+     ["140","30","240","45",wf,"#2e7d4f"],["140","60","240","45",wb,"#c9702e"]].forEach(function(L){
+      var line = document.createElementNS(svgNS, "line");
+      line.setAttribute("x1", L[0]); line.setAttribute("y1", L[1]);
+      line.setAttribute("x2", L[2]); line.setAttribute("y2", L[3]);
+      line.setAttribute("stroke", L[5]);
+      line.setAttribute("stroke-width", String(L[4]));
+      line.setAttribute("stroke-linecap", "round");
+      line.setAttribute("opacity", "0.85");
+      svg.appendChild(line);
+    });
+    [[40,45,"👁️"],[140,30,"F"],[140,60,"B"],[240,45,"✓"]].forEach(function(n){
+      var c = document.createElementNS(svgNS, "circle");
+      c.setAttribute("cx", n[0]); c.setAttribute("cy", n[1]); c.setAttribute("r", 16);
+      c.setAttribute("fill", "#5b4a8f"); c.setAttribute("stroke", "#1e2a36"); c.setAttribute("stroke-width", "2");
+      svg.appendChild(c);
+      var tx = document.createElementNS(svgNS, "text");
+      tx.setAttribute("x", n[0]); tx.setAttribute("y", n[1] + 5);
+      tx.setAttribute("text-anchor", "middle"); tx.setAttribute("fill", "#fff");
+      tx.setAttribute("font-size", "12"); tx.setAttribute("font-weight", "800");
+      tx.textContent = n[2];
+      svg.appendChild(tx);
+    });
+    pad.appendChild(svg);
+
+    var done = train.correct >= 4;
+    setText($("statechip"), done ? t(T.trainDone) : (train.answered ? t(T.trainOk) : t(T.trainAsk)));
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (done ? " win" : "");
+    setText($("headline"), t(T.trainAsk));
+    setText($("detail"), t(T.tip));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+    if (!train.answered && !done){
+      ["fruit","ball"].forEach(function(ans){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "link-btn";
+        b.style.margin = "4px";
+        b.textContent = (ans === "fruit" ? "🍎 " : "⚽ ") + t(T[ans]);
+        if (lang === "ur"){ b.classList.add("ur"); b.setAttribute("dir","rtl"); }
+        b.addEventListener("click", function(){ answerTrain(ans); });
+        box.appendChild(b);
+      });
+    }
+
+    if (done){
+      doneModes.train = true;
+      award("train-done", 2);
+    }
+    updateProg();
+    tabBadges();
+  }
+
+  function answerTrain(ans){
+    if (train.answered) return;
+    var ex = TRAIN_EX[train.idx % TRAIN_EX.length];
+    train.answered = true;
+    if (ans === ex.ans){
+      train.weights[ans] = Math.min(5, train.weights[ans] + 1);
+      train.correct += 1;
+      award("train-" + train.idx, 1);
+      setText($("statechip"), t(T.trainOk));
+      $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+    } else {
+      setText($("statechip"), t(T.trainMiss));
+      $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+      setText($("detail"), lang==="en"
+        ? ("This was a " + t(T[ex.ans]) + ". Wrong guess — link stays soft.")
+        : ("یہ " + t(T[ex.ans]) + " تھا۔ غلط — لنک نرم رہا۔"));
+    }
+    renderTrain();
+  }
+
+  /* ---------- shared UI ---------- */
+  function updateProg(){
+    var el = $("prog");
+    if (mode === "meet"){
+      setText(el, t(T.progMeet) + ": " + meet.fires);
+    } else if (mode === "link"){
+      setText(el, t(T.progLink) + ": " + Object.keys(link.done).length + "/" + NEED_LINKS.length);
+    } else {
+      setText(el, t(T.progTrain) + ": " + train.correct + "/4");
+    }
+  }
+
+  function tabBadges(){
+    function label(btn, base, key){
+      var s = t(base);
+      if (doneModes[key]) s += " ★";
+      btn.innerHTML = "";
+      var span = document.createElement("span");
+      span.textContent = s;
+      if (lang === "ur"){ span.className = "ur"; span.setAttribute("dir","rtl"); }
+      btn.appendChild(span);
+    }
+    label($("tabMeet"), T.tabMeet, "meet");
+    label($("tabLink"), T.tabLink, "link");
+    label($("tabTrain"), T.tabTrain, "train");
+  }
+
+  function setMode(m){
+    mode = m;
+    $("tabMeet").setAttribute("aria-pressed", m === "meet" ? "true" : "false");
+    $("tabLink").setAttribute("aria-pressed", m === "link" ? "true" : "false");
+    $("tabTrain").setAttribute("aria-pressed", m === "train" ? "true" : "false");
+    var story = $("story");
+    story.innerHTML = storyHtml();
+    story.classList.toggle("ur", lang === "ur");
+    story.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+    $("nextBtn").textContent = t(T.next);
+    if (m === "meet") renderMeet();
+    else if (m === "link") renderLink();
+    else renderTrain();
+    tabBadges();
+  }
+
+  function next(){
+    if (mode === "meet"){
+      meet.act = 0; meet.fired = false;
+      renderMeet();
+    } else if (mode === "link"){
+      link.selected = [];
+      renderLink();
+    } else {
+      train.idx = (train.idx + 1) % TRAIN_EX.length;
+      train.answered = false;
+      renderTrain();
+    }
+  }
+
+  function resetMode(){
+    if (mode === "meet"){
+      meet = {act:0, threshold:4, fires:0, fired:false};
+      renderMeet();
+    } else if (mode === "link"){
+      link = {picked:null, done:{}, selected:[]};
+      // clear awards for links so stars don't re-award wrongly — leave awarded as-is
+      renderLink();
+    } else {
+      train = {idx:0, weights:{fruit:1, ball:1}, correct:0, answered:false};
+      renderTrain();
+    }
+    tabBadges();
+  }
+
+  function showHint(){
+    var hb = $("hintbox");
+    var msg;
+    if (mode === "meet"){
+      msg = lang === "en"
+        ? "Each tap adds energy. Think (+2) helps faster. Fill the bar to fire!"
+        : "ہر ٹیپ توانائی بڑھاتی ہے۔ سوچو (+2) تیز مدد کرتا ہے۔ بار بھرو تو فائر!";
+    } else if (mode === "link"){
+      msg = lang === "en"
+        ? "Connect: In1→Hid1, In2→Hid1, In1→Hid2, Hid1→Out, Hid2→Out."
+        : "جوڑو: ان۱→پوش۱، ان۲→پوش۱، ان۱→پوش۲، پوش۱→آؤٹ، پوش۲→آؤٹ۔";
+    } else {
+      var ex = TRAIN_EX[train.idx % TRAIN_EX.length];
+      msg = lang === "en"
+        ? ("Look: " + ex.label.en + " — fruit or ball? Right picks thicken the matching line.")
+        : ("دیکھو: " + ex.label.ur + " — پھل یا گیند؟ درست انتخاب مماثل لکیر موٹی کرتا ہے۔");
+    }
+    setText(hb, msg);
+    hb.classList.add("show");
+  }
+
+  /* ---------- quiz ---------- */
+  function pickQuiz(){
+    quizSet = shuffle(QUIZ).slice(0, 5);
+  }
+
+  function renderQuiz(){
+    var box = $("quizBox");
+    box.innerHTML = "";
+    quizSet.forEach(function(item, qi){
+      var q = document.createElement("div");
+      q.className = "q";
+      var p = document.createElement("p");
+      setText(p, (qi+1) + ". " + t(item.q));
+      q.appendChild(p);
+      item.opts.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt" + (lang === "ur" ? " ur" : "");
+        b.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+        b.textContent = (lang === "ur") ? isolate(t(opt)) : t(opt);
+        b.addEventListener("click", function(){
+          if (b.parentNode.querySelector(".opt.right, .opt.wrong")) return;
+          var ok = (oi === item.a);
+          b.classList.add(ok ? "right" : "wrong");
+          if (!ok){
+            var correct = b.parentNode.querySelectorAll(".opt")[item.a];
+            if (correct) correct.classList.add("right");
+          } else {
+            award("quiz-" + qi, 1);
+          }
+          var fb = document.createElement("p");
+          fb.className = "fb show";
+          setText(fb, ok
+            ? (lang==="en"?"Shabash!":"شاباش!")
+            : (lang==="en"?"Look at the green answer.":"سبز جواب دیکھو۔"));
+          q.appendChild(fb);
+        });
+        q.appendChild(b);
+      });
+      box.appendChild(q);
+    });
+  }
+
+  function applyLang(){
+    document.body.classList.toggle("urdu", lang === "ur");
+    document.documentElement.lang = (lang === "ur") ? "ur" : "en";
+    var lb = $("langBtn");
+    lb.textContent = (lang === "en") ? "اردو" : "English";
+    lb.setAttribute("aria-pressed", lang === "ur" ? "true" : "false");
+    setText($("title"), t(T.title));
+    setText($("subtitle"), t(T.sub));
+    setText($("ctlHead"), t(T.ctl));
+    setText($("quizHead"), t(T.quiz));
+    $("nextBtn").textContent = t(T.next);
+    $("hintBtn").textContent = t(T.hint);
+    $("resetBtn").textContent = t(T.reset);
+    $("newQuiz").textContent = t(T.newQuiz);
+    if (lang === "ur"){
+      ["nextBtn","hintBtn","resetBtn","newQuiz"].forEach(function(id){
+        $(id).classList.add("ur"); $(id).setAttribute("dir","rtl");
+      });
+    } else {
+      ["nextBtn","hintBtn","resetBtn","newQuiz"].forEach(function(id){
+        $(id).classList.remove("ur"); $(id).setAttribute("dir","ltr");
+      });
+    }
+    document.querySelectorAll("footer [data-en]").forEach(function(el){
+      setText(el, el.getAttribute(lang === "en" ? "data-en" : "data-ur"));
+    });
+    setMode(mode);
+    renderQuiz();
+  }
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en";
+    applyLang();
+  });
+  $("tabMeet").addEventListener("click", function(){ setMode("meet"); });
+  $("tabLink").addEventListener("click", function(){ setMode("link"); });
+  $("tabTrain").addEventListener("click", function(){ setMode("train"); });
+  $("nextBtn").addEventListener("click", next);
+  $("hintBtn").addEventListener("click", showHint);
+  $("resetBtn").addEventListener("click", resetMode);
+  $("newQuiz").addEventListener("click", function(){ pickQuiz(); renderQuiz(); });
+
+  /* ---------- speak (cancel → delay) ---------- */
+  function cleanSpeakText(s){
+    return String(s || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  }
+  function buildSpeakText(){
+    var bits = [];
+    bits.push(t(T.title));
+    bits.push(cleanSpeakText(storyHtml().replace(/<b>/g,"").replace(/<\/b>/g,"")));
+    bits.push(cleanSpeakText(($("headline") && $("headline").textContent) || ""));
+    bits.push(cleanSpeakText(($("detail") && $("detail").textContent) || ""));
+    bits.push(t(T.tip));
+    return bits.filter(Boolean).join(". ");
+  }
+  function pickVoice(voices, want){
+    var i, v, L;
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf(want) === 0) return v;
+    }
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf("en") === 0) return v;
+    }
+    return voices[0] || null;
+  }
+  var speakTimer = null;
+  function setSpeaking(on){
+    var btn = $("speakBtn");
+    if (!btn) return;
+    btn.setAttribute("aria-pressed", on ? "true" : "false");
+    btn.style.opacity = on ? "0.65" : "";
+  }
+  function doSpeak(text, asLang){
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.92;
+    u.lang = (asLang === "ur") ? "ur-PK" : "en-US";
+    var voices = window.speechSynthesis.getVoices() || [];
+    var voice = pickVoice(voices, asLang === "ur" ? "ur" : "en");
+    if (voice) u.voice = voice;
+    u.onstart = function(){ setSpeaking(true); };
+    u.onend = function(){ setSpeaking(false); };
+    u.onerror = function(){
+      setSpeaking(false);
+      if (asLang === "ur"){
+        var fallback = cleanSpeakText(
+          T.title.en + ". " + T.storyMeet.en.replace(/<[^>]+>/g," ") + ". " + T.tip.en
+        );
+        var u2 = new SpeechSynthesisUtterance(fallback);
+        u2.lang = "en-US"; u2.rate = 0.92;
+        var v2 = pickVoice(window.speechSynthesis.getVoices() || [], "en");
+        if (v2) u2.voice = v2;
+        u2.onstart = function(){ setSpeaking(true); };
+        u2.onend = u2.onerror = function(){ setSpeaking(false); };
+        window.speechSynthesis.speak(u2);
+      }
+    };
+    window.speechSynthesis.speak(u);
+  }
+  if ("speechSynthesis" in window){
+    try { window.speechSynthesis.getVoices(); } catch (e0) {}
+    if (typeof window.speechSynthesis.addEventListener === "function"){
+      window.speechSynthesis.addEventListener("voiceschanged", function(){
+        try { window.speechSynthesis.getVoices(); } catch (e1) {}
+      });
+    }
+  } else {
+    var noBtn = $("speakBtn");
+    if (noBtn){
+      noBtn.disabled = true;
+      noBtn.title = "Voice not available on this device";
+    }
+  }
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      var text = buildSpeakText();
+      if (!text) return;
+      if (speakTimer){ clearTimeout(speakTimer); speakTimer = null; }
+      window.speechSynthesis.cancel();
+      setSpeaking(false);
+      var speakLang = lang;
+      speakTimer = setTimeout(function(){
+        speakTimer = null;
+        doSpeak(text, speakLang);
+      }, 80);
+    }catch(e){ setSpeaking(false); }
+  });
+
+  pickQuiz();
+  applyLang();
+})();
+</script>
+</body>
+</html>

@@ -57,7 +57,9 @@
             "explanation": "Neural networks healthcare jese field mein patients ki bimariyon ka pata lagane aur diagnosis mein madadgar hote hain."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g5-neural-network.html",
+      "interactive_label": "Khelo — Neural network / Dimaag jaisa computer"
     },
     {
       "title": "Prompt engineering",
