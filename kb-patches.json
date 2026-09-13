@@ -74,10 +74,10 @@
   },
   {
     "file": "kb/grade_5/ai.json",
-    "match_title": "NLP basics",
+    "match_title": "Prompt engineering",
     "add": {
-      "interactive_file": "interactives/g5-nlp-basics.html",
-      "interactive_label": "Khelo — NLP basics / AI language"
+      "interactive_file": "interactives/g5-prompt-engineering.html",
+      "interactive_label": "Khelo — Prompt engineering / Achi baat"
     }
   }
 ]

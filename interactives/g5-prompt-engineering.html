@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Prompt engineering — Achi baat / Best prompts | AI4Kids Class 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#ebe4f7;
+    --board-deep:#d9cef0;
+    --a:#5b4a8f;
+    --b:#c9702e;
+    --both:#7a5aa8;
+    --gold:#e8b23d;
+    --left:#c4453a;
+    --ok:#2e7d4f;
+    --ink:#1e2a36;
+    --ink-soft:#4a5a6b;
+    --paper:#faf8fc;
+    --line:#d4c8e8;
+    --accent:#5b4a8f;
+    --fire:#e85d4c;
+    --fs-cap:clamp(12px, 3.2vw, 13px);
+    --fs-xs:clamp(14px, 3.7vw, 15px);
+    --fs-sm:clamp(16px, 4.2vw, 17px);
+    --fs-md:clamp(17px, 4.6vw, 19px);
+    --fs-lg:clamp(20px, 5.4vw, 23px);
+    --fs-xl:clamp(27px, 7.4vw, 33px);
+    --lh:1.5;
+  }
+  body.urdu{
+    --fs-cap:clamp(13px, 3.5vw, 15px);
+    --fs-xs:clamp(15px, 4.1vw, 17px);
+    --fs-sm:clamp(17px, 4.7vw, 19px);
+    --fs-md:clamp(19px, 5.2vw, 21px);
+    --fs-lg:clamp(22px, 6vw, 25px);
+    --fs-xl:clamp(26px, 7vw, 31px);
+    --lh:2.1;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  .stars{display:flex;align-items:center;gap:6px;font-weight:800;font-size:var(--fs-xs);
+         background:#fff6e2;border:2px solid var(--gold);border-radius:999px;padding:7px 13px}
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+  .tabs{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
+  .tabs button{
+    flex:1 1 22%;min-width:72px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:10px 6px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:54px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .tabs button .badge{color:var(--gold)}
+  .story{
+    background:#f0eaf8;border:2px dashed var(--a);border-radius:16px;padding:13px 15px;
+    font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;margin-bottom:14px;
+  }
+  body.urdu .story{line-height:var(--lh)}
+  .story b{color:var(--ink)}
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:linear-gradient(180deg,var(--board) 0%,var(--board-deep) 100%);
+  }
+  .scene-pad{padding:16px;min-height:220px}
+  .readout{
+    margin-top:-18px;position:relative;z-index:2;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+  .statechip.ur{padding:2px 14px 7px}
+  .statechip.win{background:var(--ok)}
+  .statechip.miss{background:var(--left)}
+  .statechip.fire{background:var(--fire)}
+  .headline{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+  .headline.ur{line-height:1.95}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+  .hintbox{
+    margin-top:14px;border:2px solid var(--a);background:#f0eaf8;border-radius:14px;
+    padding:11px 14px;font-size:var(--fs-xs);color:var(--a);font-weight:700;line-height:1.55;
+    display:none;
+  }
+  .hintbox.show{display:block}
+  body.urdu .hintbox{line-height:var(--lh)}
+  .panel{margin-top:22px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .prog{margin:0 0 10px;font-size:var(--fs-xs);font-weight:700;color:var(--ink-soft)}
+  .btns{display:flex;gap:9px;margin-top:8px;flex-wrap:wrap}
+  .btns button{
+    border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);
+    font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:50px;
+    padding:8px 14px;flex:1;
+  }
+  .btns .go{background:var(--ink);color:var(--paper)}
+  .btns button:active{transform:scale(.97)}
+  .btns button:disabled{opacity:.4;cursor:default}
+  .prompt-card{
+    background:var(--paper);border:3px solid var(--ink);border-radius:16px;
+    padding:14px 16px;margin-bottom:10px;font-weight:700;font-size:var(--fs-sm);
+    line-height:1.45;cursor:pointer;text-align:left;width:100%;
+    font-family:inherit;color:var(--ink);
+  }
+  .prompt-card.ur{text-align:right;line-height:var(--lh);font-weight:400}
+  .prompt-card.weak{border-style:dashed;border-color:var(--left);background:#fdf0ee}
+  .prompt-card.strong{border-color:var(--ok);background:#e8f2ed}
+  .prompt-card.picked{border-color:var(--gold);box-shadow:0 0 0 3px rgba(232,178,61,.35)}
+  .prompt-card.wrong{border-color:var(--left);background:#fbeae8}
+  .prompt-card.right{border-color:var(--ok);background:#e8f2ed}
+  .prompt-card:disabled{cursor:default;opacity:.95}
+  .bubble-label{
+    display:inline-block;font-size:var(--fs-cap);font-weight:800;
+    background:var(--ink);color:#fff;border-radius:999px;padding:3px 10px;margin-bottom:8px;
+  }
+  .bubble-label.weak{background:var(--left)}
+  .bubble-label.strong{background:var(--ok)}
+  .goal-box{
+    background:#fff;border:2px dashed var(--a);border-radius:14px;
+    padding:12px 14px;margin-bottom:12px;font-weight:700;font-size:var(--fs-sm);
+  }
+  .built-prompt{
+    background:#fff;border:3px solid var(--ink);border-radius:16px;
+    padding:14px 16px;min-height:72px;font-weight:700;font-size:var(--fs-sm);
+    line-height:1.5;margin-bottom:10px;
+  }
+  .built-prompt.ur{font-weight:400;line-height:var(--lh)}
+  .chip-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+  .dchip{
+    border:2px solid var(--ink);background:var(--paper);border-radius:999px;
+    padding:8px 14px;font:inherit;font-weight:800;font-size:var(--fs-cap);
+    cursor:pointer;min-height:44px;
+  }
+  .dchip.on{background:var(--ok);color:#fff;border-color:var(--ok)}
+  .dchip:disabled{opacity:.45;cursor:default}
+  .vs-row{display:flex;flex-direction:column;gap:10px}
+  .emoji-big{font-size:42px;text-align:center;margin:4px 0 8px}
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .qhead{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+  .qhead h2{font-size:var(--fs-lg);font-weight:800;margin:0;flex:1}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:50px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+  .opt.wrong{border-color:var(--left);background:#fbeae8}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;
+      grid-template-columns:1fr 1fr;
+      grid-template-areas:
+        "bar   bar"
+        "head  head"
+        "tabs  tabs"
+        "story story"
+        "left  right"
+        "quiz  quiz"
+        "foot  foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+    .story{grid-area:story} .left{grid-area:left} .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+    .panel{margin-top:0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition-duration:.01ms !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 5</span>
+    <span class="stars" id="starBox">⭐ <span id="starCount">0</span></span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 id="title"></h1>
+  <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group">
+    <button type="button" id="tabVague" aria-pressed="true"></button>
+    <button type="button" id="tabDetail" aria-pressed="false"></button>
+    <button type="button" id="tabPick" aria-pressed="false"></button>
+  </div>
+
+  <p class="story" id="story"></p>
+
+  <div class="left">
+  <div class="scene">
+    <div class="scene-pad" id="scenePad"></div>
+  </div>
+  <div class="readout">
+    <span class="statechip" id="statechip"></span>
+    <p class="headline" id="headline"></p>
+    <p class="detail" id="detail"></p>
+    <p class="hintbox" id="hintbox"></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="panel">
+    <h2 id="ctlHead"></h2>
+    <p class="prog" id="prog"></p>
+    <div id="actionBox"></div>
+    <div class="btns">
+      <button type="button" class="go" id="nextBtn"></button>
+    </div>
+    <div class="btns">
+      <button type="button" id="hintBtn"></button>
+      <button type="button" id="resetBtn"></button>
+    </div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <div class="qhead">
+      <h2 id="quizHead"></h2>
+      <button type="button" class="chip" id="newQuiz"></button>
+    </div>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad bilingual AI school. Offline play · WhatsApp 0337 1468899"
+       data-ur="اے آئی فور کڈز — اسلام آباد۔ آف لائن کھیلو۔ واٹس ایپ 0337 1468899"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  function $(id){ return document.getElementById(id); }
+  function isolate(s){
+    return "\u2066" + s + "\u2069";
+  }
+  function setText(el, str){
+    if (!el) return;
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+  function t(o){ return (o && o[lang]) || (o && o.en) || ""; }
+
+  var lang = "en";
+  var mode = "vague";
+  var stars = 0;
+  var awarded = {};
+  var doneModes = {vague:false, detail:false, pick:false};
+
+  var T = {
+    title:{en:"Prompt engineering — Achi baat", ur:"پرامپٹ انجینئرنگ — اچھی بات"},
+    sub:{en:"AI se achi baat / best prompts — clear beats vague!", ur:"اے آئی سے اچھی بات / بہترین پرامپٹ — واضح جیتتا ہے!"},
+    tabVague:{en:"Vague vs clear", ur:"مبہم بمقابلہ واضح"},
+    tabDetail:{en:"Add details", ur:"تفصیل جوڑو"},
+    tabPick:{en:"Best prompt", ur:"بہترین پرامپٹ"},
+    storyVague:{en:"A <b>vague</b> prompt is fuzzy. A <b>clear</b> prompt names what you want. Tap the clearer one!",
+                ur:"<b>مبہم</b> پرامپٹ دھندلا ہوتا ہے۔ <b>واضح</b> پرامپٹ بتاتا ہے کیا چاہیے۔ واضح والا چنو!"},
+    storyDetail:{en:"Build a stronger prompt: tap chips for <b>who</b>, <b>what</b>, and <b>where</b>. More useful detail = better answer.",
+                 ur:"مضبوط پرامپٹ بناؤ: <b>کون</b>، <b>کیا</b>، <b>کہاں</b> کے چپس ٹیپ کرو۔ مفید تفصیل = بہتر جواب۔"},
+    storyPick:{en:"Read the goal. Pick the <b>strongest</b> prompt — specific, polite, and ready for AI.",
+               ur:"مقصد پڑھو۔ <b>سب سے مضبوط</b> پرامپٹ چنو — مخصوص، شائستہ، اے آئی کے لیے تیار۔"},
+    ctl:{en:"Your turn", ur:"تمہاری باری"},
+    next:{en:"Next", ur:"اگلا"},
+    hint:{en:"Hint", ur:"اشارہ"},
+    reset:{en:"Reset", ur:"ری سیٹ"},
+    quiz:{en:"Check yourself", ur:"اپنا امتحان"},
+    newQuiz:{en:"New quiz", ur:"نیا کوئز"},
+    pickClear:{en:"Which prompt is clearer?", ur:"کون سا پرامپٹ زیادہ واضح ہے؟"},
+    niceClear:{en:"Clear wins!", ur:"واضح جیت گیا!"},
+    oopsVague:{en:"That one is still fuzzy", ur:"وہ اب بھی دھندلا ہے"},
+    tipVague:{en:"Tip: say the topic + what you need (recipe, list, story…).",
+              ur:"نکتہ: موضوع + کیا چاہیے (ریسیپی، فہرست، کہانی…) بتاؤ۔"},
+    addChips:{en:"Tap chips to improve the prompt", ur:"پرامپٹ بہتر کرنے کے لیے چپس ٹیپ کرو"},
+    detailOk:{en:"Strong prompt ready!", ur:"مضبوط پرامپٹ تیار!"},
+    needThree:{en:"Add who + what + where", ur:"کون + کیا + کہاں جوڑو"},
+    tipDetail:{en:"Who (audience), what (task), where (place) help AI a lot.",
+               ur:"کون (سامعین)، کیا (کام)، کہاں (جگہ) اے آئی کی بہت مدد کرتے ہیں۔"},
+    pickBest:{en:"Pick the strongest prompt", ur:"سب سے مضبوط پرامپٹ چنو"},
+    pickOk:{en:"Best choice!", ur:"بہترین انتخاب!"},
+    pickMiss:{en:"Not the strongest — try again", ur:"سب سے مضبوط نہیں — دوبارہ"},
+    tipPick:{en:"Strong prompts are specific: topic, length, and who it is for.",
+             ur:"مضبوط پرامپٹ مخصوص ہوتے ہیں: موضوع، لمبائی، اور کس کے لیے۔"},
+    progVague:{en:"Rounds", ur:"دور"},
+    progDetail:{en:"Details", ur:"تفصیلات"},
+    progPick:{en:"Goals", ur:"مقاصد"},
+    who:{en:"Who", ur:"کون"},
+    what:{en:"What", ur:"کیا"},
+    where:{en:"Where", ur:"کہاں"},
+    base:{en:"Base prompt", ur:"بنیادی پرامپٹ"},
+    goal:{en:"Goal", ur:"مقصد"}
+  };
+
+  var VAGUE_ROUNDS = [
+    {
+      emoji:"🍛",
+      weak:{en:"Tell me about food.", ur:"کھانے کے بارے میں بتاؤ۔"},
+      clear:{en:"Give me a simple Karachi biryani recipe for 4 people.", ur:"۴ لوگوں کے لیے سادہ کراچی بریانی کی ریسپی دو۔"},
+      why:{en:"Names the dish, city style, and how many people.", ur:"ڈش، شہر کا انداز، اور کتنے لوگ — سب واضح۔"}
+    },
+    {
+      emoji:"📚",
+      weak:{en:"Help with homework.", ur:"ہوم ورک میں مدد کرو۔"},
+      clear:{en:"Explain Grade 5 fractions with 3 easy examples in Urdu.", ur:"جماعت ۵ کے کسر کو اردو میں ۳ آسان مثالوں سے سمجھاؤ۔"},
+      why:{en:"Subject + grade + how many examples + language.", ur:"مضمون + جماعت + مثالوں کی تعداد + زبان۔"}
+    },
+    {
+      emoji:"🏏",
+      weak:{en:"Cricket stuff.", ur:"کرکٹ والی بات۔"},
+      clear:{en:"List 5 warm-up tips before a school cricket match.", ur:"اسکول کرکٹ میچ سے پہلے ۵ وارم اپ ٹپس لکھو۔"},
+      why:{en:"Exact number + when + school context.", ur:"درست تعداد + کب + اسکول کا سیاق۔"}
+    },
+    {
+      emoji:"✍️",
+      weak:{en:"Write something.", ur:"کچھ لکھ دو۔"},
+      clear:{en:"Write a 6-line poem about monsoon rain for Class 5.", ur:"مون سون بارش پر جماعت ۵ کے لیے ۶ سطری نظم لکھو۔"},
+      why:{en:"Form, length, topic, and audience.", ur:"شکل، لمبائی، موضوع، اور سامعین۔"}
+    },
+    {
+      emoji:"🪐",
+      weak:{en:"Space?", ur:"خلا؟"},
+      clear:{en:"Name the 8 planets in order from the Sun, short list.", ur:"سورج سے قریب ترین ترتیب میں ۸ سیاروں کی مختصر فہرست۔"},
+      why:{en:"Clear task: name + order + short list.", ur:"واضح کام: نام + ترتیب + مختصر فہرست۔"}
+    }
+  ];
+
+  var DETAIL_ROUNDS = [
+    {
+      emoji:"🎂",
+      base:{en:"Write a story.", ur:"ایک کہانی لکھو۔"},
+      who:{en:"for my little sister (age 7)", ur:"میری چھوٹی بہن (۷ سال) کے لیے"},
+      what:{en:"a funny birthday story with a talking parrot", ur:"بولنے والے طوطے والی مضحکہ خیز سالگرہ کی کہانی"},
+      where:{en:"set in a Lahore bazaar", ur:"لاہور کے بازار میں"},
+      full:{en:"Write a funny birthday story with a talking parrot for my little sister (age 7), set in a Lahore bazaar.",
+            ur:"میری چھوٹی بہن (۷ سال) کے لیے لاہور کے بازار میں بولنے والے طوطے والی مضحکہ خیز سالگرہ کی کہانی لکھو۔"}
+    },
+    {
+      emoji:"🔬",
+      base:{en:"Explain science.", ur:"سائنس سمجھاؤ۔"},
+      who:{en:"for Class 5 students", ur:"جماعت ۵ کے طلبہ کے لیے"},
+      what:{en:"how magnets attract iron, with 2 examples", ur:"مقناطیس لوہے کو کیسے کھینچتا ہے، ۲ مثالوں کے ساتھ"},
+      where:{en:"using classroom objects (pins, fridge)", ur:"کلاس کی چیزوں سے (پن، فریج)"},
+      full:{en:"For Class 5 students, explain how magnets attract iron with 2 examples using classroom objects (pins, fridge).",
+            ur:"جماعت ۵ کے طلبہ کے لیے کلاس کی چیزوں (پن، فریج) سے سمجھاؤ کہ مقناطیس لوہے کو کیسے کھینچتا ہے — ۲ مثالیں۔"}
+    },
+    {
+      emoji:"🕌",
+      base:{en:"Plan a trip.", ur:"سفر کا منصوبہ۔"},
+      who:{en:"for a family with kids", ur:"بچوں والے خاندان کے لیے"},
+      what:{en:"a half-day visit plan with 3 stops", ur:"نصف دن کا دورہ — ۳ اسٹاپس"},
+      where:{en:"in Islamabad", ur:"اسلام آباد میں"},
+      full:{en:"Plan a half-day visit in Islamabad for a family with kids, with 3 stops.",
+            ur:"بچوں والے خاندان کے لیے اسلام آباد میں نصف دن کا دورہ منصوبہ بناؤ — ۳ اسٹاپس۔"}
+    }
+  ];
+
+  var PICK_ROUNDS = [
+    {
+      emoji:"🎨",
+      goal:{en:"Get drawing ideas for Art class.", ur:"آرٹ کلاس کے لیے ڈرائنگ آئیڈیاز۔"},
+      opts:[
+        {en:"Ideas.", ur:"آئیڈیاز۔", good:false},
+        {en:"Give 4 easy pencil-sketch ideas about Pakistan villages for Grade 5 Art.", ur:"جماعت ۵ آرٹ کے لیے پاکستان کے گاؤں پر ۴ آسان پنسل سکیچ آئیڈیاز دو۔", good:true},
+        {en:"Draw stuff now please okay??", ur:"ابھی کچھ بنا دو ٹھیک ہے؟؟", good:false}
+      ],
+      why:{en:"Counts ideas + topic + grade + medium.", ur:"تعداد + موضوع + جماعت + میڈیم۔"}
+    },
+    {
+      emoji:"🧮",
+      goal:{en:"Practice multiplication.", ur:"ضرب کی مشق۔"},
+      opts:[
+        {en:"Make 8 multiplication word problems about cricket scores for Class 5, with answers.", ur:"جماعت ۵ کے لیے کرکٹ سکور پر ۸ ضرب کے ورڈ پرابلمز بناؤ، جوابات سمیت۔", good:true},
+        {en:"Maths.", ur:"ریاضی۔", good:false},
+        {en:"Hard questions somehow.", ur:"کسی طرح مشکل سوال۔", good:false}
+      ],
+      why:{en:"Number of problems + theme + grade + answers.", ur:"سوالوں کی تعداد + تھیم + جماعت + جوابات۔"}
+    },
+    {
+      emoji:"🌱",
+      goal:{en:"Learn about plants.", ur:"پودوں کے بارے میں سیکھو۔"},
+      opts:[
+        {en:"Plants yes.", ur:"پودے ہاں۔", good:false},
+        {en:"Everything about all plants forever.", ur:"ہمیشہ کے لیے تمام پودوں کے بارے میں سب کچھ۔", good:false},
+        {en:"In simple English and Roman Urdu, explain photosynthesis in 5 short sentences for Class 5.", ur:"جماعت ۵ کے لیے سادہ انگریزی اور رومن اردو میں ۵ چھوٹے جملوں میں فوٹو سنتھیسس سمجھاؤ۔", good:true}
+      ],
+      why:{en:"Topic + length + languages + grade — not \"everything\".", ur:"موضوع + لمبائی + زبانیں + جماعت — \"سب کچھ\" نہیں۔"}
+    },
+    {
+      emoji:"🎭",
+      goal:{en:"Make a short school play.", ur:"چھوٹا اسکول ڈرامہ۔"},
+      opts:[
+        {en:"Write a 1-minute play for 3 Class 5 friends about sharing lunch, with stage directions.", ur:"دوپہر کا کھانا بانٹنے پر ۳ جماعت ۵ دوستوں کے لیے ۱ منٹ کا ڈرامہ لکھو، اسٹیج ہدایات سمیت۔", good:true},
+        {en:"Play.", ur:"ڈرامہ۔", good:false},
+        {en:"A very long movie script.", ur:"بہت لمبی فلم کی اسکرپٹ۔", good:false}
+      ],
+      why:{en:"Time, cast size, theme, and stage notes.", ur:"وقت، کرداروں کی تعداد، تھیم، اور اسٹیج نوٹس۔"}
+    }
+  ];
+
+  var QUIZ = [
+    {q:{en:"What is a \"prompt\" when we talk to AI?", ur:"اے آئی سے بات کرتے وقت \"پرامپٹ\" کیا ہے؟"},
+     opts:[{en:"A password", ur:"پاس ورڈ"},{en:"The question or instruction you give AI", ur:"وہ سوال یا ہدایت جو تم اے آئی کو دیتے ہو"},{en:"A computer virus", ur:"کمپیوٹر وائرس"},{en:"Only a picture", ur:"صرف تصویر"}], a:1},
+    {q:{en:"Which prompt is clearer?", ur:"کون سا پرامپٹ زیادہ واضح ہے؟"},
+     opts:[{en:"Food.", ur:"کھانا۔"},{en:"Give a simple aloo keema recipe for 2 people.", ur:"۲ لوگوں کے لیے سادہ آلو قیمہ کی ریسپی دو۔"},{en:"Something yummy maybe", ur:"شاید کچھ مزیدار"},{en:"Idk", ur:"پتہ نہیں"}], a:1},
+    {q:{en:"Why add who / what / where details?", ur:"کون / کیا / کہاں کی تفصیل کیوں جوڑیں؟"},
+     opts:[{en:"To confuse AI", ur:"اے آئی الجھانے کے لیے"},{en:"So AI knows audience, task, and place — better answers", ur:"تاکہ اے آئی سامعین، کام اور جگہ جانے — بہتر جواب"},{en:"Details are never useful", ur:"تفصیل کبھی مفید نہیں"},{en:"Only for games", ur:"صرف گیمز کے لیے"}], a:1},
+    {q:{en:"A strong prompt usually includes…", ur:"مضبوط پرامپٹ میں عام طور پر ہوتا ہے…"},
+     opts:[{en:"Only one vague word", ur:"صرف ایک مبہم لفظ"},{en:"Topic + what you need + helpful limits (length, grade)", ur:"موضوع + کیا چاہیے + مفید حدیں (لمبائی، جماعت)"},{en:"Secret passwords", ur:"خفیہ پاس ورڈز"},{en:"Angry shouting", ur:"غصے سے چیخنا"}], a:1},
+    {q:{en:"Prompt engineering means…", ur:"پرامپٹ انجینئرنگ کا مطلب…"},
+     opts:[{en:"Fixing broken wires", ur:"ٹوٹی تاریں ٹھیک کرنا"},{en:"Writing clear requests so AI can help well", ur:"واضح درخواستیں لکھنا تاکہ اے آئی اچھی مدد کرے"},{en:"Deleting the app", ur:"ایپ مٹانا"},{en:"Only drawing robots", ur:"صرف روبوٹ بنانا"}], a:1}
+  ];
+
+  var vague = {idx:0, answered:false, correct:0};
+  var detail = {idx:0, who:false, what:false, where:false, completed:{}};
+  var pick = {idx:0, answered:false, correct:0};
+  var quizSet = [];
+
+  function award(key, n){
+    if (awarded[key]) return;
+    awarded[key] = true;
+    stars += (n || 1);
+    $("starCount").textContent = String(stars);
+  }
+
+  function storyHtml(){
+    var s = mode === "vague" ? T.storyVague : mode === "detail" ? T.storyDetail : T.storyPick;
+    return t(s);
+  }
+
+  function shuffle(arr){
+    var a = arr.slice(), i, j, tmp;
+    for (i = a.length - 1; i > 0; i--){
+      j = Math.floor(Math.random() * (i + 1));
+      tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  /* ---------- VAGUE VS CLEAR ---------- */
+  function renderVague(){
+    var r = VAGUE_ROUNDS[vague.idx % VAGUE_ROUNDS.length];
+    var pad = $("scenePad");
+    pad.innerHTML = "";
+    var wrap = document.createElement("div");
+    wrap.className = "vs-row";
+    wrap.innerHTML = '<div class="emoji-big">' + r.emoji + '</div>';
+
+    var order = shuffle([
+      {kind:"weak", text:r.weak},
+      {kind:"clear", text:r.clear}
+    ]);
+
+    order.forEach(function(item){
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "prompt-card " + (item.kind === "weak" ? "weak" : "strong");
+      if (lang === "ur"){ btn.classList.add("ur"); btn.setAttribute("dir","rtl"); }
+      var lab = document.createElement("span");
+      lab.className = "bubble-label " + (item.kind === "weak" ? "weak" : "strong");
+      lab.textContent = item.kind === "weak"
+        ? (lang==="en" ? "Prompt A" : "پرامپٹ اے")
+        : (lang==="en" ? "Prompt B" : "پرامپٹ بی");
+      btn.appendChild(lab);
+      var p = document.createElement("div");
+      p.textContent = (lang === "ur") ? isolate(t(item.text)) : t(item.text);
+      btn.appendChild(p);
+      btn.disabled = vague.answered;
+      btn.addEventListener("click", function(){ chooseVague(item.kind, btn); });
+      wrap.appendChild(btn);
+    });
+    pad.appendChild(wrap);
+
+    setText($("statechip"), vague.answered ? t(T.niceClear) : t(T.pickClear));
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (vague.answered ? " win" : "");
+    setText($("headline"), t(T.pickClear));
+    setText($("detail"), vague.answered ? t(r.why) : t(T.tipVague));
+    $("hintbox").classList.remove("show");
+    $("actionBox").innerHTML = "";
+    updateProg();
+  }
+
+  function chooseVague(kind, btn){
+    if (vague.answered) return;
+    vague.answered = true;
+    var cards = $("scenePad").querySelectorAll(".prompt-card");
+    cards.forEach(function(c){ c.disabled = true; });
+    if (kind === "clear"){
+      btn.classList.add("right");
+      vague.correct += 1;
+      award("vague-" + vague.idx, 1);
+      doneModes.vague = true;
+      setText($("statechip"), t(T.niceClear));
+      $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+      setText($("detail"), t(VAGUE_ROUNDS[vague.idx % VAGUE_ROUNDS.length].why));
+    } else {
+      btn.classList.add("wrong");
+      cards.forEach(function(c){
+        if (c.classList.contains("strong")) c.classList.add("right");
+      });
+      setText($("statechip"), t(T.oopsVague));
+      $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+      setText($("detail"), t(VAGUE_ROUNDS[vague.idx % VAGUE_ROUNDS.length].why));
+    }
+    tabBadges();
+    updateProg();
+  }
+
+  /* ---------- ADD DETAILS ---------- */
+  function renderDetail(){
+    var r = DETAIL_ROUNDS[detail.idx % DETAIL_ROUNDS.length];
+    var pad = $("scenePad");
+    pad.innerHTML = "";
+    var box = document.createElement("div");
+    box.innerHTML = '<div class="emoji-big">' + r.emoji + '</div>';
+    var baseLab = document.createElement("span");
+    baseLab.className = "bubble-label";
+    baseLab.textContent = t(T.base);
+    box.appendChild(baseLab);
+
+    var built = document.createElement("div");
+    built.className = "built-prompt" + (lang==="ur"?" ur":"");
+    built.setAttribute("dir", lang==="ur"?"rtl":"ltr");
+    built.id = "builtPrompt";
+    box.appendChild(built);
+
+    var row = document.createElement("div");
+    row.className = "chip-row";
+    [["who", T.who, r.who],["what", T.what, r.what],["where", T.where, r.where]].forEach(function(pair){
+      var key = pair[0], lab = pair[1], val = pair[2];
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "dchip" + (detail[key] ? " on" : "");
+      b.textContent = t(lab) + ": " + t(val);
+      if (lang === "ur"){ b.classList.add("ur"); b.setAttribute("dir","rtl"); }
+      b.addEventListener("click", function(){ toggleDetail(key); });
+      row.appendChild(b);
+    });
+    box.appendChild(row);
+    pad.appendChild(box);
+
+    refreshBuilt();
+    var n = (detail.who?1:0) + (detail.what?1:0) + (detail.where?1:0);
+    var done = n >= 3;
+    setText($("statechip"), done ? t(T.detailOk) : t(T.needThree));
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (done ? " win" : "");
+    setText($("headline"), t(T.addChips));
+    setText($("detail"), done ? t(r.full) : t(T.tipDetail));
+    $("hintbox").classList.remove("show");
+    $("actionBox").innerHTML = "";
+    if (done){
+      doneModes.detail = true;
+      award("detail-" + detail.idx, 2);
+      detail.completed[detail.idx] = true;
+    }
+    updateProg();
+    tabBadges();
+  }
+
+  function refreshBuilt(){
+    var r = DETAIL_ROUNDS[detail.idx % DETAIL_ROUNDS.length];
+    var el = $("builtPrompt");
+    if (!el) return;
+    var n = (detail.who?1:0) + (detail.what?1:0) + (detail.where?1:0);
+    if (n >= 3){
+      setText(el, t(r.full));
+      el.classList.add("strong");
+      el.style.borderColor = "var(--ok)";
+      el.style.background = "#e8f2ed";
+    } else {
+      var parts = [t(r.base)];
+      if (detail.who) parts.push(t(r.who));
+      if (detail.what) parts.push(t(r.what));
+      if (detail.where) parts.push(t(r.where));
+      setText(el, parts.join(" "));
+      el.style.borderColor = "";
+      el.style.background = "";
+    }
+  }
+
+  function toggleDetail(key){
+    detail[key] = !detail[key];
+    renderDetail();
+  }
+
+  /* ---------- BEST PROMPT PICK ---------- */
+  function renderPick(){
+    var r = PICK_ROUNDS[pick.idx % PICK_ROUNDS.length];
+    var pad = $("scenePad");
+    pad.innerHTML = "";
+    var wrap = document.createElement("div");
+    wrap.className = "vs-row";
+    wrap.innerHTML = '<div class="emoji-big">' + r.emoji + '</div>';
+
+    var goal = document.createElement("div");
+    goal.className = "goal-box" + (lang==="ur"?" ur":"");
+    goal.setAttribute("dir", lang==="ur"?"rtl":"ltr");
+    var gl = document.createElement("span");
+    gl.className = "bubble-label";
+    gl.textContent = t(T.goal);
+    goal.appendChild(gl);
+    var gp = document.createElement("div");
+    gp.style.marginTop = "6px";
+    gp.textContent = (lang==="ur") ? isolate(t(r.goal)) : t(r.goal);
+    goal.appendChild(gp);
+    wrap.appendChild(goal);
+
+    var opts = r.opts.slice();
+    // keep stable visual order but shuffle once per idx via seeded-ish shuffle copy
+    if (!r._order){
+      r._order = shuffle([0,1,2]);
+    }
+    r._order.forEach(function(oi){
+      var item = opts[oi];
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "prompt-card";
+      if (lang === "ur"){ btn.classList.add("ur"); btn.setAttribute("dir","rtl"); }
+      btn.textContent = (lang==="ur") ? isolate(t(item)) : t(item);
+      btn.disabled = pick.answered;
+      btn.addEventListener("click", function(){ choosePick(oi, item.good, btn); });
+      wrap.appendChild(btn);
+    });
+    pad.appendChild(wrap);
+
+    setText($("statechip"), pick.answered ? t(T.pickOk) : t(T.pickBest));
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (pick.answered && pick._lastOk ? " win" : (pick.answered ? " miss" : ""));
+    setText($("headline"), t(T.pickBest));
+    setText($("detail"), pick.answered ? t(r.why) : t(T.tipPick));
+    $("hintbox").classList.remove("show");
+    $("actionBox").innerHTML = "";
+    updateProg();
+  }
+
+  function choosePick(oi, good, btn){
+    if (pick.answered) return;
+    pick.answered = true;
+    pick._lastOk = !!good;
+    var cards = $("scenePad").querySelectorAll(".prompt-card");
+    var r = PICK_ROUNDS[pick.idx % PICK_ROUNDS.length];
+    cards.forEach(function(c){ c.disabled = true; });
+    if (good){
+      btn.classList.add("right");
+      pick.correct += 1;
+      award("pick-" + pick.idx, 1);
+      doneModes.pick = true;
+      setText($("statechip"), t(T.pickOk));
+      $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+    } else {
+      btn.classList.add("wrong");
+      // highlight correct
+      r._order.forEach(function(idx, pos){
+        if (r.opts[idx].good) cards[pos].classList.add("right");
+      });
+      setText($("statechip"), t(T.pickMiss));
+      $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+    }
+    setText($("detail"), t(r.why));
+    tabBadges();
+    updateProg();
+  }
+
+  /* ---------- shared UI ---------- */
+  function updateProg(){
+    var el = $("prog");
+    if (mode === "vague"){
+      setText(el, t(T.progVague) + ": " + vague.correct + "/" + VAGUE_ROUNDS.length +
+        " · #" + ((vague.idx % VAGUE_ROUNDS.length)+1));
+    } else if (mode === "detail"){
+      var n = (detail.who?1:0)+(detail.what?1:0)+(detail.where?1:0);
+      setText(el, t(T.progDetail) + ": " + n + "/3 · #" + ((detail.idx % DETAIL_ROUNDS.length)+1));
+    } else {
+      setText(el, t(T.progPick) + ": " + pick.correct + "/" + PICK_ROUNDS.length +
+        " · #" + ((pick.idx % PICK_ROUNDS.length)+1));
+    }
+  }
+
+  function tabBadges(){
+    function label(btn, base, key){
+      var s = t(base);
+      if (doneModes[key]) s += " ★";
+      btn.innerHTML = "";
+      var span = document.createElement("span");
+      span.textContent = s;
+      if (lang === "ur"){ span.className = "ur"; span.setAttribute("dir","rtl"); }
+      btn.appendChild(span);
+    }
+    label($("tabVague"), T.tabVague, "vague");
+    label($("tabDetail"), T.tabDetail, "detail");
+    label($("tabPick"), T.tabPick, "pick");
+  }
+
+  function setMode(m){
+    mode = m;
+    $("tabVague").setAttribute("aria-pressed", m === "vague" ? "true" : "false");
+    $("tabDetail").setAttribute("aria-pressed", m === "detail" ? "true" : "false");
+    $("tabPick").setAttribute("aria-pressed", m === "pick" ? "true" : "false");
+    var story = $("story");
+    story.innerHTML = storyHtml();
+    story.classList.toggle("ur", lang === "ur");
+    story.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+    $("nextBtn").textContent = t(T.next);
+    if (m === "vague") renderVague();
+    else if (m === "detail") renderDetail();
+    else renderPick();
+    tabBadges();
+  }
+
+  function next(){
+    if (mode === "vague"){
+      vague.idx = (vague.idx + 1) % VAGUE_ROUNDS.length;
+      vague.answered = false;
+      renderVague();
+    } else if (mode === "detail"){
+      detail.idx = (detail.idx + 1) % DETAIL_ROUNDS.length;
+      detail.who = false; detail.what = false; detail.where = false;
+      renderDetail();
+    } else {
+      pick.idx = (pick.idx + 1) % PICK_ROUNDS.length;
+      pick.answered = false;
+      pick._lastOk = false;
+      var r = PICK_ROUNDS[pick.idx % PICK_ROUNDS.length];
+      r._order = null;
+      renderPick();
+    }
+  }
+
+  function resetMode(){
+    if (mode === "vague"){
+      vague = {idx:0, answered:false, correct:0};
+      VAGUE_ROUNDS.forEach(function(){});
+      renderVague();
+    } else if (mode === "detail"){
+      detail = {idx:0, who:false, what:false, where:false, completed:{}};
+      renderDetail();
+    } else {
+      pick = {idx:0, answered:false, correct:0};
+      PICK_ROUNDS.forEach(function(r){ r._order = null; });
+      renderPick();
+    }
+    tabBadges();
+  }
+
+  function showHint(){
+    var hb = $("hintbox");
+    var msg;
+    if (mode === "vague"){
+      msg = lang === "en"
+        ? "Look for numbers, places, and exact tasks (recipe, list, poem)."
+        : "تعداد، جگہ، اور عین کام دیکھو (ریسیپی، فہرست، نظم)۔";
+    } else if (mode === "detail"){
+      msg = lang === "en"
+        ? "Turn on all three chips: Who, What, and Where — then read the full prompt."
+        : "تینوں چپس آن کرو: کون، کیا، کہاں — پھر پورا پرامپٹ پڑھو۔";
+    } else {
+      msg = lang === "en"
+        ? "The best option names the goal clearly and adds useful limits."
+        : "بہترین اختیار مقصد واضح نام دیتا ہے اور مفید حدیں جوڑتا ہے۔";
+    }
+    setText(hb, msg);
+    hb.classList.add("show");
+  }
+
+  /* ---------- quiz ---------- */
+  function pickQuiz(){
+    quizSet = shuffle(QUIZ).slice(0, 5);
+  }
+
+  function renderQuiz(){
+    var box = $("quizBox");
+    box.innerHTML = "";
+    quizSet.forEach(function(item, qi){
+      var q = document.createElement("div");
+      q.className = "q";
+      var p = document.createElement("p");
+      setText(p, (qi+1) + ". " + t(item.q));
+      q.appendChild(p);
+      item.opts.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt" + (lang === "ur" ? " ur" : "");
+        b.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+        b.textContent = (lang === "ur") ? isolate(t(opt)) : t(opt);
+        b.addEventListener("click", function(){
+          if (b.parentNode.querySelector(".opt.right, .opt.wrong")) return;
+          var ok = (oi === item.a);
+          b.classList.add(ok ? "right" : "wrong");
+          if (!ok){
+            var correct = b.parentNode.querySelectorAll(".opt")[item.a];
+            if (correct) correct.classList.add("right");
+          } else {
+            award("quiz-" + qi, 1);
+          }
+          var fb = document.createElement("p");
+          fb.className = "fb show";
+          setText(fb, ok
+            ? (lang==="en"?"Shabash!":"شاباش!")
+            : (lang==="en"?"Look at the green answer.":"سبز جواب دیکھو۔"));
+          q.appendChild(fb);
+        });
+        q.appendChild(b);
+      });
+      box.appendChild(q);
+    });
+  }
+
+  function applyLang(){
+    document.body.classList.toggle("urdu", lang === "ur");
+    document.documentElement.lang = (lang === "ur") ? "ur" : "en";
+    var lb = $("langBtn");
+    lb.textContent = (lang === "en") ? "اردو" : "English";
+    lb.setAttribute("aria-pressed", lang === "ur" ? "true" : "false");
+    setText($("title"), t(T.title));
+    setText($("subtitle"), t(T.sub));
+    setText($("ctlHead"), t(T.ctl));
+    setText($("quizHead"), t(T.quiz));
+    $("nextBtn").textContent = t(T.next);
+    $("hintBtn").textContent = t(T.hint);
+    $("resetBtn").textContent = t(T.reset);
+    $("newQuiz").textContent = t(T.newQuiz);
+    if (lang === "ur"){
+      ["nextBtn","hintBtn","resetBtn","newQuiz"].forEach(function(id){
+        $(id).classList.add("ur"); $(id).setAttribute("dir","rtl");
+      });
+    } else {
+      ["nextBtn","hintBtn","resetBtn","newQuiz"].forEach(function(id){
+        $(id).classList.remove("ur"); $(id).setAttribute("dir","ltr");
+      });
+    }
+    document.querySelectorAll("footer [data-en]").forEach(function(el){
+      setText(el, el.getAttribute(lang === "en" ? "data-en" : "data-ur"));
+    });
+    setMode(mode);
+    renderQuiz();
+  }
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en";
+    applyLang();
+  });
+  $("tabVague").addEventListener("click", function(){ setMode("vague"); });
+  $("tabDetail").addEventListener("click", function(){ setMode("detail"); });
+  $("tabPick").addEventListener("click", function(){ setMode("pick"); });
+  $("nextBtn").addEventListener("click", next);
+  $("hintBtn").addEventListener("click", showHint);
+  $("resetBtn").addEventListener("click", resetMode);
+  $("newQuiz").addEventListener("click", function(){ pickQuiz(); renderQuiz(); });
+
+  /* ---------- speak (cancel → delay) ---------- */
+  function cleanSpeakText(s){
+    return String(s || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  }
+  function buildSpeakText(){
+    var bits = [];
+    bits.push(t(T.title));
+    bits.push(cleanSpeakText(storyHtml().replace(/<b>/g,"").replace(/<\/b>/g,"")));
+    bits.push(cleanSpeakText(($("headline") && $("headline").textContent) || ""));
+    bits.push(cleanSpeakText(($("detail") && $("detail").textContent) || ""));
+    bits.push(t(T.tipVague));
+    return bits.filter(Boolean).join(". ");
+  }
+  function pickVoice(voices, want){
+    var i, v, L;
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf(want) === 0) return v;
+    }
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf("en") === 0) return v;
+    }
+    return voices[0] || null;
+  }
+  var speakTimer = null;
+  function setSpeaking(on){
+    var btn = $("speakBtn");
+    if (!btn) return;
+    btn.setAttribute("aria-pressed", on ? "true" : "false");
+    btn.style.opacity = on ? "0.65" : "";
+  }
+  function doSpeak(text, asLang){
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.92;
+    u.lang = (asLang === "ur") ? "ur-PK" : "en-US";
+    var voices = window.speechSynthesis.getVoices() || [];
+    var voice = pickVoice(voices, asLang === "ur" ? "ur" : "en");
+    if (voice) u.voice = voice;
+    u.onstart = function(){ setSpeaking(true); };
+    u.onend = function(){ setSpeaking(false); };
+    u.onerror = function(){
+      setSpeaking(false);
+      if (asLang === "ur"){
+        var fallback = cleanSpeakText(
+          T.title.en + ". " + T.storyVague.en.replace(/<[^>]+>/g," ") + ". " + T.tipVague.en
+        );
+        var u2 = new SpeechSynthesisUtterance(fallback);
+        u2.lang = "en-US"; u2.rate = 0.92;
+        var v2 = pickVoice(window.speechSynthesis.getVoices() || [], "en");
+        if (v2) u2.voice = v2;
+        u2.onstart = function(){ setSpeaking(true); };
+        u2.onend = u2.onerror = function(){ setSpeaking(false); };
+        window.speechSynthesis.speak(u2);
+      }
+    };
+    window.speechSynthesis.speak(u);
+  }
+  if ("speechSynthesis" in window){
+    try { window.speechSynthesis.getVoices(); } catch (e0) {}
+    if (typeof window.speechSynthesis.addEventListener === "function"){
+      window.speechSynthesis.addEventListener("voiceschanged", function(){
+        try { window.speechSynthesis.getVoices(); } catch (e1) {}
+      });
+    }
+  } else {
+    var noBtn = $("speakBtn");
+    if (noBtn){
+      noBtn.disabled = true;
+      noBtn.title = "Voice not available on this device";
+    }
+  }
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      var text = buildSpeakText();
+      if (!text) return;
+      if (speakTimer){ clearTimeout(speakTimer); speakTimer = null; }
+      window.speechSynthesis.cancel();
+      setSpeaking(false);
+      var speakLang = lang;
+      speakTimer = setTimeout(function(){
+        speakTimer = null;
+        doSpeak(text, speakLang);
+      }, 80);
+    }catch(e){ setSpeaking(false); }
+  });
+
+  pickQuiz();
+  applyLang();
+})();
+</script>
+</body>
+</html>

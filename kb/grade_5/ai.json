@@ -114,7 +114,9 @@
             "explanation": "Topic aur iski zaroorat batane se AI ko behtar jawab dene ka mauqa milta hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g5-prompt-engineering.html",
+      "interactive_label": "Khelo — Prompt engineering / Achi baat"
     },
     {
       "title": "Computer vision",
@@ -226,9 +228,7 @@
             "explanation": "YouTube NLP ka example nahi hai, lekin Google Translate, Siri aur Spam detection NLP ke examples hain."
           }
         ]
-      },
-      "interactive_file": "interactives/g5-nlp-basics.html",
-      "interactive_label": "Khelo — NLP basics / AI language"
+      }
     },
     {
       "title": "AI ethics",
