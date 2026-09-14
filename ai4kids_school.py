@@ -1090,6 +1090,7 @@ def render_topic_interactive(subject_key, grade, topic_title):
             (5, "ai", "Computer vision"): "interactives/g5-computer-vision.html",
             (5, "ai", "Binary lab — jama/tafreeq"): "interactives/g5-binary-lab.html",
             (5, "english", "Comprehension skills"): "interactives/g5-comprehension-skills.html",
+            (5, "english", "Active/Passive voice"): "interactives/g5-active-passive-voice.html",
         }
         rel = FALLBACK.get((int(grade), subject_key, topic_title))
     if not rel:

@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Active/Passive voice — AI4Kids Class 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#f5efe3;
+    --board-deep:#e8dcc8;
+    --sky:#b8d4f0;
+    --sky2:#7eb0e0;
+    --a:#2f6fb5;
+    --b:#c9702e;
+    --both:#7a5aa8;
+    --gold:#e8b23d;
+    --left:#c4453a;
+    --ok:#2e7d4f;
+    --ink:#2a2419;
+    --ink-soft:#574e3e;
+    --paper:#fdfaf3;
+    --line:#ded5c4;
+    --accent:#5b4a8f;
+    --doer:#1a6b4a;
+    --recv:#8b3a1a;
+    --fs-cap:clamp(12px, 3.2vw, 13px);
+    --fs-xs:clamp(14px, 3.7vw, 15px);
+    --fs-sm:clamp(16px, 4.2vw, 17px);
+    --fs-md:clamp(17px, 4.6vw, 19px);
+    --fs-lg:clamp(20px, 5.4vw, 23px);
+    --fs-xl:clamp(27px, 7.4vw, 33px);
+    --lh:1.5;
+  }
+  body.urdu{
+    --fs-cap:clamp(13px, 3.5vw, 15px);
+    --fs-xs:clamp(15px, 4.1vw, 17px);
+    --fs-sm:clamp(17px, 4.7vw, 19px);
+    --fs-md:clamp(19px, 5.2vw, 21px);
+    --fs-lg:clamp(22px, 6vw, 25px);
+    --fs-xl:clamp(26px, 7vw, 31px);
+    --lh:2.1;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  .stars{display:flex;align-items:center;gap:6px;font-weight:800;font-size:var(--fs-xs);
+         background:#fff6e2;border:2px solid var(--gold);border-radius:999px;padding:7px 13px}
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+  .tabs{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
+  .tabs button{
+    flex:1 1 22%;min-width:72px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:10px 4px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:54px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .tabs button .badge{color:var(--gold)}
+  .story{
+    background:#fff8ea;border:2px dashed var(--gold);border-radius:16px;padding:13px 15px;
+    font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;margin-bottom:14px;
+  }
+  body.urdu .story{line-height:var(--lh)}
+  .story b{color:var(--ink)}
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:linear-gradient(180deg,var(--board) 0%,var(--board-deep) 100%);
+  }
+  .scene-pad{padding:14px 14px 22px;min-height:260px}
+  .readout{
+    margin-top:-18px;position:relative;z-index:2;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+  .statechip.ur{padding:2px 14px 7px}
+  .statechip.win{background:var(--ok)}
+  .statechip.miss{background:var(--left)}
+  .headline{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+  .headline.ur{line-height:1.95}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+  .hintbox{
+    margin-top:14px;border:2px solid var(--a);background:#eaf1f9;border-radius:14px;
+    padding:11px 14px;font-size:var(--fs-xs);color:var(--a);font-weight:700;line-height:1.55;
+    display:none;
+  }
+  .hintbox.show{display:block}
+  body.urdu .hintbox{line-height:var(--lh)}
+  .panel{margin-top:22px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .prog{margin:0 0 10px;font-size:var(--fs-xs);font-weight:700;color:var(--ink-soft)}
+  .btns{display:flex;gap:9px;margin-top:8px;flex-wrap:wrap}
+  .btns button{
+    border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);
+    font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:50px;
+    padding:8px 14px;flex:1;
+  }
+  .btns .go{background:var(--ink);color:var(--paper)}
+  .btns button:active{transform:scale(.97)}
+  .btns button:disabled{opacity:.4;cursor:default}
+  .choice{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:50px;font-weight:700;
+  }
+  .choice.ur{text-align:right;line-height:var(--lh)}
+  .choice:hover{border-color:var(--ink)}
+  .choice.right{border-color:var(--ok);background:#e8f2ed}
+  .choice.wrong{border-color:var(--left);background:#fbeae8}
+  .choice .cem{font-size:22px;margin-right:8px}
+  body.urdu .choice .cem{margin-right:0;margin-left:8px}
+
+  .comic{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+  .comic.trio{grid-template-columns:1fr auto 1fr}
+  .panel-card{
+    background:var(--paper);border:2.5px solid var(--ink);border-radius:16px;
+    padding:10px 8px 12px;text-align:center;position:relative;min-height:130px;
+    overflow:hidden;
+  }
+  .panel-card.doer{border-color:var(--doer);box-shadow:inset 0 0 0 3px rgba(46,125,79,.15)}
+  .panel-card.recv{border-color:var(--recv);box-shadow:inset 0 0 0 3px rgba(196,69,58,.12)}
+  .panel-card.wide{grid-column:1 / -1}
+  .panel-card.tap{
+    cursor:pointer;transition:transform .15s,box-shadow .15s;
+  }
+  .panel-card.tap:hover{transform:translateY(-2px)}
+  .panel-card.tap.picked-ok{border-color:var(--ok);background:#e8f2ed}
+  .panel-card.tap.picked-no{border-color:var(--left);background:#fbeae8}
+  .panel-sky{
+    position:absolute;inset:0 0 45% 0;
+    background:linear-gradient(180deg,var(--sky) 0%,var(--sky2) 100%);
+    opacity:.55;pointer-events:none;
+  }
+  .panel-hills{
+    position:absolute;left:0;right:0;bottom:38%;height:28px;
+    background:radial-gradient(ellipse at 30% 100%,#4a7a4a 0%,transparent 55%),
+               radial-gradient(ellipse at 70% 100%,#3d6b3d 0%,transparent 50%);
+    opacity:.7;pointer-events:none;
+  }
+  .panel-ground{
+    position:absolute;left:0;right:0;bottom:0;height:40%;
+    background:linear-gradient(180deg,#c8b896 0%,#b09a70 100%);
+    opacity:.35;pointer-events:none;
+  }
+  .panel-em{font-size:42px;line-height:1.15;position:relative;z-index:1;margin:18px 0 4px;user-select:none}
+  .panel-em.lg{font-size:52px}
+  .panel-cap{
+    position:relative;z-index:1;font-size:var(--fs-cap);font-weight:800;margin:0;color:var(--ink);
+  }
+  .panel-tag{
+    position:absolute;top:6px;left:6px;z-index:2;
+    background:var(--ink);color:var(--paper);font-size:10px;font-weight:800;
+    border-radius:999px;padding:3px 8px;letter-spacing:.02em;
+  }
+  body.urdu .panel-tag{left:auto;right:6px}
+  .panel-tag.doer-tag{background:var(--doer)}
+  .panel-tag.recv-tag{background:var(--recv)}
+  .arrow-mid{
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    font-size:28px;font-weight:800;color:var(--b);gap:2px;min-width:36px;
+  }
+  .arrow-mid .alab{font-size:10px;font-weight:800;color:var(--ink-soft);letter-spacing:.04em}
+  .mid-banner{
+    background:linear-gradient(90deg,#fff6e2,#ffe8b8);border:2px dashed var(--b);
+    border-radius:12px;padding:8px 12px;text-align:center;font-weight:800;
+    font-size:var(--fs-xs);margin:8px 0;color:var(--b);
+  }
+  .sent-box{
+    background:var(--paper);border:3px solid var(--ink);border-radius:16px;
+    padding:12px 14px;margin:8px 0;font-weight:800;font-size:var(--fs-md);text-align:center;
+  }
+  body.urdu .sent-box{line-height:var(--lh);font-weight:400}
+  .flip-row{
+    display:grid;grid-template-columns:1fr auto 1fr;gap:6px;align-items:stretch;margin-bottom:8px;
+  }
+  .flip-arrow{
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    font-size:26px;font-weight:800;color:var(--accent);
+  }
+  .voice-pill{
+    display:inline-block;font-size:10px;font-weight:800;border-radius:999px;
+    padding:3px 8px;margin-bottom:4px;letter-spacing:.03em;
+  }
+  .voice-pill.act{background:#d4edda;color:var(--doer)}
+  .voice-pill.pas{background:#fde8d8;color:var(--recv)}
+  .legend{
+    display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:6px 0 10px;
+  }
+  .leg{
+    font-size:var(--fs-cap);font-weight:800;padding:4px 10px;border-radius:999px;
+    border:2px solid var(--line);
+  }
+  .leg.doer{border-color:var(--doer);color:var(--doer);background:#e8f5ee}
+  .leg.recv{border-color:var(--recv);color:var(--recv);background:#fdf0ea}
+  .build-slots{
+    display:flex;gap:6px;flex-wrap:wrap;justify-content:center;align-items:center;
+    margin:10px 0;min-height:56px;
+  }
+  .slot{
+    min-width:72px;min-height:48px;border:2.5px dashed var(--ink);border-radius:12px;
+    background:#fff;display:flex;align-items:center;justify-content:center;
+    font-weight:800;font-size:var(--fs-xs);padding:6px 10px;color:var(--ink-soft);
+  }
+  .slot.filled{border-style:solid;background:#f1eef8;color:var(--accent);border-color:var(--accent)}
+  .slot-plus{font-weight:800;color:var(--b);font-size:20px}
+  .chip-row{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:8px}
+  .pick-chip{
+    border:2px solid var(--ink);border-radius:999px;background:var(--paper);color:var(--ink);
+    font:inherit;font-weight:800;font-size:var(--fs-xs);padding:10px 14px;cursor:pointer;
+    min-height:44px;
+  }
+  .pick-chip.used{opacity:.35;pointer-events:none}
+  .pick-chip.sel{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .build-check{
+    margin-top:10px;width:100%;border:2px solid var(--ink);border-radius:14px;
+    background:var(--ink);color:var(--paper);font:inherit;font-weight:800;
+    font-size:var(--fs-sm);padding:12px;cursor:pointer;min-height:50px;
+  }
+  .build-check:disabled{opacity:.4;cursor:default}
+  .dots{display:flex;gap:6px;justify-content:center;margin:10px 0 0}
+  .dots i{width:9px;height:9px;border-radius:50%;background:var(--line);display:block}
+  .dots i.on{background:var(--ink)}
+  .dots i.ok{background:var(--ok)}
+  .dots i.no{background:var(--left)}
+  .hit{animation:pop .45s ease-out}
+  @keyframes pop{0%{transform:scale(.6);opacity:0}60%{transform:scale(1.15)}100%{transform:scale(1)}}
+  .flow-svg{width:100%;height:36px;margin:4px 0}
+  .formula{
+    background:#f1eef8;border:2px solid var(--accent);border-radius:14px;
+    padding:10px 12px;margin:8px 0;font-size:var(--fs-xs);font-weight:700;color:var(--accent);
+    text-align:center;
+  }
+
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .qhead{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+  .qhead h2{font-size:var(--fs-lg);font-weight:800;margin:0;flex:1}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:50px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+  .opt.wrong{border-color:var(--left);background:#fbeae8}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;
+      grid-template-columns:1fr 1fr;
+      grid-template-areas:
+        "bar   bar"
+        "head  head"
+        "tabs  tabs"
+        "story story"
+        "left  right"
+        "quiz  quiz"
+        "foot  foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+    .story{grid-area:story} .left{grid-area:left} .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+    .panel{margin-top:0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition-duration:.01ms !important;animation:none !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 5</span>
+    <span class="stars" id="starBox">⭐ <span id="starCount">0</span></span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 id="title"></h1>
+  <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group">
+    <button type="button" id="tabSpot" aria-pressed="true"></button>
+    <button type="button" id="tabFlip" aria-pressed="false"></button>
+    <button type="button" id="tabBuild" aria-pressed="false"></button>
+  </div>
+
+  <p class="story" id="story"></p>
+
+  <div class="left">
+  <div class="scene">
+    <div class="scene-pad" id="scenePad"></div>
+  </div>
+  <div class="readout">
+    <span class="statechip" id="statechip"></span>
+    <p class="headline" id="headline"></p>
+    <p class="detail" id="detail"></p>
+    <p class="hintbox" id="hintbox"></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="panel">
+    <h2 id="ctlHead"></h2>
+    <p class="prog" id="prog"></p>
+    <div id="actionBox"></div>
+    <div class="btns">
+      <button type="button" class="go" id="nextBtn"></button>
+    </div>
+    <div class="btns">
+      <button type="button" id="hintBtn"></button>
+      <button type="button" id="resetBtn"></button>
+    </div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <div class="qhead">
+      <h2 id="quizHead"></h2>
+      <button type="button" class="chip" id="newQuiz"></button>
+    </div>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad bilingual AI school. Offline play · no APIs. WhatsApp 0337 1468899"
+       data-ur="اے آئی فور کڈز — اسلام آباد۔ آف لائن کھیلو۔ واٹس ایپ 0337 1468899"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  function $(id){ return document.getElementById(id); }
+  function isolate(s){ return "\u2066" + s + "\u2069"; }
+  function setText(el, str){
+    if (!el) return;
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+  function t(o){ return (o && o[lang]) || (o && o.en) || ""; }
+  function shuffle(arr){
+    var a = arr.slice(), i, j, tmp;
+    for (i = a.length - 1; i > 0; i--){
+      j = Math.floor(Math.random() * (i + 1));
+      tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  var lang = "en";
+  var mode = "spot";
+  var stars = 0;
+  var awarded = {};
+  var doneModes = {spot:false, flip:false, build:false};
+
+  var T = {
+    title:{en:"Active/Passive voice", ur:"اکٹو / پیسیو وائس"},
+    sub:{en:"Doer vs receiver — flip Active → Passive!", ur:"کرنے والا بمقابلہ وصول کنندہ — اکٹو سے پیسیو!"},
+    tabSpot:{en:"Spot doer", ur:"کرنے والا"},
+    tabFlip:{en:"Flip it", ur:"الٹ دو"},
+    tabBuild:{en:"Build", ur:"بناؤ"},
+    storySpot:{en:"Look at the comic. Tap who <b>does</b> the action (the doer). Receiver gets the action.",
+               ur:"تصویر دیکھو۔ جو <b>کام کرتا</b> ہے اس پر ٹیپ کرو (کرنے والا)۔ وصول کنندہ پر کام ہوتا ہے۔"},
+    storyFlip:{en:"See the <b>Active</b> scene. Choose the correct <b>Passive</b> rewrite.",
+               ur:"<b>اکٹو</b> منظر دیکھو۔ درست <b>پیسیو</b> جملہ چنو۔"},
+    storyBuild:{en:"Pick chips in order: <b>new subject + be + V3</b> (± by doer).",
+                ur:"ترتیب سے چپس چنو: <b>نیا فاعل + be + V3</b> (± by کرنے والا)۔"},
+    ctl:{en:"Your turn", ur:"تمہاری باری"},
+    next:{en:"Next scene", ur:"اگلا منظر"},
+    hint:{en:"Hint", ur:"اشارہ"},
+    reset:{en:"Reset", ur:"ری سیٹ"},
+    quiz:{en:"Check yourself", ur:"اپنا امتحان"},
+    newQuiz:{en:"New quiz", ur:"نیا کوئز"},
+    askSpot:{en:"Who does the action?", ur:"کام کون کر رہا ہے؟"},
+    askFlip:{en:"Which passive sentence is correct?", ur:"کون سا پیسیو جملہ درست ہے؟"},
+    askBuild:{en:"Build the passive sentence", ur:"پیسیو جملہ بناؤ"},
+    pick:{en:"Tap your answer", ur:"جواب پر ٹیپ کرو"},
+    nice:{en:"Shabash — voice flipped right!", ur:"شاباش — وائس درست پلٹی!"},
+    oops:{en:"Not quite — find the doer again", ur:"ٹھیک نہیں — کرنے والا دوبارہ ڈھونڈو"},
+    tip:{en:"Tip: Active = doer first. Passive = receiver + be + V3.", ur:"نکتہ: اکٹو = کرنے والا پہلے۔ پیسیو = وصول کنندہ + be + V3۔"},
+    progS:{en:"Doers spotted", ur:"کرنے والے"},
+    progF:{en:"Flips correct", ur:"درست پلٹیں"},
+    progB:{en:"Built right", ur:"درست بنائے"},
+    doerL:{en:"Doer (subject)", ur:"کرنے والا"},
+    recvL:{en:"Receiver (object)", ur:"وصول کنندہ"},
+    check:{en:"Check sentence", ur:"جملہ چیک کرو"},
+    clearSlots:{en:"Clear picks", ur:"صاف کرو"},
+    formula:{en:"Passive = Object → be + V3 (+ by doer)", ur:"پیسیو = مفعول → be + V3 (+ by کرنے والا)"}
+  };
+
+  /* ---- Spot the doer scenes ---- */
+  var SPOT = [
+    {
+      id:"cricket",
+      place:{en:"F-6 cricket ground, Islamabad", ur:"ایف-۶ کرکٹ گراؤنڈ، اسلام آباد"},
+      sent:{en:"Ali hits the ball.", ur:"علی گیند کو مارتا ہے۔"},
+      doer:{em:"👦🏏", cap:{en:"Ali", ur:"علی"}, role:"doer"},
+      recv:{em:"🔴🏏", cap:{en:"the ball", ur:"گیند"}, role:"recv"},
+      verb:{en:"hits", ur:"مارتا ہے"},
+      why:{en:"Ali does the hitting — he is the doer. The ball receives the hit.",
+           ur:"علی مار رہا ہے — وہ کرنے والا ہے۔ گیند کو ضرب ملتی ہے۔"},
+      hint:{en:"Ask: Who is swinging the bat?", ur:"پوچھو: بیٹ کون گھما رہا ہے؟"}
+    },
+    {
+      id:"teacher",
+      place:{en:"Class 5, Islamabad school", ur:"اسلام آباد اسکول، جماعت ۵"},
+      sent:{en:"The teacher praises Sana.", ur:"استاد ثانا کی تعریف کرتا ہے۔"},
+      doer:{em:"👩‍🏫✨", cap:{en:"Teacher", ur:"استاد"}, role:"doer"},
+      recv:{em:"👧😊", cap:{en:"Sana", ur:"ثانا"}, role:"recv"},
+      verb:{en:"praises", ur:"تعریف کرتا ہے"},
+      why:{en:"The teacher does the praising. Sana receives the praise.",
+           ur:"استاد تعریف کر رہا ہے۔ ثانا تعریف وصول کرتی ہے۔"},
+      hint:{en:"Who speaks the kind words?", ur:"اچھے الفاظ کون بول رہا ہے؟"}
+    },
+    {
+      id:"chef",
+      place:{en:"G-9 biryani stall", ur:"جی-۹ بریانی سٹال"},
+      sent:{en:"The chef cooks the biryani.", ur:"شیف بریانی پکاتا ہے۔"},
+      doer:{em:"👨‍🍳🔥", cap:{en:"Chef", ur:"شیف"}, role:"doer"},
+      recv:{em:"🍛🌿", cap:{en:"biryani", ur:"بریانی"}, role:"recv"},
+      verb:{en:"cooks", ur:"پکاتا ہے"},
+      why:{en:"Chef does the cooking. Biryani is the receiver of the action.",
+           ur:"شیف پکا رہا ہے۔ بریانی پر عمل ہو رہا ہے۔"},
+      hint:{en:"Who stands at the degh with the spoon?", ur:"دیگ کے پاس چمچ کس کے ہاتھ میں ہے؟"}
+    },
+    {
+      id:"postman",
+      place:{en:"Blue Area post route", ur:"بلیو ایریا ڈاک راستہ"},
+      sent:{en:"The postman delivers the letter.", ur:"ڈاکیا خط پہنچاتا ہے۔"},
+      doer:{em:"🧍📬", cap:{en:"Postman", ur:"ڈاکیا"}, role:"doer"},
+      recv:{em:"✉️🏠", cap:{en:"the letter", ur:"خط"}, role:"recv"},
+      verb:{en:"delivers", ur:"پہنچاتا ہے"},
+      why:{en:"Postman does the delivering. The letter is what gets delivered.",
+           ur:"ڈاکیا پہنچا رہا ہے۔ خط وہ چیز ہے جو پہنچائی جاتی ہے۔"},
+      hint:{en:"Who rides the bike with the mailbag?", ur:"ڈاک کے تھیلی کے ساتھ سائیکل کون چلاتا ہے؟"}
+    }
+  ];
+
+  /* ---- Flip it scenes ---- */
+  var FLIP = [
+    {
+      id:"cricket-f",
+      place:{en:"F-6 ground", ur:"ایف-۶ گراؤنڈ"},
+      active:{en:"Ali hits the ball.", ur:"علی گیند کو مارتا ہے۔"},
+      emsA:["👦🏏","➡️","🔴"],
+      emsP:["🔴","✨","👦"],
+      opts:[
+        {em:"✅", en:"The ball is hit by Ali.", ur:"گیند علی کے ذریعے ماری جاتی ہے۔"},
+        {em:"❌", en:"The ball hits Ali.", ur:"گیند علی کو مارتی ہے۔"},
+        {em:"❌", en:"Ali is hitting by the ball.", ur:"علی گیند کے ذریعے مار رہا ہے۔"}
+      ],
+      a:0,
+      why:{en:"Object (ball) + is + V3 (hit) + by Ali.", ur:"مفعول (گیند) + is + V3 (hit) + by علی۔"},
+      hint:{en:"Start with the ball — then be + hit.", ur:"گیند سے شروع کرو — پھر be + hit۔"}
+    },
+    {
+      id:"teacher-f",
+      place:{en:"Classroom", ur:"کلاس روم"},
+      active:{en:"The teacher praises Sana.", ur:"استاد ثانا کی تعریف کرتا ہے۔"},
+      emsA:["👩‍🏫","➡️","👧"],
+      emsP:["👧","✨","👩‍🏫"],
+      opts:[
+        {em:"❌", en:"Sana praises the teacher.", ur:"ثانا استاد کی تعریف کرتی ہے۔"},
+        {em:"✅", en:"Sana is praised by the teacher.", ur:"ثانا استاد کے ذریعے تعریف کی جاتی ہے۔"},
+        {em:"❌", en:"The teacher is praised by Sana.", ur:"استاد ثانا کے ذریعے تعریف کیا جاتا ہے۔"}
+      ],
+      a:1,
+      why:{en:"Sana (object) becomes subject + is praised + by the teacher.",
+           ur:"ثانا (مفعول) فاعل بنتی ہے + is praised + by استاد۔"},
+      hint:{en:"Who receives the praise? Put that person first.", ur:"تعریف کسے ملتی ہے؟ اسے پہلے رکھو۔"}
+    },
+    {
+      id:"chef-f",
+      place:{en:"Biryani stall", ur:"بریانی سٹال"},
+      active:{en:"The chef cooks the biryani.", ur:"شیف بریانی پکاتا ہے۔"},
+      emsA:["👨‍🍳","➡️","🍛"],
+      emsP:["🍛","✨","👨‍🍳"],
+      opts:[
+        {em:"✅", en:"The biryani is cooked by the chef.", ur:"بریانی شیف کے ذریعے پکائی جاتی ہے۔"},
+        {em:"❌", en:"The biryani cooks the chef.", ur:"بریانی شیف کو پکاتی ہے۔"},
+        {em:"❌", en:"Chef is cooked by biryani.", ur:"شیف بریانی کے ذریعے پکایا جاتا ہے۔"}
+      ],
+      a:0,
+      why:{en:"Biryani + is cooked + by the chef.", ur:"بریانی + is cooked + by شیف۔"},
+      hint:{en:"Food becomes the new subject in passive.", ur:"پیسیو میں کھانا نیا فاعل بنتا ہے۔"}
+    },
+    {
+      id:"post-f",
+      place:{en:"Blue Area", ur:"بلیو ایریا"},
+      active:{en:"The postman delivers the letter.", ur:"ڈاکیا خط پہنچاتا ہے۔"},
+      emsA:["🧍📬","➡️","✉️"],
+      emsP:["✉️","✨","🧍"],
+      opts:[
+        {em:"❌", en:"The letter delivers the postman.", ur:"خط ڈاکیا کو پہنچاتا ہے۔"},
+        {em:"❌", en:"Postman is delivered by the letter.", ur:"ڈاکیا خط کے ذریعے پہنچایا جاتا ہے۔"},
+        {em:"✅", en:"The letter is delivered by the postman.", ur:"خط ڈاکیا کے ذریعے پہنچایا جاتا ہے۔"}
+      ],
+      a:2,
+      why:{en:"Letter + is delivered + by the postman.", ur:"خط + is delivered + by ڈاکیا۔"},
+      hint:{en:"What arrives at the door? Start with that.", ur:"دروازے پر کیا آتا ہے؟ اسی سے شروع کرو۔"}
+    }
+  ];
+
+  /* ---- Build the passive ---- */
+  var BUILD = [
+    {
+      id:"cricket-b",
+      place:{en:"Cricket pitch", ur:"کرکٹ پچ"},
+      active:{en:"Ali hits the ball.", ur:"علی گیند کو مارتا ہے۔"},
+      picture:"👦🏏  ➡️  🔴",
+      slots:["subj","be","v3","by"],
+      pool:[
+        {id:"ball", en:"The ball", ur:"گیند", slot:"subj"},
+        {id:"ali", en:"Ali", ur:"علی", slot:"x"},
+        {id:"is", en:"is", ur:"is", slot:"be"},
+        {id:"are", en:"are", ur:"are", slot:"x"},
+        {id:"hit", en:"hit", ur:"hit", slot:"v3"},
+        {id:"hitting", en:"hitting", ur:"hitting", slot:"x"},
+        {id:"byali", en:"by Ali", ur:"by علی", slot:"by"}
+      ],
+      correct:["ball","is","hit","byali"],
+      result:{en:"The ball is hit by Ali.", ur:"گیند علی کے ذریعے ماری جاتی ہے۔"},
+      why:{en:"Object → The ball | be → is | V3 → hit | by Ali.",
+           ur:"مفعول → گیند | be → is | V3 → hit | by علی۔"},
+      hint:{en:"Order: receiver, then is, then past participle hit.", ur:"ترتیب: وصول کنندہ، پھر is، پھر hit۔"}
+    },
+    {
+      id:"teacher-b",
+      place:{en:"School hall", ur:"اسکول ہال"},
+      active:{en:"The teacher praises Sana.", ur:"استاد ثانا کی تعریف کرتا ہے۔"},
+      picture:"👩‍🏫✨  ➡️  👧",
+      slots:["subj","be","v3","by"],
+      pool:[
+        {id:"sana", en:"Sana", ur:"ثانا", slot:"subj"},
+        {id:"teach", en:"The teacher", ur:"استاد", slot:"x"},
+        {id:"is", en:"is", ur:"is", slot:"be"},
+        {id:"was", en:"was", ur:"was", slot:"x"},
+        {id:"praised", en:"praised", ur:"praised", slot:"v3"},
+        {id:"praise", en:"praise", ur:"praise", slot:"x"},
+        {id:"byteach", en:"by the teacher", ur:"by استاد", slot:"by"}
+      ],
+      correct:["sana","is","praised","byteach"],
+      result:{en:"Sana is praised by the teacher.", ur:"ثانا استاد کے ذریعے تعریف کی جاتی ہے۔"},
+      why:{en:"Sana + is + praised + by the teacher.",
+           ur:"ثانا + is + praised + by استاد۔"},
+      hint:{en:"V3 of praise is praised (not praise).", ur:"praise کا V3 ہے praised۔"}
+    },
+    {
+      id:"chef-b",
+      place:{en:"Kitchen degh", ur:"باورچی خانے کی دیگ"},
+      active:{en:"The chef cooks the biryani.", ur:"شیف بریانی پکاتا ہے۔"},
+      picture:"👨‍🍳🔥  ➡️  🍛",
+      slots:["subj","be","v3","by"],
+      pool:[
+        {id:"bir", en:"The biryani", ur:"بریانی", slot:"subj"},
+        {id:"chef", en:"The chef", ur:"شیف", slot:"x"},
+        {id:"is", en:"is", ur:"is", slot:"be"},
+        {id:"were", en:"were", ur:"were", slot:"x"},
+        {id:"cooked", en:"cooked", ur:"cooked", slot:"v3"},
+        {id:"cooks", en:"cooks", ur:"cooks", slot:"x"},
+        {id:"bychef", en:"by the chef", ur:"by شیف", slot:"by"}
+      ],
+      correct:["bir","is","cooked","bychef"],
+      result:{en:"The biryani is cooked by the chef.", ur:"بریانی شیف کے ذریعے پکائی جاتی ہے۔"},
+      why:{en:"Biryani + is + cooked + by the chef.",
+           ur:"بریانی + is + cooked + by شیف۔"},
+      hint:{en:"Cook → cooked for V3.", ur:"Cook کا V3 ہے cooked۔"}
+    },
+    {
+      id:"post-b",
+      place:{en:"Letterbox lane", ur:"ڈاک خانے کی گلی"},
+      active:{en:"The postman delivers the letter.", ur:"ڈاکیا خط پہنچاتا ہے۔"},
+      picture:"🧍📬  ➡️  ✉️",
+      slots:["subj","be","v3","by"],
+      pool:[
+        {id:"let", en:"The letter", ur:"خط", slot:"subj"},
+        {id:"post", en:"The postman", ur:"ڈاکیا", slot:"x"},
+        {id:"is", en:"is", ur:"is", slot:"be"},
+        {id:"am", en:"am", ur:"am", slot:"x"},
+        {id:"delivered", en:"delivered", ur:"delivered", slot:"v3"},
+        {id:"deliver", en:"deliver", ur:"deliver", slot:"x"},
+        {id:"bypost", en:"by the postman", ur:"by ڈاکیا", slot:"by"}
+      ],
+      correct:["let","is","delivered","bypost"],
+      result:{en:"The letter is delivered by the postman.", ur:"خط ڈاکیا کے ذریعے پہنچایا جاتا ہے۔"},
+      why:{en:"Letter + is + delivered + by the postman.",
+           ur:"خط + is + delivered + by ڈاکیا۔"},
+      hint:{en:"Deliver → delivered (V3).", ur:"Deliver کا V3 ہے delivered۔"}
+    }
+  ];
+
+  var QUIZ = [
+    {q:{en:"In \"Ali hits the ball,\" who is the doer?", ur:"\"Ali hits the ball\" میں کرنے والا کون ہے؟"},
+     opts:[{en:"The ball", ur:"گیند"},
+           {en:"Ali", ur:"علی"},
+           {en:"The bat only", ur:"صرف بیٹ"},
+           {en:"No doer", ur:"کوئی کرنے والا نہیں"}], a:1},
+    {q:{en:"Passive form of \"The chef cooks the biryani\" is…", ur:"\"The chef cooks the biryani\" کا پیسیو ہے…"},
+     opts:[{en:"The biryani is cooked by the chef.", ur:"بریانی شیف کے ذریعے پکائی جاتی ہے۔"},
+           {en:"The biryani cooks the chef.", ur:"بریانی شیف کو پکاتی ہے۔"},
+           {en:"Chef is cooking biryani by.", ur:"شیف بریانی پکا رہا ہے by۔"},
+           {en:"Cooked the biryani chef.", ur:"پکائی بریانی شیف۔"}], a:0},
+    {q:{en:"Passive needs which verb pattern?", ur:"پیسیو میں کون سا فعل پیٹرن چاہیے؟"},
+     opts:[{en:"be + V3 (past participle)", ur:"be + V3 (ماضی کا اسم مفعول)"},
+           {en:"will + ing only", ur:"صرف will + ing"},
+           {en:"do + base verb always", ur:"ہمیشہ do + بنیادی فعل"},
+           {en:"No verb at all", ur:"بالکل فعل نہیں"}], a:0},
+    {q:{en:"\"The letter is delivered by the postman.\" — who receives the action?", ur:"\"The letter is delivered by the postman.\" — کام کس پر ہو رہا ہے؟"},
+     opts:[{en:"The postman", ur:"ڈاکیا"},
+           {en:"The letter", ur:"خط"},
+           {en:"The bike", ur:"سائیکل"},
+           {en:"Islamabad", ur:"اسلام آباد"}], a:1},
+    {q:{en:"Why flip Active → Passive?", ur:"اکٹو سے پیسیو کیوں بدلیں؟"},
+     opts:[{en:"To put focus on the receiver / result", ur:"وصول کنندہ / نتیجہ پر زور دینے کے لیے"},
+           {en:"To delete all subjects forever", ur:"تمام فاعل ہمیشہ مٹانے کے لیے"},
+           {en:"Because cricket rules demand it", ur:"کیونکہ کرکٹ کے قوانین مانگتے ہیں"},
+           {en:"Only for counting commas", ur:"صرف کوما گننے کے لیے"}], a:0}
+  ];
+
+  var sIdx = 0, fIdx = 0, bIdx = 0;
+  var answered = {spot:{}, flip:{}, build:{}};
+  var buildPicks = [];
+  var quizSet = [];
+
+  function award(key, n){
+    if (awarded[key]) return;
+    awarded[key] = true;
+    stars += (n || 1);
+    $("starCount").textContent = String(stars);
+  }
+
+  function recountStars(){
+    stars = 0;
+    Object.keys(awarded).forEach(function(k){
+      if (!awarded[k]) return;
+      stars += (k.indexOf("mode-")===0) ? 2 : 1;
+    });
+    $("starCount").textContent = String(stars);
+  }
+
+  function storyHtml(){
+    if (mode === "spot") return t(T.storySpot);
+    if (mode === "flip") return t(T.storyFlip);
+    return t(T.storyBuild);
+  }
+
+  function flowArrowSVG(){
+    return '<svg class="flow-svg" viewBox="0 0 200 36" aria-hidden="true">' +
+      '<defs><marker id="ah" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">' +
+      '<path d="M0,0 L6,3 L0,6 Z" fill="#c9702e"/></marker></defs>' +
+      '<line x1="20" y1="18" x2="180" y2="18" stroke="#c9702e" stroke-width="3" marker-end="url(#ah)"/>' +
+      '<text x="100" y="12" text-anchor="middle" font-size="9" font-weight="800" fill="#574e3e">DOES → RECEIVES</text>' +
+      '</svg>';
+  }
+
+  function renderDots(list, idx, mapKey){
+    var html = '<div class="dots">';
+    for (var i = 0; i < list.length; i++){
+      var st = "";
+      if (answered[mapKey][i] === true) st = "ok";
+      else if (answered[mapKey][i] === false) st = "no";
+      else if (i === idx) st = "on";
+      html += '<i class="' + st + '"></i>';
+    }
+    return html + "</div>";
+  }
+
+  function checkModeDone(mapKey){
+    var list = mapKey==="spot"?SPOT:mapKey==="flip"?FLIP:BUILD;
+    var all = true, i;
+    for (i = 0; i < list.length; i++){
+      if (answered[mapKey][i] !== true){ all = false; break; }
+    }
+    if (all){
+      doneModes[mapKey] = true;
+      award("mode-" + mapKey, 2);
+    }
+    updateTabs();
+  }
+
+  function updateProg(){
+    var el = $("prog");
+    if (mode === "spot"){
+      var n = Object.keys(answered.spot).filter(function(k){ return answered.spot[k]===true; }).length;
+      setText(el, t(T.progS) + ": " + n + "/" + SPOT.length);
+    } else if (mode === "flip"){
+      var n2 = Object.keys(answered.flip).filter(function(k){ return answered.flip[k]===true; }).length;
+      setText(el, t(T.progF) + ": " + n2 + "/" + FLIP.length);
+    } else {
+      var n3 = Object.keys(answered.build).filter(function(k){ return answered.build[k]===true; }).length;
+      setText(el, t(T.progB) + ": " + n3 + "/" + BUILD.length);
+    }
+  }
+
+  /* ---------- SPOT ---------- */
+  function renderSpot(){
+    var item = SPOT[sIdx];
+    var pad = $("scenePad");
+    var locked = answered.spot[sIdx] !== undefined;
+    pad.innerHTML =
+      '<div class="legend">' +
+        '<span class="leg doer" id="legD"></span>' +
+        '<span class="leg recv" id="legR"></span>' +
+      '</div>' +
+      '<div class="comic trio" id="spotComic">' +
+        '<div class="panel-card doer tap" data-role="doer" id="cardDoer">' +
+          '<div class="panel-sky"></div><div class="panel-hills"></div><div class="panel-ground"></div>' +
+          '<span class="panel-tag doer-tag">DOER</span>' +
+          '<div class="panel-em lg">' + item.doer.em + '</div>' +
+          '<p class="panel-cap" id="capDoer"></p>' +
+        '</div>' +
+        '<div class="arrow-mid"><span>⚡</span><span class="alab" id="verbLab"></span></div>' +
+        '<div class="panel-card recv tap" data-role="recv" id="cardRecv">' +
+          '<div class="panel-sky"></div><div class="panel-ground"></div>' +
+          '<span class="panel-tag recv-tag">RECV</span>' +
+          '<div class="panel-em lg">' + item.recv.em + '</div>' +
+          '<p class="panel-cap" id="capRecv"></p>' +
+        '</div>' +
+      '</div>' +
+      flowArrowSVG() +
+      '<div class="sent-box" id="sentBox"></div>' +
+      '<div class="speech-place mid-banner" id="placeBan"></div>' +
+      renderDots(SPOT, sIdx, "spot");
+
+    setText($("legD"), "🟢 " + t(T.doerL));
+    setText($("legR"), "🟠 " + t(T.recvL));
+    setText($("capDoer"), t(item.doer.cap));
+    setText($("capRecv"), t(item.recv.cap));
+    setText($("verbLab"), t(item.verb));
+    setText($("sentBox"), t(item.sent));
+    setText($("placeBan"), "📍 " + t(item.place));
+
+    if (locked){
+      var ok = answered.spot[sIdx] === true;
+      $("cardDoer").classList.add(ok ? "picked-ok" : "picked-ok");
+      if (!ok) $("cardRecv").classList.add("picked-no");
+      else $("cardRecv").classList.remove("picked-no");
+    }
+
+    setText($("statechip"), answered.spot[sIdx] === true ? t(T.nice) : (answered.spot[sIdx] === false ? t(T.oops) : t(T.askSpot)));
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") +
+      (answered.spot[sIdx]===true?" win":answered.spot[sIdx]===false?" miss":"");
+    setText($("headline"), t(T.pick));
+    setText($("detail"), answered.spot[sIdx] !== undefined ? t(item.why) : t(T.tip));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+    var tip = document.createElement("p");
+    tip.style.cssText = "margin:0 0 8px;font-size:var(--fs-xs);font-weight:700;color:var(--ink-soft)";
+    setText(tip, lang==="en" ? "Tap a comic panel — Doer or Receiver?" : "تصویری پینل پر ٹیپ کرو — کرنے والا یا وصول کنندہ؟");
+    box.appendChild(tip);
+
+    function onPick(role){
+      if (answered.spot[sIdx] !== undefined) return;
+      var ok = (role === "doer");
+      answered.spot[sIdx] = ok;
+      $("cardDoer").classList.add(ok ? "picked-ok" : "picked-ok");
+      if (!ok) $("cardRecv").classList.add("picked-no");
+      else { $("cardDoer").classList.add("picked-ok"); $("cardRecv").classList.remove("picked-no"); }
+      if (ok){
+        award("spot-" + sIdx, 1);
+        setText($("statechip"), t(T.nice));
+        $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+      } else {
+        setText($("statechip"), t(T.oops));
+        $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+        $("cardDoer").classList.add("picked-ok");
+      }
+      setText($("detail"), t(item.why));
+      $("hintbox").classList.remove("show");
+      checkModeDone("spot");
+      updateProg();
+      var dotsHost = $("scenePad").querySelector(".dots");
+      if (dotsHost){
+        var tmp = document.createElement("div");
+        tmp.innerHTML = renderDots(SPOT, sIdx, "spot");
+        dotsHost.parentNode.replaceChild(tmp.firstChild, dotsHost);
+      }
+    }
+
+    $("cardDoer").onclick = function(){ onPick("doer"); };
+    $("cardRecv").onclick = function(){ onPick("recv"); };
+
+    // also offer buttons
+    [["doer","🟢 "+t(T.doerL)],["recv","🟠 "+t(T.recvL)]].forEach(function(pair){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "choice" + (lang==="ur"?" ur":"");
+      b.setAttribute("dir", lang==="ur"?"rtl":"ltr");
+      b.textContent = (lang==="ur") ? isolate(pair[1]) : pair[1];
+      if (locked){
+        if (pair[0]==="doer") b.classList.add("right");
+        else if (answered.spot[sIdx]===false) b.classList.add("wrong");
+      }
+      b.addEventListener("click", function(){ onPick(pair[0]); });
+      box.appendChild(b);
+    });
+    updateProg();
+  }
+
+  /* ---------- FLIP ---------- */
+  function bindFlipChoices(box, item, idx){
+    box.innerHTML = "";
+    var locked = answered.flip[idx] !== undefined;
+    item.opts.forEach(function(opt, oi){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "choice" + (lang === "ur" ? " ur" : "");
+      b.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+      b.innerHTML = '<span class="cem">' + (opt.em || "") + "</span>" +
+        ((lang === "ur") ? isolate(t(opt)) : t(opt));
+      if (locked){
+        if (oi === item.a) b.classList.add("right");
+      }
+      b.addEventListener("click", function(){
+        if (answered.flip[idx] !== undefined) return;
+        var ok = (oi === item.a);
+        answered.flip[idx] = ok;
+        b.classList.add(ok ? "right" : "wrong");
+        if (!ok){
+          var nodes = box.querySelectorAll(".choice");
+          if (nodes[item.a]) nodes[item.a].classList.add("right");
+          setText($("statechip"), t(T.oops));
+          $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+        } else {
+          award("flip-" + idx, 1);
+          setText($("statechip"), t(T.nice));
+          $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+        }
+        setText($("detail"), t(item.why));
+        $("hintbox").classList.remove("show");
+        checkModeDone("flip");
+        updateProg();
+        var dotsHost = $("scenePad").querySelector(".dots");
+        if (dotsHost){
+          var tmp = document.createElement("div");
+          tmp.innerHTML = renderDots(FLIP, idx, "flip");
+          dotsHost.parentNode.replaceChild(tmp.firstChild, dotsHost);
+        }
+      });
+      box.appendChild(b);
+    });
+  }
+
+  function renderFlip(){
+    var item = FLIP[fIdx];
+    var pad = $("scenePad");
+    pad.innerHTML =
+      '<div class="flip-row">' +
+        '<div class="panel-card doer">' +
+          '<span class="voice-pill act">ACTIVE</span>' +
+          '<div class="panel-em">' + item.emsA[0] + ' ' + item.emsA[2] + '</div>' +
+          '<p class="panel-cap" id="actCap"></p>' +
+        '</div>' +
+        '<div class="flip-arrow"><span>⇄</span><span class="alab" style="font-size:10px;font-weight:800;color:var(--accent)">FLIP</span></div>' +
+        '<div class="panel-card recv">' +
+          '<span class="voice-pill pas">PASSIVE</span>' +
+          '<div class="panel-em">' + item.emsP[0] + ' ' + item.emsP[2] + '</div>' +
+          '<p class="panel-cap" id="pasCap"></p>' +
+        '</div>' +
+      '</div>' +
+      '<div class="sent-box" id="sentBox"></div>' +
+      '<div class="formula" id="formLab"></div>' +
+      '<div class="mid-banner" id="placeBan"></div>' +
+      renderDots(FLIP, fIdx, "flip");
+
+    setText($("actCap"), lang==="en" ? "Doer first" : "کرنے والا پہلے");
+    setText($("pasCap"), lang==="en" ? "Receiver first" : "وصول کنندہ پہلے");
+    setText($("sentBox"), t(item.active));
+    setText($("formLab"), t(T.formula));
+    setText($("placeBan"), "📍 " + t(item.place));
+
+    setText($("statechip"), answered.flip[fIdx] === true ? t(T.nice) : (answered.flip[fIdx] === false ? t(T.oops) : t(T.askFlip)));
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") +
+      (answered.flip[fIdx]===true?" win":answered.flip[fIdx]===false?" miss":"");
+    setText($("headline"), t(T.pick));
+    setText($("detail"), answered.flip[fIdx] !== undefined ? t(item.why) : t(T.tip));
+    $("hintbox").classList.remove("show");
+    bindFlipChoices($("actionBox"), item, fIdx);
+    updateProg();
+  }
+
+  /* ---------- BUILD ---------- */
+  function renderBuild(){
+    var item = BUILD[bIdx];
+    var pad = $("scenePad");
+    var locked = answered.build[bIdx] !== undefined;
+    if (!locked) buildPicks = [];
+
+    var slotLabels = {subj:"Subject", be:"be", v3:"V3", by:"by…"};
+    if (lang === "ur") slotLabels = {subj:"فاعل", be:"be", v3:"V3", by:"by…"};
+
+    var slotsHtml = '<div class="build-slots" id="slots">';
+    item.slots.forEach(function(s, si){
+      if (si) slotsHtml += '<span class="slot-plus">+</span>';
+      var filled = locked ? item.correct[si] : buildPicks[si];
+      var label = slotLabels[s];
+      if (filled){
+        var chip = item.pool.filter(function(p){ return p.id === filled; })[0];
+        label = chip ? t(chip) : label;
+      }
+      slotsHtml += '<div class="slot' + (filled ? " filled" : "") + '" data-si="' + si + '">' + label + '</div>';
+    });
+    slotsHtml += '</div>';
+
+    pad.innerHTML =
+      '<div class="passage-illust hit" style="display:flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(180deg,#d6e8f8 0%,#f5efe3 70%);border-radius:12px;border:2px solid var(--line);padding:14px;margin-bottom:10px;min-height:90px;font-size:40px">' +
+        item.picture +
+      '</div>' +
+      '<div class="sent-box" id="sentBox"></div>' +
+      '<div class="formula" id="formLab"></div>' +
+      slotsHtml +
+      '<div class="mid-banner" id="placeBan"></div>' +
+      renderDots(BUILD, bIdx, "build");
+
+    setText($("sentBox"), "ACTIVE: " + t(item.active));
+    setText($("formLab"), locked ? ("✅ " + t(item.result)) : t(T.formula));
+    setText($("placeBan"), "📍 " + t(item.place));
+
+    setText($("statechip"), answered.build[bIdx] === true ? t(T.nice) : (answered.build[bIdx] === false ? t(T.oops) : t(T.askBuild)));
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") +
+      (answered.build[bIdx]===true?" win":answered.build[bIdx]===false?" miss":"");
+    setText($("headline"), t(T.askBuild));
+    setText($("detail"), answered.build[bIdx] !== undefined ? t(item.why) : t(T.tip));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+    if (locked){
+      var done = document.createElement("p");
+      done.style.cssText = "font-weight:800;color:var(--ok)";
+      setText(done, t(item.result));
+      box.appendChild(done);
+      updateProg();
+      return;
+    }
+
+    var row = document.createElement("div");
+    row.className = "chip-row";
+    var used = {};
+    buildPicks.forEach(function(id){ if (id) used[id] = true; });
+
+    var pool = shuffle(item.pool.slice());
+    pool.forEach(function(chip){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "pick-chip" + (used[chip.id] ? " used" : "");
+      b.textContent = (lang === "ur") ? isolate(t(chip)) : t(chip);
+      if (lang === "ur"){ b.classList.add("ur"); b.setAttribute("dir","rtl"); }
+      b.addEventListener("click", function(){
+        if (answered.build[bIdx] !== undefined) return;
+        if (used[chip.id]) return;
+        if (buildPicks.length >= item.slots.length) return;
+        buildPicks.push(chip.id);
+        renderBuild();
+      });
+      row.appendChild(b);
+    });
+    box.appendChild(row);
+
+    var chk = document.createElement("button");
+    chk.type = "button";
+    chk.className = "build-check";
+    chk.disabled = buildPicks.length < item.slots.length;
+    chk.textContent = (lang === "ur") ? isolate(t(T.check)) : t(T.check);
+    chk.addEventListener("click", function(){
+      if (buildPicks.length < item.slots.length) return;
+      var ok = true;
+      for (var i = 0; i < item.correct.length; i++){
+        if (buildPicks[i] !== item.correct[i]){ ok = false; break; }
+      }
+      answered.build[bIdx] = ok;
+      if (ok){
+        award("build-" + bIdx, 1);
+        setText($("statechip"), t(T.nice));
+        $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+      } else {
+        setText($("statechip"), t(T.oops));
+        $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+        // reveal correct into picks for display
+        buildPicks = item.correct.slice();
+      }
+      setText($("detail"), t(item.why));
+      checkModeDone("build");
+      updateProg();
+      renderBuild();
+    });
+    box.appendChild(chk);
+
+    var clr = document.createElement("button");
+    clr.type = "button";
+    clr.className = "choice";
+    clr.style.marginTop = "8px";
+    clr.textContent = (lang === "ur") ? isolate(t(T.clearSlots)) : t(T.clearSlots);
+    clr.addEventListener("click", function(){
+      if (answered.build[bIdx] !== undefined) return;
+      buildPicks = [];
+      renderBuild();
+    });
+    box.appendChild(clr);
+    updateProg();
+  }
+
+  function updateTabs(){
+    function lab(btn, base, key){
+      var mark = doneModes[key] ? ' <span class="badge">★</span>' : "";
+      btn.innerHTML = t(base) + mark;
+      if (lang === "ur"){ btn.classList.add("ur"); btn.setAttribute("dir","rtl"); }
+      else { btn.classList.remove("ur"); btn.setAttribute("dir","ltr"); }
+    }
+    lab($("tabSpot"), T.tabSpot, "spot");
+    lab($("tabFlip"), T.tabFlip, "flip");
+    lab($("tabBuild"), T.tabBuild, "build");
+    $("tabSpot").setAttribute("aria-pressed", mode==="spot" ? "true":"false");
+    $("tabFlip").setAttribute("aria-pressed", mode==="flip" ? "true":"false");
+    $("tabBuild").setAttribute("aria-pressed", mode==="build" ? "true":"false");
+  }
+
+  function setMode(m){
+    mode = m;
+    buildPicks = [];
+    updateTabs();
+    $("story").innerHTML = storyHtml();
+    $("story").classList.toggle("ur", lang==="ur");
+    $("story").setAttribute("dir", lang==="ur"?"rtl":"ltr");
+    if (mode === "spot") renderSpot();
+    else if (mode === "flip") renderFlip();
+    else renderBuild();
+  }
+
+  function next(){
+    if (mode === "spot"){
+      sIdx = (sIdx + 1) % SPOT.length;
+      renderSpot();
+    } else if (mode === "flip"){
+      fIdx = (fIdx + 1) % FLIP.length;
+      renderFlip();
+    } else {
+      bIdx = (bIdx + 1) % BUILD.length;
+      buildPicks = [];
+      renderBuild();
+    }
+  }
+
+  function resetMode(){
+    if (mode === "spot"){
+      answered.spot = {}; sIdx = 0; doneModes.spot = false;
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("spot-")===0 || k==="mode-spot") delete awarded[k]; });
+      renderSpot();
+    } else if (mode === "flip"){
+      answered.flip = {}; fIdx = 0; doneModes.flip = false;
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("flip-")===0 || k==="mode-flip") delete awarded[k]; });
+      renderFlip();
+    } else {
+      answered.build = {}; bIdx = 0; doneModes.build = false; buildPicks = [];
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("build-")===0 || k==="mode-build") delete awarded[k]; });
+      renderBuild();
+    }
+    updateTabs();
+    recountStars();
+  }
+
+  function showHint(){
+    var item = mode==="spot"?SPOT[sIdx]:mode==="flip"?FLIP[fIdx]:BUILD[bIdx];
+    var hb = $("hintbox");
+    setText(hb, t(item.hint));
+    hb.classList.add("show");
+  }
+
+  function pickQuiz(){ quizSet = shuffle(QUIZ).slice(0, 5); }
+
+  function renderQuiz(){
+    var box = $("quizBox");
+    box.innerHTML = "";
+    quizSet.forEach(function(item, qi){
+      var q = document.createElement("div");
+      q.className = "q";
+      var p = document.createElement("p");
+      setText(p, (qi+1) + ". " + t(item.q));
+      q.appendChild(p);
+      item.opts.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt" + (lang === "ur" ? " ur" : "");
+        b.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+        b.textContent = (lang === "ur") ? isolate(t(opt)) : t(opt);
+        b.addEventListener("click", function(){
+          if (b.parentNode.querySelector(".opt.right, .opt.wrong")) return;
+          var ok = (oi === item.a);
+          b.classList.add(ok ? "right" : "wrong");
+          if (!ok){
+            var nodes = q.querySelectorAll(".opt");
+            if (nodes[item.a]) nodes[item.a].classList.add("right");
+          } else {
+            award("quiz-" + qi + "-" + t(item.q).slice(0,12), 1);
+          }
+          var fb = document.createElement("p");
+          fb.className = "fb show";
+          setText(fb, ok ? (lang==="en"?"Shabash!":"شاباش!") : (lang==="en"?"Look at the green answer.":"سبز جواب دیکھو۔"));
+          q.appendChild(fb);
+        });
+        q.appendChild(b);
+      });
+      box.appendChild(q);
+    });
+  }
+
+  function applyLang(){
+    document.body.classList.toggle("urdu", lang === "ur");
+    document.documentElement.lang = (lang === "ur") ? "ur" : "en";
+    var lb = $("langBtn");
+    lb.textContent = (lang === "en") ? "اردو" : "English";
+    lb.setAttribute("aria-pressed", lang === "ur" ? "true" : "false");
+
+    setText($("title"), t(T.title));
+    setText($("subtitle"), t(T.sub));
+    setText($("ctlHead"), t(T.ctl));
+    setText($("nextBtn"), t(T.next));
+    setText($("hintBtn"), t(T.hint));
+    setText($("resetBtn"), t(T.reset));
+    setText($("quizHead"), t(T.quiz));
+    setText($("newQuiz"), t(T.newQuiz));
+
+    document.querySelectorAll("footer [data-en]").forEach(function(el){
+      setText(el, lang === "ur" ? el.getAttribute("data-ur") : el.getAttribute("data-en"));
+    });
+
+    setMode(mode);
+    renderQuiz();
+  }
+
+  function buildSpeakText(){
+    var parts = [t(T.title), t(T.sub)];
+    if (mode === "spot"){
+      parts.push(t(SPOT[sIdx].sent));
+      parts.push(t(T.askSpot));
+    } else if (mode === "flip"){
+      parts.push(t(FLIP[fIdx].active));
+      parts.push(t(T.askFlip));
+    } else {
+      parts.push(t(BUILD[bIdx].active));
+      parts.push(t(T.askBuild));
+    }
+    return parts.filter(Boolean).join(". ");
+  }
+
+  function pickVoice(voices, want){
+    var i, v, L;
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf(want) === 0) return v;
+    }
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf(want.split("-")[0]) === 0) return v;
+    }
+    return voices[0] || null;
+  }
+  var speakTimer = null;
+  function setSpeaking(on){
+    var btn = $("speakBtn");
+    if (!btn) return;
+    btn.setAttribute("aria-pressed", on ? "true" : "false");
+    btn.textContent = on ? "⏹" : "🔊";
+  }
+  function doSpeak(text, asLang){
+    try{
+      var u = new SpeechSynthesisUtterance(text);
+      u.lang = asLang === "ur" ? "ur-PK" : "en-US";
+      var voices = window.speechSynthesis.getVoices() || [];
+      var voice = pickVoice(voices, asLang === "ur" ? "ur" : "en");
+      if (voice) u.voice = voice;
+      u.onstart = function(){ setSpeaking(true); };
+      u.onend = function(){ setSpeaking(false); };
+      u.onerror = function(){
+        setSpeaking(false);
+      };
+      try {
+        window.speechSynthesis.speak(u);
+      } catch (e2) {
+        var u2 = new SpeechSynthesisUtterance(text);
+        u2.lang = u.lang;
+        u2.onstart = function(){ setSpeaking(true); };
+        u2.onend = u2.onerror = function(){ setSpeaking(false); };
+        window.speechSynthesis.speak(u2);
+      }
+    }catch(e){ setSpeaking(false); }
+  }
+
+  if ("speechSynthesis" in window){
+    try { window.speechSynthesis.getVoices(); } catch (e0) {}
+    if (typeof window.speechSynthesis.addEventListener === "function"){
+      window.speechSynthesis.addEventListener("voiceschanged", function(){
+        try { window.speechSynthesis.getVoices(); } catch (e1) {}
+      });
+    }
+  } else {
+    var noBtn = $("speakBtn");
+    if (noBtn){ noBtn.disabled = true; noBtn.title = "Voice not available on this device"; }
+  }
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      var text = buildSpeakText();
+      if (!text) return;
+      if (speakTimer){ clearTimeout(speakTimer); speakTimer = null; }
+      window.speechSynthesis.cancel();
+      setSpeaking(false);
+      var speakLang = lang;
+      speakTimer = setTimeout(function(){
+        speakTimer = null;
+        doSpeak(text, speakLang);
+      }, 80);
+    }catch(e){ setSpeaking(false); }
+  });
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en";
+    applyLang();
+  });
+  $("tabSpot").addEventListener("click", function(){ setMode("spot"); });
+  $("tabFlip").addEventListener("click", function(){ setMode("flip"); });
+  $("tabBuild").addEventListener("click", function(){ setMode("build"); });
+  $("nextBtn").addEventListener("click", next);
+  $("hintBtn").addEventListener("click", showHint);
+  $("resetBtn").addEventListener("click", resetMode);
+  $("newQuiz").addEventListener("click", function(){ pickQuiz(); renderQuiz(); });
+
+  pickQuiz();
+  applyLang();
+})();
+</script>
+</body>
+</html>

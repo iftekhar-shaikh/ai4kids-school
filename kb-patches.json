@@ -103,5 +103,13 @@
       "interactive_file": "interactives/g5-comprehension-skills.html",
       "interactive_label": "Khelo — Comprehension / Samajh"
     }
+  },
+  {
+    "file": "kb/grade_5/english.json",
+    "match_title": "Active/Passive voice",
+    "add": {
+      "interactive_file": "interactives/g5-active-passive-voice.html",
+      "interactive_label": "Khelo — Active/Passive"
+    }
   }
 ]
