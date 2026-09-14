@@ -119,5 +119,13 @@
       "interactive_file": "interactives/g5-all-tenses-review.html",
       "interactive_label": "Khelo — Tenses review"
     }
+  },
+  {
+    "file": "kb/grade_5/english.json",
+    "match_title": "Idioms aur proverbs",
+    "add": {
+      "interactive_file": "interactives/g5-idioms-proverbs.html",
+      "interactive_label": "Khelo — Idioms aur proverbs"
+    }
   }
 ]

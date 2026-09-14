@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Idioms aur Proverbs — محاورے اور کہاوتیں | AI4Kids Class 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#f3eee6;
+    --board-deep:#e6dccd;
+    --lit:#c9702e;
+    --lit-deep:#96500f;
+    --real:#2e7d55;
+    --real-deep:#1d5a3c;
+    --prov:#6b4a8f;
+    --ink:#241f18;
+    --ink-soft:#554c41;
+    --paper:#fdfaf3;
+    --line:#ded5c4;
+    --accent:#6b4a8f;
+    --ok:#2e7d4f;
+    --no:#c4453a;
+
+    --fs-cap:clamp(15px, 3.9vw, 16px);
+    --fs-xs:clamp(16px, 4.2vw, 18px);
+    --fs-sm:clamp(18px, 4.7vw, 19px);
+    --fs-md:clamp(19px, 5.1vw, 21px);
+    --fs-lg:clamp(22px, 5.9vw, 25px);
+    --fs-xl:clamp(28px, 7.6vw, 34px);
+    --lh:1.5;
+  }
+  /* Urdu is set larger than Latin — Nastaliq reads smaller at the same size. */
+  body.urdu{
+    --fs-cap:clamp(17px, 4.4vw, 18px);
+    --fs-xs:clamp(18px, 4.7vw, 20px);
+    --fs-sm:clamp(20px, 5.2vw, 22px);
+    --fs-md:clamp(21px, 5.6vw, 23px);
+    --fs-lg:clamp(24px, 6.4vw, 27px);
+    --fs-xl:clamp(27px, 7.2vw, 32px);
+    --lh:2.1;
+  }
+
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:44px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--lit);outline-offset:2px}
+
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+
+  .tabs{display:flex;gap:7px;margin:0 0 14px}
+  .tabs button{
+    flex:1;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:9px 6px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:56px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:linear-gradient(180deg,var(--board) 0%,var(--board-deep) 100%);
+    transition:background .4s ease;
+  }
+  .scene.real{background:linear-gradient(180deg,#e8f2ec 0%,#d6e8de 100%)}
+  .scene svg{display:block;width:100%;height:auto}
+
+  .flip{
+    display:flex;gap:8px;margin-top:12px;
+  }
+  .flip button{
+    flex:1;border:3px solid var(--line);background:var(--paper);color:var(--ink-soft);
+    border-radius:16px;padding:11px 8px;font:inherit;font-weight:800;
+    font-size:var(--fs-xs);cursor:pointer;min-height:60px;line-height:1.3;
+  }
+  .flip button.l[aria-pressed="true"]{border-color:var(--lit);background:#fbf0e6;color:var(--lit-deep)}
+  .flip button.r[aria-pressed="true"]{border-color:var(--real);background:#e8f2ec;color:var(--real-deep)}
+
+  .readout{
+    margin-top:14px;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;background:var(--lit);color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-cap);font-weight:700;margin-bottom:10px}
+  .statechip.ur{padding:2px 14px 7px}
+  .statechip.real{background:var(--real)}
+  .statechip.prov{background:var(--prov)}
+  .statechip.ok{background:var(--ok)} .statechip.no{background:var(--no)}
+  .phrase{font-weight:800;font-size:var(--fs-lg);margin:0 0 8px;line-height:1.35;direction:ltr}
+  .meaning{margin:0 0 6px;font-size:var(--fs-sm);color:var(--ink)}
+  .detail{margin:8px 0 0;color:var(--ink-soft);font-size:var(--fs-sm)}
+
+  .urcard{
+    margin-top:14px;border:2px solid var(--prov);background:#f2eef8;border-radius:14px;
+    padding:12px 14px;
+  }
+  .urcard em{display:block;font-style:normal;font-size:var(--fs-cap);color:var(--ink-soft);
+             font-weight:700;margin-bottom:5px}
+  .urcard b{display:block;font-size:var(--fs-md);font-weight:800;color:var(--prov);line-height:2}
+
+  .why-note{
+    margin:12px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.55;
+    border-left:3px solid var(--accent);padding-left:11px;
+  }
+  .why-note b{color:var(--accent);font-weight:800}
+  body.urdu .why-note{
+    border-left:0;border-right:3px solid var(--accent);padding-left:0;padding-right:11px;
+    line-height:var(--lh);
+  }
+
+  .panel{margin-top:22px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .schip{
+    border:2px solid var(--line);background:var(--paper);border-radius:999px;padding:9px 14px;
+    font:inherit;font-size:var(--fs-cap);font-weight:700;color:var(--ink);cursor:pointer;
+    min-height:46px;direction:ltr;
+  }
+  .schip[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+  .schip.done{border-color:var(--ok)}
+  .opts{display:flex;flex-direction:column;gap:9px;margin-top:10px}
+  .opts button{
+    border:2px solid var(--line);background:var(--paper);border-radius:14px;padding:12px 15px;
+    font:inherit;font-size:var(--fs-sm);font-weight:700;color:var(--ink);cursor:pointer;
+    min-height:54px;text-align:left;direction:ltr;
+  }
+  .opts button.right{border-color:var(--ok);background:#e8f2ed}
+  .opts button.wrong{border-color:var(--no);background:#fbeae8}
+
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:52px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+  .opt.wrong{border-color:var(--no);background:#fbeae8}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
+      grid-template-areas:"bar bar" "head head" "tabs tabs" "left right" "quiz quiz" "foot foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+    .left{grid-area:left} .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+    .panel{margin-top:0}
+  }
+  @media (prefers-reduced-motion:reduce){ *{transition-duration:.01ms !important} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 5 English</span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 id="title"></h1>
+  <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group">
+    <button type="button" id="tabIdiom" aria-pressed="true"></button>
+    <button type="button" id="tabProv" aria-pressed="false"></button>
+    <button type="button" id="tabUse" aria-pressed="false"></button>
+  </div>
+
+  <div class="left">
+  <div class="scene" id="scene">
+    <svg viewBox="0 0 300 200" role="img" id="svg" aria-label="A picture of the phrase"></svg>
+  </div>
+
+  <div class="flip" id="flip"></div>
+
+  <div class="readout">
+    <span class="statechip" id="statechip"></span>
+    <p class="phrase" id="phrase"></p>
+    <p class="meaning" id="meaning"></p>
+    <div class="urcard" id="urcard"></div>
+    <p class="detail" id="detail"></p>
+    <div class="opts" id="opts"></div>
+    <p class="why-note"><b id="whyLbl"></b> <span id="whyText"></span></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="panel">
+    <h2 id="panelHead"></h2>
+    <div class="chips" id="chips" role="group"></div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <h2 id="quizHead" style="font-size:var(--fs-lg);font-weight:800;margin:0 0 18px"></h2>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad's bilingual AI and coding school. WhatsApp 0337 1468899" data-ur="اے آئی فور کڈز — اسلام آباد کا دو زبانوں والا اے آئی اور کوڈنگ سکول۔ واٹس ایپ 0337 1468899"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var lang = "en";
+  var tab  = "idiom";
+  var idI = 0, provI = 0, useI = 0;
+  var side = "lit";                 // literal picture or real meaning
+  var picked = null;
+  var solved = {};
+
+  var NS = "http://www.w3.org/2000/svg";
+  function mk(tag, a){
+    var e = document.createElementNS(NS, tag);
+    for (var k in a) e.setAttribute(k, a[k]);
+    return e;
+  }
+  function add(g, tag, a){ var e = mk(tag,a); g.appendChild(e); return e; }
+  function cloud(g, x, y, s){
+    add(g,"ellipse",{cx:x-22*s, cy:y, rx:26*s, ry:17*s, fill:"#cfd8e0"});
+    add(g,"ellipse",{cx:x+6*s,  cy:y-9*s, rx:30*s, ry:21*s, fill:"#dfe6ec"});
+    add(g,"ellipse",{cx:x+32*s, cy:y+2*s, rx:24*s, ry:16*s, fill:"#cfd8e0"});
+  }
+  function kid(g, x, y, col){
+    add(g,"circle",{cx:x, cy:y-26, r:13, fill:"#e8c9a6", stroke:"#b38f68", "stroke-width":2});
+    add(g,"path",{d:"M"+(x-16)+" "+(y+26)+" L"+(x-12)+" "+(y-10)+
+                    " Q"+x+" "+(y-18)+" "+(x+12)+" "+(y-10)+" L"+(x+16)+" "+(y+26)+" Z",
+                  fill:col, stroke:"#00000022", "stroke-width":1.5});
+  }
+
+  /* ---------- the six idioms ---------- */
+  var IDIOMS = [
+    { en:"A piece of cake",
+      lit:{en:"A slice of cake, sitting on a plate.", ur:"پلیٹ میں رکھا کیک کا ایک ٹکڑا۔"},
+      real:{en:"Something very easy to do.", ur:"ایسا کام جو بہت آسان ہو۔"},
+      ex:{en:"That maths test was a piece of cake.", ur:""},
+      ur:"بائیں ہاتھ کا کھیل",
+      drawL:function(g){
+        add(g,"ellipse",{cx:150, cy:162, rx:82, ry:13, fill:"#ffffff", stroke:"#c9bda6","stroke-width":2});
+        add(g,"path",{d:"M108 150 L150 62 L192 150 Z", fill:"#e8c48f", stroke:"#b08a4e","stroke-width":2.5});
+        add(g,"path",{d:"M118 130 L150 62 L182 130 Z", fill:"#f6e3c4"});
+        add(g,"path",{d:"M126 112 L150 62 L174 112 Z", fill:"#c98b5e"});
+        add(g,"circle",{cx:150, cy:70, r:8, fill:"#c4453a"});
+      },
+      drawR:function(g){
+        kid(g, 108, 132, "#3a6ea8");
+        add(g,"rect",{x:150, y:80, width:96, height:66, rx:8, fill:"#fff", stroke:"#b7ae99","stroke-width":2.5});
+        for (var i=0;i<3;i++) add(g,"line",{x1:162,y1:98+i*16,x2:234,y2:98+i*16,stroke:"#d6cdb8","stroke-width":3});
+        add(g,"path",{d:"M172 116 L188 134 L224 96", fill:"none", stroke:"var(--real)",
+                      "stroke-width":8, "stroke-linecap":"round", "stroke-linejoin":"round"});
+      } },
+
+    { en:"It is raining cats and dogs",
+      lit:{en:"Actual cats and dogs, falling out of the sky.", ur:"سچ مچ کی بلیاں اور کتے آسمان سے گر رہے ہیں۔"},
+      real:{en:"It is raining extremely heavily.", ur:"بہت تیز، موسلادھار بارش ہو رہی ہے۔"},
+      ex:{en:"We stayed home — it was raining cats and dogs.", ur:""},
+      ur:"موسلادھار بارش",
+      drawL:function(g){
+        cloud(g, 150, 46, 1.1);
+        [[92,120],[150,140],[212,116]].forEach(function(p,i){
+          add(g,"circle",{cx:p[0], cy:p[1], r:16, fill: i===1 ? "#b08050" : "#8d8478"});
+          add(g,"path",{d:"M"+(p[0]-13)+" "+(p[1]-10)+" L"+(p[0]-17)+" "+(p[1]-24)+" L"+(p[0]-4)+" "+(p[1]-17)+" Z",
+                        fill: i===1 ? "#b08050" : "#8d8478"});
+          add(g,"path",{d:"M"+(p[0]+13)+" "+(p[1]-10)+" L"+(p[0]+17)+" "+(p[1]-24)+" L"+(p[0]+4)+" "+(p[1]-17)+" Z",
+                        fill: i===1 ? "#b08050" : "#8d8478"});
+          add(g,"circle",{cx:p[0]-6, cy:p[1]-2, r:2.5, fill:"#241f18"});
+          add(g,"circle",{cx:p[0]+6, cy:p[1]-2, r:2.5, fill:"#241f18"});
+        });
+      },
+      drawR:function(g){
+        cloud(g, 150, 46, 1.1);
+        for (var i=0;i<9;i++){
+          var x = 68 + i*21;
+          add(g,"line",{x1:x, y1:78, x2:x-9, y2:150, stroke:"#3a6ea8","stroke-width":4,"stroke-linecap":"round"});
+        }
+        add(g,"rect",{x:0,y:168,width:300,height:32,fill:"#5d7a92"});
+      } },
+
+    { en:"A bookworm",
+      lit:{en:"A worm that lives inside a book.", ur:"ایک کیڑا جو کتاب کے اندر رہتا ہے۔"},
+      real:{en:"Someone who loves reading books.", ur:"وہ شخص جسے کتابیں پڑھنے کا بہت شوق ہو۔"},
+      ex:{en:"My sister is a real bookworm.", ur:""},
+      ur:"کتابی کیڑا",
+      drawL:function(g){
+        add(g,"path",{d:"M60 90 Q150 70 240 90 L240 152 Q150 132 60 152 Z",
+                      fill:"#f6f0e2", stroke:"#b7ae99","stroke-width":2.5});
+        add(g,"line",{x1:150,y1:78,x2:150,y2:142,stroke:"#b7ae99","stroke-width":2.5});
+        add(g,"path",{d:"M186 100 q14 -18 30 -6 q-16 4 -12 18 q-16 -2 -18 -12 Z", fill:"#5d9c4a"});
+        add(g,"circle",{cx:216, cy:92, r:9, fill:"#6fb056"});
+        add(g,"circle",{cx:219, cy:90, r:2.2, fill:"#241f18"});
+      },
+      drawR:function(g){
+        kid(g, 96, 134, "#8f5aa8");
+        var cols=["#c4453a","#3a6ea8","#2e7d55","#d4a02e"];
+        for (var i=0;i<4;i++)
+          add(g,"rect",{x:168, y:142-i*20, width:96-i*6, height:17, rx:3,
+                        fill:cols[i], stroke:"#00000022","stroke-width":1.5});
+        add(g,"rect",{x:70, y:104, width:48, height:34, rx:4, fill:"#fff",
+                      stroke:"#b7ae99","stroke-width":2, transform:"rotate(-12 94 121)"});
+      } },
+
+    { en:"Butterflies in my stomach",
+      lit:{en:"Real butterflies, flying about inside a tummy.", ur:"سچ مچ کی تتلیاں، پیٹ کے اندر اُڑ رہی ہیں۔"},
+      real:{en:"Feeling nervous before something important.", ur:"کسی اہم کام سے پہلے گھبراہٹ محسوس ہونا۔"},
+      ex:{en:"I had butterflies in my stomach before the speech.", ur:""},
+      ur:"دل دھڑکنا / گھبراہٹ ہونا",
+      drawL:function(g){
+        add(g,"ellipse",{cx:150, cy:112, rx:66, ry:58, fill:"#f2d9bd", stroke:"#c39b70","stroke-width":3});
+        [[124,96],[168,104],[146,136]].forEach(function(p){
+          add(g,"ellipse",{cx:p[0]-9, cy:p[1], rx:10, ry:13, fill:"#d97fb0"});
+          add(g,"ellipse",{cx:p[0]+9, cy:p[1], rx:10, ry:13, fill:"#d97fb0"});
+          add(g,"line",{x1:p[0],y1:p[1]-11,x2:p[0],y2:p[1]+11,stroke:"#6b4a8f","stroke-width":3});
+        });
+      },
+      drawR:function(g){
+        kid(g, 150, 150, "#c4453a");
+        add(g,"rect",{x:60, y:44, width:180, height:30, rx:6, fill:"#fff", stroke:"#b7ae99","stroke-width":2.5});
+        add(g,"line",{x1:150,y1:74,x2:150,y2:96,stroke:"#b7ae99","stroke-width":3});
+        [[112,104],[188,104]].forEach(function(p){
+          add(g,"path",{d:"M"+p[0]+" "+p[1]+" q8 -12 16 0 q-8 4 -8 12 q-8 -4 -8 -12 Z", fill:"#d97fb0"});
+        });
+        add(g,"text",{x:206, y:64, "font-size":"22", "font-weight":"800", fill:"var(--no)",
+                      "font-family":"Baloo Bhaijaan 2, sans-serif"}).textContent = "!";
+      } },
+
+    { en:"Let the cat out of the bag",
+      lit:{en:"A cat climbing out of a cloth bag.", ur:"ایک بلی تھیلے سے باہر نکل رہی ہے۔"},
+      real:{en:"To tell a secret you were meant to keep.", ur:"وہ راز کھول دینا جو چھپانا تھا۔"},
+      ex:{en:"He let the cat out of the bag about the party.", ur:""},
+      ur:"راز فاش کر دینا",
+      drawL:function(g){
+        add(g,"path",{d:"M96 176 L88 104 Q150 88 212 104 L204 176 Z",
+                      fill:"#c9a878", stroke:"#96774a","stroke-width":2.5});
+        add(g,"circle",{cx:168, cy:82, r:22, fill:"#8d8478"});
+        add(g,"path",{d:"M150 70 L146 46 L162 60 Z", fill:"#8d8478"});
+        add(g,"path",{d:"M186 70 L190 46 L174 60 Z", fill:"#8d8478"});
+        add(g,"circle",{cx:160, cy:80, r:3.2, fill:"#241f18"});
+        add(g,"circle",{cx:176, cy:80, r:3.2, fill:"#241f18"});
+      },
+      drawR:function(g){
+        kid(g, 98, 146, "#2e7d55");
+        kid(g, 202, 146, "#d4a02e");
+        add(g,"path",{d:"M126 88 q24 -22 48 0 q-24 10 -48 0 Z", fill:"#fff", stroke:"#b7ae99","stroke-width":2});
+        add(g,"text",{x:150, y:62, "text-anchor":"middle", "font-size":"24", "font-weight":"800",
+                      fill:"var(--no)", "font-family":"Baloo Bhaijaan 2, sans-serif"}).textContent = "!";
+      } },
+
+    { en:"Once in a blue moon",
+      lit:{en:"A moon that has actually turned blue.", ur:"ایک چاند جو واقعی نیلا ہو گیا ہو۔"},
+      real:{en:"Something that happens very rarely.", ur:"ایسی بات جو بہت کم، کبھی کبھار ہوتی ہو۔"},
+      ex:{en:"He visits us once in a blue moon.", ur:""},
+      ur:"عید کا چاند ہونا",
+      drawL:function(g){
+        add(g,"rect",{x:0,y:0,width:300,height:200,fill:"#1e2a44"});
+        add(g,"circle",{cx:150, cy:94, r:46, fill:"#6f9ce0"});
+        add(g,"circle",{cx:134, cy:82, r:9, fill:"#5c86c6"});
+        add(g,"circle",{cx:166, cy:106, r:12, fill:"#5c86c6"});
+        [[46,40],[252,58],[70,152],[238,146],[150,26]].forEach(function(p){
+          add(g,"circle",{cx:p[0], cy:p[1], r:2.6, fill:"#fff", opacity:.85});
+        });
+      },
+      drawR:function(g){
+        add(g,"rect",{x:36,y:38,width:228,height:130,rx:10,fill:"#fff",stroke:"#b7ae99","stroke-width":2.5});
+        add(g,"rect",{x:36,y:38,width:228,height:24,rx:10,fill:"#6b4a8f"});
+        for (var r=0;r<3;r++) for (var c=0;c<6;c++){
+          var x = 52+c*36, y = 78+r*30;
+          var one = (r===1 && c===3);
+          add(g,"circle",{cx:x, cy:y, r: one ? 13 : 9,
+                          fill: one ? "var(--prov)" : "#e6e0d2"});
+        }
+      } }
+  ];
+
+  /* ---------- the six proverbs ---------- */
+  var PROVS = [
+    { en:"Where there is a will, there is a way",
+      mean:{en:"If you really want to do something, you will find a way to do it.",
+            ur:"اگر سچے دل سے کچھ کرنا چاہیں تو راستہ نکل ہی آتا ہے۔"},
+      ur:"جہاں چاہ، وہاں راہ",
+      note:{en:"This one is word for word the same in Urdu. The two languages arrived at exactly the same sentence.",
+            ur:"یہ اردو میں لفظ بہ لفظ وہی ہے۔ دونوں زبانیں بالکل ایک ہی جملے پر پہنچی ہیں۔"} },
+    { en:"A friend in need is a friend indeed",
+      mean:{en:"A real friend is the one who helps you when you are in trouble.",
+            ur:"اصل دوست وہی ہے جو مشکل وقت میں کام آئے۔"},
+      ur:"دوست وہی جو مصیبت میں کام آئے",
+      note:{en:"Notice it does not say a friend who is fun, or a friend who is popular. The test is trouble.",
+            ur:"غور کریں، یہ نہیں کہتا کہ دوست وہ جو مزے کا ہو یا مشہور ہو۔ کسوٹی مصیبت ہے۔"} },
+    { en:"Do not judge a book by its cover",
+      mean:{en:"Do not decide what something is worth just by how it looks.",
+            ur:"صرف ظاہری شکل دیکھ کر کسی کی قدر کا فیصلہ نہ کریں۔"},
+      ur:"ہر چمکتی چیز سونا نہیں ہوتی",
+      note:{en:"The Urdu saying comes at the same idea from the other side: shiny does not mean valuable.",
+            ur:"اردو کہاوت اسی بات کو دوسری طرف سے کہتی ہے: چمکنے سے قیمتی ہونا لازم نہیں۔"} },
+    { en:"Slow and steady wins the race",
+      mean:{en:"Working carefully and without stopping beats rushing.",
+            ur:"آہستہ مگر مسلسل کام کرنا جلد بازی سے بہتر ہے۔"},
+      ur:"جلدی کا کام شیطان کا",
+      note:{en:"This is the tortoise and the hare. The hare was faster and still lost, because it stopped.",
+            ur:"یہ کچھوے اور خرگوش کی کہانی ہے۔ خرگوش تیز تھا پھر بھی ہارا، کیونکہ وہ رک گیا تھا۔"} },
+    { en:"Practice makes perfect",
+      mean:{en:"You get good at something by doing it again and again.",
+            ur:"کسی کام میں مہارت بار بار کرنے سے آتی ہے۔"},
+      ur:"کام کو کام سکھاتا ہے",
+      note:{en:"Nobody is born able to do it. The word that matters here is again — not once, again.",
+            ur:"کوئی پیدائشی طور پر ماہر نہیں ہوتا۔ یہاں اہم لفظ ہے بار بار — ایک بار نہیں، بار بار۔"} },
+    { en:"Many hands make light work",
+      mean:{en:"A big job becomes easy when everybody helps.",
+            ur:"بڑا کام سب مل کر کریں تو آسان ہو جاتا ہے۔"},
+      ur:"اتفاق میں برکت ہے",
+      note:{en:"Light here does not mean not heavy in weight. It means easy — another word doing a second job.",
+            ur:"یہاں light کا مطلب وزن میں ہلکا نہیں۔ مطلب ہے آسان — ایک اور لفظ جو دوسرا کام کر رہا ہے۔"} }
+  ];
+
+  /* ---------- pick the right idiom for the situation ---------- */
+  var USES = [
+    { sit:{en:"Ali finished his homework in five minutes and said it was very easy.",
+           ur:"علی نے پانچ منٹ میں ہوم ورک ختم کر لیا اور کہا کہ یہ بہت آسان تھا۔"},
+      a:0 },
+    { sit:{en:"The rain was so heavy that the street turned into a stream.",
+           ur:"بارش اتنی تیز تھی کہ گلی نالے میں بدل گئی۔"},
+      a:1 },
+    { sit:{en:"Sara reads three books every week and always has one in her bag.",
+           ur:"سارہ ہر ہفتے تین کتابیں پڑھتی ہے اور ایک ہمیشہ بیگ میں رکھتی ہے۔"},
+      a:2 },
+    { sit:{en:"Just before going on stage, Hina felt her tummy go funny.",
+           ur:"اسٹیج پر جانے سے ذرا پہلے حنا کے پیٹ میں عجیب سی کیفیت ہوئی۔"},
+      a:3 },
+    { sit:{en:"The party was a surprise, but Bilal told his sister about it.",
+           ur:"پارٹی سرپرائز تھی، مگر بلال نے اپنی بہن کو بتا دیا۔"},
+      a:4 },
+    { sit:{en:"Our cousin lives abroad and visits us maybe once in three years.",
+           ur:"ہمارے کزن بیرونِ ملک رہتے ہیں اور شاید تین سال میں ایک بار آتے ہیں۔"},
+      a:5 }
+  ];
+
+  var T = {
+    tabIdiom:{en:"Idioms", ur:"محاورے"},
+    tabProv:{en:"Proverbs", ur:"کہاوتیں"},
+    tabUse:{en:"Which one fits?", ur:"کون سا فٹ ہوگا؟"},
+    titleIdiom:{en:"An idiom never means what the words say.",
+                ur:"محاورہ کبھی وہ نہیں کہتا جو الفاظ کہہ رہے ہوتے ہیں۔"},
+    subIdiom:{en:"Look at the silly picture first. Then flip it and see what it really means.",
+              ur:"پہلے مزے کی تصویر دیکھیں۔ پھر پلٹ کر دیکھیں اصل مطلب کیا ہے۔"},
+    titleProv:{en:"A proverb is a short piece of advice everybody already knows.",
+               ur:"کہاوت ایک مختصر نصیحت ہے جو سب پہلے سے جانتے ہیں۔"},
+    subProv:{en:"Most of them exist in Urdu too — sometimes word for word.",
+             ur:"ان میں سے زیادہ تر اردو میں بھی موجود ہیں — کبھی کبھی لفظ بہ لفظ۔"},
+    titleUse:{en:"Read what happened, then pick the idiom that fits.",
+              ur:"پڑھیں کیا ہوا، پھر وہ محاورہ چنیں جو فٹ بیٹھے۔"},
+    subUse:{en:"This is the real test — not knowing the meaning, but knowing when to use it.",
+            ur:"اصل امتحان یہی ہے — مطلب جاننا نہیں، بلکہ یہ جاننا کہ کب استعمال کرنا ہے۔"},
+    headIdiom:{en:"Pick an idiom", ur:"کوئی محاورہ چنیں"},
+    headProv:{en:"Pick a proverb", ur:"کوئی کہاوت چنیں"},
+    headUse:{en:"Pick a situation", ur:"کوئی صورتِ حال چنیں"},
+    flipLit:{en:"What the words say", ur:"الفاظ جو کہہ رہے ہیں"},
+    flipReal:{en:"What it really means", ur:"اصل میں کیا مطلب ہے"},
+    litChip:{en:"The words, taken literally", ur:"الفاظ، لفظی معنی میں"},
+    realChip:{en:"The real meaning", ur:"اصل معنی"},
+    provChip:{en:"Proverb", ur:"کہاوت"},
+    urLbl:{en:"The same idea in Urdu", ur:"یہی بات اردو میں"},
+    exLbl:{en:"Used in a sentence", ur:"جملے میں استعمال"},
+    ask:{en:"Which idiom fits here?", ur:"یہاں کون سا محاورہ فٹ ہوگا؟"},
+    right:{en:"That fits.", ur:"یہی فٹ بیٹھتا ہے۔"},
+    wrong:{en:"Not that one. Read the situation again.", ur:"یہ نہیں۔ صورتِ حال دوبارہ پڑھیں۔"},
+    whyLit:{en:"This picture is what the sentence would mean if you took every word at face value. It is funny — and completely wrong. That gap is exactly what an idiom is.",
+            ur:"یہ تصویر وہ ہے جو جملے کا مطلب ہوتا اگر ہر لفظ کو لفظی طور پر لیا جاتا۔ مزے کی بات ہے — اور بالکل غلط۔ یہی فرق محاورہ کہلاتا ہے۔"},
+    whyReal:{en:"Now compare the two pictures. Same six words, two completely different things. This is why you can never work out an idiom from a dictionary — you have to learn the whole phrase.",
+             ur:"اب دونوں تصویریں ملا کر دیکھیں۔ وہی الفاظ، دو بالکل الگ باتیں۔ اسی لیے محاورہ لغت سے نہیں نکالا جا سکتا — پورا فقرہ ہی سیکھنا پڑتا ہے۔"},
+    whyUse:{en:"Knowing what an idiom means is the easy half. The hard half is noticing the moment where it fits, and that only comes from meeting it again and again.",
+            ur:"محاورے کا مطلب جاننا آسان حصہ ہے۔ مشکل حصہ وہ لمحہ پہچاننا ہے جہاں وہ فٹ بیٹھے، اور یہ بار بار ملنے سے ہی آتا ہے۔"},
+    whyLbl:{en:"Notice:", ur:"غور کریں:"},
+    quiz:{en:"Check yourself", ur:"اپنا امتحان لیں"}
+  };
+
+  var QUIZ = [
+    { q:{en:"What does \u201ca piece of cake\u201d mean?", ur:"\u201ca piece of cake\u201d کا مطلب کیا ہے؟"},
+      o:[{en:"A sweet dish after dinner", ur:"کھانے کے بعد کی میٹھی چیز"},
+         {en:"Something very easy", ur:"کوئی بہت آسان کام"},
+         {en:"Something very expensive", ur:"کوئی بہت مہنگی چیز"},
+         {en:"A birthday party", ur:"سالگرہ کی تقریب"}],
+      a:1,
+      f:{en:"Nothing to do with cake at all. That is the whole point of an idiom — the words are just a picture the meaning hides behind.",
+         ur:"کیک سے اس کا کوئی تعلق ہی نہیں۔ محاورے کی اصل بات یہی ہے — الفاظ صرف ایک تصویر ہیں جس کے پیچھے مطلب چھپا ہوتا ہے۔"} },
+
+    { q:{en:"Someone says \u201cIt is raining cats and dogs.\u201d What is happening?",
+         ur:"کوئی کہے \u201cIt is raining cats and dogs.\u201d تو کیا ہو رہا ہے؟"},
+      o:[{en:"Animals are falling from the sky", ur:"جانور آسمان سے گر رہے ہیں"},
+         {en:"It is raining very heavily", ur:"بہت تیز بارش ہو رہی ہے"},
+         {en:"There are many street animals outside", ur:"باہر گلی میں بہت جانور ہیں"},
+         {en:"It is about to stop raining", ur:"بارش رکنے والی ہے"}],
+      a:1,
+      f:{en:"In Urdu you would say موسلادھار بارش. Neither language means it literally — both just picked a strong picture.",
+         ur:"اردو میں آپ کہیں گے موسلادھار بارش۔ دونوں زبانیں لفظی مطلب نہیں لیتیں — دونوں نے بس ایک زوردار تصویر چنی ہے۔"} },
+
+    { q:{en:"Your friend tells everyone about your surprise plan. What did they do?",
+         ur:"آپ کا دوست سب کو آپ کے سرپرائز پلان کے بارے میں بتا دیتا ہے۔ اس نے کیا کیا؟"},
+      o:[{en:"Let the cat out of the bag", ur:"Let the cat out of the bag"},
+         {en:"Had butterflies in the stomach", ur:"Had butterflies in the stomach"},
+         {en:"Was a bookworm", ur:"Was a bookworm"},
+         {en:"Had a piece of cake", ur:"Had a piece of cake"}],
+      a:0,
+      f:{en:"Letting the cat out of the bag means giving away a secret. Once the cat is out, you cannot put it back — and neither can you unsay a secret.",
+         ur:"Let the cat out of the bag یعنی راز کھول دینا۔ بلی ایک بار نکل جائے تو واپس نہیں ڈالی جا سکتی — اور کہی ہوئی بات بھی واپس نہیں ہوتی۔"} },
+
+    { q:{en:"\u201cWhere there is a will, there is a way\u201d — which Urdu saying is this?",
+         ur:"\u201cWhere there is a will, there is a way\u201d — یہ کون سی اردو کہاوت ہے؟"},
+      o:[{en:"اتفاق میں برکت ہے", ur:"اتفاق میں برکت ہے"},
+         {en:"جہاں چاہ، وہاں راہ", ur:"جہاں چاہ، وہاں راہ"},
+         {en:"جلدی کا کام شیطان کا", ur:"جلدی کا کام شیطان کا"},
+         {en:"ہر چمکتی چیز سونا نہیں ہوتی", ur:"ہر چمکتی چیز سونا نہیں ہوتی"}],
+      a:1,
+      f:{en:"Word for word the same in both languages. People far apart, with no contact, arrived at the very same sentence — because the idea is true for everybody.",
+         ur:"دونوں زبانوں میں لفظ بہ لفظ وہی۔ دور دراز کے لوگ، بغیر کسی رابطے کے، بالکل ایک ہی جملے پر پہنچے — کیونکہ بات سب کے لیے سچ ہے۔"} },
+
+    { q:{en:"What is the difference between an idiom and a proverb?",
+         ur:"محاورے اور کہاوت میں کیا فرق ہے؟"},
+      o:[{en:"There is no difference at all", ur:"کوئی فرق ہی نہیں"},
+         {en:"An idiom is a phrase with a hidden meaning; a proverb is a full sentence that gives advice",
+          ur:"محاورہ ایک فقرہ ہے جس کا مطلب چھپا ہوتا ہے؛ کہاوت ایک پورا جملہ ہے جو نصیحت دیتا ہے"},
+         {en:"A proverb is always about animals", ur:"کہاوت ہمیشہ جانوروں کے بارے میں ہوتی ہے"},
+         {en:"An idiom is always funny", ur:"محاورہ ہمیشہ مزاحیہ ہوتا ہے"}],
+      a:1,
+      f:{en:"\u201cA piece of cake\u201d is not advice — you slot it into your own sentence. \u201cPractice makes perfect\u201d is already a complete sentence telling you what to do.",
+         ur:"\u201cA piece of cake\u201d نصیحت نہیں — آپ اسے اپنے جملے میں فٹ کرتے ہیں۔ \u201cPractice makes perfect\u201d خود ایک مکمل جملہ ہے جو بتا رہا ہے کیا کرنا ہے۔"} },
+
+    { q:{en:"Why can you not work out an idiom by looking up each word?",
+         ur:"محاورے کا مطلب ہر لفظ الگ الگ دیکھ کر کیوں نہیں نکالا جا سکتا؟"},
+      o:[{en:"Because the words are too difficult", ur:"کیونکہ الفاظ بہت مشکل ہوتے ہیں"},
+         {en:"Because the meaning belongs to the whole phrase, not to the separate words",
+          ur:"کیونکہ مطلب پورے فقرے کا ہوتا ہے، الگ الگ الفاظ کا نہیں"},
+         {en:"Because idioms are not in dictionaries", ur:"کیونکہ محاورے لغت میں ہوتے ہی نہیں"},
+         {en:"Because they are always in another language", ur:"کیونکہ وہ ہمیشہ کسی اور زبان میں ہوتے ہیں"}],
+      a:1,
+      f:{en:"Every word in \u201craining cats and dogs\u201d is easy. Put them together and the meaning is somewhere else entirely. The phrase has to be learned as one thing.",
+         ur:"\u201craining cats and dogs\u201d کا ہر لفظ آسان ہے۔ ملا دیں تو مطلب بالکل کہیں اور نکلتا ہے۔ فقرہ ایک اکائی کے طور پر ہی سیکھنا پڑتا ہے۔"} }
+  ];
+
+  function $(id){ return document.getElementById(id); }
+  function t(o){ return o[lang]; }
+
+  var LRI = "\u2066", PDI = "\u2069";
+  var LATIN_RUN = /[A-Za-z0-9][A-Za-z0-9 .,'\u2019+()\/@_-]*[A-Za-z0-9.]|[A-Za-z0-9]/g;
+  function isolate(s){ return s.replace(LATIN_RUN, function(m){ return LRI + m + PDI; }); }
+  function setText(el, str){
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+
+  /* ---------- render ---------- */
+  function render(){
+    ["Idiom","Prov","Use"].forEach(function(x){
+      $("tab"+x).setAttribute("aria-pressed", tab === x.toLowerCase() ? "true" : "false");
+    });
+    setText($("tabIdiom"), t(T.tabIdiom));
+    setText($("tabProv"),  t(T.tabProv));
+    setText($("tabUse"),   t(T.tabUse));
+    $("whyLbl").textContent = t(T.whyLbl);
+    setText($("quizHead"), t(T.quiz));
+
+    var svg = $("svg"); svg.innerHTML = "";
+    var g = document.createElementNS(NS,"g"); svg.appendChild(g);
+    var chip = $("statechip"); chip.className = "statechip";
+    var chips = $("chips"); chips.innerHTML = "";
+    var opts = $("opts"); opts.innerHTML = "";
+    var flip = $("flip"); flip.innerHTML = "";
+    $("urcard").style.display = "none";
+    $("scene").classList.remove("real");
+
+    if (tab === "idiom"){
+      var it = IDIOMS[idI];
+      setText($("title"), t(T.titleIdiom));
+      setText($("subtitle"), t(T.subIdiom));
+      setText($("panelHead"), t(T.headIdiom));
+      (side === "lit" ? it.drawL : it.drawR)(g);
+      $("scene").classList.toggle("real", side === "real");
+      chip.className = "statechip" + (side === "real" ? " real" : "");
+      setText(chip, side === "real" ? t(T.realChip) : t(T.litChip));
+      $("phrase").textContent = it.en;
+      setText($("meaning"), side === "real" ? t(it.real) : t(it.lit));
+      setText($("detail"), side === "real" ? (t(T.exLbl) + ": " + it.ex.en) : "");
+      if (side === "real"){
+        $("urcard").style.display = "";
+        $("urcard").innerHTML = "";
+        var em = document.createElement("em"); em.textContent = t(T.urLbl);
+        em.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+        var b = document.createElement("b"); b.textContent = it.ur;
+        b.setAttribute("dir","rtl"); b.className = "ur";
+        $("urcard").appendChild(em); $("urcard").appendChild(b);
+      }
+      setText($("whyText"), side === "real" ? t(T.whyReal) : t(T.whyLit));
+
+      [["lit","l",t(T.flipLit)],["real","r",t(T.flipReal)]].forEach(function(f){
+        var bt = document.createElement("button");
+        bt.type = "button"; bt.className = f[1];
+        bt.textContent = f[2];
+        bt.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+        bt.setAttribute("aria-pressed", side === f[0] ? "true" : "false");
+        bt.addEventListener("click", function(){ side = f[0]; render(); });
+        flip.appendChild(bt);
+      });
+
+      IDIOMS.forEach(function(x, i){
+        var bt = document.createElement("button");
+        bt.type = "button"; bt.className = "schip";
+        bt.textContent = x.en;
+        bt.setAttribute("aria-pressed", i === idI ? "true" : "false");
+        bt.addEventListener("click", function(){ idI = i; side = "lit"; render(); });
+        chips.appendChild(bt);
+      });
+      lastSpoken = it.en;
+      return;
+    }
+
+    if (tab === "prov"){
+      var pv = PROVS[provI];
+      setText($("title"), t(T.titleProv));
+      setText($("subtitle"), t(T.subProv));
+      setText($("panelHead"), t(T.headProv));
+      // a simple open-book backdrop for every proverb
+      g.appendChild(mk("path",{d:"M40 74 Q150 52 260 74 L260 156 Q150 134 40 156 Z",
+                               fill:"#f6f0e2", stroke:"#b7ae99","stroke-width":2.5}));
+      g.appendChild(mk("line",{x1:150,y1:62,x2:150,y2:146,stroke:"#b7ae99","stroke-width":2.5}));
+      for (var r=0;r<4;r++){
+        g.appendChild(mk("line",{x1:60,y1:92+r*16,x2:138,y2:88+r*16,stroke:"#ddd4c0","stroke-width":3}));
+        g.appendChild(mk("line",{x1:162,y1:88+r*16,x2:240,y2:92+r*16,stroke:"#ddd4c0","stroke-width":3}));
+      }
+      chip.className = "statechip prov";
+      setText(chip, t(T.provChip));
+      $("phrase").textContent = pv.en;
+      setText($("meaning"), t(pv.mean));
+      setText($("detail"), "");
+      $("urcard").style.display = "";
+      $("urcard").innerHTML = "";
+      var em2 = document.createElement("em"); em2.textContent = t(T.urLbl);
+      em2.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+      var b2 = document.createElement("b"); b2.textContent = pv.ur;
+      b2.setAttribute("dir","rtl"); b2.className = "ur";
+      $("urcard").appendChild(em2); $("urcard").appendChild(b2);
+      setText($("whyText"), t(pv.note));
+      PROVS.forEach(function(x, i){
+        var bt = document.createElement("button");
+        bt.type = "button"; bt.className = "schip";
+        bt.textContent = String(i+1);
+        bt.setAttribute("aria-pressed", i === provI ? "true" : "false");
+        bt.addEventListener("click", function(){ provI = i; render(); });
+        chips.appendChild(bt);
+      });
+      lastSpoken = pv.en;
+      return;
+    }
+
+    // which idiom fits
+    var us = USES[useI], correct = IDIOMS[us.a];
+    setText($("title"), t(T.titleUse));
+    setText($("subtitle"), t(T.subUse));
+    setText($("panelHead"), t(T.headUse));
+    if (picked !== null && picked === us.a) correct.drawR(g);
+    else IDIOMS[picked === null ? us.a : picked].drawL(g);
+    $("scene").classList.toggle("real", picked === us.a);
+    if (picked === null){
+      setText(chip, t(T.ask));
+    } else if (picked === us.a){
+      chip.className = "statechip ok"; setText(chip, t(T.right)); solved[useI] = true;
+    } else {
+      chip.className = "statechip no"; setText(chip, t(T.wrong));
+    }
+    $("phrase").textContent = picked === us.a ? correct.en : "";
+    setText($("meaning"), t(us.sit));
+    setText($("detail"), picked === us.a ? t(correct.real) : "");
+    setText($("whyText"), t(T.whyUse));
+
+    // Four choices. The wrong ones used to be whichever idioms came first in the list,
+    // so a child could spot the answer by position instead of by meaning. They are now
+    // spread around the answer, and the answer lands in a different slot each time.
+    var pool = [us.a];
+    for (var k=1; k<=3; k++) pool.push((us.a + k * 2 + useI) % IDIOMS.length);
+    pool = pool.filter(function(v, i){ return pool.indexOf(v) === i; });
+    for (var k2=1; pool.length < 4; k2++){
+      var cand = (us.a + k2) % IDIOMS.length;
+      if (pool.indexOf(cand) < 0) pool.push(cand);
+    }
+    pool.sort(function(a,b){ return ((a*5 + useI*7) % 13) - ((b*5 + useI*7) % 13); });
+    pool.forEach(function(i){
+      var bt = document.createElement("button");
+      bt.type = "button";
+      bt.textContent = IDIOMS[i].en;
+      if (picked !== null){
+        if (i === us.a) bt.className = "right";
+        else if (i === picked) bt.className = "wrong";
+      }
+      bt.addEventListener("click", function(){
+        if (picked !== null) return;
+        picked = i; render();
+      });
+      opts.appendChild(bt);
+    });
+
+    USES.forEach(function(x, i){
+      var bt = document.createElement("button");
+      bt.type = "button";
+      bt.className = "schip" + (solved[i] ? " done" : "");
+      bt.textContent = String(i+1) + (solved[i] ? " \u2605" : "");
+      bt.setAttribute("aria-pressed", i === useI ? "true" : "false");
+      bt.addEventListener("click", function(){ useI = i; picked = null; render(); });
+      chips.appendChild(bt);
+    });
+    lastSpoken = us.sit.en;
+  }
+
+  var lastSpoken = "";
+
+  ["Idiom","Prov","Use"].forEach(function(x){
+    $("tab"+x).addEventListener("click", function(){
+      var m = x.toLowerCase();
+      if (tab === m) return;
+      tab = m; side = "lit"; picked = null; render();
+    });
+  });
+
+  /* ---------- quiz ---------- */
+  function buildQuiz(){
+    var box = $("quizBox"); box.innerHTML = "";
+    QUIZ.forEach(function(item){
+      var wrap = document.createElement("div"); wrap.className = "q";
+      var q = document.createElement("p"); setText(q, t(item.q)); wrap.appendChild(q);
+      var fb = document.createElement("p"); fb.className = "fb";
+      item.o.forEach(function(opt, oi){
+        var bt = document.createElement("button");
+        bt.type = "button";
+        bt.className = "opt" + (lang === "ur" ? " ur" : "");
+        bt.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+        bt.textContent = t(opt);
+        bt.addEventListener("click", function(){
+          if (wrap.getAttribute("data-done") === "1") return;
+          wrap.setAttribute("data-done","1");
+          Array.prototype.forEach.call(wrap.querySelectorAll(".opt"), function(x, xi){
+            if (xi === item.a) x.classList.add("right");
+            else if (xi === oi) x.classList.add("wrong");
+          });
+          setText(fb, t(item.f));
+          fb.classList.add("show","fb");
+        });
+        wrap.appendChild(bt);
+      });
+      wrap.appendChild(fb); box.appendChild(wrap);
+    });
+  }
+
+  function applyLang(){
+    document.body.classList.toggle("urdu", lang === "ur");
+    var lb = $("langBtn");
+    lb.textContent = (lang === "en") ? "اردو" : "English";
+    lb.setAttribute("aria-pressed", lang === "ur" ? "true" : "false");
+    Array.prototype.forEach.call(document.querySelectorAll("[data-en]"), function(el){
+      setText(el, el.getAttribute(lang === "en" ? "data-en" : "data-ur"));
+    });
+    buildQuiz(); render();
+  }
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en"; applyLang();
+  });
+
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      window.speechSynthesis.cancel();
+      var u = new SpeechSynthesisUtterance(lastSpoken);
+      u.lang = "en-US"; u.rate = 0.9;
+      window.speechSynthesis.speak(u);
+    }catch(e){ /* no voice available — stay quiet */ }
+  });
+
+  applyLang();
+})();
+</script>
+</body>
+</html>
