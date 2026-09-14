@@ -1091,6 +1091,7 @@ def render_topic_interactive(subject_key, grade, topic_title):
             (5, "ai", "Binary lab — jama/tafreeq"): "interactives/g5-binary-lab.html",
             (5, "english", "Comprehension skills"): "interactives/g5-comprehension-skills.html",
             (5, "english", "Active/Passive voice"): "interactives/g5-active-passive-voice.html",
+            (5, "english", "All tenses review"): "interactives/g5-all-tenses-review.html",
         }
         rel = FALLBACK.get((int(grade), subject_key, topic_title))
     if not rel:
