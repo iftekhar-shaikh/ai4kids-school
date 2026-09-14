@@ -1073,7 +1073,6 @@ def render_topic_interactive(subject_key, grade, topic_title):
             (5, "math", "HCF aur LCM"): "interactives/g5-hcf-lcm.html",
             (5, "math", "Fractions advanced"): "interactives/g5-fractions-advanced.html",
             (5, "math", "Perimeter aur area"): "interactives/g5-perimeter-area.html",
-            (5, "math", "Geometry shapes"): "interactives/g5-geometry-shapes.html",
             (5, "science", "Cells"): "interactives/g5-cells.html",
             (5, "science", "Khoon ka nizam"): "interactives/g5-khoon-nizam.html",
             (5, "science", "Energy — forms"): "interactives/g5-energy.html",
@@ -1090,6 +1089,7 @@ def render_topic_interactive(subject_key, grade, topic_title):
             (5, "ai", "AI project"): "interactives/g5-ai-project.html",
             (5, "ai", "Computer vision"): "interactives/g5-computer-vision.html",
             (5, "ai", "Binary lab — jama/tafreeq"): "interactives/g5-binary-lab.html",
+            (5, "english", "Comprehension skills"): "interactives/g5-comprehension-skills.html",
         }
         rel = FALLBACK.get((int(grade), subject_key, topic_title))
     if not rel:
