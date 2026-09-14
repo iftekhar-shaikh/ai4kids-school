@@ -228,9 +228,7 @@
             "explanation": "Yeh kahawat teamwork aur mil-jul kar kaam karne ki ahmiyat ko dikhati hai."
           }
         ]
-      },
-      "interactive_file": "interactives/g5-idioms-proverbs.html",
-      "interactive_label": "Khelo — Idioms aur proverbs"
+      }
     },
     {
       "title": "Essay aur story writing",
@@ -340,7 +338,9 @@
             "explanation": "Dialogue ka maqsad ek doosre se baatein karna aur baat samajhna hota hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g5-creative-writing.html",
+      "interactive_label": "Khelo — Creative writing"
     }
   ]
 }

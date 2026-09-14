@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Creative writing — AI4Kids Class 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#f5efe3;--board-deep:#e8dcc8;--sky:#b8d4f0;--sky2:#7eb0e0;
+    --a:#2f6fb5;--b:#c9702e;--both:#7a5aa8;--gold:#e8b23d;--left:#c4453a;
+    --ok:#2e7d4f;--ink:#2a2419;--ink-soft:#574e3e;--paper:#fdfaf3;--line:#ded5c4;
+    --accent:#5b4a8f;--poet:#5a7a2e;--dial:#2f6fb5;--lett:#8b4a1a;
+    --fs-cap:clamp(12px, 3.2vw, 13px);--fs-xs:clamp(14px, 3.7vw, 15px);
+    --fs-sm:clamp(16px, 4.2vw, 17px);--fs-md:clamp(17px, 4.6vw, 19px);
+    --fs-lg:clamp(20px, 5.4vw, 23px);--fs-xl:clamp(27px, 7.4vw, 33px);--lh:1.5;
+  }
+  body.urdu{
+    --fs-cap:clamp(13px, 3.5vw, 15px);--fs-xs:clamp(15px, 4.1vw, 17px);
+    --fs-sm:clamp(17px, 4.7vw, 19px);--fs-md:clamp(19px, 5.2vw, 21px);
+    --fs-lg:clamp(22px, 6vw, 25px);--fs-xl:clamp(26px, 7vw, 31px);--lh:2.1;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  .stars{display:flex;align-items:center;gap:6px;font-weight:800;font-size:var(--fs-xs);
+         background:#fff6e2;border:2px solid var(--gold);border-radius:999px;padding:7px 13px}
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+  .tabs{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
+  .tabs button{
+    flex:1 1 28%;min-width:90px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:10px 6px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:54px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .tabs button .badge{color:var(--gold)}
+  .story{
+    background:#fff8ea;border:2px dashed var(--gold);border-radius:16px;padding:13px 15px;
+    font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;margin-bottom:14px;
+  }
+  body.urdu .story{line-height:var(--lh)}
+  .story b{color:var(--ink)}
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:linear-gradient(180deg,var(--board) 0%,var(--board-deep) 100%);
+  }
+  .scene-pad{padding:14px 14px 22px;min-height:260px}
+  .readout{
+    margin-top:-18px;position:relative;z-index:2;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+  .statechip.ur{padding:2px 14px 7px}
+  .statechip.win{background:var(--ok)}
+  .statechip.miss{background:var(--left)}
+  .headline{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+  .headline.ur{line-height:1.95}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+  .hintbox{
+    margin-top:14px;border:2px solid var(--a);background:#eaf1f9;border-radius:14px;
+    padding:11px 14px;font-size:var(--fs-xs);color:var(--a);font-weight:700;line-height:1.55;
+    display:none;
+  }
+  .hintbox.show{display:block}
+  body.urdu .hintbox{line-height:var(--lh)}
+  .panel{margin-top:22px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .prog{margin:0 0 10px;font-size:var(--fs-xs);font-weight:700;color:var(--ink-soft)}
+  .btns{display:flex;gap:9px;margin-top:8px;flex-wrap:wrap}
+  .btns button{
+    border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);
+    font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:50px;
+    padding:8px 14px;flex:1;
+  }
+  .btns .go{background:var(--ink);color:var(--paper)}
+  .btns button:active{transform:scale(.97)}
+  .btns button:disabled{opacity:.4;cursor:default}
+  .choice{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:50px;font-weight:700;
+  }
+  .choice.ur{text-align:right;line-height:var(--lh)}
+  .choice:hover{border-color:var(--ink)}
+  .choice.right{border-color:var(--ok);background:#e8f2ed}
+  .choice.wrong{border-color:var(--left);background:#fbeae8}
+  .choice .cem{font-size:22px;margin-right:8px}
+  body.urdu .choice .cem{margin-right:0;margin-left:8px}
+  .pick-chip{
+    display:inline-flex;align-items:center;gap:6px;margin:4px;
+    border:2px solid var(--ink);background:#fff;border-radius:999px;
+    padding:8px 14px;font:inherit;font-weight:800;font-size:var(--fs-xs);
+    cursor:pointer;min-height:42px;
+  }
+  .pick-chip.used{opacity:.35;pointer-events:none}
+  .pick-chip.ok{border-color:var(--ok);background:#e8f2ed}
+  .pick-chip.no{border-color:var(--left);background:#fbeae8}
+  .chip-row{display:flex;flex-wrap:wrap;justify-content:center;gap:2px;margin-top:8px}
+
+  /* comic / rhyme cards */
+  .comic{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+  .panel-card{
+    background:var(--paper);border:2.5px solid var(--ink);border-radius:16px;
+    padding:10px 8px 12px;text-align:center;position:relative;min-height:120px;overflow:hidden;
+  }
+  .panel-card.wide{grid-column:1 / -1}
+  .panel-sky{
+    position:absolute;inset:0 0 45% 0;
+    background:linear-gradient(180deg,var(--sky) 0%,var(--sky2) 100%);
+    opacity:.55;pointer-events:none;
+  }
+  .panel-hills{
+    position:absolute;left:0;right:0;bottom:38%;height:28px;
+    background:radial-gradient(ellipse at 30% 100%,#4a7a4a 0%,transparent 55%),
+               radial-gradient(ellipse at 70% 100%,#3d6b3d 0%,transparent 50%);
+    opacity:.7;pointer-events:none;
+  }
+  .panel-ground{
+    position:absolute;left:0;right:0;bottom:0;height:40%;
+    background:linear-gradient(180deg,#c8b896 0%,#b09a70 100%);opacity:.35;pointer-events:none;
+  }
+  .panel-em{font-size:42px;line-height:1.15;position:relative;z-index:1;margin:18px 0 4px;user-select:none}
+  .panel-em.lg{font-size:52px}
+  .panel-cap{position:relative;z-index:1;font-size:var(--fs-cap);font-weight:800;margin:0;color:var(--ink)}
+  .panel-tag{
+    position:absolute;top:6px;left:6px;z-index:2;
+    background:var(--ink);color:var(--paper);font-size:10px;font-weight:800;
+    border-radius:999px;padding:3px 8px;
+  }
+  body.urdu .panel-tag{left:auto;right:6px}
+  .speech{
+    position:relative;z-index:1;background:#fff;border:2px solid var(--ink);
+    border-radius:14px;padding:8px 10px;margin:6px 4px 0;font-size:var(--fs-cap);
+    font-weight:700;line-height:1.35;text-align:left;
+  }
+  body.urdu .speech{text-align:right;line-height:var(--lh)}
+  .speech:after{
+    content:"";position:absolute;bottom:-8px;left:18px;
+    border:8px solid transparent;border-top-color:var(--ink);border-bottom:0;
+  }
+  .speech:before{
+    content:"";position:absolute;bottom:-5px;left:20px;
+    border:6px solid transparent;border-top-color:#fff;border-bottom:0;z-index:1;
+  }
+  body.urdu .speech:after{left:auto;right:18px}
+  body.urdu .speech:before{left:auto;right:20px}
+  .mid-banner{
+    background:linear-gradient(90deg,#fff6e2,#ffe8b8);border:2px dashed var(--b);
+    border-radius:12px;padding:8px 12px;text-align:center;font-weight:800;
+    font-size:var(--fs-xs);margin:8px 0;color:var(--b);
+  }
+  .poem-box{
+    background:#f7faf0;border:3px solid var(--poet);border-radius:16px;
+    padding:14px;margin:8px 0;position:relative;
+  }
+  .poem-box .rhyme-mark{
+    position:absolute;top:-10px;right:12px;background:var(--poet);color:#fff;
+    font-size:11px;font-weight:800;border-radius:999px;padding:3px 10px;
+  }
+  body.urdu .poem-box .rhyme-mark{right:auto;left:12px}
+  .poem-line{font-weight:800;font-size:var(--fs-md);margin:6px 0;line-height:1.45}
+  .poem-line.blank{
+    border-bottom:3px dashed var(--poet);min-height:1.6em;color:var(--poet);
+    display:flex;align-items:center;gap:6px;
+  }
+  .blank-slot{
+    display:inline-block;min-width:88px;border-bottom:3px solid var(--poet);
+    text-align:center;color:var(--poet);font-weight:800;
+  }
+  .rhyme-cards{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0}
+  .rhyme-card{
+    background:var(--paper);border:2.5px solid var(--ink);border-radius:14px;
+    padding:10px 8px;text-align:center;cursor:pointer;min-height:88px;
+  }
+  .rhyme-card .em{font-size:36px;display:block;margin-bottom:4px}
+  .rhyme-card .lab{font-size:var(--fs-cap);font-weight:800}
+  .rhyme-card.right{border-color:var(--ok);background:#e8f2ed}
+  .rhyme-card.wrong{border-color:var(--left);background:#fbeae8}
+  .rhyme-card:disabled{cursor:default}
+
+  /* dialogue */
+  .duo{
+    display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;
+  }
+  .char-card{
+    background:var(--paper);border:2.5px solid var(--ink);border-radius:16px;
+    padding:12px 8px;text-align:center;position:relative;overflow:hidden;
+  }
+  .char-card.a{border-color:var(--dial)}
+  .char-card.b{border-color:var(--b)}
+  .char-em{font-size:48px;line-height:1;margin:8px 0}
+  .char-name{font-weight:800;font-size:var(--fs-xs)}
+  .conv-strip{
+    background:#eaf1f9;border:2px solid var(--dial);border-radius:14px;
+    padding:10px;min-height:120px;margin:8px 0;
+  }
+  .conv-slot{
+    background:#fff;border:2px dashed var(--line);border-radius:12px;
+    padding:10px 12px;margin-bottom:8px;font-weight:700;font-size:var(--fs-xs);
+    min-height:44px;display:flex;align-items:center;gap:8px;
+  }
+  .conv-slot.filled{border-style:solid;border-color:var(--ink)}
+  .conv-slot .who{
+    background:var(--dial);color:#fff;border-radius:999px;padding:2px 8px;
+    font-size:10px;font-weight:800;flex-shrink:0;
+  }
+  .conv-slot.who-b .who{background:var(--b)}
+  .bubble-bank{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+  .bub-pick{
+    text-align:left;border:2px solid var(--ink);background:#fff;border-radius:14px;
+    padding:10px 12px;font:inherit;font-weight:700;font-size:var(--fs-xs);
+    cursor:pointer;display:flex;align-items:center;gap:8px;
+  }
+  body.urdu .bub-pick{text-align:right}
+  .bub-pick.used{opacity:.3;pointer-events:none}
+  .bub-pick .tag{
+    background:var(--ink);color:#fff;border-radius:999px;padding:2px 8px;
+    font-size:10px;font-weight:800;flex-shrink:0;
+  }
+  .bub-pick.tag-b .tag{background:var(--b)}
+
+  /* letter stationery */
+  .letter-sheet{
+    background:#fffef8;border:3px solid var(--lett);border-radius:8px;
+    padding:16px 14px;margin:8px 0;box-shadow:4px 4px 0 rgba(139,74,26,.15);
+    position:relative;font-family:Georgia,"Times New Roman",serif;
+  }
+  .letter-sheet:before{
+    content:"";position:absolute;top:0;left:0;right:0;height:8px;
+    background:repeating-linear-gradient(90deg,var(--lett) 0 12px,#fffef8 12px 24px);
+    border-radius:5px 5px 0 0;
+  }
+  .letter-addr{font-size:var(--fs-xs);font-weight:700;margin:8px 0 10px;color:var(--lett);white-space:pre-line}
+  .letter-greet{font-weight:800;margin:0 0 10px;font-size:var(--fs-sm)}
+  .letter-body{font-size:var(--fs-sm);line-height:1.55;margin:0 0 12px;min-height:3.2em}
+  .letter-close{font-weight:800;margin:0;font-size:var(--fs-sm)}
+  .letter-sign{margin-top:4px;font-style:italic;color:var(--ink-soft)}
+  .step-pills{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin:8px 0}
+  .step-pill{
+    border:2px solid var(--line);border-radius:999px;padding:5px 12px;
+    font-size:var(--fs-cap);font-weight:800;color:var(--ink-soft);background:#fff;
+  }
+  .step-pill.on{border-color:var(--lett);background:#faf0e6;color:var(--lett)}
+  .step-pill.done{border-color:var(--ok);background:#e8f2ed;color:var(--ok)}
+  .type-toggle{display:flex;gap:8px;margin:8px 0;flex-wrap:wrap}
+  .type-toggle button{
+    flex:1;border:2px solid var(--ink);border-radius:12px;background:var(--paper);
+    font:inherit;font-weight:800;font-size:var(--fs-xs);padding:10px;cursor:pointer;min-height:48px;
+  }
+  .type-toggle button[aria-pressed="true"]{background:var(--lett);color:#fff;border-color:var(--lett)}
+
+  .encourage{
+    background:linear-gradient(90deg,#e8f2ed,#fff6e2);border:2px dashed var(--ok);
+    border-radius:12px;padding:8px 12px;text-align:center;font-weight:800;
+    font-size:var(--fs-xs);margin:8px 0;color:var(--ok);
+  }
+  .dots{display:flex;gap:6px;justify-content:center;margin:10px 0 0}
+  .dots i{width:9px;height:9px;border-radius:50%;background:var(--line);display:block}
+  .dots i.on{background:var(--ink)}
+  .dots i.ok{background:var(--ok)}
+  .dots i.no{background:var(--left)}
+  .hit{animation:pop .45s ease-out}
+  @keyframes pop{0%{transform:scale(.6);opacity:0}60%{transform:scale(1.15)}100%{transform:scale(1)}}
+
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .qhead{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+  .qhead h2{font-size:var(--fs-lg);font-weight:800;margin:0;flex:1}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:50px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+  .opt.wrong{border-color:var(--left);background:#fbeae8}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
+      grid-template-areas:
+        "bar   bar" "head  head" "tabs  tabs" "story story"
+        "left  right" "quiz  quiz" "foot  foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+    .story{grid-area:story} .left{grid-area:left} .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+    .panel{margin-top:0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition-duration:.01ms !important;animation:none !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 5</span>
+    <span class="stars" id="starBox">⭐ <span id="starCount">0</span></span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 id="title"></h1>
+  <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group">
+    <button type="button" id="tabPoet" aria-pressed="true"></button>
+    <button type="button" id="tabDial" aria-pressed="false"></button>
+    <button type="button" id="tabLett" aria-pressed="false"></button>
+  </div>
+
+  <p class="story" id="story"></p>
+
+  <div class="left">
+  <div class="scene">
+    <div class="scene-pad" id="scenePad"></div>
+  </div>
+  <div class="readout">
+    <span class="statechip" id="statechip"></span>
+    <p class="headline" id="headline"></p>
+    <p class="detail" id="detail"></p>
+    <p class="hintbox" id="hintbox"></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="panel">
+    <h2 id="ctlHead"></h2>
+    <p class="prog" id="prog"></p>
+    <div id="actionBox"></div>
+    <div class="btns">
+      <button type="button" class="go" id="nextBtn"></button>
+    </div>
+    <div class="btns">
+      <button type="button" id="hintBtn"></button>
+      <button type="button" id="resetBtn"></button>
+    </div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <div class="qhead">
+      <h2 id="quizHead"></h2>
+      <button type="button" class="chip" id="newQuiz"></button>
+    </div>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad bilingual AI school. Offline play · no APIs. WhatsApp 0337 1468899"
+       data-ur="اے آئی فور کڈز — اسلام آباد۔ آف لائن کھیلو۔ واٹس ایپ 0337 1468899"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  function $(id){ return document.getElementById(id); }
+  function isolate(s){ return "\u2066" + s + "\u2069"; }
+  function setText(el, str){
+    if (!el) return;
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+  function t(o){ return (o && o[lang]) || (o && o.en) || ""; }
+  function shuffle(arr){
+    var a = arr.slice(), i, j, tmp;
+    for (i = a.length - 1; i > 0; i--){
+      j = Math.floor(Math.random() * (i + 1));
+      tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  var lang = "en";
+  var mode = "poet";
+  var stars = 0;
+  var awarded = {};
+  var doneModes = {poet:false, dial:false, lett:false};
+
+  var T = {
+    title:{en:"Creative writing", ur:"تخلیقی تحریر"},
+    sub:{en:"Poetry, dialogue, application letter — tum likh sakte ho!", ur:"شاعری، مکالمہ، درخواست — تم لکھ سکتے ہو!"},
+    tabPoet:{en:"Poetry", ur:"شاعری"},
+    tabDial:{en:"Dialogue", ur:"مکالمہ"},
+    tabLett:{en:"Letter", ur:"درخواست"},
+    storyPoet:{en:"Look at the <b>picture card</b>. Finish the rhyme — pick the best next line or rhyming word.",
+               ur:"<b>تصویری کارڈ</b> دیکھو۔ قافیہ پورا کرو — بہترین اگلی لائن یا ہم قافیہ لفظ چنو۔"},
+    storyDial:{en:"Two friends talk. <b>Tap speech bubbles in order</b> to build a short conversation.",
+               ur:"دو دوست بات کر رہے ہیں۔ <b>سپیک ببلز ترتیب سے ٹیپ کرو</b> تاکہ مکالمہ بنے۔"},
+    storyLett:{en:"Build a school letter step by step — <b>address, greeting, body, closing</b>. Chips help you!",
+               ur:"اسکول کی درخواست قدم بہ قدم — <b>پتہ، سلام، متن، اختتام</b>۔ چپس مدد دیتی ہیں!"},
+    ctl:{en:"Your turn — tum likh sakte ho", ur:"تمہاری باری — تم لکھ سکتے ہو"},
+    next:{en:"Next prompt", ur:"اگلا پرامپٹ"},
+    hint:{en:"Hint", ur:"اشارہ"},
+    reset:{en:"Reset", ur:"ری سیٹ"},
+    quiz:{en:"Check yourself", ur:"اپنا چیک"},
+    newQuiz:{en:"New quiz", ur:"نیا کوئز"},
+    askPoet:{en:"Choose the rhyming next line", ur:"ہم قافیہ اگلی لائن چنو"},
+    askDial:{en:"Tap the next speech bubble", ur:"اگلا سپیک ببل ٹیپ کرو"},
+    askLett:{en:"Pick chips for this letter step", ur:"اس قدم کے لیے چپس چنو"},
+    pick:{en:"Tap your best choice", ur:"اپنا بہترین انتخاب ٹیپ کرو"},
+    nice:{en:"Shabash — tum likh sakte ho!", ur:"شاباش — تم لکھ سکتے ہو!"},
+    oops:{en:"Almost — try the rhyme / order again", ur:"قریب — قافیہ یا ترتیب دوبارہ آزماؤ"},
+    tip:{en:"Tip: helpers guide you — no empty blank page!", ur:"نکتہ: مددگار رہنمائی کرتے ہیں — خالی صفحہ نہیں!"},
+    progP:{en:"Poems finished", ur:"نظمیں مکمل"},
+    progD:{en:"Dialogues built", ur:"مکالمے بنے"},
+    progL:{en:"Letters built", ur:"درخواستیں بنیں"},
+    encourage:{en:"💪 You can write — step by step!", ur:"💪 تم لکھ سکتے ہو — قدم بہ قدم!"},
+    leave:{en:"School leave", ur:"چھٹی کی درخواست"},
+    library:{en:"Library card", ur:"لائبریری کارڈ"},
+    stepAddr:{en:"1 Address", ur:"۱ پتہ"},
+    stepGreet:{en:"2 Greeting", ur:"۲ سلام"},
+    stepBody:{en:"3 Body", ur:"۳ متن"},
+    stepClose:{en:"4 Closing", ur:"۴ اختتام"},
+    check:{en:"Check letter", ur:"درخواست چیک کرو"},
+    nextStep:{en:"Next step", ur:"اگلا قدم"}
+  };
+
+  /* ---- Poetry prompts (Islamabad) ---- */
+  var POEMS = [
+    {
+      id:"margalla",
+      place:{en:"Margalla Hills sunrise", ur:"مارگلہ ہلز کا سورج"},
+      ems:["🌄","🦅","🥾"],
+      lines:[
+        {en:"On Margalla hills so high,", ur:"مارگلہ پہاڑوں پہ بلند،"},
+        {en:"Birds wake up and ____ the sky.", ur:"پرندے جاگتے ____ آسمان۔"}
+      ],
+      blank:true,
+      rhymeOpts:[
+        {em:"☀️", en:"kiss", ur:"چومتے", ok:true},
+        {em:"🚌", en:"bus", ur:"بس", ok:false},
+        {em:"🍕", en:"pizza", ur:"پزا", ok:false}
+      ],
+      why:{en:"kiss / sky — soft rhyme; sunrise fits the picture.", ur:"چومتے / آسمان — نرم قافیہ؛ سورج تصویر سے ملتا ہے۔"},
+      hint:{en:"What does the morning sun do to the sky?", ur:"صبح کا سورج آسمان کے ساتھ کیا کرتا ہے؟"}
+    },
+    {
+      id:"rain",
+      place:{en:"Islamabad monsoon", ur:"اسلام آباد کی بارش"},
+      ems:["🌧️","🏫","☔"],
+      lines:[
+        {en:"Rain taps soft on our school door,", ur:"بارش نرم دستک دیتی اسکول کے در پر،"},
+        {en:"Puddles dance across the ____.", ur:"حوض رقص کرتے ____ پر۔"}
+      ],
+      blank:true,
+      rhymeOpts:[
+        {em:"🚪", en:"door (again)", ur:"در (دوبارہ)", ok:false},
+        {em:"フロア", en:"floor", ur:"فرش", ok:true},
+        {em:"🌙", en:"moon", ur:"چاند", ok:false}
+      ],
+      why:{en:"door / floor — clear rhyme; puddles sit on the floor/ground.", ur:"در / فرش — واضح قافیہ؛ حوض فرش/زمین پر۔"},
+      hint:{en:"Which word rhymes with door and fits puddles?", ur:"کون سا لفظ door سے ہم قافیہ ہے اور حوض پر فٹ ہے؟"}
+    },
+    {
+      id:"cricket",
+      place:{en:"F-6 cricket ground", ur:"ایف-۶ کرکٹ گراؤنڈ"},
+      ems:["🏏","👦","🏆"],
+      lines:[
+        {en:"Ali swings the bat with pride,", ur:"علی فخر سے بیٹ گھماتا،"},
+        {en:"Friends cheer loud from every ____.", ur:"دوست شور مچاتے ہر ____ سے۔"}
+      ],
+      blank:true,
+      rhymeOpts:[
+        {em:"🪑", en:"side", ur:"جانب", ok:true},
+        {em:"🍎", en:"apple", ur:"سیب", ok:false},
+        {em:"🐱", en:"cat", ur:"بلی", ok:false}
+      ],
+      why:{en:"pride / side — rhyme; cheers come from every side.", ur:"فخر / جانب — قافیہ؛ داد ہر جانب سے۔"},
+      hint:{en:"Where do friends stand when they cheer?", ur:"دوست داد دیتے ہوئے کہاں کھڑے ہوتے ہیں؟"}
+    },
+    {
+      id:"lake",
+      place:{en:"Rawal Lake evening", ur:"روال جھیل کی شام"},
+      ems:["🌅","🦆","🛶"],
+      nextLine:true,
+      lines:[
+        {en:"Golden light on Rawal Lake,", ur:"روال جھیل پہ سنہری روشنی،"}
+      ],
+      lineOpts:[
+        {em:"🦆", en:"Ducks glide home before night’s wake.", ur:"بطخیں گھر جاتی رات سے پہلے۔", ok:true},
+        {em:"🚀", en:"A spaceship lands for birthday cake.", ur:"راکٹ کیک کے لیے اترتا ہے۔", ok:false},
+        {em:"📚", en:"Homework jumps into the lake.", ur:"ہوم ورک جھیل میں کود پڑتا ہے۔", ok:false}
+      ],
+      why:{en:"Lake + evening → ducks going home keeps the calm mood and soft rhyme.", ur:"جھیل + شام → بطخیں گھر جانا پرسکون موڈ اور نرم قافیہ رکھتا ہے۔"},
+      hint:{en:"Keep the peaceful lake mood — which line fits?", ur:"پرسکون جھیل کا موڈ رکھو — کون سی لائن فٹ ہے؟"}
+    }
+  ];
+
+  /* ---- Dialogue scenes ---- */
+  var DIALS = [
+    {
+      id:"library",
+      place:{en:"School library, Islamabad", ur:"اسکول لائبریری، اسلام آباد"},
+      a:{em:"👧", name:{en:"Hira", ur:"ہرہ"}},
+      b:{em:"👦", name:{en:"Omar", ur:"عمر"}},
+      bubbles:[
+        {who:"a", en:"Psst… did you find the science book?", ur:"پسس… سائنس کی کتاب ملی؟"},
+        {who:"b", en:"Yes! It’s on the middle shelf.", ur:"ہاں! درمیانی شیلف پر ہے۔"},
+        {who:"a", en:"Thanks — want to read together?", ur:"شکریہ — ساتھ پڑھیں؟"},
+        {who:"b", en:"Sure. Let’s whisper so others can study.", ur:"ضرور۔ سرگوشی کریں تاکہ دوسرے پڑھ سکیں۔"}
+      ],
+      order:[0,1,2,3],
+      why:{en:"Question → answer → invite → polite plan. Soft library voices!", ur:"سوال → جواب → دعوت → مہذب منصوبہ۔ لائبریری کی نرم آواز!"},
+      hint:{en:"Start with Hira’s quiet question.", ur:"ہرہ کے خاموش سوال سے شروع کرو۔"}
+    },
+    {
+      id:"bus",
+      place:{en:"School bus stop, F-7", ur:"اسکول بس سٹاپ، ایف-۷"},
+      a:{em:"👦", name:{en:"Ali", ur:"علی"}},
+      b:{em:"👧", name:{en:"Sana", ur:"ثانا"}},
+      bubbles:[
+        {who:"a", en:"The bus is late today!", ur:"آج بس دیر سے ہے!"},
+        {who:"b", en:"Maybe traffic near Blue Area.", ur:"شاید بلیو ایریا میں ٹریفک۔"},
+        {who:"a", en:"Shall we share my umbrella?", ur:"کیا میری چھتری شیئر کریں؟"},
+        {who:"b", en:"Yes please — rain is starting!", ur:"جی ہاں — بارش شروع ہو رہی!"}
+      ],
+      order:[0,1,2,3],
+      why:{en:"Problem → reason → kind offer → thanks. Friendly dialogue flow.", ur:"مسئلہ → وجہ → مہربان پیشکش → شکریہ۔ دوستانہ بہاؤ۔"},
+      hint:{en:"Ali notices the late bus first.", ur:"علی پہلے دیر والی بس دیکھتا ہے۔"}
+    },
+    {
+      id:"cricket",
+      place:{en:"After school cricket", ur:"اسکول کے بعد کرکٹ"},
+      a:{em:"👦", name:{en:"Bilal", ur:"بلال"}},
+      b:{em:"👦", name:{en:"Ahmed", ur:"احمد"}},
+      bubbles:[
+        {who:"a", en:"Great catch, Ahmed!", ur:"زبردست کیچ، احمد!"},
+        {who:"b", en:"Thanks! Your bowling was fast.", ur:"شکریہ! تمہاری بولنگ تیز تھی۔"},
+        {who:"a", en:"Want to practice tomorrow?", ur:"کل پریکٹس کریں؟"},
+        {who:"b", en:"Yes — bring the new tennis ball!", ur:"ہاں — نئی ٹینس بال لانا!"}
+      ],
+      order:[0,1,2,3],
+      why:{en:"Praise → thanks → plan → detail. Warm teammate talk.", ur:"تعریف → شکریہ → منصوبہ → تفصیل۔ گرم ٹیم میٹ بات۔"},
+      hint:{en:"Start with Bilal’s praise for the catch.", ur:"بلال کی کیچ کی تعریف سے شروع کرو۔"}
+    }
+  ];
+
+  /* ---- Application letter templates ---- */
+  var LETTERS = {
+    leave:{
+      label:{en:"Leave application", ur:"چھٹی کی درخواست"},
+      addr:{en:"The Class Teacher\nClass 5-B\nIslamabad Model School", ur:"کلاس ٹیچر\nجماعت ۵-ب\nاسلام آباد ماڈل اسکول"},
+      greetOpts:[
+        {en:"Respected Sir/Madam,", ur:"محترم سر/میڈم،", ok:true},
+        {en:"Hey buddy!!!!", ur:"ارے یار!!!!", ok:false},
+        {en:"Dear Pizza,", ur:"پیارے پزا،", ok:false}
+      ],
+      bodyOpts:[
+        {en:"I am Ayesha of Class 5. Kindly grant me leave for two days as I have fever.", ur:"میں عائشہ ہوں، جماعت ۵۔ بخار کی وجہ سے دو دن کی چھٹی عنایت فرمائیں۔", ok:true},
+        {en:"I want leave because cricket is more fun than school forever.", ur:"میں چھٹی چاہتی ہوں کیونکہ کرکٹ ہمیشہ اسکول سے مزے دار ہے۔", ok:false},
+        {en:"Give me money and a holiday to Mars.", ur:"مجھے پیسے دو اور مریخ کی چھٹی۔", ok:false}
+      ],
+      closeOpts:[
+        {en:"Yours obediently,\nAyesha", ur:"آپ کی فرمانبردار،\nعائشہ", ok:true},
+        {en:"Bye bye forever!!!", ur:"ہمیشہ کے لیے الوداع!!!", ok:false},
+        {en:"From the King of Games", ur:"گیمز کے بادشاہ کی طرف سے", ok:false}
+      ],
+      why:{en:"Polite address + clear reason + respectful closing = good leave letter.", ur:"مہذب پتہ + واضح وجہ + احترام والا اختتام = اچھی چھٹی۔"},
+      hint:{en:"School letters stay polite and clear — no slang.", ur:"اسکول کی درخواست مہذب اور واضح رہتی ہے — سلینگ نہیں۔"}
+    },
+    library:{
+      label:{en:"Library card request", ur:"لائبریری کارڈ کی درخواست"},
+      addr:{en:"The Librarian\nSchool Library\nIslamabad Model School", ur:"لائبریرین\nاسکول لائبریری\nاسلام آباد ماڈل اسکول"},
+      greetOpts:[
+        {en:"Respected Librarian,", ur:"محترم لائبریرین،", ok:true},
+        {en:"Yo books!!!", ur:"یو کتابیں!!!", ok:false},
+        {en:"Hi stranger,", ur:"سلام اجنبی،", ok:false}
+      ],
+      bodyOpts:[
+        {en:"I am Zain of Class 5. Please issue me a library card so I may borrow story books.", ur:"میں زین ہوں، جماعت ۵۔ براہ کرم لائبریری کارڈ جاری کریں تاکہ کہانی کی کتابیں لے سکوں۔", ok:true},
+        {en:"I need a card to hide comics under my bed.", ur:"مجھے کارڈ چاہیے تاکہ کامکس بستر کے نیچے چھپاؤں۔", ok:false},
+        {en:"Give me all the books forever, no return.", ur:"سب کتابیں ہمیشہ کے لیے دو، واپسی نہیں۔", ok:false}
+      ],
+      closeOpts:[
+        {en:"Yours sincerely,\nZain", ur:"آپ کا مخلص،\nزین", ok:true},
+        {en:"Send fries with the card", ur:"کارڈ کے ساتھ فرائز بھیجو", ok:false},
+        {en:"The End 😂", ur:"ختم 😂", ok:false}
+      ],
+      why:{en:"Clear purpose (library card) + polite words + sincere closing.", ur:"واضح مقصد (لائبریری کارڈ) + مہذب الفاظ + مخلص اختتام۔"},
+      hint:{en:"Say who you are and what you need politely.", ur:"مہذب انداز میں بتاؤ تم کون ہو اور کیا چاہیے۔"}
+    }
+  };
+
+  var QUIZ = [
+    {q:{en:"What is poetry mainly used for?", ur:"شاعری زیادہ تر کس لیے ہوتی ہے؟"},
+     opts:[{en:"To share feelings in short rhythmic lines", ur:"جذبات مختصر ہم آہنگ سطروں میں بانٹنا"},
+           {en:"To order pizza online only", ur:"صرف آن لائن پزا آرڈر کرنا"},
+           {en:"To write shopping lists only", ur:"صرف خریداری کی فہرست"},
+           {en:"To replace math homework", ur:"ریاضی کا کام بدلنا"}], a:0},
+    {q:{en:"Dialogue in a story is…", ur:"کہانی میں مکالمہ ہے…"},
+     opts:[{en:"A weather report", ur:"موسم کی رپورٹ"},
+           {en:"Talk between characters (often with speech marks)", ur:"کرداروں کی بات (اکثر سپیک مارکس کے ساتھ)"},
+           {en:"Only the title of a book", ur:"صرف کتاب کا عنوان"},
+           {en:"A silent picture with no words", ur:"بغیر الفاظ کی خاموش تصویر"}], a:1},
+    {q:{en:"Which is a part of an application letter?", ur:"درخواست نامے کا کون سا حصہ ہے؟"},
+     opts:[{en:"Address, greeting, body, closing", ur:"پتہ، سلام، متن، اختتام"},
+           {en:"Only emojis and stickers", ur:"صرف ایموجیز اور اسٹیکرز"},
+           {en:"A cricket scorecard", ur:"کرکٹ اسکور کارڈ"},
+           {en:"A blank empty page forever", ur:"ہمیشہ خالی صفحہ"}], a:0},
+    {q:{en:"Correct dialogue punctuation example:", ur:"صحیح مکالمے کی علامت کی مثال:"},
+     opts:[{en:'Ali said, "Let\'s play after school."', ur:'علی نے کہا، "اسکول کے بعد کھیلیں。"'},
+           {en:"Ali said lets play after school", ur:"علی نے کہا چلو اسکول کے بعد کھیلیں"},
+           {en:'"Lets play" Ali. said', ur:'"چلو کھیلیں" علی۔ کہا'},
+           {en:"Ali: play??????????", ur:"علی: کھیلیں??????????"}], a:0},
+    {q:{en:"Why write a leave application?", ur:"چھٹی کی درخواست کیوں لکھتے ہیں؟"},
+     opts:[{en:"To politely ask the teacher for leave with a reason", ur:"استاد سے مہذب انداز میں وجہ کے ساتھ چھٹی مانگنا"},
+           {en:"To shout in the playground", ur:"کھیل کے میدان میں چلانا"},
+           {en:"To delete the school timetable", ur:"اسکول کا ٹائم ٹیبل مٹانا"},
+           {en:"To skip saying who you are", ur:"اپنا نام بتانے سے بچنا"}], a:0}
+  ];
+
+  var pIdx = 0, dIdx = 0;
+  var letterType = "leave";
+  var letterStep = 0; /* 0 addr (auto), 1 greet, 2 body, 3 close */
+  var letterPicks = {greet:null, body:null, close:null};
+  var answered = {poet:{}, dial:{}, lett:{}};
+  var dialPicked = [];
+  var quizSet = [];
+
+  function award(key, n){
+    if (awarded[key]) return;
+    awarded[key] = true;
+    stars += (n || 1);
+    $("starCount").textContent = String(stars);
+  }
+  function recountStars(){
+    stars = 0;
+    Object.keys(awarded).forEach(function(k){
+      if (!awarded[k]) return;
+      stars += (k.indexOf("mode-")===0) ? 2 : 1;
+    });
+    $("starCount").textContent = String(stars);
+  }
+  function storyHtml(){
+    if (mode === "poet") return t(T.storyPoet);
+    if (mode === "dial") return t(T.storyDial);
+    return t(T.storyLett);
+  }
+  function renderDots(listLen, idx, mapKey){
+    var html = '<div class="dots">';
+    for (var i = 0; i < listLen; i++){
+      var st = "";
+      if (answered[mapKey][i] === true) st = "ok";
+      else if (answered[mapKey][i] === false) st = "no";
+      else if (i === idx) st = "on";
+      html += "<i class=\"" + st + "\"></i>";
+    }
+    return html + "</div>";
+  }
+  function checkModeDone(mapKey, len){
+    var all = true, i;
+    for (i = 0; i < len; i++){
+      if (answered[mapKey][i] !== true){ all = false; break; }
+    }
+    if (all){
+      doneModes[mapKey] = true;
+      award("mode-" + mapKey, 2);
+    }
+    updateTabs();
+  }
+
+  /* ---------- POETRY ---------- */
+  function renderPoet(){
+    var item = POEMS[pIdx];
+    var pad = $("scenePad");
+    var locked = answered.poet[pIdx] !== undefined;
+    var html = '<div class="rhyme-cards">';
+    item.ems.forEach(function(em, i){
+      html += '<div class="panel-card' + (i===0?'':'') + '">' +
+        '<div class="panel-sky"></div><div class="panel-hills"></div><div class="panel-ground"></div>' +
+        '<span class="panel-tag">' + (i+1) + '</span>' +
+        '<div class="panel-em">' + em + '</div></div>';
+    });
+    /* pad to even grid if 3 */
+    if (item.ems.length === 3){
+      html += '<div class="panel-card"><div class="panel-sky"></div><div class="panel-em">✍️</div>' +
+        '<p class="panel-cap" id="poetPlaceCap"></p></div>';
+    }
+    html += '</div>';
+    html += '<div class="speech" id="placeSp"></div>';
+    html += '<div class="encourage" id="encPoet"></div>';
+    html += '<div class="poem-box"><span class="rhyme-mark">♪ rhyme</span>';
+    item.lines.forEach(function(ln, li){
+      var isBlank = item.blank && li === item.lines.length - 1;
+      if (isBlank){
+        var filled = "";
+        if (locked && item.blank){
+          var okOpt = item.rhymeOpts.filter(function(o){ return o.ok; })[0];
+          filled = t(okOpt);
+        }
+        html += '<p class="poem-line blank" id="poemBlank">' +
+          t(ln).replace("____", "").replace("____","") +
+          ' <span class="blank-slot" id="blankSlot">' + (filled || "____") + '</span></p>';
+      } else if (item.nextLine && li === 0){
+        html += '<p class="poem-line" id="poemL0"></p>';
+        html += '<p class="poem-line blank" id="poemBlank"><span class="blank-slot" id="blankSlot">' +
+          (locked ? t(item.lineOpts.filter(function(o){return o.ok;})[0]) : "… ?") +
+          '</span></p>';
+      } else {
+        html += '<p class="poem-line" data-ln="' + li + '"></p>';
+      }
+    });
+    html += '</div>';
+    html += renderDots(POEMS.length, pIdx, "poet");
+    pad.innerHTML = html;
+
+    if ($("poetPlaceCap")) setText($("poetPlaceCap"), t(item.place));
+    setText($("placeSp"), "📍 " + t(item.place));
+    setText($("encPoet"), t(T.encourage));
+    item.lines.forEach(function(ln, li){
+      var el = pad.querySelector('[data-ln="' + li + '"]');
+      if (el) setText(el, t(ln));
+      if ($("poemL0") && li === 0 && item.nextLine) setText($("poemL0"), t(ln));
+    });
+    /* fix blank line display for blank poems — rebuild text carefully */
+    if (item.blank){
+      var last = item.lines[item.lines.length - 1];
+      var raw = t(last);
+      var parts = raw.split("____");
+      var blankEl = $("poemBlank");
+      if (blankEl){
+        blankEl.innerHTML = "";
+        blankEl.appendChild(document.createTextNode(parts[0] || ""));
+        var slot = document.createElement("span");
+        slot.className = "blank-slot";
+        slot.id = "blankSlot";
+        var okO = item.rhymeOpts.filter(function(o){ return o.ok; })[0];
+        slot.textContent = locked ? t(okO) : "____";
+        blankEl.appendChild(slot);
+        if (parts[1]) blankEl.appendChild(document.createTextNode(parts[1]));
+        blankEl.classList.toggle("ur", lang==="ur");
+        blankEl.setAttribute("dir", lang==="ur"?"rtl":"ltr");
+      }
+    }
+
+    setText($("statechip"), answered.poet[pIdx] === true ? t(T.nice) : (answered.poet[pIdx] === false ? t(T.oops) : t(T.askPoet)));
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") +
+      (answered.poet[pIdx]===true?" win":answered.poet[pIdx]===false?" miss":"");
+    setText($("headline"), t(T.pick));
+    setText($("detail"), answered.poet[pIdx] !== undefined ? t(item.why) : t(T.tip));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+    var opts = item.blank ? item.rhymeOpts : item.lineOpts;
+    opts.forEach(function(opt, oi){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "choice" + (lang==="ur"?" ur":"");
+      b.setAttribute("dir", lang==="ur"?"rtl":"ltr");
+      b.innerHTML = '<span class="cem">' + (opt.em||"") + "</span>" +
+        ((lang==="ur") ? isolate(t(opt)) : t(opt));
+      if (locked){
+        if (opt.ok) b.classList.add("right");
+      }
+      b.disabled = locked;
+      b.addEventListener("click", function(){
+        if (answered.poet[pIdx] !== undefined) return;
+        var ok = !!opt.ok;
+        answered.poet[pIdx] = ok;
+        b.classList.add(ok ? "right" : "wrong");
+        if (!ok){
+          box.querySelectorAll(".choice").forEach(function(node, ni){
+            if (opts[ni].ok) node.classList.add("right");
+          });
+          setText($("statechip"), t(T.oops));
+          $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+        } else {
+          award("poet-" + pIdx, 1);
+          setText($("statechip"), t(T.nice));
+          $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+          var slot = $("blankSlot");
+          if (slot) slot.textContent = t(opt);
+        }
+        setText($("detail"), t(item.why));
+        $("hintbox").classList.remove("show");
+        checkModeDone("poet", POEMS.length);
+        updateProg();
+        renderPoetDotsOnly();
+      });
+      box.appendChild(b);
+    });
+    updateProg();
+  }
+  function renderPoetDotsOnly(){
+    var dotsHost = $("scenePad").querySelector(".dots");
+    if (!dotsHost) return;
+    var tmp = document.createElement("div");
+    tmp.innerHTML = renderDots(POEMS.length, pIdx, "poet");
+    dotsHost.parentNode.replaceChild(tmp.firstChild, dotsHost);
+  }
+
+  /* ---------- DIALOGUE ---------- */
+  function renderDial(){
+    var item = DIALS[dIdx];
+    var pad = $("scenePad");
+    var locked = answered.dial[dIdx] !== undefined;
+    if (!locked) dialPicked = dialPicked.length && dialPicked._idx === dIdx ? dialPicked : [];
+    if (!locked) dialPicked._idx = dIdx;
+
+    pad.innerHTML =
+      '<div class="duo">' +
+        '<div class="char-card a"><div class="char-em">' + item.a.em + '</div>' +
+        '<div class="char-name" id="charA"></div></div>' +
+        '<div class="char-card b"><div class="char-em">' + item.b.em + '</div>' +
+        '<div class="char-name" id="charB"></div></div>' +
+      '</div>' +
+      '<div class="speech" id="placeSp"></div>' +
+      '<div class="encourage" id="encDial"></div>' +
+      '<div class="conv-strip" id="convStrip"></div>' +
+      renderDots(DIALS.length, dIdx, "dial");
+
+    setText($("charA"), t(item.a.name));
+    setText($("charB"), t(item.b.name));
+    setText($("placeSp"), "📍 " + t(item.place));
+    setText($("encDial"), t(T.encourage));
+
+    var strip = $("convStrip");
+    var showOrder = locked ? item.order : dialPicked;
+    for (var s = 0; s < item.bubbles.length; s++){
+      var slot = document.createElement("div");
+      var bi = showOrder[s];
+      if (bi !== undefined){
+        var bub = item.bubbles[bi];
+        slot.className = "conv-slot filled" + (bub.who==="b"?" who-b":"");
+        slot.innerHTML = '<span class="who">' + t(bub.who==="a"?item.a.name:item.b.name) + '</span>';
+        var tx = document.createElement("span");
+        setText(tx, t(bub));
+        slot.appendChild(tx);
+      } else {
+        slot.className = "conv-slot";
+        slot.textContent = (s+1) + " …";
+      }
+      strip.appendChild(slot);
+    }
+
+    setText($("statechip"), answered.dial[dIdx] === true ? t(T.nice) : (answered.dial[dIdx] === false ? t(T.oops) : t(T.askDial)));
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") +
+      (answered.dial[dIdx]===true?" win":answered.dial[dIdx]===false?" miss":"");
+    setText($("headline"), t(T.pick));
+    setText($("detail"), answered.dial[dIdx] !== undefined ? t(item.why) : t(T.tip));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+    if (locked){
+      var note = document.createElement("p");
+      note.className = "detail";
+      setText(note, t(item.why));
+      box.appendChild(note);
+      updateProg();
+      return;
+    }
+
+    var bank = document.createElement("div");
+    bank.className = "bubble-bank";
+    var orderLeft = item.order.filter(function(_, i){ return dialPicked.indexOf(item.order[i]) < 0; });
+    /* show all bubbles not yet picked */
+    item.bubbles.forEach(function(bub, bi){
+      if (dialPicked.indexOf(bi) >= 0) return;
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "bub-pick" + (bub.who==="b"?" tag-b":"") + (lang==="ur"?" ur":"");
+      b.setAttribute("dir", lang==="ur"?"rtl":"ltr");
+      b.innerHTML = '<span class="tag">' + t(bub.who==="a"?item.a.name:item.b.name) + '</span>';
+      var span = document.createElement("span");
+      span.textContent = (lang==="ur") ? isolate(t(bub)) : t(bub);
+      b.appendChild(span);
+      b.addEventListener("click", function(){
+        var need = item.order[dialPicked.length];
+        if (bi === need){
+          dialPicked.push(bi);
+          if (dialPicked.length === item.order.length){
+            answered.dial[dIdx] = true;
+            award("dial-" + dIdx, 1);
+            setText($("statechip"), t(T.nice));
+            $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+            setText($("detail"), t(item.why));
+            checkModeDone("dial", DIALS.length);
+          }
+          renderDial();
+        } else {
+          b.classList.add("no");
+          setText($("statechip"), t(T.oops));
+          $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+          setTimeout(function(){ b.classList.remove("no"); }, 400);
+        }
+      });
+      bank.appendChild(b);
+    });
+    box.appendChild(bank);
+    updateProg();
+  }
+
+  /* ---------- LETTER ---------- */
+  function letterKey(){ return letterType; }
+  function renderLett(){
+    var L = LETTERS[letterType];
+    var pad = $("scenePad");
+    var done = answered.lett[letterType] === true;
+
+    pad.innerHTML =
+      '<div class="type-toggle" id="typeToggle">' +
+        '<button type="button" id="btnLeave" aria-pressed="' + (letterType==="leave") + '"></button>' +
+        '<button type="button" id="btnLib" aria-pressed="' + (letterType==="library") + '"></button>' +
+      '</div>' +
+      '<div class="step-pills" id="stepPills"></div>' +
+      '<div class="encourage" id="encLett"></div>' +
+      '<div class="letter-sheet hit" id="letterSheet">' +
+        '<div class="letter-addr" id="lAddr"></div>' +
+        '<div class="letter-greet" id="lGreet"></div>' +
+        '<div class="letter-body" id="lBody"></div>' +
+        '<div class="letter-close" id="lClose"></div>' +
+      '</div>';
+
+    setText($("btnLeave"), "📝 " + t(T.leave));
+    setText($("btnLib"), "📚 " + t(T.library));
+    setText($("encLett"), t(T.encourage));
+    $("btnLeave").setAttribute("aria-pressed", letterType==="leave"?"true":"false");
+    $("btnLib").setAttribute("aria-pressed", letterType==="library"?"true":"false");
+    $("btnLeave").addEventListener("click", function(){
+      if (letterType === "leave") return;
+      letterType = "leave"; letterStep = 0; letterPicks = {greet:null,body:null,close:null};
+      renderLett();
+    });
+    $("btnLib").addEventListener("click", function(){
+      if (letterType === "library") return;
+      letterType = "library"; letterStep = 0; letterPicks = {greet:null,body:null,close:null};
+      renderLett();
+    });
+
+    var pills = $("stepPills");
+    var steps = [T.stepAddr, T.stepGreet, T.stepBody, T.stepClose];
+    steps.forEach(function(st, i){
+      var p = document.createElement("span");
+      var cls = "step-pill";
+      if (done || i < letterStep || i === 0) cls += " done";
+      if (i === letterStep && !done) cls += " on";
+      p.className = cls;
+      setText(p, t(st));
+      pills.appendChild(p);
+    });
+
+    setText($("lAddr"), t(L.addr));
+    if (letterPicks.greet !== null) setText($("lGreet"), t(L.greetOpts[letterPicks.greet]));
+    else setText($("lGreet"), lang==="en" ? "…" : "…");
+    if (letterPicks.body !== null) setText($("lBody"), t(L.bodyOpts[letterPicks.body]));
+    else setText($("lBody"), lang==="en" ? "(body here)" : "(متن یہاں)");
+    if (letterPicks.close !== null){
+      $("lClose").textContent = "";
+      var pre = document.createElement("div");
+      setText(pre, t(L.closeOpts[letterPicks.close]));
+      pre.style.whiteSpace = "pre-line";
+      $("lClose").appendChild(pre);
+    } else setText($("lClose"), "…");
+
+    if (letterStep === 0 && !done) letterStep = 1;
+
+    setText($("statechip"), done ? t(T.nice) : t(T.askLett));
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (done?" win":"");
+    setText($("headline"), done ? t(T.nice) : t(steps[Math.min(letterStep,3)]));
+    setText($("detail"), done ? t(L.why) : t(T.tip));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+
+    if (done){
+      var okp = document.createElement("p");
+      okp.className = "detail";
+      setText(okp, t(L.why));
+      box.appendChild(okp);
+      updateProg();
+      return;
+    }
+
+    /* ensure we're on step 1+ after address */
+    if (letterStep < 1) letterStep = 1;
+
+    var opts = letterStep === 1 ? L.greetOpts : letterStep === 2 ? L.bodyOpts : L.closeOpts;
+    var pickKey = letterStep === 1 ? "greet" : letterStep === 2 ? "body" : "close";
+
+    opts.forEach(function(opt, oi){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "choice" + (lang==="ur"?" ur":"");
+      b.setAttribute("dir", lang==="ur"?"rtl":"ltr");
+      b.textContent = (lang==="ur") ? isolate(t(opt)) : t(opt);
+      b.addEventListener("click", function(){
+        if (!opt.ok){
+          b.classList.add("wrong");
+          setText($("statechip"), t(T.oops));
+          $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+          setTimeout(function(){ b.classList.remove("wrong"); }, 500);
+          return;
+        }
+        letterPicks[pickKey] = oi;
+        b.classList.add("right");
+        if (letterStep < 3){
+          letterStep++;
+          setTimeout(renderLett, 280);
+        } else {
+          /* complete */
+          answered.lett[letterType] = true;
+          award("lett-" + letterType, 1);
+          if (answered.lett.leave === true && answered.lett.library === true){
+            doneModes.lett = true;
+            award("mode-lett", 2);
+            updateTabs();
+          }
+          setText($("statechip"), t(T.nice));
+          $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+          setText($("detail"), t(L.why));
+          setTimeout(renderLett, 200);
+        }
+        updateProg();
+      });
+      box.appendChild(b);
+    });
+    updateProg();
+  }
+
+  function updateProg(){
+    var el = $("prog");
+    if (mode === "poet"){
+      var n = Object.keys(answered.poet).filter(function(k){ return answered.poet[k]===true; }).length;
+      setText(el, t(T.progP) + ": " + n + "/" + POEMS.length);
+    } else if (mode === "dial"){
+      var n2 = Object.keys(answered.dial).filter(function(k){ return answered.dial[k]===true; }).length;
+      setText(el, t(T.progD) + ": " + n2 + "/" + DIALS.length);
+    } else {
+      var n3 = (answered.lett.leave===true?1:0) + (answered.lett.library===true?1:0);
+      setText(el, t(T.progL) + ": " + n3 + "/2");
+    }
+  }
+
+  function updateTabs(){
+    function lab(btn, base, key){
+      var mark = doneModes[key] ? ' <span class="badge">★</span>' : "";
+      btn.innerHTML = t(base) + mark;
+      if (lang === "ur"){ btn.classList.add("ur"); btn.setAttribute("dir","rtl"); }
+      else { btn.classList.remove("ur"); btn.setAttribute("dir","ltr"); }
+    }
+    lab($("tabPoet"), T.tabPoet, "poet");
+    lab($("tabDial"), T.tabDial, "dial");
+    lab($("tabLett"), T.tabLett, "lett");
+    $("tabPoet").setAttribute("aria-pressed", mode==="poet" ? "true":"false");
+    $("tabDial").setAttribute("aria-pressed", mode==="dial" ? "true":"false");
+    $("tabLett").setAttribute("aria-pressed", mode==="lett" ? "true":"false");
+  }
+
+  function setMode(m){
+    mode = m;
+    updateTabs();
+    $("story").innerHTML = storyHtml();
+    $("story").classList.toggle("ur", lang==="ur");
+    $("story").setAttribute("dir", lang==="ur"?"rtl":"ltr");
+    if (mode === "poet") renderPoet();
+    else if (mode === "dial") renderDial();
+    else renderLett();
+  }
+
+  function next(){
+    if (mode === "poet"){
+      pIdx = (pIdx + 1) % POEMS.length;
+      renderPoet();
+    } else if (mode === "dial"){
+      dIdx = (dIdx + 1) % DIALS.length;
+      dialPicked = [];
+      renderDial();
+    } else {
+      letterType = (letterType === "leave") ? "library" : "leave";
+      letterStep = 0;
+      letterPicks = {greet:null,body:null,close:null};
+      renderLett();
+    }
+  }
+
+  function resetMode(){
+    if (mode === "poet"){
+      answered.poet = {}; pIdx = 0; doneModes.poet = false;
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("poet-")===0 || k==="mode-poet") delete awarded[k]; });
+      renderPoet();
+    } else if (mode === "dial"){
+      answered.dial = {}; dIdx = 0; dialPicked = []; doneModes.dial = false;
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("dial-")===0 || k==="mode-dial") delete awarded[k]; });
+      renderDial();
+    } else {
+      answered.lett = {}; letterType = "leave"; letterStep = 0;
+      letterPicks = {greet:null,body:null,close:null}; doneModes.lett = false;
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("lett-")===0 || k==="mode-lett") delete awarded[k]; });
+      renderLett();
+    }
+    updateTabs();
+    recountStars();
+  }
+
+  function showHint(){
+    var item, hb = $("hintbox");
+    if (mode === "poet") item = POEMS[pIdx];
+    else if (mode === "dial") item = DIALS[dIdx];
+    else item = LETTERS[letterType];
+    setText(hb, t(item.hint));
+    hb.classList.add("show");
+  }
+
+  function pickQuiz(){ quizSet = shuffle(QUIZ).slice(0, 5); }
+
+  function renderQuiz(){
+    var box = $("quizBox");
+    box.innerHTML = "";
+    quizSet.forEach(function(item, qi){
+      var q = document.createElement("div");
+      q.className = "q";
+      var p = document.createElement("p");
+      setText(p, (qi+1) + ". " + t(item.q));
+      q.appendChild(p);
+      item.opts.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt" + (lang === "ur" ? " ur" : "");
+        b.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+        b.textContent = (lang === "ur") ? isolate(t(opt)) : t(opt);
+        b.addEventListener("click", function(){
+          if (b.parentNode.querySelector(".opt.right, .opt.wrong")) return;
+          var ok = (oi === item.a);
+          b.classList.add(ok ? "right" : "wrong");
+          if (!ok){
+            var correct = b.parentNode.querySelectorAll(".opt")[item.a];
+            if (correct) correct.classList.add("right");
+          } else {
+            award("quiz-" + qi, 1);
+          }
+          var fb = document.createElement("p");
+          fb.className = "fb show";
+          setText(fb, ok ? (lang==="en"?"Shabash — tum likh sakte ho!":"شاباش — تم لکھ سکتے ہو!") : (lang==="en"?"Look at the green answer.":"سبز جواب دیکھو۔"));
+          q.appendChild(fb);
+        });
+        q.appendChild(b);
+      });
+      box.appendChild(q);
+    });
+  }
+
+  function applyLang(){
+    document.body.classList.toggle("urdu", lang === "ur");
+    document.documentElement.lang = (lang === "ur") ? "ur" : "en";
+    var lb = $("langBtn");
+    lb.textContent = (lang === "en") ? "اردو" : "English";
+    lb.setAttribute("aria-pressed", lang === "ur" ? "true" : "false");
+    setText($("title"), t(T.title));
+    setText($("subtitle"), t(T.sub));
+    setText($("ctlHead"), t(T.ctl));
+    setText($("quizHead"), t(T.quiz));
+    $("nextBtn").textContent = t(T.next);
+    $("hintBtn").textContent = t(T.hint);
+    $("resetBtn").textContent = t(T.reset);
+    $("newQuiz").textContent = t(T.newQuiz);
+    ["nextBtn","hintBtn","resetBtn","newQuiz"].forEach(function(id){
+      if (lang === "ur"){ $(id).classList.add("ur"); $(id).setAttribute("dir","rtl"); }
+      else { $(id).classList.remove("ur"); $(id).setAttribute("dir","ltr"); }
+    });
+    document.querySelectorAll("footer [data-en]").forEach(function(el){
+      setText(el, el.getAttribute(lang === "en" ? "data-en" : "data-ur"));
+    });
+    setMode(mode);
+    renderQuiz();
+  }
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en";
+    applyLang();
+  });
+  $("tabPoet").addEventListener("click", function(){ setMode("poet"); });
+  $("tabDial").addEventListener("click", function(){ setMode("dial"); });
+  $("tabLett").addEventListener("click", function(){ setMode("lett"); });
+  $("nextBtn").addEventListener("click", next);
+  $("hintBtn").addEventListener("click", showHint);
+  $("resetBtn").addEventListener("click", resetMode);
+  $("newQuiz").addEventListener("click", function(){ pickQuiz(); renderQuiz(); });
+
+  function cleanSpeakText(s){
+    return String(s || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  }
+  function buildSpeakText(){
+    var bits = [];
+    bits.push(cleanSpeakText(t(T.title)));
+    bits.push(cleanSpeakText(storyHtml()));
+    bits.push(cleanSpeakText(($("headline") && $("headline").textContent) || ""));
+    bits.push(cleanSpeakText(($("detail") && $("detail").textContent) || ""));
+    bits.push(t(T.encourage));
+    return bits.filter(Boolean).join(". ");
+  }
+  function pickVoice(voices, want){
+    var i, v, L;
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf(want) === 0) return v;
+    }
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf("en") === 0) return v;
+    }
+    return voices[0] || null;
+  }
+  var speakTimer = null;
+  function setSpeaking(on){
+    var btn = $("speakBtn");
+    if (!btn) return;
+    btn.setAttribute("aria-pressed", on ? "true" : "false");
+    btn.style.opacity = on ? "0.65" : "";
+  }
+  function doSpeak(text, asLang){
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.92;
+    u.lang = (asLang === "ur") ? "ur-PK" : "en-US";
+    var voices = window.speechSynthesis.getVoices() || [];
+    var voice = pickVoice(voices, asLang === "ur" ? "ur" : "en");
+    if (voice) u.voice = voice;
+    u.onstart = function(){ setSpeaking(true); };
+    u.onend = function(){ setSpeaking(false); };
+    u.onerror = function(){
+      setSpeaking(false);
+      if (asLang === "ur"){
+        var fallback = cleanSpeakText(T.title.en + ". " + T.storyPoet.en + ". " + T.encourage.en);
+        var u2 = new SpeechSynthesisUtterance(fallback);
+        u2.lang = "en-US"; u2.rate = 0.92;
+        var v2 = pickVoice(window.speechSynthesis.getVoices() || [], "en");
+        if (v2) u2.voice = v2;
+        u2.onstart = function(){ setSpeaking(true); };
+        u2.onend = u2.onerror = function(){ setSpeaking(false); };
+        window.speechSynthesis.speak(u2);
+      }
+    };
+    window.speechSynthesis.speak(u);
+  }
+  if ("speechSynthesis" in window){
+    try { window.speechSynthesis.getVoices(); } catch (e0) {}
+    if (typeof window.speechSynthesis.addEventListener === "function"){
+      window.speechSynthesis.addEventListener("voiceschanged", function(){
+        try { window.speechSynthesis.getVoices(); } catch (e1) {}
+      });
+    }
+  } else {
+    var noBtn = $("speakBtn");
+    if (noBtn){ noBtn.disabled = true; noBtn.title = "Voice not available on this device"; }
+  }
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      var text = buildSpeakText();
+      if (!text) return;
+      if (speakTimer){ clearTimeout(speakTimer); speakTimer = null; }
+      window.speechSynthesis.cancel();
+      setSpeaking(false);
+      var speakLang = lang;
+      speakTimer = setTimeout(function(){
+        speakTimer = null;
+        doSpeak(text, speakLang);
+      }, 80);
+    }catch(e){ setSpeaking(false); }
+  });
+
+  pickQuiz();
+  applyLang();
+})();
+</script>
+</body>
+</html>
