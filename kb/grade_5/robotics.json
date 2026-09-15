@@ -175,7 +175,7 @@
     },
     {
       "title": "Self-driving car",
-      "description": "Khud chalti gaari ka system",
+      "description": "Sensors se road pe chalna.",
       "lesson": "## HOOK\nSadi, kabhi socha hai ke agar gaariyan khud chal sakti hain, to hum kis tarah ka safar karte? Acha, socho agar tumhari gaari khud hi school chalay jaaye, to tumhe kya karna pasand hoga?\n\n## SAMJHAO\nSelf-driving car ya khud chalti gaari ek aisi gaari hai jo bina kisi driver ke chalta hai. Yeh technology sensors, cameras aur artificial intelligence (AI) ka istemal karti hai. In sensors ki madad se gaari apne aas-paas ki cheezon ko samajhti hai, aur smart software ki wajah se yeh decide karti hai ke kab ghoomna hai, kab rukna hai aur kab chalna hai.\n\nIn gaariyon mein GPS bhi hota hai. GPS se yeh pata chalta hai ke gaari kis raaste par hai. Matlab, agar tumhare paas khud chalti gaari ho, to tum sirf apna destination batao, gaari khud chalta shuru kar degi. Sadi, kya tumhe yeh soch kar maza nahi aata ke tumhe sirf padhai ya khel mein focus karna hain aur gaari khud chal rahi ho?\n\nKhud chalti gaariyan bahut saari safety features bhi rakhti hain. Jaise agar koi vyakti road par aa jaaye, to gaari apne aap ruk jaati hai. Is se accidents ka khatara bhi kam ho jata hai. Dimagh mein rakho, in gaariyon ki safety aur technology ke sab advantages hain jo logon ke safar ko asaan aur mazedaar banate hain.\n\nKhud chalti gaariyan abhi abhi development mein hain, lekin kuch mulkon mein yeh chal bhi rahi hain. Humaray mulk Pakistan mein bhi technology ka use badh raha hai, to aane wale wale waqt mein yeh gaariyan humein dekhne ko mil sakti hain.\n\n## MISAAL\nSadi, socho agar tumhare school ka rickshaw khud chalta ho. Tumhe sirf yeh kehna hai ke “school chalo” aur rickshaw bina kisi driver ke tumhe school tak le jaaye! Yeh idea sirf interesting nahi, balki agar safety features ho, to yeh humare children ke liye bhi bohat faida mand hoga. \n\n## KARO\nAb Sadi, tumhare liye ek mazedaar activity hai! Apne ghar ya school ke liye ek khud chalti gaari ka design banao. Koi bhi paper le lo aur gaari ki shape draw karo. Phir ismein wheels aur sensors ka design banane ki koshish karo. Tum chahte ho ke yeh gaari kis tarah se chalayegi? Kuch safety features ya cool gadgets aur add karo, jaise ek music system ya ac! \n\n## SAWAAL\n1. Khud chalti gaari ka kya faida hai?\n2. Kaise sensors gaari ko aage badaane mein madad karte hain?\n3. Tumhara kya khayal hai, agar khud chalti gaari tumhari madad kare to kis tarah se tumhara safar behtar ho sakta hai? \n\nChalo, ab ye sab baatein soch kar explore karo!",
       "quiz": {
         "title": "Self-driving car Quiz",
@@ -226,7 +226,9 @@
             "explanation": "Khud chalti gaariyan sensors ka istemal karte hain taake wo apne aas paas ke environment ka pata laga saken."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g5-self-driving-car.html",
+      "interactive_label": "Khelo — Self-driving car"
     },
     {
       "title": "Space robots",

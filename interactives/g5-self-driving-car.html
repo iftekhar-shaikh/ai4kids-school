@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Self-driving car — خود چلتی گاڑی | AI4Kids Class 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#e4eef8;--board-deep:#c5d6ea;--sky:#9ec9f0;--sky2:#6ba8d9;
+    --road:#5a6570;--road-deep:#3d4650;--wall:#f0ebe3;--accent:#2f6fb5;
+    --ok:#2e7d4f;--ink:#1e2a1a;--ink-soft:#4a5744;--paper:#fdfaf3;
+    --line:#d5dec8;--gold:#e8b23d;--left:#c4453a;--car:#e85d2a;--car2:#3d9b8f;
+    --lidar:#5b8fd9;--cam:#c4453a;--gps:#2e7d4f;--zebra:#f5f0e6;
+    --fs-cap:clamp(12px, 3.2vw, 13px);--fs-xs:clamp(14px, 3.7vw, 15px);
+    --fs-sm:clamp(16px, 4.2vw, 17px);--fs-md:clamp(17px, 4.6vw, 19px);
+    --fs-lg:clamp(20px, 5.4vw, 23px);--fs-xl:clamp(27px, 7.4vw, 33px);--lh:1.5;
+  }
+  body.urdu{
+    --fs-cap:clamp(13px, 3.5vw, 15px);--fs-xs:clamp(15px, 4.1vw, 17px);
+    --fs-sm:clamp(17px, 4.7vw, 19px);--fs-md:clamp(19px, 5.2vw, 21px);
+    --fs-lg:clamp(22px, 6vw, 25px);--fs-xl:clamp(26px, 7vw, 31px);--lh:2.1;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  .stars{display:flex;align-items:center;gap:6px;font-weight:800;font-size:var(--fs-xs);
+         background:#fff6e2;border:2px solid var(--gold);border-radius:999px;padding:7px 13px}
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+  .tabs{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
+  .tabs button{
+    flex:1 1 28%;min-width:90px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:10px 6px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:54px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .tabs button .badge{color:var(--gold)}
+  .story{
+    background:#fff8ea;border:2px dashed var(--gold);border-radius:16px;padding:13px 15px;
+    font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;margin-bottom:14px;
+  }
+  body.urdu .story{line-height:var(--lh)}
+  .story b{color:var(--ink)}
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:linear-gradient(180deg,var(--sky) 0%,var(--sky2) 34%,#b8d4a8 34%,#9cbc88 42%,var(--board) 42%);
+    min-height:280px;
+  }
+  .scene-pad{padding:10px 12px 18px;min-height:260px;position:relative}
+  .sky-layer{position:absolute;inset:0 0 58% 0;pointer-events:none;overflow:hidden}
+  .sun-ball{
+    position:absolute;top:12px;right:18px;width:40px;height:40px;border-radius:50%;
+    background:radial-gradient(circle at 35% 35%,#ffe9a0,#f5c542 60%,#e0a020);
+    box-shadow:0 0 18px rgba(245,197,66,.45);z-index:1;
+  }
+  body.urdu .sun-ball{right:auto;left:18px}
+  .cloud{position:absolute;background:rgba(255,255,255,.85);border-radius:40px;opacity:.9}
+  .cloud:before,.cloud:after{content:"";position:absolute;background:inherit;border-radius:50%}
+  .c1{width:48px;height:15px;top:18px;left:12%}
+  .c1:before{width:22px;height:22px;top:-12px;left:6px}
+  .c1:after{width:18px;height:18px;top:-8px;left:24px}
+  .c2{width:34px;height:12px;top:34px;left:55%;opacity:.7}
+  .c2:before{width:16px;height:16px;top:-9px;left:4px}
+  .c2:after{width:12px;height:12px;top:-5px;left:16px}
+  .hills{position:absolute;left:0;right:0;bottom:42%;height:40px;z-index:1;pointer-events:none}
+  .hill{position:absolute;bottom:0;border-radius:50% 50% 0 0;
+        background:linear-gradient(180deg,#5a8a5a,#2d5530)}
+  .h-a{width:42%;height:36px;left:-4%;opacity:.55}
+  .h-b{width:38%;height:28px;right:8%;opacity:.5}
+  .road-strip{
+    position:absolute;left:0;right:0;bottom:0;height:32%;
+    background:linear-gradient(180deg,var(--road) 0%,var(--road-deep) 100%);
+    z-index:2;border-top:3px solid #2a3238;
+  }
+  .road-strip:before{
+    content:"";position:absolute;left:8%;right:8%;top:46%;height:3px;
+    background:repeating-linear-gradient(90deg,#f5e6a0 0 18px,transparent 18px 30px);
+  }
+  .car-stage{position:relative;z-index:5;padding-top:78px;display:flex;justify-content:center;align-items:flex-end;min-height:155px}
+  .car-svg{width:min(94%,300px);height:auto;filter:drop-shadow(0 3px 0 rgba(30,42,26,.15))}
+  .comic-row{
+    position:relative;z-index:5;display:flex;flex-wrap:wrap;gap:8px;
+    justify-content:center;align-items:flex-end;min-height:140px;padding-top:88px;
+  }
+  .item-card{
+    background:rgba(253,250,243,.95);border:2.5px solid var(--ink);border-radius:16px;
+    padding:8px 10px 10px;text-align:center;min-width:72px;max-width:110px;
+    box-shadow:0 3px 0 rgba(30,42,26,.15);cursor:pointer;user-select:none;
+  }
+  .item-card:hover{transform:translateY(-2px)}
+  .item-card.picked{opacity:.35;pointer-events:none}
+  .item-card.ok{border-color:var(--ok);background:#e8f2ed}
+  .item-card.no{border-color:var(--left);background:#fbeae8}
+  .item-card.selected{border-color:var(--accent);background:#eaf1f9;box-shadow:0 0 0 3px rgba(47,111,181,.25)}
+  .item-em{font-size:34px;line-height:1.1;display:block;margin-bottom:2px}
+  .item-lab{font-size:var(--fs-cap);font-weight:800;line-height:1.25;margin:0}
+  .job-slots{
+    position:relative;z-index:5;display:flex;flex-direction:column;gap:8px;
+    padding-top:88px;min-height:140px;
+  }
+  .job-slot{
+    border:2.5px dashed rgba(30,42,26,.4);border-radius:14px;
+    background:rgba(253,250,243,.75);padding:10px 12px;min-height:52px;
+    display:flex;align-items:center;gap:10px;font-weight:800;font-size:var(--fs-xs);
+    cursor:pointer;color:var(--ink-soft);
+  }
+  .job-slot.filled{border-style:solid;border-color:var(--ink);background:var(--paper);color:var(--ink)}
+  .job-slot.hot{border-color:var(--accent);background:#eaf1f9}
+  .job-slot .jem{font-size:28px}
+  .job-slot.right{border-color:var(--ok);background:#e8f2ed}
+  .job-slot.wrong{border-color:var(--left);background:#fbeae8}
+  .bank{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:8px;position:relative;z-index:5}
+  .mini-item{
+    border:2px solid var(--ink);border-radius:12px;padding:6px 8px;background:#fff;
+    font-size:22px;line-height:1;cursor:pointer;min-width:44px;font-weight:800;font-size:var(--fs-cap);
+    display:flex;align-items:center;gap:4px;
+  }
+  .mini-item.used{opacity:.3;pointer-events:none}
+  .save-scene{position:relative;z-index:5;padding-top:82px;text-align:center;min-height:140px}
+  .save-hero{font-size:56px;line-height:1;margin:4px 0 8px;filter:drop-shadow(0 2px 0 rgba(0,0,0,.12))}
+  .save-choices{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+  .save-choices button{
+    border:2.5px solid var(--ink);background:var(--paper);border-radius:14px;
+    padding:12px 14px;font:inherit;font-weight:800;font-size:var(--fs-xs);
+    cursor:pointer;text-align:left;min-height:52px;display:flex;align-items:center;gap:10px;
+  }
+  body.urdu .save-choices button{text-align:right}
+  .save-choices button .cem{font-size:26px}
+  .save-choices button.right{border-color:var(--ok);background:#e8f2ed}
+  .save-choices button.wrong{border-color:var(--left);background:#fbeae8}
+  .step-row{
+    position:relative;z-index:5;display:flex;flex-wrap:wrap;gap:6px;
+    justify-content:center;align-items:center;padding-top:90px;min-height:120px;
+  }
+  .step-slot{
+    min-width:70px;min-height:72px;border:2.5px dashed rgba(30,42,26,.45);
+    border-radius:14px;background:rgba(253,250,243,.75);display:flex;flex-direction:column;
+    align-items:center;justify-content:center;padding:6px;font-weight:800;font-size:var(--fs-cap);
+    color:var(--ink-soft);cursor:pointer;
+  }
+  .step-slot.filled{border-style:solid;border-color:var(--ink);background:var(--paper);color:var(--ink)}
+  .step-slot.hot{border-color:var(--accent);background:#eaf1f9}
+  .step-slot .em{font-size:28px;line-height:1}
+  .step-arrow{font-size:18px;font-weight:800;color:var(--car);padding:0 1px}
+  .outcome{
+    margin-top:10px;border-radius:14px;padding:10px 12px;font-weight:700;font-size:var(--fs-xs);
+    display:none;border:2px solid var(--ok);background:#e8f2ed;color:var(--ok);
+  }
+  .outcome.show{display:block}
+  .outcome.bad{border-color:var(--left);background:#fbeae8;color:var(--left)}
+  .readout{
+    margin-top:-18px;position:relative;z-index:2;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+  .statechip.ur{padding:2px 14px 7px}
+  .statechip.win{background:var(--ok)}
+  .statechip.miss{background:var(--left)}
+  .headline{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+  .headline.ur{line-height:1.95}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+  .hintbox{
+    margin-top:14px;border:2px solid var(--accent);background:#eaf1f9;border-radius:14px;
+    padding:11px 14px;font-size:var(--fs-xs);color:var(--accent);font-weight:700;line-height:1.55;
+    display:none;
+  }
+  .hintbox.show{display:block}
+  body.urdu .hintbox{line-height:var(--lh)}
+  .panel{margin-top:22px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .prog{margin:0 0 10px;font-size:var(--fs-xs);font-weight:700;color:var(--ink-soft)}
+  .btns{display:flex;gap:9px;margin-top:8px;flex-wrap:wrap}
+  .btns button{
+    border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);
+    font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:50px;
+    padding:8px 14px;flex:1;
+  }
+  .btns .go{background:var(--ink);color:var(--paper)}
+  .btns button:active{transform:scale(.97)}
+  .btns button:disabled{opacity:.4;cursor:default}
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .qhead{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+  .qhead h2{font-size:var(--fs-lg);font-weight:800;margin:0;flex:1}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:50px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+  .opt.wrong{border-color:var(--left);background:#fbeae8}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
+      grid-template-areas:
+        "bar   bar" "head  head" "tabs  tabs" "story story"
+        "left  right" "quiz  quiz" "foot  foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+    .story{grid-area:story} .left{grid-area:left} .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+    .panel{margin-top:0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition-duration:.01ms !important;animation:none !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 5</span>
+    <span class="stars" id="starBox">⭐ <span id="starCount">0</span></span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 id="title"></h1>
+  <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group">
+    <button type="button" id="tabSensors" aria-pressed="true"></button>
+    <button type="button" id="tabDecide" aria-pressed="false"></button>
+    <button type="button" id="tabPath" aria-pressed="false"></button>
+  </div>
+
+  <p class="story" id="story"></p>
+
+  <div class="left">
+  <div class="scene">
+    <div class="scene-pad" id="scenePad"></div>
+  </div>
+  <div class="readout">
+    <span class="statechip" id="statechip"></span>
+    <p class="headline" id="headline"></p>
+    <p class="detail" id="detail"></p>
+    <p class="hintbox" id="hintbox"></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="panel">
+    <h2 id="ctlHead"></h2>
+    <p class="prog" id="prog"></p>
+    <div id="actionBox"></div>
+    <div class="btns">
+      <button type="button" class="go" id="nextBtn"></button>
+    </div>
+    <div class="btns">
+      <button type="button" id="hintBtn"></button>
+      <button type="button" id="resetBtn"></button>
+    </div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <div class="qhead">
+      <h2 id="quizHead"></h2>
+      <button type="button" class="chip" id="newQuiz"></button>
+    </div>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad bilingual AI school. Offline play · no APIs. WhatsApp 0337 1468899 · Self-driving car Robotics SNC"
+       data-ur="اے آئی فور کڈز — اسلام آباد۔ آف لائن کھیلو۔ واٹس ایپ 0337 1468899 · خود چلتی گاڑی روبوٹکس"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  function $(id){ return document.getElementById(id); }
+  function isolate(s){ return "\u2066" + s + "\u2069"; }
+  function setText(el, str){
+    if (!el) return;
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+  function t(o){ return (o && o[lang]) || (o && o.en) || ""; }
+  function shuffle(arr){
+    var a = arr.slice(), i, j, tmp;
+    for (i = a.length - 1; i > 0; i--){
+      j = Math.floor(Math.random() * (i + 1));
+      tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  var lang = "en";
+  var mode = "sensors";
+  var stars = 0;
+  var awarded = {};
+  var doneModes = {sensors:false, decide:false, path:false};
+
+  var T = {
+    title:{en:"Self-driving car", ur:"خود چلتی گاڑی"},
+    sub:{en:"Sensors se road pe chalna — camera, lidar & GPS on Islamabad streets!",
+         ur:"سینسرز سے سڑک پر چلنا — کیمرہ، لائیڈار اور جی پی ایس اسلام آباد میں!"},
+    tabSensors:{en:"Sensors", ur:"سینسرز / Sensors"},
+    tabDecide:{en:"See & decide", ur:"دیکھو اور فیصلہ"},
+    tabPath:{en:"Safe path", ur:"محفوظ راستہ"},
+    storySensors:{en:"Match each <b>sensor</b> to what it detects — camera sees signs & people, lidar measures distance, GPS finds location.",
+                  ur:"ہر <b>سینسر</b> کو جوڑو — کیمرہ نشانات و لوگ، لائیڈار فاصلہ، جی پی ایس مقام۔"},
+    storyDecide:{en:"Look at the <b>Islamabad road</b> scene — choose Stop, Go, or Slow like a smart car brain.",
+                 ur:"<b>اسلام آباد سڑک</b> دیکھو — ذہین گاڑی کی طرح رکو، چلو یا آہستہ چنو۔"},
+    storyPath:{en:"Pick the <b>safer route</b> or put steps in order: <b>Sense → Think → Act</b>.",
+               ur:"<b>محفوظ راستہ</b> چنو یا قدم ترتیب دو: <b>محسوس → سوچو → عمل</b>۔"},
+    ctl:{en:"Your turn — mini driver", ur:"تمہاری باری — منی ڈرائیور"},
+    next:{en:"Next challenge", ur:"اگلا چیلنج"},
+    hint:{en:"Hint", ur:"اشارہ"},
+    reset:{en:"Reset", ur:"ری سیٹ"},
+    quiz:{en:"Check yourself", ur:"اپنا چیک"},
+    newQuiz:{en:"New quiz", ur:"نیا کوئز"},
+    nice:{en:"Shabash — safe driving!", ur:"شاباش — محفوظ ڈرائیونگ!"},
+    oops:{en:"Almost — try again", ur:"قریب — دوبارہ آزماؤ"},
+    tip:{en:"Tip: Camera sees, lidar measures distance, GPS locates. Then sense → think → act. Stop for red lights & pedestrians!",
+         ur:"نکتہ: کیمرہ دیکھتا، لائیڈار فاصلہ ناپتا، جی پی ایس مقام بتاتا۔ پھر محسوس → سوچو → عمل۔ سرخ بتی اور پیدل پر رکو!"},
+    progS:{en:"Sensor matches", ur:"سینسر میچ"},
+    progD:{en:"Road decisions", ur:"سڑک فیصلے"},
+    progP:{en:"Safe-path challenges", ur:"محفوظ راستہ چیلنج"},
+    askSensor:{en:"Tap the sensor that matches", ur:"ملتا جلتا سینسر ٹیپ کرو"},
+    askDecide:{en:"What should the car do?", ur:"گاڑی کیا کرے؟"},
+    askPath:{en:"Safer route or correct order", ur:"محفوظ راستہ یا صحیح ترتیب"},
+    checkMatch:{en:"Check match", ur:"میچ چیک کرو"},
+    checkOrder:{en:"Check order", ur:"ترتیب چیک کرو"},
+    pickStep:{en:"Tap a step, then a slot", ur:"قدم ٹیپ کرو، پھر خانہ"}
+  };
+
+  var SENSORS = {
+    camera:{em:"📷", en:"Camera", ur:"کیمرہ"},
+    lidar:{em:"📡", en:"Lidar / Radar", ur:"لائیڈار / ریڈار"},
+    gps:{em:"📍", en:"GPS", ur:"جی پی ایس"}
+  };
+  var DETECTS = {
+    signs:{em:"🚸", en:"Signs & people", ur:"نشانات اور لوگ"},
+    distance:{em:"📏", en:"Distance to objects", ur:"چیزوں کا فاصلہ"},
+    location:{em:"🗺️", en:"Where we are", ur:"ہم کہاں ہیں"}
+  };
+
+  /* Mode 1: Sensors — 4 match challenges */
+  var SENSOR_CH = [
+    {
+      id:"s1", type:"pick",
+      title:{en:"Who sees the zebra crossing?", ur:"زیبرا کراسنگ کون دیکھتا ہے؟"},
+      target:"camera",
+      choices:["camera","lidar","gps"],
+      hint:{en:"Cameras take pictures of signs, people, and road markings — like eyes.",
+            ur:"کیمرہ نشانات، لوگ اور سڑک کی لکیریں دیکھتا ہے — آنکھوں کی طرح۔"},
+      done:{en:"Camera spots pedestrians & signs!", ur:"کیمرہ پیدل اور نشانات دیکھتا ہے!"}
+    },
+    {
+      id:"s2", type:"pick",
+      title:{en:"Who measures how far the bicycle is?", ur:"سائیکل کا فاصلہ کون ناپتا ہے؟"},
+      target:"lidar",
+      choices:["camera","lidar","gps"],
+      hint:{en:"Lidar/radar shoots invisible beams and times the echo to measure distance.",
+            ur:"لائیڈار/ریڈار پوشیدہ شعاعیں بھیجتا ہے اور فاصلہ ناپتا ہے۔"},
+      done:{en:"Lidar cone measures distance!", ur:"لائیڈار شنک فاصلہ ناپتا ہے!"}
+    },
+    {
+      id:"s3", type:"pick",
+      title:{en:"Who finds Faisal Mosque / Blue Area?", ur:"فیصل مسجد / بلیو ایریا کون تلاش کرتا ہے؟"},
+      target:"gps",
+      choices:["camera","lidar","gps"],
+      hint:{en:"GPS talks to satellites to know the car's location on the map.",
+            ur:"جی پی ایس سیٹلائٹ سے گاڑی کا مقام نقشے پر بتاتا ہے۔"},
+      done:{en:"GPS pins our Islamabad location!", ur:"جی پی ایس اسلام آباد مقام دکھاتا ہے!"}
+    },
+    {
+      id:"s4", type:"match",
+      title:{en:"Match all three sensors", ur:"تینوں سینسر جوڑو"},
+      pairs:{camera:"signs", lidar:"distance", gps:"location"},
+      hint:{en:"Camera→signs/people, Lidar→distance, GPS→location. Drag/tap to fill each job.",
+            ur:"کیمرہ→نشانات/لوگ، لائیڈار→فاصلہ، جی پی ایس→مقام۔"},
+      done:{en:"All sensors matched — team ready!", ur:"سب سینسر میچ — ٹیم تیار!"}
+    }
+  ];
+
+  /* Mode 2: See & decide — 4 road scenes */
+  var DECIDE = [
+    {
+      id:"d1",
+      title:{en:"Red light on Constitution Ave", ur:"کنسٹی ٹیوشن ایونیو پر سرخ بتی"},
+      scene:"🚦", extra:"🔴",
+      prompt:{en:"Traffic light is RED near a zebra. What should the car do?",
+              ur:"زیبرا کے پاس بتی سرخ ہے۔ گاڑی کیا کرے؟"},
+      choices:[
+        {id:"stop", em:"🛑", en:"STOP", ur:"رکو"},
+        {id:"go", em:"🟢", en:"GO", ur:"چلو"},
+        {id:"slow", em:"🟡", en:"SLOW", ur:"آہستہ"}
+      ],
+      correct:"stop",
+      hint:{en:"Red means stop — even for self-driving cars!",
+            ur:"سرخ کا مطلب رکنا ہے — خود چلتی گاڑی کے لیے بھی!"},
+      done:{en:"Stopped safely at the red light.", ur:"سرخ بتی پر محفوظ رک گئے۔"}
+    },
+    {
+      id:"d2",
+      title:{en:"Pedestrian on zebra", ur:"زیبرا پر پیدل"},
+      scene:"🚶", extra:"🚸",
+      prompt:{en:"A child is crossing the zebra near a school. What should the car do?",
+              ur:"اسکول کے پاس بچہ زیبرا پار کر رہا ہے۔ گاڑی کیا کرے؟"},
+      choices:[
+        {id:"stop", em:"🛑", en:"STOP", ur:"رکو"},
+        {id:"go", em:"🟢", en:"GO", ur:"چلو"},
+        {id:"slow", em:"🟡", en:"SLOW", ur:"آہستہ"}
+      ],
+      correct:"stop",
+      hint:{en:"Always stop for people on the zebra crossing.",
+            ur:"زیبرا پر لوگوں کے لیے ہمیشہ رکو۔"},
+      done:{en:"Stopped for the pedestrian — Shabash!", ur:"پیدل کے لیے رکے — شاباش!"}
+    },
+    {
+      id:"d3",
+      title:{en:"Empty road, green light", ur:"خالی سڑک، سبز بتی"},
+      scene:"🛣️", extra:"🟢",
+      prompt:{en:"Road is clear, light is GREEN, no people. What should the car do?",
+              ur:"سڑک خالی، بتی سبز، کوئی نہیں۔ گاڑی کیا کرے؟"},
+      choices:[
+        {id:"stop", em:"🛑", en:"STOP", ur:"رکو"},
+        {id:"go", em:"🟢", en:"GO", ur:"چلو"},
+        {id:"slow", em:"🟡", en:"SLOW", ur:"آہستہ"}
+      ],
+      correct:"go",
+      hint:{en:"Green + empty road = safe to go carefully.",
+            ur:"سبز + خالی سڑک = احتیاط سے چلو۔"},
+      done:{en:"Going safely on the clear road!", ur:"خالی سڑک پر محفوظ چل رہے!"}
+    },
+    {
+      id:"d4",
+      title:{en:"Bicycle ahead, yellow light", ur:"آگے سائیکل، پیلی بتی"},
+      scene:"🚲", extra:"🟡",
+      prompt:{en:"A bicycle is nearby and the light turns YELLOW. Best choice?",
+              ur:"قریب سائیکل ہے اور بتی پیلی ہوئی۔ بہترین انتخاب؟"},
+      choices:[
+        {id:"stop", em:"🛑", en:"STOP", ur:"رکو"},
+        {id:"go", em:"🟢", en:"GO fast", ur:"تیزی سے چلو"},
+        {id:"slow", em:"🟡", en:"SLOW / prepare", ur:"آہستہ / تیار"}
+      ],
+      correct:"slow",
+      hint:{en:"Yellow + nearby bike = slow down and be ready to stop.",
+            ur:"پیلی بتی + قریبی سائیکل = آہستہ اور رکنے کو تیار۔"},
+      done:{en:"Slowed down — smart and safe!", ur:"آہستہ ہوئے — ذہین اور محفوظ!"}
+    }
+  ];
+
+  var STEPS = {
+    sense:{em:"👁️", en:"Sense", ur:"محسوس"},
+    think:{em:"🧠", en:"Think", ur:"سوچو"},
+    act:{em:"🚗", en:"Act", ur:"عمل"}
+  };
+
+  /* Mode 3: Safe path — 4 challenges (2 order + 2 route) */
+  var PATH = [
+    {
+      id:"p1", type:"order",
+      title:{en:"Brain pipeline", ur:"دماغ کا راستہ"},
+      order:["sense","think","act"],
+      hint:{en:"First sense with sensors, then think/decide, then act (brake or steer).",
+            ur:"پہلے سینسر سے محسوس، پھر سوچو/فیصلہ، پھر عمل (بریک یا موڑ)۔"},
+      done:{en:"Sense → Think → Act locked in!", ur:"محسوس → سوچو → عمل یاد!"}
+    },
+    {
+      id:"p2", type:"route",
+      title:{en:"School run — safer route", ur:"اسکول — محفوظ راستہ"},
+      scene:"🏫",
+      prompt:{en:"Go to school in Islamabad. Which route is safer?",
+              ur:"اسلام آباد میں اسکول جانا ہے۔ کون سا راستہ محفوظ؟"},
+      choices:[
+        {id:"zebra", em:"🚸", en:"Side street with zebra & crossing guard", ur:"زیبرا اور گارڈ والی گلی"},
+        {id:"highway", em:"🏎️", en:"Busy highway at full speed", ur:"مصروف شاہراہ تیز رفتار"},
+        {id:"night", em:"🌑", en:"Dark alley with no lights", ur:"اندھیری گلی بغیر روشنی"}
+      ],
+      correct:"zebra",
+      hint:{en:"Prefer marked crossings and slower streets near schools.",
+            ur:"اسکول کے قریب نشان زدہ کراسنگ اور آہستہ گلیاں بہتر ہیں۔"},
+      done:{en:"Zebra route chosen — safe school run!", ur:"زیبرا راستہ — محفوظ اسکول سفر!"}
+    },
+    {
+      id:"p3", type:"order",
+      title:{en:"Obstacle ahead pipeline", ur:"رکاوٹ کا راستہ"},
+      order:["sense","think","act"],
+      hint:{en:"Same loop every time: sense the world, think what to do, then act.",
+            ur:"ہر بار وہی چکر: دنیا محسوس کرو، سوچو، پھر عمل کرو۔"},
+      done:{en:"Pipeline ready for obstacles!", ur:"رکاوٹ کے لیے راستہ تیار!"}
+    },
+    {
+      id:"p4", type:"route",
+      title:{en:"Margalla road choice", ur:"مارگلہ سڑک انتخاب"},
+      scene:"⛰️",
+      prompt:{en:"Construction blocks one lane near Margalla foothills. Safer choice?",
+              ur:"مارگلہ کے قریب ایک لین بند ہے۔ محفوظ انتخاب؟"},
+      choices:[
+        {id:"detour", em:"↩️", en:"Follow GPS detour around the cones", ur:"جی پی ایس ڈیٹور مخروطوں کے گرد"},
+        {id:"squeeze", em:"🚧", en:"Squeeze between cones at high speed", ur:"تیز رفتار مخروطوں سے گزرنا"},
+        {id:"ignore", em:"🙈", en:"Ignore sensors and keep going", ur:"سینسر نظرانداز کرو"}
+      ],
+      correct:"detour",
+      hint:{en:"Use GPS + sensors — take the marked detour, never ignore cones.",
+            ur:"جی پی ایس + سینسر استعمال کرو — نشان زدہ ڈیٹور لو، مخروط نظرانداز نہ کرو۔"},
+      done:{en:"Detour taken — sensors + GPS win!", ur:"ڈیٹور لیا — سینسر + جی پی ایس جیت!"}
+    }
+  ];
+
+  var QUIZ = [
+    {
+      q:{en:"What does a camera on a self-driving car mainly detect?",
+         ur:"خود چلتی گاڑی کا کیمرہ خاص طور پر کیا دیکھتا ہے؟"},
+      opts:[
+        {en:"Road signs, people, and markings", ur:"سڑک کے نشانات، لوگ اور لکیریں"},
+        {en:"Only the temperature of tea", ur:"صرف چائے کا درجہ حرارت"},
+        {en:"Satellite fuel levels", ur:"سیٹلائٹ ایندھن"},
+        {en:"The colour of the engine oil only", ur:"صرف انجن تیل کا رنگ"}
+      ],
+      correct:0,
+      why:{en:"Cameras act like eyes — they see signs, people, and road paint.",
+           ur:"کیمرہ آنکھوں جیسا ہے — نشانات، لوگ اور سڑک کی پینٹ دیکھتا ہے۔"}
+    },
+    {
+      q:{en:"Lidar / radar is best for measuring…",
+         ur:"لائیڈار / ریڈار کس چیز کے لیے بہترین ہے؟"},
+      opts:[
+        {en:"Distance to nearby objects", ur:"قریبی چیزوں کا فاصلہ"},
+        {en:"Your favourite cricket score", ur:"پسندیدہ کرکٹ سکور"},
+        {en:"The school bell ringtone", ur:"اسکول کی گھنٹی"},
+        {en:"How spicy the biryani is", ur:"بریانی کتنی مسالہ دار ہے"}
+      ],
+      correct:0,
+      why:{en:"Lidar/radar cones measure how far cars, bikes, and walls are.",
+           ur:"لائیڈار/ریڈار شنک گاڑیوں، سائیکلوں اور دیواروں کا فاصلہ ناپتے ہیں۔"}
+    },
+    {
+      q:{en:"GPS helps the car know…",
+         ur:"جی پی ایس گاڑی کو کیا بتاتا ہے؟"},
+      opts:[
+        {en:"Where it is on the map (location)", ur:"نقشے پر مقام (لوکیشن)"},
+        {en:"How loud the horn is", ur:"ہارن کتنا تیز ہے"},
+        {en:"The tyre brand only", ur:"صرف ٹائر کا برانڈ"},
+        {en:"Whether biryani is ready", ur:"بریانی تیار ہے یا نہیں"}
+      ],
+      correct:0,
+      why:{en:"GPS uses satellites to pin location — like finding Blue Area or school.",
+           ur:"جی پی ایس سیٹلائٹ سے مقام بتاتا ہے — جیسے بلیو ایریا یا اسکول۔"}
+    },
+    {
+      q:{en:"Correct order for a smart car brain is…",
+         ur:"ذہین گاڑی کے دماغ کی صحیح ترتیب ہے…"},
+      opts:[
+        {en:"Sense → Think → Act", ur:"محسوس → سوچو → عمل"},
+        {en:"Act → Sense → Think", ur:"عمل → محسوس → سوچو"},
+        {en:"Think → Act → ignore sensors", ur:"سوچو → عمل → سینسر نظرانداز"},
+        {en:"Honk → Sleep → Guess", ur:"ہارن → سو جاؤ → اندازہ"}
+      ],
+      correct:0,
+      why:{en:"First sense the world, then decide, then brake/steer.",
+           ur:"پہلے دنیا محسوس کرو، پھر فیصلہ، پھر بریک/موڑ۔"}
+    },
+    {
+      q:{en:"A pedestrian is on the zebra. The car should…",
+         ur:"زیبرا پر پیدل ہے۔ گاڑی کو چاہیے…"},
+      opts:[
+        {en:"STOP and wait", ur:"رکو اور انتظار کرو"},
+        {en:"Speed up to pass first", ur:"پہلے گزرنے کے لیے تیز چلو"},
+        {en:"Close its camera eyes", ur:"کیمرہ آنکھیں بند کرو"},
+        {en:"Ignore the zebra lines", ur:"زیبرا لائنز نظرانداز کرو"}
+      ],
+      correct:0,
+      why:{en:"Safety first — stop for people on the crossing.",
+           ur:"حفاظت پہلے — کراسنگ پر لوگوں کے لیے رکو۔"}
+    }
+  ];
+
+  var sensorsIdx = 0, sensorsSelected = null, sensorsMap = {}, sensorsDone = {};
+  var decideIdx = 0, decideDone = {};
+  var pathIdx = 0, pathSelected = null, pathSlots = [], pathDone = {};
+  var quizSet = [];
+
+  function award(key, n){
+    if (awarded[key]) return;
+    awarded[key] = true;
+    stars += (n || 1);
+    $("starCount").textContent = String(stars);
+  }
+  function recountStars(){
+    stars = 0;
+    Object.keys(awarded).forEach(function(k){
+      stars += (k.indexOf("mode-")===0) ? 2 : 1;
+    });
+    $("starCount").textContent = String(stars);
+  }
+
+  function skyHTML(){
+    return '<div class="sky-layer"><div class="sun-ball"></div>' +
+           '<div class="cloud c1"></div><div class="cloud c2"></div></div>' +
+           '<div class="hills"><div class="hill h-a"></div><div class="hill h-b"></div></div>' +
+           '<div class="road-strip"></div>';
+  }
+
+  function carSVG(opts){
+    opts = opts || {};
+    var showCam = opts.cam !== false;
+    var showLidar = opts.lidar !== false;
+    var showGps = opts.gps !== false;
+    var highlight = opts.hl || "";
+    var camOp = (highlight && highlight!=="camera") ? "0.35" : "1";
+    var lidOp = (highlight && highlight!=="lidar") ? "0.35" : "1";
+    var gpsOp = (highlight && highlight!=="gps") ? "0.35" : "1";
+    return '<svg class="car-svg" viewBox="0 0 300 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+      '<ellipse cx="150" cy="128" rx="90" ry="8" fill="rgba(0,0,0,.12)"/>' +
+      /* lidar cones */
+      (showLidar ? '<g opacity="'+lidOp+'"><path d="M150 78 L80 20 L220 20 Z" fill="rgba(91,143,217,.22)" stroke="#5b8fd9" stroke-width="1.5"/>' +
+      '<path d="M150 78 L110 35 L190 35 Z" fill="rgba(91,143,217,.18)" stroke="#5b8fd9" stroke-width="1"/></g>' : '') +
+      /* car body */
+      '<rect x="70" y="72" width="160" height="36" rx="14" fill="#e85d2a" stroke="#1e2a1a" stroke-width="2.5"/>' +
+      '<path d="M95 72 Q150 38 205 72" fill="#3d9b8f" stroke="#1e2a1a" stroke-width="2.5"/>' +
+      '<rect x="115" y="52" width="70" height="22" rx="4" fill="#a8d4f0" stroke="#1e2a1a" stroke-width="2"/>' +
+      /* wheels */
+      '<circle cx="105" cy="110" r="14" fill="#2a3238" stroke="#1e2a1a" stroke-width="2"/><circle cx="105" cy="110" r="6" fill="#c5d0dc"/>' +
+      '<circle cx="195" cy="110" r="14" fill="#2a3238" stroke="#1e2a1a" stroke-width="2"/><circle cx="195" cy="110" r="6" fill="#c5d0dc"/>' +
+      /* camera */
+      (showCam ? '<g opacity="'+camOp+'"><rect x="138" y="44" width="24" height="14" rx="3" fill="#c4453a" stroke="#1e2a1a" stroke-width="1.5"/>' +
+      '<circle cx="150" cy="51" r="4" fill="#1e2a1a"/><text x="150" y="38" text-anchor="middle" font-size="9" font-weight="800" fill="#c4453a">CAM</text></g>' : '') +
+      /* gps pin */
+      (showGps ? '<g opacity="'+gpsOp+'"><circle cx="230" cy="55" r="10" fill="#2e7d4f" stroke="#1e2a1a" stroke-width="1.5"/>' +
+      '<text x="230" y="59" text-anchor="middle" font-size="11" fill="#fff" font-weight="800">📍</text>' +
+      '<text x="230" y="78" text-anchor="middle" font-size="9" font-weight="800" fill="#2e7d4f">GPS</text></g>' : '') +
+      (showLidar ? '<text x="150" y="18" text-anchor="middle" font-size="9" font-weight="800" fill="#5b8fd9" opacity="'+lidOp+'">LIDAR</text>' : '') +
+      '<text x="150" y="96" text-anchor="middle" font-size="11" font-weight="800" fill="#fff">AI CAR</text>' +
+      '</svg>';
+  }
+
+  function streetProps(kind){
+    var props = {
+      light:'<div style="position:absolute;top:70px;right:14%;z-index:6;font-size:42px;line-height:1">🚦</div>',
+      ped:'<div style="position:absolute;top:95px;left:18%;z-index:6;font-size:40px;line-height:1">🚶</div>' +
+          '<div style="position:absolute;bottom:34%;left:12%;right:12%;height:14px;z-index:4;background:repeating-linear-gradient(90deg,#fdfaf3 0 10px,#1e2a1a 10px 20px);opacity:.85;border-radius:2px"></div>',
+      empty:'<div style="position:absolute;top:88px;right:16%;z-index:6;font-size:36px">🟢</div>',
+      bike:'<div style="position:absolute;top:100px;left:20%;z-index:6;font-size:40px">🚲</div>' +
+           '<div style="position:absolute;top:72px;right:14%;z-index:6;font-size:36px">🟡</div>',
+      school:'<div style="position:absolute;top:68px;left:12%;z-index:6;font-size:40px">🏫</div>' +
+             '<div style="position:absolute;top:78px;right:14%;z-index:6;font-size:36px">🚸</div>',
+      hill:'<div style="position:absolute;top:62px;right:10%;z-index:6;font-size:40px">⛰️</div>' +
+           '<div style="position:absolute;top:95px;left:16%;z-index:6;font-size:34px">🚧</div>'
+    };
+    return props[kind] || "";
+  }
+
+  /* ---------- SENSORS ---------- */
+  function renderSensors(){
+    var ch = SENSOR_CH[sensorsIdx];
+    var pad = $("scenePad");
+    var hl = (ch.type === "pick") ? ch.target : "";
+    pad.innerHTML = skyHTML() + '<div class="car-stage">' + carSVG({hl:hl}) + '</div>';
+
+    setText($("statechip"), (sensorsIdx+1) + " / " + SENSOR_CH.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"");
+    setText($("headline"), t(ch.title));
+    setText($("detail"), t(T.askSensor));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+    if (ch.type === "pick"){
+      var row = document.createElement("div");
+      row.style.display = "flex"; row.style.flexWrap = "wrap"; row.style.gap = "8px";
+      ch.choices.forEach(function(id){
+        var s = SENSORS[id];
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "item-card" + (sensorsSelected===id ? " selected" : "") + (sensorsDone[ch.id] && id===ch.target ? " ok" : "");
+        b.innerHTML = '<span class="item-em">'+s.em+'</span><p class="item-lab"></p>';
+        setText(b.querySelector(".item-lab"), t(s));
+        b.disabled = !!sensorsDone[ch.id];
+        b.addEventListener("click", function(){
+          if (sensorsDone[ch.id]) return;
+          sensorsSelected = id;
+          if (id === ch.target){
+            sensorsDone[ch.id] = true;
+            award("sensors-"+ch.id, 1);
+            setText($("headline"), t(ch.done));
+            $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.nice));
+            if (Object.keys(sensorsDone).length >= SENSOR_CH.length){
+              doneModes.sensors = true;
+              award("mode-sensors", 2);
+            }
+            tabBadges();
+          } else {
+            setText($("headline"), t(T.oops));
+            $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.oops));
+          }
+          renderSensors();
+        });
+        row.appendChild(b);
+      });
+      box.appendChild(row);
+    } else {
+      /* match all three */
+      var slots = document.createElement("div");
+      slots.className = "job-slots";
+      slots.style.paddingTop = "0";
+      var order = ["camera","lidar","gps"];
+      order.forEach(function(sid){
+        var slot = document.createElement("div");
+        slot.className = "job-slot" + (sensorsMap[sid] ? " filled" : "") + (sensorsDone[ch.id] && sensorsMap[sid]===ch.pairs[sid] ? " right" : "");
+        slot.dataset.sid = sid;
+        var filled = sensorsMap[sid] ? DETECTS[sensorsMap[sid]] : null;
+        slot.innerHTML = '<span class="jem">'+SENSORS[sid].em+'</span><span class="slab"></span>';
+        setText(slot.querySelector(".slab"), t(SENSORS[sid]) + (filled ? " → " + t(filled) : " → ?"));
+        slot.addEventListener("click", function(){
+          if (sensorsDone[ch.id] || !sensorsSelected) return;
+          sensorsMap[sid] = sensorsSelected;
+          sensorsSelected = null;
+          renderSensors();
+        });
+        slots.appendChild(slot);
+      });
+      box.appendChild(slots);
+      var bank = document.createElement("div");
+      bank.className = "bank";
+      ["signs","distance","location"].forEach(function(did){
+        var used = Object.keys(sensorsMap).some(function(k){ return sensorsMap[k]===did; });
+        var m = document.createElement("button");
+        m.type = "button";
+        m.className = "mini-item" + (used ? " used" : "") + (sensorsSelected===did ? " selected" : "");
+        m.style.borderColor = sensorsSelected===did ? "var(--accent)" : "";
+        m.innerHTML = DETECTS[did].em + " <span></span>";
+        setText(m.querySelector("span"), t(DETECTS[did]));
+        m.disabled = used || !!sensorsDone[ch.id];
+        m.addEventListener("click", function(){
+          if (used || sensorsDone[ch.id]) return;
+          sensorsSelected = did;
+          renderSensors();
+        });
+        bank.appendChild(m);
+      });
+      box.appendChild(bank);
+      if (!sensorsDone[ch.id]){
+        var chk = document.createElement("button");
+        chk.type = "button"; chk.className = "go";
+        chk.style.cssText = "margin-top:10px;width:100%;border:2px solid var(--ink);border-radius:14px;background:var(--ink);color:var(--paper);font:inherit;font-weight:800;min-height:48px;cursor:pointer";
+        setText(chk, t(T.checkMatch));
+        chk.addEventListener("click", function(){
+          var ok = true;
+          Object.keys(ch.pairs).forEach(function(k){
+            if (sensorsMap[k] !== ch.pairs[k]) ok = false;
+          });
+          if (ok && Object.keys(sensorsMap).length === 3){
+            sensorsDone[ch.id] = true;
+            award("sensors-"+ch.id, 1);
+            setText($("headline"), t(ch.done));
+            $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.nice));
+            if (Object.keys(sensorsDone).length >= SENSOR_CH.length){
+              doneModes.sensors = true;
+              award("mode-sensors", 2);
+            }
+            tabBadges();
+            renderSensors();
+          } else {
+            setText($("headline"), t(T.oops));
+            $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.oops));
+          }
+        });
+        box.appendChild(chk);
+      }
+    }
+    setText($("prog"), t(T.progS) + ": " + Object.keys(sensorsDone).length + "/" + SENSOR_CH.length);
+  }
+
+  /* ---------- DECIDE ---------- */
+  function renderDecide(){
+    var ch = DECIDE[decideIdx];
+    var pad = $("scenePad");
+    var kind = ch.id==="d1"?"light":ch.id==="d2"?"ped":ch.id==="d3"?"empty":"bike";
+    pad.innerHTML = skyHTML() + streetProps(kind) +
+      '<div class="save-scene"><div class="save-hero">'+ch.scene+" "+(ch.extra||"")+'</div></div>';
+
+    setText($("statechip"), (decideIdx+1) + " / " + DECIDE.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"");
+    setText($("headline"), t(ch.title));
+    setText($("detail"), t(ch.prompt));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+    var choices = document.createElement("div");
+    choices.className = "save-choices";
+    ch.choices.forEach(function(c){
+      var b = document.createElement("button");
+      b.type = "button";
+      if (decideDone[ch.id]){
+        if (c.id === ch.correct) b.classList.add("right");
+      }
+      b.innerHTML = '<span class="cem">'+c.em+'</span><span class="clab"></span>';
+      setText(b.querySelector(".clab"), t(c));
+      b.disabled = !!decideDone[ch.id];
+      b.addEventListener("click", function(){
+        if (decideDone[ch.id]) return;
+        if (c.id === ch.correct){
+          decideDone[ch.id] = true;
+          award("decide-"+ch.id, 1);
+          b.classList.add("right");
+          setText($("headline"), t(ch.done));
+          $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.nice));
+          if (Object.keys(decideDone).length >= DECIDE.length){
+            doneModes.decide = true;
+            award("mode-decide", 2);
+          }
+          tabBadges();
+        } else {
+          b.classList.add("wrong");
+          setText($("headline"), t(T.oops));
+          $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.oops));
+          setTimeout(function(){ b.classList.remove("wrong"); }, 600);
+        }
+      });
+      choices.appendChild(b);
+    });
+    box.appendChild(choices);
+    setText($("prog"), t(T.progD) + ": " + Object.keys(decideDone).length + "/" + DECIDE.length);
+  }
+
+  /* ---------- PATH ---------- */
+  function renderPath(){
+    var ch = PATH[pathIdx];
+    var pad = $("scenePad");
+    $("hintbox").classList.remove("show");
+
+    if (ch.type === "order"){
+      pad.innerHTML = skyHTML() + '<div class="car-stage">' + carSVG({}) + '</div>';
+      setText($("statechip"), (pathIdx+1) + " / " + PATH.length);
+      $("statechip").className = "statechip" + (lang==="ur"?" ur":"");
+      setText($("headline"), t(ch.title));
+      setText($("detail"), t(T.pickStep));
+
+      if (!pathSlots.length || pathSlots.length !== ch.order.length){
+        pathSlots = ch.order.map(function(){ return null; });
+        pathSelected = null;
+      }
+
+      var box = $("actionBox");
+      box.innerHTML = "";
+      var row = document.createElement("div");
+      row.className = "step-row";
+      row.style.paddingTop = "0";
+      ch.order.forEach(function(_, i){
+        if (i) {
+          var ar = document.createElement("span");
+          ar.className = "step-arrow"; ar.textContent = "→";
+          row.appendChild(ar);
+        }
+        var slot = document.createElement("div");
+        slot.className = "step-slot" + (pathSlots[i] ? " filled" : "");
+        if (pathDone[ch.id]) slot.classList.add("filled");
+        var sid = pathSlots[i];
+        if (sid){
+          slot.innerHTML = '<span class="em">'+STEPS[sid].em+'</span><span class="slab"></span>';
+          setText(slot.querySelector(".slab"), t(STEPS[sid]));
+        } else {
+          slot.innerHTML = '<span class="em">?</span><span>'+(i+1)+'</span>';
+        }
+        slot.addEventListener("click", function(){
+          if (pathDone[ch.id]) return;
+          if (pathSelected){
+            pathSlots[i] = pathSelected;
+            pathSelected = null;
+            renderPath();
+          } else if (pathSlots[i]){
+            pathSlots[i] = null;
+            renderPath();
+          }
+        });
+        row.appendChild(slot);
+      });
+      box.appendChild(row);
+      var bank = document.createElement("div");
+      bank.className = "bank";
+      ch.order.forEach(function(sid){
+        var used = pathSlots.indexOf(sid) >= 0;
+        var m = document.createElement("button");
+        m.type = "button";
+        m.className = "mini-item" + (used ? " used" : "");
+        if (pathSelected === sid) m.style.borderColor = "var(--accent)";
+        m.innerHTML = STEPS[sid].em + " <span></span>";
+        setText(m.querySelector("span"), t(STEPS[sid]));
+        m.disabled = used || !!pathDone[ch.id];
+        m.addEventListener("click", function(){
+          if (used || pathDone[ch.id]) return;
+          pathSelected = sid;
+          renderPath();
+        });
+        bank.appendChild(m);
+      });
+      box.appendChild(bank);
+      if (!pathDone[ch.id]){
+        var chk = document.createElement("button");
+        chk.type = "button";
+        chk.style.cssText = "margin-top:10px;width:100%;border:2px solid var(--ink);border-radius:14px;background:var(--ink);color:var(--paper);font:inherit;font-weight:800;min-height:48px;cursor:pointer";
+        setText(chk, t(T.checkOrder));
+        chk.addEventListener("click", function(){
+          var ok = pathSlots.length === ch.order.length &&
+                   pathSlots.every(function(s,i){ return s === ch.order[i]; });
+          if (ok){
+            pathDone[ch.id] = true;
+            award("path-"+ch.id, 1);
+            setText($("headline"), t(ch.done));
+            $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.nice));
+            if (Object.keys(pathDone).length >= PATH.length){
+              doneModes.path = true;
+              award("mode-path", 2);
+            }
+            tabBadges();
+            renderPath();
+          } else {
+            setText($("headline"), t(T.oops));
+            $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.oops));
+          }
+        });
+        box.appendChild(chk);
+      }
+    } else {
+      var kind = ch.id==="p2"?"school":"hill";
+      pad.innerHTML = skyHTML() + streetProps(kind) +
+        '<div class="save-scene"><div class="save-hero">'+(ch.scene||"🛣️")+'</div></div>';
+      setText($("statechip"), (pathIdx+1) + " / " + PATH.length);
+      $("statechip").className = "statechip" + (lang==="ur"?" ur":"");
+      setText($("headline"), t(ch.title));
+      setText($("detail"), t(ch.prompt));
+
+      var box2 = $("actionBox");
+      box2.innerHTML = "";
+      var choices = document.createElement("div");
+      choices.className = "save-choices";
+      ch.choices.forEach(function(c){
+        var b = document.createElement("button");
+        b.type = "button";
+        if (pathDone[ch.id] && c.id === ch.correct) b.classList.add("right");
+        b.innerHTML = '<span class="cem">'+c.em+'</span><span class="clab"></span>';
+        setText(b.querySelector(".clab"), t(c));
+        b.disabled = !!pathDone[ch.id];
+        b.addEventListener("click", function(){
+          if (pathDone[ch.id]) return;
+          if (c.id === ch.correct){
+            pathDone[ch.id] = true;
+            award("path-"+ch.id, 1);
+            b.classList.add("right");
+            setText($("headline"), t(ch.done));
+            $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.nice));
+            if (Object.keys(pathDone).length >= PATH.length){
+              doneModes.path = true;
+              award("mode-path", 2);
+            }
+            tabBadges();
+          } else {
+            b.classList.add("wrong");
+            setText($("headline"), t(T.oops));
+            $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.oops));
+            setTimeout(function(){ b.classList.remove("wrong"); }, 600);
+          }
+        });
+        choices.appendChild(b);
+      });
+      box2.appendChild(choices);
+    }
+    setText($("prog"), t(T.progP) + ": " + Object.keys(pathDone).length + "/" + PATH.length);
+  }
+
+  /* ---------- QUIZ ---------- */
+  function pickQuiz(){ quizSet = shuffle(QUIZ).slice(0, 5); }
+  function renderQuiz(){
+    var box = $("quizBox");
+    box.innerHTML = "";
+    quizSet.forEach(function(item, qi){
+      var wrap = document.createElement("div");
+      wrap.className = "q";
+      var p = document.createElement("p");
+      setText(p, (qi+1) + ". " + t(item.q));
+      wrap.appendChild(p);
+      var answered = false;
+      item.opts.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt" + (lang==="ur"?" ur":"");
+        setText(b, t(opt));
+        b.addEventListener("click", function(){
+          if (answered) return;
+          answered = true;
+          if (oi === item.correct){
+            b.classList.add("right");
+            award("quiz-"+qi, 1);
+          } else {
+            b.classList.add("wrong");
+            var kids = wrap.querySelectorAll(".opt");
+            if (kids[item.correct]) kids[item.correct].classList.add("right");
+          }
+          fb.classList.add("show");
+        });
+        wrap.appendChild(b);
+      });
+      var fb = document.createElement("p");
+      fb.className = "fb";
+      setText(fb, t(item.why));
+      wrap.appendChild(fb);
+      box.appendChild(wrap);
+    });
+  }
+
+  function storyHtml(){
+    if (mode === "sensors") return t(T.storySensors);
+    if (mode === "decide") return t(T.storyDecide);
+    return t(T.storyPath);
+  }
+
+  function tabBadges(){
+    function lab(btn, label, key){
+      var badge = doneModes[key] ? ' <span class="badge">★</span>' : "";
+      btn.innerHTML = "";
+      var span = document.createElement("span");
+      setText(span, t(label));
+      btn.appendChild(span);
+      if (badge){
+        var b = document.createElement("span");
+        b.className = "badge"; b.textContent = " ★";
+        btn.appendChild(b);
+      }
+    }
+    lab($("tabSensors"), T.tabSensors, "sensors");
+    lab($("tabDecide"), T.tabDecide, "decide");
+    lab($("tabPath"), T.tabPath, "path");
+    $("tabSensors").setAttribute("aria-pressed", mode==="sensors"?"true":"false");
+    $("tabDecide").setAttribute("aria-pressed", mode==="decide"?"true":"false");
+    $("tabPath").setAttribute("aria-pressed", mode==="path"?"true":"false");
+  }
+
+  function setMode(m){
+    mode = m;
+    pathSlots = []; pathSelected = null;
+    if (mode === "sensors"){ sensorsSelected = null; renderSensors(); }
+    else if (mode === "decide") renderDecide();
+    else renderPath();
+    applyChrome();
+  }
+
+  function applyChrome(){
+    setText($("title"), t(T.title));
+    setText($("subtitle"), t(T.sub));
+    $("story").innerHTML = storyHtml();
+    $("story").classList.toggle("ur", lang==="ur");
+    $("story").setAttribute("dir", lang==="ur"?"rtl":"ltr");
+    setText($("ctlHead"), t(T.ctl));
+    setText($("nextBtn"), t(T.next));
+    setText($("hintBtn"), t(T.hint));
+    setText($("resetBtn"), t(T.reset));
+    setText($("quizHead"), t(T.quiz));
+    setText($("newQuiz"), t(T.newQuiz));
+    $("langBtn").textContent = (lang === "en") ? "اردو" : "EN";
+    $("langBtn").setAttribute("aria-pressed", lang==="ur"?"true":"false");
+    document.body.classList.toggle("urdu", lang==="ur");
+    document.documentElement.lang = (lang==="ur") ? "ur" : "en";
+    document.documentElement.dir = (lang==="ur") ? "rtl" : "ltr";
+    tabBadges();
+    var foot = document.querySelector("footer p");
+    if (foot) setText(foot, foot.getAttribute(lang==="ur"?"data-ur":"data-en"));
+  }
+
+  function applyLang(){
+    applyChrome();
+    if (mode === "sensors") renderSensors();
+    else if (mode === "decide") renderDecide();
+    else renderPath();
+    renderQuiz();
+  }
+
+  function next(){
+    if (mode === "sensors"){
+      sensorsIdx = (sensorsIdx + 1) % SENSOR_CH.length;
+      sensorsSelected = null;
+      if (SENSOR_CH[sensorsIdx].type === "match") sensorsMap = {};
+      renderSensors();
+    } else if (mode === "decide"){
+      decideIdx = (decideIdx + 1) % DECIDE.length;
+      renderDecide();
+    } else {
+      pathIdx = (pathIdx + 1) % PATH.length;
+      pathSlots = []; pathSelected = null;
+      renderPath();
+    }
+  }
+
+  function showHint(){
+    var h;
+    if (mode === "sensors") h = SENSOR_CH[sensorsIdx].hint;
+    else if (mode === "decide") h = DECIDE[decideIdx].hint;
+    else h = PATH[pathIdx].hint;
+    var hb = $("hintbox");
+    setText(hb, t(h));
+    hb.classList.add("show");
+  }
+
+  function resetMode(){
+    if (mode === "sensors"){
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("sensors-")===0 || k==="mode-sensors") delete awarded[k]; });
+      sensorsDone = {}; sensorsMap = {}; sensorsSelected = null; sensorsIdx = 0;
+      doneModes.sensors = false;
+      recountStars(); renderSensors();
+    } else if (mode === "decide"){
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("decide-")===0 || k==="mode-decide") delete awarded[k]; });
+      decideDone = {}; decideIdx = 0; doneModes.decide = false;
+      recountStars(); renderDecide();
+    } else {
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("path-")===0 || k==="mode-path") delete awarded[k]; });
+      pathDone = {}; pathIdx = 0; pathSlots = []; pathSelected = null; doneModes.path = false;
+      recountStars(); renderPath();
+    }
+    tabBadges();
+    applyChrome();
+  }
+
+  function cleanSpeakText(s){
+    return String(s || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  }
+  function buildSpeakText(){
+    var bits = [];
+    bits.push(t(T.title));
+    bits.push(cleanSpeakText(storyHtml()));
+    bits.push(cleanSpeakText(($("headline") && $("headline").textContent) || ""));
+    bits.push(cleanSpeakText(($("detail") && $("detail").textContent) || ""));
+    bits.push(t(T.tip));
+    return bits.filter(Boolean).join(". ");
+  }
+  function pickVoice(voices, want){
+    var i, v, L;
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf(want) === 0) return v;
+    }
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf("en") === 0) return v;
+    }
+    return voices[0] || null;
+  }
+  var speakTimer = null;
+  function setSpeaking(on){
+    var btn = $("speakBtn");
+    if (!btn) return;
+    btn.setAttribute("aria-pressed", on ? "true" : "false");
+    btn.style.opacity = on ? "0.65" : "";
+  }
+  function doSpeak(text, asLang){
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.92;
+    u.lang = (asLang === "ur") ? "ur-PK" : "en-US";
+    var voices = window.speechSynthesis.getVoices() || [];
+    var voice = pickVoice(voices, asLang === "ur" ? "ur" : "en");
+    if (voice) u.voice = voice;
+    u.onstart = function(){ setSpeaking(true); };
+    u.onend = function(){ setSpeaking(false); };
+    u.onerror = function(){
+      setSpeaking(false);
+      if (asLang === "ur"){
+        var fallback = cleanSpeakText(T.title.en + ". " + T.storySensors.en + ". " + T.tip.en);
+        var u2 = new SpeechSynthesisUtterance(fallback);
+        u2.lang = "en-US"; u2.rate = 0.92;
+        var v2 = pickVoice(window.speechSynthesis.getVoices() || [], "en");
+        if (v2) u2.voice = v2;
+        u2.onstart = function(){ setSpeaking(true); };
+        u2.onend = u2.onerror = function(){ setSpeaking(false); };
+        window.speechSynthesis.speak(u2);
+      }
+    };
+    window.speechSynthesis.speak(u);
+  }
+  if ("speechSynthesis" in window){
+    try { window.speechSynthesis.getVoices(); } catch (e0) {}
+    if (typeof window.speechSynthesis.addEventListener === "function"){
+      window.speechSynthesis.addEventListener("voiceschanged", function(){
+        try { window.speechSynthesis.getVoices(); } catch (e1) {}
+      });
+    }
+  } else {
+    var noBtn = $("speakBtn");
+    if (noBtn){ noBtn.disabled = true; noBtn.title = "Voice not available on this device"; }
+  }
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en";
+    applyLang();
+  });
+  $("tabSensors").addEventListener("click", function(){ setMode("sensors"); });
+  $("tabDecide").addEventListener("click", function(){ setMode("decide"); });
+  $("tabPath").addEventListener("click", function(){ setMode("path"); });
+  $("nextBtn").addEventListener("click", next);
+  $("hintBtn").addEventListener("click", showHint);
+  $("resetBtn").addEventListener("click", resetMode);
+  $("newQuiz").addEventListener("click", function(){ pickQuiz(); renderQuiz(); });
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      var text = buildSpeakText();
+      if (!text) return;
+      if (speakTimer){ clearTimeout(speakTimer); speakTimer = null; }
+      window.speechSynthesis.cancel();
+      setSpeaking(false);
+      var speakLang = lang;
+      speakTimer = setTimeout(function(){
+        speakTimer = null;
+        doSpeak(text, speakLang);
+      }, 80);
+    }catch(e){ setSpeaking(false); }
+  });
+
+  pickQuiz();
+  applyLang();
+})();
+</script>
+</body>
+</html>
