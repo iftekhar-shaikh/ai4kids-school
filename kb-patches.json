@@ -135,5 +135,13 @@
       "interactive_file": "interactives/g5-ecosystem.html",
       "interactive_label": "Khelo — Ecosystem / Margalla"
     }
+  },
+  {
+    "file": "kb/grade_5/science.json",
+    "match_title": "Technology aur safety",
+    "add": {
+      "interactive_file": "interactives/g5-technology-safety.html",
+      "interactive_label": "Khelo — Technology aur safety"
+    }
   }
 ]

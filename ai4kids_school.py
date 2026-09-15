@@ -1080,6 +1080,7 @@ def render_topic_interactive(subject_key, grade, topic_title):
             (5, "science", "Bijli ke circuits"): "interactives/g5-bijli-circuits.html",
             (5, "science", "Magnet ki taqat"): "interactives/g5-magnetism.html",
             (5, "science", "Ecosystem"): "interactives/g5-ecosystem.html",
+            (5, "science", "Technology aur safety"): "interactives/g5-technology-safety.html",
             (4, "science", "Solar system"): "interactives/g4-solar-system.html",
             (3, "science", "Paani ka safar"): "interactives/g3-paani-ka-safar.html",
             (3, "science", "Matter: solid liquid gas"): "interactives/g3-states-of-matter.html",
