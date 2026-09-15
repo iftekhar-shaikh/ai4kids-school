@@ -57,7 +57,9 @@
             "explanation": "Pakistan mein healthcare mein machine learning ka istemal patients ki medical records ko analyze karne ke liye hota hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g4-machine-learning.html",
+      "interactive_label": "Khelo — Machine learning"
     },
     {
       "title": "Chatbot kya hai",

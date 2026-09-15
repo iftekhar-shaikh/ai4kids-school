@@ -215,5 +215,13 @@
       "interactive_file": "interactives/g5-decimals-percentage.html",
       "interactive_label": "Khelo — Decimals aur percentage"
     }
+  },
+  {
+    "file": "kb/grade_4/ai.json",
+    "match_title": "Machine learning",
+    "add": {
+      "interactive_file": "interactives/g4-machine-learning.html",
+      "interactive_label": "Khelo — Machine learning"
+    }
   }
 ]

@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Machine learning — کمپیوٹر خود سیکھتی ہے | AI4Kids Class 4</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#e8e4f5;--board-deep:#d4cce8;--sky:#c9b8f0;--sky2:#9b7fd4;
+    --accent:#5b4a8f;--ok:#2e7d4f;--ink:#1e2a1a;--ink-soft:#4a5744;
+    --paper:#fdfaf3;--line:#d5dec8;--gold:#e8b23d;--left:#c4453a;
+    --data:#2f6fb5;--train:#c9702e;--good:#2e7d4f;--bad:#c4453a;
+    --phone:#3d9b8f;--food:#e85d2a;
+    --fs-cap:clamp(12px, 3.2vw, 13px);--fs-xs:clamp(14px, 3.7vw, 15px);
+    --fs-sm:clamp(16px, 4.2vw, 17px);--fs-md:clamp(17px, 4.6vw, 19px);
+    --fs-lg:clamp(20px, 5.4vw, 23px);--fs-xl:clamp(27px, 7.4vw, 33px);--lh:1.5;
+  }
+  body.urdu{
+    --fs-cap:clamp(13px, 3.5vw, 15px);--fs-xs:clamp(15px, 4.1vw, 17px);
+    --fs-sm:clamp(17px, 4.7vw, 19px);--fs-md:clamp(19px, 5.2vw, 21px);
+    --fs-lg:clamp(22px, 6vw, 25px);--fs-xl:clamp(26px, 7vw, 31px);--lh:2.1;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  .stars{display:flex;align-items:center;gap:6px;font-weight:800;font-size:var(--fs-xs);
+         background:#fff6e2;border:2px solid var(--gold);border-radius:999px;padding:7px 13px}
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+  .tabs{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
+  .tabs button{
+    flex:1 1 28%;min-width:90px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:10px 6px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:54px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .tabs button .badge{color:var(--gold)}
+  .story{
+    background:#fff8ea;border:2px dashed var(--gold);border-radius:16px;padding:13px 15px;
+    font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;margin-bottom:14px;
+  }
+  body.urdu .story{line-height:var(--lh)}
+  .story b{color:var(--ink)}
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:linear-gradient(180deg,var(--sky) 0%,var(--sky2) 38%,var(--board) 38%,var(--board-deep) 100%);
+    min-height:280px;
+  }
+  .scene-pad{padding:10px 12px 18px;min-height:260px;position:relative}
+  .sky-layer{position:absolute;inset:0 0 58% 0;pointer-events:none;overflow:hidden}
+  .sun-ball{
+    position:absolute;top:12px;right:18px;width:36px;height:36px;border-radius:50%;
+    background:radial-gradient(circle at 35% 35%,#ffe9a0,#f5c542 60%,#e0a020);
+    box-shadow:0 0 18px rgba(245,197,66,.45);z-index:1;
+  }
+  body.urdu .sun-ball{right:auto;left:18px}
+  .cloud{position:absolute;background:rgba(255,255,255,.85);border-radius:40px;opacity:.9}
+  .cloud:before,.cloud:after{content:"";position:absolute;background:inherit;border-radius:50%}
+  .c1{width:48px;height:15px;top:18px;left:12%}
+  .c1:before{width:22px;height:22px;top:-12px;left:6px}
+  .c1:after{width:18px;height:18px;top:-8px;left:24px}
+  .c2{width:34px;height:12px;top:34px;left:55%;opacity:.7}
+  .c2:before{width:16px;height:16px;top:-9px;left:4px}
+  .c2:after{width:12px;height:12px;top:-5px;left:16px}
+  .comic-stage{position:relative;z-index:5;padding-top:72px;display:flex;flex-direction:column;gap:8px;align-items:center;min-height:160px}
+  .comic-panel{
+    background:rgba(253,250,243,.96);border:2.5px solid var(--ink);border-radius:16px;
+    padding:10px 12px;width:100%;max-width:320px;box-shadow:0 3px 0 rgba(30,42,26,.12);
+    display:flex;align-items:center;gap:10px;font-weight:800;font-size:var(--fs-xs);
+  }
+  .comic-panel .cem{font-size:36px;line-height:1;flex-shrink:0}
+  .comic-panel .ctxt{flex:1;line-height:1.35}
+  body.urdu .comic-panel .ctxt{line-height:1.85}
+  .arrow-mid{font-size:22px;font-weight:800;color:var(--accent);line-height:1}
+  .brain-stage{position:relative;z-index:5;padding-top:70px;text-align:center;min-height:150px}
+  .brain-hero{font-size:56px;line-height:1;margin:4px 0 8px;filter:drop-shadow(0 2px 0 rgba(0,0,0,.12))}
+  .pattern-row{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:6px 0}
+  .pat-chip{
+    border:2px solid var(--ink);border-radius:12px;padding:6px 10px;background:#fff;
+    font-size:var(--fs-cap);font-weight:800;display:inline-flex;align-items:center;gap:4px;
+  }
+  .pat-chip.liked{border-color:var(--ok);background:#e8f2ed}
+  .pat-chip.flipped{border-color:var(--left);background:#fbeae8;text-decoration:line-through;opacity:.7}
+  .rec-box{
+    margin-top:8px;border:2.5px dashed var(--accent);border-radius:14px;padding:10px 12px;
+    background:rgba(253,250,243,.9);font-weight:800;font-size:var(--fs-xs);
+  }
+  .item-card{
+    background:rgba(253,250,243,.95);border:2.5px solid var(--ink);border-radius:16px;
+    padding:8px 10px 10px;text-align:center;min-width:72px;max-width:120px;
+    box-shadow:0 3px 0 rgba(30,42,26,.15);cursor:pointer;user-select:none;
+  }
+  .item-card:hover{transform:translateY(-2px)}
+  .item-card.picked{opacity:.35;pointer-events:none}
+  .item-card.ok{border-color:var(--ok);background:#e8f2ed}
+  .item-card.no{border-color:var(--left);background:#fbeae8}
+  .item-card.selected{border-color:var(--accent);background:#eaf1f9;box-shadow:0 0 0 3px rgba(91,74,143,.25)}
+  .item-em{font-size:34px;line-height:1.1;display:block;margin-bottom:2px}
+  .item-lab{font-size:var(--fs-cap);font-weight:800;line-height:1.25;margin:0}
+  .save-choices{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+  .save-choices button{
+    border:2.5px solid var(--ink);background:var(--paper);border-radius:14px;
+    padding:12px 14px;font:inherit;font-weight:800;font-size:var(--fs-xs);
+    cursor:pointer;text-align:left;min-height:52px;display:flex;align-items:center;gap:10px;
+  }
+  body.urdu .save-choices button{text-align:right}
+  .save-choices button .cem{font-size:26px}
+  .save-choices button.right{border-color:var(--ok);background:#e8f2ed}
+  .save-choices button.wrong{border-color:var(--left);background:#fbeae8}
+  .sort-bins{display:flex;gap:8px;margin-top:8px}
+  .sort-bin{
+    flex:1;border:2.5px dashed rgba(30,42,26,.4);border-radius:14px;
+    background:rgba(253,250,243,.75);padding:10px 8px;min-height:90px;
+    text-align:center;font-weight:800;font-size:var(--fs-cap);
+  }
+  .sort-bin.good{border-color:var(--ok)}
+  .sort-bin.bad{border-color:var(--left)}
+  .sort-bin .bin-title{margin-bottom:6px;color:var(--ink-soft)}
+  .sort-bin .drop{font-size:28px;min-height:36px}
+  .bank{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:8px;position:relative;z-index:5}
+  .mini-item{
+    border:2px solid var(--ink);border-radius:12px;padding:8px 10px;background:#fff;
+    line-height:1;cursor:pointer;min-width:44px;min-height:48px;font-weight:800;font-size:var(--fs-cap);
+    display:flex;align-items:center;gap:4px;
+  }
+  .mini-item.used{opacity:.3;pointer-events:none}
+  .mini-item.selected{border-color:var(--accent);box-shadow:0 0 0 3px rgba(91,74,143,.2)}
+  .train-grid{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:8px 0}
+  .train-btn{
+    border:2.5px solid var(--ink);background:var(--paper);border-radius:14px;
+    padding:10px 12px;font:inherit;font-weight:800;font-size:var(--fs-cap);
+    cursor:pointer;min-height:52px;display:flex;align-items:center;gap:6px;
+  }
+  .train-btn.on{border-color:var(--ok);background:#e8f2ed}
+  .train-btn.wrong-on{border-color:var(--left);background:#fbeae8}
+  .outcome{
+    margin-top:10px;border-radius:14px;padding:10px 12px;font-weight:700;font-size:var(--fs-xs);
+    display:none;border:2px solid var(--ok);background:#e8f2ed;color:var(--ok);
+  }
+  .outcome.show{display:block}
+  .outcome.bad{border-color:var(--left);background:#fbeae8;color:var(--left)}
+  .readout{
+    margin-top:-18px;position:relative;z-index:2;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+  .statechip.ur{padding:2px 14px 7px}
+  .statechip.win{background:var(--ok)}
+  .statechip.miss{background:var(--left)}
+  .headline{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+  .headline.ur{line-height:1.95}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+  .hintbox{
+    margin-top:14px;border:2px solid var(--accent);background:#f0ebf8;border-radius:14px;
+    padding:11px 14px;font-size:var(--fs-xs);color:var(--accent);font-weight:700;line-height:1.55;
+    display:none;
+  }
+  .hintbox.show{display:block}
+  body.urdu .hintbox{line-height:var(--lh)}
+  .panel{margin-top:22px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .prog{margin:0 0 10px;font-size:var(--fs-xs);font-weight:700;color:var(--ink-soft)}
+  .btns{display:flex;gap:9px;margin-top:8px;flex-wrap:wrap}
+  .btns button{
+    border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);
+    font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:50px;
+    padding:8px 14px;flex:1;
+  }
+  .btns .go{background:var(--ink);color:var(--paper)}
+  .btns button:active{transform:scale(.97)}
+  .btns button:disabled{opacity:.4;cursor:default}
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .qhead{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+  .qhead h2{font-size:var(--fs-lg);font-weight:800;margin:0;flex:1}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:50px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+  .opt.wrong{border-color:var(--left);background:#fbeae8}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
+      grid-template-areas:
+        "bar   bar" "head  head" "tabs  tabs" "story story"
+        "left  right" "quiz  quiz" "foot  foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+    .story{grid-area:story} .left{grid-area:left} .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+    .panel{margin-top:0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition-duration:.01ms !important;animation:none !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 4</span>
+    <span class="stars" id="starBox">⭐ <span id="starCount">0</span></span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 id="title"></h1>
+  <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group">
+    <button type="button" id="tabSee" aria-pressed="true"></button>
+    <button type="button" id="tabTrain" aria-pressed="false"></button>
+    <button type="button" id="tabData" aria-pressed="false"></button>
+  </div>
+
+  <p class="story" id="story"></p>
+
+  <div class="left">
+  <div class="scene">
+    <div class="scene-pad" id="scenePad"></div>
+  </div>
+  <div class="readout">
+    <span class="statechip" id="statechip"></span>
+    <p class="headline" id="headline"></p>
+    <p class="detail" id="detail"></p>
+    <p class="hintbox" id="hintbox"></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="panel">
+    <h2 id="ctlHead"></h2>
+    <p class="prog" id="prog"></p>
+    <div id="actionBox"></div>
+    <div class="btns">
+      <button type="button" class="go" id="nextBtn"></button>
+    </div>
+    <div class="btns">
+      <button type="button" id="hintBtn"></button>
+      <button type="button" id="resetBtn"></button>
+    </div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <div class="qhead">
+      <h2 id="quizHead"></h2>
+      <button type="button" class="chip" id="newQuiz"></button>
+    </div>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad bilingual AI school. Offline play · no APIs. WhatsApp 0337 1468899 · Machine learning"
+       data-ur="اے آئی فور کڈز — اسلام آباد۔ آف لائن کھیلو۔ واٹس ایپ 0337 1468899 · مشین لرننگ"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  function $(id){ return document.getElementById(id); }
+  function isolate(s){ return "\u2066" + s + "\u2069"; }
+  function setText(el, str){
+    if (!el) return;
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+  function t(o){ return (o && o[lang]) || (o && o.en) || ""; }
+  function shuffle(arr){
+    var a = arr.slice(), i, j, tmp;
+    for (i = a.length - 1; i > 0; i--){
+      j = Math.floor(Math.random() * (i + 1));
+      tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  var lang = "en";
+  var mode = "see";
+  var stars = 0;
+  var awarded = {};
+  var doneModes = {see:false, train:false, data:false};
+
+  var T = {
+    title:{en:"Machine learning", ur:"مشین لرننگ"},
+    sub:{en:"Computer khud seekhti hai — data se pattern, then andaza!",
+         ur:"کمپیوٹر خود سیکھتی ہے — ڈیٹا سے پیٹرن، پھر اندازہ!"},
+    tabSee:{en:"See & learn", ur:"دیکھو سیکھو"},
+    tabTrain:{en:"Train helper", ur:"مددگار سکھائو"},
+    tabData:{en:"Good / bad data", ur:"اچھا / برا ڈیٹا"},
+    storySee:{en:"Comics: phone & biryani app <b>notice past choices</b> — that data is how they recommend next!",
+              ur:"کامک: فون اور بریانی ایپ <b>پچھلی پسند</b> دیکھتی ہیں — یہی ڈیٹا اگلی تجویز دیتا ہے!"},
+    storyTrain:{en:"Feed <b>likes</b> (biryani, cricket…). Computer finds a pattern and recommends. Flip one wrong — watch it change!",
+                ur:"پسندیں دو (بریانی، کرکٹ…)۔ کمپیوٹر پیٹرن دیکھ کر تجویز دیتا ہے۔ ایک غلط پلٹو — تبدیلی دیکھو!"},
+    storyData:{en:"Sort cards: <b>useful examples</b> train well; junk confuses the model. Wrong data = wrong learning!",
+               ur:"کارڈز چھانٹو: <b>اچھی مثالیں</b> اچھا سکھاتی ہیں؛ فضول ڈیٹا الجھا دیتا ہے۔ غلط ڈیٹا = غلط سیکھنا!"},
+    ctl:{en:"Your turn — mini ML scientist", ur:"تمہاری باری — منی ایم ایل سائنسدان"},
+    next:{en:"Next challenge", ur:"اگلا چیلنج"},
+    hint:{en:"Hint", ur:"اشارہ"},
+    reset:{en:"Reset", ur:"ری سیٹ"},
+    quiz:{en:"Check yourself", ur:"اپنا چیک"},
+    newQuiz:{en:"New quiz", ur:"نیا کوئز"},
+    nice:{en:"Shabash — pattern spotted!", ur:"شاباش — پیٹرن مل گیا!"},
+    oops:{en:"Almost — try again", ur:"قریب — دوبارہ آزماؤ"},
+    tip:{en:"Tip: Machine learning = computer learns from many examples (data), finds patterns, then guesses the next thing — like cricket videos or biryani restaurants. Not magic!",
+         ur:"نکتہ: مشین لرننگ = کمپیوٹر بہت سی مثالوں (ڈیٹا) سے سیکھتا ہے، پیٹرن ڈھونڈتا ہے، پھر اگلا اندازہ لگاتا ہے — جیسے کرکٹ ویڈیو یا بریانی ریسٹورنٹ۔ جادو نہیں!"},
+    progSee:{en:"See & learn", ur:"دیکھو سیکھو"},
+    progTrain:{en:"Train challenges", ur:"ٹرین چیلنج"},
+    progData:{en:"Data sorts", ur:"ڈیٹا چھانٹ"},
+    askNotice:{en:"What did the computer notice?", ur:"کمپیوٹر نے کیا نوٹ کیا؟"},
+    askTrain:{en:"Tap likes, then Get recommendation", ur:"پسند ٹیپ کرو، پھر تجویز لو"},
+    askSort:{en:"Tap a card, then Good or Junk bin", ur:"کارڈ ٹیپ کرو، پھر اچھا یا فضول"},
+    getRec:{en:"Get recommendation", ur:"تجویز لو"},
+    flipWrong:{en:"Flip one wrong example", ur:"ایک غلط مثال پلٹو"},
+    checkSort:{en:"Check sort", ur:"چھانٹ چیک کرو"},
+    binGood:{en:"Good data ✓", ur:"اچھا ڈیٹا ✓"},
+    binBad:{en:"Junk ✗", ur:"فضول ✗"},
+    recSays:{en:"Computer recommends", ur:"کمپیوٹر تجویز کرتا ہے"},
+    trainReady:{en:"Examples ready — press Get recommendation!", ur:"مثالیں تیار — تجویز دباؤ!"},
+    needMore:{en:"Pick at least 3 likes first!", ur:"پہلے کم از کم ۳ پسند چنو!"}
+  };
+
+  /* Mode 1: See & learn — 4 comic challenges */
+  var SEE = [
+    {
+      id:"see1",
+      title:{en:"Cricket on your phone", ur:"فون پر کرکٹ"},
+      panels:[
+        {em:"📱🏏", en:"You watch cricket clips every day", ur:"تم ہر روز کرکٹ کلپس دیکھتے ہو"},
+        {em:"👀", en:"Phone notices: cricket, cricket, cricket…", ur:"فون نوٹ کرتا ہے: کرکٹ، کرکٹ، کرکٹ…"},
+        {em:"✨🏏", en:"Next day: more cricket videos!", ur:"اگلے دن: مزید کرکٹ ویڈیوز!"}
+      ],
+      prompt:{en:"What did the phone use as data?", ur:"فون نے ڈیٹا کے طور پر کیا استعمال کیا؟"},
+      choices:[
+        {id:"past", em:"📊", en:"Your past cricket watches", ur:"تمہاری پرانی کرکٹ ویڈیوز"},
+        {id:"magic", em:"🪄", en:"Magic spell", ur:"جادو کا منتر"},
+        {id:"random", em:"🎲", en:"Random lucky guess", ur:"بے ترتیب اندازہ"}
+      ],
+      correct:"past",
+      hint:{en:"Past choices = data. The phone learns the cricket pattern from many watches.",
+            ur:"پچھلی پسند = ڈیٹا۔ فون بہت سی ویڈیوز سے کرکٹ کا پیٹرن سیکھتا ہے۔"},
+      done:{en:"Yes — past watches are data!", ur:"ہاں — پرانی ویڈیوز ہی ڈیٹا ہیں!"}
+    },
+    {
+      id:"see2",
+      title:{en:"Biryani app in Islamabad", ur:"اسلام آباد میں بریانی ایپ"},
+      panels:[
+        {em:"🍛📱", en:"You order biryani from same shop again & again", ur:"تم بار بار ایک ہی دکان سے بریانی منگواتے ہو"},
+        {em:"🧠", en:"App learns: you like THIS restaurant", ur:"ایپ سیکھتی ہے: تمہیں یہ ریسٹورنٹ پسند ہے"},
+        {em:"👍🍛", en:"App suggests the same shop next time", ur:"اگلی بار وہی دکان تجویز کرتی ہے"}
+      ],
+      prompt:{en:"Why did the app suggest that restaurant?", ur:"ایپ نے وہ ریسٹورنٹ کیوں تجویز کیا؟"},
+      choices:[
+        {id:"orders", em:"📦", en:"Many past orders (data)", ur:"بہت سے پرانے آرڈرز (ڈیٹا)"},
+        {id:"smell", em:"👃", en:"It smelled the biryani", ur:"اس نے بریانی سونگھی"},
+        {id:"uncle", em:"👨", en:"Uncle told the phone", ur:"انکل نے فون کو بتایا"}
+      ],
+      correct:"orders",
+      hint:{en:"Many orders = lots of examples. Machine learning needs many examples, not one.",
+            ur:"بہت سے آرڈرز = بہت سی مثالیں۔ مشین لرننگ کو ایک نہیں، بہت سی مثالیں چاہیے۔"},
+      done:{en:"Past orders taught the app!", ur:"پرانی آرڈرز نے ایپ سکھائی!"}
+    },
+    {
+      id:"see3",
+      title:{en:"School bag shop", ur:"اسکول بیگ شاپ"},
+      panels:[
+        {em:"🎒", en:"You look at blue school bags online", ur:"تم آن لائن نیلے اسکول بیگ دیکھتے ہو"},
+        {em:"🛍️", en:"Shop notices blue-bag pattern", ur:"دکان نیلے بیگ کا پیٹرن نوٹ کرتی ہے"},
+        {em:"💙🎒", en:"It recommends more blue bags", ur:"مزید نیلے بیگ تجویز کرتی ہے"}
+      ],
+      prompt:{en:"Machine learning is…", ur:"مشین لرننگ ہے…"},
+      choices:[
+        {id:"pattern", em:"🧩", en:"Learning patterns from data", ur:"ڈیٹا سے پیٹرن سیکھنا"},
+        {id:"one", em:"1️⃣", en:"One rule written forever", ur:"ایک قاعدہ ہمیشہ کے لیے"},
+        {id:"sleep", em:"😴", en:"Computer sleeping", ur:"کمپیوٹر سو رہا ہے"}
+      ],
+      correct:"pattern",
+      hint:{en:"ML = computer finds patterns in examples, then guesses what you might like next.",
+            ur:"ایم ایل = کمپیوٹر مثالوں میں پیٹرن ڈھونڈتا ہے، پھر اندازہ لگاتا ہے کیا پسند آئے گا۔"},
+      done:{en:"Pattern from data — that's ML!", ur:"ڈیٹا سے پیٹرن — یہی ایم ایل ہے!"}
+    },
+    {
+      id:"see4",
+      title:{en:"Not magic!", ur:"جادو نہیں!"},
+      panels:[
+        {em:"🪄❌", en:"Is recommendation magic?", ur:"کیا تجویز جادو ہے؟"},
+        {em:"📚📊", en:"No — many examples (data)", ur:"نہیں — بہت سی مثالیں (ڈیٹا)"},
+        {em:"🔮➡️📈", en:"Then andaza / next guess", ur:"پھر اندازہ / اگلا اندازہ"}
+      ],
+      prompt:{en:"What does the computer need to learn well?", ur:"اچھی طرح سیکھنے کے لیے کمپیوٹر کو کیا چاہیے؟"},
+      choices:[
+        {id:"many", em:"📚", en:"Many good examples", ur:"بہت سی اچھی مثالیں"},
+        {id:"wish", em:"🧞", en:"A genie wish", ur:"جن کی خواہش"},
+        {id:"zero", em:"0️⃣", en:"Zero examples", ur:"صفر مثالیں"}
+      ],
+      correct:"many",
+      hint:{en:"Not magic! Needs many examples. Wrong or few examples → wrong learning.",
+            ur:"جادو نہیں! بہت سی مثالیں چاہیے۔ غلط یا کم مثالیں → غلط سیکھنا۔"},
+      done:{en:"Many examples — then smart guesses!", ur:"بہت سی مثالیں — پھر ذہین اندازے!"}
+    }
+  ];
+
+  /* Mode 2: Train the helper — 4 challenges */
+  var TRAIN_ITEMS = {
+    biryani:{em:"🍛", en:"Biryani", ur:"بریانی", tag:"food-spicy"},
+    salad:{em:"🥗", en:"Salad", ur:"سلاد", tag:"food-light"},
+    cricket:{em:"🏏", en:"Cricket", ur:"کرکٹ", tag:"sport-bat"},
+    football:{em:"⚽", en:"Football", ur:"فٹبال", tag:"sport-ball"},
+    bluebag:{em:"💙🎒", en:"Blue bag", ur:"نیلا بیگ", tag:"bag-blue"},
+    redbag:{em:"❤️🎒", en:"Red bag", ur:"لال بیگ", tag:"bag-red"}
+  };
+
+  var TRAIN = [
+    {
+      id:"tr1",
+      title:{en:"Food helper — train me!", ur:"کھانے کا مددگار — مجھے سکھاؤ!"},
+      kind:"food",
+      picks:["biryani","salad","biryani","biryani","salad","biryani"],
+      prompt:{en:"Tap the foods you like (at least 3). Then get a recommendation.",
+              ur:"پسندیدہ کھانے ٹیپ کرو (کم از کم ۳)۔ پھر تجویز لو۔"},
+      expectTag:"food-spicy",
+      rec:{en:"🍛 More biryani restaurants near you!", ur:"🍛 قریب مزید بریانی ریسٹورنٹس!"},
+      wrongRec:{en:"🥗 Mostly salads — hmm, odd for a biryani fan!", ur:"🥗 زیادہ تر سلاد — بریانی والے کے لیے عجیب!"},
+      hint:{en:"If you tap mostly biryani, the helper learns 'spicy rice' pattern and recommends biryani shops.",
+            ur:"اگر زیادہ بریانی ٹیپ کرو تو مددگار 'مسالہ دار چاول' پیٹرن سیکھ کر بریانی دکان تجویز کرے گا۔"},
+      done:{en:"Trained! Pattern = biryani lover.", ur:"سکھایا! پیٹرن = بریانی عاشق۔"}
+    },
+    {
+      id:"tr2",
+      title:{en:"Sports clips helper", ur:"کھیل کلپس مددگار"},
+      kind:"sport",
+      picks:["cricket","football","cricket","cricket","football","cricket"],
+      prompt:{en:"Feed likes: cricket vs football. Then recommend a video.",
+              ur:"پسند دو: کرکٹ بمقابلہ فٹبال۔ پھر ویڈیو تجویز کرو۔"},
+      expectTag:"sport-bat",
+      rec:{en:"🏏 Cricket highlight reel for you!", ur:"🏏 تمہارے لیے کرکٹ ہائی لائٹس!"},
+      wrongRec:{en:"⚽ Football match — pattern flipped!", ur:"⚽ فٹبال میچ — پیٹرن پلٹ گیا!"},
+      hint:{en:"More cricket taps → cricket recommendation. Flip to mostly football → recommendation changes!",
+            ur:"زیادہ کرکٹ ٹیپ → کرکٹ تجویز۔ زیادہ فٹبال → تجویز بدل جاتی ہے!"},
+      done:{en:"Sports helper learned your cricket love!", ur:"کھیل مددگار نے کرکٹ کی محبت سیکھی!"}
+    },
+    {
+      id:"tr3",
+      title:{en:"Flip one wrong!", ur:"ایک غلط پلٹو!"},
+      kind:"flip",
+      picks:["biryani","biryani","biryani","salad"],
+      prompt:{en:"First train with mostly biryani. Then flip one example to salad and see the tip change.",
+              ur:"پہلے زیادہ بریانی سے سکھاؤ۔ پھر ایک مثال سلاد پر پلٹو اور تبدیلی دیکھو۔"},
+      expectTag:"food-spicy",
+      rec:{en:"🍛 Still leaning biryani — good data wins!", ur:"🍛 اب بھی بریانی — اچھا ڈیٹا جیتا!"},
+      wrongRec:{en:"⚠️ Too many salads mixed in — confused helper!", ur:"⚠️ بہت سلاد ملے — مددگار الجھ گیا!"},
+      hint:{en:"Wrong examples confuse learning. Flip one biryani→salad and the recommendation can shift.",
+            ur:"غلط مثالیں سیکھنا الجھا دیتی ہیں۔ ایک بریانی→سلاد پلٹو تو تجویز بدل سکتی ہے۔"},
+      done:{en:"You saw: wrong data changes learning!", ur:"دیکھا: غلط ڈیٹا سیکھنا بدل دیتا ہے!"}
+    },
+    {
+      id:"tr4",
+      title:{en:"School bag recommender", ur:"اسکول بیگ تجویز کنندہ"},
+      kind:"bag",
+      picks:["bluebag","redbag","bluebag","bluebag","redbag","bluebag"],
+      prompt:{en:"Train with bag colours you like, then get a shop recommendation.",
+              ur:"پسندیدہ بیگ رنگوں سے سکھاؤ، پھر دکان کی تجویز لو۔"},
+      expectTag:"bag-blue",
+      rec:{en:"💙 More blue school bags for Islamabad kids!", ur:"💙 اسلام آباد کے بچوں کے لیے مزید نیلے بیگ!"},
+      wrongRec:{en:"❤️ Red bags suggested — colour pattern flipped!", ur:"❤️ لال بیگ — رنگ کا پیٹرن پلٹ گیا!"},
+      hint:{en:"Same idea: many blue-bag examples → blue recommendations. Data teaches the pattern.",
+            ur:"وہی بات: بہت سی نیلے بیگ مثالیں → نیلی تجاویز۔ ڈیٹا پیٹرن سکھاتا ہے۔"},
+      done:{en:"Bag helper ready — data → pattern → andaza!", ur:"بیگ مددگار تیار — ڈیٹا → پیٹرن → اندازہ!"}
+    }
+  ];
+
+  /* Mode 3: Good / bad data — 4 sort challenges */
+  var DATA_CH = [
+    {
+      id:"d1",
+      title:{en:"Biryani trainer — sort!", ur:"بریانی ٹرینر — چھانٹو!"},
+      cards:[
+        {id:"g1", em:"🍛×5", en:"5 real biryani orders", ur:"۵ اصلی بریانی آرڈرز", good:true},
+        {id:"b1", em:"🐱", en:"Cat photos mixed in", ur:"بلیوں کی تصاویر ملانا", good:false},
+        {id:"g2", em:"⭐🍛", en:"Ratings for those orders", ur:"ان آرڈرز کی ریٹنگز", good:true},
+        {id:"b2", em:"🎲", en:"Random made-up orders", ur:"بے ترتیب جھوٹے آرڈرز", good:false}
+      ],
+      hint:{en:"Useful = real past choices & ratings. Junk = unrelated cats or fake random data.",
+            ur:"مفید = اصلی پرانی پسند اور ریٹنگز۔ فضول = غیر متعلقہ بلیاں یا جھوٹا ڈیٹا۔"},
+      done:{en:"Clean data — biryani model can learn!", ur:"صاف ڈیٹا — بریانی ماڈل سیکھ سکتا ہے!"}
+    },
+    {
+      id:"d2",
+      title:{en:"Cricket video trainer", ur:"کرکٹ ویڈیو ٹرینر"},
+      cards:[
+        {id:"g1", em:"🏏📺", en:"Clips you actually watched", ur:"جو کلپس تم نے دیکھی", good:true},
+        {id:"b1", em:"🌪️", en:"Storm weather numbers", ur:"طوفان کے موسم کے نمبر", good:false},
+        {id:"g2", em:"⏱️", en:"How long you watched each", ur:"ہر کلپ کتنی دیر دیکھی", good:true},
+        {id:"b2", em:"🍕", en:"Pizza prices from Karachi", ur:"کراچی کی پیزا قیمتیں", good:false}
+      ],
+      hint:{en:"Training data should match the job — cricket watches help; pizza prices confuse a video model.",
+            ur:"ٹریننگ ڈیٹا کام سے ملنا چاہیے — کرکٹ دیکھنا مدد کرتا ہے؛ پیزا قیمتیں ویڈیو ماڈل الجھا دیتی ہیں۔"},
+      done:{en:"Only cricket-related examples kept!", ur:"صرف کرکٹ سے متعلق مثالیں رکھی!"}
+    },
+    {
+      id:"d3",
+      title:{en:"Wrong data danger", ur:"غلط ڈیٹا کا خطرہ"},
+      cards:[
+        {id:"g1", em:"🎒💙", en:"Kids who bought blue bags", ur:"جن بچوں نے نیلے بیگ خریدے", good:true},
+        {id:"b1", em:"❌🎒", en:"Bags labelled wrong colour", ur:"بیگ غلط رنگ سے لیبل", good:false},
+        {id:"g2", em:"📝", en:"Clear 'liked / not liked'", ur:"صاف 'پسند / ناپسند'", good:true},
+        {id:"b2", em:"🤷", en:"Empty or missing labels", ur:"خالی یا غائب لیبلز", good:false}
+      ],
+      hint:{en:"If labels are wrong, the computer learns the wrong idea. Fix examples to fix learning.",
+            ur:"اگر لیبل غلط ہوں تو کمپیوٹر غلط خیال سیکھتا ہے۔ مثالیں درست کرو تاکہ سیکھنا درست ہو۔"},
+      done:{en:"Wrong labels out — better learning in!", ur:"غلط لیبل باہر — بہتر سیکھنا اندر!"}
+    },
+    {
+      id:"d4",
+      title:{en:"Healthcare ML needs care", ur:"صحت ایم ایل کو احتیاط"},
+      cards:[
+        {id:"g1", em:"🏥📋", en:"Correct patient records", ur:"درست مریض ریکارڈز", good:true},
+        {id:"b1", em:"🎮", en:"Video-game high scores", ur:"ویڈیو گیم سکورز", good:false},
+        {id:"g2", em:"👨‍⚕️", en:"Doctor-checked examples", ur:"ڈاکٹر سے چیک شدہ مثالیں", good:true},
+        {id:"b2", em:"📢", en:"Random internet rumours", ur:"بے ترتیب انٹرنیٹ افواہیں", good:false}
+      ],
+      hint:{en:"ML is used in healthcare too — only careful, correct examples should train it.",
+            ur:"صحت میں بھی ایم ایل استعمال ہوتا ہے — صرف محتاط، درست مثالیں سکھائیں۔"},
+      done:{en:"Safe healthcare data sorted — Shabash!", ur:"محفوظ صحت ڈیٹا چھانٹا — شاباش!"}
+    }
+  ];
+
+  /* Quiz — bilingual, aligned with Lesson Bank */
+  var QUIZ = [
+    {
+      q:{en:"What is machine learning?", ur:"مشین لرننگ کیا ہے؟"},
+      opts:[
+        {en:"Computer learning by itself from data", ur:"کمپیوٹر کا ڈیٹا سے خود سیکھنا"},
+        {en:"Only collecting data and never using it", ur:"صرف ڈیٹا جمع کرنا اور کبھی استعمال نہ کرنا"},
+        {en:"Only playing games", ur:"صرف گیمز کھیلنا"},
+        {en:"Learning only by copying a friend once", ur:"صرف ایک بار دوست کی نقل کرنا"}
+      ],
+      correct:0,
+      why:{en:"Machine learning means the computer learns patterns from data on its own.",
+           ur:"مشین لرننگ کا مطلب ہے کمپیوٹر ڈیٹا سے خود پیٹرن سیکھتا ہے۔"}
+    },
+    {
+      q:{en:"Where is machine learning often used?", ur:"مشین لرننگ اکثر کہاں استعمال ہوتی ہے؟"},
+      opts:[
+        {en:"Online shopping recommendations", ur:"آن لائن خریداری کی تجاویز"},
+        {en:"Only sweeping the floor", ur:"صرف فرش جھاڑنا"},
+        {en:"Only cooking dinner by hand", ur:"صرف ہاتھ سے کھانا پکانا"},
+        {en:"Guessing weather without any data", ur:"بغیر ڈیٹا موسم کا اندازہ"}
+      ],
+      correct:0,
+      why:{en:"Shopping apps use ML to suggest products from your past choices.",
+           ur:"خریداری ایپس تمہاری پرانی پسند سے پروڈکٹس تجویز کرنے کے لیے ایم ایل استعمال کرتی ہیں۔"}
+    },
+    {
+      q:{en:"What does the computer learn from?", ur:"کمپیوٹر کس چیز سے سیکھتا ہے؟"},
+      opts:[
+        {en:"Data (many examples)", ur:"ڈیٹا (بہت سی مثالیں)"},
+        {en:"A random stranger only", ur:"صرف ایک اجنبی"},
+        {en:"Only its camera eyes with no examples", ur:"بغیر مثالوں کے صرف کیمرہ آنکھیں"},
+        {en:"Homework without any examples", ur:"بغیر مثالوں کے ہوم ورک"}
+      ],
+      correct:0,
+      why:{en:"The foundation of machine learning is data — many examples.",
+           ur:"مشین لرننگ کی بنیاد ڈیٹا ہے — بہت سی مثالیں۔"}
+    },
+    {
+      q:{en:"If the computer learns something wrong, what should we do?",
+         ur:"اگر کمپیوٹر کچھ غلط سیکھ جائے تو کیا کریں؟"},
+      opts:[
+        {en:"Give better / correct examples", ur:"بہتر / درست مثالیں دو"},
+        {en:"Never let it learn again", ur:"کبھی دوبارہ سیکھنے نہ دو"},
+        {en:"Make it take a nap forever", ur:"ہمیشہ کے لیے سلانا"},
+        {en:"Delete the sun", ur:"سورج مٹا دو"}
+      ],
+      correct:0,
+      why:{en:"Wrong learning is fixed with better, correct training examples.",
+           ur:"غلط سیکھنا بہتر، درست ٹریننگ مثالوں سے درست ہوتا ہے۔"}
+    },
+    {
+      q:{en:"Besides shopping & videos, ML is also used in…",
+         ur:"خریداری اور ویڈیوز کے علاوہ ایم ایل کہاں بھی استعمال ہوتی ہے؟"},
+      opts:[
+        {en:"Healthcare (and many other fields)", ur:"صحت (اور بہت سے دوسرے شعبے)"},
+        {en:"Only feeding goats", ur:"صرف بکریاں کھلانا"},
+        {en:"Only one video game forever", ur:"صرف ایک ویڈیو گیم ہمیشہ"},
+        {en:"Nowhere else at all", ur:"اور کہیں بالکل نہیں"}
+      ],
+      correct:0,
+      why:{en:"In Pakistan and worldwide, ML helps healthcare analyse records — and many other fields.",
+           ur:"پاکستان اور دنیا میں ایم ایل صحت کے ریکارڈز کا تجزیہ کرتی ہے — اور بہت سے شعبوں میں۔"}
+    }
+  ];
+
+  var seeIdx = 0, seeDone = {};
+  var trainIdx = 0, trainDone = {}, trainLikes = {}, trainFlipped = false, trainRecShown = false;
+  var dataIdx = 0, dataDone = {}, dataMap = {}, dataSelected = null;
+  var quizSet = [];
+
+  function award(key, n){
+    if (awarded[key]) return;
+    awarded[key] = true;
+    stars += (n || 1);
+    $("starCount").textContent = String(stars);
+  }
+  function recountStars(){
+    stars = 0;
+    Object.keys(awarded).forEach(function(k){
+      stars += (k.indexOf("mode-")===0) ? 2 : 1;
+    });
+    $("starCount").textContent = String(stars);
+  }
+
+  function skyHTML(){
+    return '<div class="sky-layer"><div class="sun-ball"></div>' +
+           '<div class="cloud c1"></div><div class="cloud c2"></div></div>';
+  }
+
+  /* ---------- SEE & LEARN ---------- */
+  function renderSee(){
+    var ch = SEE[seeIdx];
+    var pad = $("scenePad");
+    var html = skyHTML() + '<div class="comic-stage">';
+    ch.panels.forEach(function(p, i){
+      if (i) html += '<div class="arrow-mid">↓</div>';
+      html += '<div class="comic-panel"><span class="cem">'+p.em+'</span><span class="ctxt" data-i="'+i+'"></span></div>';
+    });
+    html += '</div>';
+    pad.innerHTML = html;
+    pad.querySelectorAll(".ctxt").forEach(function(el){
+      var i = +el.getAttribute("data-i");
+      setText(el, t(ch.panels[i]));
+    });
+
+    setText($("statechip"), (seeIdx+1) + " / " + SEE.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"");
+    setText($("headline"), t(ch.title));
+    setText($("detail"), t(ch.prompt));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+    var choices = document.createElement("div");
+    choices.className = "save-choices";
+    ch.choices.forEach(function(c){
+      var b = document.createElement("button");
+      b.type = "button";
+      if (seeDone[ch.id] && c.id === ch.correct) b.classList.add("right");
+      b.innerHTML = '<span class="cem">'+c.em+'</span><span class="clab"></span>';
+      setText(b.querySelector(".clab"), t(c));
+      b.disabled = !!seeDone[ch.id];
+      b.addEventListener("click", function(){
+        if (seeDone[ch.id]) return;
+        if (c.id === ch.correct){
+          seeDone[ch.id] = true;
+          award("see-"+ch.id, 1);
+          b.classList.add("right");
+          setText($("headline"), t(ch.done));
+          $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.nice));
+          if (Object.keys(seeDone).length >= SEE.length){
+            doneModes.see = true;
+            award("mode-see", 2);
+          }
+          tabBadges();
+        } else {
+          b.classList.add("wrong");
+          setText($("headline"), t(T.oops));
+          $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.oops));
+        }
+      });
+      choices.appendChild(b);
+    });
+    box.appendChild(choices);
+    setText($("prog"), t(T.progSee) + ": " + Object.keys(seeDone).length + "/" + SEE.length);
+  }
+
+  /* ---------- TRAIN ---------- */
+  function itemIdFromKey(key){
+    if (TRAIN_ITEMS[key]) return key;
+    var parts = String(key).split("-");
+    if (parts.length >= 2){
+      var base = parts.slice(0, -1).join("-");
+      if (TRAIN_ITEMS[base]) return base;
+    }
+    if (key.indexOf("salad") === 0) return "salad";
+    return null;
+  }
+  function countTags(likes){
+    var counts = {};
+    Object.keys(likes).forEach(function(key){
+      if (!likes[key]) return;
+      var id = itemIdFromKey(key);
+      if (!id || !TRAIN_ITEMS[id]) return;
+      var tag = TRAIN_ITEMS[id].tag;
+      counts[tag] = (counts[tag] || 0) + 1;
+    });
+    return counts;
+  }
+  function dominantTag(likes){
+    var counts = countTags(likes);
+    var best = null, n = 0;
+    Object.keys(counts).forEach(function(tag){
+      if (counts[tag] > n){ n = counts[tag]; best = tag; }
+    });
+    return best;
+  }
+  function likeCount(likes){
+    return Object.keys(likes).filter(function(k){ return likes[k]; }).length;
+  }
+
+  function renderTrain(){
+    var ch = TRAIN[trainIdx];
+    var pad = $("scenePad");
+    var hero = ch.kind === "sport" ? "🏏" : (ch.kind === "bag" ? "🎒" : "🧠🍛");
+    pad.innerHTML = skyHTML() +
+      '<div class="brain-stage"><div class="brain-hero">'+hero+'</div>' +
+      '<div class="pattern-row" id="patRow"></div>' +
+      '<div class="rec-box" id="recBox" style="display:none"></div></div>';
+
+    var row = $("patRow");
+    ch.picks.forEach(function(id, i){
+      var key = id + "-" + i;
+      var on = !!trainLikes[key];
+      var sp = document.createElement("span");
+      sp.className = "pat-chip" + (on ? " liked" : "") + (trainFlipped && i === ch.picks.length - 1 ? " flipped" : "");
+      sp.textContent = TRAIN_ITEMS[id].em + (on ? " ✓" : "");
+      row.appendChild(sp);
+    });
+
+    setText($("statechip"), (trainIdx+1) + " / " + TRAIN.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"");
+    setText($("headline"), t(ch.title));
+    setText($("detail"), t(ch.prompt));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+
+    var grid = document.createElement("div");
+    grid.className = "train-grid";
+    ch.picks.forEach(function(id, i){
+      var key = id + "-" + i;
+      var item = TRAIN_ITEMS[id];
+      var b = document.createElement("button");
+      b.type = "button";
+      var on = !!trainLikes[key];
+      b.className = "train-btn" + (on ? " on" : "");
+      b.innerHTML = item.em + " <span></span>";
+      setText(b.querySelector("span"), t(item) + (on ? " ✓" : ""));
+      b.disabled = !!trainDone[ch.id];
+      b.addEventListener("click", function(){
+        if (trainDone[ch.id]) return;
+        trainLikes[key] = !trainLikes[key];
+        trainRecShown = false;
+        renderTrain();
+      });
+      grid.appendChild(b);
+    });
+    box.appendChild(grid);
+
+    var recBtn = document.createElement("button");
+    recBtn.type = "button";
+    recBtn.style.cssText = "margin-top:8px;width:100%;border:2px solid var(--ink);border-radius:14px;background:var(--ink);color:var(--paper);font:inherit;font-weight:800;min-height:48px;cursor:pointer";
+    setText(recBtn, t(T.getRec));
+    recBtn.disabled = !!trainDone[ch.id];
+    recBtn.addEventListener("click", function(){
+      if (trainDone[ch.id]) return;
+      if (likeCount(trainLikes) < 3){
+        setText($("headline"), t(T.needMore));
+        $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+        return;
+      }
+      trainRecShown = true;
+      var dom = dominantTag(trainLikes);
+      var ok = (dom === ch.expectTag);
+      var rb = $("recBox");
+      rb.style.display = "block";
+      setText(rb, t(T.recSays) + ": " + (ok ? t(ch.rec) : t(ch.wrongRec)));
+      if (ok && ch.kind !== "flip"){
+        trainDone[ch.id] = true;
+        award("train-"+ch.id, 1);
+        setText($("headline"), t(ch.done));
+        $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+        setText($("statechip"), t(T.nice));
+        if (Object.keys(trainDone).length >= TRAIN.length){
+          doneModes.train = true;
+          award("mode-train", 2);
+        }
+        tabBadges();
+      } else if (ok && ch.kind === "flip" && trainFlipped){
+        trainDone[ch.id] = true;
+        award("train-"+ch.id, 1);
+        setText($("headline"), t(ch.done));
+        $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+        setText($("statechip"), t(T.nice));
+        if (Object.keys(trainDone).length >= TRAIN.length){
+          doneModes.train = true;
+          award("mode-train", 2);
+        }
+        tabBadges();
+      } else if (!ok){
+        setText($("headline"), t(T.oops));
+        $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+        setText($("statechip"), t(T.oops));
+      } else {
+        setText($("headline"), t(T.trainReady));
+      }
+      renderTrain();
+    });
+    box.appendChild(recBtn);
+
+    if (ch.kind === "flip" && !trainDone[ch.id]){
+      var flipBtn = document.createElement("button");
+      flipBtn.type = "button";
+      flipBtn.style.cssText = "margin-top:8px;width:100%;border:2px solid var(--left);border-radius:14px;background:var(--paper);color:var(--left);font:inherit;font-weight:800;min-height:48px;cursor:pointer";
+      setText(flipBtn, t(T.flipWrong));
+      flipBtn.addEventListener("click", function(){
+        /* flip last biryani slot to salad conceptually by toggling likes */
+        var lastKey = null;
+        ch.picks.forEach(function(id, i){
+          if (id === "biryani") lastKey = id + "-" + i;
+        });
+        if (lastKey){
+          /* turn off last biryani like and turn on a salad-like wrong signal */
+          trainLikes[lastKey] = false;
+          trainLikes["salad-flip"] = true;
+          /* inject salad into pattern display via flag */
+          trainFlipped = true;
+          trainRecShown = false;
+          /* also add salad to picks visually handled by flipped class */
+          renderTrain();
+        }
+      });
+      box.appendChild(flipBtn);
+      if (trainFlipped){
+        var note = document.createElement("p");
+        note.className = "outcome show bad";
+        setText(note, t(ch.wrongRec));
+        box.appendChild(note);
+        /* For flip challenge: after flipping, kid must still get mostly biryani OR
+           we mark complete when they press Get Rec after seeing change.
+           Simpler: if flipped and they had trained with biryani majority, award on next Get Rec with expect still spicy OR allow complete after flip+rec */
+        if (trainRecShown){
+          /* force show they can still recover with more biryani */
+        }
+      }
+    }
+
+    if (trainRecShown){
+      var rb2 = $("recBox");
+      if (rb2){
+        rb2.style.display = "block";
+        var dom2 = dominantTag(trainLikes);
+        /* if flipped salad injected, dilute */
+        var likesCopy = {};
+        Object.keys(trainLikes).forEach(function(k){ likesCopy[k] = trainLikes[k]; });
+        if (trainFlipped && trainLikes["salad-flip"]){
+          likesCopy["salad-x"] = true;
+          likesCopy["salad-y"] = true;
+        }
+        var dom3 = dominantTag(likesCopy);
+        var ok2 = (dom3 === ch.expectTag);
+        setText(rb2, t(T.recSays) + ": " + (ok2 ? t(ch.rec) : t(ch.wrongRec)));
+        /* complete flip challenge once flipped and recommendation shown */
+        if (ch.kind === "flip" && trainFlipped && !trainDone[ch.id]){
+          trainDone[ch.id] = true;
+          award("train-"+ch.id, 1);
+          setText($("headline"), t(ch.done));
+          $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.nice));
+          if (Object.keys(trainDone).length >= TRAIN.length){
+            doneModes.train = true;
+            award("mode-train", 2);
+          }
+          tabBadges();
+        }
+      }
+    }
+
+    setText($("prog"), t(T.progTrain) + ": " + Object.keys(trainDone).length + "/" + TRAIN.length);
+  }
+
+  /* ---------- GOOD / BAD DATA ---------- */
+  function renderData(){
+    var ch = DATA_CH[dataIdx];
+    var pad = $("scenePad");
+    pad.innerHTML = skyHTML() +
+      '<div class="brain-stage" style="padding-top:78px">' +
+      '<div class="brain-hero">📊✨</div>' +
+      '<div class="sort-bins">' +
+      '<div class="sort-bin good"><div class="bin-title" id="binGoodLab"></div><div class="drop" id="binGoodDrop"></div></div>' +
+      '<div class="sort-bin bad"><div class="bin-title" id="binBadLab"></div><div class="drop" id="binBadDrop"></div></div>' +
+      '</div></div>';
+    setText($("binGoodLab"), t(T.binGood));
+    setText($("binBadLab"), t(T.binBad));
+
+    function refreshBins(){
+      var g = "", b = "";
+      ch.cards.forEach(function(c){
+        if (dataMap[c.id] === "good") g += c.em + " ";
+        if (dataMap[c.id] === "bad") b += c.em + " ";
+      });
+      $("binGoodDrop").textContent = g || "—";
+      $("binBadDrop").textContent = b || "—";
+    }
+    refreshBins();
+
+    setText($("statechip"), (dataIdx+1) + " / " + DATA_CH.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"");
+    setText($("headline"), t(ch.title));
+    setText($("detail"), t(T.askSort));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+    var bank = document.createElement("div");
+    bank.className = "bank";
+    ch.cards.forEach(function(c){
+      var used = !!dataMap[c.id];
+      var m = document.createElement("button");
+      m.type = "button";
+      m.className = "mini-item" + (used ? " used" : "") + (dataSelected===c.id ? " selected" : "");
+      m.innerHTML = c.em + " <span></span>";
+      setText(m.querySelector("span"), t(c));
+      m.disabled = used || !!dataDone[ch.id];
+      m.addEventListener("click", function(){
+        if (used || dataDone[ch.id]) return;
+        dataSelected = c.id;
+        renderData();
+      });
+      bank.appendChild(m);
+    });
+    box.appendChild(bank);
+
+    var bins = document.createElement("div");
+    bins.className = "save-choices";
+    [{id:"good", em:"✅", lab:T.binGood},{id:"bad", em:"🗑️", lab:T.binBad}].forEach(function(bn){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.innerHTML = '<span class="cem">'+bn.em+'</span><span class="clab"></span>';
+      setText(b.querySelector(".clab"), t(bn.lab));
+      b.disabled = !!dataDone[ch.id] || !dataSelected;
+      b.addEventListener("click", function(){
+        if (dataDone[ch.id] || !dataSelected) return;
+        dataMap[dataSelected] = bn.id;
+        dataSelected = null;
+        renderData();
+      });
+      bins.appendChild(b);
+    });
+    box.appendChild(bins);
+
+    if (!dataDone[ch.id]){
+      var chk = document.createElement("button");
+      chk.type = "button";
+      chk.style.cssText = "margin-top:10px;width:100%;border:2px solid var(--ink);border-radius:14px;background:var(--ink);color:var(--paper);font:inherit;font-weight:800;min-height:48px;cursor:pointer";
+      setText(chk, t(T.checkSort));
+      chk.addEventListener("click", function(){
+        var ok = true;
+        ch.cards.forEach(function(c){
+          var want = c.good ? "good" : "bad";
+          if (dataMap[c.id] !== want) ok = false;
+        });
+        if (ok && Object.keys(dataMap).length === ch.cards.length){
+          dataDone[ch.id] = true;
+          award("data-"+ch.id, 1);
+          setText($("headline"), t(ch.done));
+          $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.nice));
+          if (Object.keys(dataDone).length >= DATA_CH.length){
+            doneModes.data = true;
+            award("mode-data", 2);
+          }
+          tabBadges();
+          renderData();
+        } else {
+          setText($("headline"), t(T.oops));
+          $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.oops));
+        }
+      });
+      box.appendChild(chk);
+    }
+
+    setText($("prog"), t(T.progData) + ": " + Object.keys(dataDone).length + "/" + DATA_CH.length);
+  }
+
+  /* ---------- QUIZ ---------- */
+  function pickQuiz(){ quizSet = shuffle(QUIZ).slice(0, 5); }
+  function renderQuiz(){
+    var box = $("quizBox");
+    box.innerHTML = "";
+    quizSet.forEach(function(item, qi){
+      var wrap = document.createElement("div");
+      wrap.className = "q";
+      var p = document.createElement("p");
+      setText(p, (qi+1) + ". " + t(item.q));
+      wrap.appendChild(p);
+      var answered = false;
+      item.opts.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt" + (lang==="ur"?" ur":"");
+        setText(b, t(opt));
+        b.addEventListener("click", function(){
+          if (answered) return;
+          answered = true;
+          if (oi === item.correct){
+            b.classList.add("right");
+            award("quiz-"+qi, 1);
+          } else {
+            b.classList.add("wrong");
+            var kids = wrap.querySelectorAll(".opt");
+            if (kids[item.correct]) kids[item.correct].classList.add("right");
+          }
+          fb.classList.add("show");
+        });
+        wrap.appendChild(b);
+      });
+      var fb = document.createElement("p");
+      fb.className = "fb";
+      setText(fb, t(item.why));
+      wrap.appendChild(fb);
+      box.appendChild(wrap);
+    });
+  }
+
+  function storyHtml(){
+    if (mode === "see") return t(T.storySee);
+    if (mode === "train") return t(T.storyTrain);
+    return t(T.storyData);
+  }
+
+  function tabBadges(){
+    function lab(btn, label, key){
+      btn.innerHTML = "";
+      var span = document.createElement("span");
+      setText(span, t(label));
+      btn.appendChild(span);
+      if (doneModes[key]){
+        var b = document.createElement("span");
+        b.className = "badge"; b.textContent = " ★";
+        btn.appendChild(b);
+      }
+    }
+    lab($("tabSee"), T.tabSee, "see");
+    lab($("tabTrain"), T.tabTrain, "train");
+    lab($("tabData"), T.tabData, "data");
+    $("tabSee").setAttribute("aria-pressed", mode==="see"?"true":"false");
+    $("tabTrain").setAttribute("aria-pressed", mode==="train"?"true":"false");
+    $("tabData").setAttribute("aria-pressed", mode==="data"?"true":"false");
+  }
+
+  function resetTrainState(){
+    trainLikes = {}; trainFlipped = false; trainRecShown = false;
+  }
+
+  function setMode(m){
+    mode = m;
+    if (mode === "see") renderSee();
+    else if (mode === "train"){ resetTrainState(); renderTrain(); }
+    else { dataSelected = null; renderData(); }
+    applyChrome();
+  }
+
+  function applyChrome(){
+    setText($("title"), t(T.title));
+    setText($("subtitle"), t(T.sub));
+    $("story").innerHTML = storyHtml();
+    $("story").classList.toggle("ur", lang==="ur");
+    $("story").setAttribute("dir", lang==="ur"?"rtl":"ltr");
+    setText($("ctlHead"), t(T.ctl));
+    setText($("nextBtn"), t(T.next));
+    setText($("hintBtn"), t(T.hint));
+    setText($("resetBtn"), t(T.reset));
+    setText($("quizHead"), t(T.quiz));
+    setText($("newQuiz"), t(T.newQuiz));
+    $("langBtn").textContent = (lang === "en") ? "اردو" : "EN";
+    $("langBtn").setAttribute("aria-pressed", lang==="ur"?"true":"false");
+    document.body.classList.toggle("urdu", lang==="ur");
+    document.documentElement.lang = (lang==="ur") ? "ur" : "en";
+    document.documentElement.dir = (lang==="ur") ? "rtl" : "ltr";
+    tabBadges();
+    var foot = document.querySelector("footer p");
+    if (foot) setText(foot, foot.getAttribute(lang==="ur"?"data-ur":"data-en"));
+  }
+
+  function applyLang(){
+    applyChrome();
+    if (mode === "see") renderSee();
+    else if (mode === "train") renderTrain();
+    else renderData();
+    renderQuiz();
+  }
+
+  function next(){
+    if (mode === "see"){
+      seeIdx = (seeIdx + 1) % SEE.length;
+      renderSee();
+    } else if (mode === "train"){
+      trainIdx = (trainIdx + 1) % TRAIN.length;
+      resetTrainState();
+      renderTrain();
+    } else {
+      dataIdx = (dataIdx + 1) % DATA_CH.length;
+      dataMap = {}; dataSelected = null;
+      renderData();
+    }
+  }
+
+  function showHint(){
+    var h;
+    if (mode === "see") h = SEE[seeIdx].hint;
+    else if (mode === "train") h = TRAIN[trainIdx].hint;
+    else h = DATA_CH[dataIdx].hint;
+    var hb = $("hintbox");
+    setText(hb, t(h));
+    hb.classList.add("show");
+  }
+
+  function resetMode(){
+    if (mode === "see"){
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("see-")===0 || k==="mode-see") delete awarded[k]; });
+      seeDone = {}; seeIdx = 0; doneModes.see = false;
+      recountStars(); renderSee();
+    } else if (mode === "train"){
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("train-")===0 || k==="mode-train") delete awarded[k]; });
+      trainDone = {}; trainIdx = 0; resetTrainState(); doneModes.train = false;
+      recountStars(); renderTrain();
+    } else {
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("data-")===0 || k==="mode-data") delete awarded[k]; });
+      dataDone = {}; dataIdx = 0; dataMap = {}; dataSelected = null; doneModes.data = false;
+      recountStars(); renderData();
+    }
+    tabBadges();
+    applyChrome();
+  }
+
+  function cleanSpeakText(s){
+    return String(s || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  }
+  function buildSpeakText(){
+    var bits = [];
+    bits.push(t(T.title));
+    bits.push(cleanSpeakText(storyHtml()));
+    bits.push(cleanSpeakText(($("headline") && $("headline").textContent) || ""));
+    bits.push(cleanSpeakText(($("detail") && $("detail").textContent) || ""));
+    bits.push(t(T.tip));
+    return bits.filter(Boolean).join(". ");
+  }
+  function pickVoice(voices, want){
+    var i, v, L;
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf(want) === 0) return v;
+    }
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf("en") === 0) return v;
+    }
+    return voices[0] || null;
+  }
+  var speakTimer = null;
+  function setSpeaking(on){
+    var btn = $("speakBtn");
+    if (!btn) return;
+    btn.setAttribute("aria-pressed", on ? "true" : "false");
+    btn.style.opacity = on ? "0.65" : "";
+  }
+  function doSpeak(text, asLang){
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.92;
+    u.lang = (asLang === "ur") ? "ur-PK" : "en-US";
+    var voices = window.speechSynthesis.getVoices() || [];
+    var voice = pickVoice(voices, asLang === "ur" ? "ur" : "en");
+    if (voice) u.voice = voice;
+    u.onstart = function(){ setSpeaking(true); };
+    u.onend = function(){ setSpeaking(false); };
+    u.onerror = function(){
+      setSpeaking(false);
+      if (asLang === "ur"){
+        var fallback = cleanSpeakText(T.title.en + ". " + T.storySee.en + ". " + T.tip.en);
+        var u2 = new SpeechSynthesisUtterance(fallback);
+        u2.lang = "en-US"; u2.rate = 0.92;
+        var v2 = pickVoice(window.speechSynthesis.getVoices() || [], "en");
+        if (v2) u2.voice = v2;
+        u2.onstart = function(){ setSpeaking(true); };
+        u2.onend = u2.onerror = function(){ setSpeaking(false); };
+        window.speechSynthesis.speak(u2);
+      }
+    };
+    window.speechSynthesis.speak(u);
+  }
+  if ("speechSynthesis" in window){
+    try { window.speechSynthesis.getVoices(); } catch (e0) {}
+    if (typeof window.speechSynthesis.addEventListener === "function"){
+      window.speechSynthesis.addEventListener("voiceschanged", function(){
+        try { window.speechSynthesis.getVoices(); } catch (e1) {}
+      });
+    }
+  } else {
+    var noBtn = $("speakBtn");
+    if (noBtn){ noBtn.disabled = true; noBtn.title = "Voice not available on this device"; }
+  }
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en";
+    applyLang();
+  });
+  $("tabSee").addEventListener("click", function(){ setMode("see"); });
+  $("tabTrain").addEventListener("click", function(){ setMode("train"); });
+  $("tabData").addEventListener("click", function(){ setMode("data"); });
+  $("nextBtn").addEventListener("click", next);
+  $("hintBtn").addEventListener("click", showHint);
+  $("resetBtn").addEventListener("click", resetMode);
+  $("newQuiz").addEventListener("click", function(){ pickQuiz(); renderQuiz(); });
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      var text = buildSpeakText();
+      if (!text) return;
+      if (speakTimer){ clearTimeout(speakTimer); speakTimer = null; }
+      window.speechSynthesis.cancel();
+      setSpeaking(false);
+      var speakLang = lang;
+      speakTimer = setTimeout(function(){
+        speakTimer = null;
+        doSpeak(text, speakLang);
+      }, 80);
+    }catch(e){ setSpeaking(false); }
+  });
+
+  pickQuiz();
+  applyLang();
+})();
+</script>
+</body>
+</html>
