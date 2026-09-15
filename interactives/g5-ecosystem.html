@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ecosystem — ماحولیاتی نظام | AI4Kids Class 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#e8f0d8;--board-deep:#c5d9a8;--sky:#9ec9f0;--sky2:#6ba8d9;
+    --hill1:#3d6b3d;--hill2:#2d5530;--pine:#1e4d28;--sun:#f5c542;
+    --a:#2f6fb5;--b:#c9702e;--ok:#2e7d4f;--ink:#1e2a1a;--ink-soft:#4a5744;
+    --paper:#fdfaf3;--line:#d5dec8;--accent:#2d6a4f;--gold:#e8b23d;--left:#c4453a;
+    --prod:#4a7c2f;--cons:#b86b2a;--decomp:#6b4a8a;--fire:#d35400;
+    --fs-cap:clamp(12px, 3.2vw, 13px);--fs-xs:clamp(14px, 3.7vw, 15px);
+    --fs-sm:clamp(16px, 4.2vw, 17px);--fs-md:clamp(17px, 4.6vw, 19px);
+    --fs-lg:clamp(20px, 5.4vw, 23px);--fs-xl:clamp(27px, 7.4vw, 33px);--lh:1.5;
+  }
+  body.urdu{
+    --fs-cap:clamp(13px, 3.5vw, 15px);--fs-xs:clamp(15px, 4.1vw, 17px);
+    --fs-sm:clamp(17px, 4.7vw, 19px);--fs-md:clamp(19px, 5.2vw, 21px);
+    --fs-lg:clamp(22px, 6vw, 25px);--fs-xl:clamp(26px, 7vw, 31px);--lh:2.1;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  .stars{display:flex;align-items:center;gap:6px;font-weight:800;font-size:var(--fs-xs);
+         background:#fff6e2;border:2px solid var(--gold);border-radius:999px;padding:7px 13px}
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+  .tabs{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
+  .tabs button{
+    flex:1 1 28%;min-width:90px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:10px 6px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:54px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .tabs button .badge{color:var(--gold)}
+  .story{
+    background:#fff8ea;border:2px dashed var(--gold);border-radius:16px;padding:13px 15px;
+    font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;margin-bottom:14px;
+  }
+  body.urdu .story{line-height:var(--lh)}
+  .story b{color:var(--ink)}
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:linear-gradient(180deg,var(--sky) 0%,var(--sky2) 42%,var(--board) 42%,var(--board-deep) 100%);
+    min-height:280px;
+  }
+  .scene-pad{padding:10px 12px 18px;min-height:260px;position:relative}
+  .sky-layer{position:absolute;inset:0 0 55% 0;pointer-events:none;overflow:hidden}
+  .sun-ball{
+    position:absolute;top:12px;right:18px;width:48px;height:48px;border-radius:50%;
+    background:radial-gradient(circle at 35% 35%,#ffe9a0,#f5c542 60%,#e0a020);
+    box-shadow:0 0 24px rgba(245,197,66,.55);z-index:1;
+  }
+  body.urdu .sun-ball{right:auto;left:18px}
+  .cloud{
+    position:absolute;background:rgba(255,255,255,.85);border-radius:40px;opacity:.9;
+  }
+  .cloud:before,.cloud:after{content:"";position:absolute;background:inherit;border-radius:50%}
+  .c1{width:54px;height:18px;top:22px;left:16%}
+  .c1:before{width:28px;height:28px;top:-16px;left:8px}
+  .c1:after{width:22px;height:22px;top:-10px;left:28px}
+  .c2{width:40px;height:14px;top:40px;left:55%;opacity:.7}
+  .c2:before{width:20px;height:20px;top:-12px;left:6px}
+  .c2:after{width:16px;height:16px;top:-8px;left:22px}
+  .hills{
+    position:absolute;left:0;right:0;bottom:38%;height:90px;z-index:1;pointer-events:none;
+  }
+  .hill{
+    position:absolute;bottom:0;border-radius:50% 50% 0 0;
+    background:linear-gradient(180deg,var(--hill1),var(--hill2));
+  }
+  .h-a{width:70%;height:78px;left:-8%;opacity:.95}
+  .h-b{width:55%;height:64px;right:-5%;background:linear-gradient(180deg,#4a7a4a,#2d5530);opacity:.9}
+  .h-c{width:40%;height:48px;left:30%;background:linear-gradient(180deg,#5a8a5a,#355a35);opacity:.85}
+  .pine-row{position:absolute;left:0;right:0;bottom:42%;height:70px;z-index:2;pointer-events:none}
+  .pine{
+    position:absolute;bottom:0;width:0;height:0;
+    border-left:14px solid transparent;border-right:14px solid transparent;
+    border-bottom:36px solid var(--pine);
+  }
+  .pine:before{
+    content:"";position:absolute;left:-11px;top:14px;width:0;height:0;
+    border-left:11px solid transparent;border-right:11px solid transparent;
+    border-bottom:28px solid #163d1f;
+  }
+  .pine:after{
+    content:"";position:absolute;left:-3px;bottom:-8px;width:6px;height:10px;background:#5c3a1e;
+  }
+  .p1{left:8%}.p2{left:22%;transform:scale(.85)}.p3{left:68%;transform:scale(.9)}.p4{left:82%;transform:scale(.75)}
+  .ground-strip{
+    position:absolute;left:0;right:0;bottom:0;height:40%;
+    background:linear-gradient(180deg,#8fbc6a 0%,#6a9a4a 40%,#5a7a3a 100%);
+    z-index:1;pointer-events:none;
+  }
+  .grass-tuft{
+    position:absolute;bottom:36%;width:3px;height:14px;background:#3d6b2a;border-radius:2px;z-index:2;
+  }
+  .org-stage{
+    position:relative;z-index:5;display:flex;flex-wrap:wrap;gap:8px;
+    justify-content:center;align-items:flex-end;min-height:140px;padding-top:100px;
+  }
+  .org-card{
+    background:rgba(253,250,243,.95);border:2.5px solid var(--ink);border-radius:16px;
+    padding:8px 10px 10px;text-align:center;min-width:72px;max-width:100px;
+    box-shadow:0 3px 0 rgba(30,42,26,.15);cursor:default;user-select:none;
+  }
+  .org-card.pickable{cursor:pointer}
+  .org-card.pickable:hover{transform:translateY(-2px)}
+  .org-card.picked{opacity:.35;pointer-events:none}
+  .org-card.ok{border-color:var(--ok);background:#e8f2ed}
+  .org-card.no{border-color:var(--left);background:#fbeae8}
+  .org-card.role-prod{border-color:var(--prod)}
+  .org-card.role-cons{border-color:var(--cons)}
+  .org-card.role-decomp{border-color:var(--decomp)}
+  .org-em{font-size:36px;line-height:1.1;display:block;margin-bottom:2px}
+  .org-lab{font-size:var(--fs-cap);font-weight:800;line-height:1.25;margin:0}
+  .chain-row{
+    position:relative;z-index:5;display:flex;align-items:center;justify-content:center;
+    flex-wrap:wrap;gap:6px;padding-top:95px;min-height:130px;
+  }
+  .chain-slot{
+    min-width:78px;min-height:88px;border:2.5px dashed rgba(30,42,26,.45);
+    border-radius:14px;background:rgba(253,250,243,.7);display:flex;flex-direction:column;
+    align-items:center;justify-content:center;padding:6px;font-weight:800;font-size:var(--fs-cap);
+    color:var(--ink-soft);
+  }
+  .chain-slot.filled{border-style:solid;border-color:var(--ink);background:var(--paper);color:var(--ink)}
+  .chain-slot .em{font-size:32px;line-height:1}
+  .chain-arrow{font-size:22px;font-weight:800;color:var(--b);padding:0 2px}
+  .web-grid{
+    position:relative;z-index:5;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;
+    padding-top:90px;
+  }
+  .web-bin{
+    border:2.5px solid var(--ink);border-radius:14px;padding:8px 6px;min-height:110px;
+    background:rgba(253,250,243,.88);text-align:center;
+  }
+  .web-bin.prod{border-color:var(--prod);background:rgba(232,242,220,.9)}
+  .web-bin.cons{border-color:var(--cons);background:rgba(250,235,220,.9)}
+  .web-bin.decomp{border-color:var(--decomp);background:rgba(235,228,245,.9)}
+  .web-bin h3{margin:0 0 6px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.02em}
+  .web-bin .drop{min-height:60px;display:flex;flex-wrap:wrap;gap:4px;justify-content:center;align-items:center}
+  .mini-org{
+    border:2px solid var(--ink);border-radius:12px;padding:4px 6px;background:#fff;
+    font-size:22px;line-height:1;cursor:pointer;min-width:40px;
+  }
+  .mini-org.used{opacity:.3;pointer-events:none}
+  .bank{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:8px;position:relative;z-index:5}
+  .link-list{margin-top:6px}
+  .link-row{
+    display:flex;align-items:center;gap:6px;margin-bottom:8px;flex-wrap:wrap;justify-content:center;
+  }
+  .link-row .pair{
+    background:#fff;border:2px solid var(--ink);border-radius:12px;padding:6px 10px;
+    font-weight:800;font-size:var(--fs-cap);display:flex;align-items:center;gap:6px;
+  }
+  .link-btns{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+  .link-btns button{
+    border:2px solid var(--ink);background:var(--paper);border-radius:12px;
+    padding:8px 12px;font:inherit;font-weight:800;font-size:var(--fs-cap);cursor:pointer;min-height:44px;
+  }
+  .link-btns button.right{border-color:var(--ok);background:#e8f2ed}
+  .link-btns button.wrong{border-color:var(--left);background:#fbeae8}
+  .save-scene{
+    position:relative;z-index:5;padding-top:88px;text-align:center;
+  }
+  .save-hero{font-size:64px;line-height:1;margin:4px 0 8px;filter:drop-shadow(0 2px 0 rgba(0,0,0,.15))}
+  .save-choices{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+  .save-choices button{
+    border:2.5px solid var(--ink);background:var(--paper);border-radius:14px;
+    padding:12px 14px;font:inherit;font-weight:800;font-size:var(--fs-xs);
+    cursor:pointer;text-align:left;min-height:52px;display:flex;align-items:center;gap:10px;
+  }
+  body.urdu .save-choices button{text-align:right}
+  .save-choices button .cem{font-size:26px}
+  .save-choices button.right{border-color:var(--ok);background:#e8f2ed}
+  .save-choices button.wrong{border-color:var(--left);background:#fbeae8}
+  .outcome{
+    margin-top:10px;border-radius:14px;padding:10px 12px;font-weight:700;font-size:var(--fs-xs);
+    display:none;border:2px solid var(--ok);background:#e8f2ed;color:var(--ok);
+  }
+  .outcome.show{display:block}
+  .outcome.bad{border-color:var(--left);background:#fbeae8;color:var(--left)}
+  .readout{
+    margin-top:-18px;position:relative;z-index:2;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+  .statechip.ur{padding:2px 14px 7px}
+  .statechip.win{background:var(--ok)}
+  .statechip.miss{background:var(--left)}
+  .headline{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+  .headline.ur{line-height:1.95}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+  .hintbox{
+    margin-top:14px;border:2px solid var(--a);background:#eaf1f9;border-radius:14px;
+    padding:11px 14px;font-size:var(--fs-xs);color:var(--a);font-weight:700;line-height:1.55;
+    display:none;
+  }
+  .hintbox.show{display:block}
+  body.urdu .hintbox{line-height:var(--lh)}
+  .panel{margin-top:22px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .prog{margin:0 0 10px;font-size:var(--fs-xs);font-weight:700;color:var(--ink-soft)}
+  .btns{display:flex;gap:9px;margin-top:8px;flex-wrap:wrap}
+  .btns button{
+    border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);
+    font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:50px;
+    padding:8px 14px;flex:1;
+  }
+  .btns .go{background:var(--ink);color:var(--paper)}
+  .btns button:active{transform:scale(.97)}
+  .btns button:disabled{opacity:.4;cursor:default}
+  .choice{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:50px;font-weight:700;
+  }
+  .choice.ur{text-align:right;line-height:var(--lh)}
+  .choice:hover{border-color:var(--ink)}
+  .choice.right{border-color:var(--ok);background:#e8f2ed}
+  .choice.wrong{border-color:var(--left);background:#fbeae8}
+  .dots{display:flex;gap:6px;justify-content:center;margin:10px 0 0}
+  .dots i{width:9px;height:9px;border-radius:50%;background:var(--line);display:block}
+  .dots i.on{background:var(--ink)}
+  .dots i.ok{background:var(--ok)}
+  .legend{
+    display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:8px 0;font-size:var(--fs-cap);font-weight:800;
+  }
+  .legend span{padding:4px 10px;border-radius:999px;border:2px solid}
+  .legend .lp{border-color:var(--prod);color:var(--prod);background:#eef5e6}
+  .legend .lc{border-color:var(--cons);color:var(--cons);background:#faf0e6}
+  .legend .ld{border-color:var(--decomp);color:var(--decomp);background:#f3eef8}
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .qhead{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+  .qhead h2{font-size:var(--fs-lg);font-weight:800;margin:0;flex:1}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:50px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+  .opt.wrong{border-color:var(--left);background:#fbeae8}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
+      grid-template-areas:
+        "bar   bar" "head  head" "tabs  tabs" "story story"
+        "left  right" "quiz  quiz" "foot  foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+    .story{grid-area:story} .left{grid-area:left} .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+    .panel{margin-top:0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition-duration:.01ms !important;animation:none !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 5</span>
+    <span class="stars" id="starBox">⭐ <span id="starCount">0</span></span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 id="title"></h1>
+  <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group">
+    <button type="button" id="tabChain" aria-pressed="true"></button>
+    <button type="button" id="tabWeb" aria-pressed="false"></button>
+    <button type="button" id="tabSave" aria-pressed="false"></button>
+  </div>
+
+  <p class="story" id="story"></p>
+
+  <div class="left">
+  <div class="scene">
+    <div class="scene-pad" id="scenePad"></div>
+  </div>
+  <div class="readout">
+    <span class="statechip" id="statechip"></span>
+    <p class="headline" id="headline"></p>
+    <p class="detail" id="detail"></p>
+    <p class="hintbox" id="hintbox"></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="panel">
+    <h2 id="ctlHead"></h2>
+    <p class="prog" id="prog"></p>
+    <div id="actionBox"></div>
+    <div class="btns">
+      <button type="button" class="go" id="nextBtn"></button>
+    </div>
+    <div class="btns">
+      <button type="button" id="hintBtn"></button>
+      <button type="button" id="resetBtn"></button>
+    </div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <div class="qhead">
+      <h2 id="quizHead"></h2>
+      <button type="button" class="chip" id="newQuiz"></button>
+    </div>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad bilingual AI school. Offline play · no APIs. WhatsApp 0337 1468899 · Margalla Hills SNC"
+       data-ur="اے آئی فور کڈز — اسلام آباد۔ آف لائن کھیلو۔ واٹس ایپ 0337 1468899 · مارگلہ ہلز"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  function $(id){ return document.getElementById(id); }
+  function isolate(s){ return "\u2066" + s + "\u2069"; }
+  function setText(el, str){
+    if (!el) return;
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+  function t(o){ return (o && o[lang]) || (o && o.en) || ""; }
+  function shuffle(arr){
+    var a = arr.slice(), i, j, tmp;
+    for (i = a.length - 1; i > 0; i--){
+      j = Math.floor(Math.random() * (i + 1));
+      tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  var lang = "en";
+  var mode = "chain";
+  var stars = 0;
+  var awarded = {};
+  var doneModes = {chain:false, web:false, save:false};
+
+  var T = {
+    title:{en:"Ecosystem", ur:"ماحولیاتی نظام"},
+    sub:{en:"Margalla Hills — food web, conservation. Jandar milkar rehte hain!",
+         ur:"مارگلہ ہلز — فوڈ ویب، حفاظت۔ جاندار مل کر رہتے ہیں!"},
+    tabChain:{en:"Who eats whom", ur:"کون کسے کھاتا"},
+    tabWeb:{en:"Food web", ur:"فوڈ ویب"},
+    tabSave:{en:"Save Margalla", ur:"مارگلہ بچاؤ"},
+    storyChain:{en:"Build a <b>food chain</b> — tap organisms in order: who eats whom on Margalla Hills.",
+                ur:"<b>فوڈ چین</b> بناؤ — ترتیب سے ٹیپ کرو: مارگلہ پر کون کسے کھاتا ہے۔"},
+    storyWeb:{en:"Sort <b>producers, consumers, decomposers</b> — then connect the web.",
+              ur:"<b>پیدا کرنے والے، کھانے والے، گلانے والے</b> الگ کرو — پھر ویب جوڑو۔"},
+    storySave:{en:"Make <b>conservation choices</b> — litter, fire, protect animals. See the outcome!",
+               ur:"<b>حفاظتی انتخاب</b> کرو — کچرا، آگ، جانوروں کی حفاظت۔ نتیجہ دیکھو!"},
+    ctl:{en:"Your turn — Margalla explorer", ur:"تمہاری باری — مارگلہ ایکسپلورر"},
+    next:{en:"Next challenge", ur:"اگلا چیلنج"},
+    hint:{en:"Hint", ur:"اشارہ"},
+    reset:{en:"Reset", ur:"ری سیٹ"},
+    quiz:{en:"Check yourself", ur:"اپنا چیک"},
+    newQuiz:{en:"New quiz", ur:"نیا کوئز"},
+    nice:{en:"Shabash — ecosystem balance!", ur:"شاباش — ماحول کا توازن!"},
+    oops:{en:"Almost — try again", ur:"قریب — دوبارہ آزماؤ"},
+    tip:{en:"Tip: Sun → plants → animals → decomposers. Litter & fire hurt Margalla.",
+         ur:"نکتہ: سورج → پودے → جانور → گلانے والے۔ کچرا اور آگ مارگلہ کو نقصان دیتے ہیں۔"},
+    progC:{en:"Food chains built", ur:"فوڈ چین مکمل"},
+    progW:{en:"Web challenges done", ur:"ویب چیلنج مکمل"},
+    progS:{en:"Conservation choices", ur:"حفاظتی انتخاب"},
+    askChain:{en:"Tap organisms in eating order (start with plant)", ur:"کھانے کی ترتیب سے ٹیپ کرو (پودے سے شروع)"},
+    askSort:{en:"Tap each organism, then tap its bin", ur:"جاندار ٹیپ کرو، پھر اس کا خانہ ٹیپ کرو"},
+    askLink:{en:"Which link is correct for this Margalla web?", ur:"اس مارگلہ ویب کے لیے کون سا لنک درست ہے؟"},
+    askSave:{en:"What should you do?", ur:"تمہیں کیا کرنا چاہیے؟"},
+    pick:{en:"Tap to choose", ur:"چننے کے لیے ٹیپ کرو"},
+    prod:{en:"Producers", ur:"پیدا کرنے والے"},
+    cons:{en:"Consumers", ur:"کھانے والے"},
+    decomp:{en:"Decomposers", ur:"گلانے والے"},
+    sunLabel:{en:"Sun starts the energy", ur:"توانائی سورج سے شروع"},
+    checkSort:{en:"Check bins", ur:"خانے چیک کرو"}
+  };
+
+  /* Organisms (kid-safe cartoon emoji) */
+  var ORGS = {
+    sun:{em:"☀️", en:"Sun", ur:"سورج", role:"energy"},
+    grass:{em:"🌿", en:"Grass", ur:"گھاس", role:"prod"},
+    pine:{em:"🌲", en:"Chir pine", ur:"چِیڑ کا درخت", role:"prod"},
+    flower:{em:"🌸", en:"Wild flower", ur:"جنگلی پھول", role:"prod"},
+    insect:{em:"🐛", en:"Insect", ur:"کیڑا", role:"cons"},
+    bee:{em:"🐝", en:"Bee", ur:"شہد کی مکھی", role:"cons"},
+    bird:{em:"🐦", en:"Hill bird", ur:"پہاڑی پرندہ", role:"cons"},
+    monkey:{em:"🐒", en:"Rhesus monkey", ur:"بندر", role:"cons"},
+    deer:{em:"🦌", en:"Barking deer", ur:"ہرن", role:"cons"},
+    leopard:{em:"🐆", en:"Leopard", ur:"چیتا", role:"cons"},
+    fungi:{em:"🍄", en:"Fungi", ur:"فنجائی / کوک", role:"decomp"},
+    worm:{em:"🪱", en:"Earthworm", ur:"کینچوا", role:"decomp"},
+    beetle:{em:"🪲", en:"Beetle", ur:"بھونرا", role:"decomp"}
+  };
+
+  /* Mode 1: Who eats whom — 4 chains */
+  var CHAINS = [
+    {
+      id:"c1",
+      title:{en:"Meadow snack", ur:"میدان کا ناشتہ"},
+      hint:{en:"Start with grass (producer). Insect eats grass. Bird eats insect.",
+            ur:"گھاس سے شروع (پیدا کرنے والا)۔ کیڑا گھاس کھاتا۔ پرندہ کیڑا کھاتا۔"},
+      order:["grass","insect","bird"],
+      extras:["leopard","fungi"]
+    },
+    {
+      id:"c2",
+      title:{en:"Pine to leopard", ur:"چِیڑ سے چیتا"},
+      hint:{en:"Pine (plant) → monkey eats pine food → leopard eats monkey.",
+            ur:"چِیڑ (پودا) → بندر کھاتا → چیتا بندر کو شکار کرتا۔"},
+      order:["pine","monkey","leopard"],
+      extras:["bee","worm"]
+    },
+    {
+      id:"c3",
+      title:{en:"Forest trail", ur:"جنگل کا راستہ"},
+      hint:{en:"Grass → deer (herbivore) → leopard (carnivore).",
+            ur:"گھاس → ہرن → چیتا۔"},
+      order:["grass","deer","leopard"],
+      extras:["insect","bird"]
+    },
+    {
+      id:"c4",
+      title:{en:"Flower visitors", ur:"پھول کے مہمان"},
+      hint:{en:"Flower → bee → bird. Energy starts in the plant.",
+            ur:"پھول → مکھی → پرندہ۔ توانائی پودے سے شروع۔"},
+      order:["flower","bee","bird"],
+      extras:["deer","fungi"]
+    }
+  ];
+
+  /* Mode 2: Food web — 4 challenges (sort x2, link x2) */
+  var WEB = [
+    {
+      id:"w1", type:"sort",
+      title:{en:"Sort the cast", ur:"کردار الگ کرو"},
+      hint:{en:"Producers make food (plants). Consumers eat. Decomposers recycle dead matter.",
+            ur:"پیدا کرنے والے پودے ہیں۔ کھانے والے کھاتے ہیں۔ گلانے والے مردہ چیزیں توڑتے ہیں۔"},
+      items:["pine","grass","monkey","deer","fungi","worm"]
+    },
+    {
+      id:"w2", type:"sort",
+      title:{en:"Who recycles?", ur:"کون ری سائیکل کرتا؟"},
+      hint:{en:"Fungi and worms are decomposers. Flowers and pines are producers. Birds eat.",
+            ur:"فنجائی اور کینچوا گلانے والے ہیں۔ پھول اور چِیڑ پیدا کرنے والے۔ پرندے کھاتے ہیں۔"},
+      items:["flower","pine","bird","insect","fungi","beetle"]
+    },
+    {
+      id:"w3", type:"link",
+      title:{en:"True Margalla link", ur:"درست مارگلہ لنک"},
+      hint:{en:"Leopards hunt animals — they do not eat grass. Grass is eaten by deer.",
+            ur:"چیتا جانوروں کا شکار کرتا — گھاس نہیں کھاتا۔ گھاس ہرن کھاتا ہے۔"},
+      prompt:{en:"Which food link is true?", ur:"کون سا فوڈ لنک درست ہے؟"},
+      opts:[
+        {em:"🌿→🦌", en:"Grass → Deer", ur:"گھاس → ہرن", ok:true},
+        {em:"🐆→🌿", en:"Leopard → Grass", ur:"چیتا → گھاس", ok:false},
+        {em:"🍄→🐆", en:"Fungi → Leopard", ur:"فنجائی → چیتا", ok:false}
+      ]
+    },
+    {
+      id:"w4", type:"link",
+      title:{en:"Energy & decomposers", ur:"توانائی اور گلانے والے"},
+      hint:{en:"Sun gives energy to plants. Decomposers break down dead leaves — they do not hunt leopards.",
+            ur:"سورج پودوں کو توانائی دیتا ہے۔ گلانے والے مردہ پتے توڑتے ہیں — چیتے کا شکار نہیں۔"},
+      prompt:{en:"Which statement is correct?", ur:"کون سی بات درست ہے؟"},
+      opts:[
+        {em:"☀️→🌲", en:"Sun energy → Pine (producer)", ur:"سورج کی توانائی → چِیڑ", ok:true},
+        {em:"🪱→🐆", en:"Worm hunts leopard", ur:"کینچوا چیتا شکار کرتا", ok:false},
+        {em:"🐦→🌲", en:"Bird makes pine food", ur:"پرندہ چِیڑ کا کھانا بناتا", ok:false}
+      ]
+    }
+  ];
+
+  /* Mode 3: Save Margalla — 3 scenarios */
+  var SAVE = [
+    {
+      id:"s1",
+      title:{en:"Picnic litter", ur:"پکنک کا کچرا"},
+      hero:"🗑️",
+      scene:{en:"You finish a picnic on the trail. Bags and bottles sit on the grass.",
+             ur:"ٹریل پر پکنک ختم۔ تھیلیاں اور بوتلیں گھاس پر پڑی ہیں۔"},
+      hint:{en:"Take litter home or to a bin — animals can choke on plastic.",
+            ur:"کچرا گھر یا ڈبے میں لے جاؤ — پلاسٹک جانوروں کو نقصان دے سکتا ہے۔"},
+      opts:[
+        {em:"🎒", en:"Pack litter and take it down", ur:"کچرا پیک کر کے نیچے لے جاؤ", ok:true,
+         out:{en:"Hills stay clean — birds and deer stay safe!", ur:"پہاڑ صاف — پرندے اور ہرن محفوظ!"}},
+        {em:"🙈", en:"Leave bags under a pine", ur:"تھیلیاں چِیڑ کے نیچے چھوڑ دو", ok:false,
+         out:{en:"Plastic harms monkeys and birds. Try again!", ur:"پلاسٹک بندر اور پرندوں کو نقصان۔ دوبارہ!"}},
+        {em:"🔥", en:"Burn the trash on the hill", ur:"کچرا پہاڑ پر جلا دو", ok:false,
+         out:{en:"Fire can spread — pines burn fast!", ur:"آگ پھیل سکتی ہے — چِیڑ تیزی سے جلتے!"}}
+      ]
+    },
+    {
+      id:"s2",
+      title:{en:"Campfire risk", ur:"کیمپ فائر کا خطرہ"},
+      hero:"🔥",
+      scene:{en:"Friends want a big fire near dry pine needles for fun photos.",
+             ur:"دوست خشک سوئیوں کے پاس بڑی آگ چاہتے ہیں — فوٹو کے لیے۔"},
+      hint:{en:"No open fires in dry forest. Use a stove or skip the fire.",
+            ur:"خشک جنگل میں کھلی آگ نہیں۔ چولہا استعمال کرو یا آگ مت لگاؤ۔"},
+      opts:[
+        {em:"🚫🔥", en:"No fire — use cold snacks / stove", ur:"آگ نہیں — ٹھنڈا ناشتہ / چولہا", ok:true,
+         out:{en:"Smart! Margalla pines stay green.", ur:"سمارٹ! مارگلہ کے چِیڑ سبز رہتے ہیں۔"}},
+        {em:"🔥", en:"Light a big fire for photos", ur:"فوٹو کے لیے بڑی آگ جلاؤ", ok:false,
+         out:{en:"Wildfire risk — animals lose homes.", ur:"جنگل کی آگ — جانور گھر کھو سکتے ہیں۔"}},
+        {em:"💨", en:"Light fire then walk away", ur:"آگ جلا کر چلے جاؤ", ok:false,
+         out:{en:"Never leave a fire — it can grow!", ur:"آگ کبھی مت چھوڑو — بڑھ سکتی ہے!"}}
+      ]
+    },
+    {
+      id:"s3",
+      title:{en:"Protect animals", ur:"جانوروں کی حفاظت"},
+      hero:"🐆",
+      scene:{en:"You see a leopard track and noisy tourists want to chase it for videos.",
+             ur:"چیتے کے نشان نظر آئے۔ شور والے سیاح ویڈیو کے لیے پیچھا کرنا چاہتے ہیں۔"},
+      hint:{en:"Watch quietly from far, or tell a park guide. Do not chase or feed wild animals.",
+            ur:"دور سے خاموش دیکھو، یا گائیڈ کو بتاؤ۔ پیچھا یا کھانا مت دو۔"},
+      opts:[
+        {em:"🤫", en:"Stay quiet, keep distance, alert a guide", ur:"خاموش رہو، فاصلہ رکھو، گائیڈ کو بتاؤ", ok:true,
+         out:{en:"Wildlife protected — you are a Margalla hero!", ur:"جنگلی حیات محفوظ — تم مارگلہ ہیرو ہو!"}},
+        {em:"📸", en:"Chase and shout for a selfie", ur:"سیلفی کے لیے شور اور پیچھا", ok:false,
+         out:{en:"Stress harms animals. Give them space!", ur:"تناؤ جانوروں کو نقصان۔ جگہ دو!"}},
+        {em:"🍌", en:"Leave food to attract the leopard", ur:"چیتا کھینچنے کے لیے کھانا چھوڑو", ok:false,
+         out:{en:"Feeding wild animals is dangerous for them and you.", ur:"جنگلی جانوروں کو کھانا خطرناک ہے۔"}}
+      ]
+    }
+  ];
+
+  var QUIZ = [
+    {
+      q:{en:"What starts most food chains on Margalla Hills?",
+         ur:"مارگلہ ہلز پر زیادہ تر فوڈ چین کہاں سے شروع ہوتی ہے؟"},
+      opts:[
+        {en:"The Sun (energy for plants)", ur:"سورج (پودوں کے لیے توانائی)"},
+        {en:"Only leopards", ur:"صرف چیتے"},
+        {en:"Plastic bottles", ur:"پلاسٹک بوتلیں"},
+        {en:"Cars on the road", ur:"سڑک کی گاڑیاں"}
+      ],
+      correct:0,
+      why:{en:"Plants capture sun energy — then animals eat plants or other animals.",
+           ur:"پودے سورج کی توانائی پکڑتے ہیں — پھر جانور پودے یا دوسرے جانور کھاتے ہیں۔"}
+    },
+    {
+      q:{en:"Which is a producer in the Margalla ecosystem?",
+         ur:"مارگلہ کے ماحول میں کون پیدا کرنے والا ہے؟"},
+      opts:[
+        {en:"Chir pine / grass", ur:"چِیڑ / گھاس"},
+        {en:"Rhesus monkey", ur:"بندر"},
+        {en:"Leopard", ur:"چیتا"},
+        {en:"Hill bird", ur:"پہاڑی پرندہ"}
+      ],
+      correct:0,
+      why:{en:"Producers are plants — they make food using sunlight.",
+           ur:"پیدا کرنے والے پودے ہیں — سورج کی روشنی سے کھانا بناتے ہیں۔"}
+    },
+    {
+      q:{en:"What do decomposers (fungi, worms) do?",
+         ur:"گلانے والے (فنجائی، کینچوا) کیا کرتے ہیں؟"},
+      opts:[
+        {en:"Break down dead plants/animals and recycle nutrients", ur:"مردہ پودے/جانور توڑ کر غذائیت واپس کرتے ہیں"},
+        {en:"Hunt leopards", ur:"چیتوں کا شکار"},
+        {en:"Make plastic", ur:"پلاسٹک بناتے ہیں"},
+        {en:"Start forest fires", ur:"جنگل کی آگ لگاتے ہیں"}
+      ],
+      correct:0,
+      why:{en:"Decomposers keep soil healthy so new plants can grow.",
+           ur:"گلانے والے مٹی صحت مند رکھتے ہیں تاکہ نئے پودے اگ سکیں۔"}
+    },
+    {
+      q:{en:"Best way to help conserve Margalla Hills?",
+         ur:"مارگلہ ہلز کی حفاظت کا بہترین طریقہ؟"},
+      opts:[
+        {en:"No litter, no fire, protect wildlife", ur:"کچرا نہیں، آگ نہیں، جنگلی حیات بچاؤ"},
+        {en:"Leave all picnic trash under pines", ur:"سارا پکنک کچرا چِیڑ کے نیچے چھوڑو"},
+        {en:"Chase animals for videos", ur:"ویڈیو کے لیے جانوروں کا پیچھا"},
+        {en:"Burn dry needles for fun", ur:"مزے کے لیے خشک سوئیاں جلاؤ"}
+      ],
+      correct:0,
+      why:{en:"Conservation means caring for plants, animals, and their home.",
+           ur:"حفاظت کا مطلب پودوں، جانوروں اور ان کے گھر کی دیکھ بھال۔"}
+    },
+    {
+      q:{en:"In Grass → Deer → Leopard, the leopard is a…",
+         ur:"گھاس → ہرن → چیتا میں چیتا کیا ہے؟"},
+      opts:[
+        {en:"Consumer (carnivore)", ur:"کھانے والا (گوشت خور)"},
+        {en:"Producer", ur:"پیدا کرنے والا"},
+        {en:"Decomposer only", ur:"صرف گلانے والا"},
+        {en:"The Sun", ur:"سورج"}
+      ],
+      correct:0,
+      why:{en:"Animals that eat other living things are consumers.",
+           ur:"جو جاندار دوسرے جاندار کھاتے ہیں وہ کھانے والے ہیں۔"}
+    }
+  ];
+
+  var chainIdx = 0, chainPicked = [], chainDone = {};
+  var webIdx = 0, webSort = {}, webSelected = null, webDone = {};
+  var saveIdx = 0, saveDone = {};
+  var quizSet = [];
+
+  function award(key, n){
+    if (awarded[key]) return;
+    awarded[key] = true;
+    stars += (n || 1);
+    $("starCount").textContent = String(stars);
+  }
+  function recountStars(){
+    stars = 0;
+    Object.keys(awarded).forEach(function(k){
+      stars += (k.indexOf("mode-")===0) ? 2 : 1;
+    });
+    $("starCount").textContent = String(stars);
+  }
+
+  function hillsBg(){
+    return '<div class="sky-layer"><div class="sun-ball"></div><div class="cloud c1"></div><div class="cloud c2"></div></div>' +
+      '<div class="hills"><div class="hill h-a"></div><div class="hill h-b"></div><div class="hill h-c"></div></div>' +
+      '<div class="pine-row"><div class="pine p1"></div><div class="pine p2"></div><div class="pine p3"></div><div class="pine p4"></div></div>' +
+      '<div class="ground-strip"></div>';
+  }
+
+  function orgLabel(id){
+    var o = ORGS[id];
+    return o ? t(o) : id;
+  }
+
+  /* ---------- CHAIN ---------- */
+  function renderChain(){
+    var ch = CHAINS[chainIdx];
+    var pad = $("scenePad");
+    var slots = "";
+    var i;
+    for (i=0;i<ch.order.length;i++){
+      if (i) slots += '<span class="chain-arrow">→</span>';
+      if (chainPicked[i]){
+        var id = chainPicked[i];
+        slots += '<div class="chain-slot filled"><span class="em">'+ORGS[id].em+'</span><span>'+orgLabel(id)+'</span></div>';
+      } else {
+        slots += '<div class="chain-slot">'+(i+1)+'</div>';
+      }
+    }
+    pad.innerHTML = hillsBg() + '<div class="chain-row">'+slots+'</div>';
+
+    var pool = shuffle(ch.order.concat(ch.extras));
+    var box = $("actionBox");
+    box.innerHTML = "";
+    var row = document.createElement("div");
+    row.className = "bank";
+    pool.forEach(function(id){
+      var used = chainPicked.indexOf(id) >= 0;
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "org-card pickable" + (used ? " picked" : "");
+      b.innerHTML = '<span class="org-em">'+ORGS[id].em+'</span><p class="org-lab"></p>';
+      setText(b.querySelector(".org-lab"), orgLabel(id));
+      if (!used){
+        b.addEventListener("click", function(){ onChainPick(id); });
+      }
+      row.appendChild(b);
+    });
+    box.appendChild(row);
+
+    var done = chainPicked.length === ch.order.length &&
+      chainPicked.every(function(id, ix){ return id === ch.order[ix]; });
+    setText($("statechip"), done ? t(T.nice) : t(ch.title));
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (done?" win":"");
+    setText($("headline"), t(T.askChain));
+    setText($("detail"), t(T.pick));
+    $("hintbox").classList.remove("show");
+    setText($("prog"), t(T.progC) + ": " + Object.keys(chainDone).length + "/" + CHAINS.length);
+    dots($("prog"), CHAINS.length, chainIdx, chainDone);
+  }
+
+  function onChainPick(id){
+    var ch = CHAINS[chainIdx];
+    var next = chainPicked.length;
+    if (next >= ch.order.length) return;
+    if (id === ch.order[next]){
+      chainPicked.push(id);
+      if (chainPicked.length === ch.order.length){
+        chainDone[ch.id] = true;
+        award("chain-"+ch.id, 1);
+        if (Object.keys(chainDone).length === CHAINS.length){
+          doneModes.chain = true;
+          award("mode-chain", 2);
+        }
+        setText($("statechip"), t(T.nice));
+        $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+      }
+      renderChain();
+    } else {
+      setText($("statechip"), t(T.oops));
+      $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+      setText($("detail"), t(ch.hint));
+    }
+  }
+
+  /* ---------- WEB ---------- */
+  function renderWeb(){
+    var w = WEB[webIdx];
+    var pad = $("scenePad");
+    var box = $("actionBox");
+    box.innerHTML = "";
+    $("hintbox").classList.remove("show");
+
+    if (w.type === "sort"){
+      pad.innerHTML = hillsBg() +
+        '<div class="web-grid">' +
+          '<div class="web-bin prod" data-bin="prod"><h3></h3><div class="drop" id="binProd"></div></div>' +
+          '<div class="web-bin cons" data-bin="cons"><h3></h3><div class="drop" id="binCons"></div></div>' +
+          '<div class="web-bin decomp" data-bin="decomp"><h3></h3><div class="drop" id="binDecomp"></div></div>' +
+        '</div>';
+      setText(pad.querySelector(".prod h3"), t(T.prod));
+      setText(pad.querySelector(".cons h3"), t(T.cons));
+      setText(pad.querySelector(".decomp h3"), t(T.decomp));
+
+      ["prod","cons","decomp"].forEach(function(bin){
+        pad.querySelector('[data-bin="'+bin+'"]').addEventListener("click", function(){
+          if (!webSelected) return;
+          webSort[webSelected] = bin;
+          webSelected = null;
+          renderWeb();
+        });
+      });
+
+      // fill bins
+      w.items.forEach(function(id){
+        var bin = webSort[id];
+        if (!bin) return;
+        var el = document.createElement("span");
+        el.className = "mini-org";
+        el.textContent = ORGS[id].em;
+        el.title = orgLabel(id);
+        el.addEventListener("click", function(e){
+          e.stopPropagation();
+          delete webSort[id];
+          renderWeb();
+        });
+        var target = bin==="prod"?$("binProd"):bin==="cons"?$("binCons"):$("binDecomp");
+        target.appendChild(el);
+      });
+
+      var bank = document.createElement("div");
+      bank.className = "bank";
+      w.items.forEach(function(id){
+        if (webSort[id]) return;
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "org-card pickable" + (webSelected===id?" ok":"");
+        b.innerHTML = '<span class="org-em">'+ORGS[id].em+'</span><p class="org-lab"></p>';
+        setText(b.querySelector(".org-lab"), orgLabel(id));
+        b.addEventListener("click", function(){ webSelected = id; renderWeb(); });
+        bank.appendChild(b);
+      });
+      box.appendChild(bank);
+
+      var check = document.createElement("button");
+      check.type = "button";
+      check.className = "chip";
+      check.style.marginTop = "8px";
+      check.style.width = "100%";
+      setText(check, t(T.checkSort));
+      check.addEventListener("click", checkSort);
+      box.appendChild(check);
+
+      setText($("headline"), t(T.askSort));
+      setText($("detail"), webSelected ? orgLabel(webSelected) + " → ?" : t(T.pick));
+    } else {
+      pad.innerHTML = hillsBg() +
+        '<div class="save-scene"><div class="save-hero">🕸️</div>' +
+        '<div class="legend"><span class="lp"></span><span class="lc"></span><span class="ld"></span></div></div>';
+      setText(pad.querySelector(".lp"), t(T.prod));
+      setText(pad.querySelector(".lc"), t(T.cons));
+      setText(pad.querySelector(".ld"), t(T.decomp));
+
+      var prompt = document.createElement("p");
+      prompt.style.fontWeight = "800";
+      prompt.style.marginBottom = "8px";
+      setText(prompt, t(w.prompt));
+      box.appendChild(prompt);
+
+      var btns = document.createElement("div");
+      btns.className = "link-btns";
+      var opts = shuffle(w.opts.slice());
+      opts.forEach(function(opt){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.innerHTML = '<span style="font-size:20px;margin-right:6px">'+opt.em+'</span>';
+        var lab = document.createElement("span");
+        setText(lab, t(opt));
+        b.appendChild(lab);
+        b.addEventListener("click", function(){
+          if (webDone[w.id]) return;
+          if (opt.ok){
+            b.classList.add("right");
+            webDone[w.id] = true;
+            award("web-"+w.id, 1);
+            maybeWebModeDone();
+            setText($("statechip"), t(T.nice));
+            $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+          } else {
+            b.classList.add("wrong");
+            setText($("statechip"), t(T.oops));
+            $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+          }
+        });
+        btns.appendChild(b);
+      });
+      box.appendChild(btns);
+      setText($("headline"), t(T.askLink));
+      setText($("detail"), t(w.title));
+    }
+
+    var doneFlag = !!webDone[w.id];
+    setText($("statechip"), doneFlag ? t(T.nice) : t(w.title));
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (doneFlag?" win":"");
+    setText($("prog"), t(T.progW) + ": " + Object.keys(webDone).length + "/" + WEB.length);
+  }
+
+  function checkSort(){
+    var w = WEB[webIdx];
+    if (w.type !== "sort") return;
+    var ok = true;
+    w.items.forEach(function(id){
+      var need = ORGS[id].role;
+      if (webSort[id] !== need) ok = false;
+    });
+    if (ok && w.items.every(function(id){ return webSort[id]; })){
+      webDone[w.id] = true;
+      award("web-"+w.id, 1);
+      maybeWebModeDone();
+      setText($("statechip"), t(T.nice));
+      $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+      setText($("detail"), t(T.sunLabel));
+    } else {
+      setText($("statechip"), t(T.oops));
+      $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+      setText($("detail"), t(w.hint));
+    }
+  }
+
+  function maybeWebModeDone(){
+    if (Object.keys(webDone).length === WEB.length){
+      doneModes.web = true;
+      award("mode-web", 2);
+    }
+  }
+
+  /* ---------- SAVE ---------- */
+  function renderSave(){
+    var s = SAVE[saveIdx];
+    var pad = $("scenePad");
+    pad.innerHTML = hillsBg() +
+      '<div class="save-scene"><div class="save-hero">'+s.hero+'</div></div>';
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+    var sceneP = document.createElement("p");
+    sceneP.style.fontWeight = "700";
+    sceneP.style.marginBottom = "8px";
+    setText(sceneP, t(s.scene));
+    box.appendChild(sceneP);
+
+    var choices = document.createElement("div");
+    choices.className = "save-choices";
+    var outcome = document.createElement("div");
+    outcome.className = "outcome";
+    outcome.id = "saveOut";
+
+    s.opts.forEach(function(opt){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.innerHTML = '<span class="cem">'+opt.em+'</span>';
+      var lab = document.createElement("span");
+      setText(lab, t(opt));
+      b.appendChild(lab);
+      if (saveDone[s.id]){
+        if (opt.ok) b.classList.add("right");
+        b.disabled = true;
+      }
+      b.addEventListener("click", function(){
+        if (saveDone[s.id]) return;
+        if (opt.ok){
+          b.classList.add("right");
+          saveDone[s.id] = true;
+          award("save-"+s.id, 1);
+          if (Object.keys(saveDone).length === SAVE.length){
+            doneModes.save = true;
+            award("mode-save", 2);
+          }
+          outcome.className = "outcome show";
+          setText(outcome, t(opt.out));
+          setText($("statechip"), t(T.nice));
+          $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+          Array.prototype.forEach.call(choices.querySelectorAll("button"), function(x){ x.disabled = true; });
+        } else {
+          b.classList.add("wrong");
+          outcome.className = "outcome show bad";
+          setText(outcome, t(opt.out));
+          setText($("statechip"), t(T.oops));
+          $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+        }
+      });
+      choices.appendChild(b);
+    });
+    box.appendChild(choices);
+    box.appendChild(outcome);
+    if (saveDone[s.id]){
+      var good = s.opts.filter(function(o){ return o.ok; })[0];
+      outcome.className = "outcome show";
+      setText(outcome, t(good.out));
+    }
+
+    setText($("statechip"), saveDone[s.id] ? t(T.nice) : t(s.title));
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (saveDone[s.id]?" win":"");
+    setText($("headline"), t(T.askSave));
+    setText($("detail"), t(s.title));
+    $("hintbox").classList.remove("show");
+    setText($("prog"), t(T.progS) + ": " + Object.keys(saveDone).length + "/" + SAVE.length);
+  }
+
+  function dots(el, total, idx, doneMap){
+    /* prog text already set; optional visual via actionBox not needed */
+  }
+
+  /* ---------- QUIZ ---------- */
+  function pickQuiz(){ quizSet = shuffle(QUIZ).slice(0, 5); }
+  function renderQuiz(){
+    var box = $("quizBox");
+    box.innerHTML = "";
+    quizSet.forEach(function(item, qi){
+      var div = document.createElement("div");
+      div.className = "q";
+      var p = document.createElement("p");
+      setText(p, (qi+1) + ". " + t(item.q));
+      div.appendChild(p);
+      var fb = document.createElement("p");
+      fb.className = "fb";
+      item.opts.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt" + (lang==="ur"?" ur":"");
+        b.setAttribute("dir", lang==="ur"?"rtl":"ltr");
+        b.textContent = (lang==="ur") ? isolate(t(opt)) : t(opt);
+        b.addEventListener("click", function(){
+          if (div.getAttribute("data-locked")) return;
+          div.setAttribute("data-locked","1");
+          if (oi === item.correct){
+            b.classList.add("right");
+            award("quiz-"+qi, 1);
+            setText(fb, t(item.why));
+          } else {
+            b.classList.add("wrong");
+            var correctBtn = div.querySelectorAll(".opt")[item.correct];
+            if (correctBtn) correctBtn.classList.add("right");
+            setText(fb, t(item.why));
+          }
+          fb.classList.add("show");
+        });
+        div.appendChild(b);
+      });
+      div.appendChild(fb);
+      box.appendChild(div);
+    });
+  }
+
+  /* ---------- shell ---------- */
+  function storyHtml(){
+    if (mode === "chain") return t(T.storyChain);
+    if (mode === "web") return t(T.storyWeb);
+    return t(T.storySave);
+  }
+
+  function tabBadges(){
+    function lab(btn, labelObj, key){
+      var badge = doneModes[key] ? ' <span class="badge">★</span>' : "";
+      btn.innerHTML = "";
+      var span = document.createElement("span");
+      if (lang === "ur"){ span.classList.add("ur"); span.setAttribute("dir","rtl"); }
+      span.textContent = (lang==="ur") ? isolate(t(labelObj)) : t(labelObj);
+      btn.appendChild(span);
+      if (badge){
+        var b = document.createElement("span");
+        b.innerHTML = badge;
+        btn.appendChild(b);
+      }
+    }
+    lab($("tabChain"), T.tabChain, "chain");
+    lab($("tabWeb"), T.tabWeb, "web");
+    lab($("tabSave"), T.tabSave, "save");
+    $("tabChain").setAttribute("aria-pressed", mode==="chain"?"true":"false");
+    $("tabWeb").setAttribute("aria-pressed", mode==="web"?"true":"false");
+    $("tabSave").setAttribute("aria-pressed", mode==="save"?"true":"false");
+  }
+
+  function setMode(m){
+    mode = m;
+    $("hintbox").classList.remove("show");
+    if (mode === "chain"){ chainPicked = []; renderChain(); }
+    else if (mode === "web"){ webSelected = null; if (WEB[webIdx].type==="sort"){ /* keep sort progress */ } renderWeb(); }
+    else renderSave();
+    applyChrome();
+  }
+
+  function applyChrome(){
+    setText($("title"), t(T.title));
+    setText($("subtitle"), t(T.sub));
+    $("story").innerHTML = storyHtml();
+    $("story").classList.toggle("ur", lang==="ur");
+    $("story").setAttribute("dir", lang==="ur"?"rtl":"ltr");
+    setText($("ctlHead"), t(T.ctl));
+    setText($("nextBtn"), t(T.next));
+    setText($("hintBtn"), t(T.hint));
+    setText($("resetBtn"), t(T.reset));
+    setText($("quizHead"), t(T.quiz));
+    setText($("newQuiz"), t(T.newQuiz));
+    $("langBtn").textContent = (lang === "en") ? "اردو" : "EN";
+    $("langBtn").setAttribute("aria-pressed", lang==="ur"?"true":"false");
+    document.body.classList.toggle("urdu", lang==="ur");
+    document.documentElement.lang = (lang==="ur") ? "ur" : "en";
+    tabBadges();
+    document.querySelectorAll("footer [data-en]").forEach(function(el){
+      setText(el, lang==="ur" ? el.getAttribute("data-ur") : el.getAttribute("data-en"));
+    });
+  }
+
+  function applyLang(){
+    applyChrome();
+    if (mode === "chain") renderChain();
+    else if (mode === "web") renderWeb();
+    else renderSave();
+    renderQuiz();
+  }
+
+  function next(){
+    if (mode === "chain"){
+      chainIdx = (chainIdx + 1) % CHAINS.length;
+      chainPicked = [];
+      renderChain();
+    } else if (mode === "web"){
+      webIdx = (webIdx + 1) % WEB.length;
+      webSelected = null;
+      if (WEB[webIdx].type === "sort") webSort = {};
+      renderWeb();
+    } else {
+      saveIdx = (saveIdx + 1) % SAVE.length;
+      renderSave();
+    }
+    applyChrome();
+  }
+
+  function showHint(){
+    var h;
+    if (mode === "chain") h = CHAINS[chainIdx].hint;
+    else if (mode === "web") h = WEB[webIdx].hint;
+    else h = SAVE[saveIdx].hint;
+    setText($("hintbox"), t(h));
+    $("hintbox").classList.add("show");
+  }
+
+  function resetMode(){
+    if (mode === "chain"){
+      chainPicked = [];
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("chain-")===0 || k==="mode-chain") delete awarded[k]; });
+      chainDone = {}; doneModes.chain = false;
+      recountStars();
+      renderChain();
+    } else if (mode === "web"){
+      webSort = {}; webSelected = null;
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("web-")===0 || k==="mode-web") delete awarded[k]; });
+      webDone = {}; doneModes.web = false;
+      recountStars();
+      renderWeb();
+    } else {
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("save-")===0 || k==="mode-save") delete awarded[k]; });
+      saveDone = {}; doneModes.save = false;
+      recountStars();
+      renderSave();
+    }
+    tabBadges();
+  }
+
+  /* speak cancel → 80ms */
+  function cleanSpeakText(s){
+    return String(s || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  }
+  function buildSpeakText(){
+    var bits = [];
+    bits.push(t(T.title));
+    bits.push(cleanSpeakText(storyHtml()));
+    bits.push(cleanSpeakText(($("headline") && $("headline").textContent) || ""));
+    bits.push(cleanSpeakText(($("detail") && $("detail").textContent) || ""));
+    bits.push(t(T.tip));
+    return bits.filter(Boolean).join(". ");
+  }
+  function pickVoice(voices, want){
+    var i, v, L;
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf(want) === 0) return v;
+    }
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf("en") === 0) return v;
+    }
+    return voices[0] || null;
+  }
+  var speakTimer = null;
+  function setSpeaking(on){
+    var btn = $("speakBtn");
+    if (!btn) return;
+    btn.setAttribute("aria-pressed", on ? "true" : "false");
+    btn.style.opacity = on ? "0.65" : "";
+  }
+  function doSpeak(text, asLang){
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.92;
+    u.lang = (asLang === "ur") ? "ur-PK" : "en-US";
+    var voices = window.speechSynthesis.getVoices() || [];
+    var voice = pickVoice(voices, asLang === "ur" ? "ur" : "en");
+    if (voice) u.voice = voice;
+    u.onstart = function(){ setSpeaking(true); };
+    u.onend = function(){ setSpeaking(false); };
+    u.onerror = function(){
+      setSpeaking(false);
+      if (asLang === "ur"){
+        var fallback = cleanSpeakText(T.title.en + ". " + T.storyChain.en + ". " + T.tip.en);
+        var u2 = new SpeechSynthesisUtterance(fallback);
+        u2.lang = "en-US"; u2.rate = 0.92;
+        var v2 = pickVoice(window.speechSynthesis.getVoices() || [], "en");
+        if (v2) u2.voice = v2;
+        u2.onstart = function(){ setSpeaking(true); };
+        u2.onend = u2.onerror = function(){ setSpeaking(false); };
+        window.speechSynthesis.speak(u2);
+      }
+    };
+    window.speechSynthesis.speak(u);
+  }
+  if ("speechSynthesis" in window){
+    try { window.speechSynthesis.getVoices(); } catch (e0) {}
+    if (typeof window.speechSynthesis.addEventListener === "function"){
+      window.speechSynthesis.addEventListener("voiceschanged", function(){
+        try { window.speechSynthesis.getVoices(); } catch (e1) {}
+      });
+    }
+  } else {
+    var noBtn = $("speakBtn");
+    if (noBtn){ noBtn.disabled = true; noBtn.title = "Voice not available on this device"; }
+  }
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en";
+    applyLang();
+  });
+  $("tabChain").addEventListener("click", function(){ setMode("chain"); });
+  $("tabWeb").addEventListener("click", function(){ setMode("web"); });
+  $("tabSave").addEventListener("click", function(){ setMode("save"); });
+  $("nextBtn").addEventListener("click", next);
+  $("hintBtn").addEventListener("click", showHint);
+  $("resetBtn").addEventListener("click", resetMode);
+  $("newQuiz").addEventListener("click", function(){ pickQuiz(); renderQuiz(); });
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      var text = buildSpeakText();
+      if (!text) return;
+      if (speakTimer){ clearTimeout(speakTimer); speakTimer = null; }
+      window.speechSynthesis.cancel();
+      setSpeaking(false);
+      var speakLang = lang;
+      speakTimer = setTimeout(function(){
+        speakTimer = null;
+        doSpeak(text, speakLang);
+      }, 80);
+    }catch(e){ setSpeaking(false); }
+  });
+
+  pickQuiz();
+  applyLang();
+})();
+</script>
+</body>
+</html>

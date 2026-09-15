@@ -129,11 +129,11 @@
     }
   },
   {
-    "file": "kb/grade_5/english.json",
-    "match_title": "Essay aur story writing",
+    "file": "kb/grade_5/science.json",
+    "match_title": "Ecosystem",
     "add": {
-      "interactive_file": "interactives/g5-essay-story-writing.html",
-      "interactive_label": "Khelo — Essay aur story writing"
+      "interactive_file": "interactives/g5-ecosystem.html",
+      "interactive_label": "Khelo — Ecosystem / Margalla"
     }
   }
 ]

@@ -1079,6 +1079,7 @@ def render_topic_interactive(subject_key, grade, topic_title):
             (5, "ai", "AI ethics"): "interactives/g5-ai-literacy.html",
             (5, "science", "Bijli ke circuits"): "interactives/g5-bijli-circuits.html",
             (5, "science", "Magnet ki taqat"): "interactives/g5-magnetism.html",
+            (5, "science", "Ecosystem"): "interactives/g5-ecosystem.html",
             (4, "science", "Solar system"): "interactives/g4-solar-system.html",
             (3, "science", "Paani ka safar"): "interactives/g3-paani-ka-safar.html",
             (3, "science", "Matter: solid liquid gas"): "interactives/g3-states-of-matter.html",
@@ -1093,7 +1094,6 @@ def render_topic_interactive(subject_key, grade, topic_title):
             (5, "english", "Active/Passive voice"): "interactives/g5-active-passive-voice.html",
             (5, "english", "All tenses review"): "interactives/g5-all-tenses-review.html",
             (5, "english", "Creative writing"): "interactives/g5-creative-writing.html",
-            (5, "english", "Essay aur story writing"): "interactives/g5-essay-story-writing.html",
         }
         rel = FALLBACK.get((int(grade), subject_key, topic_title))
     if not rel:

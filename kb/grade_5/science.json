@@ -285,7 +285,9 @@
             "explanation": "Margalla Hills ko taqreeb aur pollution se khatar hota hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g5-ecosystem.html",
+      "interactive_label": "Khelo — Ecosystem / Margalla"
     },
     {
       "title": "Technology aur safety",
