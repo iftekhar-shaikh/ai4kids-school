@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>IoT Basics — انٹرنیٹ سے جڑی چیزیں | AI4Kids</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#e9eef2;
+    --board-deep:#d6dee6;
+    --water:#2f7fbf;
+    --water-deep:#1d5686;
+    --tank:#b9c6d2;
+    --wifi:#e0a32c;
+    --dev:#3a6ea8;
+    --safe:#2e7d4f;
+    --risk:#c4453a;
+    --ink:#1f2933;
+    --ink-soft:#4a5661;
+    --paper:#fdfaf3;
+    --line:#ded5c4;
+    --accent:#1d5686;
+
+    --fs-cap:clamp(15px, 3.9vw, 16px);
+    --fs-xs:clamp(16px, 4.2vw, 18px);
+    --fs-sm:clamp(18px, 4.7vw, 19px);
+    --fs-md:clamp(19px, 5.1vw, 21px);
+    --fs-lg:clamp(22px, 5.9vw, 25px);
+    --fs-xl:clamp(28px, 7.6vw, 34px);
+    --lh:1.5;
+  }
+  /* Urdu is set larger than Latin — Nastaliq reads smaller at the same size. */
+  body.urdu{
+    --fs-cap:clamp(17px, 4.4vw, 18px);
+    --fs-xs:clamp(18px, 4.7vw, 20px);
+    --fs-sm:clamp(20px, 5.2vw, 22px);
+    --fs-md:clamp(21px, 5.6vw, 23px);
+    --fs-lg:clamp(24px, 6.4vw, 27px);
+    --fs-xl:clamp(27px, 7.2vw, 32px);
+    --lh:2.1;
+  }
+
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:44px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--wifi);outline-offset:2px}
+
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+
+  .tabs{display:flex;gap:7px;margin:0 0 14px}
+  .tabs button{
+    flex:1;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:9px 6px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:56px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:linear-gradient(180deg,var(--board) 0%,var(--board-deep) 100%);
+  }
+  .scene svg{display:block;width:100%;height:auto}
+  #level{transition:y .35s linear,height .35s linear}
+  .fullring{animation:ring .8s ease-in-out infinite}
+  @keyframes ring{0%,100%{opacity:.45}50%{opacity:1}}
+  .wave{opacity:0}
+  .live .wave{animation:ping 1.5s ease-out infinite}
+  .wave:nth-of-type(2){animation-delay:.5s}
+  .wave:nth-of-type(3){animation-delay:1s}
+  @keyframes ping{0%{opacity:0}25%{opacity:.9}100%{opacity:0}}
+
+  .log{
+    margin-top:12px;border:2px dashed var(--line);border-radius:14px;padding:10px 12px;
+    background:#fffdf7;font-size:var(--fs-cap);line-height:1.8;min-height:58px;
+  }
+  .log .row{direction:ltr;font-weight:700;color:var(--ink-soft)}
+  .log .row b{color:var(--accent)}
+  .log .row.alert b{color:var(--risk)}
+
+  .readout{
+    margin-top:14px;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-cap);font-weight:700;margin-bottom:10px}
+  .statechip.ur{padding:2px 14px 7px}
+  .statechip.ok{background:var(--safe)} .statechip.bad{background:var(--risk)}
+  .says{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.4}
+  .says.ur{line-height:1.95}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+
+  .hops{display:flex;gap:6px;margin-top:14px}
+  .hop{
+    flex:1;border:3px solid var(--line);border-radius:12px;padding:9px 4px;text-align:center;
+    font-size:var(--fs-cap);font-weight:800;color:var(--ink-soft);transition:all .3s ease;
+    line-height:1.25;
+  }
+  .hop.on{border-color:var(--dev);background:#e7eefa;color:var(--accent)}
+  .hop.done{border-color:#9db6d4;background:#f0f4fa}
+
+  .why-note{
+    margin:12px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.55;
+    border-left:3px solid var(--accent);padding-left:11px;
+  }
+  .why-note b{color:var(--accent);font-weight:800}
+  body.urdu .why-note{
+    border-left:0;border-right:3px solid var(--accent);padding-left:0;padding-right:11px;
+    line-height:var(--lh);
+  }
+  .warn{
+    margin:12px 0 0;border:2px dashed var(--risk);border-radius:14px;padding:11px 13px;
+    font-size:var(--fs-xs);color:var(--risk);font-weight:700;line-height:1.55;
+  }
+  body.urdu .warn{line-height:var(--lh)}
+
+  .panel{margin-top:22px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .btns{display:flex;gap:9px;margin-bottom:12px}
+  .btns button{
+    flex:1;border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);
+    font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:56px;padding:0 12px;
+  }
+  .btns .go{background:var(--ink);color:var(--paper)}
+  .btns button:disabled{opacity:.35;cursor:default}
+  .opts{display:flex;flex-direction:column;gap:9px}
+  .opts button{
+    border:2px solid var(--line);background:var(--paper);border-radius:14px;padding:12px 15px;
+    font:inherit;font-size:var(--fs-sm);font-weight:700;color:var(--ink);cursor:pointer;
+    min-height:56px;text-align:left;
+  }
+  .opts button .pw{direction:ltr;display:inline-block;font-weight:800}
+  .opts button[aria-pressed="true"]{border-color:var(--ink);background:#f3f0e8}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .schip{
+    border:2px solid var(--line);background:var(--paper);border-radius:999px;padding:9px 14px;
+    font:inherit;font-size:var(--fs-cap);font-weight:700;color:var(--ink);cursor:pointer;min-height:46px;
+  }
+  .schip[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:52px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--safe);background:#e8f2ed;font-weight:600}
+  .opt.wrong{border-color:var(--risk);background:#fbeae8}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
+      grid-template-areas:"bar bar" "head head" "tabs tabs" "left right" "quiz quiz" "foot foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+    .left{grid-area:left} .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+    .panel{margin-top:0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .live .wave,.fullring{animation:none;opacity:.8}
+    *{transition-duration:.01ms !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · IoT</span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 id="title"></h1>
+  <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group">
+    <button type="button" id="tabTank" aria-pressed="true"></button>
+    <button type="button" id="tabHops" aria-pressed="false"></button>
+    <button type="button" id="tabSafe" aria-pressed="false"></button>
+  </div>
+
+  <div class="left">
+  <div class="scene">
+    <svg viewBox="0 0 300 230" role="img" id="svg" aria-label="A water tank connected to a phone"></svg>
+  </div>
+
+  <div class="log" id="log"></div>
+
+  <div class="readout">
+    <span class="statechip" id="statechip"></span>
+    <p class="says" id="says"></p>
+    <p class="detail" id="detail"></p>
+    <div class="hops" id="hops"></div>
+    <p class="warn" id="warn"></p>
+    <p class="why-note"><b id="whyLbl"></b> <span id="whyText"></span></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="panel">
+    <h2 id="panelHead"></h2>
+    <div class="btns" id="btns"></div>
+    <div class="opts" id="opts"></div>
+    <div class="chips" id="chips" role="group"></div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <h2 id="quizHead" style="font-size:var(--fs-lg);font-weight:800;margin:0 0 18px"></h2>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad's bilingual AI and coding school. WhatsApp 0337 1468899" data-ur="اے آئی فور کڈز — اسلام آباد کا دو زبانوں والا اے آئی اور کوڈنگ سکول۔ واٹس ایپ 0337 1468899"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var lang="en", tab="tank";
+  var level=30, motor=false, smart=true, ticker=null, log=[], holdFull=0;
+  var auto=true, loLim=25, hiLim=95;
+  var hop=0, dir="up", hopTimer=null;
+  var pw=null;
+
+  var PWS=[
+    { id:"weak", show:"1234", strong:false,
+      label:{en:"1234", ur:"1234"},
+      time:{en:"guessed in under a second", ur:"ایک سیکنڈ سے کم میں توڑ لیا جائے"},
+      note:{en:"This is the password most devices arrive with, and the first one anybody tries. A device left on its default is not locked at all.",
+            ur:"زیادہ تر آلات یہی پاس ورڈ لے کر آتے ہیں، اور سب سے پہلے یہی آزمایا جاتا ہے۔ ڈیفالٹ پر چھوڑا ہوا آلہ دراصل بند ہے ہی نہیں۔"} },
+    { id:"name", show:"ahmad2015", strong:false,
+      label:{en:"ahmad2015", ur:"ahmad2015"},
+      time:{en:"guessed in a few minutes", ur:"چند منٹ میں توڑ لیا جائے"},
+      note:{en:"A name and a year look private, but they are the two things about you that are easiest to find out.",
+            ur:"نام اور سال ذاتی لگتے ہیں، مگر آپ کے بارے میں یہی دو چیزیں سب سے آسانی سے پتا چل جاتی ہیں۔"} },
+    { id:"good", show:"Tanki#7Neeli", strong:true,
+      label:{en:"Tanki#7Neeli", ur:"Tanki#7Neeli"},
+      time:{en:"would take years", ur:"توڑنے میں برسوں لگ جائیں"},
+      note:{en:"Long, mixed up, and not a word anybody could look up about you. Length matters more than strange symbols.",
+            ur:"لمبا، ملا جلا، اور ایسا لفظ نہیں جو کوئی آپ کے بارے میں ڈھونڈ سکے۔ عجیب نشانات سے زیادہ اہم لمبائی ہے۔"} }
+  ];
+
+  var HOPS=[
+    { en:"Sensor", ur:"سینسر",
+      up:{en:"A float inside the tank notices the water has reached 82 percent. That is all it does — it measures.",
+          ur:"ٹینکی کے اندر ایک تیرتا ہوا سینسر بھانپ لیتا ہے کہ پانی 82 فیصد تک پہنچ گیا۔ بس اتنا ہی اس کا کام ہے — ناپنا۔"},
+      down:{en:"Nothing for the sensor to do on the way back. Commands are not its business.",
+            ur:"واپسی پر سینسر کے لیے کچھ نہیں۔ حکم اس کا کام نہیں۔"} },
+    { en:"The little board", ur:"چھوٹا بورڈ",
+      up:{en:"A small computer beside the tank turns that reading into a short message and hands it to the wifi.",
+          ur:"ٹینکی کے پاس ایک چھوٹا کمپیوٹر اس پیمائش کو ایک مختصر پیغام میں بدل کر وائی فائی کے حوالے کر دیتا ہے۔"},
+      down:{en:"On the way back, this board receives the command and switches the motor relay.",
+            ur:"واپسی پر یہی بورڈ حکم وصول کرتا ہے اور موٹر کا سوئچ چلا دیتا ہے۔"} },
+    { en:"Home wifi", ur:"گھر کا وائی فائی",
+      up:{en:"The router passes the message out of the house and onto the internet.",
+          ur:"راؤٹر پیغام کو گھر سے باہر انٹرنیٹ پر بھیج دیتا ہے۔"},
+      down:{en:"And it lets the command back in. Nothing reaches your tank without passing through here.",
+            ur:"اور حکم کو واپس اندر آنے دیتا ہے۔ یہاں سے گزرے بغیر کوئی چیز آپ کی ٹینکی تک نہیں پہنچتی۔"} },
+    { en:"Somewhere far away", ur:"کہیں دور",
+      up:{en:"A computer in another city stores the reading and remembers it. This is what people mean by the cloud — it is just somebody else's computer.",
+          ur:"کسی اور شہر کا کمپیوٹر یہ پیمائش محفوظ کر لیتا ہے اور یاد رکھتا ہے۔ کلاؤڈ کا مطلب یہی ہے — یہ بس کسی اور کا کمپیوٹر ہے۔"},
+      down:{en:"Your tap on the phone arrives here first, and is sent on towards your house.",
+            ur:"فون پر آپ کا دبانا پہلے یہاں پہنچتا ہے، اور پھر آپ کے گھر کی طرف بھیجا جاتا ہے۔"} },
+    { en:"Your phone", ur:"آپ کا فون",
+      up:{en:"The number appears on your screen. You could be in the next room or in another country — the journey is the same.",
+          ur:"عدد آپ کی اسکرین پر آ جاتا ہے۔ آپ ساتھ والے کمرے میں ہوں یا کسی اور ملک میں — سفر وہی رہتا ہے۔"},
+      down:{en:"You press the button. From here the command starts travelling back down the same path.",
+            ur:"آپ بٹن دباتے ہیں۔ یہیں سے حکم اسی راستے پر واپس سفر شروع کرتا ہے۔"} }
+  ];
+
+  var T={
+    tabTank:{en:"Smart water tank", ur:"سمارٹ پانی کی ٹینکی"},
+    tabHops:{en:"The message journey", ur:"پیغام کا سفر"},
+    tabSafe:{en:"Who else can get in?", ur:"اور کون گھس سکتا ہے؟"},
+    titleTank:{en:"An ordinary tank that can tell you how full it is.",
+               ur:"ایک عام ٹینکی، جو بتا سکتی ہے کہ کتنی بھری ہے۔"},
+    subTank:{en:"That one added sentence is the whole of IoT.",
+             ur:"بس یہی ایک اضافی جملہ پورا IoT ہے۔"},
+    titleHops:{en:"Your tap travels further than you think.",
+               ur:"آپ کا ایک بٹن دبانا سوچ سے کہیں زیادہ سفر کرتا ہے۔"},
+    subHops:{en:"Follow one reading up, and one command back down.",
+             ur:"ایک پیمائش کے ساتھ اوپر جائیں، اور ایک حکم کے ساتھ واپس نیچے۔"},
+    titleSafe:{en:"If your tank can reach you, someone else can try to reach your tank.",
+               ur:"اگر آپ کی ٹینکی آپ تک پہنچ سکتی ہے، تو کوئی اور بھی اس تک پہنچنے کی کوشش کر سکتا ہے۔"},
+    subSafe:{en:"Pick a password and see how long it would hold.",
+             ur:"ایک پاس ورڈ چنیں اور دیکھیں وہ کتنی دیر ٹکے گا۔"},
+    headTank:{en:"Control it from your phone", ur:"فون سے چلائیں"},
+    headHops:{en:"Step along the path", ur:"راستے پر چلیں"},
+    headSafe:{en:"Choose the password", ur:"پاس ورڈ چنیں"},
+    motorOn:{en:"Turn the motor ON", ur:"موٹر چلائیں"},
+    autoOn:{en:"Automatic \u2014 tap to take over by hand", ur:"خودکار — ہاتھ سے چلانے کے لیے دبائیں"},
+    autoOff:{en:"By hand \u2014 tap to make it automatic", ur:"ہاتھ سے — خودکار بنانے کے لیے دبائیں"},
+    loLbl:{en:"Start the pump at", ur:"پمپ چلائیں اس سطح پر"},
+    hiLbl:{en:"Stop the pump at", ur:"پمپ روکیں اس سطح پر"},
+    autoWait:{en:"Waiting \u2014 the pump starts by itself at {lo}%", ur:"انتظار — پمپ {lo}% پر خود چل پڑے گا"},
+    autoFill:{en:"Filling \u2014 it will stop by itself at {hi}%", ur:"بھر رہی ہے — {hi}% پر خود رک جائے گی"},
+    whyAuto:{en:"Nobody is watching the tank. The board checks the level several times a second and compares it with two numbers you set. That is all automation is — a rule, checked over and over.",
+             ur:"ٹینکی کو کوئی دیکھ نہیں رہا۔ بورڈ سیکنڈ میں کئی بار سطح جانچتا ہے اور آپ کے مقرر کردہ دو عدد سے ملاتا ہے۔ آٹومیشن بس یہی ہے — ایک اصول، بار بار جانچا ہوا۔"},
+    whyTwo:{en:"Why two limits and not one? With a single line the pump would switch on, push the level one drop above the line, switch off, drop below, switch on again \u2014 clicking on and off all day until the motor burns. The gap between the two numbers is what stops that.",
+            ur:"دو حدیں کیوں، ایک کیوں نہیں؟ ایک ہی لکیر ہو تو پمپ چلے گا، سطح ایک قطرہ اوپر جائے گی، پمپ بند، سطح نیچے، پمپ پھر چالو — سارا دن ٹک ٹک کرتا رہے گا یہاں تک کہ موٹر جل جائے۔ دونوں عدد کے بیچ کا فاصلہ ہی اسے روکتا ہے۔"},
+    motorOff:{en:"Turn the motor OFF", ur:"موٹر بند کریں"},
+    smartOn:{en:"Smart mode is ON \u2014 tap to make it an ordinary tank",
+             ur:"سمارٹ موڈ آن ہے — عام ٹینکی بنانے کے لیے دبائیں"},
+    smartOff:{en:"Ordinary tank \u2014 tap to connect it", ur:"عام ٹینکی — جوڑنے کے لیے دبائیں"},
+    upward:{en:"Reading going up", ur:"پیمائش اوپر جا رہی ہے"},
+    downward:{en:"Command coming down", ur:"حکم نیچے آ رہا ہے"},
+    flip:{en:"Send a command back down", ur:"حکم واپس نیچے بھیجیں"},
+    flipUp:{en:"Send a reading back up", ur:"پیمائش واپس اوپر بھیجیں"},
+    next:{en:"Next \u2192", ur:"\u2192 آگے"},
+    lvl:{en:"Tank is {n}% full", ur:"ٹینکی {n}% بھری ہے"},
+    running:{en:"Motor running", ur:"موٹر چل رہی ہے"},
+    idle:{en:"Motor off", ur:"موٹر بند"},
+    full:{en:"Full \u2014 motor switched off by itself", ur:"بھر گئی — موٹر خود بند ہو گئی"},
+    low:{en:"Running low", ur:"پانی کم ہو رہا ہے"},
+    saysSmart:{en:"The tank is telling your phone its level, every few seconds.",
+               ur:"ٹینکی ہر چند سیکنڈ بعد آپ کے فون کو اپنی سطح بتا رہی ہے۔"},
+    saysDumb:{en:"Nothing is being sent. To find out the level you have to climb up and look.",
+              ur:"کچھ نہیں بھیجا جا رہا۔ سطح جاننے کے لیے اوپر چڑھ کر دیکھنا پڑے گا۔"},
+    detSmart:{en:"Two things are travelling: the level going out to you, and your button coming back to the motor.",
+              ur:"دو چیزیں سفر کر رہی ہیں: سطح آپ تک، اور آپ کا بٹن واپس موٹر تک۔"},
+    detDumb:{en:"This is exactly the tank on most roofs. It works perfectly — it just cannot tell anybody anything.",
+             ur:"یہ بالکل وہی ٹینکی ہے جو زیادہ تر چھتوں پر ہے۔ یہ ٹھیک کام کرتی ہے — بس کسی کو کچھ بتا نہیں سکتی۔"},
+    whyTank:{en:"A thing becomes part of the Internet of Things when it can do two extra jobs: report what it senses, and take an instruction from far away. The tank still holds water exactly as before.",
+             ur:"کوئی چیز Internet of Things کا حصہ تب بنتی ہے جب وہ دو اضافی کام کر سکے: جو محسوس کرے وہ بتا دے، اور دور سے آنے والا حکم مان لے۔ ٹینکی پانی پہلے کی طرح ہی رکھتی ہے۔"},
+    whyFull:{en:"Notice nobody switched it off. The board was told: when the level reaches 100, cut the motor. That small rule is why smart tanks do not overflow and pumps do not burn out.",
+             ur:"غور کریں، اسے کسی نے بند نہیں کیا۔ بورڈ کو بتایا گیا تھا: سطح 100 پر پہنچے تو موٹر بند کر دو۔ یہی چھوٹا سا اصول ہے جس سے سمارٹ ٹینکی اُبلتی نہیں اور موٹر جلتی نہیں۔"},
+    whyDumb:{en:"Compare the two. Same tank, same motor, same water. The only difference is a small board and a wifi connection — and suddenly the roof can talk.",
+             ur:"دونوں کا موازنہ کریں۔ وہی ٹینکی، وہی موٹر، وہی پانی۔ فرق صرف ایک چھوٹا بورڈ اور وائی فائی کا جوڑ ہے — اور اچانک چھت بولنے لگتی ہے۔"},
+    whyHopsUp:{en:"Five stops, and only one of them is in your house. The reading leaves the country and comes back before it reaches your hand.",
+               ur:"پانچ پڑاؤ، اور ان میں سے صرف ایک آپ کے گھر میں ہے۔ پیمائش آپ کے ہاتھ تک پہنچنے سے پہلے ملک سے باہر جا کر واپس آتی ہے۔"},
+    whyHopsDown:{en:"The command takes exactly the same road, in reverse. This is why a smart device stops working when the wifi goes — the road is broken, not the device.",
+                 ur:"حکم بالکل یہی راستہ الٹا طے کرتا ہے۔ اسی لیے وائی فائی جاتے ہی سمارٹ آلہ کام چھوڑ دیتا ہے — آلہ خراب نہیں ہوتا، راستہ ٹوٹ جاتا ہے۔"},
+    whySafe:{en:"Being able to reach your tank from anywhere is the useful part and the risky part at the same time. It is the same door — the password is the lock.",
+             ur:"کہیں سے بھی اپنی ٹینکی تک پہنچ سکنا فائدے کی بات بھی ہے اور خطرے کی بھی۔ دروازہ ایک ہی ہے — پاس ورڈ اس کا تالا ہے۔"},
+    warnWeak:{en:"With this password, somebody outside your house could switch your motor on and leave it running all night. Never keep the password a device came with, and never share it in a message.",
+              ur:"اس پاس ورڈ کے ساتھ، گھر سے باہر کا کوئی شخص آپ کی موٹر چلا کر ساری رات چھوڑ سکتا ہے۔ جو پاس ورڈ آلے کے ساتھ آیا ہو اسے کبھی نہ رکھیں، اور کسی پیغام میں کبھی نہ بھیجیں۔"},
+    warnGood:{en:"Good. One more habit worth having: if a device offers to update itself, let it. Updates usually exist because somebody found a hole.",
+              ur:"بہت اچھے۔ ایک اور عادت اپنانے لائق: اگر کوئی آلہ خود کو اپ ڈیٹ کرنے کو کہے تو کرنے دیں۔ اپ ڈیٹ عموماً اسی لیے آتی ہے کہ کسی کو کوئی سوراخ مل گیا تھا۔"},
+    whyLbl:{en:"Notice:", ur:"غور کریں:"},
+    quiz:{en:"Check yourself", ur:"اپنا امتحان لیں"}
+  };
+
+  var QUIZ=[
+    { q:{en:"What makes an ordinary water tank into a smart one?",
+         ur:"عام پانی کی ٹینکی کو سمارٹ کیا چیز بناتی ہے؟"},
+      o:[{en:"It holds more water", ur:"وہ زیادہ پانی رکھتی ہے"},
+         {en:"It can report what it senses and accept a command from far away",
+          ur:"وہ جو محسوس کرے بتا سکتی ہے اور دور سے آیا حکم مان سکتی ہے"},
+         {en:"It is made of better plastic", ur:"وہ بہتر پلاسٹک کی بنی ہوتی ہے"},
+         {en:"It cleans itself", ur:"وہ خود کو صاف کرتی ہے"}],
+      a:1,
+      f:{en:"The tank does the same job it always did. A small board and a connection are all that was added — that is the whole idea behind the Internet of Things.",
+         ur:"ٹینکی وہی کام کرتی ہے جو پہلے کرتی تھی۔ صرف ایک چھوٹا بورڈ اور ایک جوڑ بڑھایا گیا — Internet of Things کا پورا خیال یہی ہے۔"} },
+
+    { q:{en:"What do people actually mean by \u201cthe cloud\u201d?",
+         ur:"لوگ \u201cکلاؤڈ\u201d سے اصل میں کیا مراد لیتے ہیں؟"},
+      o:[{en:"A real cloud in the sky", ur:"آسمان پر ایک حقیقی بادل"},
+         {en:"Somebody else's computer, in another building", ur:"کسی اور کا کمپیوٹر، کسی اور عمارت میں"},
+         {en:"The inside of your phone", ur:"آپ کے فون کا اندرونی حصہ"},
+         {en:"The wifi router at home", ur:"گھر کا وائی فائی راؤٹر"}],
+      a:1,
+      f:{en:"It sounds floaty and mysterious, but it is a machine sitting on a shelf somewhere, owned by a company, with your tank's readings on it.",
+         ur:"نام ہوا میں تیرتا ہوا لگتا ہے، مگر یہ کسی جگہ رکھی ایک مشین ہے، کسی کمپنی کی ملکیت، جس پر آپ کی ٹینکی کی پیمائشیں پڑی ہیں۔"} },
+
+    { q:{en:"Your smart light stops responding when the internet goes down. Why?",
+         ur:"انٹرنیٹ بند ہو تو آپ کی سمارٹ لائٹ جواب دینا چھوڑ دیتی ہے۔ کیوں؟"},
+      o:[{en:"The bulb has burnt out", ur:"بلب جل گیا ہے"},
+         {en:"The road the command travels on is broken, not the light itself",
+          ur:"جس راستے سے حکم جاتا ہے وہ ٹوٹ گیا ہے، لائٹ خود نہیں"},
+         {en:"Smart lights only work at night", ur:"سمارٹ لائٹس صرف رات کو چلتی ہیں"},
+         {en:"It ran out of memory", ur:"اس کی میموری ختم ہو گئی"}],
+      a:1,
+      f:{en:"The switch on the wall usually still works. Only the long way round — phone, internet, back home — is cut.",
+         ur:"دیوار کا سوئچ عموماً پھر بھی چلتا ہے۔ صرف لمبا راستہ — فون، انٹرنیٹ، واپس گھر — کٹ جاتا ہے۔"} },
+
+    { q:{en:"Which of these is the safest password for a home device?",
+         ur:"گھریلو آلے کے لیے ان میں سے محفوظ ترین پاس ورڈ کون سا ہے؟"},
+      o:[{en:"1234", ur:"1234"},{en:"admin", ur:"admin"},
+         {en:"Tanki#7Neeli", ur:"Tanki#7Neeli"},{en:"your own name", ur:"آپ کا اپنا نام"}],
+      a:2,
+      f:{en:"Long, mixed and not connected to you. And the password a device came with is the very first one anybody tries — change it on day one.",
+         ur:"لمبا، ملا جلا، اور آپ سے غیر متعلق۔ اور جو پاس ورڈ آلے کے ساتھ آتا ہے وہی سب سے پہلے آزمایا جاتا ہے — پہلے ہی دن بدل دیں۔"} },
+
+    { q:{en:"The tank fills to 100 percent and the motor stops on its own. Who stopped it?",
+         ur:"ٹینکی 100 فیصد بھر جاتی ہے اور موٹر خود رک جاتی ہے۔ اسے کس نے روکا؟"},
+      o:[{en:"The tank decided by itself", ur:"ٹینکی نے خود فیصلہ کیا"},
+         {en:"A rule somebody wrote: when the level hits 100, cut the motor",
+          ur:"ایک اصول جو کسی نے لکھا تھا: سطح 100 پر پہنچے تو موٹر بند کر دو"},
+         {en:"The water pushed the switch", ur:"پانی نے سوئچ دبا دیا"},
+         {en:"Nobody, it was luck", ur:"کسی نے نہیں، اتفاق تھا"}],
+      a:1,
+      f:{en:"Every clever thing a smart device does was written down by a person first. The device is only following instructions, the same as any robot.",
+         ur:"سمارٹ آلہ جو بھی عقلمندی کا کام کرتا ہے، وہ پہلے کسی انسان نے لکھی ہوتی ہے۔ آلہ صرف ہدایات پر چل رہا ہوتا ہے، بالکل کسی روبوٹ کی طرح۔"} },
+
+    { q:{en:"What is the honest downside of connecting a home device to the internet?",
+         ur:"گھریلو آلے کو انٹرنیٹ سے جوڑنے کا سچا نقصان کیا ہے؟"},
+      o:[{en:"It uses more water", ur:"وہ زیادہ پانی استعمال کرتا ہے"},
+         {en:"The same door that lets you in can let a stranger try to get in",
+          ur:"جو دروازہ آپ کو اندر آنے دیتا ہے، اسی سے کوئی اجنبی بھی کوشش کر سکتا ہے"},
+         {en:"It becomes slower at its normal job", ur:"وہ اپنے عام کام میں سست ہو جاتا ہے"},
+         {en:"There is no downside", ur:"کوئی نقصان نہیں"}],
+      a:1,
+      f:{en:"Worth knowing rather than worth fearing. A good password, updates left switched on, and not sharing access is most of what keeps it safe.",
+         ur:"یہ ڈرنے کی نہیں، جاننے کی بات ہے۔ اچھا پاس ورڈ، اپ ڈیٹ چلتی رہنے دینا، اور رسائی کسی کو نہ دینا — حفاظت کا زیادہ تر کام یہی ہے۔"} }
+  ];
+
+  function $(id){ return document.getElementById(id); }
+  function t(o){ return o[lang]; }
+  var LRI="\u2066", PDI="\u2069";
+  var LATIN_RUN=/[A-Za-z0-9][A-Za-z0-9 .,%#'\u2019+()\/@_-]*[A-Za-z0-9%]|[A-Za-z0-9]/g;
+  function isolate(s){ return s.replace(LATIN_RUN, function(m){ return LRI+m+PDI; }); }
+  function setText(el,str){
+    el.textContent=(lang==="ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang==="ur");
+    el.setAttribute("dir", lang==="ur" ? "rtl":"ltr");
+  }
+  function fill(s,m){ Object.keys(m).forEach(function(k){ s=s.split("{"+k+"}").join(m[k]); }); return s; }
+  var NS="http://www.w3.org/2000/svg";
+  function mk(tag,a){ var e=document.createElementNS(NS,tag);
+    for (var k in a) e.setAttribute(k,a[k]); return e; }
+
+  /* ---------- the tank scene ---------- */
+  function drawTank(){
+    var svg=$("svg"); svg.innerHTML=""; svg.setAttribute("viewBox","0 0 300 230");
+    svg.classList.toggle("live", smart);
+    var g=mk("g",{}); svg.appendChild(g);
+    // tank
+    var TX=22, TY=34, TW=96, TH=130;
+    g.appendChild(mk("rect",{x:TX,y:TY,width:TW,height:TH,rx:8,
+                             fill:"#eef3f7",stroke:"var(--tank)","stroke-width":4}));
+    var h=TH*level/100;
+    g.appendChild(mk("rect",{id:"level",x:TX+4,y:TY+TH-h,width:TW-8,height:h,
+                             fill:"var(--water)",opacity:.8}));
+    if (level>=99.5){
+      g.appendChild(mk("rect",{x:TX-4,y:TY-4,width:TW+8,height:TH+8,rx:11,
+                               fill:"none",stroke:"var(--safe)","stroke-width":5,
+                               "class":"fullring"}));
+      var ft=mk("text",{x:TX+TW/2,y:TY-12,"text-anchor":"middle","font-size":"14",
+                        "font-weight":"800",fill:"var(--safe)",
+                        "font-family": lang==="ur" ? "Noto Nastaliq Urdu, serif"
+                                                   : "Baloo Bhaijaan 2, sans-serif"});
+      ft.textContent = lang==="ur" ? "بھر گئی" : "FULL";
+      g.appendChild(ft);
+    }
+    for (var i=1;i<4;i++)
+      g.appendChild(mk("line",{x1:TX,y1:TY+TH*i/4,x2:TX+10,y2:TY+TH*i/4,
+                               stroke:"var(--tank)","stroke-width":2}));
+    if (auto && smart){
+      [[hiLim,"var(--risk)", lang==="ur" ? "بند" : "OFF"],
+       [loLim,"var(--safe)", lang==="ur" ? "چالو" : "ON"]].forEach(function(L){
+        var ly = TY+TH-TH*L[0]/100;
+        g.appendChild(mk("line",{x1:TX-6,y1:ly,x2:TX+TW+6,y2:ly,stroke:L[1],
+                                 "stroke-width":3,"stroke-dasharray":"6 4"}));
+        var lt=mk("text",{x:TX+TW+10,y:ly+5,"font-size":"12","font-weight":"800",fill:L[1],
+                          "font-family": lang==="ur" ? "Noto Nastaliq Urdu, serif"
+                                                     : "Baloo Bhaijaan 2, sans-serif"});
+        lt.textContent=L[2]+" "+L[0]+"%";
+        g.appendChild(lt);
+      });
+    }
+    var pc=mk("text",{x:TX+TW/2,y:TY+TH/2+7,"text-anchor":"middle","font-size":"22",
+                      "font-weight":"800",fill:"var(--water-deep)",
+                      "font-family":"Baloo Bhaijaan 2, sans-serif"});
+    pc.textContent=Math.round(level)+"%"; g.appendChild(pc);
+    // motor
+    g.appendChild(mk("rect",{x:TX+18,y:TY+TH+14,width:58,height:30,rx:6,
+                             fill: motor ? "var(--safe)" : "#a7b2bd",
+                             stroke:"var(--ink)","stroke-width":2.5}));
+    var mt=mk("text",{x:TX+47,y:TY+TH+34,"text-anchor":"middle","font-size":"13",
+                      "font-weight":"800",fill:"#fff",
+                      "font-family":"Baloo Bhaijaan 2, sans-serif"});
+    mt.textContent = motor ? "ON" : "OFF"; g.appendChild(mt);
+    // the little board and its waves
+    if (smart){
+      g.appendChild(mk("rect",{x:TX+TW+6,y:TY+18,width:26,height:20,rx:4,
+                               fill:"var(--dev)",stroke:"var(--ink)","stroke-width":2}));
+      for (var w=1;w<=3;w++)
+        g.appendChild(mk("path",{d:"M"+(TX+TW+36+w*9)+" "+(TY+10+w*4)+
+                                   " Q"+(TX+TW+44+w*9)+" "+(TY+28)+" "+(TX+TW+36+w*9)+" "+(TY+46-w*4),
+                                 fill:"none",stroke:"var(--wifi)","stroke-width":3,
+                                 "class":"wave","stroke-linecap":"round"}));
+    }
+    // phone
+    g.appendChild(mk("rect",{x:212,y:52,width:62,height:112,rx:11,
+                             fill:"#1f2933",stroke:"var(--ink)","stroke-width":2.5}));
+    g.appendChild(mk("rect",{x:218,y:62,width:50,height:88,rx:5,
+                             fill: smart ? "#eef3f7" : "#3a444f"}));
+    if (smart){
+      var pv=mk("text",{x:243,y:100,"text-anchor":"middle","font-size":"20","font-weight":"800",
+                        fill:"var(--water-deep)","font-family":"Baloo Bhaijaan 2, sans-serif"});
+      pv.textContent=Math.round(level)+"%"; g.appendChild(pv);
+      g.appendChild(mk("rect",{x:224,y:112,width:38,height:24,rx:6,
+                               fill: motor ? "var(--safe)" : "#c3ccd6"}));
+      var pb=mk("text",{x:243,y:129,"text-anchor":"middle","font-size":"12","font-weight":"800",
+                        fill:"#fff","font-family":"Baloo Bhaijaan 2, sans-serif"});
+      pb.textContent = motor ? "ON" : "OFF"; g.appendChild(pb);
+    }
+  }
+
+  function drawHops(){
+    var svg=$("svg"); svg.innerHTML=""; svg.setAttribute("viewBox","0 0 300 230");
+    var g=mk("g",{}); svg.appendChild(g);
+    var xs=[36,96,150,210,268], y=120;
+    g.appendChild(mk("line",{x1:36,y1:y,x2:268,y2:y,stroke:"#b9c6d2","stroke-width":4}));
+    xs.forEach(function(x,i){
+      var on = i===hop;
+      g.appendChild(mk("circle",{cx:x,cy:y,r: on ? 20 : 14,
+                                 fill: on ? "var(--dev)" : "#cdd7e0",
+                                 stroke:"var(--ink)","stroke-width": on ? 3 : 2}));
+      var tx=mk("text",{x:x,y:y+ (on?6:5),"text-anchor":"middle","font-size": on?"15":"12",
+                        "font-weight":"800",fill: on ? "#fff":"var(--ink-soft)",
+                        "font-family":"Baloo Bhaijaan 2, sans-serif"});
+      tx.textContent=String(i+1); g.appendChild(tx);
+      var nm=mk("text",{x:x,y: i%2===0 ? y-32 : y+40,"text-anchor":"middle","font-size":"12",
+                        "font-weight":"800",fill:"var(--ink-soft)",
+                        "font-family": lang==="ur" ? "Noto Nastaliq Urdu, serif"
+                                                   : "Baloo Bhaijaan 2, sans-serif"});
+      nm.textContent=t(HOPS[i]); g.appendChild(nm);
+    });
+    var ax = dir==="up" ? 268 : 36;
+    g.appendChild(mk("path",{d: dir==="up"
+        ? "M"+(ax-14)+" 34 L"+ax+" 44 L"+(ax-14)+" 54"
+        : "M"+(ax+14)+" 34 L"+ax+" 44 L"+(ax+14)+" 54",
+      fill:"none",stroke:"var(--wifi)","stroke-width":4,"stroke-linecap":"round",
+      "stroke-linejoin":"round"}));
+    var dl=mk("text",{x:150,y:48,"text-anchor":"middle","font-size":"13","font-weight":"800",
+                      fill:"var(--wifi)",
+                      "font-family": lang==="ur" ? "Noto Nastaliq Urdu, serif"
+                                                 : "Baloo Bhaijaan 2, sans-serif"});
+    dl.textContent = dir==="up" ? t(T.upward) : t(T.downward);
+    g.appendChild(dl);
+  }
+
+  function drawSafe(){
+    var svg=$("svg"); svg.innerHTML=""; svg.setAttribute("viewBox","0 0 300 230");
+    var g=mk("g",{}); svg.appendChild(g);
+    var p = pw ? PWS.filter(function(x){return x.id===pw;})[0] : null;
+    var strong = p && p.strong;
+    g.appendChild(mk("rect",{x:96,y:66,width:108,height:104,rx:12,
+                             fill:"#eef3f7",stroke:"var(--ink)","stroke-width":3}));
+    g.appendChild(mk("rect",{x:126,y:34,width:48,height:44,rx:24,fill:"none",
+                             stroke: p ? (strong ? "var(--safe)":"var(--risk)") : "#b9c6d2",
+                             "stroke-width":7}));
+    g.appendChild(mk("circle",{cx:150,cy:118,r:15,
+                               fill: p ? (strong ? "var(--safe)":"var(--risk)") : "#b9c6d2"}));
+    g.appendChild(mk("rect",{x:145,y:118,width:10,height:24,rx:4,
+                             fill: p ? (strong ? "var(--safe)":"var(--risk)") : "#b9c6d2"}));
+    if (p && !strong){
+      var th=mk("text",{x:246,y:120,"text-anchor":"middle","font-size":"30",
+                        "font-family":"Baloo Bhaijaan 2, sans-serif"});
+      th.textContent="\uD83D\uDC64"; g.appendChild(th);
+      g.appendChild(mk("path",{d:"M228 118 L206 118",stroke:"var(--risk)","stroke-width":4,
+                               "stroke-linecap":"round"}));
+      g.appendChild(mk("path",{d:"M214 110 L206 118 L214 126",fill:"none",
+                               stroke:"var(--risk)","stroke-width":4,"stroke-linecap":"round",
+                               "stroke-linejoin":"round"}));
+    }
+    if (p){
+      var tx=mk("text",{x:150,y:196,"text-anchor":"middle","font-size":"15","font-weight":"800",
+                        fill:"var(--ink)","font-family":"Baloo Bhaijaan 2, sans-serif"});
+      tx.textContent=p.show; g.appendChild(tx);
+    }
+  }
+
+  /* ---------- the tank ticking along ---------- */
+  function startTank(){
+    clearInterval(ticker);
+    ticker=setInterval(function(){
+      if (tab!=="tank") return;
+      var before=level;
+      if (holdFull > 0){ holdFull--; render(); return; }
+      if (motor) level=Math.min(100, level+2.4);
+      else level=Math.max(0, level-0.25);
+
+      if (auto && smart){
+        if (!motor && level<=loLim){
+          motor=true;
+          push("alert", "auto: level " + Math.round(level) + "% \u2264 " + loLim + "% \u2192 motor ON");
+          holdFull=4;
+        } else if (motor && level>=hiLim){
+          motor=false;
+          push("alert", "auto: level " + Math.round(level) + "% \u2265 " + hiLim + "% \u2192 motor OFF");
+          holdFull=6;
+        }
+      } else if (motor && level>=99.9){
+        motor=false; level=100; holdFull=10;
+        push("alert", "tank \u2192 phone: FULL, motor off");
+      }
+      else if (Math.floor(before/10)!==Math.floor(level/10) && smart)
+        push("", "tank \u2192 phone: level " + Math.round(level) + "%");
+      render();
+    }, 500);
+  }
+  function push(kind, text){
+    log.unshift({kind:kind, text:text});
+    if (log.length>4) log.pop();
+  }
+
+  /* ---------- render ---------- */
+  function render(){
+    ["Tank","Hops","Safe"].forEach(function(x){
+      $("tab"+x).setAttribute("aria-pressed", tab===x.toLowerCase() ? "true":"false");
+    });
+    setText($("tabTank"), t(T.tabTank));
+    setText($("tabHops"), t(T.tabHops));
+    setText($("tabSafe"), t(T.tabSafe));
+    $("whyLbl").textContent=t(T.whyLbl);
+    setText($("quizHead"), t(T.quiz));
+    var btns=$("btns"), opts=$("opts"), chips=$("chips"), hops=$("hops"), lg=$("log");
+    btns.innerHTML=""; opts.innerHTML=""; chips.innerHTML=""; hops.innerHTML="";
+    var chip=$("statechip"); chip.className="statechip";
+    lg.style.display = (tab==="tank") ? "" : "none";
+    hops.style.display = (tab==="hops") ? "" : "none";
+    $("warn").style.display = (tab==="safe" && pw) ? "" : "none";
+
+    if (tab==="tank"){
+      drawTank();
+      setText($("title"), t(T.titleTank));
+      setText($("subtitle"), t(T.subTank));
+      setText($("panelHead"), t(T.headTank));
+      var fullish = level>=99.5, lowish = level<15;
+      chip.className="statechip" + (fullish ? " ok" : (lowish ? " bad" : ""));
+      setText(chip, fullish ? t(T.full) : (lowish ? t(T.low) : fill(t(T.lvl),{n:Math.round(level)})));
+      setText($("says"), smart ? t(T.saysSmart) : t(T.saysDumb));
+      setText($("detail"), smart ? t(T.detSmart) : t(T.detDumb));
+      if (smart && auto){
+        setText(chip, motor ? fill(t(T.autoFill),{hi:hiLim}) : fill(t(T.autoWait),{lo:loLim}));
+        chip.className="statechip" + (motor ? " ok" : "");
+      }
+      setText($("whyText"), !smart ? t(T.whyDumb)
+                          : (auto ? (motor ? t(T.whyAuto) : t(T.whyTwo))
+                                  : (fullish ? t(T.whyFull) : t(T.whyTank))));
+      lg.innerHTML="";
+      if (smart && log.length) log.forEach(function(r){
+        var d=document.createElement("div");
+        d.className="row" + (r.kind==="alert" ? " alert":"");
+        var b=document.createElement("b"); b.textContent=r.text;
+        d.appendChild(b); lg.appendChild(d);
+      });
+      else {
+        var d2=document.createElement("div"); d2.className="row";
+        d2.textContent = smart ? "\u2026" : "\u2014";
+        lg.appendChild(d2);
+      }
+      var ab=document.createElement("button"); ab.type="button"; ab.className="go";
+      setText(ab, auto ? t(T.autoOn) : t(T.autoOff));
+      ab.disabled = !smart;
+      ab.addEventListener("click", function(){ auto=!auto; render(); });
+      btns.appendChild(ab);
+
+      if (!auto){
+        var mb=document.createElement("button"); mb.type="button";
+        setText(mb, motor ? t(T.motorOff) : t(T.motorOn));
+        mb.disabled = !smart;
+        mb.addEventListener("click", function(){
+          motor=!motor;
+          push("", "phone \u2192 tank: motor " + (motor?"ON":"OFF"));
+          render();
+        });
+        btns.appendChild(mb);
+      }
+
+      if (auto && smart){
+        [[t(T.loLbl), loLim, function(v){ loLim=Math.max(5, Math.min(hiLim-20, v)); }],
+         [t(T.hiLbl), hiLim, function(v){ hiLim=Math.max(loLim+20, Math.min(100, v)); }]
+        ].forEach(function(row){
+          var r=document.createElement("div"); r.className="btns";
+          var nm=document.createElement("div");
+          nm.style.cssText="flex:2;display:flex;align-items:center;font-weight:700;font-size:var(--fs-cap)";
+          nm.textContent=row[0]+"  "+row[1]+"%";
+          nm.setAttribute("dir", lang==="ur"?"rtl":"ltr");
+          var mn=document.createElement("button"); mn.type="button"; mn.textContent="\u2212";
+          mn.addEventListener("click", function(){ row[2](row[1]-5); render(); });
+          var pl=document.createElement("button"); pl.type="button"; pl.textContent="+";
+          pl.addEventListener("click", function(){ row[2](row[1]+5); render(); });
+          r.appendChild(nm); r.appendChild(mn); r.appendChild(pl);
+          opts.appendChild(r);
+        });
+      }
+
+      var sb=document.createElement("button"); sb.type="button"; sb.className="schip";
+      setText(sb, smart ? t(T.smartOn) : t(T.smartOff));
+      sb.addEventListener("click", function(){ smart=!smart; if(!smart){ log=[]; } render(); });
+      chips.appendChild(sb);
+      lastSpoken="";
+      return;
+    }
+
+    if (tab==="hops"){
+      drawHops();
+      setText($("title"), t(T.titleHops));
+      setText($("subtitle"), t(T.subHops));
+      setText($("panelHead"), t(T.headHops));
+      setText(chip, dir==="up" ? t(T.upward) : t(T.downward));
+      setText($("says"), t(HOPS[hop]));
+      setText($("detail"), t(HOPS[hop][dir]));
+      setText($("whyText"), dir==="up" ? t(T.whyHopsUp) : t(T.whyHopsDown));
+      HOPS.forEach(function(h,i){
+        var d=document.createElement("div");
+        d.className="hop" + (i===hop ? " on" : (dir==="up" ? (i<hop?" done":"") : (i>hop?" done":"")));
+        d.textContent=t(h);
+        d.setAttribute("dir", lang==="ur"?"rtl":"ltr");
+        hops.appendChild(d);
+      });
+      var nb=document.createElement("button"); nb.type="button"; nb.className="go";
+      setText(nb, t(T.next));
+      nb.addEventListener("click", function(){
+        hop = dir==="up" ? hop+1 : hop-1;
+        if (hop>=HOPS.length){ hop=HOPS.length-1; dir="down"; }
+        if (hop<0){ hop=0; dir="up"; }
+        render();
+      });
+      var fb=document.createElement("button"); fb.type="button";
+      setText(fb, dir==="up" ? t(T.flip) : t(T.flipUp));
+      fb.addEventListener("click", function(){
+        dir = dir==="up" ? "down" : "up";
+        hop = dir==="up" ? 0 : HOPS.length-1;
+        render();
+      });
+      btns.appendChild(fb); btns.appendChild(nb);
+      lastSpoken="";
+      return;
+    }
+
+    drawSafe();
+    setText($("title"), t(T.titleSafe));
+    setText($("subtitle"), t(T.subSafe));
+    setText($("panelHead"), t(T.headSafe));
+    var p = pw ? PWS.filter(function(x){return x.id===pw;})[0] : null;
+    if (!p){
+      setText(chip, t(T.headSafe)); setText($("says"), ""); setText($("detail"), "");
+    } else {
+      chip.className="statechip " + (p.strong ? "ok":"bad");
+      setText(chip, t(p.time));
+      setText($("says"), p.show);
+      setText($("detail"), t(p.note));
+      setText($("warn"), p.strong ? t(T.warnGood) : t(T.warnWeak));
+    }
+    setText($("whyText"), t(T.whySafe));
+    PWS.forEach(function(x){
+      var b=document.createElement("button"); b.type="button";
+      b.setAttribute("aria-pressed", pw===x.id ? "true":"false");
+      var sp=document.createElement("span"); sp.className="pw"; sp.textContent=x.show;
+      b.appendChild(sp);
+      b.addEventListener("click", function(){ pw=x.id; render(); });
+      opts.appendChild(b);
+    });
+    lastSpoken="";
+  }
+
+  var lastSpoken="";
+
+  ["Tank","Hops","Safe"].forEach(function(x){
+    $("tab"+x).addEventListener("click", function(){
+      var m=x.toLowerCase();
+      if (tab===m) return;
+      tab=m; render();
+    });
+  });
+
+  /* ---------- quiz ---------- */
+  function buildQuiz(){
+    var box=$("quizBox"); box.innerHTML="";
+    QUIZ.forEach(function(item){
+      var wrap=document.createElement("div"); wrap.className="q";
+      var q=document.createElement("p"); setText(q,t(item.q)); wrap.appendChild(q);
+      var fb=document.createElement("p"); fb.className="fb";
+      item.o.forEach(function(opt,oi){
+        var b=document.createElement("button"); b.type="button";
+        b.className="opt" + (lang==="ur" ? " ur":"");
+        b.setAttribute("dir", lang==="ur" ? "rtl":"ltr");
+        b.textContent=t(opt);
+        b.addEventListener("click", function(){
+          if (wrap.getAttribute("data-done")==="1") return;
+          wrap.setAttribute("data-done","1");
+          Array.prototype.forEach.call(wrap.querySelectorAll(".opt"), function(x,xi){
+            if (xi===item.a) x.classList.add("right");
+            else if (xi===oi) x.classList.add("wrong");
+          });
+          setText(fb,t(item.f)); fb.classList.add("show","fb");
+        });
+        wrap.appendChild(b);
+      });
+      wrap.appendChild(fb); box.appendChild(wrap);
+    });
+  }
+
+  function applyLang(){
+    document.body.classList.toggle("urdu", lang==="ur");
+    var lb=$("langBtn");
+    lb.textContent=(lang==="en") ? "اردو":"English";
+    lb.setAttribute("aria-pressed", lang==="ur" ? "true":"false");
+    Array.prototype.forEach.call(document.querySelectorAll("[data-en]"), function(el){
+      setText(el, el.getAttribute(lang==="en" ? "data-en":"data-ur"));
+    });
+    buildQuiz(); render();
+  }
+  $("langBtn").addEventListener("click", function(){
+    lang=(lang==="en") ? "ur":"en"; applyLang();
+  });
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      window.speechSynthesis.cancel();
+      var u=new SpeechSynthesisUtterance($("says").textContent);
+      u.lang=(lang==="ur") ? "ur-PK":"en-US"; u.rate=0.92;
+      window.speechSynthesis.speak(u);
+    }catch(e){ /* no voice available — stay quiet */ }
+  });
+
+  applyLang();
+  startTank();
+})();
+</script>
+</body>
+</html>

@@ -175,5 +175,13 @@
       "interactive_file": "interactives/g5-space-robots.html",
       "interactive_label": "Khelo — Space robots"
     }
+  },
+  {
+    "file": "kb/grade_5/robotics.json",
+    "match_title": "IoT basics",
+    "add": {
+      "interactive_file": "interactives/g5-iot-basics.html",
+      "interactive_label": "Khelo — IoT basics"
+    }
   }
 ]

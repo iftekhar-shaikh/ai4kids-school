@@ -6,7 +6,7 @@
   "topics": [
     {
       "title": "IoT basics",
-      "description": "Internet of Things kya hai — smart devices",
+      "description": "Cheezein internet se baat karti hain.",
       "lesson": "## HOOK  \nSadi, kya aapne kabhi socha hai ke aapke ghar ki chizain aapas mein baat kar rahi hain? Jaise aapka fridge ye jaan raha hai ke doodh khatam ho gaya hai, aur woh apne aap shop ko message bhej raha hai ke doodh kharid lo! \n\n## SAMJHAO  \nInternet of Things (IoT) ka matlab hai ke humari daily life ki chizain, jaise ke gadgets aur devices, internet se connected hain aur ek doosre se communicate kar sakti hain. Iska fayda ye hai ke yeh chizain aapas mein data share karke humein zyada aasani aur behtar tareeqe se jeene mein madad deti hain.\n\nIoT ke kuch smart devices hain jese smart speakers, jaise ke Amazon Echo ya Google Home, jo aapki awaaz par chalein ge. Aap inse keh sakte hain ke music chalayen ya weather ka haal bataen. Yeh devices aapas mein connected hote hain aur information share karte hain.\n\nAb socho agar aapke ghar ka TV bhi internet se connected ho, to kya aap TV dekhte hue kisi aur device ko control kar sakte hain? Haan, aap ek hi waqt mein apne mobile se lights on/off kar sakte hain ya koi aur function chalu kar sakte hain. \n\nPakistan mein bhi IoT aahista aahista har taraf phail raha hai. Aaj kal kayi log smart home devices istemal kar rahe hain. Ye unhein madad dete hain ghar ko behtar tareeqe se manage karne mein, jese lights aur security cameras ko monitor karna.\n\n## MISAAL  \nSadi, socho agar aapke school mein ek smart attendance system ho, jo aapke mobile ya ID card ke zariye attendance le leta hai. Jab aap school aate hain, to yeh system aapka naam automatically register kar leta hai. Is tarah teachers ko attendance lene ka waqt nahi lagta. Yeh chiz humari zindagi ko kitna asan bana sakti hai!\n\n## KARO  \nSadi, is lesson ke liye ek choti si activity karte hain. Ek drawing cheez ka banao jo aapko smart lagti hai, jese ke smart fridge ya smart light bulb. Drawing ke sath sath likho ke yeh device kaise aapki zindagi ko aasan banata hai. Jab aapne drawing complete kar lo, to apne dost se share karo aur unhe bhi batana ke aapne kya banaya hai!\n\n## SAWAAL  \n1. Internet of Things (IoT) kya hota hai?  \n2. Smart devices kis tarah se aapas mein communicate karte hain?  \n3. Aapke khayal mein ek smart device kaise aapki zindagi ko behtar bana sakta hai?",
       "quiz": {
         "title": "IoT basics Quiz",
@@ -57,7 +57,9 @@
             "explanation": "Smart home devices internet ke zariye aapas mein baat karte hain aur control hote hain."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g5-iot-basics.html",
+      "interactive_label": "Khelo — IoT basics"
     },
     {
       "title": "3D printing",
