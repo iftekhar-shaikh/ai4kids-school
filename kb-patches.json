@@ -191,5 +191,29 @@
       "interactive_file": "interactives/g5-future-tech.html",
       "interactive_label": "Khelo — Future tech"
     }
+  },
+  {
+    "file": "kb/grade_5/ai.json",
+    "match_title": "NLP basics",
+    "add": {
+      "interactive_file": "interactives/g5-nlp-basics.html",
+      "interactive_label": "Khelo — NLP basics"
+    }
+  },
+  {
+    "file": "kb/grade_5/english.json",
+    "match_title": "Idioms aur proverbs",
+    "add": {
+      "interactive_file": "interactives/g5-idioms-proverbs.html",
+      "interactive_label": "Khelo — Idioms aur proverbs"
+    }
+  },
+  {
+    "file": "kb/grade_5/math.json",
+    "match_title": "Decimals aur percentage",
+    "add": {
+      "interactive_file": "interactives/g5-decimals-percentage.html",
+      "interactive_label": "Khelo — Decimals aur percentage"
+    }
   }
 ]

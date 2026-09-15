@@ -171,7 +171,9 @@
             "explanation": "75% ka matlab hai 400 ka 75% jo ke 300 hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g5-decimals-percentage.html",
+      "interactive_label": "Khelo — Decimals aur percentage"
     },
     {
       "title": "Fractions advanced",
