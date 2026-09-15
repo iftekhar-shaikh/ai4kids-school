@@ -167,7 +167,9 @@
             "explanation": "AI aur robotics ka milan farming mein automation aur efficiency ko madad deta hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g5-ai-robotics.html",
+      "interactive_label": "Khelo — AI + Robotics"
     },
     {
       "title": "Self-driving car",

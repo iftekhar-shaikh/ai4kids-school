@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Robotics — روبوٹ کو حکم دیں | AI4Kids</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#e9edf2;
+    --board-deep:#d7dde6;
+    --floor:#f7f9fb;
+    --wall:#5a6674;
+    --bot:#3a6ea8;
+    --bot-deep:#26497a;
+    --goal:#e0a32c;
+    --bonk:#c4453a;
+    --ok:#2e7d4f;
+    --ink:#1f2933;
+    --ink-soft:#4a5661;
+    --paper:#fdfaf3;
+    --line:#ded5c4;
+    --accent:#26497a;
+
+    --fs-cap:clamp(15px, 3.9vw, 16px);
+    --fs-xs:clamp(16px, 4.2vw, 18px);
+    --fs-sm:clamp(18px, 4.7vw, 19px);
+    --fs-md:clamp(19px, 5.1vw, 21px);
+    --fs-lg:clamp(22px, 5.9vw, 25px);
+    --fs-xl:clamp(28px, 7.6vw, 34px);
+    --lh:1.5;
+  }
+  /* Urdu is set larger than Latin — Nastaliq reads smaller at the same size. */
+  body.urdu{
+    --fs-cap:clamp(17px, 4.4vw, 18px);
+    --fs-xs:clamp(18px, 4.7vw, 20px);
+    --fs-sm:clamp(20px, 5.2vw, 22px);
+    --fs-md:clamp(21px, 5.6vw, 23px);
+    --fs-lg:clamp(24px, 6.4vw, 27px);
+    --fs-xl:clamp(27px, 7.2vw, 32px);
+    --lh:2.1;
+  }
+
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:44px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--goal);outline-offset:2px}
+
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+
+  .tabs{display:flex;gap:7px;margin:0 0 14px}
+  .tabs button{
+    flex:1;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:9px 6px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:56px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:linear-gradient(180deg,var(--board) 0%,var(--board-deep) 100%);
+  }
+  .scene svg{display:block;width:100%;height:auto}
+  #bot{transition:transform .38s ease}
+  .shake{animation:shake .4s ease}
+  @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}
+                   75%{transform:translateX(5px)}}
+
+  .strip{
+    display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;min-height:56px;
+    border:2px dashed var(--line);border-radius:14px;padding:9px;background:#fffdf7;
+  }
+  .strip .cmd{
+    width:44px;height:38px;border-radius:9px;border:2px solid var(--bot);
+    background:#e7eefa;display:flex;align-items:center;justify-content:center;
+    font-size:var(--fs-sm);font-weight:800;color:var(--bot-deep);
+  }
+  .strip .cmd.on{background:var(--bot);color:#fff}
+  .strip .cmd.bad{border-color:var(--bonk);background:#fbeae8;color:var(--bonk)}
+  .strip .empty{color:var(--ink-soft);font-size:var(--fs-cap);font-weight:700;padding:8px 4px}
+
+  .readout{
+    margin-top:14px;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-cap);font-weight:700;margin-bottom:10px}
+  .statechip.ur{padding:2px 14px 7px}
+  .statechip.ok{background:var(--ok)} .statechip.bad{background:var(--bonk)}
+  .says{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.4}
+  .says.ur{line-height:1.95}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+
+  .loop{display:flex;gap:8px;margin-top:14px}
+  .loopbox{
+    flex:1;border:3px solid var(--line);border-radius:14px;padding:11px 7px;text-align:center;
+    font-size:var(--fs-cap);font-weight:800;color:var(--ink-soft);transition:all .3s ease;
+  }
+  .loopbox.on{border-color:var(--bot);background:#e7eefa;color:var(--bot-deep)}
+
+  .why-note{
+    margin:12px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.55;
+    border-left:3px solid var(--accent);padding-left:11px;
+  }
+  .why-note b{color:var(--accent);font-weight:800}
+  body.urdu .why-note{
+    border-left:0;border-right:3px solid var(--accent);padding-left:0;padding-right:11px;
+    line-height:var(--lh);
+  }
+
+  .panel{margin-top:22px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .keys{display:flex;gap:8px;margin-bottom:10px}
+  .keys button{
+    flex:1;border:2px solid var(--ink);border-radius:14px;background:var(--paper);
+    font:inherit;font-size:var(--fs-lg);font-weight:800;cursor:pointer;color:var(--ink);
+    min-height:60px;
+  }
+  .keys button:active{transform:scale(.95)}
+  .btns{display:flex;gap:8px;margin-bottom:12px}
+  .btns button{
+    flex:1;border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);
+    font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:54px;padding:0 10px;
+  }
+  .btns .go{background:var(--ink);color:var(--paper)}
+  .btns button:disabled{opacity:.35;cursor:default}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .schip{
+    border:2px solid var(--line);background:var(--paper);border-radius:999px;padding:9px 14px;
+    font:inherit;font-size:var(--fs-cap);font-weight:700;color:var(--ink);cursor:pointer;min-height:46px;
+  }
+  .schip[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+  .schip.done{border-color:var(--ok)}
+  .opts{display:flex;flex-direction:column;gap:9px}
+  .opts button{
+    border:2px solid var(--line);background:var(--paper);border-radius:14px;padding:12px 15px;
+    font:inherit;font-size:var(--fs-sm);font-weight:700;color:var(--ink);cursor:pointer;
+    min-height:56px;text-align:left;
+  }
+  .opts button.picked-good{border-color:var(--ok);background:#e8f2ed}
+  .opts button.picked-bad{border-color:var(--bonk);background:#fbeae8}
+
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:52px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+  .opt.wrong{border-color:var(--bonk);background:#fbeae8}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
+      grid-template-areas:"bar bar" "head head" "tabs tabs" "left right" "quiz quiz" "foot foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+    .left{grid-area:left} .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+    .panel{margin-top:0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #bot{transition:none} .shake{animation:none}
+    *{transition-duration:.01ms !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Robotics</span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 id="title"></h1>
+  <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group">
+    <button type="button" id="tabMaze" aria-pressed="true"></button>
+    <button type="button" id="tabLit" aria-pressed="false"></button>
+    <button type="button" id="tabLoop" aria-pressed="false"></button>
+  </div>
+
+  <div class="left">
+  <div class="scene">
+    <svg viewBox="0 0 300 250" role="img" id="svg" aria-label="The robot and its world"></svg>
+  </div>
+
+  <div class="strip" id="strip"></div>
+
+  <div class="readout">
+    <span class="statechip" id="statechip"></span>
+    <p class="says" id="says"></p>
+    <p class="detail" id="detail"></p>
+    <div class="loop" id="loopbar"></div>
+    <p class="why-note"><b id="whyLbl"></b> <span id="whyText"></span></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="panel">
+    <h2 id="panelHead"></h2>
+    <div class="keys" id="keys"></div>
+    <div class="btns" id="btns"></div>
+    <div class="opts" id="opts"></div>
+    <div class="chips" id="chips" role="group"></div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <h2 id="quizHead" style="font-size:var(--fs-lg);font-weight:800;margin:0 0 18px"></h2>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad's bilingual AI and coding school. WhatsApp 0337 1468899" data-ur="اے آئی فور کڈز — اسلام آباد کا دو زبانوں والا اے آئی اور کوڈنگ سکول۔ واٹس ایپ 0337 1468899"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var lang="en", tab="maze";
+  var lvl=0, prog=[], runAt=-1, running=false, result=null, timer=null;
+  var litI=0, litPick=null, litDone={};
+  var loopStep=0, sensorOn=true, loopTimer=null;
+
+  var COLS=6, ROWS=5, CELL=44, OX=14, OY=14;
+
+  var LEVELS=[
+    { name:"1", start:{x:0,y:4,d:0}, goal:{x:4,y:4}, walls:[] },
+    { name:"2", start:{x:0,y:4,d:0}, goal:{x:4,y:1}, walls:[] },
+    { name:"3", start:{x:0,y:4,d:0}, goal:{x:5,y:0},
+      walls:[[2,4],[2,3],[2,2],[4,1],[4,2],[4,3]] }
+  ];
+  function isWall(L,x,y){
+    return L.walls.some(function(w){ return w[0]===x && w[1]===y; });
+  }
+
+  /* ---------- the robot that takes you literally ---------- */
+  var LIT=[
+    { step:{en:"Step 1 — the flour", ur:"قدم 1 — آٹا"},
+      good:{en:"Put two cups of flour in the bowl.", ur:"دو کپ آٹا پیالے میں ڈالیں۔"},
+      bad:{en:"Put flour in the bowl.", ur:"آٹا پیالے میں ڈالیں۔"},
+      oops:{en:"The robot tipped in the entire 10 kg sack. All of it. The bowl is somewhere underneath.",
+            ur:"روبوٹ نے پورا 10 کلو کا تھیلا انڈیل دیا۔ سارا کا سارا۔ پیالہ کہیں نیچے دبا ہوا ہے۔"},
+      fix:{en:"You said flour. You did not say how much. The robot picked all of it, because all of it is flour.",
+           ur:"آپ نے کہا آٹا۔ کتنا، یہ نہیں کہا۔ روبوٹ نے سارا اٹھا لیا، کیونکہ سارا ہی آٹا ہے۔"} },
+    { step:{en:"Step 2 — the water", ur:"قدم 2 — پانی"},
+      good:{en:"Add half a cup of water.", ur:"آدھا کپ پانی ڈالیں۔"},
+      bad:{en:"Add water until it is right.", ur:"پانی ڈالیں جب تک ٹھیک نہ ہو جائے۔"},
+      oops:{en:"The robot is still pouring. It has been forty minutes. It does not know what \u201cright\u201d looks like.",
+            ur:"روبوٹ اب تک ڈال رہا ہے۔ چالیس منٹ ہو گئے۔ اسے پتا ہی نہیں کہ \u201cٹھیک\u201d کیسا ہوتا ہے۔"},
+      fix:{en:"\u201cUntil it is right\u201d is a feeling, not a measurement. A robot has no feelings to check against.",
+           ur:"\u201cجب تک ٹھیک نہ ہو\u201d ایک احساس ہے، پیمائش نہیں۔ روبوٹ کے پاس جانچنے کو کوئی احساس ہے ہی نہیں۔"} },
+    { step:{en:"Step 3 — the cooking", ur:"قدم 3 — پکانا"},
+      good:{en:"Cook for two minutes on each side.", ur:"ہر طرف دو منٹ پکائیں۔"},
+      bad:{en:"Cook it until it is done.", ur:"پکائیں جب تک پک نہ جائے۔"},
+      oops:{en:"Three hours later the paratha is a black disc and the smoke alarm has given up.",
+            ur:"تین گھنٹے بعد پراٹھا ایک کالی ٹکیہ ہے اور دھوئیں کا الارم ہار مان چکا ہے۔"},
+      fix:{en:"Done is obvious to you because you have eaten a thousand parathas. The robot has eaten none.",
+           ur:"\u201cپک گیا\u201d آپ کو صاف نظر آتا ہے کیونکہ آپ ہزار پراٹھے کھا چکے ہیں۔ روبوٹ نے ایک بھی نہیں کھایا۔"} },
+    { step:{en:"Step 4 — serving", ur:"قدم 4 — پیش کرنا"},
+      good:{en:"Put the paratha on a plate on the table.", ur:"پراٹھا میز پر رکھی پلیٹ میں رکھیں۔"},
+      bad:{en:"Serve it.", ur:"پیش کر دیں۔"},
+      oops:{en:"The robot placed it neatly on the floor, facing the door. Technically, it served it.",
+            ur:"روبوٹ نے اسے قرینے سے فرش پر، دروازے کی طرف رکھ دیا۔ تکنیکی طور پر، اس نے پیش ہی کیا ہے۔"},
+      fix:{en:"It did exactly what you said. Everything you did not say, it filled in with nothing at all.",
+           ur:"اس نے بالکل وہی کیا جو آپ نے کہا۔ جو نہیں کہا، وہ اس نے کسی طرح بھی پورا نہیں کیا۔"} }
+  ];
+
+  var T={
+    tabMaze:{en:"Command it", ur:"حکم دیں"},
+    tabLit:{en:"It obeys exactly", ur:"بالکل لفظی"},
+    tabLoop:{en:"Sense, think, act", ur:"محسوس، سوچ، عمل"},
+    titleMaze:{en:"The robot does not know where the battery is. You do.",
+               ur:"روبوٹ کو نہیں پتا بیٹری کہاں ہے۔ آپ کو پتا ہے۔"},
+    subMaze:{en:"Build the whole list of commands first, then press RUN and watch.",
+             ur:"پہلے حکموں کی پوری فہرست بنائیں، پھر RUN دبا کر دیکھیں۔"},
+    titleLit:{en:"Ask a robot to make a paratha. Be careful what you say.",
+              ur:"روبوٹ سے پراٹھا بنوائیں۔ مگر سوچ کر بولیں۔"},
+    subLit:{en:"Pick an instruction for each step. One of them ends badly.",
+            ur:"ہر قدم کے لیے ایک ہدایت چنیں۔ ان میں سے ایک کا انجام برا ہے۔"},
+    titleLoop:{en:"Every robot does the same three things, over and over.",
+               ur:"ہر روبوٹ یہی تین کام بار بار کرتا ہے۔"},
+    subLoop:{en:"Switch the sensor off and watch the loop break.",
+             ur:"سینسر بند کر کے دیکھیں یہ چکر کیسے ٹوٹتا ہے۔"},
+    headMaze:{en:"Build the program", ur:"پروگرام بنائیں"},
+    headLit:{en:"Choose the instruction", ur:"ہدایت چنیں"},
+    headLoop:{en:"The sensor", ur:"سینسر"},
+    run:{en:"RUN", ur:"چلاؤ"},
+    clear:{en:"Clear", ur:"صاف"},
+    undo:{en:"Undo", ur:"واپس"},
+    empty:{en:"No commands yet. Tap the arrows above.", ur:"ابھی کوئی حکم نہیں۔ اوپر والے تیر دبائیں۔"},
+    ready:{en:"Waiting for orders", ur:"حکم کا انتظار"},
+    readyS:{en:"I do nothing until you tell me to.", ur:"جب تک آپ نہ کہیں، میں کچھ نہیں کرتا۔"},
+    readyD:{en:"Plan the whole route before you press RUN. The robot cannot change its mind halfway.",
+            ur:"RUN دبانے سے پہلے پورا راستہ سوچ لیں۔ روبوٹ بیچ میں ارادہ نہیں بدل سکتا۔"},
+    running:{en:"Running your program", ur:"آپ کا پروگرام چل رہا ہے"},
+    bonk:{en:"BONK", ur:"ٹھک"},
+    bonkS:{en:"Ouch. That was a wall.", ur:"اُف۔ وہ دیوار تھی۔"},
+    bonkD:{en:"I did not stop, because you did not tell me to stop. You said forward, so I went forward.",
+           ur:"میں رکا نہیں، کیونکہ آپ نے رکنے کو نہیں کہا۔ آپ نے کہا آگے، تو میں آگے گیا۔"},
+    winS:{en:"Battery found. Fully charged. Thank you.", ur:"بیٹری مل گئی۔ پوری چارج۔ شکریہ۔"},
+    winD:{en:"Every step of that was your thinking, not mine. I only followed the list.",
+          ur:"اس کا ہر قدم آپ کی سوچ تھی، میری نہیں۔ میں نے صرف فہرست پر عمل کیا۔"},
+    stopS:{en:"List finished. I am just standing here now.", ur:"فہرست ختم۔ اب میں بس یہیں کھڑا ہوں۔"},
+    stopD:{en:"I ran out of commands before reaching the battery. Add a few more and run it again.",
+           ur:"بیٹری تک پہنچنے سے پہلے میرے حکم ختم ہو گئے۔ کچھ اور بڑھا کر دوبارہ چلائیں۔"},
+    whyMaze:{en:"This is what programming really is: thinking the whole thing through before anything moves. When it goes wrong, the robot is not being silly — the list was.",
+             ur:"پروگرامنگ اصل میں یہی ہے: کچھ ہلنے سے پہلے پوری بات سوچ لینا۔ جب کچھ غلط ہو تو روبوٹ بیوقوف نہیں ہوتا — فہرست غلط ہوتی ہے۔"},
+    whyBonk:{en:"Look at the program strip: the red block is the one that went wrong. Finding that block is called debugging, and it is most of what a programmer actually does.",
+             ur:"پروگرام کی پٹی دیکھیں: سرخ خانہ وہی ہے جہاں گڑبڑ ہوئی۔ اس خانے کو ڈھونڈنا debugging کہلاتا ہے، اور پروگرامر کا زیادہ تر کام یہی ہوتا ہے۔"},
+    whyLit:{en:"A robot fills in nothing. You know a bowl needs two cups and a paratha takes minutes, not hours, because you have lived. It has not.",
+            ur:"روبوٹ اپنی طرف سے کچھ پورا نہیں کرتا۔ آپ جانتے ہیں کہ پیالے میں دو کپ چاہییں اور پراٹھے کو منٹ لگتے ہیں، گھنٹے نہیں — کیونکہ آپ نے زندگی گزاری ہے۔ اس نے نہیں۔"},
+    whyLitGood:{en:"Notice what made the good instruction good: a number. Two cups, half a cup, two minutes. Numbers are the one thing a robot never misunderstands.",
+                ur:"غور کریں اچھی ہدایت کو اچھا کس نے بنایا: ایک عدد۔ دو کپ، آدھا کپ، دو منٹ۔ عدد وہ واحد چیز ہے جسے روبوٹ کبھی غلط نہیں سمجھتا۔"},
+    whyLoopOn:{en:"Sense, think, act — and then straight back to sense. A robot goes round this loop many times every second, which is why it can stop before it hits something.",
+               ur:"محسوس کرو، سوچو، کرو — اور پھر سیدھا واپس محسوس کرو۔ روبوٹ یہ چکر ہر سیکنڈ میں کئی بار لگاتا ہے، اسی لیے ٹکرانے سے پہلے رک جاتا ہے۔"},
+    whyLoopOff:{en:"With no sensor there is nothing to sense, so there is nothing to think about. The loop collapses into just act — and act with your eyes shut is a crash.",
+                ur:"سینسر نہ ہو تو محسوس کرنے کو کچھ نہیں، تو سوچنے کو بھی کچھ نہیں۔ چکر سکڑ کر صرف \u201cکرو\u201d رہ جاتا ہے — اور آنکھیں بند کر کے کرنا ٹکراؤ ہے۔"},
+    sense:{en:"Sense", ur:"محسوس کرو"},
+    think:{en:"Think", ur:"سوچو"},
+    act:{en:"Act", ur:"کرو"},
+    sensorOn:{en:"Sensor is ON \u2014 tap to remove it", ur:"سینسر لگا ہے — ہٹانے کے لیے دبائیں"},
+    sensorOff:{en:"Sensor is OFF \u2014 tap to put it back", ur:"سینسر ہٹا ہوا ہے — لگانے کے لیے دبائیں"},
+    loopOnS:{en:"Wall ahead at 20 cm. Stopping.", ur:"20 سینٹی میٹر آگے دیوار۔ رک رہا ہوں۔"},
+    loopOffS:{en:"I cannot see anything. Carrying on.", ur:"مجھے کچھ دکھائی نہیں دے رہا۔ چلتا رہتا ہوں۔"},
+    litGood:{en:"Done, exactly as asked.", ur:"ہو گیا، بالکل جیسا کہا گیا۔"},
+    litBad:{en:"Well. That happened.", ur:"خیر۔ یہ ہو گیا۔"},
+    whyLbl:{en:"Notice:", ur:"غور کریں:"},
+    quiz:{en:"Check yourself", ur:"اپنا امتحان لیں"}
+  };
+
+  var QUIZ=[
+    { q:{en:"Your robot drives straight into a wall. Whose mistake is it?",
+         ur:"آپ کا روبوٹ سیدھا دیوار سے ٹکرا جاتا ہے۔ غلطی کس کی ہے؟"},
+      o:[{en:"The robot's — it should have known", ur:"روبوٹ کی — اسے پتا ہونا چاہیے تھا"},
+         {en:"The program's — it was told to go forward and nothing told it to stop",
+          ur:"پروگرام کی — اسے آگے جانے کو کہا گیا اور رکنے کو کسی نے نہیں کہا"},
+         {en:"The wall's", ur:"دیوار کی"},
+         {en:"Nobody's, robots just do that", ur:"کسی کی نہیں، روبوٹ ایسے ہی کرتے ہیں"}],
+      a:1,
+      f:{en:"A robot has no opinion about walls. It ran the list you wrote. Finding the wrong line in that list is called debugging.",
+         ur:"روبوٹ کی دیوار کے بارے میں کوئی رائے نہیں ہوتی۔ اس نے وہی فہرست چلائی جو آپ نے لکھی۔ اس فہرست میں غلط سطر ڈھونڈنا debugging کہلاتا ہے۔"} },
+
+    { q:{en:"Which instruction would a robot follow correctly?",
+         ur:"روبوٹ کون سی ہدایت درست طریقے سے پوری کرے گا؟"},
+      o:[{en:"Add water until it looks right", ur:"پانی ڈالیں جب تک ٹھیک نہ لگے"},
+         {en:"Add half a cup of water", ur:"آدھا کپ پانی ڈالیں"},
+         {en:"Add a bit of water", ur:"تھوڑا سا پانی ڈالیں"},
+         {en:"Add enough water", ur:"کافی پانی ڈالیں"}],
+      a:1,
+      f:{en:"Right, bit and enough are all feelings. Half a cup is a number, and a number is the one thing that cannot be misread.",
+         ur:"\u201cٹھیک\u201d، \u201cتھوڑا\u201d اور \u201cکافی\u201d — تینوں احساس ہیں۔ \u201cآدھا کپ\u201d ایک عدد ہے، اور عدد وہ واحد چیز ہے جسے غلط نہیں پڑھا جا سکتا۔"} },
+
+    { q:{en:"What are the three things every robot does, in order?",
+         ur:"ہر روبوٹ کون سے تین کام، کس ترتیب سے کرتا ہے؟"},
+      o:[{en:"Act, sense, think", ur:"کرو، محسوس کرو، سوچو"},
+         {en:"Sense, think, act", ur:"محسوس کرو، سوچو، کرو"},
+         {en:"Think, act, sleep", ur:"سوچو، کرو، سو جاؤ"},
+         {en:"Sense, act, forget", ur:"محسوس کرو، کرو، بھول جاؤ"}],
+      a:1,
+      f:{en:"And then immediately back to sense. It is a loop, not a line — which is why a robot can react to something that appears halfway through.",
+         ur:"اور پھر فوراً واپس محسوس کرنے پر۔ یہ ایک چکر ہے، لکیر نہیں — اسی لیے روبوٹ بیچ میں آنے والی چیز پر بھی ردِعمل دے سکتا ہے۔"} },
+
+    { q:{en:"You take away a robot's sensors. What can it no longer do?",
+         ur:"روبوٹ کے سینسر ہٹا دیے جائیں۔ اب وہ کیا نہیں کر سکتا؟"},
+      o:[{en:"Move at all", ur:"بالکل حرکت کرنا"},
+         {en:"React to anything around it", ur:"اپنے ارد گرد کسی چیز پر ردِعمل دینا"},
+         {en:"Be switched on", ur:"آن ہونا"},
+         {en:"Nothing changes", ur:"کچھ نہیں بدلتا"}],
+      a:1,
+      f:{en:"It can still move perfectly well — that is the dangerous part. It just moves blindly, because nothing is coming in to think about.",
+         ur:"وہ اب بھی بالکل ٹھیک چل سکتا ہے — خطرناک بات یہی ہے۔ بس وہ اندھا دھند چلتا ہے، کیونکہ سوچنے کے لیے اندر کچھ آ ہی نہیں رہا۔"} },
+
+    { q:{en:"Why do you build the whole program before pressing RUN?",
+         ur:"RUN دبانے سے پہلے پورا پروگرام کیوں بنایا جاتا ہے؟"},
+      o:[{en:"Because the robot cannot decide anything on its own halfway through",
+          ur:"کیونکہ روبوٹ بیچ راستے میں خود کوئی فیصلہ نہیں کر سکتا"},
+         {en:"Because it saves electricity", ur:"کیونکہ اس سے بجلی بچتی ہے"},
+         {en:"Because it looks neater", ur:"کیونکہ یہ دیکھنے میں بہتر لگتا ہے"},
+         {en:"Because the robot gets bored", ur:"کیونکہ روبوٹ بور ہو جاتا ہے"}],
+      a:0,
+      f:{en:"Everything it will ever do was decided by you, in advance. That is the whole job — and the whole responsibility.",
+         ur:"وہ جو کچھ بھی کرے گا، آپ نے پہلے سے طے کر دیا تھا۔ یہی پورا کام ہے — اور یہی پوری ذمہ داری۔"} },
+
+    { q:{en:"A robot did something silly. What is almost always the real reason?",
+         ur:"روبوٹ نے کوئی بیوقوفی کی۔ اصل وجہ تقریباً ہمیشہ کیا ہوتی ہے؟"},
+      o:[{en:"It is broken", ur:"وہ خراب ہے"},
+         {en:"A human gave it an instruction that was not clear enough",
+          ur:"کسی انسان نے ایسی ہدایت دی جو کافی واضح نہیں تھی"},
+         {en:"It is angry", ur:"وہ ناراض ہے"},
+         {en:"It is too old", ur:"وہ بہت پرانا ہے"}],
+      a:1,
+      f:{en:"This is worth remembering for every machine you will ever use, not only robots. The machine did what it was told. Somebody told it the wrong thing.",
+         ur:"یہ بات ہر اُس مشین کے لیے یاد رکھنے کی ہے جو آپ کبھی استعمال کریں گے، صرف روبوٹ کے لیے نہیں۔ مشین نے وہی کیا جو کہا گیا۔ کسی نے غلط کہا تھا۔"} }
+  ];
+
+  function $(id){ return document.getElementById(id); }
+  function t(o){ return o[lang]; }
+  var LRI="\u2066", PDI="\u2069";
+  var LATIN_RUN=/[A-Za-z0-9][A-Za-z0-9 .,'\u2019+()\/@_-]*[A-Za-z0-9.]|[A-Za-z0-9]/g;
+  function isolate(s){ return s.replace(LATIN_RUN, function(m){ return LRI+m+PDI; }); }
+  function setText(el,str){
+    el.textContent = (lang==="ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang==="ur");
+    el.setAttribute("dir", lang==="ur" ? "rtl":"ltr");
+  }
+  var NS="http://www.w3.org/2000/svg";
+  function mk(tag,a){ var e=document.createElementNS(NS,tag);
+    for (var k in a) e.setAttribute(k,a[k]); return e; }
+
+  /* ---------- pictures ---------- */
+  function robot(g,x,y,d,mood){
+    var cx=OX+x*CELL+CELL/2, cy=OY+y*CELL+CELL/2;
+    var gg=mk("g",{id:"bot", transform:"translate("+cx+","+cy+") rotate("+(d*90)+")"});
+    gg.appendChild(mk("rect",{x:-15,y:-15,width:30,height:30,rx:8,
+                              fill: mood==="bad" ? "var(--bonk)" : "var(--bot)",
+                              stroke:"var(--ink)","stroke-width":2.5}));
+    gg.appendChild(mk("circle",{cx:6,cy:-6,r:4,fill:"#fff"}));
+    gg.appendChild(mk("circle",{cx:6,cy:6,r:4,fill:"#fff"}));
+    gg.appendChild(mk("circle",{cx:8,cy:-6,r:2,fill:"var(--ink)"}));
+    gg.appendChild(mk("circle",{cx:8,cy:6,r:2,fill:"var(--ink)"}));
+    gg.appendChild(mk("path",{d:"M15 0 L23 0", stroke:"var(--ink)","stroke-width":3,
+                              "stroke-linecap":"round"}));
+    g.appendChild(gg);
+  }
+  function drawMaze(state){
+    var svg=$("svg"); svg.innerHTML=""; svg.setAttribute("viewBox","0 0 300 250");
+    var g=mk("g",{}); svg.appendChild(g);
+    var L=LEVELS[lvl];
+    for (var y=0;y<ROWS;y++) for (var x=0;x<COLS;x++){
+      g.appendChild(mk("rect",{x:OX+x*CELL, y:OY+y*CELL, width:CELL-3, height:CELL-3, rx:5,
+                               fill: isWall(L,x,y) ? "var(--wall)" : "var(--floor)",
+                               stroke:"#c3ccd6","stroke-width":1.5}));
+    }
+    var gx=OX+L.goal.x*CELL+CELL/2, gy=OY+L.goal.y*CELL+CELL/2;
+    g.appendChild(mk("rect",{x:gx-11,y:gy-14,width:22,height:28,rx:4,
+                             fill:"var(--goal)",stroke:"var(--ink)","stroke-width":2.5}));
+    g.appendChild(mk("rect",{x:gx-5,y:gy-18,width:10,height:5,rx:2,fill:"var(--ink)"}));
+    robot(g, state.x, state.y, state.d, state.mood);
+  }
+  function drawLoop(){
+    var svg=$("svg"); svg.innerHTML=""; svg.setAttribute("viewBox","0 0 300 250");
+    var g=mk("g",{}); svg.appendChild(g);
+    g.appendChild(mk("rect",{x:0,y:190,width:300,height:60,fill:"#cfd8e0"}));
+    g.appendChild(mk("rect",{x:242,y:70,width:44,height:120,rx:4,
+                             fill:"var(--wall)",stroke:"var(--ink)","stroke-width":2.5}));
+    var bx = sensorOn ? 120 : (loopStep>=2 ? 216 : 120);
+    var gg=mk("g",{transform:"translate("+bx+",150)"});
+    gg.appendChild(mk("rect",{x:-26,y:-30,width:52,height:52,rx:11,
+                              fill: (!sensorOn && loopStep>=2) ? "var(--bonk)" : "var(--bot)",
+                              stroke:"var(--ink)","stroke-width":2.5}));
+    gg.appendChild(mk("circle",{cx:8,cy:-14,r:6,fill:"#fff"}));
+    gg.appendChild(mk("circle",{cx:8,cy:2,r:6,fill:"#fff"}));
+    gg.appendChild(mk("circle",{cx:11,cy:-14,r:3,fill:"var(--ink)"}));
+    gg.appendChild(mk("circle",{cx:11,cy:2,r:3,fill:"var(--ink)"}));
+    if (sensorOn){
+      gg.appendChild(mk("rect",{x:20,y:-10,width:12,height:14,rx:3,
+                                fill:"var(--goal)",stroke:"var(--ink)","stroke-width":2}));
+      for (var i=1;i<=3;i++)
+        gg.appendChild(mk("path",{d:"M"+(34+i*10)+" "+(-14-i*4)+" Q"+(40+i*10)+" -3 "+(34+i*10)+" "+(8+i*4),
+                                  fill:"none", stroke:"var(--goal)","stroke-width":2.5,
+                                  opacity: loopStep===0 ? .95 : .3}));
+    }
+    g.appendChild(gg);
+    var lab=mk("text",{x:150,y:36,"text-anchor":"middle","font-size":"14","font-weight":"800",
+                       fill:"var(--ink-soft)",
+                       "font-family": lang==="ur" ? "Noto Nastaliq Urdu, serif"
+                                                  : "Baloo Bhaijaan 2, sans-serif"});
+    lab.textContent = sensorOn ? t(T.loopOnS) : t(T.loopOffS);
+    g.appendChild(lab);
+  }
+  function drawLit(){
+    var svg=$("svg"); svg.innerHTML=""; svg.setAttribute("viewBox","0 0 300 250");
+    var g=mk("g",{}); svg.appendChild(g);
+    g.appendChild(mk("rect",{x:0,y:186,width:300,height:64,fill:"#c9a878"}));
+    var bad = (litPick === "bad");
+    var gg=mk("g",{transform:"translate(70,140)"});
+    gg.appendChild(mk("rect",{x:-26,y:-30,width:52,height:52,rx:11,
+                              fill: bad ? "var(--bonk)" : "var(--bot)",
+                              stroke:"var(--ink)","stroke-width":2.5}));
+    gg.appendChild(mk("circle",{cx:-8,cy:-12,r:6,fill:"#fff"}));
+    gg.appendChild(mk("circle",{cx:10,cy:-12,r:6,fill:"#fff"}));
+    gg.appendChild(mk("circle",{cx:-8,cy:-12,r:3,fill:"var(--ink)"}));
+    gg.appendChild(mk("circle",{cx:10,cy:-12,r:3,fill:"var(--ink)"}));
+    gg.appendChild(mk("path",{d: bad ? "M-9 8 Q1 0 11 8" : "M-9 4 Q1 13 11 4",
+                              fill:"none", stroke:"var(--ink)","stroke-width":2.5,
+                              "stroke-linecap":"round"}));
+    g.appendChild(gg);
+    // a bowl, and how much ended up in it
+    g.appendChild(mk("path",{d:"M172 132 Q214 126 256 132 L246 176 Q214 184 182 176 Z",
+                             fill:"#eef1f5", stroke:"var(--ink)","stroke-width":2.5}));
+    if (litPick){
+      var h = bad ? 54 : 20;
+      g.appendChild(mk("path",{d:"M178 "+(176-h)+" Q214 "+(170-h)+" 250 "+(176-h)+
+                                 " L246 176 Q214 184 182 176 Z",
+                               fill: bad ? "#c9a878" : "#e6d4b4"}));
+      if (bad) for (var k=0;k<7;k++)
+        g.appendChild(mk("circle",{cx:160+k*22, cy:112-(k%3)*10, r:5, fill:"#d9c8a6"}));
+    }
+    var st=mk("text",{x:150,y:36,"text-anchor":"middle","font-size":"14","font-weight":"800",
+                      fill:"var(--ink-soft)",
+                      "font-family": lang==="ur" ? "Noto Nastaliq Urdu, serif"
+                                                 : "Baloo Bhaijaan 2, sans-serif"});
+    st.textContent = t(LIT[litI].step);
+    g.appendChild(st);
+  }
+
+  /* ---------- running the program ---------- */
+  function simulate(upto){
+    var L=LEVELS[lvl], s={x:L.start.x, y:L.start.y, d:L.start.d, mood:"", hit:-1, won:false};
+    for (var i=0;i<=upto && i<prog.length;i++){
+      var c=prog[i];
+      if (c==="L") s.d=(s.d+3)%4;
+      else if (c==="R") s.d=(s.d+1)%4;
+      else {
+        var nx=s.x + (s.d===0?1:s.d===2?-1:0);
+        var ny=s.y + (s.d===1?1:s.d===3?-1:0);
+        if (nx<0||nx>=COLS||ny<0||ny>=ROWS||isWall(L,nx,ny)){ s.mood="bad"; s.hit=i; break; }
+        s.x=nx; s.y=ny;
+      }
+      if (s.x===L.goal.x && s.y===L.goal.y){ s.won=true; s.hit=-1; break; }
+    }
+    return s;
+  }
+  function run(){
+    if (running || !prog.length) return;
+    running=true; runAt=-1; result=null;
+    timer=setInterval(function(){
+      runAt++;
+      var s=simulate(runAt);
+      if (s.mood==="bad"){ result={kind:"bonk", at:s.hit}; stop(); }
+      else if (s.won){ result={kind:"win"}; stop(); }
+      else if (runAt >= prog.length-1){ result={kind:"stop"}; stop(); }
+      render();
+    }, 520);
+  }
+  function stop(){ clearInterval(timer); running=false; }
+
+  /* ---------- render ---------- */
+  function render(){
+    ["Maze","Lit","Loop"].forEach(function(x){
+      $("tab"+x).setAttribute("aria-pressed", tab===x.toLowerCase() ? "true":"false");
+    });
+    setText($("tabMaze"), t(T.tabMaze));
+    setText($("tabLit"),  t(T.tabLit));
+    setText($("tabLoop"), t(T.tabLoop));
+    $("whyLbl").textContent=t(T.whyLbl);
+    setText($("quizHead"), t(T.quiz));
+    var keys=$("keys"), btns=$("btns"), opts=$("opts"), chips=$("chips"),
+        strip=$("strip"), loopbar=$("loopbar");
+    keys.innerHTML=""; btns.innerHTML=""; opts.innerHTML=""; chips.innerHTML="";
+    strip.innerHTML=""; loopbar.innerHTML="";
+    var chip=$("statechip"); chip.className="statechip";
+    strip.style.display = (tab==="maze") ? "" : "none";
+    loopbar.style.display = (tab==="loop") ? "" : "none";
+
+    if (tab==="maze"){
+      var s = simulate(running ? runAt : (result ? prog.length : -1));
+      drawMaze(s);
+      setText($("title"), t(T.titleMaze));
+      setText($("subtitle"), t(T.subMaze));
+      setText($("panelHead"), t(T.headMaze));
+
+      if (!prog.length){
+        var e=document.createElement("span"); e.className="empty";
+        e.textContent=t(T.empty);
+        e.setAttribute("dir", lang==="ur"?"rtl":"ltr");
+        strip.appendChild(e);
+      } else prog.forEach(function(c,i){
+        var d=document.createElement("div");
+        d.className="cmd" + (running && i===runAt ? " on" : "") +
+                    ((result && result.kind==="bonk" && i===result.at) ? " bad" : "");
+        d.textContent = c==="F" ? "\u25B6" : (c==="L" ? "\u21B0" : "\u21B1");
+        strip.appendChild(d);
+      });
+
+      if (!result && !running){
+        setText(chip, t(T.ready)); setText($("says"), t(T.readyS)); setText($("detail"), t(T.readyD));
+        setText($("whyText"), t(T.whyMaze));
+      } else if (running){
+        setText(chip, t(T.running)); setText($("says"), "\u2699\ufe0f");
+        setText($("detail"), ""); setText($("whyText"), t(T.whyMaze));
+      } else if (result.kind==="bonk"){
+        chip.className="statechip bad"; setText(chip, t(T.bonk));
+        setText($("says"), t(T.bonkS)); setText($("detail"), t(T.bonkD));
+        setText($("whyText"), t(T.whyBonk));
+      } else if (result.kind==="win"){
+        chip.className="statechip ok"; setText(chip, "\u2605");
+        setText($("says"), t(T.winS)); setText($("detail"), t(T.winD));
+        setText($("whyText"), t(T.whyMaze));
+      } else {
+        setText(chip, t(T.stopS)); setText($("says"), t(T.stopS)); setText($("detail"), t(T.stopD));
+        setText($("whyText"), t(T.whyMaze));
+      }
+
+      [["F","\u25B6"],["L","\u21B0"],["R","\u21B1"]].forEach(function(k){
+        var b=document.createElement("button"); b.type="button"; b.textContent=k[1];
+        b.disabled = running || prog.length>=12;
+        b.addEventListener("click", function(){ prog.push(k[0]); result=null; render(); });
+        keys.appendChild(b);
+      });
+      [[t(T.undo), function(){ prog.pop(); result=null; render(); }, ""],
+       [t(T.clear), function(){ prog=[]; result=null; render(); }, ""],
+       [t(T.run), run, "go"]].forEach(function(b){
+        var bt=document.createElement("button"); bt.type="button";
+        if (b[2]) bt.className=b[2];
+        setText(bt, b[0]); bt.disabled=running;
+        bt.addEventListener("click", b[1]); btns.appendChild(bt);
+      });
+      LEVELS.forEach(function(L,i){
+        var b=document.createElement("button"); b.type="button"; b.className="schip";
+        b.textContent=L.name;
+        b.setAttribute("aria-pressed", i===lvl ? "true":"false");
+        b.addEventListener("click", function(){ lvl=i; prog=[]; result=null; stop(); render(); });
+        chips.appendChild(b);
+      });
+      lastSpoken="";
+      return;
+    }
+
+    if (tab==="lit"){
+      drawLit();
+      setText($("title"), t(T.titleLit));
+      setText($("subtitle"), t(T.subLit));
+      setText($("panelHead"), t(T.headLit));
+      var it=LIT[litI];
+      if (!litPick){
+        setText(chip, t(it.step)); setText($("says"), ""); setText($("detail"), "");
+        setText($("whyText"), t(T.whyLit));
+      } else if (litPick==="good"){
+        chip.className="statechip ok"; setText(chip, t(T.litGood));
+        setText($("says"), t(it.good)); setText($("detail"), "");
+        setText($("whyText"), t(T.whyLitGood));
+        litDone[litI]=true;
+      } else {
+        chip.className="statechip bad"; setText(chip, t(T.litBad));
+        setText($("says"), t(it.oops)); setText($("detail"), t(it.fix));
+        setText($("whyText"), t(T.whyLit));
+      }
+      var order = (litI % 2 === 0) ? ["good","bad"] : ["bad","good"];
+      order.forEach(function(kind){
+        var b=document.createElement("button"); b.type="button";
+        setText(b, t(it[kind]));
+        if (litPick===kind) b.className = kind==="good" ? "picked-good" : "picked-bad";
+        b.addEventListener("click", function(){ if (!litPick){ litPick=kind; render(); } });
+        opts.appendChild(b);
+      });
+      LIT.forEach(function(x,i){
+        var b=document.createElement("button"); b.type="button";
+        b.className="schip" + (litDone[i] ? " done":"");
+        b.textContent=String(i+1)+(litDone[i]?" \u2605":"");
+        b.setAttribute("aria-pressed", i===litI ? "true":"false");
+        b.addEventListener("click", function(){ litI=i; litPick=null; render(); });
+        chips.appendChild(b);
+      });
+      lastSpoken="";
+      return;
+    }
+
+    // sense, think, act
+    drawLoop();
+    setText($("title"), t(T.titleLoop));
+    setText($("subtitle"), t(T.subLoop));
+    setText($("panelHead"), t(T.headLoop));
+    setText(chip, sensorOn ? t(T.sense) : t(T.act));
+    chip.className="statechip" + (sensorOn ? "" : " bad");
+    setText($("says"), sensorOn ? t(T.loopOnS) : t(T.loopOffS));
+    setText($("detail"), "");
+    setText($("whyText"), sensorOn ? t(T.whyLoopOn) : t(T.whyLoopOff));
+    [t(T.sense), t(T.think), t(T.act)].forEach(function(nm,i){
+      var d=document.createElement("div");
+      d.className="loopbox" + ((sensorOn ? i===loopStep : i===2) ? " on" : "");
+      d.textContent=nm;
+      d.setAttribute("dir", lang==="ur"?"rtl":"ltr");
+      loopbar.appendChild(d);
+    });
+    var sb=document.createElement("button"); sb.type="button"; sb.className="go";
+    setText(sb, sensorOn ? t(T.sensorOn) : t(T.sensorOff));
+    sb.addEventListener("click", function(){ sensorOn=!sensorOn; loopStep=0; render(); });
+    btns.appendChild(sb);
+    lastSpoken="";
+  }
+
+  var lastSpoken="";
+
+  ["Maze","Lit","Loop"].forEach(function(x){
+    $("tab"+x).addEventListener("click", function(){
+      var m=x.toLowerCase();
+      if (tab===m) return;
+      stop(); clearInterval(loopTimer);
+      tab=m; result=null; litPick=null; loopStep=0;
+      if (m==="loop") loopTimer=setInterval(function(){
+        if (sensorOn){ loopStep=(loopStep+1)%3; render(); }
+      }, 900);
+      render();
+    });
+  });
+
+  /* ---------- quiz ---------- */
+  function buildQuiz(){
+    var box=$("quizBox"); box.innerHTML="";
+    QUIZ.forEach(function(item){
+      var wrap=document.createElement("div"); wrap.className="q";
+      var q=document.createElement("p"); setText(q,t(item.q)); wrap.appendChild(q);
+      var fb=document.createElement("p"); fb.className="fb";
+      item.o.forEach(function(opt,oi){
+        var b=document.createElement("button"); b.type="button";
+        b.className="opt" + (lang==="ur" ? " ur":"");
+        b.setAttribute("dir", lang==="ur" ? "rtl":"ltr");
+        b.textContent=t(opt);
+        b.addEventListener("click", function(){
+          if (wrap.getAttribute("data-done")==="1") return;
+          wrap.setAttribute("data-done","1");
+          Array.prototype.forEach.call(wrap.querySelectorAll(".opt"), function(x,xi){
+            if (xi===item.a) x.classList.add("right");
+            else if (xi===oi) x.classList.add("wrong");
+          });
+          setText(fb,t(item.f)); fb.classList.add("show","fb");
+        });
+        wrap.appendChild(b);
+      });
+      wrap.appendChild(fb); box.appendChild(wrap);
+    });
+  }
+
+  function applyLang(){
+    document.body.classList.toggle("urdu", lang==="ur");
+    var lb=$("langBtn");
+    lb.textContent=(lang==="en") ? "اردو":"English";
+    lb.setAttribute("aria-pressed", lang==="ur" ? "true":"false");
+    Array.prototype.forEach.call(document.querySelectorAll("[data-en]"), function(el){
+      setText(el, el.getAttribute(lang==="en" ? "data-en":"data-ur"));
+    });
+    buildQuiz(); render();
+  }
+  $("langBtn").addEventListener("click", function(){
+    lang=(lang==="en") ? "ur":"en"; applyLang();
+  });
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      window.speechSynthesis.cancel();
+      var u=new SpeechSynthesisUtterance($("says").textContent);
+      u.lang=(lang==="ur") ? "ur-PK":"en-US"; u.rate=0.92;
+      window.speechSynthesis.speak(u);
+    }catch(e){ /* no voice available — stay quiet */ }
+  });
+
+  applyLang();
+})();
+</script>
+</body>
+</html>

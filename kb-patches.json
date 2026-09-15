@@ -143,5 +143,13 @@
       "interactive_file": "interactives/g5-technology-safety.html",
       "interactive_label": "Khelo — Technology aur safety"
     }
+  },
+  {
+    "file": "kb/grade_5/robotics.json",
+    "match_title": "AI + Robotics",
+    "add": {
+      "interactive_file": "interactives/g5-ai-robotics.html",
+      "interactive_label": "Khelo — AI + Robotics"
+    }
   }
 ]
