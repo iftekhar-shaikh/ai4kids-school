@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>3D printing — تین ڈی پرنٹنگ | AI4Kids Class 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#e8eef6;--board-deep:#c9d6e8;--sky:#a8c8e8;--sky2:#7aa8d4;
+    --desk:#8a9bb0;--desk-deep:#6a7a90;--wall:#f0ebe3;--accent:#2f6fb5;
+    --ok:#2e7d4f;--ink:#1e2a1a;--ink-soft:#4a5744;--paper:#fdfaf3;
+    --line:#d5dec8;--gold:#e8b23d;--left:#c4453a;--fil:#e85d2a;--fil2:#3d9b8f;
+    --nozzle:#5a6570;--bed:#c5d0dc;--layer:#5b8fd9;
+    --fs-cap:clamp(12px, 3.2vw, 13px);--fs-xs:clamp(14px, 3.7vw, 15px);
+    --fs-sm:clamp(16px, 4.2vw, 17px);--fs-md:clamp(17px, 4.6vw, 19px);
+    --fs-lg:clamp(20px, 5.4vw, 23px);--fs-xl:clamp(27px, 7.4vw, 33px);--lh:1.5;
+  }
+  body.urdu{
+    --fs-cap:clamp(13px, 3.5vw, 15px);--fs-xs:clamp(15px, 4.1vw, 17px);
+    --fs-sm:clamp(17px, 4.7vw, 19px);--fs-md:clamp(19px, 5.2vw, 21px);
+    --fs-lg:clamp(22px, 6vw, 25px);--fs-xl:clamp(26px, 7vw, 31px);--lh:2.1;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  .stars{display:flex;align-items:center;gap:6px;font-weight:800;font-size:var(--fs-xs);
+         background:#fff6e2;border:2px solid var(--gold);border-radius:999px;padding:7px 13px}
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+  .tabs{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
+  .tabs button{
+    flex:1 1 28%;min-width:90px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:10px 6px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:54px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .tabs button .badge{color:var(--gold)}
+  .story{
+    background:#fff8ea;border:2px dashed var(--gold);border-radius:16px;padding:13px 15px;
+    font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;margin-bottom:14px;
+  }
+  body.urdu .story{line-height:var(--lh)}
+  .story b{color:var(--ink)}
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:linear-gradient(180deg,var(--sky) 0%,var(--sky2) 36%,var(--wall) 36%,var(--board) 100%);
+    min-height:280px;
+  }
+  .scene-pad{padding:10px 12px 18px;min-height:260px;position:relative}
+  .sky-layer{position:absolute;inset:0 0 58% 0;pointer-events:none;overflow:hidden}
+  .sun-ball{
+    position:absolute;top:12px;right:18px;width:40px;height:40px;border-radius:50%;
+    background:radial-gradient(circle at 35% 35%,#ffe9a0,#f5c542 60%,#e0a020);
+    box-shadow:0 0 18px rgba(245,197,66,.45);z-index:1;
+  }
+  body.urdu .sun-ball{right:auto;left:18px}
+  .cloud{position:absolute;background:rgba(255,255,255,.85);border-radius:40px;opacity:.9}
+  .cloud:before,.cloud:after{content:"";position:absolute;background:inherit;border-radius:50%}
+  .c1{width:48px;height:15px;top:18px;left:12%}
+  .c1:before{width:22px;height:22px;top:-12px;left:6px}
+  .c1:after{width:18px;height:18px;top:-8px;left:24px}
+  .c2{width:34px;height:12px;top:34px;left:55%;opacity:.7}
+  .c2:before{width:16px;height:16px;top:-9px;left:4px}
+  .c2:after{width:12px;height:12px;top:-5px;left:16px}
+  .desk-strip{
+    position:absolute;left:0;right:0;bottom:0;height:26%;
+    background:linear-gradient(180deg,var(--desk) 0%,var(--desk-deep) 100%);
+    z-index:2;border-top:3px solid #556678;
+  }
+  .printer-stage{position:relative;z-index:5;padding-top:72px;display:flex;justify-content:center;align-items:flex-end;min-height:150px}
+  .printer-svg{width:min(92%,280px);height:auto;filter:drop-shadow(0 3px 0 rgba(30,42,26,.12))}
+  .layer-stack{
+    position:absolute;bottom:28%;left:50%;transform:translateX(-50%);
+    width:56px;display:flex;flex-direction:column-reverse;align-items:center;gap:2px;z-index:6;
+  }
+  .layer-bar{
+    height:10px;border-radius:3px;background:var(--layer);border:1.5px solid var(--ink);
+    box-shadow:0 1px 0 rgba(0,0,0,.12);transition:width .25s ease,opacity .2s;
+  }
+  .layer-bar.hot{background:var(--fil);animation:pulse 0.8s ease infinite}
+  @keyframes pulse{50%{opacity:.7}}
+  .spool{
+    position:absolute;top:78px;right:10%;width:36px;height:36px;border-radius:50%;
+    border:4px solid var(--fil);background:conic-gradient(var(--fil) 0 40%,#f5c4a8 40% 70%,var(--fil) 70%);
+    box-shadow:inset 0 0 0 6px #fff,0 2px 0 rgba(0,0,0,.15);z-index:4;
+  }
+  body.urdu .spool{right:auto;left:10%}
+  .spool:after{content:"";position:absolute;inset:10px;border-radius:50%;background:#fff;border:2px solid var(--ink)}
+  .comic-row{
+    position:relative;z-index:5;display:flex;flex-wrap:wrap;gap:8px;
+    justify-content:center;align-items:flex-end;min-height:140px;padding-top:88px;
+  }
+  .item-card{
+    background:rgba(253,250,243,.95);border:2.5px solid var(--ink);border-radius:16px;
+    padding:8px 10px 10px;text-align:center;min-width:72px;max-width:100px;
+    box-shadow:0 3px 0 rgba(30,42,26,.15);cursor:pointer;user-select:none;
+  }
+  .item-card:hover{transform:translateY(-2px)}
+  .item-card.picked{opacity:.35;pointer-events:none}
+  .item-card.ok{border-color:var(--ok);background:#e8f2ed}
+  .item-card.no{border-color:var(--left);background:#fbeae8}
+  .item-card.selected{border-color:var(--accent);background:#eaf1f9;box-shadow:0 0 0 3px rgba(47,111,181,.25)}
+  .item-em{font-size:34px;line-height:1.1;display:block;margin-bottom:2px}
+  .item-lab{font-size:var(--fs-cap);font-weight:800;line-height:1.25;margin:0}
+  .bins{
+    position:relative;z-index:5;display:grid;grid-template-columns:1fr 1fr;gap:8px;padding-top:88px;
+  }
+  .bin{
+    border:2.5px solid var(--ink);border-radius:14px;padding:8px 6px;min-height:100px;
+    background:rgba(253,250,243,.9);text-align:center;
+  }
+  .bin.yes{border-color:var(--ok);background:rgba(232,242,220,.92)}
+  .bin.nope{border-color:var(--left);background:rgba(251,234,232,.92)}
+  .bin h3{margin:0 0 6px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.02em}
+  .bin .drop{min-height:52px;display:flex;flex-wrap:wrap;gap:4px;justify-content:center;align-items:center}
+  .mini-item{
+    border:2px solid var(--ink);border-radius:12px;padding:4px 6px;background:#fff;
+    font-size:22px;line-height:1;cursor:pointer;min-width:40px;
+  }
+  .mini-item.used{opacity:.3;pointer-events:none}
+  .bank{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:8px;position:relative;z-index:5}
+  .step-row{
+    position:relative;z-index:5;display:flex;flex-wrap:wrap;gap:6px;
+    justify-content:center;align-items:center;padding-top:90px;min-height:120px;
+  }
+  .step-slot{
+    min-width:70px;min-height:72px;border:2.5px dashed rgba(30,42,26,.45);
+    border-radius:14px;background:rgba(253,250,243,.75);display:flex;flex-direction:column;
+    align-items:center;justify-content:center;padding:6px;font-weight:800;font-size:var(--fs-cap);
+    color:var(--ink-soft);cursor:pointer;
+  }
+  .step-slot.filled{border-style:solid;border-color:var(--ink);background:var(--paper);color:var(--ink)}
+  .step-slot.hot{border-color:var(--accent);background:#eaf1f9}
+  .step-slot .em{font-size:28px;line-height:1}
+  .step-arrow{font-size:18px;font-weight:800;color:var(--fil);padding:0 1px}
+  .design-preview{
+    position:relative;z-index:5;padding-top:82px;text-align:center;min-height:140px;
+  }
+  .design-hero{font-size:72px;line-height:1;margin:4px 0 6px;filter:drop-shadow(0 2px 0 rgba(0,0,0,.12))}
+  .design-feat{font-size:28px;margin:0}
+  .shape-grid{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:6px 0}
+  .shape-btn,.feat-btn{
+    border:2.5px solid var(--ink);background:var(--paper);border-radius:14px;
+    padding:10px 12px;font:inherit;font-weight:800;font-size:var(--fs-cap);
+    cursor:pointer;min-height:48px;display:flex;align-items:center;gap:6px;
+  }
+  .shape-btn.selected,.feat-btn.selected{border-color:var(--accent);background:#eaf1f9;box-shadow:0 0 0 3px rgba(47,111,181,.2)}
+  .shape-btn.ok,.feat-btn.ok{border-color:var(--ok);background:#e8f2ed}
+  .save-choices{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+  .save-choices button{
+    border:2.5px solid var(--ink);background:var(--paper);border-radius:14px;
+    padding:12px 14px;font:inherit;font-weight:800;font-size:var(--fs-xs);
+    cursor:pointer;text-align:left;min-height:52px;display:flex;align-items:center;gap:10px;
+  }
+  body.urdu .save-choices button{text-align:right}
+  .save-choices button .cem{font-size:26px}
+  .save-choices button.right{border-color:var(--ok);background:#e8f2ed}
+  .save-choices button.wrong{border-color:var(--left);background:#fbeae8}
+  .outcome{
+    margin-top:10px;border-radius:14px;padding:10px 12px;font-weight:700;font-size:var(--fs-xs);
+    display:none;border:2px solid var(--ok);background:#e8f2ed;color:var(--ok);
+  }
+  .outcome.show{display:block}
+  .outcome.bad{border-color:var(--left);background:#fbeae8;color:var(--left)}
+  .badge-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:6px 0;position:relative;z-index:5}
+  .mini-badge{
+    border:2px solid var(--ink);border-radius:12px;padding:6px 10px;background:#fff;
+    font-size:var(--fs-cap);font-weight:800;display:flex;align-items:center;gap:4px;
+  }
+  .readout{
+    margin-top:-18px;position:relative;z-index:2;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+  .statechip.ur{padding:2px 14px 7px}
+  .statechip.win{background:var(--ok)}
+  .statechip.miss{background:var(--left)}
+  .headline{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+  .headline.ur{line-height:1.95}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+  .hintbox{
+    margin-top:14px;border:2px solid var(--accent);background:#eaf1f9;border-radius:14px;
+    padding:11px 14px;font-size:var(--fs-xs);color:var(--accent);font-weight:700;line-height:1.55;
+    display:none;
+  }
+  .hintbox.show{display:block}
+  body.urdu .hintbox{line-height:var(--lh)}
+  .panel{margin-top:22px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .prog{margin:0 0 10px;font-size:var(--fs-xs);font-weight:700;color:var(--ink-soft)}
+  .btns{display:flex;gap:9px;margin-top:8px;flex-wrap:wrap}
+  .btns button{
+    border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);
+    font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:50px;
+    padding:8px 14px;flex:1;
+  }
+  .btns .go{background:var(--ink);color:var(--paper)}
+  .btns button:active{transform:scale(.97)}
+  .btns button:disabled{opacity:.4;cursor:default}
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .qhead{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+  .qhead h2{font-size:var(--fs-lg);font-weight:800;margin:0;flex:1}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:50px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+  .opt.wrong{border-color:var(--left);background:#fbeae8}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
+      grid-template-areas:
+        "bar   bar" "head  head" "tabs  tabs" "story story"
+        "left  right" "quiz  quiz" "foot  foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+    .story{grid-area:story} .left{grid-area:left} .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+    .panel{margin-top:0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition-duration:.01ms !important;animation:none !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 5</span>
+    <span class="stars" id="starBox">⭐ <span id="starCount">0</span></span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 id="title"></h1>
+  <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group">
+    <button type="button" id="tabLayers" aria-pressed="true"></button>
+    <button type="button" id="tabPrint" aria-pressed="false"></button>
+    <button type="button" id="tabDesign" aria-pressed="false"></button>
+  </div>
+
+  <p class="story" id="story"></p>
+
+  <div class="left">
+  <div class="scene">
+    <div class="scene-pad" id="scenePad"></div>
+  </div>
+  <div class="readout">
+    <span class="statechip" id="statechip"></span>
+    <p class="headline" id="headline"></p>
+    <p class="detail" id="detail"></p>
+    <p class="hintbox" id="hintbox"></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="panel">
+    <h2 id="ctlHead"></h2>
+    <p class="prog" id="prog"></p>
+    <div id="actionBox"></div>
+    <div class="btns">
+      <button type="button" class="go" id="nextBtn"></button>
+    </div>
+    <div class="btns">
+      <button type="button" id="hintBtn"></button>
+      <button type="button" id="resetBtn"></button>
+    </div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <div class="qhead">
+      <h2 id="quizHead"></h2>
+      <button type="button" class="chip" id="newQuiz"></button>
+    </div>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad bilingual AI school. Offline play · no APIs. WhatsApp 0337 1468899 · 3D printing Robotics SNC"
+       data-ur="اے آئی فور کڈز — اسلام آباد۔ آف لائن کھیلو۔ واٹس ایپ 0337 1468899 · تین ڈی پرنٹنگ روبوٹکس"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  function $(id){ return document.getElementById(id); }
+  function isolate(s){ return "\u2066" + s + "\u2069"; }
+  function setText(el, str){
+    if (!el) return;
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+  function t(o){ return (o && o[lang]) || (o && o.en) || ""; }
+  function shuffle(arr){
+    var a = arr.slice(), i, j, tmp;
+    for (i = a.length - 1; i > 0; i--){
+      j = Math.floor(Math.random() * (i + 1));
+      tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  var lang = "en";
+  var mode = "layers";
+  var stars = 0;
+  var awarded = {};
+  var doneModes = {layers:false, print:false, design:false};
+
+  var T = {
+    title:{en:"3D printing", ur:"تین ڈی پرنٹنگ"},
+    sub:{en:"3D printer se cheezein banana — layers, designs & filament fun!",
+         ur:"تین ڈی پرنٹر سے چیزیں بنانا — تہیں، ڈیزائن اور فلیمنٹ!"},
+    tabLayers:{en:"Layers", ur:"تہیں / Layers"},
+    tabPrint:{en:"What can we print?", ur:"کیا پرنٹ ہو؟"},
+    tabDesign:{en:"Design a shape", ur:"شکل ڈیزائن"},
+    storyLayers:{en:"Watch the printer build <b>layer by layer</b> — then put steps in order: design → slice → print → cool.",
+                 ur:"پرنٹر <b>تہہ بہ تہہ</b> بناتا دیکھیں — پھر ترتیب لگائیں: ڈیزائن → سلائس → پرنٹ → ٹھنڈا۔"},
+    storyPrint:{en:"Sort <b>printable</b> vs <b>not printable</b> — toy & keychain yes, ice cream no!",
+                ur:"<b>پرنٹ ہونے والی</b> اور <b>نہ ہونے والی</b> چیزیں الگ کرو — کھلونا ہاں، آئس کریم نہیں!"},
+    storyDesign:{en:"Pick a <b>base shape</b> and add a <b>feature</b> for your mini 3D project.",
+                 ur:"اپنے منی پروجیکٹ کے لیے <b>بنیادی شکل</b> چنو اور ایک <b>خاصیت</b> جوڑو۔"},
+    ctl:{en:"Your turn — mini maker", ur:"تمہاری باری — منی میکر"},
+    next:{en:"Next challenge", ur:"اگلا چیلنج"},
+    hint:{en:"Hint", ur:"اشارہ"},
+    reset:{en:"Reset", ur:"ری سیٹ"},
+    quiz:{en:"Check yourself", ur:"اپنا چیک"},
+    newQuiz:{en:"New quiz", ur:"نیا کوئز"},
+    nice:{en:"Shabash — layer by layer!", ur:"شاباش — تہہ بہ تہہ!"},
+    oops:{en:"Almost — try again", ur:"قریب — دوبارہ آزماؤ"},
+    tip:{en:"Tip: Design on computer, slice into layers, hot nozzle prints plastic, then cool. Solid toys yes — melting ice cream no!",
+         ur:"نکتہ: کمپیوٹر پر ڈیزائن، سلائس، گرم نوزل پرنٹ، پھر ٹھنڈا۔ ٹھوس کھلونا ہاں — پگھلتی آئس کریم نہیں!"},
+    progL:{en:"Layer challenges", ur:"تہہ چیلنج"},
+    progP:{en:"Sort rounds", ur:"ترتیب راؤنڈ"},
+    progD:{en:"Mini designs", ur:"منی ڈیزائن"},
+    askLayer:{en:"Build layers or order the steps", ur:"تہیں بناؤ یا قدم ترتیب دو"},
+    askPrint:{en:"Tap printable or not — then check", ur:"پرنٹ ہو یا نہیں — پھر چیک"},
+    askDesign:{en:"Choose base + feature, then lock design", ur:"شکل + خاصیت چنو، پھر محفوظ کرو"},
+    addLayer:{en:"Add next layer", ur:"اگلی تہہ جوڑو"},
+    checkOrder:{en:"Check order", ur:"ترتیب چیک کرو"},
+    checkSort:{en:"Check sort", ur:"ترتیب چیک کرو"},
+    lockDesign:{en:"Lock my design", ur:"میرا ڈیزائن محفوظ کرو"},
+    pickStep:{en:"Tap a step, then a slot", ur:"قدم ٹیپ کرو، پھر خانہ"},
+    yesBin:{en:"Printable ✓", ur:"پرنٹ ہو ✓"},
+    noBin:{en:"Not printable ✗", ur:"پرنٹ نہیں ✗"}
+  };
+
+  var STEPS = {
+    design:{em:"✏️", en:"Design", ur:"ڈیزائن"},
+    slice:{em:"🍰", en:"Slice", ur:"سلائس"},
+    print:{em:"🖨️", en:"Print", ur:"پرنٹ"},
+    cool:{em:"❄️", en:"Cool", ur:"ٹھنڈا"}
+  };
+
+  /* Mode 1: Layers — 4 challenges (2 build + 2 order) */
+  var LAYERS = [
+    {
+      id:"l1", type:"build",
+      title:{en:"Keychain layers", ur:"کی چین تہیں"},
+      object:"🔑", target:4,
+      widths:[28,40,48,44],
+      hint:{en:"Each thin plastic line stacks up. Tap Add layer until the keychain is complete.",
+            ur:"ہر پتلی پلاسٹک لائن اوپر جمتی ہے۔ مکمل ہونے تک Add layer دباؤ۔"},
+      done:{en:"Keychain printed — layer by layer!", ur:"کی چین تیار — تہہ بہ تہہ!"}
+    },
+    {
+      id:"l2", type:"build",
+      title:{en:"Cup layers", ur:"کپ کی تہیں"},
+      object:"🥤", target:5,
+      widths:[36,42,48,52,56],
+      hint:{en:"The cup grows taller with every layer from the bed up to the rim.",
+            ur:"ہر تہہ سے کپ اونچا ہوتا ہے — بستر سے کنارے تک۔"},
+      done:{en:"Cup stacked — ready to cool!", ur:"کپ بن گیا — اب ٹھنڈا کرو!"}
+    },
+    {
+      id:"l3", type:"order",
+      title:{en:"Toy print steps", ur:"کھلونا پرنٹ قدم"},
+      order:["design","slice","print","cool"],
+      hint:{en:"First draw/design, then slice into layers, print with hot nozzle, then cool.",
+            ur:"پہلے ڈیزائن، پھر سلائس، گرم نوزل سے پرنٹ، پھر ٹھنڈا۔"},
+      done:{en:"Perfect order for a 3D toy!", ur:"کھلونے کے لیے بہترین ترتیب!"}
+    },
+    {
+      id:"l4", type:"order",
+      title:{en:"School badge steps", ur:"اسکول بیج قدم"},
+      order:["design","slice","print","cool"],
+      hint:{en:"Same pipeline every time: design → slice → print → cool.",
+            ur:"ہر بار وہی راستہ: ڈیزائن → سلائس → پرنٹ → ٹھنڈا۔"},
+      done:{en:"Badge pipeline locked in!", ur:"بیج کا راستہ یاد ہو گیا!"}
+    }
+  ];
+
+  var ITEMS = {
+    toy:{em:"🧸", en:"Toy", ur:"کھلونا", ok:true},
+    keychain:{em:"🔑", en:"Keychain", ur:"کی چین", ok:true},
+    cup:{em:"🥤", en:"Cup", ur:"کپ", ok:true},
+    badge:{em:"🎖️", en:"Badge", ur:"بیج", ok:true},
+    phoneStand:{em:"📱", en:"Phone stand", ur:"فون اسٹینڈ", ok:true},
+    ice:{em:"🍦", en:"Ice cream", ur:"آئس کریم", ok:false},
+    water:{em:"💧", en:"Water", ur:"پانی", ok:false},
+    cake:{em:"🎂", en:"Soft cake", ur:"نرم کیک", ok:false},
+    balloon:{em:"🎈", en:"Balloon air", ur:"غبارے کی ہوا", ok:false},
+    soup:{em:"🥣", en:"Hot soup", ur:"گرم سوپ", ok:false},
+    brick:{em:"🧱", en:"Brick model", ur:"اینٹ ماڈل", ok:true},
+    cloud:{em:"☁️", en:"Real cloud", ur:"اصل بادل", ok:false}
+  };
+
+  /* Mode 2: What can we print? — 4 sort rounds */
+  var PRINT = [
+    {
+      id:"p1",
+      title:{en:"Toy box", ur:"کھلونا باکس"},
+      items:["toy","ice","keychain","water"],
+      hint:{en:"Hard plastic shapes print. Melting or liquid things do not.",
+            ur:"سخت پلاسٹک شکلیں پرنٹ ہوتیں۔ پگھلنے والی یا مائع نہیں۔"}
+    },
+    {
+      id:"p2",
+      title:{en:"Desk & snack", ur:"ڈیسک اور ناشتہ"},
+      items:["cup","cake","phoneStand","soup"],
+      hint:{en:"A cup shell can print. Soft cake and hot soup cannot.",
+            ur:"کپ کا خول پرنٹ ہو سکتا ہے۔ نرم کیک اور گرم سوپ نہیں۔"}
+    },
+    {
+      id:"p3",
+      title:{en:"School fair", ur:"اسکول میلہ"},
+      items:["badge","balloon","brick","cloud"],
+      hint:{en:"Solid models yes. Air, clouds, and balloons are not filament objects.",
+            ur:"ٹھوس ماڈل ہاں۔ ہوا، بادل، غبارہ فلیمنٹ چیز نہیں۔"}
+    },
+    {
+      id:"p4",
+      title:{en:"Maker mix", ur:"میکر مکس"},
+      items:["keychain","ice","toy","water","cup"],
+      hint:{en:"If it needs to stay solid plastic — printable. If it melts or flows — not.",
+            ur:"اگر ٹھوس پلاسٹک رہنی ہو — پرنٹ۔ اگر پگھلے یا بہے — نہیں۔"}
+    }
+  ];
+
+  var SHAPES = {
+    cube:{em:"⬛", en:"Cube", ur:"مکعب"},
+    cylinder:{em:"🛢️", en:"Cylinder", ur:"سلنڈر"},
+    cone:{em:"🔺", en:"Cone", ur:"مخروط"},
+    ring:{em:"⭕", en:"Ring", ur:"حلقہ"}
+  };
+  var FEATS = {
+    hole:{em:"🕳️", en:"Hole for key", ur:"چابی کا سوراخ"},
+    handle:{em:"🤚", en:"Handle", ur:"ہینڈل"},
+    name:{em:"🔤", en:"Name tag", ur:"نام ٹیگ"},
+    smile:{em:"😊", en:"Smile face", ur:"مسکراہٹ"}
+  };
+
+  /* Mode 3: Design — 3 mini projects */
+  var DESIGN = [
+    {
+      id:"d1",
+      title:{en:"Mini keychain", ur:"منی کی چین"},
+      needShape:"ring", needFeat:"hole",
+      preview:"🔑",
+      hint:{en:"A keychain needs a ring base and a hole so it can hang on keys.",
+            ur:"کی چین کے لیے حلقہ اور سوراخ چاہیے تاکہ چابی لگے۔"},
+      done:{en:"Keychain design ready to slice!", ur:"کی چین ڈیزائن سلائس کے لیے تیار!"}
+    },
+    {
+      id:"d2",
+      title:{en:"Water cup", ur:"پانی کا کپ"},
+      needShape:"cylinder", needFeat:"handle",
+      preview:"🥤",
+      hint:{en:"Cups are cylinders. A handle helps you hold it.",
+            ur:"کپ سلنڈر ہوتے ہیں۔ ہینڈل پکڑنے میں مدد دیتا ہے۔"},
+      done:{en:"Cup design locked — great makerspace pick!", ur:"کپ ڈیزائن محفوظ — زبردست انتخاب!"}
+    },
+    {
+      id:"d3",
+      title:{en:"Class badge", ur:"کلاس بیج"},
+      needShape:"cube", needFeat:"name",
+      preview:"🎖️",
+      hint:{en:"A flat-ish cube badge with a name tag shows whose it is.",
+            ur:"نام ٹیگ والا مکعب بیج بتاتا ہے یہ کس کا ہے۔"},
+      done:{en:"Badge design complete — Shabash!", ur:"بیج ڈیزائن مکمل — شاباش!"}
+    }
+  ];
+
+  var QUIZ = [
+    {
+      q:{en:"How does a 3D printer usually build an object?",
+         ur:"تین ڈی پرنٹر عام طور پر چیز کیسے بناتا ہے؟"},
+      opts:[
+        {en:"Layer by layer with melted filament", ur:"پگھلے فلیمنٹ سے تہہ بہ تہہ"},
+        {en:"By magic in one flash", ur:"ایک چمک میں جادو سے"},
+        {en:"By freezing water only", ur:"صرف پانی جما کر"},
+        {en:"By cutting paper only", ur:"صرف کاغذ کاٹ کر"}
+      ],
+      correct:0,
+      why:{en:"The hot nozzle lays thin layers that stack into a 3D shape.",
+           ur:"گرم نوزل پتلی تہیں جماتا ہے جو تین ڈی شکل بناتی ہیں۔"}
+    },
+    {
+      q:{en:"What is the usual first step before printing?",
+         ur:"پرنٹ سے پہلے عام پہلا قدم کیا ہے؟"},
+      opts:[
+        {en:"Design the object on a computer", ur:"کمپیوٹر پر چیز کا ڈیزائن بنانا"},
+        {en:"Eat ice cream", ur:"آئس کریم کھانا"},
+        {en:"Cool the finished toy first", ur:"پہلے تیار کھلونا ٹھنڈا کرنا"},
+        {en:"Throw away the filament", ur:"فلیمنٹ پھینک دینا"}
+      ],
+      correct:0,
+      why:{en:"You design first, then slice, then print, then cool.",
+           ur:"پہلے ڈیزائن، پھر سلائس، پھر پرنٹ، پھر ٹھنڈا۔"}
+    },
+    {
+      q:{en:"Which item can a normal school 3D printer make?",
+         ur:"عام اسکول تین ڈی پرنٹر کون سی چیز بنا سکتا ہے؟"},
+      opts:[
+        {en:"A plastic toy or keychain", ur:"پلاسٹک کھلونا یا کی چین"},
+        {en:"Real ice cream that stays cold", ur:"اصل آئس کریم جو ٹھنڈی رہے"},
+        {en:"A living cloud", ur:"زندہ بادل"},
+        {en:"A bowl of hot soup", ur:"گرم سوپ کا پیالہ"}
+      ],
+      correct:0,
+      why:{en:"Printers use solid filament — not melting desserts or liquids.",
+           ur:"پرنٹر ٹھوس فلیمنٹ استعمال کرتا ہے — پگھلتے میٹھے یا مائع نہیں۔"}
+    },
+    {
+      q:{en:"What does 'slice' mean in 3D printing?",
+         ur:"تین ڈی پرنٹنگ میں 'سلائس' کا مطلب کیا ہے؟"},
+      opts:[
+        {en:"Cut the 3D design into thin printable layers", ur:"تین ڈی ڈیزائن کو پتلی پرنٹ تہوں میں کاٹنا"},
+        {en:"Cut a cake for the class", ur:"کلاس کے لیے کیک کاٹنا"},
+        {en:"Cool the bed with ice", ur:"بستر کو برف سے ٹھنڈا کرنا"},
+        {en:"Throw away the nozzle", ur:"نوزل پھینک دینا"}
+      ],
+      correct:0,
+      why:{en:"Slicing software turns your design into layer instructions for the printer.",
+           ur:"سلائس سافٹ ویئر ڈیزائن کو پرنٹر کے لیے تہہ ہدایات بناتا ہے۔"}
+    },
+    {
+      q:{en:"Why must a printed object cool?",
+         ur:"پرنٹ شدہ چیز کو ٹھنڈا کیوں کرنا چاہیے؟"},
+      opts:[
+        {en:"So the plastic hardens and keeps its shape", ur:"تاکہ پلاسٹک سخت ہو اور شکل برقرار رہے"},
+        {en:"So it turns into ice cream", ur:"تاکہ آئس کریم بن جائے"},
+        {en:"So the computer deletes the design", ur:"تاکہ کمپیوٹر ڈیزائن مٹا دے"},
+        {en:"So the filament spool disappears", ur:"تاکہ فلیمنٹ اسپول غائب ہو جائے"}
+      ],
+      correct:0,
+      why:{en:"Warm plastic is soft; cooling makes layers strong.",
+           ur:"گرم پلاسٹک نرم ہوتی ہے؛ ٹھنڈا ہونے سے تہیں مضبوط بنتی ہیں۔"}
+    }
+  ];
+
+  var layersIdx = 0, layersCount = 0, layersMap = {}, layersSelected = null, layersDone = {};
+  var printIdx = 0, printMap = {}, printDone = {};
+  var designIdx = 0, designShape = null, designFeat = null, designDone = {};
+  var quizSet = [];
+
+  function award(key, n){
+    if (awarded[key]) return;
+    awarded[key] = true;
+    stars += (n || 1);
+    $("starCount").textContent = String(stars);
+  }
+  function recountStars(){
+    stars = 0;
+    Object.keys(awarded).forEach(function(k){
+      stars += (k.indexOf("mode-")===0) ? 2 : 1;
+    });
+    $("starCount").textContent = String(stars);
+  }
+
+  function workshopBg(){
+    return '<div class="sky-layer"><div class="sun-ball"></div><div class="cloud c1"></div><div class="cloud c2"></div></div>' +
+           '<div class="spool" title="filament"></div>' +
+           '<div class="desk-strip"></div>';
+  }
+
+  function printerSvg(extra){
+    return '<div class="printer-stage">' +
+      '<svg class="printer-svg" viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+      '<rect x="20" y="18" width="160" height="100" rx="8" fill="#dce6f0" stroke="#1e2a1a" stroke-width="3"/>' +
+      '<rect x="32" y="30" width="136" height="12" rx="3" fill="#5a6570" stroke="#1e2a1a" stroke-width="2"/>' +
+      '<rect x="92" y="42" width="10" height="48" fill="#7a8794" stroke="#1e2a1a" stroke-width="1.5"/>' +
+      '<polygon points="90,90 114,90 102,104" fill="#e85d2a" stroke="#1e2a1a" stroke-width="2"/>' +
+      '<rect x="50" y="108" width="100" height="8" rx="2" fill="#c5d0dc" stroke="#1e2a1a" stroke-width="2"/>' +
+      '<text x="100" y="16" text-anchor="middle" font-size="11" font-weight="800" fill="#2f6fb5">3D</text>' +
+      '</svg>' + (extra || '') + '</div>';
+  }
+
+  /* ---------- LAYERS ---------- */
+  function renderLayers(){
+    var ch = LAYERS[layersIdx];
+    var pad = $("scenePad");
+    var box = $("actionBox");
+    box.innerHTML = "";
+
+    if (ch.type === "build"){
+      var bars = "";
+      var i;
+      for (i = 0; i < layersCount; i++){
+        var w = ch.widths[i] || 40;
+        var hot = (i === layersCount - 1 && !layersDone[ch.id]) ? " hot" : "";
+        bars += '<div class="layer-bar'+hot+'" style="width:'+w+'px"></div>';
+      }
+      pad.innerHTML = workshopBg() + printerSvg('<div class="layer-stack">'+bars+'</div>') +
+        '<div class="badge-row"><span class="mini-badge">'+ch.object+' '+layersCount+'/'+ch.target+'</span></div>';
+
+      if (!layersDone[ch.id]){
+        var add = document.createElement("button");
+        add.type = "button";
+        add.className = "chip";
+        add.style.width = "100%";
+        setText(add, t(T.addLayer));
+        add.addEventListener("click", function(){
+          if (layersCount < ch.target){
+            layersCount++;
+            if (layersCount >= ch.target){
+              layersDone[ch.id] = true;
+              award("layers-"+ch.id, 1);
+              if (Object.keys(layersDone).length === LAYERS.length){
+                doneModes.layers = true;
+                award("mode-layers", 2);
+              }
+              tabBadges();
+            }
+            renderLayers();
+          }
+        });
+        box.appendChild(add);
+      } else {
+        var out = document.createElement("div");
+        out.className = "outcome show";
+        setText(out, t(ch.done));
+        box.appendChild(out);
+      }
+    } else {
+      /* order steps */
+      pad.innerHTML = workshopBg() + printerSvg('') +
+        '<div class="badge-row"><span class="mini-badge">✏️→🍰→🖨️→❄️</span></div>';
+
+      var row = document.createElement("div");
+      row.className = "step-row";
+      row.style.paddingTop = "0";
+      row.style.minHeight = "auto";
+      ch.order.forEach(function(_, si){
+        if (si) {
+          var ar = document.createElement("span");
+          ar.className = "step-arrow";
+          ar.textContent = "→";
+          row.appendChild(ar);
+        }
+        var slot = document.createElement("div");
+        slot.className = "step-slot" + (layersMap[si] ? " filled" : "") + (layersSelected && !layersMap[si] ? " hot" : "");
+        if (layersMap[si]){
+          slot.innerHTML = '<span class="em">'+STEPS[layersMap[si]].em+'</span>';
+          var lab = document.createElement("span");
+          setText(lab, t(STEPS[layersMap[si]]));
+          slot.appendChild(lab);
+        } else {
+          slot.textContent = String(si + 1);
+        }
+        slot.addEventListener("click", function(){
+          if (layersDone[ch.id]) return;
+          if (layersSelected){
+            layersMap[si] = layersSelected;
+            layersSelected = null;
+            renderLayers();
+          } else if (layersMap[si]){
+            layersSelected = layersMap[si];
+            delete layersMap[si];
+            renderLayers();
+          }
+        });
+        row.appendChild(slot);
+      });
+      box.appendChild(row);
+
+      var bank = document.createElement("div");
+      bank.className = "bank";
+      var used = {};
+      Object.keys(layersMap).forEach(function(k){ used[layersMap[k]] = true; });
+      shuffle(ch.order.slice()).forEach(function(id){
+        /* stable order for bank: use fixed order but mark used */
+      });
+      ["design","slice","print","cool"].forEach(function(id){
+        if (ch.order.indexOf(id) < 0) return;
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "item-card" + (used[id] ? " picked" : "") + (layersSelected===id ? " selected" : "");
+        b.innerHTML = '<span class="item-em">'+STEPS[id].em+'</span><p class="item-lab"></p>';
+        setText(b.querySelector(".item-lab"), t(STEPS[id]));
+        if (!used[id] && !layersDone[ch.id]){
+          b.addEventListener("click", function(){ layersSelected = id; renderLayers(); });
+        }
+        bank.appendChild(b);
+      });
+      box.appendChild(bank);
+
+      if (!layersDone[ch.id]){
+        var check = document.createElement("button");
+        check.type = "button";
+        check.className = "chip";
+        check.style.width = "100%";
+        check.style.marginTop = "8px";
+        setText(check, t(T.checkOrder));
+        check.addEventListener("click", function(){
+          var ok = true;
+          ch.order.forEach(function(id, i){
+            if (layersMap[i] !== id) ok = false;
+          });
+          if (ok && ch.order.every(function(_, i){ return layersMap[i]; })){
+            layersDone[ch.id] = true;
+            award("layers-"+ch.id, 1);
+            if (Object.keys(layersDone).length === LAYERS.length){
+              doneModes.layers = true;
+              award("mode-layers", 2);
+            }
+            tabBadges();
+            renderLayers();
+          } else {
+            setText($("statechip"), t(T.oops));
+            $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+            setText($("detail"), t(ch.hint));
+          }
+        });
+        box.appendChild(check);
+      } else {
+        var out2 = document.createElement("div");
+        out2.className = "outcome show";
+        setText(out2, t(ch.done));
+        box.appendChild(out2);
+      }
+    }
+
+    var done = !!layersDone[ch.id];
+    setText($("statechip"), done ? t(T.nice) : t(ch.title));
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (done?" win":"");
+    setText($("headline"), t(T.askLayer));
+    setText($("detail"), ch.type==="build" ? (ch.object+" "+layersCount+"/"+ch.target) : t(T.pickStep));
+    $("hintbox").classList.remove("show");
+    setText($("prog"), t(T.progL) + ": " + Object.keys(layersDone).length + "/" + LAYERS.length);
+  }
+
+  /* ---------- PRINT SORT ---------- */
+  function renderPrint(){
+    var ch = PRINT[printIdx];
+    var pad = $("scenePad");
+    pad.innerHTML = workshopBg() +
+      '<div class="bins">' +
+      '<div class="bin yes"><h3></h3><div class="drop" id="binYes"></div></div>' +
+      '<div class="bin nope"><h3></h3><div class="drop" id="binNo"></div></div>' +
+      '</div>';
+    setText(pad.querySelector(".bin.yes h3"), t(T.yesBin));
+    setText(pad.querySelector(".bin.nope h3"), t(T.noBin));
+
+    var yesDrop = $("binYes");
+    var noDrop = $("binNo");
+    Object.keys(printMap).forEach(function(id){
+      var m = document.createElement("span");
+      m.className = "mini-item";
+      m.textContent = ITEMS[id].em;
+      m.title = t(ITEMS[id]);
+      if (printMap[id] === "yes") yesDrop.appendChild(m);
+      else noDrop.appendChild(m);
+    });
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+    var bank = document.createElement("div");
+    bank.className = "bank";
+    ch.items.forEach(function(id){
+      var used = !!printMap[id];
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "item-card" + (used ? " picked" : "");
+      b.innerHTML = '<span class="item-em">'+ITEMS[id].em+'</span><p class="item-lab"></p>';
+      setText(b.querySelector(".item-lab"), t(ITEMS[id]));
+      if (!used && !printDone[ch.id]){
+        b.addEventListener("click", function(){
+          /* toggle assign: first click asks via two quick buttons */
+          showAssign(id);
+        });
+      }
+      bank.appendChild(b);
+    });
+    box.appendChild(bank);
+
+    var assignBox = document.createElement("div");
+    assignBox.id = "assignBox";
+    box.appendChild(assignBox);
+
+    if (!printDone[ch.id]){
+      var check = document.createElement("button");
+      check.type = "button";
+      check.className = "chip";
+      check.style.width = "100%";
+      check.style.marginTop = "8px";
+      setText(check, t(T.checkSort));
+      check.addEventListener("click", checkPrint);
+      box.appendChild(check);
+    } else {
+      var out = document.createElement("div");
+      out.className = "outcome show";
+      setText(out, t(T.nice));
+      box.appendChild(out);
+    }
+
+    setText($("statechip"), printDone[ch.id] ? t(T.nice) : t(ch.title));
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (printDone[ch.id]?" win":"");
+    setText($("headline"), t(T.askPrint));
+    setText($("detail"), Object.keys(printMap).length + "/" + ch.items.length);
+    $("hintbox").classList.remove("show");
+    setText($("prog"), t(T.progP) + ": " + Object.keys(printDone).length + "/" + PRINT.length);
+  }
+
+  function showAssign(id){
+    var ab = $("assignBox");
+    if (!ab) return;
+    ab.innerHTML = "";
+    var lab = document.createElement("p");
+    lab.style.fontWeight = "800";
+    lab.style.margin = "8px 0";
+    setText(lab, t(ITEMS[id]) + "?");
+    ab.appendChild(lab);
+    var row = document.createElement("div");
+    row.className = "btns";
+    var y = document.createElement("button");
+    y.type = "button";
+    y.className = "go";
+    setText(y, t(T.yesBin));
+    y.addEventListener("click", function(){ printMap[id] = "yes"; renderPrint(); });
+    var n = document.createElement("button");
+    n.type = "button";
+    setText(n, t(T.noBin));
+    n.addEventListener("click", function(){ printMap[id] = "no"; renderPrint(); });
+    row.appendChild(y);
+    row.appendChild(n);
+    ab.appendChild(row);
+  }
+
+  function checkPrint(){
+    var ch = PRINT[printIdx];
+    var ok = true;
+    ch.items.forEach(function(id){
+      var want = ITEMS[id].ok ? "yes" : "no";
+      if (printMap[id] !== want) ok = false;
+    });
+    if (ok && ch.items.every(function(id){ return printMap[id]; })){
+      printDone[ch.id] = true;
+      award("print-"+ch.id, 1);
+      if (Object.keys(printDone).length === PRINT.length){
+        doneModes.print = true;
+        award("mode-print", 2);
+      }
+      tabBadges();
+      renderPrint();
+    } else {
+      setText($("statechip"), t(T.oops));
+      $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+      setText($("detail"), t(ch.hint));
+    }
+  }
+
+  /* ---------- DESIGN ---------- */
+  function renderDesign(){
+    var ch = DESIGN[designIdx];
+    var pad = $("scenePad");
+    var hero = (designShape && designFeat) ? ch.preview : "❓";
+    var featEm = designFeat ? FEATS[designFeat].em : "";
+    pad.innerHTML = workshopBg() +
+      '<div class="design-preview"><div class="design-hero">'+hero+'</div>' +
+      '<div class="design-feat">'+featEm+'</div>' +
+      '<div class="badge-row"><span class="mini-badge">🎨 Design</span><span class="mini-badge">🧵 Filament</span></div></div>';
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+
+    var shLab = document.createElement("p");
+    shLab.style.fontWeight = "800";
+    shLab.style.margin = "0 0 6px";
+    setText(shLab, lang==="ur" ? "بنیادی شکل" : "Base shape");
+    box.appendChild(shLab);
+    var sg = document.createElement("div");
+    sg.className = "shape-grid";
+    Object.keys(SHAPES).forEach(function(id){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "shape-btn" + (designShape===id ? " selected" : "") + (designDone[ch.id] && id===ch.needShape ? " ok" : "");
+      b.innerHTML = '<span>'+SHAPES[id].em+'</span>';
+      var lab = document.createElement("span");
+      setText(lab, t(SHAPES[id]));
+      b.appendChild(lab);
+      if (!designDone[ch.id]){
+        b.addEventListener("click", function(){ designShape = id; renderDesign(); });
+      }
+      sg.appendChild(b);
+    });
+    box.appendChild(sg);
+
+    var fLab = document.createElement("p");
+    fLab.style.fontWeight = "800";
+    fLab.style.margin = "10px 0 6px";
+    setText(fLab, lang==="ur" ? "خاصیت جوڑو" : "Add a feature");
+    box.appendChild(fLab);
+    var fg = document.createElement("div");
+    fg.className = "shape-grid";
+    Object.keys(FEATS).forEach(function(id){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "feat-btn" + (designFeat===id ? " selected" : "") + (designDone[ch.id] && id===ch.needFeat ? " ok" : "");
+      b.innerHTML = '<span>'+FEATS[id].em+'</span>';
+      var lab = document.createElement("span");
+      setText(lab, t(FEATS[id]));
+      b.appendChild(lab);
+      if (!designDone[ch.id]){
+        b.addEventListener("click", function(){ designFeat = id; renderDesign(); });
+      }
+      fg.appendChild(b);
+    });
+    box.appendChild(fg);
+
+    if (!designDone[ch.id]){
+      var lock = document.createElement("button");
+      lock.type = "button";
+      lock.className = "chip";
+      lock.style.width = "100%";
+      lock.style.marginTop = "10px";
+      setText(lock, t(T.lockDesign));
+      lock.addEventListener("click", function(){
+        if (designShape === ch.needShape && designFeat === ch.needFeat){
+          designDone[ch.id] = true;
+          award("design-"+ch.id, 1);
+          if (Object.keys(designDone).length === DESIGN.length){
+            doneModes.design = true;
+            award("mode-design", 2);
+          }
+          tabBadges();
+          renderDesign();
+        } else {
+          setText($("statechip"), t(T.oops));
+          $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+          setText($("detail"), t(ch.hint));
+        }
+      });
+      box.appendChild(lock);
+    } else {
+      var out = document.createElement("div");
+      out.className = "outcome show";
+      setText(out, t(ch.done));
+      box.appendChild(out);
+    }
+
+    setText($("statechip"), designDone[ch.id] ? t(T.nice) : t(ch.title));
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (designDone[ch.id]?" win":"");
+    setText($("headline"), t(T.askDesign));
+    setText($("detail"), t(ch.title));
+    $("hintbox").classList.remove("show");
+    setText($("prog"), t(T.progD) + ": " + Object.keys(designDone).length + "/" + DESIGN.length);
+  }
+
+  /* ---------- QUIZ ---------- */
+  function pickQuiz(){ quizSet = shuffle(QUIZ).slice(0, 5); }
+  function renderQuiz(){
+    var box = $("quizBox");
+    box.innerHTML = "";
+    quizSet.forEach(function(item, qi){
+      var div = document.createElement("div");
+      div.className = "q";
+      var p = document.createElement("p");
+      setText(p, (qi+1) + ". " + t(item.q));
+      div.appendChild(p);
+      var fb = document.createElement("p");
+      fb.className = "fb";
+      item.opts.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt" + (lang==="ur"?" ur":"");
+        b.setAttribute("dir", lang==="ur"?"rtl":"ltr");
+        b.textContent = (lang==="ur") ? isolate(t(opt)) : t(opt);
+        b.addEventListener("click", function(){
+          if (div.getAttribute("data-locked")) return;
+          div.setAttribute("data-locked","1");
+          if (oi === item.correct){
+            b.classList.add("right");
+            award("quiz-"+qi, 1);
+            setText(fb, t(item.why));
+          } else {
+            b.classList.add("wrong");
+            var correctBtn = div.querySelectorAll(".opt")[item.correct];
+            if (correctBtn) correctBtn.classList.add("right");
+            setText(fb, t(item.why));
+          }
+          fb.classList.add("show");
+        });
+        div.appendChild(b);
+      });
+      div.appendChild(fb);
+      box.appendChild(div);
+    });
+  }
+
+  /* ---------- shell ---------- */
+  function storyHtml(){
+    if (mode === "layers") return t(T.storyLayers);
+    if (mode === "print") return t(T.storyPrint);
+    return t(T.storyDesign);
+  }
+
+  function tabBadges(){
+    function lab(btn, labelObj, key){
+      var badge = doneModes[key] ? ' <span class="badge">★</span>' : "";
+      btn.innerHTML = "";
+      var span = document.createElement("span");
+      if (lang === "ur"){ span.classList.add("ur"); span.setAttribute("dir","rtl"); }
+      span.textContent = (lang==="ur") ? isolate(t(labelObj)) : t(labelObj);
+      btn.appendChild(span);
+      if (badge){
+        var b = document.createElement("span");
+        b.innerHTML = badge;
+        btn.appendChild(b);
+      }
+    }
+    lab($("tabLayers"), T.tabLayers, "layers");
+    lab($("tabPrint"), T.tabPrint, "print");
+    lab($("tabDesign"), T.tabDesign, "design");
+    $("tabLayers").setAttribute("aria-pressed", mode==="layers"?"true":"false");
+    $("tabPrint").setAttribute("aria-pressed", mode==="print"?"true":"false");
+    $("tabDesign").setAttribute("aria-pressed", mode==="design"?"true":"false");
+  }
+
+  function setMode(m){
+    mode = m;
+    $("hintbox").classList.remove("show");
+    if (mode === "layers"){ layersSelected = null; renderLayers(); }
+    else if (mode === "print") renderPrint();
+    else { designShape = designDone[DESIGN[designIdx].id] ? DESIGN[designIdx].needShape : designShape; renderDesign(); }
+    applyChrome();
+  }
+
+  function applyChrome(){
+    setText($("title"), t(T.title));
+    setText($("subtitle"), t(T.sub));
+    $("story").innerHTML = storyHtml();
+    $("story").classList.toggle("ur", lang==="ur");
+    $("story").setAttribute("dir", lang==="ur"?"rtl":"ltr");
+    setText($("ctlHead"), t(T.ctl));
+    setText($("nextBtn"), t(T.next));
+    setText($("hintBtn"), t(T.hint));
+    setText($("resetBtn"), t(T.reset));
+    setText($("quizHead"), t(T.quiz));
+    setText($("newQuiz"), t(T.newQuiz));
+    $("langBtn").textContent = (lang === "en") ? "اردو" : "EN";
+    $("langBtn").setAttribute("aria-pressed", lang==="ur"?"true":"false");
+    document.body.classList.toggle("urdu", lang==="ur");
+    document.documentElement.lang = (lang==="ur") ? "ur" : "en";
+    tabBadges();
+    document.querySelectorAll("footer [data-en]").forEach(function(el){
+      setText(el, lang==="ur" ? el.getAttribute("data-ur") : el.getAttribute("data-en"));
+    });
+  }
+
+  function applyLang(){
+    applyChrome();
+    if (mode === "layers") renderLayers();
+    else if (mode === "print") renderPrint();
+    else renderDesign();
+    renderQuiz();
+  }
+
+  function next(){
+    if (mode === "layers"){
+      layersIdx = (layersIdx + 1) % LAYERS.length;
+      layersCount = layersDone[LAYERS[layersIdx].id] ? LAYERS[layersIdx].target : 0;
+      layersMap = {}; layersSelected = null;
+      renderLayers();
+    } else if (mode === "print"){
+      printIdx = (printIdx + 1) % PRINT.length;
+      printMap = {};
+      renderPrint();
+    } else {
+      designIdx = (designIdx + 1) % DESIGN.length;
+      var d = DESIGN[designIdx];
+      if (designDone[d.id]){ designShape = d.needShape; designFeat = d.needFeat; }
+      else { designShape = null; designFeat = null; }
+      renderDesign();
+    }
+    applyChrome();
+  }
+
+  function showHint(){
+    var h;
+    if (mode === "layers") h = LAYERS[layersIdx].hint;
+    else if (mode === "print") h = PRINT[printIdx].hint;
+    else h = DESIGN[designIdx].hint;
+    setText($("hintbox"), t(h));
+    $("hintbox").classList.add("show");
+  }
+
+  function resetMode(){
+    if (mode === "layers"){
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("layers-")===0 || k==="mode-layers") delete awarded[k]; });
+      layersDone = {}; doneModes.layers = false;
+      layersCount = 0; layersMap = {}; layersSelected = null;
+      recountStars(); renderLayers();
+    } else if (mode === "print"){
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("print-")===0 || k==="mode-print") delete awarded[k]; });
+      printDone = {}; doneModes.print = false; printMap = {};
+      recountStars(); renderPrint();
+    } else {
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("design-")===0 || k==="mode-design") delete awarded[k]; });
+      designDone = {}; doneModes.design = false;
+      designShape = null; designFeat = null;
+      recountStars(); renderDesign();
+    }
+    tabBadges();
+    applyChrome();
+  }
+
+  function cleanSpeakText(s){
+    return String(s || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  }
+  function buildSpeakText(){
+    var bits = [];
+    bits.push(t(T.title));
+    bits.push(cleanSpeakText(storyHtml()));
+    bits.push(cleanSpeakText(($("headline") && $("headline").textContent) || ""));
+    bits.push(cleanSpeakText(($("detail") && $("detail").textContent) || ""));
+    bits.push(t(T.tip));
+    return bits.filter(Boolean).join(". ");
+  }
+  function pickVoice(voices, want){
+    var i, v, L;
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf(want) === 0) return v;
+    }
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf("en") === 0) return v;
+    }
+    return voices[0] || null;
+  }
+  var speakTimer = null;
+  function setSpeaking(on){
+    var btn = $("speakBtn");
+    if (!btn) return;
+    btn.setAttribute("aria-pressed", on ? "true" : "false");
+    btn.style.opacity = on ? "0.65" : "";
+  }
+  function doSpeak(text, asLang){
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.92;
+    u.lang = (asLang === "ur") ? "ur-PK" : "en-US";
+    var voices = window.speechSynthesis.getVoices() || [];
+    var voice = pickVoice(voices, asLang === "ur" ? "ur" : "en");
+    if (voice) u.voice = voice;
+    u.onstart = function(){ setSpeaking(true); };
+    u.onend = function(){ setSpeaking(false); };
+    u.onerror = function(){
+      setSpeaking(false);
+      if (asLang === "ur"){
+        var fallback = cleanSpeakText(T.title.en + ". " + T.storyLayers.en + ". " + T.tip.en);
+        var u2 = new SpeechSynthesisUtterance(fallback);
+        u2.lang = "en-US"; u2.rate = 0.92;
+        var v2 = pickVoice(window.speechSynthesis.getVoices() || [], "en");
+        if (v2) u2.voice = v2;
+        u2.onstart = function(){ setSpeaking(true); };
+        u2.onend = u2.onerror = function(){ setSpeaking(false); };
+        window.speechSynthesis.speak(u2);
+      }
+    };
+    window.speechSynthesis.speak(u);
+  }
+  if ("speechSynthesis" in window){
+    try { window.speechSynthesis.getVoices(); } catch (e0) {}
+    if (typeof window.speechSynthesis.addEventListener === "function"){
+      window.speechSynthesis.addEventListener("voiceschanged", function(){
+        try { window.speechSynthesis.getVoices(); } catch (e1) {}
+      });
+    }
+  } else {
+    var noBtn = $("speakBtn");
+    if (noBtn){ noBtn.disabled = true; noBtn.title = "Voice not available on this device"; }
+  }
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en";
+    applyLang();
+  });
+  $("tabLayers").addEventListener("click", function(){ setMode("layers"); });
+  $("tabPrint").addEventListener("click", function(){ setMode("print"); });
+  $("tabDesign").addEventListener("click", function(){ setMode("design"); });
+  $("nextBtn").addEventListener("click", next);
+  $("hintBtn").addEventListener("click", showHint);
+  $("resetBtn").addEventListener("click", resetMode);
+  $("newQuiz").addEventListener("click", function(){ pickQuiz(); renderQuiz(); });
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      var text = buildSpeakText();
+      if (!text) return;
+      if (speakTimer){ clearTimeout(speakTimer); speakTimer = null; }
+      window.speechSynthesis.cancel();
+      setSpeaking(false);
+      var speakLang = lang;
+      speakTimer = setTimeout(function(){
+        speakTimer = null;
+        doSpeak(text, speakLang);
+      }, 80);
+    }catch(e){ setSpeaking(false); }
+  });
+
+  pickQuiz();
+  applyLang();
+})();
+</script>
+</body>
+</html>

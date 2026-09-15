@@ -112,7 +112,9 @@
             "explanation": "3D printing ka istemal har tarah ki industries mein ho raha hai, jaise manufacturing, health care aur construction."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g5-3d-printing.html",
+      "interactive_label": "Khelo — 3D printing"
     },
     {
       "title": "AI + Robotics",

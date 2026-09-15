@@ -146,6 +146,14 @@
   },
   {
     "file": "kb/grade_5/robotics.json",
+    "match_title": "3D printing",
+    "add": {
+      "interactive_file": "interactives/g5-3d-printing.html",
+      "interactive_label": "Khelo — 3D printing"
+    }
+  },
+  {
+    "file": "kb/grade_5/robotics.json",
     "match_title": "AI + Robotics",
     "add": {
       "interactive_file": "interactives/g5-ai-robotics.html",
