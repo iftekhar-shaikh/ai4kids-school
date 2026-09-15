@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Future Tech — کل کی ٹیکنالوجی | AI4Kids</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#eceff6;
+    --board-deep:#dbe0ea;
+    --here:#2e7d55;
+    --here-deep:#1d5a3c;
+    --build:#c9702e;
+    --build-deep:#96500f;
+    --fic:#6b4a8f;
+    --fic-deep:#4a3266;
+    --ink:#1f2933;
+    --ink-soft:#4a5661;
+    --paper:#fdfaf3;
+    --line:#ded5c4;
+    --accent:#4a3266;
+    --no:#c4453a;
+
+    --fs-cap:clamp(15px, 3.9vw, 16px);
+    --fs-xs:clamp(16px, 4.2vw, 18px);
+    --fs-sm:clamp(18px, 4.7vw, 19px);
+    --fs-md:clamp(19px, 5.1vw, 21px);
+    --fs-lg:clamp(22px, 5.9vw, 25px);
+    --fs-xl:clamp(28px, 7.6vw, 34px);
+    --lh:1.5;
+  }
+  /* Urdu is set larger than Latin — Nastaliq reads smaller at the same size. */
+  body.urdu{
+    --fs-cap:clamp(17px, 4.4vw, 18px);
+    --fs-xs:clamp(18px, 4.7vw, 20px);
+    --fs-sm:clamp(20px, 5.2vw, 22px);
+    --fs-md:clamp(21px, 5.6vw, 23px);
+    --fs-lg:clamp(24px, 6.4vw, 27px);
+    --fs-xl:clamp(27px, 7.2vw, 32px);
+    --lh:2.1;
+  }
+
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:44px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--build);outline-offset:2px}
+
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+
+  .tabs{display:flex;gap:7px;margin:0 0 14px}
+  .tabs button{
+    flex:1;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:9px 6px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:58px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:linear-gradient(180deg,var(--board) 0%,var(--board-deep) 100%);
+    padding:18px 16px;min-height:150px;
+  }
+  .thing{
+    font-size:var(--fs-lg);font-weight:800;line-height:1.4;margin:0;
+  }
+  .thing.ur{line-height:1.95}
+  .badge{
+    display:inline-block;border-radius:999px;padding:5px 15px;margin-bottom:10px;
+    font-size:var(--fs-cap);font-weight:800;color:#fff;background:var(--ink-soft);
+  }
+  .badge.here{background:var(--here)} .badge.build{background:var(--build)}
+  .badge.fic{background:var(--fic)}
+  .badge.ur{padding:3px 15px 8px}
+
+  .buckets{display:flex;gap:8px;margin-top:14px}
+  .buckets button{
+    flex:1;border:3px solid var(--line);background:var(--paper);border-radius:16px;
+    padding:12px 6px;font:inherit;font-weight:800;font-size:var(--fs-cap);color:var(--ink-soft);
+    cursor:pointer;min-height:76px;line-height:1.3;
+  }
+  .buckets button.b0[aria-pressed="true"]{border-color:var(--here);background:#e8f2ec;color:var(--here-deep)}
+  .buckets button.b1[aria-pressed="true"]{border-color:var(--build);background:#fbf0e6;color:var(--build-deep)}
+  .buckets button.b2[aria-pressed="true"]{border-color:var(--fic);background:#f1eef8;color:var(--fic-deep)}
+
+  .readout{
+    margin-top:14px;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-cap);font-weight:700;margin-bottom:10px}
+  .statechip.ur{padding:2px 14px 7px}
+  .statechip.ok{background:var(--here)} .statechip.no{background:var(--no)}
+  .says{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.4}
+  .says.ur{line-height:1.95}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+
+  .pred{display:flex;gap:10px;margin-top:14px}
+  .pcard{flex:1;border:2px solid var(--line);border-radius:14px;padding:11px 10px}
+  .pcard em{display:block;font-style:normal;font-size:var(--fs-cap);color:var(--ink-soft);
+            font-weight:700;margin-bottom:5px}
+  .pcard b{display:block;font-size:var(--fs-xs);font-weight:800;line-height:1.4}
+  .pcard.said{border-color:var(--fic)} .pcard.said b{color:var(--fic-deep)}
+  .pcard.real{border-color:var(--here)} .pcard.real b{color:var(--here-deep)}
+
+  .why-note{
+    margin:12px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.55;
+    border-left:3px solid var(--accent);padding-left:11px;
+  }
+  .why-note b{color:var(--accent);font-weight:800}
+  body.urdu .why-note{
+    border-left:0;border-right:3px solid var(--accent);padding-left:0;padding-right:11px;
+    line-height:var(--lh);
+  }
+  .dated{
+    margin:12px 0 0;border:2px dashed var(--build);border-radius:14px;padding:11px 13px;
+    font-size:var(--fs-xs);color:var(--build-deep);font-weight:700;line-height:1.55;
+  }
+  body.urdu .dated{line-height:var(--lh)}
+
+  .panel{margin-top:22px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .schip{
+    border:2px solid var(--line);background:var(--paper);border-radius:999px;padding:9px 14px;
+    font:inherit;font-size:var(--fs-cap);font-weight:700;color:var(--ink);cursor:pointer;min-height:46px;
+  }
+  .schip[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+  .schip.done{border-color:var(--here)}
+  .score{margin-top:12px;font-size:var(--fs-cap);font-weight:800;color:var(--accent)}
+
+  .keeps{display:flex;flex-direction:column;gap:9px;margin-top:4px}
+  .keeps button{
+    border:2px solid var(--line);background:var(--paper);border-radius:14px;padding:12px 15px;
+    font:inherit;font-size:var(--fs-sm);font-weight:700;color:var(--ink);cursor:pointer;
+    min-height:56px;text-align:left;
+  }
+  .keeps button[aria-pressed="true"]{border-color:var(--ink);background:#f3f0e8}
+
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:52px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--here);background:#e8f2ed;font-weight:600}
+  .opt.wrong{border-color:var(--no);background:#fbeae8}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
+      grid-template-areas:"bar bar" "head head" "tabs tabs" "left right" "quiz quiz" "foot foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+    .left{grid-area:left} .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+    .panel{margin-top:0}
+  }
+  @media (prefers-reduced-motion:reduce){ *{transition-duration:.01ms !important} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Future Tech</span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 id="title"></h1>
+  <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group">
+    <button type="button" id="tabSort" aria-pressed="true"></button>
+    <button type="button" id="tabPred" aria-pressed="false"></button>
+    <button type="button" id="tabKeep" aria-pressed="false"></button>
+  </div>
+
+  <div class="left">
+  <div class="scene">
+    <span class="badge" id="badge"></span>
+    <p class="thing" id="thing"></p>
+  </div>
+
+  <div class="buckets" id="buckets"></div>
+
+  <div class="readout">
+    <span class="statechip" id="statechip"></span>
+    <p class="says" id="says"></p>
+    <p class="detail" id="detail"></p>
+    <div class="pred" id="pred"></div>
+    <p class="dated" id="dated"></p>
+    <p class="why-note"><b id="whyLbl"></b> <span id="whyText"></span></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="panel">
+    <h2 id="panelHead"></h2>
+    <div class="keeps" id="keeps"></div>
+    <div class="chips" id="chips" role="group"></div>
+    <p class="score" id="score"></p>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <h2 id="quizHead" style="font-size:var(--fs-lg);font-weight:800;margin:0 0 18px"></h2>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad's bilingual AI and coding school. WhatsApp 0337 1468899" data-ur="اے آئی فور کڈز — اسلام آباد کا دو زبانوں والا اے آئی اور کوڈنگ سکول۔ واٹس ایپ 0337 1468899"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var lang="en", tab="sort";
+  var sortI=0, sortPick=null, sortDone={}, sortRight=0;
+  var predI=0, keepI=0;
+
+  /* 0 = already here, 1 = being built, 2 = still a story */
+  var THINGS=[
+    { en:"A phone you can talk to, that answers in your own language",
+      ur:"ایک فون جس سے آپ بول کر بات کریں اور وہ آپ کی زبان میں جواب دے", a:0,
+      note:{en:"Already ordinary. Fifteen years ago this was the thing films used to show as the far future.",
+            ur:"اب یہ عام بات ہے۔ پندرہ سال پہلے فلموں میں یہی چیز دور کے مستقبل کے طور پر دکھائی جاتی تھی۔"} },
+    { en:"Solar panels making electricity on a house roof",
+      ur:"گھر کی چھت پر سولر پینل جو بجلی بناتے ہیں", a:0,
+      note:{en:"On thousands of roofs in Pakistan already. This one arrived quietly, without anybody calling it the future.",
+            ur:"پاکستان میں ہزاروں چھتوں پر پہلے سے موجود۔ یہ خاموشی سے آ گئی، کسی نے اسے مستقبل کہا تک نہیں۔"} },
+    { en:"A computer helping a doctor read an X-ray",
+      ur:"ایک کمپیوٹر جو ڈاکٹر کو ایکسرے پڑھنے میں مدد دے", a:0,
+      note:{en:"In use in hospitals now. It does not replace the doctor — it points at things worth a second look.",
+            ur:"اب ہسپتالوں میں استعمال ہو رہا ہے۔ یہ ڈاکٹر کی جگہ نہیں لیتا — بس ان چیزوں کی طرف اشارہ کرتا ہے جنہیں دوبارہ دیکھنا چاہیے۔"} },
+    { en:"A car that drives itself through a busy city with nobody inside",
+      ur:"ایک گاڑی جو مصروف شہر میں خود چلے، اندر کوئی نہ ہو", a:1,
+      note:{en:"Being built, and working in a few cities under careful conditions. A quiet motorway is one problem; a Lahore roundabout is a much harder one.",
+            ur:"بن رہی ہے، اور چند شہروں میں احتیاط کے ساتھ چل بھی رہی ہے۔ خالی موٹروے ایک مسئلہ ہے؛ لاہور کا چوک اس سے کہیں مشکل۔"} },
+    { en:"A robot that folds all the clothes in your house",
+      ur:"ایک روبوٹ جو گھر کے سارے کپڑے تہہ کر دے", a:1,
+      note:{en:"Still surprisingly hard. A robot can beat anybody at chess but struggles with a crumpled shirt, because cloth changes shape every time you touch it.",
+            ur:"اب تک حیرت انگیز حد تک مشکل۔ روبوٹ شطرنج میں کسی کو بھی ہرا دے گا مگر مُڑی ہوئی قمیض سے ہار جاتا ہے، کیونکہ کپڑا ہر بار چھونے پر شکل بدل لیتا ہے۔"} },
+    { en:"Printing the walls of a house with a giant 3D printer",
+      ur:"ایک بڑے تھری ڈی پرنٹر سے گھر کی دیواریں چھاپنا", a:1,
+      note:{en:"A few real houses have been built this way. It works — it is just not cheap or common yet.",
+            ur:"اس طریقے سے چند اصلی گھر بن چکے ہیں۔ یہ کام کرتا ہے — بس ابھی نہ سستا ہے نہ عام۔"} },
+    { en:"Sending your thoughts to a friend without speaking or typing",
+      ur:"بولے یا لکھے بغیر اپنے خیالات دوست تک بھیجنا", a:2,
+      note:{en:"Still a story. Scientists can pick up very simple signals from a brain in a laboratory, but that is an enormous distance from sending a sentence.",
+            ur:"ابھی کہانی ہی ہے۔ سائنسدان لیبارٹری میں دماغ سے بہت سادہ اشارے پکڑ سکتے ہیں، مگر وہاں سے ایک جملہ بھیجنے تک کا فاصلہ بہت بڑا ہے۔"} },
+    { en:"A machine that teleports a person from one city to another",
+      ur:"ایک مشین جو انسان کو ایک شہر سے دوسرے شہر منتقل کر دے", a:2,
+      note:{en:"A story, and likely to stay one. This is not a matter of better engineering — nobody has a way to even begin.",
+            ur:"کہانی ہے، اور غالباً رہے گی۔ یہ بہتر انجینئرنگ کا معاملہ نہیں — کسی کے پاس شروع کرنے کا طریقہ تک نہیں۔"} },
+    { en:"A robot that truly feels sad or happy, the way you do",
+      ur:"ایک روبوٹ جو واقعی اداس یا خوش ہو، جیسے آپ ہوتے ہیں", a:2,
+      note:{en:"A machine can already write the words \u201cI am sad\u201d very convincingly. Writing the words and feeling the thing are not the same, and nobody knows how to do the second one.",
+            ur:"مشین \u201cمیں اداس ہوں\u201d بہت یقین سے لکھ سکتی ہے۔ الفاظ لکھنا اور اس کیفیت کو محسوس کرنا ایک بات نہیں، اور دوسری کیسے ہوگی یہ کسی کو معلوم نہیں۔"} },
+    { en:"Delivering a parcel to a village by drone",
+      ur:"ڈرون کے ذریعے گاؤں تک پارسل پہنچانا", a:1,
+      note:{en:"Already working in a few countries, mostly for medicines. The hard part is not flying — it is rules, weather and who is responsible if it falls.",
+            ur:"چند ممالک میں پہلے سے چل رہا ہے، زیادہ تر دواؤں کے لیے۔ مشکل اُڑنا نہیں — قواعد، موسم، اور یہ کہ گرنے پر ذمہ دار کون ہوگا۔"} }
+  ];
+
+  var PREDS=[
+    { thing:{en:"Flying cars for everybody", ur:"ہر ایک کے لیے اڑنے والی کاریں"},
+      said:{en:"Confidently promised for about the year 2000, over and over, for fifty years",
+            ur:"تقریباً سنہ 2000 کے لیے بار بار، پچاس سال تک، پورے یقین سے وعدہ کیا گیا"},
+      real:{en:"Still not here. A few test aircraft exist, but no city runs on them.",
+            ur:"اب تک نہیں آئیں۔ چند آزمائشی جہاز موجود ہیں، مگر کوئی شہر ان پر نہیں چلتا۔"},
+      note:{en:"The ones people talk about the loudest are often the ones that arrive last, or never. Loudness is not evidence.",
+            ur:"جن چیزوں کا سب سے زیادہ شور ہوتا ہے، وہی اکثر سب سے آخر میں آتی ہیں، یا کبھی نہیں۔ شور کوئی ثبوت نہیں۔"} },
+    { thing:{en:"A computer in every home", ur:"ہر گھر میں کمپیوٹر"},
+      said:{en:"A head of a large computer company said in 1977 there was no reason anyone would want one at home",
+            ur:"1977 میں ایک بڑی کمپیوٹر کمپنی کے سربراہ نے کہا کہ گھر میں کمپیوٹر رکھنے کی کسی کو کوئی وجہ نہیں"},
+      real:{en:"Most people now carry a far more powerful one in a pocket.",
+            ur:"آج زیادہ تر لوگ اس سے کہیں زیادہ طاقتور کمپیوٹر جیب میں لیے پھرتے ہیں۔"},
+      note:{en:"Being an expert does not make a prediction right. He knew more about computers than almost anybody, and was still completely wrong.",
+            ur:"ماہر ہونے سے پیشگوئی درست نہیں ہو جاتی۔ وہ کمپیوٹر کے بارے میں تقریباً سب سے زیادہ جانتے تھے، اور پھر بھی بالکل غلط تھے۔"} },
+    { thing:{en:"Seeing the person you are talking to", ur:"جس سے بات ہو رہی ہو اسے دیکھ لینا"},
+      said:{en:"Shown as an amazing invention at a world fair in the 1960s, expected to be costly and rare",
+            ur:"1960 کی دہائی کے ایک عالمی میلے میں حیرت انگیز ایجاد کے طور پر دکھایا گیا، توقع تھی کہ مہنگا اور نایاب ہوگا"},
+      real:{en:"Free, and used by children to talk to a grandmother in another city.",
+            ur:"مفت، اور بچے اسے دوسرے شہر میں دادی سے بات کرنے کے لیے استعمال کرتے ہیں۔"},
+      note:{en:"This one arrived late and then became ordinary almost overnight. That is the usual shape: slower than promised, then suddenly everywhere.",
+            ur:"یہ دیر سے آئی اور پھر تقریباً راتوں رات عام ہو گئی۔ عموماً شکل یہی ہوتی ہے: وعدے سے سست، پھر اچانک ہر جگہ۔"} },
+    { thing:{en:"Letters and post", ur:"خط اور ڈاک"},
+      said:{en:"Almost nobody predicted that writing letters would nearly stop within one generation",
+            ur:"شاید ہی کسی نے پیشگوئی کی ہو کہ ایک نسل میں خط لکھنا تقریباً ختم ہو جائے گا"},
+      real:{en:"Personal letters have almost disappeared, replaced by messages.",
+            ur:"ذاتی خط تقریباً غائب ہو گئے، ان کی جگہ پیغامات نے لے لی۔"},
+      note:{en:"People are good at imagining new machines and bad at imagining what will quietly stop. The biggest changes are often disappearances.",
+            ur:"لوگ نئی مشینیں سوچنے میں اچھے ہیں اور یہ سوچنے میں کمزور کہ خاموشی سے کیا ختم ہو جائے گا۔ سب سے بڑی تبدیلیاں اکثر غائب ہو جانے کی صورت میں آتی ہیں۔"} }
+  ];
+
+  var KEEPS=[
+    { en:"Asking a good question", ur:"اچھا سوال پوچھنا",
+      note:{en:"Machines are extremely good at answering now. Which makes knowing what to ask the more valuable half, not the less.",
+            ur:"مشینیں اب جواب دینے میں بہت اچھی ہیں۔ اسی لیے یہ جاننا کہ پوچھنا کیا ہے، زیادہ قیمتی حصہ بن گیا ہے، کم نہیں۔"} },
+    { en:"Checking whether something is true", ur:"یہ جانچنا کہ بات سچ ہے یا نہیں",
+      note:{en:"The easier it becomes to produce confident-sounding text and pictures, the more a person who checks is worth.",
+            ur:"جتنا آسان ہوتا جائے گا پُریقین لگنے والی تحریر اور تصویریں بنانا، اتنا ہی اُس شخص کی قدر بڑھے گی جو جانچتا ہے۔"} },
+    { en:"Explaining your thinking to another person", ur:"اپنی سوچ کسی دوسرے کو سمجھانا",
+      note:{en:"Every job worth having involves convincing somebody of something. No tool has removed that, and none looks likely to.",
+            ur:"ہر قابلِ قدر کام میں کسی نہ کسی کو کسی بات پر قائل کرنا شامل ہے۔ کسی آلے نے یہ ختم نہیں کیا، اور لگتا بھی نہیں کہ کرے گا۔"} },
+    { en:"Learning something new on your own", ur:"خود سے کوئی نئی چیز سیکھ لینا",
+      note:{en:"The specific tools you learn this year will change. Being somebody who can pick up the next one is the skill underneath all the others.",
+            ur:"اس سال آپ جو مخصوص آلات سیکھیں گے وہ بدل جائیں گے۔ اگلا آلہ خود سیکھ لینے والا بن جانا وہ مہارت ہے جو باقی سب کے نیچے ہے۔"} },
+    { en:"Being someone others can rely on", ur:"ایسا بننا جس پر دوسرے بھروسہ کر سکیں",
+      note:{en:"This one has never been about technology at all, and that is exactly why it survives every change in it.",
+            ur:"اس کا ٹیکنالوجی سے کبھی کوئی تعلق تھا ہی نہیں، اور اسی لیے یہ ہر تبدیلی سے بچ نکلتی ہے۔"} }
+  ];
+
+  var T={
+    tabSort:{en:"Here, coming, or a story?", ur:"موجود، بن رہی، یا کہانی؟"},
+    tabPred:{en:"What people predicted", ur:"لوگوں نے کیا کہا تھا"},
+    tabKeep:{en:"What does not change", ur:"جو نہیں بدلتا"},
+    titleSort:{en:"Some of the future is already sitting in your house.",
+               ur:"مستقبل کا کچھ حصہ پہلے ہی آپ کے گھر میں پڑا ہے۔"},
+    subSort:{en:"Read each one and decide which box it belongs in. Then see the honest answer.",
+             ur:"ہر ایک کو پڑھ کر فیصلہ کریں کہ یہ کس خانے میں جائے گی۔ پھر سچا جواب دیکھیں۔"},
+    titlePred:{en:"People have been predicting the future for a very long time, and getting it wrong.",
+               ur:"لوگ بہت عرصے سے مستقبل کی پیشگوئی کر رہے ہیں، اور غلط ہو رہے ہیں۔"},
+    subPred:{en:"Look at what was promised and what actually turned up.",
+             ur:"دیکھیں کیا وعدہ کیا گیا تھا اور اصل میں کیا آیا۔"},
+    titleKeep:{en:"The tools will change. Work out what will not.",
+               ur:"اوزار بدلتے رہیں گے۔ سوچیں کیا نہیں بدلے گا۔"},
+    subKeep:{en:"These are the things still worth being good at in twenty years.",
+             ur:"یہ وہ چیزیں ہیں جن میں بیس سال بعد بھی اچھا ہونا قیمتی رہے گا۔"},
+    headSort:{en:"Pick another one", ur:"دوسری چیز چنیں"},
+    headPred:{en:"Pick a prediction", ur:"کوئی پیشگوئی چنیں"},
+    headKeep:{en:"Tap each one", ur:"ہر ایک کو دبائیں"},
+    b0:{en:"Already here", ur:"پہلے سے موجود"},
+    b1:{en:"Being built now", ur:"ابھی بن رہی ہے"},
+    b2:{en:"Still a story", ur:"ابھی کہانی ہے"},
+    ask:{en:"Which box?", ur:"کون سا خانہ؟"},
+    right:{en:"Correct", ur:"درست"},
+    wrong:{en:"Not quite", ur:"بالکل نہیں"},
+    saidLbl:{en:"What was said", ur:"کیا کہا گیا"},
+    realLbl:{en:"What happened", ur:"کیا ہوا"},
+    scoreLbl:{en:"{r} right out of {n} answered", ur:"جن کے جواب دیے ان میں سے {r} درست، کل {n}"},
+    dated:{en:"This page has a date on it. Technology moves, and by the time you read this some of these will have shifted to the box on the left. That is worth checking rather than assuming \u2014 ask a teacher what has changed.",
+           ur:"اس صفحے پر ایک تاریخ لگی ہوئی ہے۔ ٹیکنالوجی چلتی رہتی ہے، اور جب آپ یہ پڑھ رہے ہوں گے تو ان میں سے کچھ بائیں خانے میں جا چکی ہوں گی۔ یہ فرض کرنے کے بجائے جانچنے کی بات ہے — استاد سے پوچھیں کہ کیا بدلا۔"},
+    whySort:{en:"Notice how many of the ordinary ones were called impossible when your parents were your age. And notice that the hard ones are not hard because of weak computers \u2014 they are hard because the world is messy.",
+             ur:"غور کریں کہ ان عام چیزوں میں سے کتنی کو ناممکن کہا جاتا تھا جب آپ کے والدین آپ کی عمر کے تھے۔ اور یہ بھی کہ مشکل چیزیں کمزور کمپیوٹر کی وجہ سے مشکل نہیں — وہ اس لیے مشکل ہیں کہ دنیا بے ترتیب ہے۔"},
+    whyPred:{en:"A pattern shows up again and again: people expect too much in two years and far too little in twenty. Both halves of that sentence matter.",
+             ur:"ایک بات بار بار سامنے آتی ہے: لوگ دو سال میں بہت زیادہ کی توقع کرتے ہیں اور بیس سال میں بہت کم کی۔ اس جملے کے دونوں حصے اہم ہیں۔"},
+    whyLbl:{en:"Notice:", ur:"غور کریں:"},
+    quiz:{en:"Check yourself", ur:"اپنا امتحان لیں"},
+    whyKeep:{en:"None of these needs a machine, a subject or a syllabus. They are the reason a school teaches you how to think and not only what to type.",
+             ur:"ان میں سے کسی کو کوئی مشین، مضمون یا نصاب نہیں چاہیے۔ اسکول آپ کو سوچنا اسی لیے سکھاتا ہے، صرف ٹائپ کرنا نہیں۔"}
+  };
+
+  var QUIZ=[
+    { q:{en:"Why is folding laundry hard for a robot when chess is easy?",
+         ur:"روبوٹ کے لیے شطرنج آسان اور کپڑے تہہ کرنا مشکل کیوں ہے؟"},
+      o:[{en:"Chess needs less electricity", ur:"شطرنج میں بجلی کم لگتی ہے"},
+         {en:"Cloth changes shape every time it is touched, and chess pieces do not",
+          ur:"کپڑا ہر بار چھونے پر شکل بدل لیتا ہے، شطرنج کے مہرے نہیں"},
+         {en:"Robots do not like clothes", ur:"روبوٹ کو کپڑے پسند نہیں"},
+         {en:"Chess is played indoors", ur:"شطرنج اندر کھیلی جاتی ہے"}],
+      a:1,
+      f:{en:"Things that feel easy to a person are often the hardest for a machine, and things that feel clever are often the easiest. That surprise is worth carrying around.",
+         ur:"جو چیزیں انسان کو آسان لگتی ہیں وہ اکثر مشین کے لیے مشکل ترین ہوتی ہیں، اور جو چالاکی کی لگتی ہیں وہ اکثر آسان ترین۔ یہ حیرت یاد رکھنے لائق ہے۔"} },
+
+    { q:{en:"In 1977 the head of a computer company said nobody would want a computer at home. What does that teach us?",
+         ur:"1977 میں ایک کمپیوٹر کمپنی کے سربراہ نے کہا کہ گھر میں کمپیوٹر کوئی نہیں چاہے گا۔ اس سے کیا سبق ملتا ہے؟"},
+      o:[{en:"Experts are always wrong", ur:"ماہرین ہمیشہ غلط ہوتے ہیں"},
+         {en:"Even someone who knows a subject very well can be badly wrong about its future",
+          ur:"جو شخص کسی مضمون کو بہت اچھی طرح جانتا ہو وہ بھی اس کے مستقبل کے بارے میں بری طرح غلط ہو سکتا ہے"},
+         {en:"Computers were not invented then", ur:"اس وقت کمپیوٹر ایجاد نہیں ہوا تھا"},
+         {en:"He was joking", ur:"وہ مذاق کر رہے تھے"}],
+      a:1,
+      f:{en:"Not that experts are useless — the first option is as lazy as believing them blindly. Knowing a lot and predicting well are two different skills.",
+         ur:"یہ نہیں کہ ماہرین بےکار ہیں — پہلا آپشن اتنا ہی سست ہے جتنا آنکھ بند کر کے مان لینا۔ بہت جاننا اور اچھی پیشگوئی کرنا دو الگ مہارتیں ہیں۔"} },
+
+    { q:{en:"What pattern do people usually fall into when predicting technology?",
+         ur:"ٹیکنالوجی کی پیشگوئی کرتے ہوئے لوگ عموماً کس غلطی میں پڑتے ہیں؟"},
+      o:[{en:"They expect too much in two years and too little in twenty",
+          ur:"دو سال میں بہت زیادہ کی توقع، اور بیس سال میں بہت کم کی"},
+         {en:"They always expect too little", ur:"ہمیشہ بہت کم کی توقع کرتے ہیں"},
+         {en:"They always expect too much", ur:"ہمیشہ بہت زیادہ کی توقع کرتے ہیں"},
+         {en:"They get it right most of the time", ur:"وہ زیادہ تر درست نکلتے ہیں"}],
+      a:0,
+      f:{en:"Flying cars were promised for 2000 and still are not here. Nobody predicted that writing letters would simply stop. Both errors happened at once.",
+         ur:"اڑنے والی کاروں کا وعدہ سنہ 2000 کے لیے تھا اور اب تک نہیں آئیں۔ اور کسی نے یہ پیشگوئی نہ کی کہ خط لکھنا ہی ختم ہو جائے گا۔ دونوں غلطیاں ایک ساتھ ہوئیں۔"} },
+
+    { q:{en:"Which of these will still be worth being good at in twenty years?",
+         ur:"ان میں سے کس چیز میں اچھا ہونا بیس سال بعد بھی قیمتی رہے گا؟"},
+      o:[{en:"One particular app that is popular this year", ur:"اس سال مقبول ہونے والی ایک خاص ایپ"},
+         {en:"Asking good questions and checking whether an answer is true",
+          ur:"اچھے سوال پوچھنا اور یہ جانچنا کہ جواب سچ ہے یا نہیں"},
+         {en:"Typing quickly", ur:"تیز ٹائپ کرنا"},
+         {en:"Remembering long lists of facts", ur:"لمبی فہرستیں یاد رکھنا"}],
+      a:1,
+      f:{en:"The others are not useless, they are just replaceable. A machine already types and remembers better than you. It cannot decide what is worth asking.",
+         ur:"باقی بےکار نہیں، بس بدلے جا سکتے ہیں۔ مشین آپ سے بہتر ٹائپ بھی کرتی ہے اور یاد بھی رکھتی ہے۔ مگر یہ طے نہیں کر سکتی کہ پوچھنے لائق کیا ہے۔"} },
+
+    { q:{en:"This app says some of its own answers may already be out of date. Why does it say that?",
+         ur:"یہ ایپ کہتی ہے کہ اس کے اپنے کچھ جواب شاید پرانے ہو چکے ہوں۔ ایسا کیوں کہتی ہے؟"},
+      o:[{en:"Because it was made carelessly", ur:"کیونکہ یہ لاپروائی سے بنائی گئی"},
+         {en:"Because anything written about technology has a date on it, and honest sources say so",
+          ur:"کیونکہ ٹیکنالوجی پر لکھی ہر چیز پر ایک تاریخ لگی ہوتی ہے، اور سچے ذرائع یہ بتا دیتے ہیں"},
+         {en:"Because nothing in it is true", ur:"کیونکہ اس میں کچھ بھی سچ نہیں"},
+         {en:"To avoid answering", ur:"جواب سے بچنے کے لیے"}],
+      a:1,
+      f:{en:"A source that tells you when it might be wrong is more trustworthy than one that never admits the possibility. Look for that everywhere, not only here.",
+         ur:"جو ذریعہ آپ کو بتا دے کہ وہ کہاں غلط ہو سکتا ہے، وہ اُس سے زیادہ قابلِ اعتماد ہے جو کبھی امکان ہی تسلیم نہ کرے۔ یہ ہر جگہ دیکھیں، صرف یہاں نہیں۔"} },
+
+    { q:{en:"Which change is a person most likely to fail to predict?",
+         ur:"کون سی تبدیلی کی پیشگوئی انسان کے لیے سب سے مشکل ہوتی ہے؟"},
+      o:[{en:"A shiny new machine being invented", ur:"کسی چمکدار نئی مشین کی ایجاد"},
+         {en:"Something ordinary quietly stopping, like letters",
+          ur:"کسی عام چیز کا خاموشی سے ختم ہو جانا، جیسے خط"},
+         {en:"A famous company making money", ur:"کسی مشہور کمپنی کا پیسہ کمانا"},
+         {en:"Prices going up", ur:"قیمتوں کا بڑھنا"}],
+      a:1,
+      f:{en:"New machines are easy to imagine because you can draw them. Disappearances have nothing to draw, so they take everybody by surprise.",
+         ur:"نئی مشینیں سوچنا آسان ہے کیونکہ انہیں بنایا جا سکتا ہے۔ غائب ہو جانے والی چیزوں کی کوئی تصویر نہیں ہوتی، اسی لیے وہ سب کو حیران کر دیتی ہیں۔"} }
+  ];
+
+  function $(id){ return document.getElementById(id); }
+  function t(o){ return o[lang]; }
+  var LRI="\u2066", PDI="\u2069";
+  var LATIN_RUN=/[A-Za-z0-9][A-Za-z0-9 .,'\u2019+()\/@_-]*[A-Za-z0-9.]|[A-Za-z0-9]/g;
+  function isolate(s){ return s.replace(LATIN_RUN, function(m){ return LRI+m+PDI; }); }
+  function setText(el,str){
+    el.textContent=(lang==="ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang==="ur");
+    el.setAttribute("dir", lang==="ur" ? "rtl":"ltr");
+  }
+  function fill(s,m){ Object.keys(m).forEach(function(k){ s=s.split("{"+k+"}").join(m[k]); }); return s; }
+
+  /* ---------- render ---------- */
+  function render(){
+    ["Sort","Pred","Keep"].forEach(function(x){
+      $("tab"+x).setAttribute("aria-pressed", tab===x.toLowerCase() ? "true":"false");
+    });
+    setText($("tabSort"), t(T.tabSort));
+    setText($("tabPred"), t(T.tabPred));
+    setText($("tabKeep"), t(T.tabKeep));
+    $("whyLbl").textContent=t(T.whyLbl);
+    setText($("quizHead"), t(T.quiz));
+    var buckets=$("buckets"), chips=$("chips"), keeps=$("keeps"), pred=$("pred");
+    buckets.innerHTML=""; chips.innerHTML=""; keeps.innerHTML=""; pred.innerHTML="";
+    var chip=$("statechip"); chip.className="statechip";
+    var badge=$("badge");
+    buckets.style.display = (tab==="sort") ? "" : "none";
+    pred.style.display = (tab==="pred") ? "" : "none";
+    $("dated").style.display = (tab==="sort") ? "" : "none";
+    $("score").textContent = "";
+
+    if (tab==="sort"){
+      var it=THINGS[sortI];
+      setText($("title"), t(T.titleSort));
+      setText($("subtitle"), t(T.subSort));
+      setText($("panelHead"), t(T.headSort));
+      badge.className="badge" + (sortPick===null ? "" :
+        (it.a===0 ? " here" : it.a===1 ? " build" : " fic"));
+      setText(badge, sortPick===null ? t(T.ask) : t(T[["b0","b1","b2"][it.a]]));
+      setText($("thing"), t(it));
+      if (sortPick===null){
+        setText(chip, t(T.ask)); setText($("says"), ""); setText($("detail"), "");
+      } else {
+        var good = sortPick===it.a;
+        chip.className="statechip " + (good ? "ok":"no");
+        setText(chip, good ? t(T.right) : t(T.wrong));
+        setText($("says"), t(T[["b0","b1","b2"][it.a]]));
+        setText($("detail"), t(it.note));
+      }
+      setText($("whyText"), t(T.whySort));
+      setText($("dated"), t(T.dated));
+      [0,1,2].forEach(function(b){
+        var bt=document.createElement("button"); bt.type="button"; bt.className="b"+b;
+        setText(bt, t(T[["b0","b1","b2"][b]]));
+        bt.setAttribute("aria-pressed", sortPick===b ? "true":"false");
+        bt.addEventListener("click", function(){
+          if (sortPick!==null) return;
+          sortPick=b;
+          if (!sortDone[sortI]){ sortDone[sortI]=true; if (b===it.a) sortRight++; }
+          render();
+        });
+        buckets.appendChild(bt);
+      });
+      THINGS.forEach(function(x,i){
+        var bt=document.createElement("button"); bt.type="button";
+        bt.className="schip" + (sortDone[i] ? " done":"");
+        bt.textContent=String(i+1);
+        bt.setAttribute("aria-pressed", i===sortI ? "true":"false");
+        bt.addEventListener("click", function(){ sortI=i; sortPick=null; render(); });
+        chips.appendChild(bt);
+      });
+      var n=Object.keys(sortDone).length;
+      if (n) $("score").textContent = fill(t(T.scoreLbl), {r:sortRight, n:n});
+      lastSpoken=t(it);
+      return;
+    }
+
+    if (tab==="pred"){
+      var p=PREDS[predI];
+      setText($("title"), t(T.titlePred));
+      setText($("subtitle"), t(T.subPred));
+      setText($("panelHead"), t(T.headPred));
+      badge.className="badge fic";
+      setText(badge, t(T.tabPred));
+      setText($("thing"), t(p.thing));
+      setText(chip, t(p.thing));
+      setText($("says"), ""); setText($("detail"), "");
+      [["said", t(T.saidLbl), t(p.said)], ["real", t(T.realLbl), t(p.real)]].forEach(function(c){
+        var d=document.createElement("div"); d.className="pcard "+c[0];
+        var em=document.createElement("em"); em.textContent=c[1];
+        em.setAttribute("dir", lang==="ur"?"rtl":"ltr");
+        var b=document.createElement("b"); b.textContent=c[2];
+        b.setAttribute("dir", lang==="ur"?"rtl":"ltr");
+        d.appendChild(em); d.appendChild(b); pred.appendChild(d);
+      });
+      setText($("whyText"), t(p.note) + " " + t(T.whyPred));
+      PREDS.forEach(function(x,i){
+        var bt=document.createElement("button"); bt.type="button"; bt.className="schip";
+        bt.textContent=String(i+1);
+        bt.setAttribute("aria-pressed", i===predI ? "true":"false");
+        bt.addEventListener("click", function(){ predI=i; render(); });
+        chips.appendChild(bt);
+      });
+      lastSpoken=t(p.thing);
+      return;
+    }
+
+    var k=KEEPS[keepI];
+    setText($("title"), t(T.titleKeep));
+    setText($("subtitle"), t(T.subKeep));
+    setText($("panelHead"), t(T.headKeep));
+    badge.className="badge here";
+    setText(badge, t(T.tabKeep));
+    setText($("thing"), t(k));
+    setText(chip, String(keepI+1) + " / " + KEEPS.length);
+    setText($("says"), t(k));
+    setText($("detail"), t(k.note));
+    setText($("whyText"), t(T.whyKeep));
+    KEEPS.forEach(function(x,i){
+      var bt=document.createElement("button"); bt.type="button";
+      setText(bt, t(x));
+      bt.setAttribute("aria-pressed", i===keepI ? "true":"false");
+      bt.addEventListener("click", function(){ keepI=i; render(); });
+      keeps.appendChild(bt);
+    });
+    lastSpoken=t(k);
+  }
+
+  var lastSpoken="";
+
+  ["Sort","Pred","Keep"].forEach(function(x){
+    $("tab"+x).addEventListener("click", function(){
+      var m=x.toLowerCase();
+      if (tab===m) return;
+      tab=m; sortPick=null; render();
+    });
+  });
+
+  /* ---------- quiz ---------- */
+  function buildQuiz(){
+    var box=$("quizBox"); box.innerHTML="";
+    QUIZ.forEach(function(item){
+      var wrap=document.createElement("div"); wrap.className="q";
+      var q=document.createElement("p"); setText(q,t(item.q)); wrap.appendChild(q);
+      var fb=document.createElement("p"); fb.className="fb";
+      item.o.forEach(function(opt,oi){
+        var b=document.createElement("button"); b.type="button";
+        b.className="opt" + (lang==="ur" ? " ur":"");
+        b.setAttribute("dir", lang==="ur" ? "rtl":"ltr");
+        b.textContent=t(opt);
+        b.addEventListener("click", function(){
+          if (wrap.getAttribute("data-done")==="1") return;
+          wrap.setAttribute("data-done","1");
+          Array.prototype.forEach.call(wrap.querySelectorAll(".opt"), function(x,xi){
+            if (xi===item.a) x.classList.add("right");
+            else if (xi===oi) x.classList.add("wrong");
+          });
+          setText(fb,t(item.f)); fb.classList.add("show","fb");
+        });
+        wrap.appendChild(b);
+      });
+      wrap.appendChild(fb); box.appendChild(wrap);
+    });
+  }
+
+  function applyLang(){
+    document.body.classList.toggle("urdu", lang==="ur");
+    var lb=$("langBtn");
+    lb.textContent=(lang==="en") ? "اردو":"English";
+    lb.setAttribute("aria-pressed", lang==="ur" ? "true":"false");
+    Array.prototype.forEach.call(document.querySelectorAll("[data-en]"), function(el){
+      setText(el, el.getAttribute(lang==="en" ? "data-en":"data-ur"));
+    });
+    buildQuiz(); render();
+  }
+  $("langBtn").addEventListener("click", function(){
+    lang=(lang==="en") ? "ur":"en"; applyLang();
+  });
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      window.speechSynthesis.cancel();
+      var u=new SpeechSynthesisUtterance(lastSpoken);
+      u.lang=(lang==="ur") ? "ur-PK":"en-US"; u.rate=0.92;
+      window.speechSynthesis.speak(u);
+    }catch(e){ /* no voice available — stay quiet */ }
+  });
+
+  applyLang();
+})();
+</script>
+</body>
+</html>

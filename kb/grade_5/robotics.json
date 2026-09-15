@@ -291,7 +291,7 @@
     },
     {
       "title": "Future tech",
-      "description": "Pakistan mein automation ka mustaqbil",
+      "description": "Kal ki technology aaj seekho.",
       "lesson": "## HOOK\nSadi, tum nahin sochte ke agar kal koi aisa din aaye jab robot tumhara homework karein ya tumhari biryani banaein? Kya yeh haal sach mein mumkin hai?\n\n## SAMJHAO\nAaj kal technology har jagah hai aur is ka aane wala mustaqbil bhi bahut exciting hai. Automation ka matlab hai kaam ko aise karna jahan insaan ka istemal kam ho ya bilkul na ho. Pakistan mein bhi automation ki wajah se bahut se kaam asan ho sakte hain. \n\nChalo, dekhte hain ke automation kis tarah se humari zindagi ko badalne ja rahi hai. Pehle, factories mein machines ka istemal hota hai jo products banati hain. Yeh machines agar intelligent ho jayein to kaam tez ho sakta hai. Isse factories zyada products produce kar sakti hain.\n\nDusra, agriculture mein automation ka bahut bada role hai. Kisan ab robots ke zariye crops ki dekhbhaal kar sakte hain. Jaise ke kisi khaas crop ki growth ko monitor karne aur usay paani dene ke liye sensors lagaye ja sakte hain. Yeh kisanon ki madad karega ke woh zyada achi tarah se kaam kar sakein.\n\nFurthermore, education sector mein bhi automation kaafi madadgar sabit ho raha hai. Online learning platforms aur interactive tools ki wajah se bachay ghar baith kar bhi quality education le sakte hain. Yeh sirf shehron tak nahi, balke gaon ke bachay bhi fayda utha sakte hain.\n\nAakhir mein, transportation ko bhi automation se badla ja raha hai. Ab self-driving cars aur electric rickshaws aam ho rahi hain. Yeh na sirf traffic issues ko kam karengi balki environment ke liye bhi acchi hongi.\n\n## MISAAL\nSocho Sadi, jab tum bazar jate ho to dekhtay ho ke booth par dukan dar kaam kar rahe hain. Lekin agar wahan ek robot hota jo samose ya biryani banata aur bechta, to kitna acha hota! Yeh robots na sirf samose ko acchi tarah banayenge balki bechnay mein bhi madad karenge. Iss tarah dukan dar zyada customers ki service kar sakte hain.\n\n## KARO\nSadi, aaj tum ek interesting drawing banao. Aise robots design karo jo tumhari zindagi mein madad kar sakte hain. Tum in robots ko school, ghar, ya bazar mein kaam karte hue dikhana! Iske sath hi socho ke unhey kaise control karna hoga aur yeh kis tarah se tumhara din aasaan banayenge.\n\n## SAWAAL\n1. Automation ka kya matlab hai?\n2. Pakistan mein kis sector mein automation ka sab se zyada faida ho raha hai?\n3. Tumhare khayal mein robots kis tarah se tumhari zindagi ko behtar bana sakte hain?",
       "quiz": {
         "title": "Future tech Quiz",
@@ -342,7 +342,9 @@
             "explanation": "Pakistan Robotics Academy ne robotics aur automation mein kaafi ahem kirdar ada kiya hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g5-future-tech.html",
+      "interactive_label": "Khelo — Future tech"
     }
   ]
 }
