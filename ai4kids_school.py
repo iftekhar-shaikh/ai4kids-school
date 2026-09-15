@@ -1098,6 +1098,7 @@ def render_topic_interactive(subject_key, grade, topic_title):
             (5, "robotics", "3D printing"): "interactives/g5-3d-printing.html",
     (5, "robotics", "AI + Robotics"): "interactives/g5-ai-robotics.html",
     (5, "robotics", "Self-driving car"): "interactives/g5-self-driving-car.html",
+    (5, "robotics", "Space robots"): "interactives/g5-space-robots.html",
         }
         rel = FALLBACK.get((int(grade), subject_key, topic_title))
     if not rel:

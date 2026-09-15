@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Space robots — خلائی روبوٹ | AI4Kids Class 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --board:#1a2744;--board-deep:#0f1a2e;--sky:#1e3a5f;--sky2:#0d1b2a;
+    --mars:#c45c3a;--mars2:#8b3a28;--moon:#d4d0c8;--accent:#5b8fd9;
+    --ok:#2e7d4f;--ink:#1e2a1a;--ink-soft:#4a5744;--paper:#fdfaf3;
+    --line:#d5dec8;--gold:#e8b23d;--left:#c4453a;--rover:#c45c3a;--arm:#3d9b8f;
+    --sat:#5b8fd9;--solar:#f5c542;--dust:#c4a882;
+    --fs-cap:clamp(12px, 3.2vw, 13px);--fs-xs:clamp(14px, 3.7vw, 15px);
+    --fs-sm:clamp(16px, 4.2vw, 17px);--fs-md:clamp(17px, 4.6vw, 19px);
+    --fs-lg:clamp(20px, 5.4vw, 23px);--fs-xl:clamp(27px, 7.4vw, 33px);--lh:1.5;
+  }
+  body.urdu{
+    --fs-cap:clamp(13px, 3.5vw, 15px);--fs-xs:clamp(15px, 4.1vw, 17px);
+    --fs-sm:clamp(17px, 4.7vw, 19px);--fs-md:clamp(19px, 5.2vw, 21px);
+    --fs-lg:clamp(22px, 6vw, 25px);--fs-xl:clamp(26px, 7vw, 31px);--lh:2.1;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  .stars{display:flex;align-items:center;gap:6px;font-weight:800;font-size:var(--fs-xs);
+         background:#fff6e2;border:2px solid var(--gold);border-radius:999px;padding:7px 13px}
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+  .tabs{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
+  .tabs button{
+    flex:1 1 28%;min-width:90px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:10px 6px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:54px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .tabs button .badge{color:var(--gold)}
+  .story{
+    background:#fff8ea;border:2px dashed var(--gold);border-radius:16px;padding:13px 15px;
+    font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;margin-bottom:14px;
+  }
+  body.urdu .story{line-height:var(--lh)}
+  .story b{color:var(--ink)}
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:linear-gradient(180deg,#0d1b2a 0%,#1e3a5f 40%,#c45c3a 40%,#8b3a28 55%,#5a2a1a 100%);
+    min-height:280px;
+  }
+  .scene.space{background:linear-gradient(180deg,#050a14 0%,#0d1b2a 50%,#1a2744 100%)}
+  .scene.earth{background:linear-gradient(180deg,#0d1b2a 0%,#1e3a5f 35%,#2a5a8a 35%,#3d7ab0 50%,#1a3a20 50%,#2d5530 100%)}
+  .scene-pad{padding:10px 12px 18px;min-height:260px;position:relative}
+  .sky-layer{position:absolute;inset:0 0 45% 0;pointer-events:none;overflow:hidden}
+  .star-dot{position:absolute;width:3px;height:3px;border-radius:50%;background:#fff;opacity:.85;box-shadow:0 0 4px #fff}
+  .planet{position:absolute;border-radius:50%;z-index:1}
+  .planet.mars-ball{width:48px;height:48px;top:14px;right:16px;background:radial-gradient(circle at 35% 35%,#e88a5a,#c45c3a 55%,#8b3a28);box-shadow:0 0 16px rgba(196,92,58,.4)}
+  .planet.earth-ball{width:42px;height:42px;top:12px;right:16px;background:radial-gradient(circle at 35% 35%,#7ec8f0 0%,#2f6fb5 40%,#2e7d4f 70%);box-shadow:0 0 14px rgba(47,111,181,.35)}
+  .planet.moon-ball{width:28px;height:28px;top:20px;left:14%;background:radial-gradient(circle at 40% 35%,#f0ebe3,#c5c0b8 70%);box-shadow:0 0 10px rgba(255,255,255,.25)}
+  body.urdu .planet.mars-ball,body.urdu .planet.earth-ball{right:auto;left:16px}
+  body.urdu .planet.moon-ball{left:auto;right:14%}
+  .ground-strip{position:absolute;left:0;right:0;bottom:0;height:28%;background:linear-gradient(180deg,#a85a38 0%,#6b3420 100%);z-index:2;border-top:3px solid #4a2818}
+  .ground-strip.mars:before{content:"";position:absolute;left:10%;top:20%;width:18px;height:8px;border-radius:50%;background:rgba(0,0,0,.15);box-shadow:40px 8px 0 rgba(0,0,0,.12),80px -4px 0 6px rgba(0,0,0,.1)}
+  .station-strip{position:absolute;left:0;right:0;bottom:0;height:22%;background:linear-gradient(180deg,#3a4a60 0%,#2a3548 100%);z-index:2;border-top:3px solid #1a2430}
+  .rover-stage,.arm-stage,.build-stage{position:relative;z-index:5;padding-top:70px;display:flex;justify-content:center;align-items:flex-end;min-height:155px}
+  .rover-svg,.arm-svg,.sat-svg,.kids-svg{width:min(94%,300px);height:auto;filter:drop-shadow(0 3px 0 rgba(0,0,0,.2))}
+  .item-card{background:rgba(253,250,243,.95);border:2.5px solid var(--ink);border-radius:16px;padding:8px 10px 10px;text-align:center;min-width:72px;max-width:110px;box-shadow:0 3px 0 rgba(30,42,26,.15);cursor:pointer;user-select:none}
+  .item-card:hover{transform:translateY(-2px)}
+  .item-card.picked{opacity:.35;pointer-events:none}
+  .item-card.ok{border-color:var(--ok);background:#e8f2ed}
+  .item-card.no{border-color:var(--left);background:#fbeae8}
+  .item-card.selected{border-color:var(--accent);background:#eaf1f9;box-shadow:0 0 0 3px rgba(91,143,217,.25)}
+  .item-em{font-size:34px;line-height:1.1;display:block;margin-bottom:2px}
+  .item-lab{font-size:var(--fs-cap);font-weight:800;line-height:1.25;margin:0}
+  .job-slots{position:relative;z-index:5;display:flex;flex-direction:column;gap:8px;padding-top:0;min-height:auto}
+  .job-slot{border:2.5px dashed rgba(30,42,26,.4);border-radius:14px;background:rgba(253,250,243,.75);padding:10px 12px;min-height:52px;display:flex;align-items:center;gap:10px;font-weight:800;font-size:var(--fs-xs);cursor:pointer;color:var(--ink-soft)}
+  .job-slot.filled{border-style:solid;border-color:var(--ink);background:var(--paper);color:var(--ink)}
+  .job-slot .jem{font-size:28px}
+  .job-slot.right{border-color:var(--ok);background:#e8f2ed}
+  .job-slot.wrong{border-color:var(--left);background:#fbeae8}
+  .bank{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:8px;position:relative;z-index:5}
+  .mini-item{border:2px solid var(--ink);border-radius:12px;padding:6px 8px;background:#fff;line-height:1;cursor:pointer;min-width:44px;font-weight:800;font-size:var(--fs-cap);display:flex;align-items:center;gap:4px}
+  .mini-item.used{opacity:.3;pointer-events:none}
+  .save-scene{position:relative;z-index:5;padding-top:82px;text-align:center;min-height:140px}
+  .save-hero{font-size:56px;line-height:1;margin:4px 0 8px;filter:drop-shadow(0 2px 0 rgba(0,0,0,.12))}
+  .save-choices{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+  .save-choices button{border:2.5px solid var(--ink);background:var(--paper);border-radius:14px;padding:12px 14px;font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;text-align:left;min-height:52px;display:flex;align-items:center;gap:10px}
+  body.urdu .save-choices button{text-align:right}
+  .save-choices button .cem{font-size:26px}
+  .save-choices button.right{border-color:var(--ok);background:#e8f2ed}
+  .save-choices button.wrong{border-color:var(--left);background:#fbeae8}
+  .step-row{position:relative;z-index:5;display:flex;flex-wrap:wrap;gap:6px;justify-content:center;align-items:center;padding-top:0;min-height:auto}
+  .step-slot{min-width:70px;min-height:72px;border:2.5px dashed rgba(30,42,26,.45);border-radius:14px;background:rgba(253,250,243,.75);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:6px;font-weight:800;font-size:var(--fs-cap);color:var(--ink-soft);cursor:pointer}
+  .step-slot.filled{border-style:solid;border-color:var(--ink);background:var(--paper);color:var(--ink)}
+  .step-slot .em{font-size:28px;line-height:1}
+  .step-arrow{font-size:18px;font-weight:800;color:var(--rover);padding:0 1px}
+  .part-grid{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:6px 0}
+  .part-btn{border:2.5px solid var(--ink);background:var(--paper);border-radius:14px;padding:10px 12px;font:inherit;font-weight:800;font-size:var(--fs-cap);cursor:pointer;min-height:48px;display:flex;align-items:center;gap:6px}
+  .part-btn.selected{border-color:var(--accent);background:#eaf1f9;box-shadow:0 0 0 3px rgba(91,143,217,.2)}
+  .part-btn.ok{border-color:var(--ok);background:#e8f2ed}
+  .badge-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:6px 0;position:relative;z-index:5}
+  .mini-badge{border:2px solid var(--ink);border-radius:12px;padding:6px 10px;background:#fff;font-size:var(--fs-cap);font-weight:800;display:flex;align-items:center;gap:4px}
+  .outcome{margin-top:10px;border-radius:14px;padding:10px 12px;font-weight:700;font-size:var(--fs-xs);display:none;border:2px solid var(--ok);background:#e8f2ed;color:var(--ok)}
+  .outcome.show{display:block}
+  .outcome.bad{border-color:var(--left);background:#fbeae8;color:var(--left)}
+  .readout{margin-top:-18px;position:relative;z-index:2;background:var(--paper);border:3px solid var(--ink);border-radius:18px;padding:16px 18px}
+  .statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+  .statechip.ur{padding:2px 14px 7px}
+  .statechip.win{background:var(--ok)}
+  .statechip.miss{background:var(--left)}
+  .headline{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+  .headline.ur{line-height:1.95}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+  .hintbox{margin-top:14px;border:2px solid var(--accent);background:#eaf1f9;border-radius:14px;padding:11px 14px;font-size:var(--fs-xs);color:var(--accent);font-weight:700;line-height:1.55;display:none}
+  .hintbox.show{display:block}
+  body.urdu .hintbox{line-height:var(--lh)}
+  .panel{margin-top:22px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .prog{margin:0 0 10px;font-size:var(--fs-xs);font-weight:700;color:var(--ink-soft)}
+  .btns{display:flex;gap:9px;margin-top:8px;flex-wrap:wrap}
+  .btns button{border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:50px;padding:8px 14px;flex:1}
+  .btns .go{background:var(--ink);color:var(--paper)}
+  .btns button:active{transform:scale(.97)}
+  .btns button:disabled{opacity:.4;cursor:default}
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .qhead{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+  .qhead h2{font-size:var(--fs-lg);font-weight:800;margin:0;flex:1}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{display:block;width:100%;text-align:left;margin-bottom:10px;border:2px solid var(--line);background:var(--paper);border-radius:12px;padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);min-height:50px}
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+  .opt.wrong{border-color:var(--left);background:#fbeae8}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);font-size:var(--fs-xs);color:var(--ink-soft)}
+  @media (min-width:820px){
+    .wrap{max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;grid-template-areas:"bar   bar" "head  head" "tabs  tabs" "story story" "left  right" "quiz  quiz" "foot  foot";align-items:start}
+    .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+    .story{grid-area:story} .left{grid-area:left} .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+    .panel{margin-top:0}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition-duration:.01ms !important;animation:none !important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 5</span>
+    <span class="stars" id="starBox">⭐ <span id="starCount">0</span></span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 id="title"></h1>
+  <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group">
+    <button type="button" id="tabWhy" aria-pressed="true"></button>
+    <button type="button" id="tabRover" aria-pressed="false"></button>
+    <button type="button" id="tabBuild" aria-pressed="false"></button>
+  </div>
+
+  <p class="story" id="story"></p>
+
+  <div class="left">
+  <div class="scene" id="sceneRoot">
+    <div class="scene-pad" id="scenePad"></div>
+  </div>
+  <div class="readout">
+    <span class="statechip" id="statechip"></span>
+    <p class="headline" id="headline"></p>
+    <p class="detail" id="detail"></p>
+    <p class="hintbox" id="hintbox"></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="panel">
+    <h2 id="ctlHead"></h2>
+    <p class="prog" id="prog"></p>
+    <div id="actionBox"></div>
+    <div class="btns">
+      <button type="button" class="go" id="nextBtn"></button>
+    </div>
+    <div class="btns">
+      <button type="button" id="hintBtn"></button>
+      <button type="button" id="resetBtn"></button>
+    </div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <div class="qhead">
+      <h2 id="quizHead"></h2>
+      <button type="button" class="chip" id="newQuiz"></button>
+    </div>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad bilingual AI school. Offline play · no APIs. WhatsApp 0337 1468899 · Space robots Robotics SNC"
+       data-ur="اے آئی فور کڈز — اسلام آباد۔ آف لائن کھیلو۔ واٹس ایپ 0337 1468899 · خلائی روبوٹ روبوٹکس"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  function $(id){ return document.getElementById(id); }
+  function isolate(s){ return "\u2066" + s + "\u2069"; }
+  function setText(el, str){
+    if (!el) return;
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+  function t(o){ return (o && o[lang]) || (o && o.en) || ""; }
+  function shuffle(arr){
+    var a = arr.slice(), i, j, tmp;
+    for (i = a.length - 1; i > 0; i--){
+      j = Math.floor(Math.random() * (i + 1));
+      tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  var lang = "en";
+  var mode = "why";
+  var stars = 0;
+  var awarded = {};
+  var doneModes = {why:false, rover:false, build:false};
+
+  var T = {
+    title:{en:"Space robots", ur:"خلائی روبوٹ"},
+    sub:{en:"Space mein kaam karne wale robots — rovers, arms & satellite helpers!",
+         ur:"خلا میں کام کرنے والے روبوٹ — روور، بازو اور سیٹلائٹ مددگار!"},
+    tabWhy:{en:"Why space?", ur:"کیوں خلا؟"},
+    tabRover:{en:"Rover mission", ur:"روور مشن"},
+    tabBuild:{en:"Build a helper", ur:"مددگار بناؤ"},
+    storyWhy:{en:"Match each <b>job</b> to the right <b>space robot</b> — rover explores Mars, arm fixes the station, probe visits far planets.",
+              ur:"ہر <b>کام</b> کو صحیح <b>خلائی روبوٹ</b> سے جوڑو — روور مریخ، بازو سٹیشن، پروب دور سیارے۔"},
+    storyRover:{en:"Help the Mars rover: <b>order mission steps</b> or pick the <b>safe move</b> — wait in dust storms, collect rocks, send photos!",
+                ur:"مریخ روور کی مدد کرو: <b>قدم ترتیب دو</b> یا <b>محفوظ حرکت</b> چنو — طوفان میں رکو، پتھر جمع کرو، تصویر بھیجو!"},
+    storyBuild:{en:"Pick the right <b>parts</b> (wheels, camera, arm, solar) for each mini space mission.",
+                ur:"ہر منی مشن کے لیے صحیح <b>حصے</b> چنو — پہیے، کیمرہ، بازو، سولر۔"},
+    ctl:{en:"Your turn — mini astronaut", ur:"تمہاری باری — منی خلا باز"},
+    next:{en:"Next challenge", ur:"اگلا چیلنج"},
+    hint:{en:"Hint", ur:"اشارہ"},
+    reset:{en:"Reset", ur:"ری سیٹ"},
+    quiz:{en:"Check yourself", ur:"اپنا چیک"},
+    newQuiz:{en:"New quiz", ur:"نیا کوئز"},
+    nice:{en:"Shabash — space hero!", ur:"شاباش — خلائی ہیرو!"},
+    oops:{en:"Almost — try again", ur:"قریب — دوبارہ آزماؤ"},
+    tip:{en:"Tip: Rovers explore planets, robotic arms fix stations, probes visit far worlds. Dust storm? Wait. Need power? Solar panels!",
+         ur:"نکتہ: روور سیارے دیکھتے، بازو سٹیشن ٹھیک کرتے، پروب دور جاتے ہیں۔ گرد طوفان؟ رکو۔ بجلی؟ سولر پینل!"},
+    progW:{en:"Job matches", ur:"کام میچ"},
+    progR:{en:"Mission challenges", ur:"مشن چیلنج"},
+    progB:{en:"Helper builds", ur:"مددگار بلڈ"},
+    askWhy:{en:"Tap the robot that matches the job", ur:"کام والا روبوٹ ٹیپ کرو"},
+    askRover:{en:"Safe move or correct order", ur:"محفوظ حرکت یا صحیح ترتیب"},
+    askBuild:{en:"Pick needed parts, then lock build", ur:"ضروری حصے چنو، پھر محفوظ کرو"},
+    checkMatch:{en:"Check match", ur:"میچ چیک کرو"},
+    checkOrder:{en:"Check order", ur:"ترتیب چیک کرو"},
+    lockBuild:{en:"Lock my helper", ur:"میرا مددگار محفوظ کرو"},
+    pickStep:{en:"Tap a step, then a slot", ur:"قدم ٹیپ کرو، پھر خانہ"}
+  };
+
+  var ROBOTS = {
+    rover:{em:"🤖", en:"Mars rover", ur:"مریخ روور"},
+    arm:{em:"🦾", en:"Station arm", ur:"سٹیشن بازو"},
+    probe:{em:"🛰️", en:"Space probe", ur:"خلائی پروب"}
+  };
+  var JOBS = {
+    explore:{em:"🔴", en:"Explore Mars rocks", ur:"مریخ پتھر دیکھنا"},
+    fix:{em:"🔧", en:"Fix station outside", ur:"سٹیشن باہر ٹھیک کرنا"},
+    far:{em:"🌌", en:"Visit a far planet", ur:"دور سیارہ جانا"}
+  };
+
+  var WHY = [
+    {id:"w1", type:"pick", title:{en:"Who rolls on Mars?", ur:"مریخ پر کون گھومتا ہے؟"}, target:"rover", choices:["rover","arm","probe"],
+      hint:{en:"Rovers have wheels — they drive on planet surfaces like Mars.", ur:"روور کے پہیے ہوتے ہیں — وہ مریخ جیسی سطح پر چلتے ہیں۔"},
+      done:{en:"Rover explores Mars — wheels ready!", ur:"روور مریخ دیکھتا ہے — پہیے تیار!"}},
+    {id:"w2", type:"pick", title:{en:"Who helps fix the ISS?", ur:"آئی ایس ایس کون ٹھیک کرتا ہے؟"}, target:"arm", choices:["rover","arm","probe"],
+      hint:{en:"A big robotic arm on the space station grabs tools and modules.", ur:"سٹیشن کا بڑا روبوٹک بازو اوزار اور ماڈیول پکڑتا ہے۔"},
+      done:{en:"Station arm — space mechanic!", ur:"سٹیشن بازو — خلائی مکینک!"}},
+    {id:"w3", type:"pick", title:{en:"Who flies to a far planet?", ur:"دور سیارے پر کون جاتا ہے؟"}, target:"probe", choices:["rover","arm","probe"],
+      hint:{en:"Probes are spacecraft that travel far — past Jupiter, Saturn, and beyond.", ur:"پروب خلائی جہاز ہیں جو دور جاتے ہیں — مشتری، زحل اور آگے۔"},
+      done:{en:"Probe zooms past distant worlds!", ur:"پروب دور دنیاؤں سے گزرتا!"}},
+    {id:"w4", type:"match", title:{en:"Match all three jobs", ur:"تینوں کام جوڑو"}, pairs:{rover:"explore", arm:"fix", probe:"far"},
+      hint:{en:"Rover→Mars rocks, Arm→fix station, Probe→far planet.", ur:"روور→مریخ پتھر، بازو→سٹیشن ٹھیک، پروب→دور سیارہ۔"},
+      done:{en:"All space robots matched — team ready!", ur:"سب خلائی روبوٹ میچ — ٹیم تیار!"}}
+  ];
+
+  var STEPS = {
+    land:{em:"🛬", en:"Land", ur:"لینڈ"},
+    drive:{em:"🛞", en:"Drive", ur:"چلاؤ"},
+    collect:{em:"🪨", en:"Collect", ur:"جمع کرو"},
+    send:{em:"📡", en:"Send photo", ur:"تصویر بھیجو"},
+    wait:{em:"⏳", en:"Wait", ur:"انتظار"},
+    check:{em:"🔍", en:"Check sky", ur:"آسمان چیک"},
+    power:{em:"☀️", en:"Solar charge", ur:"سولر چارج"}
+  };
+
+  var ROVER = [
+    {id:"r1", type:"order", title:{en:"First Mars day", ur:"مریخ کا پہلا دن"}, order:["land","drive","collect","send"],
+      hint:{en:"Land safely, drive a bit, collect a rock sample, then send a photo to Earth.", ur:"محفوظ لینڈ، تھوڑا چلو، پتھر جمع کرو، پھر زمین کو تصویر بھیجو۔"},
+      done:{en:"Mission day 1 complete!", ur:"مشن دن ۱ مکمل!"}},
+    {id:"r2", type:"safe", title:{en:"Dust storm ahead!", ur:"آگے گرد کا طوفان!"}, scene:"🌪️", extra:"🔴",
+      prompt:{en:"A big Martian dust storm is coming. What should the rover do?", ur:"بڑا مریخی گرد طوفان آ رہا ہے۔ روور کیا کرے؟"},
+      choices:[
+        {id:"wait", em:"⏳", en:"WAIT — pause & protect cameras", ur:"انتظار — رکو اور کیمرہ بچاؤ"},
+        {id:"rush", em:"🏎️", en:"Race through the storm fast", ur:"طوفان میں تیزی سے دوڑو"},
+        {id:"off", em:"🔌", en:"Turn off forever", ur:"ہمیشہ کے لیے بند کرو"}
+      ], correct:"wait",
+      hint:{en:"Dust can block sun and scratch cameras — wait until it clears.", ur:"گرد سورج روکتی اور کیمرہ خراب کر سکتی — صاف ہونے تک رکو۔"},
+      done:{en:"Waited out the storm — smart rover!", ur:"طوفان گزرنے کا انتظار — ذہین روور!"}},
+    {id:"r3", type:"order", title:{en:"After the storm", ur:"طوفان کے بعد"}, order:["check","power","drive","send"],
+      hint:{en:"Check the sky is clear, recharge with solar, drive carefully, send updates.", ur:"آسمان صاف چیک کرو، سولر چارج، احتیاط سے چلو، اپ ڈیٹ بھیجو۔"},
+      done:{en:"Post-storm pipeline locked!", ur:"طوفان کے بعد کا راستہ یاد!"}},
+    {id:"r4", type:"safe", title:{en:"Interesting rock!", ur:"دلچسپ پتھر!"}, scene:"🪨", extra:"🔍",
+      prompt:{en:"Sensors found a special rock. Best next move?", ur:"سینسر نے خاص پتھر پایا۔ بہترین اگلا قدم؟"},
+      choices:[
+        {id:"collect", em:"🦾", en:"Use arm to COLLECT a sample", ur:"بازو سے نمونہ جمع کرو"},
+        {id:"kick", em:"👟", en:"Kick it away and ignore", ur:"دھکا مار کر نظرانداز کرو"},
+        {id:"eat", em:"😋", en:"Pretend the rover eats rocks", ur:"روور پتھر کھاتا سوچو"}
+      ], correct:"collect",
+      hint:{en:"Rovers use a robotic arm or drill to collect rock samples for science.", ur:"روور سائنس کے لیے بازو یا ڈرل سے پتھر کے نمونے لیتے ہیں۔"},
+      done:{en:"Sample collected — science win!", ur:"نمونہ جمع — سائنس جیت!"}}
+  ];
+
+  var PARTS = {
+    wheels:{em:"🛞", en:"Wheels", ur:"پہیے"},
+    camera:{em:"📷", en:"Camera", ur:"کیمرہ"},
+    arm:{em:"🦾", en:"Robot arm", ur:"روبوٹ بازو"},
+    solar:{em:"☀️", en:"Solar panel", ur:"سولر پینل"},
+    antenna:{em:"📡", en:"Antenna", ur:"اینٹینا"},
+    drill:{em:"⛏️", en:"Drill", ur:"ڈرل"}
+  };
+
+  var BUILD = [
+    {id:"b1", title:{en:"Mini Mars explorer", ur:"منی مریخ ایکسپلورر"}, need:["wheels","camera","solar"], preview:"🤖",
+      hint:{en:"To roll on Mars you need wheels, eyes (camera), and solar power.", ur:"مریخ پر چلنے کے لیے پہیے، آنکھیں (کیمرہ) اور سولر بجلی چاہیے۔"},
+      done:{en:"Explorer built — ready for red planet!", ur:"ایکسپلورر تیار — سرخ سیارے کے لیے!"}},
+    {id:"b2", title:{en:"Station repair buddy", ur:"سٹیشن مرمت ساتھی"}, need:["arm","camera","antenna"], preview:"🦾",
+      hint:{en:"A repair helper needs an arm to grab, a camera to see, and an antenna to talk to Earth.", ur:"مرمت مددگار کو پکڑنے کا بازو، دیکھنے کا کیمرہ، اور زمین سے بات کا اینٹینا چاہیے۔"},
+      done:{en:"Repair buddy locked — ISS helper!", ur:"مرمت ساتھی محفوظ — آئی ایس ایس مددگار!"}},
+    {id:"b3", title:{en:"Rock science rover", ur:"پتھر سائنس روور"}, need:["wheels","arm","drill"], preview:"🪨",
+      hint:{en:"Science rover: wheels to move, arm to reach, drill to sample rock.", ur:"سائنس روور: چلنے کے پہیے، پہنچنے کا بازو، نمونہ لینے کی ڈرل۔"},
+      done:{en:"Science rover complete — Shabash!", ur:"سائنس روور مکمل — شاباش!"}},
+    {id:"b4", title:{en:"Night-sky helper (Pakistan)", ur:"رات کے آسمان کا مددگار (پاکستان)"}, need:["camera","solar","antenna"], preview:"🌙",
+      hint:{en:"A sky-watch helper needs a camera, solar for daytime charge, and antenna to share photos with kids in Islamabad!", ur:"آسمان دیکھنے والے کو کیمرہ، دن میں سولر چارج، اور اسلام آباد کے بچوں سے تصویر شیئر کرنے کا اینٹینا چاہیے!"},
+      done:{en:"Sky helper ready — look up tonight!", ur:"آسمان مددگار تیار — آج رات دیکھو!"}}
+  ];
+
+  var QUIZ = [
+    {q:{en:"Why do we send robots to space instead of only people?", ur:"ہم خلا میں صرف لوگوں کے بجائے روبوٹ کیوں بھیجتے ہیں؟"},
+      opts:[{en:"Robots can work in places too dangerous or far for people", ur:"روبوٹ خطرناک یا بہت دور جگہوں پر کام کر سکتے ہیں"},
+        {en:"Because robots like biryani more", ur:"کیونکہ روبوٹ بریانی زیادہ پسند کرتے ہیں"},
+        {en:"So Earth has no more scientists", ur:"تاکہ زمین پر سائنسدان نہ رہیں"},
+        {en:"Robots only play cricket", ur:"روبوٹ صرف کرکٹ کھیلتے ہیں"}],
+      correct:0, why:{en:"Space is cold, far, and risky — robots explore safely and send data home.", ur:"خلا سرد، دور اور خطرناک ہے — روبوٹ محفوظ دیکھتے اور ڈیٹا بھیجتے ہیں۔"}},
+    {q:{en:"A Mars rover mainly…", ur:"مریخ روور خاص طور پر…"},
+      opts:[{en:"Drives on the surface and studies rocks", ur:"سطح پر چلتا اور پتھر پڑھتا ہے"},
+        {en:"Cooks dinner on the ISS", ur:"آئی ایس ایس پر رات کا کھانا پکاتا ہے"},
+        {en:"Only floats with no wheels", ur:"صرف تیرتا ہے بغیر پہیوں کے"},
+        {en:"Watches TV on Earth", ur:"زمین پر ٹی وی دیکھتا ہے"}],
+      correct:0, why:{en:"Rovers roll with wheels, take photos, and collect samples.", ur:"روور پہیوں سے چلتے، تصویریں لیتے اور نمونے جمع کرتے ہیں۔"}},
+    {q:{en:"A robotic arm on a space station is useful for…", ur:"خلائی سٹیشن کا روبوٹک بازو کس کام کے لیے مفید ہے؟"},
+      opts:[{en:"Moving modules and helping with repairs outside", ur:"ماڈیول ہلانا اور باہر مرمت میں مدد"},
+        {en:"Baking cookies only", ur:"صرف کوکیز بیک کرنا"},
+        {en:"Watering plants on Mars alone", ur:"اکیلے مریخ پر پودے سینچنا"},
+        {en:"Playing football in Islamabad", ur:"اسلام آباد میں فٹ بال کھیلنا"}],
+      correct:0, why:{en:"Big station arms grab cargo and help astronauts with outside work.", ur:"بڑے سٹیشن بازو سامان پکڑتے اور خلا بازوں کی باہر مدد کرتے ہیں۔"}},
+    {q:{en:"Dust storm on Mars — what should a solar rover do?", ur:"مریخ پر گرد طوفان — سولر روور کیا کرے؟"},
+      opts:[{en:"Wait until the storm clears, then recharge", ur:"طوفان صاف ہونے تک انتظار، پھر چارج"},
+        {en:"Drive faster into the dust", ur:"گرد میں تیز تر چلو"},
+        {en:"Throw away the solar panels", ur:"سولر پینل پھینک دو"},
+        {en:"Ignore all sensors forever", ur:"سب سینسر ہمیشہ نظرانداز کرو"}],
+      correct:0, why:{en:"Dust blocks sunlight — waiting protects the rover and saves power.", ur:"گرد سورج روکتی ہے — انتظار روور بچاتا اور بجلی بچاتا ہے۔"}},
+    {q:{en:"Which part helps a space robot get energy from the Sun?", ur:"کون سا حصہ خلائی روبوٹ کو سورج سے توانائی دیتا ہے؟"},
+      opts:[{en:"Solar panel", ur:"سولر پینل"},
+        {en:"Only a football", ur:"صرف فٹ بال"},
+        {en:"A paper kite", ur:"کاغذی پتنگ"},
+        {en:"Ice cream scoop", ur:"آئس کریم کا چمچہ"}],
+      correct:0, why:{en:"Solar panels turn sunlight into electricity for cameras, wheels, and radios.", ur:"سولر پینل سورج کی روشنی کو بجلی بناتے ہیں — کیمرہ، پہیے، ریڈیو کے لیے۔"}},
+    {q:{en:"A space probe is designed to…", ur:"خلائی پروب اس لیے بنایا جاتا ہے کہ…"},
+      opts:[{en:"Travel far to study distant planets or space", ur:"دور سیاروں یا خلا کا مطالعہ کرے"},
+        {en:"Stay only in a school classroom", ur:"صرف اسکول کلاس میں رہے"},
+        {en:"Replace all cars in Pakistan", ur:"پاکستان کی سب گاڑیاں بدل دے"},
+        {en:"Only print stickers", ur:"صرف اسٹیکر پرنٹ کرے"}],
+      correct:0, why:{en:"Probes fly long missions past planets and send science data back to Earth.", ur:"پروب لمبے مشن پر سیاروں سے گزرتے اور سائنس ڈیٹا زمین بھیجتے ہیں۔"}}
+  ];
+
+  var whyIdx = 0, whySelected = null, whyMap = {}, whyDone = {};
+  var roverIdx = 0, roverSelected = null, roverSlots = [], roverDone = {};
+  var buildIdx = 0, buildPicked = {}, buildDone = {};
+  var quizSet = [];
+
+  function award(key, n){
+    if (awarded[key]) return;
+    awarded[key] = true;
+    stars += (n || 1);
+    $("starCount").textContent = String(stars);
+  }
+  function recountStars(){
+    stars = 0;
+    Object.keys(awarded).forEach(function(k){
+      stars += (k.indexOf("mode-")===0) ? 2 : 1;
+    });
+    $("starCount").textContent = String(stars);
+  }
+
+  function starsHTML(){
+    var s = "", positions = [[8,12],[22,28],[35,8],[48,22],[62,14],[75,30],[88,10],[15,40],[55,38],[70,42],[40,32],[92,35]];
+    positions.forEach(function(p,i){
+      s += '<div class="star-dot" style="left:'+p[0]+'%;top:'+p[1]+'%;opacity:'+(0.5+((i%3)*0.15))+';width:'+(2+(i%3))+'px;height:'+(2+(i%3))+'px"></div>';
+    });
+    return s;
+  }
+
+  function spaceSky(kind){
+    var planets = "";
+    if (kind === "mars") planets = '<div class="planet mars-ball"></div>';
+    else if (kind === "earth") planets = '<div class="planet earth-ball"></div><div class="planet moon-ball"></div>';
+    else if (kind === "station") planets = '<div class="planet earth-ball" style="width:36px;height:36px"></div>';
+    else planets = '<div class="planet moon-ball"></div><div class="planet mars-ball" style="width:32px;height:32px;top:40px"></div>';
+    return '<div class="sky-layer">'+starsHTML()+planets+'</div>';
+  }
+
+  function roverSVG(opts){
+    opts = opts || {};
+    var showCam = opts.cam !== false;
+    var showSolar = opts.solar !== false;
+    var showArm = opts.arm !== false;
+    return '<svg class="rover-svg" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+      '<ellipse cx="150" cy="138" rx="95" ry="8" fill="rgba(0,0,0,.2)"/>' +
+      (showSolar ? '<g><rect x="40" y="48" width="70" height="28" rx="3" fill="#f5c542" stroke="#1e2a1a" stroke-width="2"/>' +
+      '<rect x="190" y="48" width="70" height="28" rx="3" fill="#f5c542" stroke="#1e2a1a" stroke-width="2"/>' +
+      '<line x1="75" y1="76" x2="110" y2="88" stroke="#1e2a1a" stroke-width="2.5"/>' +
+      '<line x1="225" y1="76" x2="190" y2="88" stroke="#1e2a1a" stroke-width="2.5"/>' +
+      '<text x="75" y="42" text-anchor="middle" font-size="9" font-weight="800" fill="#e8b23d">SOLAR</text></g>' : '') +
+      '<rect x="95" y="78" width="110" height="36" rx="10" fill="#c45c3a" stroke="#1e2a1a" stroke-width="2.5"/>' +
+      '<rect x="110" y="68" width="80" height="18" rx="6" fill="#8b3a28" stroke="#1e2a1a" stroke-width="2"/>' +
+      (showCam ? '<g><rect x="145" y="38" width="10" height="32" fill="#5a6570" stroke="#1e2a1a" stroke-width="1.5"/>' +
+      '<rect x="136" y="28" width="28" height="16" rx="4" fill="#c4453a" stroke="#1e2a1a" stroke-width="1.5"/>' +
+      '<circle cx="150" cy="36" r="5" fill="#1e2a1a"/><circle cx="150" cy="36" r="2" fill="#a8d4f0"/>' +
+      '<text x="150" y="22" text-anchor="middle" font-size="8" font-weight="800" fill="#c4453a">CAM</text></g>' : '') +
+      (showArm ? '<g><path d="M205 90 Q240 70 255 95" fill="none" stroke="#3d9b8f" stroke-width="6" stroke-linecap="round"/>' +
+      '<circle cx="255" cy="95" r="8" fill="#2e7d4f" stroke="#1e2a1a" stroke-width="1.5"/>' +
+      '<text x="255" y="115" text-anchor="middle" font-size="8" font-weight="800" fill="#3d9b8f">ARM</text></g>' : '') +
+      '<circle cx="115" cy="120" r="16" fill="#2a3238" stroke="#1e2a1a" stroke-width="2"/><circle cx="115" cy="120" r="7" fill="#c5d0dc"/>' +
+      '<circle cx="150" cy="122" r="16" fill="#2a3238" stroke="#1e2a1a" stroke-width="2"/><circle cx="150" cy="122" r="7" fill="#c5d0dc"/>' +
+      '<circle cx="185" cy="120" r="16" fill="#2a3238" stroke="#1e2a1a" stroke-width="2"/><circle cx="185" cy="120" r="7" fill="#c5d0dc"/>' +
+      '<text x="150" y="100" text-anchor="middle" font-size="10" font-weight="800" fill="#fff">MARS ROVER</text></svg>';
+  }
+
+  function armSVG(){
+    return '<svg class="arm-svg" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+      '<ellipse cx="150" cy="140" rx="80" ry="6" fill="rgba(0,0,0,.15)"/>' +
+      '<rect x="30" y="70" width="90" height="50" rx="8" fill="#5a6570" stroke="#1e2a1a" stroke-width="2.5"/>' +
+      '<rect x="40" y="80" width="30" height="20" rx="3" fill="#a8d4f0" stroke="#1e2a1a" stroke-width="1.5"/>' +
+      '<rect x="78" y="80" width="30" height="20" rx="3" fill="#a8d4f0" stroke="#1e2a1a" stroke-width="1.5"/>' +
+      '<text x="75" y="65" text-anchor="middle" font-size="9" font-weight="800" fill="#c5d0dc">ISS</text>' +
+      '<line x1="120" y1="90" x2="170" y2="55" stroke="#3d9b8f" stroke-width="10" stroke-linecap="round"/>' +
+      '<circle cx="170" cy="55" r="8" fill="#2e7d4f" stroke="#1e2a1a" stroke-width="2"/>' +
+      '<line x1="170" y1="55" x2="230" y2="75" stroke="#3d9b8f" stroke-width="9" stroke-linecap="round"/>' +
+      '<circle cx="230" cy="75" r="7" fill="#2e7d4f" stroke="#1e2a1a" stroke-width="2"/>' +
+      '<line x1="230" y1="75" x2="265" y2="100" stroke="#5b8fd9" stroke-width="7" stroke-linecap="round"/>' +
+      '<path d="M265 100 L255 115 M265 100 L275 115" stroke="#1e2a1a" stroke-width="4" stroke-linecap="round"/>' +
+      '<rect x="248" y="112" width="20" height="12" rx="2" fill="#e85d2a" stroke="#1e2a1a" stroke-width="1.5"/>' +
+      '<text x="200" y="40" text-anchor="middle" font-size="10" font-weight="800" fill="#3d9b8f">ROBOT ARM</text>' +
+      '<circle cx="260" cy="30" r="14" fill="#2f6fb5"/><circle cx="255" cy="28" r="5" fill="#2e7d4f" opacity=".8"/></svg>';
+  }
+
+  function kidsSVG(){
+    return '<svg class="kids-svg" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+      '<ellipse cx="150" cy="140" rx="100" ry="7" fill="rgba(0,0,0,.12)"/>' +
+      '<rect x="0" y="118" width="300" height="32" fill="#2d5530" opacity=".5"/>' +
+      '<circle cx="240" cy="35" r="18" fill="#f0ebe3" stroke="#c5c0b8" stroke-width="1"/>' +
+      '<circle cx="234" cy="32" r="4" fill="#d4d0c8" opacity=".6"/>' +
+      '<circle cx="100" cy="85" r="14" fill="#f5c4a0" stroke="#1e2a1a" stroke-width="1.5"/>' +
+      '<rect x="88" y="100" width="24" height="28" rx="6" fill="#2f6fb5" stroke="#1e2a1a" stroke-width="1.5"/>' +
+      '<line x1="95" y1="85" x2="85" y2="70" stroke="#1e2a1a" stroke-width="2.5" stroke-linecap="round"/>' +
+      '<line x1="105" y1="85" x2="120" y2="65" stroke="#1e2a1a" stroke-width="2.5" stroke-linecap="round"/>' +
+      '<circle cx="160" cy="88" r="13" fill="#e8b090" stroke="#1e2a1a" stroke-width="1.5"/>' +
+      '<rect x="148" y="102" width="24" height="26" rx="6" fill="#c4453a" stroke="#1e2a1a" stroke-width="1.5"/>' +
+      '<line x1="155" y1="88" x2="145" y2="72" stroke="#1e2a1a" stroke-width="2.5" stroke-linecap="round"/>' +
+      '<line x1="165" y1="88" x2="180" y2="68" stroke="#1e2a1a" stroke-width="2.5" stroke-linecap="round"/>' +
+      '<line x1="180" y1="68" x2="220" y2="42" stroke="#5a6570" stroke-width="4" stroke-linecap="round"/>' +
+      '<circle cx="220" cy="42" r="6" fill="#5b8fd9" stroke="#1e2a1a" stroke-width="1.5"/>' +
+      '<text x="150" y="28" text-anchor="middle" font-size="10" font-weight="800" fill="#e8b23d">PAKISTAN · نائٹ اسکائی</text></svg>';
+  }
+
+  function setSceneClass(cls){
+    $("sceneRoot").className = "scene" + (cls ? " " + cls : "");
+  }
+
+  /* ---------- WHY ---------- */
+  function renderWhy(){
+    var ch = WHY[whyIdx];
+    var pad = $("scenePad");
+    setSceneClass(ch.target === "arm" || (ch.type==="match") ? "space" : "");
+    if (ch.type === "pick" && ch.target === "arm"){
+      pad.innerHTML = spaceSky("station") + '<div class="station-strip"></div><div class="arm-stage">' + armSVG() + '</div>';
+    } else if (ch.type === "pick" && ch.target === "probe"){
+      pad.innerHTML = spaceSky("far") + '<div class="save-scene"><div class="save-hero">🛰️✨</div></div>';
+    } else {
+      pad.innerHTML = spaceSky("mars") + '<div class="ground-strip mars"></div><div class="rover-stage">' + roverSVG({}) + '</div>';
+    }
+    setText($("statechip"), (whyIdx+1) + " / " + WHY.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"");
+    setText($("headline"), t(ch.title));
+    setText($("detail"), t(T.askWhy));
+    $("hintbox").classList.remove("show");
+    var box = $("actionBox");
+    box.innerHTML = "";
+    if (ch.type === "pick"){
+      var row = document.createElement("div");
+      row.style.display = "flex"; row.style.flexWrap = "wrap"; row.style.gap = "8px";
+      ch.choices.forEach(function(id){
+        var s = ROBOTS[id];
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "item-card" + (whySelected===id ? " selected" : "") + (whyDone[ch.id] && id===ch.target ? " ok" : "");
+        b.innerHTML = '<span class="item-em">'+s.em+'</span><p class="item-lab"></p>';
+        setText(b.querySelector(".item-lab"), t(s));
+        b.disabled = !!whyDone[ch.id];
+        b.addEventListener("click", function(){
+          if (whyDone[ch.id]) return;
+          whySelected = id;
+          if (id === ch.target){
+            whyDone[ch.id] = true;
+            award("why-"+ch.id, 1);
+            setText($("headline"), t(ch.done));
+            $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.nice));
+            if (Object.keys(whyDone).length >= WHY.length){ doneModes.why = true; award("mode-why", 2); }
+            tabBadges();
+          } else {
+            setText($("headline"), t(T.oops));
+            $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.oops));
+          }
+          renderWhy();
+        });
+        row.appendChild(b);
+      });
+      box.appendChild(row);
+    } else {
+      var slots = document.createElement("div");
+      slots.className = "job-slots";
+      ["rover","arm","probe"].forEach(function(sid){
+        var slot = document.createElement("div");
+        slot.className = "job-slot" + (whyMap[sid] ? " filled" : "") + (whyDone[ch.id] && whyMap[sid]===ch.pairs[sid] ? " right" : "");
+        var filled = whyMap[sid] ? JOBS[whyMap[sid]] : null;
+        slot.innerHTML = '<span class="jem">'+ROBOTS[sid].em+'</span><span class="slab"></span>';
+        setText(slot.querySelector(".slab"), t(ROBOTS[sid]) + (filled ? " → " + t(filled) : " → ?"));
+        slot.addEventListener("click", function(){
+          if (whyDone[ch.id] || !whySelected) return;
+          whyMap[sid] = whySelected; whySelected = null; renderWhy();
+        });
+        slots.appendChild(slot);
+      });
+      box.appendChild(slots);
+      var bank = document.createElement("div");
+      bank.className = "bank";
+      ["explore","fix","far"].forEach(function(did){
+        var used = Object.keys(whyMap).some(function(k){ return whyMap[k]===did; });
+        var m = document.createElement("button");
+        m.type = "button";
+        m.className = "mini-item" + (used ? " used" : "");
+        if (whySelected===did) m.style.borderColor = "var(--accent)";
+        m.innerHTML = JOBS[did].em + " <span></span>";
+        setText(m.querySelector("span"), t(JOBS[did]));
+        m.disabled = used || !!whyDone[ch.id];
+        m.addEventListener("click", function(){
+          if (used || whyDone[ch.id]) return;
+          whySelected = did; renderWhy();
+        });
+        bank.appendChild(m);
+      });
+      box.appendChild(bank);
+      if (!whyDone[ch.id]){
+        var chk = document.createElement("button");
+        chk.type = "button";
+        chk.style.cssText = "margin-top:10px;width:100%;border:2px solid var(--ink);border-radius:14px;background:var(--ink);color:var(--paper);font:inherit;font-weight:800;min-height:48px;cursor:pointer";
+        setText(chk, t(T.checkMatch));
+        chk.addEventListener("click", function(){
+          var ok = true;
+          Object.keys(ch.pairs).forEach(function(k){ if (whyMap[k] !== ch.pairs[k]) ok = false; });
+          if (ok && Object.keys(whyMap).length === 3){
+            whyDone[ch.id] = true; award("why-"+ch.id, 1);
+            setText($("headline"), t(ch.done));
+            $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.nice));
+            if (Object.keys(whyDone).length >= WHY.length){ doneModes.why = true; award("mode-why", 2); }
+            tabBadges(); renderWhy();
+          } else {
+            setText($("headline"), t(T.oops));
+            $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.oops));
+          }
+        });
+        box.appendChild(chk);
+      }
+    }
+    setText($("prog"), t(T.progW) + ": " + Object.keys(whyDone).length + "/" + WHY.length);
+  }
+
+  /* ---------- ROVER ---------- */
+  function renderRover(){
+    var ch = ROVER[roverIdx];
+    var pad = $("scenePad");
+    $("hintbox").classList.remove("show");
+    setSceneClass("");
+    if (ch.type === "order"){
+      pad.innerHTML = spaceSky("mars") + '<div class="ground-strip mars"></div><div class="rover-stage">' + roverSVG({}) + '</div>';
+      setText($("statechip"), (roverIdx+1) + " / " + ROVER.length);
+      $("statechip").className = "statechip" + (lang==="ur"?" ur":"");
+      setText($("headline"), t(ch.title));
+      setText($("detail"), t(T.pickStep));
+      if (!roverSlots.length || roverSlots.length !== ch.order.length){
+        roverSlots = ch.order.map(function(){ return null; });
+        roverSelected = null;
+      }
+      var box = $("actionBox");
+      box.innerHTML = "";
+      var row = document.createElement("div");
+      row.className = "step-row";
+      ch.order.forEach(function(_, i){
+        if (i) { var ar = document.createElement("span"); ar.className = "step-arrow"; ar.textContent = "→"; row.appendChild(ar); }
+        var slot = document.createElement("div");
+        slot.className = "step-slot" + (roverSlots[i] ? " filled" : "");
+        var sid = roverSlots[i];
+        if (sid){ slot.innerHTML = '<span class="em">'+STEPS[sid].em+'</span><span class="slab"></span>'; setText(slot.querySelector(".slab"), t(STEPS[sid])); }
+        else { slot.innerHTML = '<span class="em">?</span><span>'+(i+1)+'</span>'; }
+        slot.addEventListener("click", function(){
+          if (roverDone[ch.id]) return;
+          if (roverSelected){ roverSlots[i] = roverSelected; roverSelected = null; renderRover(); }
+          else if (roverSlots[i]){ roverSlots[i] = null; renderRover(); }
+        });
+        row.appendChild(slot);
+      });
+      box.appendChild(row);
+      var bank = document.createElement("div");
+      bank.className = "bank";
+      ch.order.forEach(function(sid){
+        var used = roverSlots.indexOf(sid) >= 0;
+        var m = document.createElement("button");
+        m.type = "button";
+        m.className = "mini-item" + (used ? " used" : "");
+        if (roverSelected === sid) m.style.borderColor = "var(--accent)";
+        m.innerHTML = STEPS[sid].em + " <span></span>";
+        setText(m.querySelector("span"), t(STEPS[sid]));
+        m.disabled = used || !!roverDone[ch.id];
+        m.addEventListener("click", function(){
+          if (used || roverDone[ch.id]) return;
+          roverSelected = sid; renderRover();
+        });
+        bank.appendChild(m);
+      });
+      box.appendChild(bank);
+      if (!roverDone[ch.id]){
+        var chk = document.createElement("button");
+        chk.type = "button";
+        chk.style.cssText = "margin-top:10px;width:100%;border:2px solid var(--ink);border-radius:14px;background:var(--ink);color:var(--paper);font:inherit;font-weight:800;min-height:48px;cursor:pointer";
+        setText(chk, t(T.checkOrder));
+        chk.addEventListener("click", function(){
+          var ok = roverSlots.length === ch.order.length && roverSlots.every(function(s,i){ return s === ch.order[i]; });
+          if (ok){
+            roverDone[ch.id] = true; award("rover-"+ch.id, 1);
+            setText($("headline"), t(ch.done));
+            $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.nice));
+            if (Object.keys(roverDone).length >= ROVER.length){ doneModes.rover = true; award("mode-rover", 2); }
+            tabBadges(); renderRover();
+          } else {
+            setText($("headline"), t(T.oops));
+            $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.oops));
+          }
+        });
+        box.appendChild(chk);
+      }
+    } else {
+      pad.innerHTML = spaceSky("mars") + '<div class="ground-strip mars"></div>' +
+        '<div class="save-scene"><div class="save-hero">'+ch.scene+" "+(ch.extra||"")+'</div></div>';
+      setText($("statechip"), (roverIdx+1) + " / " + ROVER.length);
+      $("statechip").className = "statechip" + (lang==="ur"?" ur":"");
+      setText($("headline"), t(ch.title));
+      setText($("detail"), t(ch.prompt));
+      var box2 = $("actionBox");
+      box2.innerHTML = "";
+      var choices = document.createElement("div");
+      choices.className = "save-choices";
+      ch.choices.forEach(function(c){
+        var b = document.createElement("button");
+        b.type = "button";
+        if (roverDone[ch.id] && c.id === ch.correct) b.classList.add("right");
+        b.innerHTML = '<span class="cem">'+c.em+'</span><span class="clab"></span>';
+        setText(b.querySelector(".clab"), t(c));
+        b.disabled = !!roverDone[ch.id];
+        b.addEventListener("click", function(){
+          if (roverDone[ch.id]) return;
+          if (c.id === ch.correct){
+            roverDone[ch.id] = true; award("rover-"+ch.id, 1);
+            b.classList.add("right");
+            setText($("headline"), t(ch.done));
+            $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.nice));
+            if (Object.keys(roverDone).length >= ROVER.length){ doneModes.rover = true; award("mode-rover", 2); }
+            tabBadges();
+          } else {
+            b.classList.add("wrong");
+            setText($("headline"), t(T.oops));
+            $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.oops));
+            setTimeout(function(){ b.classList.remove("wrong"); }, 600);
+          }
+        });
+        choices.appendChild(b);
+      });
+      box2.appendChild(choices);
+    }
+    setText($("prog"), t(T.progR) + ": " + Object.keys(roverDone).length + "/" + ROVER.length);
+  }
+
+  /* ---------- BUILD ---------- */
+  function renderBuild(){
+    var ch = BUILD[buildIdx];
+    var pad = $("scenePad");
+    $("hintbox").classList.remove("show");
+    if (ch.id === "b2"){
+      setSceneClass("space");
+      pad.innerHTML = spaceSky("station") + '<div class="station-strip"></div><div class="arm-stage">' + armSVG() + '</div>';
+    } else if (ch.id === "b4"){
+      setSceneClass("earth");
+      pad.innerHTML = spaceSky("earth") + '<div class="build-stage">' + kidsSVG() + '</div>';
+    } else {
+      setSceneClass("");
+      pad.innerHTML = spaceSky("mars") + '<div class="ground-strip mars"></div><div class="rover-stage">' +
+        roverSVG({cam:true,solar:true,arm:ch.id==="b3"}) + '</div>';
+    }
+    setText($("statechip"), (buildIdx+1) + " / " + BUILD.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"");
+    setText($("headline"), t(ch.title));
+    setText($("detail"), t(T.askBuild));
+    if (!buildPicked[ch.id]) buildPicked[ch.id] = {};
+    var box = $("actionBox");
+    box.innerHTML = "";
+    var hero = document.createElement("div");
+    hero.style.cssText = "font-size:48px;text-align:center;margin:4px 0";
+    hero.textContent = ch.preview;
+    box.appendChild(hero);
+    var picked = buildPicked[ch.id];
+    var grid = document.createElement("div");
+    grid.className = "part-grid";
+    Object.keys(PARTS).forEach(function(pid){
+      var p = PARTS[pid];
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "part-btn" + (picked[pid] ? " selected" : "");
+      if (buildDone[ch.id] && ch.need.indexOf(pid) >= 0) b.classList.add("ok");
+      b.innerHTML = p.em + " <span></span>";
+      setText(b.querySelector("span"), t(p));
+      b.disabled = !!buildDone[ch.id];
+      b.addEventListener("click", function(){
+        if (buildDone[ch.id]) return;
+        if (picked[pid]) delete picked[pid]; else picked[pid] = true;
+        renderBuild();
+      });
+      grid.appendChild(b);
+    });
+    box.appendChild(grid);
+    var selectedIds = Object.keys(picked);
+    var sum = document.createElement("div");
+    sum.className = "badge-row";
+    selectedIds.forEach(function(pid){
+      var mb = document.createElement("span");
+      mb.className = "mini-badge";
+      mb.textContent = PARTS[pid].em + " " + t(PARTS[pid]);
+      sum.appendChild(mb);
+    });
+    box.appendChild(sum);
+    if (!buildDone[ch.id]){
+      var chk = document.createElement("button");
+      chk.type = "button";
+      chk.style.cssText = "margin-top:10px;width:100%;border:2px solid var(--ink);border-radius:14px;background:var(--ink);color:var(--paper);font:inherit;font-weight:800;min-height:48px;cursor:pointer";
+      setText(chk, t(T.lockBuild));
+      chk.addEventListener("click", function(){
+        var ok = ch.need.every(function(n){ return picked[n]; }) &&
+                 Object.keys(picked).filter(function(k){ return picked[k]; }).length === ch.need.length;
+        if (ok){
+          buildDone[ch.id] = true; award("build-"+ch.id, 1);
+          setText($("headline"), t(ch.done));
+          $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.nice));
+          if (Object.keys(buildDone).length >= BUILD.length){ doneModes.build = true; award("mode-build", 2); }
+          tabBadges(); renderBuild();
+        } else {
+          setText($("headline"), t(T.oops));
+          $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.oops));
+          var hb = $("hintbox"); setText(hb, t(ch.hint)); hb.classList.add("show");
+        }
+      });
+      box.appendChild(chk);
+    } else {
+      var out = document.createElement("div");
+      out.className = "outcome show";
+      setText(out, t(ch.done));
+      box.appendChild(out);
+    }
+    setText($("prog"), t(T.progB) + ": " + Object.keys(buildDone).length + "/" + BUILD.length);
+  }
+
+  /* ---------- QUIZ ---------- */
+  function pickQuiz(){ quizSet = shuffle(QUIZ).slice(0, 5); }
+  function renderQuiz(){
+    var box = $("quizBox");
+    box.innerHTML = "";
+    quizSet.forEach(function(item, qi){
+      var wrap = document.createElement("div");
+      wrap.className = "q";
+      var p = document.createElement("p");
+      setText(p, (qi+1) + ". " + t(item.q));
+      wrap.appendChild(p);
+      var answered = false;
+      item.opts.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt" + (lang==="ur"?" ur":"");
+        setText(b, t(opt));
+        b.addEventListener("click", function(){
+          if (answered) return;
+          answered = true;
+          if (oi === item.correct){ b.classList.add("right"); award("quiz-"+qi+"-"+String(item.correct), 1); }
+          else {
+            b.classList.add("wrong");
+            var kids = wrap.querySelectorAll(".opt");
+            if (kids[item.correct]) kids[item.correct].classList.add("right");
+          }
+          fb.classList.add("show");
+        });
+        wrap.appendChild(b);
+      });
+      var fb = document.createElement("p");
+      fb.className = "fb";
+      setText(fb, t(item.why));
+      wrap.appendChild(fb);
+      box.appendChild(wrap);
+    });
+  }
+
+  function storyHtml(){
+    if (mode === "why") return t(T.storyWhy);
+    if (mode === "rover") return t(T.storyRover);
+    return t(T.storyBuild);
+  }
+
+  function tabBadges(){
+    function lab(btn, label, key){
+      btn.innerHTML = "";
+      var span = document.createElement("span");
+      setText(span, t(label));
+      btn.appendChild(span);
+      if (doneModes[key]){ var b = document.createElement("span"); b.className = "badge"; b.textContent = " ★"; btn.appendChild(b); }
+    }
+    lab($("tabWhy"), T.tabWhy, "why");
+    lab($("tabRover"), T.tabRover, "rover");
+    lab($("tabBuild"), T.tabBuild, "build");
+    $("tabWhy").setAttribute("aria-pressed", mode==="why"?"true":"false");
+    $("tabRover").setAttribute("aria-pressed", mode==="rover"?"true":"false");
+    $("tabBuild").setAttribute("aria-pressed", mode==="build"?"true":"false");
+  }
+
+  function setMode(m){
+    mode = m;
+    roverSlots = []; roverSelected = null;
+    if (mode === "why"){ whySelected = null; renderWhy(); }
+    else if (mode === "rover") renderRover();
+    else renderBuild();
+    applyChrome();
+  }
+
+  function applyChrome(){
+    setText($("title"), t(T.title));
+    setText($("subtitle"), t(T.sub));
+    $("story").innerHTML = storyHtml();
+    $("story").classList.toggle("ur", lang==="ur");
+    $("story").setAttribute("dir", lang==="ur"?"rtl":"ltr");
+    setText($("ctlHead"), t(T.ctl));
+    setText($("nextBtn"), t(T.next));
+    setText($("hintBtn"), t(T.hint));
+    setText($("resetBtn"), t(T.reset));
+    setText($("quizHead"), t(T.quiz));
+    setText($("newQuiz"), t(T.newQuiz));
+    $("langBtn").textContent = (lang === "en") ? "اردو" : "EN";
+    $("langBtn").setAttribute("aria-pressed", lang==="ur"?"true":"false");
+    document.body.classList.toggle("urdu", lang==="ur");
+    document.documentElement.lang = (lang==="ur") ? "ur" : "en";
+    document.documentElement.dir = (lang==="ur") ? "rtl" : "ltr";
+    tabBadges();
+    var foot = document.querySelector("footer p");
+    if (foot) setText(foot, foot.getAttribute(lang==="ur"?"data-ur":"data-en"));
+  }
+
+  function applyLang(){
+    applyChrome();
+    if (mode === "why") renderWhy();
+    else if (mode === "rover") renderRover();
+    else renderBuild();
+    renderQuiz();
+  }
+
+  function next(){
+    if (mode === "why"){
+      whyIdx = (whyIdx + 1) % WHY.length; whySelected = null;
+      if (WHY[whyIdx].type === "match") whyMap = {};
+      renderWhy();
+    } else if (mode === "rover"){
+      roverIdx = (roverIdx + 1) % ROVER.length; roverSlots = []; roverSelected = null; renderRover();
+    } else {
+      buildIdx = (buildIdx + 1) % BUILD.length; renderBuild();
+    }
+  }
+
+  function showHint(){
+    var h = mode === "why" ? WHY[whyIdx].hint : mode === "rover" ? ROVER[roverIdx].hint : BUILD[buildIdx].hint;
+    var hb = $("hintbox"); setText(hb, t(h)); hb.classList.add("show");
+  }
+
+  function resetMode(){
+    if (mode === "why"){
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("why-")===0 || k==="mode-why") delete awarded[k]; });
+      whyDone = {}; whyMap = {}; whySelected = null; whyIdx = 0; doneModes.why = false;
+      recountStars(); renderWhy();
+    } else if (mode === "rover"){
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("rover-")===0 || k==="mode-rover") delete awarded[k]; });
+      roverDone = {}; roverIdx = 0; roverSlots = []; roverSelected = null; doneModes.rover = false;
+      recountStars(); renderRover();
+    } else {
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("build-")===0 || k==="mode-build") delete awarded[k]; });
+      buildDone = {}; buildPicked = {}; buildIdx = 0; doneModes.build = false;
+      recountStars(); renderBuild();
+    }
+    tabBadges(); applyChrome();
+  }
+
+  function cleanSpeakText(s){ return String(s || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim(); }
+  function buildSpeakText(){
+    var bits = [t(T.title), cleanSpeakText(storyHtml()),
+      cleanSpeakText(($("headline") && $("headline").textContent) || ""),
+      cleanSpeakText(($("detail") && $("detail").textContent) || ""), t(T.tip)];
+    return bits.filter(Boolean).join(". ");
+  }
+  function pickVoice(voices, want){
+    var i, v, L;
+    for (i=0;i<voices.length;i++){ v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-"); if (L.indexOf(want) === 0) return v; }
+    for (i=0;i<voices.length;i++){ v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-"); if (L.indexOf("en") === 0) return v; }
+    return voices[0] || null;
+  }
+  var speakTimer = null;
+  function setSpeaking(on){
+    var btn = $("speakBtn"); if (!btn) return;
+    btn.setAttribute("aria-pressed", on ? "true" : "false");
+    btn.style.opacity = on ? "0.65" : "";
+  }
+  function doSpeak(text, asLang){
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.92; u.lang = (asLang === "ur") ? "ur-PK" : "en-US";
+    var voices = window.speechSynthesis.getVoices() || [];
+    var voice = pickVoice(voices, asLang === "ur" ? "ur" : "en");
+    if (voice) u.voice = voice;
+    u.onstart = function(){ setSpeaking(true); };
+    u.onend = function(){ setSpeaking(false); };
+    u.onerror = function(){
+      setSpeaking(false);
+      if (asLang === "ur"){
+        var fallback = cleanSpeakText(T.title.en + ". " + T.storyWhy.en + ". " + T.tip.en);
+        var u2 = new SpeechSynthesisUtterance(fallback);
+        u2.lang = "en-US"; u2.rate = 0.92;
+        var v2 = pickVoice(window.speechSynthesis.getVoices() || [], "en");
+        if (v2) u2.voice = v2;
+        u2.onstart = function(){ setSpeaking(true); };
+        u2.onend = u2.onerror = function(){ setSpeaking(false); };
+        window.speechSynthesis.speak(u2);
+      }
+    };
+    window.speechSynthesis.speak(u);
+  }
+  if ("speechSynthesis" in window){
+    try { window.speechSynthesis.getVoices(); } catch (e0) {}
+    if (typeof window.speechSynthesis.addEventListener === "function"){
+      window.speechSynthesis.addEventListener("voiceschanged", function(){ try { window.speechSynthesis.getVoices(); } catch (e1) {} });
+    }
+  } else {
+    var noBtn = $("speakBtn");
+    if (noBtn){ noBtn.disabled = true; noBtn.title = "Voice not available on this device"; }
+  }
+
+  $("langBtn").addEventListener("click", function(){ lang = (lang === "en") ? "ur" : "en"; applyLang(); });
+  $("tabWhy").addEventListener("click", function(){ setMode("why"); });
+  $("tabRover").addEventListener("click", function(){ setMode("rover"); });
+  $("tabBuild").addEventListener("click", function(){ setMode("build"); });
+  $("nextBtn").addEventListener("click", next);
+  $("hintBtn").addEventListener("click", showHint);
+  $("resetBtn").addEventListener("click", resetMode);
+  $("newQuiz").addEventListener("click", function(){ pickQuiz(); renderQuiz(); });
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      var text = buildSpeakText();
+      if (!text) return;
+      if (speakTimer){ clearTimeout(speakTimer); speakTimer = null; }
+      window.speechSynthesis.cancel();
+      setSpeaking(false);
+      var speakLang = lang;
+      speakTimer = setTimeout(function(){ speakTimer = null; doSpeak(text, speakLang); }, 80);
+    }catch(e){ setSpeaking(false); }
+  });
+
+  pickQuiz();
+  applyLang();
+})();
+</script>
+</body>
+</html>

@@ -232,7 +232,7 @@
     },
     {
       "title": "Space robots",
-      "description": "Space mein robots — Mars rovers",
+      "description": "Space mein kaam karne wale robots.",
       "lesson": "## HOOK\nSadi, kya tumne kabhi socha hai ke Mars par kaun reh raha hai? Kya tumhe pata hai ke wahan robots kaam karte hain jo wahaan ke maqamat ka jaiza lete hain? Aaj hum inhi space robots, khas taur par Mars rovers ke baare mein seekhenge!\n\n## SAMJHAO\nSab se pehle, space robots wo machines hain jo humare liye space mein kaam karti hain. Inka istemal space missions ke dauran hota hai taake hum aasmaan ki khoj kar sakein. Yeh robots bina insaan ke kaam kar sakte hain aur door daraz planets tak pohanch jaate hain.\n\nAb baat karte hain Mars rovers ki. Mars rover ek khas robot hai jo Mars par chalta hai aur wahaan se data ikattha karta hai. Jaise ke humari ek car hoti hai, waisa hi yeh choti si machine hai jo zameen par chalte hue tasaveer aur maloomat bhejti hai.\n\nMars par kaam karne wale kuch mashhoor rovers hain, jaise Curiosity aur Perseverance. In robots ki madad se humein pata chala ke Mars par paani tha aur wahan par zindagi ke nishaan bhi mile hain! Matlab yeh rovers sirf khud nahi chalte, balki nayi nayi discoveries bhi karte hain.\n\nIn rovers ko control karne ke liye scientists computers ka istemal karte hain jo zameen par hote hain. Yeh scientists rovers ko instructions dete hain aur receive karte hain unse data jo Mars par hota hai. Is tarah se humein Mars ke baare mein aur zyada jaanne ko milta hai.\n\n## MISAAL\nSocho Sadi, agar tum school ja rahe ho aur wahan tumhari teacher kehti hain ke “Tumhare paas ek robot hai jo tumhe school ki asal tasvir dikhata hai”, yeh bilkul waise hi hai jaise Mars rovers Mars ki asal tasvirein bhejte hain. Jaise tumhari teacher ka guidance chahiye hota hai, waise hi scientists ki guidance rovers ko bhi chahiye hoti hai takay wo sahi kaam kar sakein.\n\n## KARO\nAb Sadi, chalo ek mazedaar activity karte hain! Ek drawing banao jisme tumhare khayalon ka Mars rover ho. Isme socho ke yeh rover kya kya kaam karega — kya yeh paani ki talaash karega, ya kuch aur naya dhoondhega? Is rover ko aise design karo ke yeh chalta, dekh raha aur data ikattha kar raha ho!\n\n## SAWAAL\n1. Mars rover kya hai aur yeh kya kaam karta hai?\n2. Kya tumhe lagta hai ke space robots insaanon ke liye kitne zaroori hain? Kyun?\n3. Tumhare khayal mein agar tumhe Mars par ek rover banane ka mauka mile, toh tum isko kis tarah design karoge?",
       "quiz": {
         "title": "Space robots Quiz",
@@ -283,7 +283,9 @@
             "explanation": "Mars rovers ki batteries solar panels se charge hoti hain."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g5-space-robots.html",
+      "interactive_label": "Khelo — Space robots"
     },
     {
       "title": "Future tech",
