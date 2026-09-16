@@ -255,5 +255,13 @@
       "interactive_file": "interactives/g5-history.html",
       "interactive_label": "Khelo — History"
     }
+  },
+  {
+    "file": "kb/grade_5/social.json",
+    "match_title": "Geography",
+    "add": {
+      "interactive_file": "interactives/g5-geography.html",
+      "interactive_label": "Khelo — Geography"
+    }
   }
 ]

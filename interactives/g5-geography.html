@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Geography — جغرافیہ | AI4Kids Class 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#e4eef6;--board-deep:#c5d8e8;--sky:#9ec9f0;--sky2:#6ba8d9;
+    --park:#7cb070;--park2:#4a8a4a;--accent:#1a6a8a;--flag-g:#01411C;
+    --ok:#2e7d4f;--ink:#1e2a1a;--ink-soft:#4a5744;--paper:#fdfaf3;
+    --line:#c8d6e0;--gold:#e8b23d;--left:#c4453a;--sym-bin:#1a6a8a;--land-bin:#2e7d4f;
+    --place:#c45c3a;--route:#2f6fb5;--compass:#8b4513;
+    --fs-cap:clamp(12px, 3.2vw, 13px);--fs-xs:clamp(14px, 3.7vw, 15px);
+    --fs-sm:clamp(16px, 4.2vw, 17px);--fs-md:clamp(17px, 4.6vw, 19px);
+    --fs-lg:clamp(20px, 5.4vw, 23px);--fs-xl:clamp(27px, 7.4vw, 33px);--lh:1.5;
+  }
+  body.urdu{
+    --fs-cap:clamp(13px, 3.5vw, 15px);--fs-xs:clamp(15px, 4.1vw, 17px);
+    --fs-sm:clamp(17px, 4.7vw, 19px);--fs-md:clamp(19px, 5.2vw, 21px);
+    --fs-lg:clamp(22px, 6vw, 25px);--fs-xl:clamp(26px, 7vw, 31px);--lh:2.1;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  .stars{display:flex;align-items:center;gap:6px;font-weight:800;font-size:var(--fs-xs);
+         background:#fff6e2;border:2px solid var(--gold);border-radius:999px;padding:7px 13px}
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+  .tabs{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
+  .tabs button{
+    flex:1 1 28%;min-width:90px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:10px 6px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:54px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .tabs button .badge{color:var(--gold)}
+  .story{
+    background:#fff8ea;border:2px dashed var(--gold);border-radius:16px;padding:13px 15px;
+    font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;margin-bottom:14px;
+  }
+  body.urdu .story{line-height:var(--lh)}
+  .story b{color:var(--ink)}
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:linear-gradient(180deg,var(--sky) 0%,var(--sky2) 34%,#a8c8b0 34%,#8cbc90 42%,var(--board) 42%);
+    min-height:280px;
+  }
+  .scene-pad{padding:10px 12px 18px;min-height:260px;position:relative}
+  .sky-layer{position:absolute;inset:0 0 58% 0;pointer-events:none;overflow:hidden}
+  .sun-ball{
+    position:absolute;top:12px;right:18px;width:40px;height:40px;border-radius:50%;
+    background:radial-gradient(circle at 35% 35%,#ffe9a0,#f5c542 60%,#e0a020);
+    box-shadow:0 0 18px rgba(245,197,66,.45);z-index:1;
+  }
+  body.urdu .sun-ball{right:auto;left:18px}
+  .cloud{position:absolute;background:rgba(255,255,255,.85);border-radius:40px;opacity:.9}
+  .cloud:before,.cloud:after{content:"";position:absolute;background:inherit;border-radius:50%}
+  .c1{width:48px;height:15px;top:18px;left:12%}
+  .c1:before{width:22px;height:22px;top:-12px;left:6px}
+  .c1:after{width:18px;height:18px;top:-8px;left:24px}
+  .c2{width:34px;height:12px;top:34px;left:55%;opacity:.7}
+  .c2:before{width:16px;height:16px;top:-9px;left:4px}
+  .c2:after{width:12px;height:12px;top:-5px;left:16px}
+  .hills{position:absolute;left:0;right:0;bottom:42%;height:40px;z-index:1;pointer-events:none}
+  .hill{position:absolute;bottom:0;border-radius:50% 50% 0 0;
+        background:linear-gradient(180deg,#5a8a5a,#2d5530)}
+  .h-a{width:42%;height:36px;left:-4%;opacity:.55}
+  .h-b{width:38%;height:28px;right:8%;opacity:.5}
+  .ground-strip{
+    position:absolute;left:0;right:0;bottom:0;height:32%;
+    background:linear-gradient(180deg,#8fbc78 0%,#6a9a58 100%);
+    z-index:2;border-top:3px solid #4a7040;
+  }
+  .comic-stage{position:relative;z-index:5;padding-top:78px;text-align:center;min-height:150px}
+  .comic-hero{font-size:56px;line-height:1;margin:4px 0 8px;filter:drop-shadow(0 2px 0 rgba(0,0,0,.12))}
+  .comic-panel{
+    display:inline-flex;align-items:center;gap:8px;background:rgba(253,250,243,.95);
+    border:2.5px solid var(--ink);border-radius:16px;padding:10px 14px;margin:4px;
+    box-shadow:0 3px 0 rgba(30,42,26,.12);font-weight:800;font-size:var(--fs-cap);
+  }
+  .comic-panel .em{font-size:28px}
+  .sort-grid{
+    position:relative;z-index:5;display:grid;grid-template-columns:1fr 1fr;gap:10px;
+    padding-top:88px;
+  }
+  .sort-bin{
+    border:2.5px solid var(--ink);border-radius:14px;padding:10px 8px;min-height:120px;
+    background:rgba(253,250,243,.88);text-align:center;cursor:pointer;
+  }
+  .sort-bin.sym-bin{border-color:var(--sym-bin);background:rgba(230,242,250,.92)}
+  .sort-bin.land-bin{border-color:var(--land-bin);background:rgba(232,245,232,.92)}
+  .sort-bin.hot{box-shadow:0 0 0 3px rgba(26,106,138,.3)}
+  .sort-bin h3{margin:0 0 8px;font-size:var(--fs-cap);font-weight:800}
+  .sort-bin .drop{min-height:60px;display:flex;flex-wrap:wrap;gap:4px;justify-content:center;align-items:center}
+  .item-card{
+    background:rgba(253,250,243,.95);border:2.5px solid var(--ink);border-radius:16px;
+    padding:8px 10px 10px;text-align:center;min-width:72px;max-width:120px;
+    box-shadow:0 3px 0 rgba(30,42,26,.15);cursor:pointer;user-select:none;
+  }
+  .item-card:hover{transform:translateY(-2px)}
+  .item-card.selected{border-color:var(--accent);background:#e4f0f6;box-shadow:0 0 0 3px rgba(26,106,138,.25)}
+  .item-card.ok{border-color:var(--ok);background:#e8f2ed}
+  .item-card.no{border-color:var(--left);background:#fbeae8}
+  .item-em{font-size:34px;line-height:1.1;display:block;margin-bottom:2px}
+  .item-lab{font-size:var(--fs-cap);font-weight:800;line-height:1.25;margin:0}
+  .bank{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:8px;position:relative;z-index:5}
+  .mini-chip{
+    border:2px solid var(--ink);border-radius:12px;padding:6px 8px;background:#fff;
+    line-height:1;cursor:pointer;min-width:40px;font-size:22px;
+  }
+  .save-choices{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+  .save-choices button{
+    border:2.5px solid var(--ink);background:var(--paper);border-radius:14px;
+    padding:12px 14px;font:inherit;font-weight:800;font-size:var(--fs-xs);
+    cursor:pointer;text-align:left;min-height:52px;display:flex;align-items:center;gap:10px;
+  }
+  body.urdu .save-choices button{text-align:right}
+  .save-choices button .cem{font-size:26px}
+  .save-choices button.right{border-color:var(--ok);background:#e8f2ed}
+  .save-choices button.wrong{border-color:var(--left);background:#fbeae8}
+  .match-pair{
+    display:flex;align-items:center;gap:8px;justify-content:center;flex-wrap:wrap;
+    margin-top:8px;position:relative;z-index:5;
+  }
+  .match-card{
+    border:2.5px solid var(--ink);border-radius:14px;padding:10px 12px;
+    background:rgba(253,250,243,.95);font-weight:800;font-size:var(--fs-xs);
+    cursor:pointer;min-height:48px;min-width:100px;text-align:center;
+  }
+  .match-card.selected{border-color:var(--accent);background:#e4f0f6;box-shadow:0 0 0 3px rgba(26,106,138,.25)}
+  .match-card.paired{border-color:var(--ok);background:#e8f2ed;opacity:.85}
+  .match-card.wrong{border-color:var(--left);background:#fbeae8}
+  .map-row{
+    position:relative;z-index:5;display:flex;flex-wrap:wrap;gap:8px;
+    justify-content:center;align-items:stretch;padding-top:78px;min-height:120px;
+  }
+  .map-node{
+    flex:1 1 28%;min-width:80px;border:2.5px solid var(--ink);border-radius:16px;
+    background:rgba(253,250,243,.95);padding:10px 6px;text-align:center;
+    box-shadow:0 3px 0 rgba(30,42,26,.12);cursor:pointer;
+  }
+  .map-node .nem{font-size:28px;line-height:1;display:block;margin-bottom:4px}
+  .map-node .nlab{font-size:var(--fs-cap);font-weight:800;margin:0}
+  .map-node.done{background:#e8f2ed;border-color:var(--ok)}
+  .map-node.picked{border-color:var(--route);background:#e8f0f8}
+  .map-arrow{font-size:20px;font-weight:800;color:var(--accent);align-self:center}
+  .compass-rose{
+    position:relative;z-index:5;margin:78px auto 8px;width:120px;height:120px;
+    border-radius:50%;border:3px solid var(--ink);background:rgba(253,250,243,.95);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 3px 0 rgba(30,42,26,.12);
+  }
+  .compass-rose .n{position:absolute;top:6px;left:50%;transform:translateX(-50%);font-weight:800;color:var(--left);font-size:18px}
+  .compass-rose .s{position:absolute;bottom:6px;left:50%;transform:translateX(-50%);font-weight:800;font-size:16px}
+  .compass-rose .e{position:absolute;right:10px;top:50%;transform:translateY(-50%);font-weight:800;font-size:16px}
+  .compass-rose .w{position:absolute;left:10px;top:50%;transform:translateY(-50%);font-weight:800;font-size:16px}
+  .compass-rose .dot{width:14px;height:14px;border-radius:50%;background:var(--accent)}
+  .outcome{
+    margin-top:10px;border-radius:14px;padding:10px 12px;font-weight:700;font-size:var(--fs-xs);
+    display:none;border:2px solid var(--ok);background:#e8f2ed;color:var(--ok);
+  }
+  .outcome.show{display:block}
+  .outcome.bad{border-color:var(--left);background:#fbeae8;color:var(--left)}
+  .readout{
+    margin-top:-18px;position:relative;z-index:2;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+  .statechip.ur{padding:2px 14px 7px}
+  .statechip.win{background:var(--ok)}
+  .statechip.miss{background:var(--left)}
+  .headline{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+  .headline.ur{line-height:1.95}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+  .hintbox{
+    margin-top:14px;border:2px solid var(--accent);background:#e4f0f6;border-radius:14px;
+    padding:11px 14px;font-size:var(--fs-xs);color:var(--accent);font-weight:700;line-height:1.55;
+    display:none;
+  }
+  .hintbox.show{display:block}
+  body.urdu .hintbox{line-height:var(--lh)}
+  .panel{margin-top:22px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .prog{margin:0 0 10px;font-size:var(--fs-xs);font-weight:700;color:var(--ink-soft)}
+  .btns{display:flex;gap:9px;margin-top:8px;flex-wrap:wrap}
+  .btns button{
+    border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);
+    font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:50px;
+    padding:8px 14px;flex:1;
+  }
+  .btns .go{background:var(--ink);color:var(--paper)}
+  .btns button:active{transform:scale(.97)}
+  .btns button:disabled{opacity:.4;cursor:default}
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .qhead{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+  .qhead h2{font-size:var(--fs-lg);font-weight:800;margin:0;flex:1}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:50px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+  .opt.wrong{border-color:var(--left);background:#fbeae8}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
+      grid-template-areas:
+        "bar   bar" "head  head" "tabs  tabs" "story story"
+        "left  right" "quiz  quiz" "foot  foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+    .story{grid-area:story} .left{grid-area:left} .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+    .panel{margin-top:0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition-duration:.01ms !important;animation:none !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 5</span>
+    <span class="stars" id="starBox">⭐ <span id="starCount">0</span></span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 id="title"></h1>
+  <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group">
+    <button type="button" id="tabTools" aria-pressed="true"></button>
+    <button type="button" id="tabPlaces" aria-pressed="false"></button>
+    <button type="button" id="tabWay" aria-pressed="false"></button>
+  </div>
+
+  <p class="story" id="story"></p>
+
+  <div class="left">
+  <div class="scene">
+    <div class="scene-pad" id="scenePad"></div>
+  </div>
+  <div class="readout">
+    <span class="statechip" id="statechip"></span>
+    <p class="headline" id="headline"></p>
+    <p class="detail" id="detail"></p>
+    <p class="hintbox" id="hintbox"></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="panel">
+    <h2 id="ctlHead"></h2>
+    <p class="prog" id="prog"></p>
+    <div id="actionBox"></div>
+    <div class="btns">
+      <button type="button" class="go" id="nextBtn"></button>
+    </div>
+    <div class="btns">
+      <button type="button" id="hintBtn"></button>
+      <button type="button" id="resetBtn"></button>
+    </div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <div class="qhead">
+      <h2 id="quizHead"></h2>
+      <button type="button" class="chip" id="newQuiz"></button>
+    </div>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad bilingual school. Offline play · no APIs. WhatsApp 0337 1468899 · Geography Social Studies SNC"
+       data-ur="اے آئی فور کڈز — اسلام آباد۔ آف لائن کھیلو۔ واٹس ایپ 0337 1468899 · جغرافیہ سماجی علوم"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  function $(id){ return document.getElementById(id); }
+  function isolate(s){ return "\u2066" + s + "\u2069"; }
+  function setText(el, str){
+    if (!el) return;
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+  function t(o){ return (o && o[lang]) || (o && o.en) || ""; }
+  function shuffle(arr){
+    var a = arr.slice(), i, j, tmp;
+    for (i = a.length - 1; i > 0; i--){
+      j = Math.floor(Math.random() * (i + 1));
+      tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  var lang = "en";
+  var mode = "tools";
+  var stars = 0;
+  var awarded = {};
+  var doneModes = {tools:false, places:false, way:false};
+
+  var T = {
+    title:{en:"Geography", ur:"جغرافیہ"},
+    sub:{en:"Maps help us find places, landforms & directions — Islamabad to Pakistan!",
+         ur:"نقشے جگہیں، زمینی شکلیں اور سمتیں دکھاتے ہیں — اسلام آباد سے پاکستان!"},
+    tabTools:{en:"Map tools", ur:"نقشہ اوزار"},
+    tabPlaces:{en:"Our places", ur:"ہماری جگہیں"},
+    tabWay:{en:"Find the way", ur:"راستہ تلاش"},
+    storyTools:{en:"Geography = reading the world with <b>maps</b>. Match symbols (mountain, river, city, road) and practise <b>N / S / E / W</b> on a compass.",
+                ur:"جغرافیہ = <b>نقشوں</b> سے دنیا پڑھنا۔ علامات (پہاڑ، دریا، شہر، سڑک) میچ کرو اور قطب نما پر <b>شمال / جنوب / مشرق / مغرب</b> سیکھو۔"},
+    storyPlaces:{en:"Islamabad comics — capital city, Margalla Hills, rivers & parks. Pick <b>where</b> or <b>what landform</b>.",
+                 ur:"اسلام آباد کارٹون — دارالحکومت، مارگلہ ہلز، دریا اور پارک۔ <b>کہاں</b> یا <b>کون سی زمینی شکل</b> چنو۔"},
+    storyWay:{en:"Find your way: school → park routes, and gentle city / region matches. Simple classroom map skills!",
+              ur:"راستہ تلاش کرو: اسکول → پارک راستے، اور شہر / علاقہ میچ۔ سادہ کلاس روم نقشہ مہارت!"},
+    ctl:{en:"Your turn — map explorer", ur:"تمہاری باری — نقشہ سیاح"},
+    next:{en:"Next challenge", ur:"اگلا چیلنج"},
+    hint:{en:"Hint", ur:"اشارہ"},
+    reset:{en:"Reset", ur:"ری سیٹ"},
+    quiz:{en:"Check yourself", ur:"اپنا چیک"},
+    newQuiz:{en:"New quiz", ur:"نیا کوئز"},
+    nice:{en:"Shabash — map star!", ur:"شاباش — نقشہ ستارہ!"},
+    oops:{en:"Almost — try again", ur:"قریب — دوبارہ آزماؤ"},
+    tip:{en:"Tip: Geography uses maps to show where we live, mountains and rivers, cities and roads, and how to find our way with north, south, east, and west.",
+         ur:"نکتہ: جغرافیہ نقشوں سے بتاتا ہے ہم کہاں رہتے ہیں، پہاڑ اور دریا، شہر اور سڑکیں، اور شمال جنوب مشرق مغرب سے راستہ کیسے تلاش کریں۔"},
+    progT:{en:"Map tools", ur:"نقشہ اوزار"},
+    progP:{en:"Our places", ur:"ہماری جگہیں"},
+    progW:{en:"Find the way", ur:"راستہ تلاش"},
+    askSort:{en:"Tap a card, then tap Landform or Built", ur:"کارڈ ٹیپ کرو، پھر زمینی شکل یا بنایا ہوا"},
+    askMatch:{en:"Tap a symbol, then tap its meaning", ur:"علامت ٹیپ کرو، پھر اس کا مطلب"},
+    askPick:{en:"Pick the best answer", ur:"بہترین جواب چنو"},
+    askCompass:{en:"Which direction?", ur:"کون سی سمت؟"},
+    askPlace:{en:"Where or what landform?", ur:"کہاں یا کون سی زمینی شکل؟"},
+    askWay:{en:"Pick the route or match", ur:"راستہ یا میچ چنو"},
+    checkSort:{en:"Check sort", ur:"چھانٹی چیک کرو"},
+    checkMatch:{en:"Check matches", ur:"میچ چیک کرو"},
+    landLab:{en:"⛰️ Landform", ur:"⛰️ زمینی شکل"},
+    builtLab:{en:"🏙️ Built place", ur:"🏙️ بنایا ہوا"},
+    pick:{en:"Tap a card first", ur:"پہلے کارڈ ٹیپ کرو"}
+  };
+
+  var CARDS = {
+    mountain:{em:"⛰️", en:"Mountain", ur:"پہاڑ", bin:"land"},
+    river:{em:"🌊", en:"River", ur:"دریا", bin:"land"},
+    hill:{em:"🏞️", en:"Hills", ur:"پہاڑیاں", bin:"land"},
+    plain:{em:"🌾", en:"Plain / field", ur:"میدان", bin:"land"},
+    city:{em:"🏙️", en:"City", ur:"شہر", bin:"built"},
+    road:{em:"🛣️", en:"Road", ur:"سڑک", bin:"built"},
+    school:{em:"🏫", en:"School", ur:"اسکول", bin:"built"},
+    park:{em:"🌳", en:"Park", ur:"پارک", bin:"built"}
+  };
+
+  var TOOLS = [
+    {
+      id:"t1", type:"sort",
+      title:{en:"Landform or built?", ur:"زمینی شکل یا بنایا ہوا؟"},
+      items:["mountain","city","river","road"],
+      hint:{en:"Mountains and rivers are landforms (nature). Cities and roads are built by people.",
+            ur:"پہاڑ اور دریا زمینی شکلیں (قدرت) ہیں۔ شہر اور سڑکیں لوگ بناتے ہیں۔"},
+      done:{en:"Sorted — nature vs built!", ur:"چھانٹی ہوئی — قدرت بمقابلہ بنایا!"}
+    },
+    {
+      id:"t2", type:"match",
+      title:{en:"Symbol → meaning", ur:"علامت → مطلب"},
+      pairs:[
+        {id:"a", sym:{en:"⛰️ Mountain", ur:"⛰️ پہاڑ"}, mean:{en:"Tall high land", ur:"اونچی بلند زمین"}, em:"⛰️"},
+        {id:"b", sym:{en:"🌊 River", ur:"🌊 دریا"}, mean:{en:"Flowing fresh water", ur:"بہتا میٹھا پانی"}, em:"🌊"},
+        {id:"c", sym:{en:"🏙️ City", ur:"🏙️ شہر"}, mean:{en:"Many homes & roads", ur:"کئی گھر اور سڑکیں"}, em:"🏙️"},
+        {id:"d", sym:{en:"🛣️ Road", ur:"🛣️ سڑک"}, mean:{en:"Path for travel", ur:"سفر کا راستہ"}, em:"🛣️"}
+      ],
+      hint:{en:"Map keys use pictures: mountain = tall land, river = water that flows, city = busy place, road = travel path.",
+            ur:"نقشہ کلید تصاویر استعمال کرتی ہے: پہاڑ = اونچی زمین، دریا = بہتا پانی، شہر = مصروف جگہ، سڑک = سفر کا راستہ۔"},
+      done:{en:"Matched — you read the map key!", ur:"میچ — نقشہ کلید پڑھ لی!"}
+    },
+    {
+      id:"t3", type:"compass",
+      title:{en:"Compass: North", ur:"قطب نما: شمال"},
+      hero:"🧭",
+      prompt:{en:"On a map, the letter N on the compass rose usually points to which direction?",
+              ur:"نقشے پر قطب نما کا حرف N عام طور پر کون سی سمت بتاتا ہے؟"},
+      choices:[
+        {id:"n", em:"⬆️", en:"North", ur:"شمال"},
+        {id:"s", em:"⬇️", en:"South", ur:"جنوب"},
+        {id:"e", em:"➡️", en:"East", ur:"مشرق"}
+      ],
+      correct:"n",
+      hint:{en:"N = North. Maps often put North at the top.",
+            ur:"N = شمال۔ نقشے اکثر شمال اوپر رکھتے ہیں۔"},
+      done:{en:"North locked — great navigator!", ur:"شمال محفوظ — زبردست رہنما!"}
+    },
+    {
+      id:"t4", type:"compass",
+      title:{en:"Where does the sun rise?", ur:"سورج کہاں نکلتا ہے؟"},
+      hero:"☀️🧭",
+      prompt:{en:"The sun rises in the morning from which direction?",
+              ur:"صبح سورج کون سی سمت سے نکلتا ہے؟"},
+      choices:[
+        {id:"e", em:"➡️", en:"East", ur:"مشرق"},
+        {id:"w", em:"⬅️", en:"West", ur:"مغرب"},
+        {id:"n", em:"⬆️", en:"North", ur:"شمال"}
+      ],
+      correct:"e",
+      hint:{en:"Sun rises in the East and sets in the West — a handy real-world compass tip!",
+            ur:"سورج مشرق سے نکلتا اور مغرب میں ڈوبتا ہے — حقیقی دنیا کا قطب نما ٹپ!"},
+      done:{en:"East! Sunrise helps you find directions.", ur:"مشرق! طلوع سمت بتاتا ہے۔"}
+    }
+  ];
+
+  var PLACES = [
+    {
+      id:"p1",
+      title:{en:"Capital city", ur:"دارالحکومت"},
+      hero:"🇵🇰🏙️📍",
+      prompt:{en:"Islamabad is the capital city of Pakistan. What does that mean on a map?",
+              ur:"اسلام آباد پاکستان کا دارالحکومت ہے۔ نقشے پر اس کا مطلب؟"},
+      choices:[
+        {id:"cap", em:"🏛️", en:"It is an important city where government offices are", ur:"اہم شہر جہاں سرکاری دفاتر ہیں"},
+        {id:"ocean", em:"🌊", en:"It is only a river, not a city", ur:"یہ صرف دریا ہے، شہر نہیں"},
+        {id:"moon", em:"🌙", en:"It is a place on the Moon", ur:"یہ چاند پر جگہ ہے"}
+      ],
+      correct:"cap",
+      hint:{en:"A capital is a special city for a country — Islamabad is Pakistan's capital.",
+            ur:"دارالحکومت ملک کا خاص شہر ہے — اسلام آباد پاکستان کا دارالحکومت ہے۔"},
+      done:{en:"Islamabad = capital — map star!", ur:"اسلام آباد = دارالحکومت — نقشہ ستارہ!"}
+    },
+    {
+      id:"p2",
+      title:{en:"Margalla Hills", ur:"مارگلہ ہلز"},
+      hero:"⛰️🥾🍃",
+      prompt:{en:"Near Islamabad, the Margalla Hills rise above the city. What landform are they?",
+              ur:"اسلام آباد کے قریب مارگلہ ہلز شہر سے اوپر ہیں۔ یہ کون سی زمینی شکل ہیں؟"},
+      choices:[
+        {id:"hills", em:"🏞️", en:"Hills / mountains — high land", ur:"پہاڑیاں / پہاڑ — اونچی زمین"},
+        {id:"desert", em:"🏜️", en:"A flat empty desert only", ur:"صرف چپٹا خالی صحرا"},
+        {id:"bridge", em:"🌉", en:"A man-made bridge over water", ur:"پانی پر بنایا ہوا پل"}
+      ],
+      correct:"hills",
+      hint:{en:"Hills and mountains are high landforms — Margalla is high land next to Islamabad.",
+            ur:"پہاڑیاں اور پہاڑ اونچی زمینی شکلیں ہیں — مارگلہ اسلام آباد کے قریب اونچی زمین ہے۔"},
+      done:{en:"Hills! Nature next to our city.", ur:"پہاڑیاں! شہر کے قریب قدرت۔"}
+    },
+    {
+      id:"p3",
+      title:{en:"River on the map", ur:"نقشے پر دریا"},
+      hero:"🗺️🌊🌳",
+      prompt:{en:"A blue winding line on a classroom map of Pakistan often shows…",
+              ur:"پاکستان کے کلاس روم نقشے پر نیلی مڑی لکیر اکثر دکھاتی ہے…"},
+      choices:[
+        {id:"river", em:"🌊", en:"A river — flowing water", ur:"دریا — بہتا پانی"},
+        {id:"road", em:"🛣️", en:"A highway for cars only", ur:"صرف کاروں کی شاہراہ"},
+        {id:"wall", em:"🧱", en:"A brick wall around a school", ur:"اسکول کے گرد اینٹوں کی دیوار"}
+      ],
+      correct:"river",
+      hint:{en:"Map colours: blue often means water — rivers and lakes.",
+            ur:"نقشے کے رنگ: نیلا اکثر پانی — دریا اور جھیلیں۔"},
+      done:{en:"River symbol unlocked!", ur:"دریا کی علامت کھل گئی!"}
+    },
+    {
+      id:"p4",
+      title:{en:"Park near school", ur:"اسکول کے قریب پارک"},
+      hero:"🏫🌳🧒",
+      prompt:{en:"On a simple local map, a green patch with trees near your school is usually a…",
+              ur:"سادہ مقامی نقشے پر اسکول کے قریب درختوں والا سبز ٹکڑا عام طور پر…"},
+      choices:[
+        {id:"park", em:"🌳", en:"Park or green space", ur:"پارک یا سبز جگہ"},
+        {id:"airport", em:"✈️", en:"International airport runway", ur:"بین الاقوامی ہوائی اڈے کا رن وے"},
+        {id:"volcano", em:"🌋", en:"An active volcano", ur:"فعال آتش فشاں"}
+      ],
+      correct:"park",
+      hint:{en:"Green on kid maps often means parks, gardens, or fields — places to play safely.",
+            ur:"بچوں کے نقشوں پر سبز اکثر پارک، باغ یا میدان — محفوظ کھیل کی جگہیں۔"},
+      done:{en:"Park found — local geography!", ur:"پارک مل گیا — مقامی جغرافیہ!"}
+    }
+  ];
+
+  var WAY = [
+    {
+      id:"w1", type:"route",
+      title:{en:"School → park", ur:"اسکول → پارک"},
+      steps:[
+        {id:"school", em:"🏫", en:"School", ur:"اسکول"},
+        {id:"road", em:"🛣️", en:"Road", ur:"سڑک"},
+        {id:"park", em:"🌳", en:"Park", ur:"پارک"}
+      ],
+      prompt:{en:"To walk from school to the park on a simple map, which order is best?",
+              ur:"سادہ نقشے پر اسکول سے پارک چلنے کے لیے بہترین ترتیب؟"},
+      choices:[
+        {id:"ok", em:"✅", en:"School → road → park", ur:"اسکول → سڑک → پارک"},
+        {id:"fly", em:"🚀", en:"School → Moon → park", ur:"اسکول → چاند → پارک"},
+        {id:"back", em:"↩️", en:"Park → skip road → school only", ur:"پارک → سڑک چھوڑو → صرف اسکول"}
+      ],
+      correct:"ok",
+      hint:{en:"Routes connect places with paths or roads — school, then road, then park.",
+            ur:"راستے جگہوں کو سڑک سے جوڑتے ہیں — اسکول، پھر سڑک، پھر پارک۔"},
+      done:{en:"Route ready — you found the way!", ur:"راستہ تیار — راستہ مل گیا!"}
+    },
+    {
+      id:"w2", type:"pick",
+      title:{en:"North of the school", ur:"اسکول کے شمال میں"},
+      hero:"🏫⬆️🌳",
+      prompt:{en:"Your map shows the park north of the school. Which way do you walk to the park?",
+              ur:"نقشہ پارک اسکول کے شمال میں دکھاتا ہے۔ پارک کی طرف کون سی سمت چلو؟"},
+      choices:[
+        {id:"n", em:"⬆️", en:"North (toward N on the compass)", ur:"شمال (قطب نما کے N کی طرف)"},
+        {id:"s", em:"⬇️", en:"South (opposite of N)", ur:"جنوب (N کے الٹ)"},
+        {id:"spin", em:"🌀", en:"Spin in circles until you arrive", ur:"گھومتے رہو جب تک پہنچو"}
+      ],
+      correct:"n",
+      hint:{en:"If the park is north of school, walk toward North on the compass rose.",
+            ur:"اگر پارک اسکول کے شمال میں ہے تو قطب نما کے شمال کی طرف چلو۔"},
+      done:{en:"North walk — directions work!", ur:"شمال چلنا — سمتیں کام کرتی ہیں!"}
+    },
+    {
+      id:"w3", type:"pick",
+      title:{en:"City & country", ur:"شہر اور ملک"},
+      hero:"🏙️🇵🇰🗺️",
+      prompt:{en:"Which match is correct on a simple classroom map?",
+              ur:"سادہ کلاس روم نقشے پر کون سا میچ درست ہے؟"},
+      choices:[
+        {id:"isl", em:"📍", en:"Islamabad is a city in Pakistan", ur:"اسلام آباد پاکستان میں ایک شہر ہے"},
+        {id:"ocean", em:"🌊", en:"Islamabad is an ocean", ur:"اسلام آباد ایک سمندر ہے"},
+        {id:"star", em:"⭐", en:"Islamabad is a star in the sky", ur:"اسلام آباد آسمان کا ستارہ ہے"}
+      ],
+      correct:"isl",
+      hint:{en:"Cities sit inside countries on maps. Islamabad is Pakistan's capital city.",
+            ur:"نقشوں پر شہر ملک کے اندر ہوتے ہیں۔ اسلام آباد پاکستان کا دارالحکومت ہے۔"},
+      done:{en:"City in country — map sense!", ur:"ملک میں شہر — نقشہ سمجھ!"}
+    },
+    {
+      id:"w4", type:"pick",
+      title:{en:"Gentle region match", ur:"آسان علاقہ میچ"},
+      hero:"🗺️🏘️🏫",
+      prompt:{en:"Your neighbourhood, your school, and Islamabad are all…",
+              ur:"تمہارا محلہ، اسکول، اور اسلام آباد سب…"},
+      choices:[
+        {id:"places", em:"📌", en:"Places we can find and label on maps", ur:"جگہیں جو نقشوں پر تلاش اور نام دے سکتے ہیں"},
+        {id:"secret", em:"🤫", en:"Secrets that maps never show", ur:"راز جو نقشے کبھی نہیں دکھاتے"},
+        {id:"food", em:"🍕", en:"Only types of pizza toppings", ur:"صرف پیزا ٹاپنگز کی اقسام"}
+      ],
+      correct:"places",
+      hint:{en:"Geography starts close to home — local places, then city, then country on bigger maps.",
+            ur:"جغرافیہ گھر کے قریب شروع ہوتا ہے — مقامی جگہیں، پھر شہر، پھر بڑے نقشے پر ملک۔"},
+      done:{en:"Places on maps — trek complete!", ur:"نقشوں پر جگہیں — سفر مکمل!"}
+    }
+  ];
+
+  var QUIZ = [
+    {
+      q:{en:"What is geography mostly about for Class 5?",
+         ur:"پانچویں جماعت کے لیے جغرافیہ زیادہ تر کس بارے میں ہے؟"},
+      opts:[
+        {en:"Reading maps: places, landforms, and directions", ur:"نقشے پڑھنا: جگہیں، زمینی شکلیں، اور سمتیں"},
+        {en:"Only baking cakes", ur:"صرف کیک پکانا"},
+        {en:"Only coding robots", ur:"صرف روبوٹ کوڈنگ"},
+        {en:"Forgetting where we live", ur:"بھولنا ہم کہاں رہتے ہیں"}
+      ],
+      correct:0,
+      why:{en:"Geography helps us read the world with maps — where we live and how to find our way.",
+           ur:"جغرافیہ نقشوں سے دنیا پڑھنے میں مدد کرتا ہے — ہم کہاں رہتے ہیں اور راستہ کیسے تلاش کریں۔"}
+    },
+    {
+      q:{en:"On a map key, a mountain symbol usually means…",
+         ur:"نقشہ کلید پر پہاڑ کی علامت عام طور پر مطلب…"},
+      opts:[
+        {en:"Tall high land", ur:"اونچی بلند زمین"},
+        {en:"A flat swimming pool", ur:"چپٹا سوئمنگ پول"},
+        {en:"A bus ticket", ur:"بس کا ٹکٹ"},
+        {en:"A bedtime story only", ur:"صرف سونے کی کہانی"}
+      ],
+      correct:0,
+      why:{en:"Mountains and hills are high landforms shown with special map symbols.",
+           ur:"پہاڑ اور پہاڑیاں اونچی زمینی شکلیں ہیں جو خاص نقشہ علامات سے دکھائی جاتی ہیں۔"}
+    },
+    {
+      q:{en:"Which letter on a compass rose stands for North?",
+         ur:"قطب نما پر کون سا حرف شمال کے لیے ہے؟"},
+      opts:[
+        {en:"N", ur:"N"},
+        {en:"E", ur:"E"},
+        {en:"S", ur:"S"},
+        {en:"W", ur:"W"}
+      ],
+      correct:0,
+      why:{en:"N = North, S = South, E = East, W = West.",
+           ur:"N = شمال، S = جنوب، E = مشرق، W = مغرب۔"}
+    },
+    {
+      q:{en:"Islamabad is best described as…",
+         ur:"اسلام آباد کو بہترین کیسے بیان کریں؟"},
+      opts:[
+        {en:"The capital city of Pakistan", ur:"پاکستان کا دارالحکومت"},
+        {en:"An ocean between two continents", ur:"دو براعظموں کے درمیان سمندر"},
+        {en:"A planet next to Mars", ur:"مریخ کے قریب سیارہ"},
+        {en:"A type of sandwich", ur:"سینڈوچ کی ایک قسم"}
+      ],
+      correct:0,
+      why:{en:"Islamabad is Pakistan's capital — an important city on the map.",
+           ur:"اسلام آباد پاکستان کا دارالحکومت ہے — نقشے پر اہم شہر۔"}
+    },
+    {
+      q:{en:"The sun rises in the…",
+         ur:"سورج نکلتا ہے…"},
+      opts:[
+        {en:"East", ur:"مشرق میں"},
+        {en:"West", ur:"مغرب میں"},
+        {en:"North only at night", ur:"صرف رات کو شمال میں"},
+        {en:"South when it rains", ur:"بارش پر جنوب میں"}
+      ],
+      correct:0,
+      why:{en:"Sunrise in the East helps kids remember real-world directions.",
+           ur:"مشرق میں طلوع حقیقی دنیا کی سمتیں یاد رکھنے میں مدد کرتا ہے۔"}
+    },
+    {
+      q:{en:"Margalla Hills near Islamabad are an example of…",
+         ur:"اسلام آباد کے قریب مارگلہ ہلز مثال ہیں…"},
+      opts:[
+        {en:"A landform (high land / hills)", ur:"زمینی شکل (اونچی زمین / پہاڑیاں)"},
+        {en:"A type of school bag", ur:"اسکول بیگ کی قسم"},
+        {en:"A computer password", ur:"کمپیوٹر پاس ورڈ"},
+        {en:"A musical note", ur:"موسیقی کا نوٹ"}
+      ],
+      correct:0,
+      why:{en:"Hills and mountains are natural landforms we can spot on maps.",
+           ur:"پہاڑیاں اور پہاڑ قدرتی زمینی شکلیں ہیں جو نقشوں پر دیکھ سکتے ہیں۔"}
+    },
+    {
+      q:{en:"A blue winding line on a classroom map often shows a…",
+         ur:"کلاس روم نقشے پر نیلی مڑی لکیر اکثر دکھاتی ہے…"},
+      opts:[
+        {en:"River", ur:"دریا"},
+        {en:"Pencil sharpener", ur:"پنسل شارپنر"},
+        {en:"Football team", ur:"فٹ بال ٹیم"},
+        {en:"Birthday cake", ur:"سالگرہ کا کیک"}
+      ],
+      correct:0,
+      why:{en:"Blue on maps often means water — rivers and lakes.",
+           ur:"نقشوں پر نیلا اکثر پانی — دریا اور جھیلیں۔"}
+    },
+    {
+      q:{en:"To go from school to a park north of school, you walk…",
+         ur:"اسکول سے شمال والے پارک جانے کے لیے تم چلتے ہو…"},
+      opts:[
+        {en:"Toward North", ur:"شمال کی طرف"},
+        {en:"Toward South only", ur:"صرف جنوب کی طرف"},
+        {en:"Into a closed book", ur:"بند کتاب کے اندر"},
+        {en:"Without looking at the map ever", ur:"کبھی نقشہ دیکھے بغیر"}
+      ],
+      correct:0,
+      why:{en:"Directions on maps help us choose the right way — north, south, east, or west.",
+           ur:"نقشوں پر سمتیں درست راستہ چننے میں مدد کرتی ہیں — شمال، جنوب، مشرق یا مغرب۔"}
+    }
+  ];
+
+  var toolsIdx = 0, toolsSelected = null, toolsSort = {}, toolsDone = {};
+  var matchSel = null, matchPairs = {}, matchOrderCache = {};
+  var placesIdx = 0, placesDone = {};
+  var wayIdx = 0, wayDone = {};
+  var quizSet = [];
+
+  function award(key, n){
+    if (awarded[key]) return;
+    awarded[key] = true;
+    stars += (n || 1);
+    $("starCount").textContent = String(stars);
+  }
+  function recountStars(){
+    stars = 0;
+    Object.keys(awarded).forEach(function(k){
+      stars += (k.indexOf("mode-")===0) ? 2 : 1;
+    });
+    $("starCount").textContent = String(stars);
+  }
+
+  function skyHTML(){
+    return '<div class="sky-layer"><div class="sun-ball"></div>' +
+           '<div class="cloud c1"></div><div class="cloud c2"></div></div>' +
+           '<div class="hills"><div class="hill h-a"></div><div class="hill h-b"></div></div>' +
+           '<div class="ground-strip"></div>';
+  }
+
+  function mapSVG(){
+    return '<svg class="comic-hero" style="width:min(90%,260px);height:auto;font-size:inherit" viewBox="0 0 260 110" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+      '<rect x="20" y="10" width="220" height="90" rx="12" fill="#e8f3e6" stroke="#1e2a1a" stroke-width="2.5"/>' +
+      '<ellipse cx="130" cy="55" rx="70" ry="32" fill="#7cb070" stroke="#1e2a1a" stroke-width="2" opacity=".85"/>' +
+      '<path d="M80 50 Q110 40 140 55 T200 60" fill="none" stroke="#3a7ab8" stroke-width="4" stroke-linecap="round"/>' +
+      '<polygon points="100,35 112,55 88,55" fill="#5a7a4a" stroke="#1e2a1a" stroke-width="1.5"/>' +
+      '<circle cx="155" cy="48" r="6" fill="#c45c3a" stroke="#1e2a1a" stroke-width="1.5"/>' +
+      '<text x="155" y="72" text-anchor="middle" font-size="9" font-weight="800" fill="#1e2a1a">📍</text>' +
+      '<circle cx="48" cy="28" r="14" fill="#fdfaf3" stroke="#1e2a1a" stroke-width="2"/>' +
+      '<text x="48" y="24" text-anchor="middle" font-size="8" font-weight="800" fill="#c4453a">N</text>' +
+      '<text x="48" y="36" text-anchor="middle" font-size="7" font-weight="700" fill="#1e2a1a">S</text>' +
+      '<line x1="48" y1="18" x2="48" y2="22" stroke="#c4453a" stroke-width="2"/>' +
+      '</svg>';
+  }
+
+  function compassHTML(){
+    return '<div class="compass-rose" aria-hidden="true">' +
+           '<span class="n">N</span><span class="s">S</span><span class="e">E</span><span class="w">W</span>' +
+           '<span class="dot"></span></div>';
+  }
+
+  function maybeToolsDone(){
+    if (Object.keys(toolsDone).length >= TOOLS.length){
+      doneModes.tools = true;
+      award("mode-tools", 2);
+      tabBadges();
+    }
+  }
+  function maybePlacesDone(){
+    if (Object.keys(placesDone).length >= PLACES.length){
+      doneModes.places = true;
+      award("mode-places", 2);
+      tabBadges();
+    }
+  }
+  function maybeWayDone(){
+    if (Object.keys(wayDone).length >= WAY.length){
+      doneModes.way = true;
+      award("mode-way", 2);
+      tabBadges();
+    }
+  }
+
+  function renderTools(){
+    var ch = TOOLS[toolsIdx];
+    var pad = $("scenePad");
+    var box = $("actionBox");
+    box.innerHTML = "";
+    $("hintbox").classList.remove("show");
+
+    setText($("statechip"), (toolsIdx+1) + " / " + TOOLS.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (toolsDone[ch.id]?" win":"");
+    if (toolsDone[ch.id]) setText($("statechip"), t(T.nice));
+
+    if (ch.type === "sort"){
+      pad.innerHTML = skyHTML() +
+        '<div class="sort-grid">' +
+          '<div class="sort-bin land-bin'+(toolsSelected?" hot":"")+'" data-bin="land"><h3></h3><div class="drop" id="binLand"></div></div>' +
+          '<div class="sort-bin sym-bin'+(toolsSelected?" hot":"")+'" data-bin="built"><h3></h3><div class="drop" id="binBuilt"></div></div>' +
+        '</div>';
+      setText(pad.querySelector(".land-bin h3"), t(T.landLab));
+      setText(pad.querySelector(".sym-bin h3"), t(T.builtLab));
+
+      ["land","built"].forEach(function(bin){
+        pad.querySelector('[data-bin="'+bin+'"]').addEventListener("click", function(){
+          if (!toolsSelected || toolsDone[ch.id]) return;
+          toolsSort[toolsSelected] = bin;
+          toolsSelected = null;
+          renderTools();
+        });
+      });
+
+      ch.items.forEach(function(id){
+        var bin = toolsSort[id];
+        if (!bin) return;
+        var el = document.createElement("span");
+        el.className = "mini-chip";
+        el.textContent = CARDS[id].em;
+        el.title = t(CARDS[id]);
+        el.addEventListener("click", function(e){
+          e.stopPropagation();
+          if (toolsDone[ch.id]) return;
+          delete toolsSort[id];
+          renderTools();
+        });
+        (bin==="land"?$("binLand"):$("binBuilt")).appendChild(el);
+      });
+
+      var bank = document.createElement("div");
+      bank.className = "bank";
+      ch.items.forEach(function(id){
+        if (toolsSort[id]) return;
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "item-card" + (toolsSelected===id?" selected":"");
+        b.innerHTML = '<span class="item-em">'+CARDS[id].em+'</span><p class="item-lab"></p>';
+        setText(b.querySelector(".item-lab"), t(CARDS[id]));
+        b.addEventListener("click", function(){
+          if (toolsDone[ch.id]) return;
+          toolsSelected = id;
+          renderTools();
+        });
+        bank.appendChild(b);
+      });
+      box.appendChild(bank);
+
+      if (!toolsDone[ch.id]){
+        var chk = document.createElement("button");
+        chk.type = "button";
+        chk.style.cssText = "margin-top:10px;width:100%;border:2px solid var(--ink);border-radius:14px;background:var(--ink);color:var(--paper);font:inherit;font-weight:800;min-height:48px;cursor:pointer";
+        setText(chk, t(T.checkSort));
+        chk.addEventListener("click", function(){
+          var ok = true;
+          ch.items.forEach(function(id){
+            if (toolsSort[id] !== CARDS[id].bin) ok = false;
+          });
+          if (ok && Object.keys(toolsSort).filter(function(k){ return ch.items.indexOf(k)>=0; }).length === ch.items.length){
+            toolsDone[ch.id] = true;
+            award("tools-"+ch.id, 1);
+            setText($("headline"), t(ch.done));
+            $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.nice));
+            maybeToolsDone();
+            renderTools();
+          } else {
+            setText($("headline"), t(T.oops));
+            $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.oops));
+          }
+        });
+        box.appendChild(chk);
+      }
+
+      setText($("headline"), toolsDone[ch.id] ? t(ch.done) : t(ch.title));
+      setText($("detail"), toolsSelected ? t(CARDS[toolsSelected]) + " → ?" : t(T.askSort));
+    } else if (ch.type === "match"){
+      pad.innerHTML = skyHTML() + '<div class="comic-stage">' + mapSVG() +
+        '<div class="comic-panel"><span class="em">🔑</span><span class="plab"></span></div></div>';
+      setText(pad.querySelector(".plab"), t(ch.title));
+
+      if (!matchOrderCache[ch.id]){
+        matchOrderCache[ch.id] = {
+          left: shuffle(ch.pairs.slice()),
+          right: shuffle(ch.pairs.slice())
+        };
+      }
+      var left = matchOrderCache[ch.id].left;
+      var right = matchOrderCache[ch.id].right;
+
+      setText($("headline"), toolsDone[ch.id] ? t(ch.done) : t(ch.title));
+      setText($("detail"), t(T.askMatch));
+
+      var row = document.createElement("div");
+      row.className = "match-pair";
+      left.forEach(function(p){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "match-card" + (matchPairs[p.id]?" paired":"") + (matchSel===("L"+p.id)?" selected":"");
+        b.innerHTML = '<span>'+p.em+' </span><span class="mlab"></span>';
+        setText(b.querySelector(".mlab"), t(p.sym));
+        b.disabled = !!toolsDone[ch.id] || !!matchPairs[p.id];
+        b.addEventListener("click", function(){
+          if (toolsDone[ch.id] || matchPairs[p.id]) return;
+          if (matchSel && matchSel.charAt(0)==="R"){
+            var rid = matchSel.slice(1);
+            if (rid === p.id){
+              matchPairs[p.id] = true;
+              matchSel = null;
+              if (Object.keys(matchPairs).length >= ch.pairs.length){
+                toolsDone[ch.id] = true;
+                award("tools-"+ch.id, 1);
+                maybeToolsDone();
+              }
+              renderTools();
+            } else {
+              b.classList.add("wrong");
+              setText($("headline"), t(T.oops));
+              $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+              setText($("statechip"), t(T.oops));
+              matchSel = null;
+              setTimeout(function(){ renderTools(); }, 500);
+            }
+          } else {
+            matchSel = "L"+p.id;
+            renderTools();
+          }
+        });
+        row.appendChild(b);
+      });
+      box.appendChild(row);
+
+      var row2 = document.createElement("div");
+      row2.className = "match-pair";
+      right.forEach(function(p){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "match-card" + (matchPairs[p.id]?" paired":"") + (matchSel===("R"+p.id)?" selected":"");
+        setText(b, t(p.mean));
+        b.disabled = !!toolsDone[ch.id] || !!matchPairs[p.id];
+        b.addEventListener("click", function(){
+          if (toolsDone[ch.id] || matchPairs[p.id]) return;
+          if (matchSel && matchSel.charAt(0)==="L"){
+            var lid = matchSel.slice(1);
+            if (lid === p.id){
+              matchPairs[p.id] = true;
+              matchSel = null;
+              if (Object.keys(matchPairs).length >= ch.pairs.length){
+                toolsDone[ch.id] = true;
+                award("tools-"+ch.id, 1);
+                maybeToolsDone();
+              }
+              renderTools();
+            } else {
+              b.classList.add("wrong");
+              setText($("headline"), t(T.oops));
+              $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+              setText($("statechip"), t(T.oops));
+              matchSel = null;
+              setTimeout(function(){ renderTools(); }, 500);
+            }
+          } else {
+            matchSel = "R"+p.id;
+            renderTools();
+          }
+        });
+        row2.appendChild(b);
+      });
+      box.appendChild(row2);
+
+      if (toolsDone[ch.id]){
+        setText($("headline"), t(ch.done));
+        $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+        setText($("statechip"), t(T.nice));
+      }
+    } else {
+      pad.innerHTML = skyHTML() + compassHTML() +
+        '<div class="comic-stage" style="padding-top:8px"><div class="comic-hero" style="font-size:40px">'+ch.hero+'</div>' +
+        '<div class="comic-panel"><span class="em">🧭</span><span class="plab"></span></div></div>';
+      setText(pad.querySelector(".plab"), t(ch.title));
+
+      setText($("headline"), toolsDone[ch.id] ? t(ch.done) : t(ch.title));
+      setText($("detail"), t(ch.prompt));
+
+      var choices = document.createElement("div");
+      choices.className = "save-choices";
+      ch.choices.forEach(function(c){
+        var b = document.createElement("button");
+        b.type = "button";
+        if (toolsDone[ch.id] && c.id === ch.correct) b.classList.add("right");
+        b.innerHTML = '<span class="cem">'+c.em+'</span><span class="clab"></span>';
+        setText(b.querySelector(".clab"), t(c));
+        b.disabled = !!toolsDone[ch.id];
+        b.addEventListener("click", function(){
+          if (toolsDone[ch.id]) return;
+          if (c.id === ch.correct){
+            toolsDone[ch.id] = true;
+            award("tools-"+ch.id, 1);
+            b.classList.add("right");
+            setText($("headline"), t(ch.done));
+            $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.nice));
+            maybeToolsDone();
+            renderTools();
+          } else {
+            b.classList.add("wrong");
+            setText($("headline"), t(T.oops));
+            $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.oops));
+            setTimeout(function(){ b.classList.remove("wrong"); }, 600);
+          }
+        });
+        choices.appendChild(b);
+      });
+      box.appendChild(choices);
+    }
+    setText($("prog"), t(T.progT) + ": " + Object.keys(toolsDone).length + "/" + TOOLS.length);
+  }
+
+  function renderPlaces(){
+    var ch = PLACES[placesIdx];
+    var pad = $("scenePad");
+    pad.innerHTML = skyHTML() +
+      '<div class="comic-stage"><div class="comic-hero">'+ch.hero+'</div>' +
+      '<div class="comic-panel"><span class="em">🧒</span><span class="plab"></span></div></div>';
+    setText(pad.querySelector(".plab"), t(ch.title));
+
+    setText($("statechip"), (placesIdx+1) + " / " + PLACES.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (placesDone[ch.id]?" win":"");
+    if (placesDone[ch.id]) setText($("statechip"), t(T.nice));
+    setText($("headline"), placesDone[ch.id] ? t(ch.done) : t(ch.title));
+    setText($("detail"), t(ch.prompt));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+    var choices = document.createElement("div");
+    choices.className = "save-choices";
+    ch.choices.forEach(function(c){
+      var b = document.createElement("button");
+      b.type = "button";
+      if (placesDone[ch.id] && c.id === ch.correct) b.classList.add("right");
+      b.innerHTML = '<span class="cem">'+c.em+'</span><span class="clab"></span>';
+      setText(b.querySelector(".clab"), t(c));
+      b.disabled = !!placesDone[ch.id];
+      b.addEventListener("click", function(){
+        if (placesDone[ch.id]) return;
+        if (c.id === ch.correct){
+          placesDone[ch.id] = true;
+          award("places-"+ch.id, 1);
+          b.classList.add("right");
+          setText($("headline"), t(ch.done));
+          $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.nice));
+          maybePlacesDone();
+          tabBadges();
+          renderPlaces();
+        } else {
+          b.classList.add("wrong");
+          setText($("headline"), t(T.oops));
+          $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.oops));
+          setTimeout(function(){ b.classList.remove("wrong"); }, 600);
+        }
+      });
+      choices.appendChild(b);
+    });
+    box.appendChild(choices);
+    setText($("prog"), t(T.progP) + ": " + Object.keys(placesDone).length + "/" + PLACES.length);
+  }
+
+  function renderWay(){
+    var ch = WAY[wayIdx];
+    var pad = $("scenePad");
+    $("hintbox").classList.remove("show");
+
+    setText($("statechip"), (wayIdx+1) + " / " + WAY.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (wayDone[ch.id]?" win":"");
+    if (wayDone[ch.id]) setText($("statechip"), t(T.nice));
+    setText($("headline"), wayDone[ch.id] ? t(ch.done) : t(ch.title));
+    setText($("detail"), t(ch.prompt));
+
+    if (ch.type === "route" && ch.steps){
+      var nodes = ch.steps.map(function(s, i){
+        return '<div class="map-node'+(wayDone[ch.id]?" done":"")+'"><span class="nem">'+s.em+'</span><p class="nlab" data-i="'+i+'"></p></div>' +
+               (i < ch.steps.length-1 ? '<span class="map-arrow">→</span>' : '');
+      }).join("");
+      pad.innerHTML = skyHTML() + '<div class="map-row">'+nodes+'</div>';
+      ch.steps.forEach(function(s, i){
+        var lab = pad.querySelector('.nlab[data-i="'+i+'"]');
+        if (lab) setText(lab, t(s));
+      });
+    } else {
+      pad.innerHTML = skyHTML() +
+        '<div class="comic-stage"><div class="comic-hero">'+(ch.hero||"🗺️")+'</div>' +
+        '<div class="comic-panel"><span class="em">🧭</span><span class="plab"></span></div></div>';
+      setText(pad.querySelector(".plab"), t(ch.title));
+    }
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+    var choices = document.createElement("div");
+    choices.className = "save-choices";
+    ch.choices.forEach(function(c){
+      var b = document.createElement("button");
+      b.type = "button";
+      if (wayDone[ch.id] && c.id === ch.correct) b.classList.add("right");
+      b.innerHTML = '<span class="cem">'+c.em+'</span><span class="clab"></span>';
+      setText(b.querySelector(".clab"), t(c));
+      b.disabled = !!wayDone[ch.id];
+      b.addEventListener("click", function(){
+        if (wayDone[ch.id]) return;
+        if (c.id === ch.correct){
+          wayDone[ch.id] = true;
+          award("way-"+ch.id, 1);
+          b.classList.add("right");
+          setText($("headline"), t(ch.done));
+          $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.nice));
+          maybeWayDone();
+          tabBadges();
+          renderWay();
+        } else {
+          b.classList.add("wrong");
+          setText($("headline"), t(T.oops));
+          $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.oops));
+          setTimeout(function(){ b.classList.remove("wrong"); }, 600);
+        }
+      });
+      choices.appendChild(b);
+    });
+    box.appendChild(choices);
+    setText($("prog"), t(T.progW) + ": " + Object.keys(wayDone).length + "/" + WAY.length);
+  }
+
+  function pickQuiz(){ quizSet = shuffle(QUIZ).slice(0, 5); }
+  function renderQuiz(){
+    var box = $("quizBox");
+    box.innerHTML = "";
+    quizSet.forEach(function(item, qi){
+      var wrap = document.createElement("div");
+      wrap.className = "q";
+      var p = document.createElement("p");
+      setText(p, (qi+1) + ". " + t(item.q));
+      wrap.appendChild(p);
+      var answered = false;
+      item.opts.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt";
+        setText(b, t(opt));
+        b.addEventListener("click", function(){
+          if (answered) return;
+          answered = true;
+          if (oi === item.correct){
+            b.classList.add("right");
+            award("quiz-"+qi, 1);
+          } else {
+            b.classList.add("wrong");
+            var kids = wrap.querySelectorAll(".opt");
+            if (kids[item.correct]) kids[item.correct].classList.add("right");
+          }
+          fb.classList.add("show");
+        });
+        wrap.appendChild(b);
+      });
+      var fb = document.createElement("p");
+      fb.className = "fb";
+      setText(fb, t(item.why));
+      wrap.appendChild(fb);
+      box.appendChild(wrap);
+    });
+  }
+
+  function storyHtml(){
+    if (mode === "tools") return t(T.storyTools);
+    if (mode === "places") return t(T.storyPlaces);
+    return t(T.storyWay);
+  }
+
+  function tabBadges(){
+    function lab(btn, label, key){
+      btn.innerHTML = "";
+      var span = document.createElement("span");
+      setText(span, t(label));
+      btn.appendChild(span);
+      if (doneModes[key]){
+        var b = document.createElement("span");
+        b.className = "badge"; b.textContent = " ★";
+        btn.appendChild(b);
+      }
+    }
+    lab($("tabTools"), T.tabTools, "tools");
+    lab($("tabPlaces"), T.tabPlaces, "places");
+    lab($("tabWay"), T.tabWay, "way");
+    $("tabTools").setAttribute("aria-pressed", mode==="tools"?"true":"false");
+    $("tabPlaces").setAttribute("aria-pressed", mode==="places"?"true":"false");
+    $("tabWay").setAttribute("aria-pressed", mode==="way"?"true":"false");
+  }
+
+  function setMode(m){
+    mode = m;
+    toolsSelected = null;
+    matchSel = null;
+    if (mode === "tools") renderTools();
+    else if (mode === "places") renderPlaces();
+    else renderWay();
+    applyChrome();
+  }
+
+  function applyChrome(){
+    setText($("title"), t(T.title));
+    setText($("subtitle"), t(T.sub));
+    $("story").innerHTML = storyHtml();
+    $("story").classList.toggle("ur", lang==="ur");
+    $("story").setAttribute("dir", lang==="ur"?"rtl":"ltr");
+    setText($("ctlHead"), t(T.ctl));
+    setText($("nextBtn"), t(T.next));
+    setText($("hintBtn"), t(T.hint));
+    setText($("resetBtn"), t(T.reset));
+    setText($("quizHead"), t(T.quiz));
+    setText($("newQuiz"), t(T.newQuiz));
+    $("langBtn").textContent = (lang === "en") ? "اردو" : "EN";
+    $("langBtn").setAttribute("aria-pressed", lang==="ur"?"true":"false");
+    document.body.classList.toggle("urdu", lang==="ur");
+    document.documentElement.lang = (lang==="ur") ? "ur" : "en";
+    document.documentElement.dir = (lang==="ur") ? "rtl" : "ltr";
+    tabBadges();
+    var foot = document.querySelector("footer p");
+    if (foot) setText(foot, foot.getAttribute(lang==="ur"?"data-ur":"data-en"));
+  }
+
+  function applyLang(){
+    applyChrome();
+    if (mode === "tools") renderTools();
+    else if (mode === "places") renderPlaces();
+    else renderWay();
+    renderQuiz();
+  }
+
+  function next(){
+    if (mode === "tools"){
+      toolsIdx = (toolsIdx + 1) % TOOLS.length;
+      toolsSelected = null;
+      matchSel = null;
+      if (TOOLS[toolsIdx].type === "sort"){
+        toolsSort = {};
+      }
+      if (TOOLS[toolsIdx].type === "match"){
+        matchPairs = {};
+      }
+      renderTools();
+    } else if (mode === "places"){
+      placesIdx = (placesIdx + 1) % PLACES.length;
+      renderPlaces();
+    } else {
+      wayIdx = (wayIdx + 1) % WAY.length;
+      renderWay();
+    }
+  }
+
+  function showHint(){
+    var h;
+    if (mode === "tools") h = TOOLS[toolsIdx].hint;
+    else if (mode === "places") h = PLACES[placesIdx].hint;
+    else h = WAY[wayIdx].hint;
+    var hb = $("hintbox");
+    setText(hb, t(h));
+    hb.classList.add("show");
+  }
+
+  function resetMode(){
+    if (mode === "tools"){
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("tools-")===0 || k==="mode-tools") delete awarded[k]; });
+      toolsDone = {}; toolsSort = {}; toolsSelected = null; toolsIdx = 0;
+      matchSel = null; matchPairs = {}; matchOrderCache = {};
+      doneModes.tools = false;
+      recountStars(); renderTools();
+    } else if (mode === "places"){
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("places-")===0 || k==="mode-places") delete awarded[k]; });
+      placesDone = {}; placesIdx = 0; doneModes.places = false;
+      recountStars(); renderPlaces();
+    } else {
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("way-")===0 || k==="mode-way") delete awarded[k]; });
+      wayDone = {}; wayIdx = 0; doneModes.way = false;
+      recountStars(); renderWay();
+    }
+    tabBadges();
+    applyChrome();
+  }
+
+  function cleanSpeakText(s){
+    return String(s || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  }
+  function buildSpeakText(){
+    var bits = [];
+    bits.push(t(T.title));
+    bits.push(cleanSpeakText(storyHtml()));
+    bits.push(cleanSpeakText(($("headline") && $("headline").textContent) || ""));
+    bits.push(cleanSpeakText(($("detail") && $("detail").textContent) || ""));
+    bits.push(t(T.tip));
+    return bits.filter(Boolean).join(". ");
+  }
+  function pickVoice(voices, want){
+    var i, v, L;
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf(want) === 0) return v;
+    }
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf("en") === 0) return v;
+    }
+    return voices[0] || null;
+  }
+  var speakTimer = null;
+  function setSpeaking(on){
+    var btn = $("speakBtn");
+    if (!btn) return;
+    btn.setAttribute("aria-pressed", on ? "true" : "false");
+    btn.style.opacity = on ? "0.65" : "";
+  }
+  function doSpeak(text, asLang){
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.92;
+    u.lang = (asLang === "ur") ? "ur-PK" : "en-US";
+    var voices = window.speechSynthesis.getVoices() || [];
+    var voice = pickVoice(voices, asLang === "ur" ? "ur" : "en");
+    if (voice) u.voice = voice;
+    u.onstart = function(){ setSpeaking(true); };
+    u.onend = function(){ setSpeaking(false); };
+    u.onerror = function(){
+      setSpeaking(false);
+      if (asLang === "ur"){
+        var fallback = cleanSpeakText(T.title.en + ". " + T.storyTools.en + ". " + T.tip.en);
+        var u2 = new SpeechSynthesisUtterance(fallback);
+        u2.lang = "en-US"; u2.rate = 0.92;
+        var v2 = pickVoice(window.speechSynthesis.getVoices() || [], "en");
+        if (v2) u2.voice = v2;
+        u2.onstart = function(){ setSpeaking(true); };
+        u2.onend = u2.onerror = function(){ setSpeaking(false); };
+        window.speechSynthesis.speak(u2);
+      }
+    };
+    window.speechSynthesis.speak(u);
+  }
+  if ("speechSynthesis" in window){
+    try { window.speechSynthesis.getVoices(); } catch (e0) {}
+    if (typeof window.speechSynthesis.addEventListener === "function"){
+      window.speechSynthesis.addEventListener("voiceschanged", function(){
+        try { window.speechSynthesis.getVoices(); } catch (e1) {}
+      });
+    }
+  } else {
+    var noBtn = $("speakBtn");
+    if (noBtn){ noBtn.disabled = true; noBtn.title = "Voice not available on this device"; }
+  }
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en";
+    applyLang();
+  });
+  $("tabTools").addEventListener("click", function(){ setMode("tools"); });
+  $("tabPlaces").addEventListener("click", function(){ setMode("places"); });
+  $("tabWay").addEventListener("click", function(){ setMode("way"); });
+  $("nextBtn").addEventListener("click", next);
+  $("hintBtn").addEventListener("click", showHint);
+  $("resetBtn").addEventListener("click", resetMode);
+  $("newQuiz").addEventListener("click", function(){ pickQuiz(); renderQuiz(); });
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      var text = buildSpeakText();
+      if (!text) return;
+      if (speakTimer){ clearTimeout(speakTimer); speakTimer = null; }
+      window.speechSynthesis.cancel();
+      setSpeaking(false);
+      var speakLang = lang;
+      speakTimer = setTimeout(function(){
+        speakTimer = null;
+        doSpeak(text, speakLang);
+      }, 80);
+    }catch(e){ setSpeaking(false); }
+  });
+
+  pickQuiz();
+  applyLang();
+})();
+</script>
+</body>
+</html>
