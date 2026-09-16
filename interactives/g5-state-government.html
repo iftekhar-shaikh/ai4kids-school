@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>State aur Government — ریاست اور حکومت | AI4Kids Class 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#e6eef8;--board-deep:#c0d0e4;--sky:#9ec9f0;--sky2:#6ba8d9;
+    --park:#7a9ab8;--park2:#4a6a8a;--accent:#1a5a8a;--flag-g:#01411C;
+    --ok:#2e7d4f;--ink:#1e2a1a;--ink-soft:#4a5744;--paper:#fdfaf3;
+    --line:#c8d4e0;--gold:#e8b23d;--left:#c4453a;--rule-bin:#2f6fb5;--svc-bin:#1a7a45;
+    --help:#c45c3a;--fair:#1a7a45;
+    --fs-cap:clamp(12px, 3.2vw, 13px);--fs-xs:clamp(14px, 3.7vw, 15px);
+    --fs-sm:clamp(16px, 4.2vw, 17px);--fs-md:clamp(17px, 4.6vw, 19px);
+    --fs-lg:clamp(20px, 5.4vw, 23px);--fs-xl:clamp(27px, 7.4vw, 33px);--lh:1.5;
+  }
+  body.urdu{
+    --fs-cap:clamp(13px, 3.5vw, 15px);--fs-xs:clamp(15px, 4.1vw, 17px);
+    --fs-sm:clamp(17px, 4.7vw, 19px);--fs-md:clamp(19px, 5.2vw, 21px);
+    --fs-lg:clamp(22px, 6vw, 25px);--fs-xl:clamp(26px, 7vw, 31px);--lh:2.1;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  .stars{display:flex;align-items:center;gap:6px;font-weight:800;font-size:var(--fs-xs);
+         background:#fff6e2;border:2px solid var(--gold);border-radius:999px;padding:7px 13px}
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+  .tabs{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
+  .tabs button{
+    flex:1 1 28%;min-width:90px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:10px 6px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:54px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .tabs button .badge{color:var(--gold)}
+  .story{
+    background:#fff8ea;border:2px dashed var(--gold);border-radius:16px;padding:13px 15px;
+    font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;margin-bottom:14px;
+  }
+  body.urdu .story{line-height:var(--lh)}
+  .story b{color:var(--ink)}
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:linear-gradient(180deg,var(--sky) 0%,var(--sky2) 34%,#a8c4d8 34%,#88a8c0 42%,var(--board) 42%);
+    min-height:280px;
+  }
+  .scene-pad{padding:10px 12px 18px;min-height:260px;position:relative}
+  .sky-layer{position:absolute;inset:0 0 58% 0;pointer-events:none;overflow:hidden}
+  .sun-ball{
+    position:absolute;top:12px;right:18px;width:40px;height:40px;border-radius:50%;
+    background:radial-gradient(circle at 35% 35%,#ffe9a0,#f5c542 60%,#e0a020);
+    box-shadow:0 0 18px rgba(245,197,66,.45);z-index:1;
+  }
+  body.urdu .sun-ball{right:auto;left:18px}
+  .cloud{position:absolute;background:rgba(255,255,255,.85);border-radius:40px;opacity:.9}
+  .cloud:before,.cloud:after{content:"";position:absolute;background:inherit;border-radius:50%}
+  .c1{width:48px;height:15px;top:18px;left:12%}
+  .c1:before{width:22px;height:22px;top:-12px;left:6px}
+  .c1:after{width:18px;height:18px;top:-8px;left:24px}
+  .c2{width:34px;height:12px;top:34px;left:55%;opacity:.7}
+  .c2:before{width:16px;height:16px;top:-9px;left:4px}
+  .c2:after{width:12px;height:12px;top:-5px;left:16px}
+  .hills{position:absolute;left:0;right:0;bottom:42%;height:40px;z-index:1;pointer-events:none}
+  .hill{position:absolute;bottom:0;border-radius:50% 50% 0 0;
+        background:linear-gradient(180deg,#5a7a9a,#2d4555)}
+  .h-a{width:42%;height:36px;left:-4%;opacity:.55}
+  .h-b{width:38%;height:28px;right:8%;opacity:.5}
+  .ground-strip{
+    position:absolute;left:0;right:0;bottom:0;height:32%;
+    background:linear-gradient(180deg,#8aaccc 0%,#6a8cac 100%);
+    z-index:2;border-top:3px solid #4a6a8a;
+  }
+  .comic-stage{position:relative;z-index:5;padding-top:78px;text-align:center;min-height:150px}
+  .comic-hero{font-size:56px;line-height:1;margin:4px 0 8px;filter:drop-shadow(0 2px 0 rgba(0,0,0,.12))}
+  .comic-panel{
+    display:inline-flex;align-items:center;gap:8px;background:rgba(253,250,243,.95);
+    border:2.5px solid var(--ink);border-radius:16px;padding:10px 14px;margin:4px;
+    box-shadow:0 3px 0 rgba(30,42,26,.12);font-weight:800;font-size:var(--fs-cap);
+  }
+  .comic-panel .em{font-size:28px}
+  .sort-grid{
+    position:relative;z-index:5;display:grid;grid-template-columns:1fr 1fr;gap:10px;
+    padding-top:88px;
+  }
+  .sort-bin{
+    border:2.5px solid var(--ink);border-radius:14px;padding:10px 8px;min-height:120px;
+    background:rgba(253,250,243,.88);text-align:center;cursor:pointer;
+  }
+  .sort-bin.rule-bin{border-color:var(--rule-bin);background:rgba(232,240,250,.92)}
+  .sort-bin.svc-bin{border-color:var(--svc-bin);background:rgba(232,245,236,.92)}
+  .sort-bin.hot{box-shadow:0 0 0 3px rgba(26,90,138,.3)}
+  .sort-bin h3{margin:0 0 8px;font-size:var(--fs-cap);font-weight:800}
+  .sort-bin .drop{min-height:60px;display:flex;flex-wrap:wrap;gap:4px;justify-content:center;align-items:center}
+  .item-card{
+    background:rgba(253,250,243,.95);border:2.5px solid var(--ink);border-radius:16px;
+    padding:8px 10px 10px;text-align:center;min-width:72px;max-width:120px;
+    box-shadow:0 3px 0 rgba(30,42,26,.15);cursor:pointer;user-select:none;
+  }
+  .item-card:hover{transform:translateY(-2px)}
+  .item-card.selected{border-color:var(--accent);background:#e8f0f8;box-shadow:0 0 0 3px rgba(26,90,138,.25)}
+  .item-card.ok{border-color:var(--ok);background:#e8f2ed}
+  .item-card.no{border-color:var(--left);background:#fbeae8}
+  .item-em{font-size:34px;line-height:1.1;display:block;margin-bottom:2px}
+  .item-lab{font-size:var(--fs-cap);font-weight:800;line-height:1.25;margin:0}
+  .bank{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:8px;position:relative;z-index:5}
+  .mini-chip{
+    border:2px solid var(--ink);border-radius:12px;padding:6px 8px;background:#fff;
+    line-height:1;cursor:pointer;min-width:40px;font-size:22px;
+  }
+  .save-choices{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+  .save-choices button{
+    border:2.5px solid var(--ink);background:var(--paper);border-radius:14px;
+    padding:12px 14px;font:inherit;font-weight:800;font-size:var(--fs-xs);
+    cursor:pointer;text-align:left;min-height:52px;display:flex;align-items:center;gap:10px;
+  }
+  body.urdu .save-choices button{text-align:right}
+  .save-choices button .cem{font-size:26px}
+  .save-choices button.right{border-color:var(--ok);background:#e8f2ed}
+  .save-choices button.wrong{border-color:var(--left);background:#fbeae8}
+  .match-row{
+    position:relative;z-index:5;display:flex;flex-wrap:wrap;gap:8px;
+    justify-content:center;align-items:stretch;padding-top:78px;min-height:120px;
+  }
+  .match-card{
+    border:2.5px solid var(--ink);border-radius:14px;padding:10px 12px;
+    background:rgba(253,250,243,.95);font-weight:800;font-size:var(--fs-xs);
+    cursor:pointer;min-height:52px;min-width:100px;text-align:center;
+    box-shadow:0 3px 0 rgba(30,42,26,.12);
+  }
+  .match-card.selected{border-color:var(--accent);background:#e8f0f8;box-shadow:0 0 0 3px rgba(26,90,138,.25)}
+  .match-card.paired{border-color:var(--ok);background:#e8f2ed;opacity:.85}
+  .match-card.wrong{border-color:var(--left);background:#fbeae8}
+  .match-card .mem{font-size:28px;display:block;margin-bottom:2px}
+  .role-node{
+    flex:1 1 28%;min-width:90px;border:2.5px solid var(--ink);border-radius:16px;
+    background:rgba(253,250,243,.95);padding:10px 8px;text-align:center;
+    box-shadow:0 3px 0 rgba(30,42,26,.12);
+  }
+  .role-node .nem{font-size:36px;line-height:1;display:block;margin-bottom:4px}
+  .role-node .nlab{font-size:var(--fs-cap);font-weight:800;margin:0}
+  .role-node.done{background:#e8f2ed;border-color:var(--ok)}
+  .outcome{
+    margin-top:10px;border-radius:14px;padding:10px 12px;font-weight:700;font-size:var(--fs-xs);
+    display:none;border:2px solid var(--ok);background:#e8f2ed;color:var(--ok);
+  }
+  .outcome.show{display:block}
+  .outcome.bad{border-color:var(--left);background:#fbeae8;color:var(--left)}
+  .readout{
+    margin-top:-18px;position:relative;z-index:2;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+  .statechip.ur{padding:2px 14px 7px}
+  .statechip.win{background:var(--ok)}
+  .statechip.miss{background:var(--left)}
+  .headline{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+  .headline.ur{line-height:1.95}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+  .hintbox{
+    margin-top:14px;border:2px solid var(--accent);background:#e8f0f8;border-radius:14px;
+    padding:11px 14px;font-size:var(--fs-xs);color:var(--accent);font-weight:700;line-height:1.55;
+    display:none;
+  }
+  .hintbox.show{display:block}
+  body.urdu .hintbox{line-height:var(--lh)}
+  .panel{margin-top:22px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .prog{margin:0 0 10px;font-size:var(--fs-xs);font-weight:700;color:var(--ink-soft)}
+  .btns{display:flex;gap:9px;margin-top:8px;flex-wrap:wrap}
+  .btns button{
+    border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);
+    font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:50px;
+    padding:8px 14px;flex:1;
+  }
+  .btns .go{background:var(--ink);color:var(--paper)}
+  .btns button:active{transform:scale(.97)}
+  .btns button:disabled{opacity:.4;cursor:default}
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .qhead{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+  .qhead h2{font-size:var(--fs-lg);font-weight:800;margin:0;flex:1}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:50px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+  .opt.wrong{border-color:var(--left);background:#fbeae8}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
+      grid-template-areas:
+        "bar   bar" "head  head" "tabs  tabs" "story story"
+        "left  right" "quiz  quiz" "foot  foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+    .story{grid-area:story} .left{grid-area:left} .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+    .panel{margin-top:0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition-duration:.01ms !important;animation:none !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 5</span>
+    <span class="stars" id="starBox">⭐ <span id="starCount">0</span></span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 id="title"></h1>
+  <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group">
+    <button type="button" id="tabRules" aria-pressed="true"></button>
+    <button type="button" id="tabHelp" aria-pressed="false"></button>
+    <button type="button" id="tabFair" aria-pressed="false"></button>
+  </div>
+
+  <p class="story" id="story"></p>
+
+  <div class="left">
+  <div class="scene">
+    <div class="scene-pad" id="scenePad"></div>
+  </div>
+  <div class="readout">
+    <span class="statechip" id="statechip"></span>
+    <p class="headline" id="headline"></p>
+    <p class="detail" id="detail"></p>
+    <p class="hintbox" id="hintbox"></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="panel">
+    <h2 id="ctlHead"></h2>
+    <p class="prog" id="prog"></p>
+    <div id="actionBox"></div>
+    <div class="btns">
+      <button type="button" class="go" id="nextBtn"></button>
+    </div>
+    <div class="btns">
+      <button type="button" id="hintBtn"></button>
+      <button type="button" id="resetBtn"></button>
+    </div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <div class="qhead">
+      <h2 id="quizHead"></h2>
+      <button type="button" class="chip" id="newQuiz"></button>
+    </div>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad bilingual school. Offline play · no APIs. WhatsApp 0337 1468899 · State aur Government Social Studies SNC"
+       data-ur="اے آئی فور کڈز — اسلام آباد۔ آف لائن کھیلو۔ واٹس ایپ 0337 1468899 · ریاست اور حکومت سماجی علوم"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  function $(id){ return document.getElementById(id); }
+  function isolate(s){ return "\u2066" + s + "\u2069"; }
+  function setText(el, str){
+    if (!el) return;
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+  function t(o){ return (o && o[lang]) || (o && o.en) || ""; }
+  function shuffle(arr){
+    var a = arr.slice(), i, j, tmp;
+    for (i = a.length - 1; i > 0; i--){
+      j = Math.floor(Math.random() * (i + 1));
+      tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  var lang = "en";
+  var mode = "rules";
+  var stars = 0;
+  var awarded = {};
+  var doneModes = {rules:false, help:false, fair:false};
+
+  var T = {
+    title:{en:"State aur Government", ur:"ریاست اور حکومت"},
+    sub:{en:"Rules + services — Pakistan ka nizam so the community works fairly!",
+         ur:"اصول + خدمات — پاکستان کا نظام تاکہ کمیونٹی منصفانہ چلے!"},
+    tabRules:{en:"Rules & services", ur:"اصول و خدمات"},
+    tabHelp:{en:"Who helps?", ur:"کون مدد کرتا؟"},
+    tabFair:{en:"Fair community", ur:"منصفانہ کمیونٹی"},
+    storyRules:{en:"<b>Government</b> is a team that makes shared <b>rules</b> and runs public <b>services</b> (schools, roads, safety). School rules ≈ a mini government! Sort each card.",
+                ur:"<b>حکومت</b> ایک ٹیم ہے جو مشترکہ <b>اصول</b> بناتی اور عوامی <b>خدمات</b> چلاتی ہے (اسکول، سڑکیں، سلامتی)۔ اسکول کے اصول ≈ منی حکومت! کارڈ چھانٹو۔"},
+    storyHelp:{en:"Islamabad helpers — police, teachers, cleaners. Match each <b>role</b> to the service they give. Respect every helper!",
+               ur:"اسلام آباد کے مددگار — پولیس، اساتذہ، صفائی والے۔ ہر <b>کردار</b> کو اس کی خدمت سے ملاؤ۔ سب کا احترام!"},
+    storyFair:{en:"When rules and services matter — queue, crosswalk, school property — pick the <b>fairer action</b> for the community.",
+               ur:"جب اصول اور خدمات اہم ہوں — قطار، زیبرا، اسکول کی چیزیں — کمیونٹی کے لیے <b>منصفانہ عمل</b> چنو۔"},
+    ctl:{en:"Your turn — mini civic team", ur:"تمہاری باری — منی سول ٹیم"},
+    next:{en:"Next challenge", ur:"اگلا چیلنج"},
+    hint:{en:"Hint", ur:"اشارہ"},
+    reset:{en:"Reset", ur:"ری سیٹ"},
+    quiz:{en:"Check yourself", ur:"اپنا چیک"},
+    newQuiz:{en:"New quiz", ur:"نیا کوئز"},
+    nice:{en:"Shabash — fair community!", ur:"شاباش — منصفانہ کمیونٹی!"},
+    oops:{en:"Almost — try again", ur:"قریب — دوبارہ آزماؤ"},
+    tip:{en:"Tip: Government = team for shared rules + public services. Kids follow rules, use services kindly, and help the community stay fair.",
+         ur:"نکتہ: حکومت = مشترکہ اصول + عوامی خدمات کی ٹیم۔ بچے اصول مانیں، خدمات مہربانی سے استعمال کریں، کمیونٹی منصفانہ رکھیں۔"},
+    progR:{en:"Rules & services", ur:"اصول و خدمات"},
+    progH:{en:"Who helps", ur:"کون مدد کرتا"},
+    progF:{en:"Fair actions", ur:"منصفانہ اعمال"},
+    askSort:{en:"Tap a card, then tap Rule or Service", ur:"کارڈ ٹیپ کرو، پھر اصول یا خدمت"},
+    askPick:{en:"Is this a rule or a service?", ur:"یہ اصول ہے یا خدمت؟"},
+    askMatch:{en:"Tap a helper, then tap their service", ur:"مددگار ٹیپ کرو، پھر اس کی خدمت"},
+    askFair:{en:"What is the fairer action?", ur:"منصفانہ عمل کیا ہے؟"},
+    checkSort:{en:"Check sort", ur:"چھانٹی چیک کرو"},
+    checkMatch:{en:"Check matches", ur:"میچ چیک کرو"},
+    ruleLab:{en:"📜 Rule (Qanoon)", ur:"📜 اصول"},
+    svcLab:{en:"🏥 Service (Khidmat)", ur:"🏥 خدمت"},
+    pick:{en:"Tap a card first", ur:"پہلے کارڈ ٹیپ کرو"}
+  };
+
+  /* Cards: rule vs service */
+  var CARDS = {
+    traffic:{em:"🚦", en:"Traffic light law", ur:"ٹریفک لائٹ کا قانون", bin:"rule"},
+    speed:{em:"🚗", en:"Speed limit on roads", ur:"سڑکوں پر رفتار کی حد", bin:"rule"},
+    schoolrule:{em:"📋", en:"School attendance rule", ur:"اسکول حاضری کا اصول", bin:"rule"},
+    queue:{em:"🧍", en:"Fair queue rule", ur:"منصفانہ قطار کا اصول", bin:"rule"},
+    crosswalk:{em:"🚸", en:"Use the zebra crossing", ur:"زیبرا کراسنگ استعمال کرو", bin:"rule"},
+    litterban:{em:"🚫", en:"No littering rule", ur:"کوڑا نہ پھینکنے کا اصول", bin:"rule"},
+    school:{em:"🏫", en:"Public school", ur:"سرکاری اسکول", bin:"svc"},
+    hospital:{em:"🏥", en:"Public hospital", ur:"سرکاری ہسپتال", bin:"svc"},
+    park:{em:"🌳", en:"City park", ur:"شہر کا پارک", bin:"svc"},
+    road:{em:"🛣️", en:"Public roads", ur:"عوامی سڑکیں", bin:"svc"},
+    library:{em:"📚", en:"Public library", ur:"عوامی لائبریری", bin:"svc"},
+    water:{em:"💧", en:"Clean water supply", ur:"صاف پانی کی سپلائی", bin:"svc"}
+  };
+
+  /* Mode 1: Rules & services — 4 challenges (2 sort + 2 pick) */
+  var RULES = [
+    {
+      id:"r1", type:"sort",
+      title:{en:"Law or service?", ur:"قانون یا خدمت؟"},
+      items:["traffic","school","speed","hospital"],
+      hint:{en:"Rules tell us what to do (traffic law, speed limit). Services are things the team runs (school, hospital).",
+            ur:"اصول بتاتے ہیں کیا کرنا ہے (ٹریفک قانون، رفتار حد)۔ خدمات وہ چیزیں ہیں جو ٹیم چلاتی ہے (اسکول، ہسپتال)۔"},
+      done:{en:"Sorted — rules guide, services help!", ur:"چھانٹی ہوئی — اصول رہنمائی، خدمات مدد!"}
+    },
+    {
+      id:"r2", type:"sort",
+      title:{en:"Park, queue, roads, litter", ur:"پارک، قطار، سڑکیں، کوڑا"},
+      items:["park","queue","road","litterban"],
+      hint:{en:"Parks and roads are services. Queue and no-littering are shared rules that keep things fair.",
+            ur:"پارک اور سڑکیں خدمات ہیں۔ قطار اور کوڑا نہ پھینکنا مشترکہ اصول ہیں جو انصاف رکھتے ہیں۔"},
+      done:{en:"Great sort — civic detective!", ur:"زبردست چھانٹی — سول جاسوس!"}
+    },
+    {
+      id:"r3", type:"pick",
+      title:{en:"Zebra crossing sign", ur:"زیبرا کراسنگ کا نشان"},
+      card:"crosswalk",
+      hint:{en:"Using the zebra crossing safely is a shared rule that protects walkers.",
+            ur:"زیبرا کراسنگ محفوظ استعمال کرنا مشترکہ اصول ہے جو پیدل چلنے والوں کی حفاظت کرتا ہے۔"},
+      done:{en:"Rule! Crosswalks keep us safe.", ur:"اصول! زیبرا ہمیں محفوظ رکھتا ہے۔"}
+    },
+    {
+      id:"r4", type:"pick",
+      title:{en:"City library books", ur:"شہر کی لائبریری کی کتابیں"},
+      card:"library",
+      hint:{en:"A public library is a service — books and quiet space for everyone.",
+            ur:"عوامی لائبریری ایک خدمت ہے — سب کے لیے کتابیں اور پرسکون جگہ۔"},
+      done:{en:"Service! Libraries serve the community.", ur:"خدمت! لائبریریاں کمیونٹی کی خدمت کرتی ہیں۔"}
+    }
+  ];
+
+  /* Mode 2: Who helps? — match roles to services (4 challenges) */
+  var HELPS = [
+    {
+      id:"h1", type:"match",
+      title:{en:"Match helpers to services", ur:"مددگاروں کو خدمات سے ملاؤ"},
+      pairs:[
+        {role:{em:"👮", en:"Police", ur:"پولیس"}, svc:{em:"🛡️", en:"Safety on streets", ur:"گلیوں میں سلامتی"}, key:"police"},
+        {role:{em:"👩‍🏫", en:"Teacher", ur:"استاد"}, svc:{em:"🏫", en:"Learning at school", ur:"اسکول میں سیکھنا"}, key:"teacher"},
+        {role:{em:"🧹", en:"City cleaner", ur:"شہر کا صفائی والا"}, svc:{em:"🗑️", en:"Clean streets & parks", ur:"صاف گلیاں و پارک"}, key:"cleaner"}
+      ],
+      hint:{en:"Police → safety. Teacher → school learning. Cleaner → clean city. All deserve respect!",
+            ur:"پولیس → سلامتی۔ استاد → اسکول سیکھنا۔ صفائی → صاف شہر۔ سب کا احترام!"},
+      done:{en:"Matched — helpers keep Islamabad working!", ur:"میچ ہو گئے — مددگار اسلام آباد چلاتے!"}
+    },
+    {
+      id:"h2", type:"pick",
+      title:{en:"Police near Faisal Mosque road", ur:"فیصل مسجد سڑک پر پولیس"},
+      hero:"👮🚦🇵🇰",
+      prompt:{en:"A police officer helps traffic near a busy Islamabad road. What service is this?",
+              ur:"پولیس افسر مصروف اسلام آباد سڑک پر ٹریفک کی مدد کرتا ہے۔ یہ کون سی خدمت ہے؟"},
+      choices:[
+        {id:"safe", em:"🛡️", en:"Keeping people safe on the roads", ur:"سڑکوں پر لوگوں کو محفوظ رکھنا"},
+        {id:"teach", em:"📚", en:"Teaching Class 5 maths", ur:"پانچویں کو ریاضی پڑھانا"},
+        {id:"cook", em:"🍲", en:"Cooking lunch for everyone", ur:"سب کے لیے لنچ پکانا"}
+      ],
+      correct:"safe",
+      hint:{en:"Police help with safety and fair road rules — thank them respectfully.",
+            ur:"پولیس سلامتی اور منصفانہ سڑک اصول میں مدد کرتی ہے — احترام سے شکریہ۔"},
+      done:{en:"Safety service — respect the helpers!", ur:"سلامتی کی خدمت — مددگاروں کا احترام!"}
+    },
+    {
+      id:"h3", type:"pick",
+      title:{en:"Teacher in an Islamabad classroom", ur:"اسلام آباد کلاس روم میں استاد"},
+      hero:"👩‍🏫📚🏫",
+      prompt:{en:"Your teacher explains a lesson carefully. Which public service is closest?",
+              ur:"استاد سبق سمجھاتے ہیں۔ کون سی عوامی خدمت قریب ہے؟"},
+      choices:[
+        {id:"learn", em:"🏫", en:"Education — helping kids learn", ur:"تعلیم — بچوں کو سیکھنے میں مدد"},
+        {id:"fix", em:"🔧", en:"Fixing broken traffic lights only", ur:"صرف خراب ٹریفک لائٹ ٹھیک کرنا"},
+        {id:"trash", em:"🗑️", en:"Collecting only street trash", ur:"صرف گلی کا کوڑا اٹھانا"}
+      ],
+      correct:"learn",
+      hint:{en:"Teachers are part of the education service — school is a public service for learning.",
+            ur:"اساتذہ تعلیمی خدمت کا حصہ ہیں — اسکول سیکھنے کی عوامی خدمت ہے۔"},
+      done:{en:"Education service unlocked!", ur:"تعلیمی خدمت کھلی!"}
+    },
+    {
+      id:"h4", type:"pick",
+      title:{en:"Cleaner in Fatima Jinnah Park", ur:"فاطمہ جناح پارک میں صفائی"},
+      hero:"🧹🌳🗑️",
+      prompt:{en:"A city cleaner empties bins in the park. Best respectful thought?",
+              ur:"شہر کا صفائی والا پارک میں ڈبے خالی کرتا ہے۔ بہترین احترام والا خیال؟"},
+      choices:[
+        {id:"thanks", em:"🙏", en:"Their work keeps parks clean for everyone — respect them", ur:"ان کا کام سب کے لیے پارک صاف رکھتا — احترام کرو"},
+        {id:"ignore", em:"🙈", en:"Pretend helpers do not matter", ur:"سوچو مددگار اہم نہیں"},
+        {id:"mess", em:"🍫", en:"Leave more wrappers because someone else cleans", ur:"مزید ریپر چھوڑو کیونکہ دوسرا صاف کرے گا"}
+      ],
+      correct:"thanks",
+      hint:{en:"Clean streets and parks are a public service — thank cleaners; do not make more mess.",
+            ur:"صاف گلیاں اور پارک عوامی خدمت ہیں — صفائی والوں کا شکریہ؛ مزید گندگی نہ کرو۔"},
+      done:{en:"Respect for city cleaners!", ur:"شہر کے صفائی والوں کا احترام!"}
+    }
+  ];
+
+  /* Mode 3: Fair community — 4 pick-better-action */
+  var FAIR = [
+    {
+      id:"f1",
+      title:{en:"Canteen queue", ur:"کینٹین قطار"},
+      hero:"🧃🧍🏫",
+      prompt:{en:"The canteen queue is long. Rules keep it fair. Better action?",
+              ur:"کینٹین کی قطار لمبی ہے۔ اصول منصفانہ رکھتے ہیں۔ بہتر عمل؟"},
+      choices:[
+        {id:"wait", em:"⏳", en:"Wait your turn — shared rule for everyone", ur:"اپنی باری انتظار — سب کے لیے مشترکہ اصول"},
+        {id:"cut", em:"✂️", en:"Cut in front because you are hungry", ur:"بھوک کی وجہ سے آگے گھس جاؤ"},
+        {id:"push", em:"😤", en:"Push others to get juice first", ur:"جوس کے لیے دوسروں کو دھکیلو"}
+      ],
+      correct:"wait",
+      hint:{en:"Fair queues are like mini government rules — they protect everyone's turn.",
+            ur:"منصفانہ قطاریں منی حکومت اصول جیسی ہیں — سب کی باری بچاتی ہیں۔"},
+      done:{en:"Fair queue — community rules work!", ur:"منصفانہ قطار — کمیونٹی اصول کام کرتے!"}
+    },
+    {
+      id:"f2",
+      title:{en:"Zebra crossing near school", ur:"اسکول کے قریب زیبرا"},
+      hero:"🚸🚶🏫",
+      prompt:{en:"Cars are moving. You need to cross to school. Fair & safe choice?",
+              ur:"گاڑیاں چل رہی ہیں۔ اسکول جانے کے لیے پار کرنا ہے۔ منصفانہ اور محفوظ انتخاب؟"},
+      choices:[
+        {id:"zebra", em:"🦓", en:"Use the zebra crossing and wait for a safe gap", ur:"زیبرا استعمال کرو اور محفوظ وقفہ انتظار کرو"},
+        {id:"dash", em:"🏃", en:"Dash between cars for fun", ur:"مزے کے لیے گاڑیوں کے درمیان دوڑو"},
+        {id:"block", em:"🛑", en:"Stand in the middle of the road to stop cars", ur:"گاڑیاں روکنے کے لیے سڑک بیچ میں کھڑے ہو جاؤ"}
+      ],
+      correct:"zebra",
+      hint:{en:"Crosswalk rules exist so walkers and drivers share the road fairly and safely.",
+            ur:"زیبرا اصول اس لیے ہیں کہ پیدل اور ڈرائیور سڑک منصفانہ اور محفوظ بانٹیں۔"},
+      done:{en:"Safe crossing — rules protect you!", ur:"محفوظ پار — اصول تمہیں بچاتے!"}
+    },
+    {
+      id:"f3",
+      title:{en:"School property care", ur:"اسکول کی چیزوں کی دیکھ بھال"},
+      hero:"🏫🪑📚",
+      prompt:{en:"Someone starts writing on a school desk. Fair community action?",
+              ur:"کوئی اسکول کی میز پر لکھنا شروع کرے。 منصفانہ کمیونٹی عمل؟"},
+      choices:[
+        {id:"care", em:"✋", en:"Stop kindly — school property is a shared service", ur:"نرمی سے روکو — اسکول کی چیزیں مشترکہ خدمت ہیں"},
+        {id:"join", em:"🖍️", en:"Join in and draw more", ur:"شامل ہو کر مزید بناؤ"},
+        {id:"break", em:"💥", en:"Break a chair to make it funny", ur:"مزے کے لیے کرسی توڑ دو"}
+      ],
+      correct:"care",
+      hint:{en:"Schools are public services — desks, books, and walls belong to everyone.",
+            ur:"اسکول عوامی خدمات ہیں — میزیں، کتابیں، دیواریں سب کی ہیں۔"},
+      done:{en:"School care — shared service saved!", ur:"اسکول دیکھ بھال — مشترکہ خدمت بچ گئی!"}
+    },
+    {
+      id:"f4",
+      title:{en:"Park bin or bushes?", ur:"پارک ڈبہ یا جھاڑیاں؟"},
+      hero:"🌳🗑️🍃",
+      prompt:{en:"You finish a snack in a city park. Fair use of the park service?",
+              ur:"شہر کے پارک میں سنیک ختم کیا۔ پارک خدمت کا منصفانہ استعمال؟"},
+      choices:[
+        {id:"bin", em:"🗑️", en:"Put the wrapper in a bin", ur:"ریپر کوڑے دان میں ڈالو"},
+        {id:"bush", em:"🌿", en:"Hide it under a bush", ur:"جھاڑی کے نیچے چھپاؤ"},
+        {id:"throw", em:"🌬️", en:"Throw it for the wind to take", ur:"ہوا کے لیے پھینک دو"}
+      ],
+      correct:"bin",
+      hint:{en:"Parks are a public service — clean use keeps them open and fair for all.",
+            ur:"پارک عوامی خدمت ہیں — صاف استعمال سب کے لیے کھلے اور منصفانہ رکھتا ہے۔"},
+      done:{en:"Clean park — fair community star!", ur:"صاف پارک — منصفانہ کمیونٹی ستارہ!"}
+    }
+  ];
+
+  var QUIZ = [
+    {
+      q:{en:"What is government, in kid words?",
+         ur:"بچوں کی زبان میں حکومت کیا ہے؟"},
+      opts:[
+        {en:"A team that makes shared rules and runs public services", ur:"ایک ٹیم جو مشترکہ اصول بناتی اور عوامی خدمات چلاتی ہے"},
+        {en:"Only one person's private game", ur:"صرف ایک شخص کا ذاتی کھیل"},
+        {en:"A shop that sells only toys", ur:"ایک دکان جو صرف کھلونے بیچتی ہے"},
+        {en:"A rule that says kids never help", ur:"ایک اصول کہ بچے کبھی مدد نہ کریں"}
+      ],
+      correct:0,
+      why:{en:"Government = shared rules + services (schools, roads, safety) so the community works fairly.",
+           ur:"حکومت = مشترکہ اصول + خدمات (اسکول، سڑکیں، سلامتی) تاکہ کمیونٹی منصفانہ چلے۔"}
+    },
+    {
+      q:{en:"Which is a RULE, not a service?",
+         ur:"کون سا اصول ہے، خدمت نہیں؟"},
+      opts:[
+        {en:"Traffic light law / speed limit", ur:"ٹریفک لائٹ کا قانون / رفتار کی حد"},
+        {en:"A public hospital", ur:"سرکاری ہسپتال"},
+        {en:"A city park", ur:"شہر کا پارک"},
+        {en:"A public school building", ur:"سرکاری اسکول کی عمارت"}
+      ],
+      correct:0,
+      why:{en:"Rules guide behaviour. Hospitals, parks, and schools are services the team runs.",
+           ur:"اصول رویہ بتاتے ہیں۔ ہسپتال، پارک، اسکول وہ خدمات ہیں جو ٹیم چلاتی ہے۔"}
+    },
+    {
+      q:{en:"Which is a PUBLIC SERVICE?",
+         ur:"کون سی عوامی خدمت ہے؟"},
+      opts:[
+        {en:"Public school, hospital, park, or clean water", ur:"سرکاری اسکول، ہسپتال، پارک، یا صاف پانی"},
+        {en:"Cutting the canteen queue", ur:"کینٹین قطار میں گھسنا"},
+        {en:"Writing on school desks for fun", ur:"مزے کے لیے اسکول میزوں پر لکھنا"},
+        {en:"Throwing wrappers in Margalla bushes", ur:"مارگلہ جھاڑیوں میں ریپر پھینکنا"}
+      ],
+      correct:0,
+      why:{en:"Services help everyone — education, health, parks, water, roads.",
+           ur:"خدمات سب کی مدد کرتی ہیں — تعلیم، صحت، پارک، پانی، سڑکیں۔"}
+    },
+    {
+      q:{en:"Why are school rules like a mini government?",
+         ur:"اسکول کے اصول منی حکومت کیوں جیسے ہیں؟"},
+      opts:[
+        {en:"They are shared rules that keep learning fair and safe", ur:"وہ مشترکہ اصول ہیں جو سیکھنا منصفانہ اور محفوظ رکھتے ہیں"},
+        {en:"So nobody ever plays outside", ur:"تاکہ کوئی کبھی باہر نہ کھیلے"},
+        {en:"Only to make lines longer forever", ur:"صرف قطاریں ہمیشہ لمبی کرنے کے لیے"},
+        {en:"Because rules never help anyone", ur:"کیونکہ اصول کبھی کسی کی مدد نہیں کرتے"}
+      ],
+      correct:0,
+      why:{en:"School is a mini community — shared rules + services (teachers, rooms, books) help everyone.",
+           ur:"اسکول منی کمیونٹی ہے — مشترکہ اصول + خدمات (اساتذہ، کمرے، کتابیں) سب کی مدد۔"}
+    },
+    {
+      q:{en:"How can Class 5 kids help a fair community in Islamabad?",
+         ur:"پانچویں جماعت کے بچے اسلام آباد میں منصفانہ کمیونٹی کی مدد کیسے کر سکتے ہیں؟"},
+      opts:[
+        {en:"Follow rules, use services kindly, respect helpers, keep parks clean", ur:"اصول مانو، خدمات مہربانی سے استعمال، مددگاروں کا احترام، پارک صاف"},
+        {en:"Ignore every shared rule", ur:"ہر مشترکہ اصول نظرانداز کرو"},
+        {en:"Only adults can ever help", ur:"صرف بالغ ہی کبھی مدد کر سکتے ہیں"},
+        {en:"Make more mess for cleaners on purpose", ur:"جان بوجھ کر صفائی والوں کے لیے مزید گندگی"}
+      ],
+      correct:0,
+      why:{en:"Kids practise civic fairness every day — queues, crosswalks, school care, thanking helpers.",
+           ur:"بچے روز سول انصاف اپناتے ہیں — قطاریں، زیبرا، اسکول دیکھ بھال، مددگاروں کا شکریہ۔"}
+    },
+    {
+      q:{en:"Police, teachers, and city cleaners…",
+         ur:"پولیس، اساتذہ، اور شہر کے صفائی والے…"},
+      opts:[
+        {en:"Help with safety, learning, and clean spaces — respect them all", ur:"سلامتی، سیکھنا، صاف جگہیں — سب کا احترام کرو"},
+        {en:"Should never be thanked", ur:"کبھی شکریہ نہیں کرنا چاہیے"},
+        {en:"Only work for one street forever", ur:"ہمیشہ صرف ایک گلی کے لیے کام کرتے ہیں"},
+        {en:"Are not part of any public service", ur:"کسی عوامی خدمت کا حصہ نہیں"}
+      ],
+      correct:0,
+      why:{en:"Different helpers run different services — all keep the community working fairly.",
+           ur:"مختلف مددگار مختلف خدمات چلاتے ہیں — سب کمیونٹی کو منصفانہ چلاتے ہیں۔"}
+    }
+  ];
+
+  var rulesIdx = 0, rulesSelected = null, rulesSort = {}, rulesDone = {};
+  var helpIdx = 0, helpDone = {}, helpMatch = {}, helpSelRole = null;
+  var fairIdx = 0, fairDone = {};
+  var quizSet = [];
+
+  function award(key, n){
+    if (awarded[key]) return;
+    awarded[key] = true;
+    stars += (n || 1);
+    $("starCount").textContent = String(stars);
+  }
+  function recountStars(){
+    stars = 0;
+    Object.keys(awarded).forEach(function(k){
+      stars += (k.indexOf("mode-")===0) ? 2 : 1;
+    });
+    $("starCount").textContent = String(stars);
+  }
+
+  function skyHTML(){
+    return '<div class="sky-layer"><div class="sun-ball"></div>' +
+           '<div class="cloud c1"></div><div class="cloud c2"></div></div>' +
+           '<div class="hills"><div class="hill h-a"></div><div class="hill h-b"></div></div>' +
+           '<div class="ground-strip"></div>';
+  }
+
+  function teamSVG(){
+    return '<svg class="comic-hero" style="width:min(90%,260px);height:auto;font-size:inherit" viewBox="0 0 260 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+      '<ellipse cx="130" cy="92" rx="70" ry="6" fill="rgba(0,0,0,.1)"/>' +
+      '<circle cx="70" cy="38" r="16" fill="#f5c89a" stroke="#1e2a1a" stroke-width="2"/>' +
+      '<rect x="55" y="54" width="30" height="28" rx="8" fill="#1a5a8a" stroke="#1e2a1a" stroke-width="2"/>' +
+      '<text x="70" y="34" text-anchor="middle" font-size="10">😊</text>' +
+      '<circle cx="130" cy="34" r="17" fill="#e8b890" stroke="#1e2a1a" stroke-width="2"/>' +
+      '<rect x="114" y="51" width="32" height="30" rx="8" fill="#1a7a45" stroke="#1e2a1a" stroke-width="2"/>' +
+      '<text x="130" y="30" text-anchor="middle" font-size="11">😄</text>' +
+      '<circle cx="190" cy="38" r="16" fill="#f0c4a0" stroke="#1e2a1a" stroke-width="2"/>' +
+      '<rect x="175" y="54" width="30" height="28" rx="8" fill="#2f6fb5" stroke="#1e2a1a" stroke-width="2"/>' +
+      '<text x="190" y="34" text-anchor="middle" font-size="10">🙂</text>' +
+      '<rect x="118" y="8" width="24" height="14" rx="2" fill="#01411C" stroke="#1e2a1a" stroke-width="1.5"/>' +
+      '<circle cx="130" cy="15" r="3.5" fill="#fff"/>' +
+      '</svg>';
+  }
+
+  function maybeRulesDone(){
+    if (Object.keys(rulesDone).length >= RULES.length){
+      doneModes.rules = true;
+      award("mode-rules", 2);
+      tabBadges();
+    }
+  }
+  function maybeHelpDone(){
+    if (Object.keys(helpDone).length >= HELPS.length){
+      doneModes.help = true;
+      award("mode-help", 2);
+      tabBadges();
+    }
+  }
+  function maybeFairDone(){
+    if (Object.keys(fairDone).length >= FAIR.length){
+      doneModes.fair = true;
+      award("mode-fair", 2);
+      tabBadges();
+    }
+  }
+
+  /* ---------- RULES & SERVICES ---------- */
+  function renderRules(){
+    var ch = RULES[rulesIdx];
+    var pad = $("scenePad");
+    var box = $("actionBox");
+    box.innerHTML = "";
+    $("hintbox").classList.remove("show");
+
+    setText($("statechip"), (rulesIdx+1) + " / " + RULES.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (rulesDone[ch.id]?" win":"");
+    if (rulesDone[ch.id]) setText($("statechip"), t(T.nice));
+
+    if (ch.type === "sort"){
+      pad.innerHTML = skyHTML() +
+        '<div class="sort-grid">' +
+          '<div class="sort-bin rule-bin'+(rulesSelected?" hot":"")+'" data-bin="rule"><h3></h3><div class="drop" id="binRule"></div></div>' +
+          '<div class="sort-bin svc-bin'+(rulesSelected?" hot":"")+'" data-bin="svc"><h3></h3><div class="drop" id="binSvc"></div></div>' +
+        '</div>';
+      setText(pad.querySelector(".rule-bin h3"), t(T.ruleLab));
+      setText(pad.querySelector(".svc-bin h3"), t(T.svcLab));
+
+      ["rule","svc"].forEach(function(bin){
+        pad.querySelector('[data-bin="'+bin+'"]').addEventListener("click", function(){
+          if (!rulesSelected || rulesDone[ch.id]) return;
+          rulesSort[rulesSelected] = bin;
+          rulesSelected = null;
+          renderRules();
+        });
+      });
+
+      ch.items.forEach(function(id){
+        var bin = rulesSort[id];
+        if (!bin) return;
+        var el = document.createElement("span");
+        el.className = "mini-chip";
+        el.textContent = CARDS[id].em;
+        el.title = t(CARDS[id]);
+        el.addEventListener("click", function(e){
+          e.stopPropagation();
+          if (rulesDone[ch.id]) return;
+          delete rulesSort[id];
+          renderRules();
+        });
+        (bin==="rule"?$("binRule"):$("binSvc")).appendChild(el);
+      });
+
+      var bank = document.createElement("div");
+      bank.className = "bank";
+      ch.items.forEach(function(id){
+        if (rulesSort[id]) return;
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "item-card" + (rulesSelected===id?" selected":"");
+        b.innerHTML = '<span class="item-em">'+CARDS[id].em+'</span><p class="item-lab"></p>';
+        setText(b.querySelector(".item-lab"), t(CARDS[id]));
+        b.addEventListener("click", function(){
+          if (rulesDone[ch.id]) return;
+          rulesSelected = id;
+          renderRules();
+        });
+        bank.appendChild(b);
+      });
+      box.appendChild(bank);
+
+      if (!rulesDone[ch.id]){
+        var chk = document.createElement("button");
+        chk.type = "button";
+        chk.style.cssText = "margin-top:10px;width:100%;border:2px solid var(--ink);border-radius:14px;background:var(--ink);color:var(--paper);font:inherit;font-weight:800;min-height:48px;cursor:pointer";
+        setText(chk, t(T.checkSort));
+        chk.addEventListener("click", function(){
+          var ok = true;
+          ch.items.forEach(function(id){
+            if (rulesSort[id] !== CARDS[id].bin) ok = false;
+          });
+          if (ok && Object.keys(rulesSort).filter(function(k){ return ch.items.indexOf(k)>=0; }).length === ch.items.length){
+            rulesDone[ch.id] = true;
+            award("rules-"+ch.id, 1);
+            setText($("headline"), t(ch.done));
+            $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.nice));
+            maybeRulesDone();
+            renderRules();
+          } else {
+            setText($("headline"), t(T.oops));
+            $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.oops));
+          }
+        });
+        box.appendChild(chk);
+      }
+
+      setText($("headline"), rulesDone[ch.id] ? t(ch.done) : t(ch.title));
+      setText($("detail"), rulesSelected ? t(CARDS[rulesSelected]) + " → ?" : t(T.askSort));
+    } else {
+      var card = CARDS[ch.card];
+      pad.innerHTML = skyHTML() +
+        '<div class="comic-stage">' + teamSVG() +
+        '<div class="comic-panel"><span class="em">'+card.em+'</span><span class="plab"></span></div></div>';
+      setText(pad.querySelector(".plab"), t(card));
+
+      setText($("headline"), rulesDone[ch.id] ? t(ch.done) : t(ch.title));
+      setText($("detail"), t(T.askPick));
+
+      var choices = document.createElement("div");
+      choices.className = "save-choices";
+      [
+        {id:"rule", em:"📜", en:"Rule (Qanoon)", ur:"اصول"},
+        {id:"svc", em:"🏥", en:"Service (Khidmat)", ur:"خدمت"}
+      ].forEach(function(c){
+        var b = document.createElement("button");
+        b.type = "button";
+        if (rulesDone[ch.id] && c.id === card.bin) b.classList.add("right");
+        b.innerHTML = '<span class="cem">'+c.em+'</span><span class="clab"></span>';
+        setText(b.querySelector(".clab"), t(c));
+        b.disabled = !!rulesDone[ch.id];
+        b.addEventListener("click", function(){
+          if (rulesDone[ch.id]) return;
+          if (c.id === card.bin){
+            rulesDone[ch.id] = true;
+            award("rules-"+ch.id, 1);
+            b.classList.add("right");
+            setText($("headline"), t(ch.done));
+            $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.nice));
+            maybeRulesDone();
+            renderRules();
+          } else {
+            b.classList.add("wrong");
+            setText($("headline"), t(T.oops));
+            $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.oops));
+            setTimeout(function(){ b.classList.remove("wrong"); }, 600);
+          }
+        });
+        choices.appendChild(b);
+      });
+      box.appendChild(choices);
+    }
+    setText($("prog"), t(T.progR) + ": " + Object.keys(rulesDone).length + "/" + RULES.length);
+  }
+
+  /* ---------- WHO HELPS ---------- */
+  function renderHelp(){
+    var ch = HELPS[helpIdx];
+    var pad = $("scenePad");
+    var box = $("actionBox");
+    box.innerHTML = "";
+    $("hintbox").classList.remove("show");
+
+    setText($("statechip"), (helpIdx+1) + " / " + HELPS.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (helpDone[ch.id]?" win":"");
+    if (helpDone[ch.id]) setText($("statechip"), t(T.nice));
+
+    if (ch.type === "match"){
+      var pairs = ch.pairs;
+      var matched = helpMatch[ch.id] || {};
+      pad.innerHTML = skyHTML() + '<div class="match-row" id="roleRow"></div><div class="match-row" id="svcRow" style="padding-top:8px"></div>';
+      var roleRow = $("roleRow");
+      var svcRow = $("svcRow");
+      pairs.forEach(function(p){
+        var rb = document.createElement("button");
+        rb.type = "button";
+        rb.className = "match-card" + (matched[p.key]?" paired":"") + (helpSelRole===p.key?" selected":"");
+        rb.innerHTML = '<span class="mem">'+p.role.em+'</span><span class="mlab"></span>';
+        setText(rb.querySelector(".mlab"), t(p.role));
+        rb.disabled = !!helpDone[ch.id] || !!matched[p.key];
+        rb.addEventListener("click", function(){
+          if (helpDone[ch.id] || matched[p.key]) return;
+          helpSelRole = p.key;
+          renderHelp();
+        });
+        roleRow.appendChild(rb);
+      });
+      /* keep stable service order once started */
+      if (!ch._svcOrder) ch._svcOrder = shuffle(pairs.slice());
+      ch._svcOrder.forEach(function(p){
+        var sb = document.createElement("button");
+        sb.type = "button";
+        var already = Object.keys(matched).some(function(k){ return matched[k]===p.key; });
+        sb.className = "match-card" + (already?" paired":"");
+        sb.innerHTML = '<span class="mem">'+p.svc.em+'</span><span class="mlab"></span>';
+        setText(sb.querySelector(".mlab"), t(p.svc));
+        sb.disabled = !!helpDone[ch.id] || already;
+        sb.addEventListener("click", function(){
+          if (helpDone[ch.id] || already || !helpSelRole) return;
+          if (!helpMatch[ch.id]) helpMatch[ch.id] = {};
+          if (helpSelRole === p.key){
+            helpMatch[ch.id][helpSelRole] = p.key;
+            helpSelRole = null;
+            if (Object.keys(helpMatch[ch.id]).length >= pairs.length){
+              helpDone[ch.id] = true;
+              award("help-"+ch.id, 1);
+              maybeHelpDone();
+            }
+            renderHelp();
+          } else {
+            sb.classList.add("wrong");
+            setText($("headline"), t(T.oops));
+            $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.oops));
+            setTimeout(function(){ sb.classList.remove("wrong"); }, 600);
+          }
+        });
+        svcRow.appendChild(sb);
+      });
+
+      setText($("headline"), helpDone[ch.id] ? t(ch.done) : t(ch.title));
+      setText($("detail"), t(T.askMatch));
+    } else {
+      pad.innerHTML = skyHTML() +
+        '<div class="comic-stage"><div class="comic-hero">'+ch.hero+'</div>' +
+        '<div class="comic-panel"><span class="em">🧒</span><span class="plab"></span></div></div>';
+      setText(pad.querySelector(".plab"), t(ch.title));
+
+      setText($("headline"), helpDone[ch.id] ? t(ch.done) : t(ch.title));
+      setText($("detail"), t(ch.prompt));
+
+      var choices = document.createElement("div");
+      choices.className = "save-choices";
+      ch.choices.forEach(function(c){
+        var b = document.createElement("button");
+        b.type = "button";
+        if (helpDone[ch.id] && c.id === ch.correct) b.classList.add("right");
+        b.innerHTML = '<span class="cem">'+c.em+'</span><span class="clab"></span>';
+        setText(b.querySelector(".clab"), t(c));
+        b.disabled = !!helpDone[ch.id];
+        b.addEventListener("click", function(){
+          if (helpDone[ch.id]) return;
+          if (c.id === ch.correct){
+            helpDone[ch.id] = true;
+            award("help-"+ch.id, 1);
+            b.classList.add("right");
+            setText($("headline"), t(ch.done));
+            $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.nice));
+            maybeHelpDone();
+            tabBadges();
+            renderHelp();
+          } else {
+            b.classList.add("wrong");
+            setText($("headline"), t(T.oops));
+            $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.oops));
+            setTimeout(function(){ b.classList.remove("wrong"); }, 600);
+          }
+        });
+        choices.appendChild(b);
+      });
+      box.appendChild(choices);
+    }
+    setText($("prog"), t(T.progH) + ": " + Object.keys(helpDone).length + "/" + HELPS.length);
+  }
+
+  /* ---------- FAIR COMMUNITY ---------- */
+  function renderFair(){
+    var ch = FAIR[fairIdx];
+    var pad = $("scenePad");
+    pad.innerHTML = skyHTML() +
+      '<div class="comic-stage"><div class="comic-hero">'+ch.hero+'</div>' +
+      '<div class="comic-panel"><span class="em">🧒</span><span class="plab"></span></div></div>';
+    setText(pad.querySelector(".plab"), t(ch.title));
+
+    setText($("statechip"), (fairIdx+1) + " / " + FAIR.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (fairDone[ch.id]?" win":"");
+    if (fairDone[ch.id]) setText($("statechip"), t(T.nice));
+    setText($("headline"), fairDone[ch.id] ? t(ch.done) : t(ch.title));
+    setText($("detail"), t(ch.prompt));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+    var choices = document.createElement("div");
+    choices.className = "save-choices";
+    ch.choices.forEach(function(c){
+      var b = document.createElement("button");
+      b.type = "button";
+      if (fairDone[ch.id] && c.id === ch.correct) b.classList.add("right");
+      b.innerHTML = '<span class="cem">'+c.em+'</span><span class="clab"></span>';
+      setText(b.querySelector(".clab"), t(c));
+      b.disabled = !!fairDone[ch.id];
+      b.addEventListener("click", function(){
+        if (fairDone[ch.id]) return;
+        if (c.id === ch.correct){
+          fairDone[ch.id] = true;
+          award("fair-"+ch.id, 1);
+          b.classList.add("right");
+          setText($("headline"), t(ch.done));
+          $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.nice));
+          maybeFairDone();
+          tabBadges();
+          renderFair();
+        } else {
+          b.classList.add("wrong");
+          setText($("headline"), t(T.oops));
+          $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.oops));
+          setTimeout(function(){ b.classList.remove("wrong"); }, 600);
+        }
+      });
+      choices.appendChild(b);
+    });
+    box.appendChild(choices);
+    setText($("prog"), t(T.progF) + ": " + Object.keys(fairDone).length + "/" + FAIR.length);
+  }
+
+  /* ---------- QUIZ ---------- */
+  function pickQuiz(){ quizSet = shuffle(QUIZ).slice(0, 5); }
+  function renderQuiz(){
+    var box = $("quizBox");
+    box.innerHTML = "";
+    quizSet.forEach(function(item, qi){
+      var wrap = document.createElement("div");
+      wrap.className = "q";
+      var p = document.createElement("p");
+      setText(p, (qi+1) + ". " + t(item.q));
+      wrap.appendChild(p);
+      var answered = false;
+      item.opts.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt" + (lang==="ur"?" ur":"");
+        setText(b, t(opt));
+        b.addEventListener("click", function(){
+          if (answered) return;
+          answered = true;
+          if (oi === item.correct){
+            b.classList.add("right");
+            award("quiz-"+qi, 1);
+          } else {
+            b.classList.add("wrong");
+            var kids = wrap.querySelectorAll(".opt");
+            if (kids[item.correct]) kids[item.correct].classList.add("right");
+          }
+          fb.classList.add("show");
+        });
+        wrap.appendChild(b);
+      });
+      var fb = document.createElement("p");
+      fb.className = "fb";
+      setText(fb, t(item.why));
+      wrap.appendChild(fb);
+      box.appendChild(wrap);
+    });
+  }
+
+  function storyHtml(){
+    if (mode === "rules") return t(T.storyRules);
+    if (mode === "help") return t(T.storyHelp);
+    return t(T.storyFair);
+  }
+
+  function tabBadges(){
+    function lab(btn, label, key){
+      btn.innerHTML = "";
+      var span = document.createElement("span");
+      setText(span, t(label));
+      btn.appendChild(span);
+      if (doneModes[key]){
+        var b = document.createElement("span");
+        b.className = "badge"; b.textContent = " ★";
+        btn.appendChild(b);
+      }
+    }
+    lab($("tabRules"), T.tabRules, "rules");
+    lab($("tabHelp"), T.tabHelp, "help");
+    lab($("tabFair"), T.tabFair, "fair");
+    $("tabRules").setAttribute("aria-pressed", mode==="rules"?"true":"false");
+    $("tabHelp").setAttribute("aria-pressed", mode==="help"?"true":"false");
+    $("tabFair").setAttribute("aria-pressed", mode==="fair"?"true":"false");
+  }
+
+  function setMode(m){
+    mode = m;
+    rulesSelected = null;
+    helpSelRole = null;
+    if (mode === "rules") renderRules();
+    else if (mode === "help") renderHelp();
+    else renderFair();
+    applyChrome();
+  }
+
+  function applyChrome(){
+    setText($("title"), t(T.title));
+    setText($("subtitle"), t(T.sub));
+    $("story").innerHTML = storyHtml();
+    $("story").classList.toggle("ur", lang==="ur");
+    $("story").setAttribute("dir", lang==="ur"?"rtl":"ltr");
+    setText($("ctlHead"), t(T.ctl));
+    setText($("nextBtn"), t(T.next));
+    setText($("hintBtn"), t(T.hint));
+    setText($("resetBtn"), t(T.reset));
+    setText($("quizHead"), t(T.quiz));
+    setText($("newQuiz"), t(T.newQuiz));
+    $("langBtn").textContent = (lang === "en") ? "اردو" : "EN";
+    $("langBtn").setAttribute("aria-pressed", lang==="ur"?"true":"false");
+    document.body.classList.toggle("urdu", lang==="ur");
+    document.documentElement.lang = (lang==="ur") ? "ur" : "en";
+    document.documentElement.dir = (lang==="ur") ? "rtl" : "ltr";
+    tabBadges();
+    var foot = document.querySelector("footer p");
+    if (foot) setText(foot, foot.getAttribute(lang==="ur"?"data-ur":"data-en"));
+  }
+
+  function applyLang(){
+    applyChrome();
+    if (mode === "rules") renderRules();
+    else if (mode === "help") renderHelp();
+    else renderFair();
+    renderQuiz();
+  }
+
+  function next(){
+    if (mode === "rules"){
+      rulesIdx = (rulesIdx + 1) % RULES.length;
+      rulesSelected = null;
+      if (RULES[rulesIdx].type === "sort"){
+        rulesSort = {};
+      }
+      renderRules();
+    } else if (mode === "help"){
+      helpIdx = (helpIdx + 1) % HELPS.length;
+      helpSelRole = null;
+      renderHelp();
+    } else {
+      fairIdx = (fairIdx + 1) % FAIR.length;
+      renderFair();
+    }
+  }
+
+  function showHint(){
+    var h;
+    if (mode === "rules") h = RULES[rulesIdx].hint;
+    else if (mode === "help") h = HELPS[helpIdx].hint;
+    else h = FAIR[fairIdx].hint;
+    var hb = $("hintbox");
+    setText(hb, t(h));
+    hb.classList.add("show");
+  }
+
+  function resetMode(){
+    if (mode === "rules"){
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("rules-")===0 || k==="mode-rules") delete awarded[k]; });
+      rulesDone = {}; rulesSort = {}; rulesSelected = null; rulesIdx = 0;
+      doneModes.rules = false;
+      recountStars(); renderRules();
+    } else if (mode === "help"){
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("help-")===0 || k==="mode-help") delete awarded[k]; });
+      helpDone = {}; helpMatch = {}; helpSelRole = null; helpIdx = 0;
+      HELPS.forEach(function(h){ delete h._svcOrder; });
+      doneModes.help = false;
+      recountStars(); renderHelp();
+    } else {
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("fair-")===0 || k==="mode-fair") delete awarded[k]; });
+      fairDone = {}; fairIdx = 0; doneModes.fair = false;
+      recountStars(); renderFair();
+    }
+    tabBadges();
+    applyChrome();
+  }
+
+  function cleanSpeakText(s){
+    return String(s || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  }
+  function buildSpeakText(){
+    var bits = [];
+    bits.push(t(T.title));
+    bits.push(cleanSpeakText(storyHtml()));
+    bits.push(cleanSpeakText(($("headline") && $("headline").textContent) || ""));
+    bits.push(cleanSpeakText(($("detail") && $("detail").textContent) || ""));
+    bits.push(t(T.tip));
+    return bits.filter(Boolean).join(". ");
+  }
+  function pickVoice(voices, want){
+    var i, v, L;
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf(want) === 0) return v;
+    }
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf("en") === 0) return v;
+    }
+    return voices[0] || null;
+  }
+  var speakTimer = null;
+  function setSpeaking(on){
+    var btn = $("speakBtn");
+    if (!btn) return;
+    btn.setAttribute("aria-pressed", on ? "true" : "false");
+    btn.style.opacity = on ? "0.65" : "";
+  }
+  function doSpeak(text, asLang){
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.92;
+    u.lang = (asLang === "ur") ? "ur-PK" : "en-US";
+    var voices = window.speechSynthesis.getVoices() || [];
+    var voice = pickVoice(voices, asLang === "ur" ? "ur" : "en");
+    if (voice) u.voice = voice;
+    u.onstart = function(){ setSpeaking(true); };
+    u.onend = function(){ setSpeaking(false); };
+    u.onerror = function(){
+      setSpeaking(false);
+      if (asLang === "ur"){
+        var fallback = cleanSpeakText(T.title.en + ". " + T.storyRules.en + ". " + T.tip.en);
+        var u2 = new SpeechSynthesisUtterance(fallback);
+        u2.lang = "en-US"; u2.rate = 0.92;
+        var v2 = pickVoice(window.speechSynthesis.getVoices() || [], "en");
+        if (v2) u2.voice = v2;
+        u2.onstart = function(){ setSpeaking(true); };
+        u2.onend = u2.onerror = function(){ setSpeaking(false); };
+        window.speechSynthesis.speak(u2);
+      }
+    };
+    window.speechSynthesis.speak(u);
+  }
+  if ("speechSynthesis" in window){
+    try { window.speechSynthesis.getVoices(); } catch (e0) {}
+    if (typeof window.speechSynthesis.addEventListener === "function"){
+      window.speechSynthesis.addEventListener("voiceschanged", function(){
+        try { window.speechSynthesis.getVoices(); } catch (e1) {}
+      });
+    }
+  } else {
+    var noBtn = $("speakBtn");
+    if (noBtn){ noBtn.disabled = true; noBtn.title = "Voice not available on this device"; }
+  }
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en";
+    applyLang();
+  });
+  $("tabRules").addEventListener("click", function(){ setMode("rules"); });
+  $("tabHelp").addEventListener("click", function(){ setMode("help"); });
+  $("tabFair").addEventListener("click", function(){ setMode("fair"); });
+  $("nextBtn").addEventListener("click", next);
+  $("hintBtn").addEventListener("click", showHint);
+  $("resetBtn").addEventListener("click", resetMode);
+  $("newQuiz").addEventListener("click", function(){ pickQuiz(); renderQuiz(); });
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      var text = buildSpeakText();
+      if (!text) return;
+      if (speakTimer){ clearTimeout(speakTimer); speakTimer = null; }
+      window.speechSynthesis.cancel();
+      setSpeaking(false);
+      var speakLang = lang;
+      speakTimer = setTimeout(function(){
+        speakTimer = null;
+        doSpeak(text, speakLang);
+      }, 80);
+    }catch(e){ setSpeaking(false); }
+  });
+
+  pickQuiz();
+  applyLang();
+})();
+</script>
+</body>
+</html>

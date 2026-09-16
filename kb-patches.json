@@ -239,5 +239,13 @@
       "interactive_file": "interactives/g5-culture.html",
       "interactive_label": "Khelo — Culture"
     }
+  },
+  {
+    "file": "kb/grade_5/social.json",
+    "match_title": "State aur Government",
+    "add": {
+      "interactive_file": "interactives/g5-state-government.html",
+      "interactive_label": "Khelo — State aur Government"
+    }
   }
 ]

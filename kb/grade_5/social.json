@@ -108,7 +108,9 @@
             "correct": "a"
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g5-state-government.html",
+      "interactive_label": "Khelo — State aur Government"
     },
     {
       "title": "History",
