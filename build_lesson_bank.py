@@ -14,6 +14,7 @@ SUBJ_META = {
     "english":  {"name": "English",          "emoji": "📚", "color": "#9b59b6"},
     "science":  {"name": "General Science",  "emoji": "🔬", "color": "#e74c3c"},
     "robotics": {"name": "Automation & Robotics","emoji":"⚙️","color":"#f39c12"},
+    "social":   {"name": "Social Studies", "emoji": "🌍", "color": "#2980b9"},
 }
 
 def esc(t):
@@ -143,7 +144,7 @@ body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f5f5f0;color:#2c3e50}
 <body>
 <div class="header">
   <h1>📚 AI4Kids.pk — Lesson Bank</h1>
-  <p>SNC Curriculum • Class 1-5 • 5 Subjects • 150 Topics • Roman Urdu</p>
+  <p>SNC Curriculum • Class 1-5 • 6 Subjects • 150 Topics • Roman Urdu</p>
 </div>
 <div class="controls">
   <input class="search" id="search" placeholder="Search... تلاش کریں (e.g. fractions, robot, grammar)" oninput="filterCards()">

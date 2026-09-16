@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Citizenship — شہریت | AI4Kids Class 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#e8f3e6;--board-deep:#c5dbc0;--sky:#9ec9f0;--sky2:#6ba8d9;
+    --park:#7cb070;--park2:#4a8a4a;--accent:#1a7a45;--flag-g:#01411C;
+    --ok:#2e7d4f;--ink:#1e2a1a;--ink-soft:#4a5744;--paper:#fdfaf3;
+    --line:#d5dec8;--gold:#e8b23d;--left:#c4453a;--right-bin:#2f6fb5;--duty-bin:#c9702e;
+    --home:#c45c3a;--school:#2f6fb5;--hood:#1a7a45;
+    --fs-cap:clamp(12px, 3.2vw, 13px);--fs-xs:clamp(14px, 3.7vw, 15px);
+    --fs-sm:clamp(16px, 4.2vw, 17px);--fs-md:clamp(17px, 4.6vw, 19px);
+    --fs-lg:clamp(20px, 5.4vw, 23px);--fs-xl:clamp(27px, 7.4vw, 33px);--lh:1.5;
+  }
+  body.urdu{
+    --fs-cap:clamp(13px, 3.5vw, 15px);--fs-xs:clamp(15px, 4.1vw, 17px);
+    --fs-sm:clamp(17px, 4.7vw, 19px);--fs-md:clamp(19px, 5.2vw, 21px);
+    --fs-lg:clamp(22px, 6vw, 25px);--fs-xl:clamp(26px, 7vw, 31px);--lh:2.1;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  .stars{display:flex;align-items:center;gap:6px;font-weight:800;font-size:var(--fs-xs);
+         background:#fff6e2;border:2px solid var(--gold);border-radius:999px;padding:7px 13px}
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+  .tabs{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
+  .tabs button{
+    flex:1 1 28%;min-width:90px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:10px 6px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:54px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .tabs button .badge{color:var(--gold)}
+  .story{
+    background:#fff8ea;border:2px dashed var(--gold);border-radius:16px;padding:13px 15px;
+    font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;margin-bottom:14px;
+  }
+  body.urdu .story{line-height:var(--lh)}
+  .story b{color:var(--ink)}
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:linear-gradient(180deg,var(--sky) 0%,var(--sky2) 34%,#b8d4a8 34%,#9cbc88 42%,var(--board) 42%);
+    min-height:280px;
+  }
+  .scene-pad{padding:10px 12px 18px;min-height:260px;position:relative}
+  .sky-layer{position:absolute;inset:0 0 58% 0;pointer-events:none;overflow:hidden}
+  .sun-ball{
+    position:absolute;top:12px;right:18px;width:40px;height:40px;border-radius:50%;
+    background:radial-gradient(circle at 35% 35%,#ffe9a0,#f5c542 60%,#e0a020);
+    box-shadow:0 0 18px rgba(245,197,66,.45);z-index:1;
+  }
+  body.urdu .sun-ball{right:auto;left:18px}
+  .cloud{position:absolute;background:rgba(255,255,255,.85);border-radius:40px;opacity:.9}
+  .cloud:before,.cloud:after{content:"";position:absolute;background:inherit;border-radius:50%}
+  .c1{width:48px;height:15px;top:18px;left:12%}
+  .c1:before{width:22px;height:22px;top:-12px;left:6px}
+  .c1:after{width:18px;height:18px;top:-8px;left:24px}
+  .c2{width:34px;height:12px;top:34px;left:55%;opacity:.7}
+  .c2:before{width:16px;height:16px;top:-9px;left:4px}
+  .c2:after{width:12px;height:12px;top:-5px;left:16px}
+  .hills{position:absolute;left:0;right:0;bottom:42%;height:40px;z-index:1;pointer-events:none}
+  .hill{position:absolute;bottom:0;border-radius:50% 50% 0 0;
+        background:linear-gradient(180deg,#5a8a5a,#2d5530)}
+  .h-a{width:42%;height:36px;left:-4%;opacity:.55}
+  .h-b{width:38%;height:28px;right:8%;opacity:.5}
+  .ground-strip{
+    position:absolute;left:0;right:0;bottom:0;height:32%;
+    background:linear-gradient(180deg,#8fbc78 0%,#6a9a58 100%);
+    z-index:2;border-top:3px solid #4a7040;
+  }
+  .comic-stage{position:relative;z-index:5;padding-top:78px;text-align:center;min-height:150px}
+  .comic-hero{font-size:56px;line-height:1;margin:4px 0 8px;filter:drop-shadow(0 2px 0 rgba(0,0,0,.12))}
+  .comic-panel{
+    display:inline-flex;align-items:center;gap:8px;background:rgba(253,250,243,.95);
+    border:2.5px solid var(--ink);border-radius:16px;padding:10px 14px;margin:4px;
+    box-shadow:0 3px 0 rgba(30,42,26,.12);font-weight:800;font-size:var(--fs-cap);
+  }
+  .comic-panel .em{font-size:28px}
+  .sort-grid{
+    position:relative;z-index:5;display:grid;grid-template-columns:1fr 1fr;gap:10px;
+    padding-top:88px;
+  }
+  .sort-bin{
+    border:2.5px solid var(--ink);border-radius:14px;padding:10px 8px;min-height:120px;
+    background:rgba(253,250,243,.88);text-align:center;cursor:pointer;
+  }
+  .sort-bin.right-bin{border-color:var(--right-bin);background:rgba(232,240,250,.92)}
+  .sort-bin.duty-bin{border-color:var(--duty-bin);background:rgba(250,238,220,.92)}
+  .sort-bin.hot{box-shadow:0 0 0 3px rgba(26,122,69,.3)}
+  .sort-bin h3{margin:0 0 8px;font-size:var(--fs-cap);font-weight:800}
+  .sort-bin .drop{min-height:60px;display:flex;flex-wrap:wrap;gap:4px;justify-content:center;align-items:center}
+  .item-card{
+    background:rgba(253,250,243,.95);border:2.5px solid var(--ink);border-radius:16px;
+    padding:8px 10px 10px;text-align:center;min-width:72px;max-width:120px;
+    box-shadow:0 3px 0 rgba(30,42,26,.15);cursor:pointer;user-select:none;
+  }
+  .item-card:hover{transform:translateY(-2px)}
+  .item-card.selected{border-color:var(--accent);background:#e8f5ec;box-shadow:0 0 0 3px rgba(26,122,69,.25)}
+  .item-card.ok{border-color:var(--ok);background:#e8f2ed}
+  .item-card.no{border-color:var(--left);background:#fbeae8}
+  .item-em{font-size:34px;line-height:1.1;display:block;margin-bottom:2px}
+  .item-lab{font-size:var(--fs-cap);font-weight:800;line-height:1.25;margin:0}
+  .bank{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:8px;position:relative;z-index:5}
+  .mini-chip{
+    border:2px solid var(--ink);border-radius:12px;padding:6px 8px;background:#fff;
+    line-height:1;cursor:pointer;min-width:40px;font-size:22px;
+  }
+  .save-choices{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+  .save-choices button{
+    border:2.5px solid var(--ink);background:var(--paper);border-radius:14px;
+    padding:12px 14px;font:inherit;font-weight:800;font-size:var(--fs-xs);
+    cursor:pointer;text-align:left;min-height:52px;display:flex;align-items:center;gap:10px;
+  }
+  body.urdu .save-choices button{text-align:right}
+  .save-choices button .cem{font-size:26px}
+  .save-choices button.right{border-color:var(--ok);background:#e8f2ed}
+  .save-choices button.wrong{border-color:var(--left);background:#fbeae8}
+  .map-row{
+    position:relative;z-index:5;display:flex;flex-wrap:wrap;gap:8px;
+    justify-content:center;align-items:stretch;padding-top:88px;min-height:130px;
+  }
+  .map-node{
+    flex:1 1 28%;min-width:90px;border:2.5px solid var(--ink);border-radius:16px;
+    background:rgba(253,250,243,.95);padding:10px 8px;text-align:center;
+    box-shadow:0 3px 0 rgba(30,42,26,.12);
+  }
+  .map-node .nem{font-size:36px;line-height:1;display:block;margin-bottom:4px}
+  .map-node .nlab{font-size:var(--fs-cap);font-weight:800;margin:0}
+  .map-node.home{border-color:var(--home)}
+  .map-node.school{border-color:var(--school)}
+  .map-node.hood{border-color:var(--hood)}
+  .map-node.done{background:#e8f2ed;border-color:var(--ok)}
+  .map-arrow{font-size:20px;font-weight:800;color:var(--accent);align-self:center}
+  .outcome{
+    margin-top:10px;border-radius:14px;padding:10px 12px;font-weight:700;font-size:var(--fs-xs);
+    display:none;border:2px solid var(--ok);background:#e8f2ed;color:var(--ok);
+  }
+  .outcome.show{display:block}
+  .outcome.bad{border-color:var(--left);background:#fbeae8;color:var(--left)}
+  .readout{
+    margin-top:-18px;position:relative;z-index:2;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+  .statechip.ur{padding:2px 14px 7px}
+  .statechip.win{background:var(--ok)}
+  .statechip.miss{background:var(--left)}
+  .headline{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+  .headline.ur{line-height:1.95}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+  .hintbox{
+    margin-top:14px;border:2px solid var(--accent);background:#e8f5ec;border-radius:14px;
+    padding:11px 14px;font-size:var(--fs-xs);color:var(--accent);font-weight:700;line-height:1.55;
+    display:none;
+  }
+  .hintbox.show{display:block}
+  body.urdu .hintbox{line-height:var(--lh)}
+  .panel{margin-top:22px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .prog{margin:0 0 10px;font-size:var(--fs-xs);font-weight:700;color:var(--ink-soft)}
+  .btns{display:flex;gap:9px;margin-top:8px;flex-wrap:wrap}
+  .btns button{
+    border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);
+    font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:50px;
+    padding:8px 14px;flex:1;
+  }
+  .btns .go{background:var(--ink);color:var(--paper)}
+  .btns button:active{transform:scale(.97)}
+  .btns button:disabled{opacity:.4;cursor:default}
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .qhead{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+  .qhead h2{font-size:var(--fs-lg);font-weight:800;margin:0;flex:1}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:50px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+  .opt.wrong{border-color:var(--left);background:#fbeae8}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
+      grid-template-areas:
+        "bar   bar" "head  head" "tabs  tabs" "story story"
+        "left  right" "quiz  quiz" "foot  foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+    .story{grid-area:story} .left{grid-area:left} .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+    .panel{margin-top:0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition-duration:.01ms !important;animation:none !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 5</span>
+    <span class="stars" id="starBox">⭐ <span id="starCount">0</span></span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 id="title"></h1>
+  <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group">
+    <button type="button" id="tabRights" aria-pressed="true"></button>
+    <button type="button" id="tabScenes" aria-pressed="false"></button>
+    <button type="button" id="tabMap" aria-pressed="false"></button>
+  </div>
+
+  <p class="story" id="story"></p>
+
+  <div class="left">
+  <div class="scene">
+    <div class="scene-pad" id="scenePad"></div>
+  </div>
+  <div class="readout">
+    <span class="statechip" id="statechip"></span>
+    <p class="headline" id="headline"></p>
+    <p class="detail" id="detail"></p>
+    <p class="hintbox" id="hintbox"></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="panel">
+    <h2 id="ctlHead"></h2>
+    <p class="prog" id="prog"></p>
+    <div id="actionBox"></div>
+    <div class="btns">
+      <button type="button" class="go" id="nextBtn"></button>
+    </div>
+    <div class="btns">
+      <button type="button" id="hintBtn"></button>
+      <button type="button" id="resetBtn"></button>
+    </div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <div class="qhead">
+      <h2 id="quizHead"></h2>
+      <button type="button" class="chip" id="newQuiz"></button>
+    </div>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad bilingual school. Offline play · no APIs. WhatsApp 0337 1468899 · Citizenship Social Studies SNC"
+       data-ur="اے آئی فور کڈز — اسلام آباد۔ آف لائن کھیلو۔ واٹس ایپ 0337 1468899 · شہریت سماجی علوم"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  function $(id){ return document.getElementById(id); }
+  function isolate(s){ return "\u2066" + s + "\u2069"; }
+  function setText(el, str){
+    if (!el) return;
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+  function t(o){ return (o && o[lang]) || (o && o.en) || ""; }
+  function shuffle(arr){
+    var a = arr.slice(), i, j, tmp;
+    for (i = a.length - 1; i > 0; i--){
+      j = Math.floor(Math.random() * (i + 1));
+      tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  var lang = "en";
+  var mode = "rights";
+  var stars = 0;
+  var awarded = {};
+  var doneModes = {rights:false, scenes:false, map:false};
+
+  var T = {
+    title:{en:"Citizenship", ur:"شہریت"},
+    sub:{en:"Haqooq aur farz — be a good citizen at home, school & Islamabad!",
+         ur:"حقوق اور فرض — گھر، اسکول اور اسلام آباد میں اچھے شہری بنو!"},
+    tabRights:{en:"Rights & duties", ur:"حقوق و فرض"},
+    tabScenes:{en:"Good citizen", ur:"اچھا شہری"},
+    tabMap:{en:"My map", ur:"میرا نقشہ"},
+    storyRights:{en:"A <b>citizen</b> is a community member with <b>rights</b> (haqooq) AND <b>duties</b> (farz). Sort each card — kids practise citizenship every day!",
+                 ur:"<b>شہری</b> کمیونٹی کا رکن ہے جس کے <b>حقوق</b> اور <b>فرض</b> دونوں ہیں۔ کارڈ چھانٹو — بچے روز شہریت اپناتے ہیں!"},
+    storyScenes:{en:"Islamabad comic scenes — school, park, bus, canteen. Pick the <b>better action</b> of a good citizen.",
+                 ur:"اسلام آباد کارٹون مناظر — اسکول، پارک، بس، کینٹین۔ <b>بہتر عمل</b> چنو۔"},
+    storyMap:{en:"Build your <b>citizenship map</b>: Home → School → Neighbourhood. One good action for each place!",
+              ur:"اپنا <b>شہریت نقشہ</b> بناؤ: گھر → اسکول → محلہ۔ ہر جگہ ایک اچھا عمل!"},
+    ctl:{en:"Your turn — mini citizen", ur:"تمہاری باری — منی شہری"},
+    next:{en:"Next challenge", ur:"اگلا چیلنج"},
+    hint:{en:"Hint", ur:"اشارہ"},
+    reset:{en:"Reset", ur:"ری سیٹ"},
+    quiz:{en:"Check yourself", ur:"اپنا چیک"},
+    newQuiz:{en:"New quiz", ur:"نیا کوئز"},
+    nice:{en:"Shabash — good citizen!", ur:"شاباش — اچھے شہری!"},
+    oops:{en:"Almost — try again", ur:"قریب — دوبارہ آزماؤ"},
+    tip:{en:"Tip: Citizenship = rights AND responsibilities. Kids help at home, follow school rules, keep parks clean, and treat everyone fairly.",
+         ur:"نکتہ: شہریت = حقوق اور فرض دونوں۔ بچے گھر میں مدد، اسکول کے اصول، پارک صاف، اور سب سے انصاف۔"},
+    progR:{en:"Rights & duties", ur:"حقوق و فرض"},
+    progS:{en:"Citizen scenes", ur:"شہری مناظر"},
+    progM:{en:"Map places", ur:"نقشہ جگہیں"},
+    askSort:{en:"Tap a card, then tap Right or Duty", ur:"کارڈ ٹیپ کرو، پھر حق یا فرض"},
+    askPick:{en:"Is this a right or a duty?", ur:"یہ حق ہے یا فرض؟"},
+    askScene:{en:"What should a good citizen do?", ur:"اچھا شہری کیا کرے؟"},
+    askMap:{en:"Pick one good action for this place", ur:"اس جگہ کے لیے ایک اچھا عمل چنو"},
+    checkSort:{en:"Check sort", ur:"چھانٹی چیک کرو"},
+    rightLab:{en:"✊ Right (Haq)", ur:"✊ حق"},
+    dutyLab:{en:"✋ Duty (Farz)", ur:"✋ فرض"},
+    pick:{en:"Tap a card first", ur:"پہلے کارڈ ٹیپ کرو"},
+    home:{en:"Home", ur:"گھر"},
+    school:{en:"School", ur:"اسکول"},
+    hood:{en:"Neighbourhood", ur:"محلہ"}
+  };
+
+  /* Cards for rights vs duties */
+  var CARDS = {
+    learn:{em:"📚", en:"Right to learn", ur:"سیکھنے کا حق", bin:"right"},
+    safety:{em:"🛡️", en:"Feel safe at school", ur:"اسکول میں محفوظ رہنا", bin:"right"},
+    play:{em:"⚽", en:"Time to play & rest", ur:"کھیل اور آرام کا وقت", bin:"right"},
+    speak:{em:"🗣️", en:"Share ideas kindly", ur:"نرمی سے خیال شیئر کرنا", bin:"right"},
+    care:{em:"🏥", en:"Care when sick", ur:"بیماری میں دیکھ بھال", bin:"right"},
+    respect:{em:"🙏", en:"Respect teachers", ur:"اساتذہ کا احترام", bin:"duty"},
+    litter:{em:"🗑️", en:"No littering", ur:"کوڑا نہ پھینکو", bin:"duty"},
+    honest:{em:"✋", en:"Be honest", ur:"ایماندار رہو", bin:"duty"},
+    listen:{em:"👂", en:"Listen in class", ur:"کلاس میں سنو", bin:"duty"},
+    help:{em:"🤝", en:"Help classmates", ur:"ہم جماعت کی مدد", bin:"duty"},
+    queue:{em:"🧍", en:"Wait in queue", ur:"قطار میں انتظار", bin:"duty"},
+    flag:{em:"🇵🇰", en:"Respect the flag", ur:"پرچم کا احترام", bin:"duty"}
+  };
+
+  /* Mode 1: Rights vs duties — 4 challenges (2 sort + 2 pick) */
+  var RIGHTS = [
+    {
+      id:"r1", type:"sort",
+      title:{en:"School haqooq & farz", ur:"اسکول کے حقوق و فرض"},
+      items:["learn","respect","safety","litter"],
+      hint:{en:"Rights protect you (learn, safety). Duties are what you give back (respect, no litter).",
+            ur:"حقوق تمہیں محفوظ رکھتے ہیں (سیکھنا، سلامتی)۔ فرض وہ ہیں جو تم دیتے ہو (احترام، کوڑا نہ)۔"},
+      done:{en:"Sorted — rights protect, duties help!", ur:"چھانٹی ہوئی — حقوق بچاتے، فرض مدد کرتے!"}
+    },
+    {
+      id:"r2", type:"sort",
+      title:{en:"Play, honesty & helping", ur:"کھیل، ایمانداری اور مدد"},
+      items:["play","honest","care","help"],
+      hint:{en:"Play & care are rights. Honesty and helping are duties of a good citizen.",
+            ur:"کھیل اور دیکھ بھال حقوق ہیں۔ ایمانداری اور مدد فرض ہیں۔"},
+      done:{en:"Great sort — balanced citizen!", ur:"زبردست چھانٹی — متوازن شہری!"}
+    },
+    {
+      id:"r3", type:"pick",
+      title:{en:"Waiting at the canteen", ur:"کینٹین پر انتظار"},
+      card:"queue",
+      hint:{en:"Queuing fairly is a duty — it shows respect for everyone.",
+            ur:"منصفانہ قطار فرض ہے — سب کا احترام۔"},
+      done:{en:"Duty! Fair queues help everyone.", ur:"فرض! منصفانہ قطار سب کی مدد کرتی ہے۔"}
+    },
+    {
+      id:"r4", type:"pick",
+      title:{en:"Ideas in assembly", ur:"اسمبلی میں خیالات"},
+      card:"speak",
+      hint:{en:"Sharing ideas kindly is a right — your voice matters when you are respectful.",
+            ur:"نرمی سے خیال شیئر کرنا حق ہے — احترام کے ساتھ آواز اہم ہے۔"},
+      done:{en:"Right! Speak up kindly.", ur:"حق! نرمی سے بولو۔"}
+    }
+  ];
+
+  /* Mode 2: Good citizen scenes — 4 Islamabad comics */
+  var SCENES = [
+    {
+      id:"s1",
+      title:{en:"School assembly", ur:"اسکول اسمبلی"},
+      hero:"🏫🎤🇵🇰",
+      prompt:{en:"Morning assembly — the Pakistani flag is raised. What does a good citizen do?",
+              ur:"صبح کی اسمبلی — پاکستانی پرچم لہرایا جا رہا ہے۔ اچھا شہری کیا کرے؟"},
+      choices:[
+        {id:"stand", em:"🫡", en:"Stand quietly and show respect", ur:"خاموش کھڑے رہو اور احترام کرو"},
+        {id:"talk", em:"💬", en:"Chat loudly with friends", ur:"دوستوں سے زور سے بات کرو"},
+        {id:"run", em:"🏃", en:"Run across the line for fun", ur:"مزے کے لیے لائن پار دوڑو"}
+      ],
+      correct:"stand",
+      hint:{en:"Respecting the flag and assembly is a simple duty — stand still and listen.",
+            ur:"پرچم اور اسمبلی کا احترام فرض ہے — خاموش کھڑے رہو اور سنو۔"},
+      done:{en:"Respectful assembly — Shabash!", ur:"احترام والی اسمبلی — شاباش!"}
+    },
+    {
+      id:"s2",
+      title:{en:"Margalla trail litter", ur:"مارگلہ راستے پر کوڑا"},
+      hero:"⛰️🗑️🍃",
+      prompt:{en:"On a Margalla Hills walk you see a snack wrapper. Better citizen action?",
+              ur:"مارگلہ ہلز واک پر سنیک کا ریپر دیکھا۔ بہتر شہری عمل؟"},
+      choices:[
+        {id:"pick", em:"🧤", en:"Pick it up and put in a bin", ur:"اٹھا کر کوڑے دان میں ڈالو"},
+        {id:"kick", em:"👟", en:"Kick it further into the bushes", ur:"جھاڑیوں میں مزید دھکیلو"},
+        {id:"add", em:"🍫", en:"Add your own wrapper too", ur:"اپنا ریپر بھی چھوڑ دو"}
+      ],
+      correct:"pick",
+      hint:{en:"Keeping parks and trails clean is everyone's duty — even kids!",
+            ur:"پارک اور راستے صاف رکھنا سب کا فرض ہے — بچوں کا بھی!"},
+      done:{en:"Clean Margalla — super citizen!", ur:"صاف مارگلہ — سپر شہری!"}
+    },
+    {
+      id:"s3",
+      title:{en:"Canteen queue", ur:"کینٹین قطار"},
+      hero:"🧃🧍🏫",
+      prompt:{en:"The canteen queue is long. Your friend is near the front. What do you do?",
+              ur:"کینٹین کی قطار لمبی ہے۔ دوست آگے ہے۔ تم کیا کرو گے؟"},
+      choices:[
+        {id:"wait", em:"⏳", en:"Wait your turn in the queue", ur:"اپنی باری قطار میں انتظار کرو"},
+        {id:"cut", em:"✂️", en:"Cut in front with your friend", ur:"دوست کے ساتھ آگے گھس جاؤ"},
+        {id:"push", em:"😤", en:"Push others to get juice first", ur:"جوس کے لیے دوسروں کو دھکیلو"}
+      ],
+      correct:"wait",
+      hint:{en:"Fair queues = fairness. Cutting in is unfair to classmates waiting.",
+            ur:"منصفانہ قطار = انصاف۔ گھسنا انتظار کرنے والوں پر ظلم ہے۔"},
+      done:{en:"Fair queue — kind and honest!", ur:"منصفانہ قطار — مہربان اور ایماندار!"}
+    },
+    {
+      id:"s4",
+      title:{en:"Helping a younger classmate", ur:"چھوٹے ہم جماعت کی مدد"},
+      hero:"👧📚🤝",
+      prompt:{en:"A Class 3 child dropped books near the stairs. Good citizen choice?",
+              ur:"تیسری جماعت کے بچے نے سیڑھیوں پر کتابیں گرا دیں۔ اچھے شہری کا انتخاب؟"},
+      choices:[
+        {id:"help", em:"🤲", en:"Help pick them up kindly", ur:"نرمی سے اٹھانے میں مدد کرو"},
+        {id:"laugh", em:"😂", en:"Laugh and walk away", ur:"ہنسو اور چلے جاؤ"},
+        {id:"film", em:"📱", en:"Film them and share", ur:"ویڈیو بنا کر شیئر کرو"}
+      ],
+      correct:"help",
+      hint:{en:"Helping younger kids is a daily citizenship duty — kindness counts.",
+            ur:"چھوٹے بچوں کی مدد روزمرہ شہریت فرض ہے — مہربانی اہم ہے۔"},
+      done:{en:"Helped with kindness — true citizen!", ur:"مہربانی سے مدد — سچے شہری!"}
+    }
+  ];
+
+  /* Mode 3: Citizenship map — home, school, neighbourhood (4 challenges) */
+  var MAP = [
+    {
+      id:"m1", place:"home",
+      title:{en:"At home", ur:"گھر پر"},
+      prompt:{en:"Which action shows good citizenship at home?",
+              ur:"گھر پر کون سا عمل اچھی شہریت دکھاتا ہے؟"},
+      choices:[
+        {id:"chores", em:"🧹", en:"Help with simple chores without being asked", ur:"بغیر پوچھے سادہ کاموں میں مدد"},
+        {id:"shout", em:"📢", en:"Shout when someone uses your toys", ur:"کھلونے پر چیخنا"},
+        {id:"mess", em:"🍕", en:"Leave plates wherever you finish", ur:"پلیٹیں جہاں کھائیں وہیں چھوڑو"}
+      ],
+      correct:"chores",
+      hint:{en:"Home citizens share work and care for the family space.",
+            ur:"گھر کے شہری کام بانٹتے اور خاندان کی جگہ سنبھالتے ہیں۔"},
+      done:{en:"Home helper locked in!", ur:"گھر کی مدد تیار!"}
+    },
+    {
+      id:"m2", place:"school",
+      title:{en:"At school", ur:"اسکول میں"},
+      prompt:{en:"Which action is good citizenship at school in Islamabad?",
+              ur:"اسلام آباد کے اسکول میں کون سا عمل اچھی شہریت ہے؟"},
+      choices:[
+        {id:"rules", em:"📋", en:"Follow class rules and listen to the teacher", ur:"کلاس کے اصول مانو اور استاد کی بات سنو"},
+        {id:"cheat", em:"📝", en:"Copy a friend's homework secretly", ur:"دوست کا ہوم ورک چھپ کر نقل کرو"},
+        {id:"tease", em:"😜", en:"Tease someone for a wrong answer", ur:"غلط جواب پر مذاق اڑاؤ"}
+      ],
+      correct:"rules",
+      hint:{en:"School rules keep learning fair and safe for everyone.",
+            ur:"اسکول کے اصول سب کے لیے سیکھنا منصفانہ اور محفوظ رکھتے ہیں۔"},
+      done:{en:"School citizen ready!", ur:"اسکول شہری تیار!"}
+    },
+    {
+      id:"m3", place:"hood",
+      title:{en:"In the neighbourhood", ur:"محلّے میں"},
+      prompt:{en:"Near your street or park — best citizen action?",
+              ur:"گلی یا پارک کے قریب — بہترین شہری عمل؟"},
+      choices:[
+        {id:"greet", em:"👋", en:"Greet neighbours politely & keep the lane tidy", ur:"پڑوسیوں کو ادب سے سلام اور گلی صاف"},
+        {id:"noise", em:"🔊", en:"Play loud music late at night", ur:"رات گئے زور کی موسیقی چلاؤ"},
+        {id:"wall", em:"🖍️", en:"Draw on walls without asking", ur:"بغیر پوچھے دیواروں پر لکھو"}
+      ],
+      correct:"greet",
+      hint:{en:"Neighbourhood citizens are polite and keep shared spaces clean.",
+            ur:"محلّے کے شہری مؤدب ہوتے اور مشترکہ جگہیں صاف رکھتے ہیں۔"},
+      done:{en:"Neighbourhood star!", ur:"محلّے کا ستارہ!"}
+    },
+    {
+      id:"m4", place:"all",
+      title:{en:"Everywhere map check", ur:"ہر جگہ نقشہ چیک"},
+      prompt:{en:"Which sentence is TRUE about kids and citizenship?",
+              ur:"بچوں اور شہریت کے بارے میں کون سی بات سچ ہے؟"},
+      choices:[
+        {id:"daily", em:"⭐", en:"Kids practise citizenship every day with rights AND duties", ur:"بچے روز حقوق اور فرض دونوں سے شہریت اپناتے ہیں"},
+        {id:"vote", em:"🗳️", en:"Only adults who vote can be citizens", ur:"صرف ووٹ دینے والے بالغ شہری بن سکتے ہیں"},
+        {id:"none", em:"🚫", en:"Kids have rights but never any duties", ur:"بچوں کے حقوق ہیں مگر کبھی فرض نہیں"}
+      ],
+      correct:"daily",
+      hint:{en:"Citizenship is not only voting — kids use rights and duties at home, school, and in the city.",
+            ur:"شہریت صرف ووٹ نہیں — بچے گھر، اسکول اور شہر میں حقوق و فرض استعمال کرتے ہیں۔"},
+      done:{en:"Map complete — you get it!", ur:"نقشہ مکمل — سمجھ گئے!"}
+    }
+  ];
+
+  var QUIZ = [
+    {
+      q:{en:"What does citizenship mean for a Class 5 kid?",
+         ur:"پانچویں جماعت کے بچے کے لیے شہریت کا مطلب کیا ہے؟"},
+      opts:[
+        {en:"Being a community member with rights AND responsibilities", ur:"کمیونٹی کا رکن ہونا — حقوق اور فرض دونوں"},
+        {en:"Only voting in elections as an adult", ur:"صرف بالغ ہو کر ووٹ دینا"},
+        {en:"Owning a big house in Islamabad", ur:"اسلام آباد میں بڑا گھر ہونا"},
+        {en:"Never following any school rules", ur:"کبھی اسکول کے اصول نہ ماننا"}
+      ],
+      correct:0,
+      why:{en:"Kids practise citizenship daily — rights protect them; duties help others.",
+           ur:"بچے روز شہریت اپناتے ہیں — حقوق بچاتے ہیں؛ فرض دوسروں کی مدد کرتے ہیں۔"}
+    },
+    {
+      q:{en:"Which is a RIGHT (haq), not a duty?",
+         ur:"کون سا حق (haq) ہے، فرض نہیں؟"},
+      opts:[
+        {en:"Feeling safe and being able to learn at school", ur:"اسکول میں محفوظ محسوس کرنا اور سیکھنا"},
+        {en:"Throwing wrappers on Margalla trails", ur:"مارگلہ راستوں پر ریپر پھینکنا"},
+        {en:"Cutting the canteen queue", ur:"کینٹین قطار میں گھسنا"},
+        {en:"Teasing a younger classmate", ur:"چھوٹے ہم جماعت کا مذاق اڑانا"}
+      ],
+      correct:0,
+      why:{en:"Safety and learning are rights. Littering and unfairness are not.",
+           ur:"سلامتی اور سیکھنا حقوق ہیں۔ کوڑا اور ناانصافی نہیں۔"}
+    },
+    {
+      q:{en:"Which is a DUTY (farz) of a good young citizen?",
+         ur:"اچھے نوجوان شہری کا کون سا فرض ہے؟"},
+      opts:[
+        {en:"Respect teachers, wait in queues, and keep parks clean", ur:"اساتذہ کا احترام، قطار میں انتظار، پارک صاف"},
+        {en:"Ignore the flag during assembly", ur:"اسمبلی میں پرچم نظرانداز کرو"},
+        {en:"Leave mess for others to clean always", ur:"ہمیشہ دوسروں کے لیے گندگی چھوڑو"},
+        {en:"Push others to get juice first", ur:"جوس کے لیے دوسروں کو دھکیلو"}
+      ],
+      correct:0,
+      why:{en:"Duties are actions that help the community — respect, fairness, cleanliness.",
+           ur:"فرض وہ اعمال ہیں جو کمیونٹی کی مدد کرتے ہیں — احترام، انصاف، صفائی۔"}
+    },
+    {
+      q:{en:"Why do school rules matter for citizenship?",
+         ur:"شہریت کے لیے اسکول کے اصول کیوں اہم ہیں؟"},
+      opts:[
+        {en:"They keep learning fair and safe for everyone", ur:"وہ سب کے لیے سیکھنا منصفانہ اور محفوظ رکھتے ہیں"},
+        {en:"So teachers can shout more", ur:"تاکہ اساتذہ زیادہ چیخ سکیں"},
+        {en:"Rules are only for Class 1", ur:"اصول صرف پہلی جماعت کے لیے ہیں"},
+        {en:"So nobody ever plays games", ur:"تاکہ کوئی کبھی کھیل نہ کھیلے"}
+      ],
+      correct:0,
+      why:{en:"Rules are shared agreements — they protect rights and guide duties.",
+           ur:"اصول مشترکہ معاہدے ہیں — حقوق بچاتے اور فرض بتاتے ہیں۔"}
+    },
+    {
+      q:{en:"How can kids help their Islamabad community?",
+         ur:"بچے اسلام آباد کمیونٹی کی مدد کیسے کر سکتے ہیں؟"},
+      opts:[
+        {en:"Pick up litter, help younger kids, greet neighbours kindly", ur:"کوڑا اٹھاؤ، چھوٹوں کی مدد، پڑوسیوں کو ادب سے سلام"},
+        {en:"Only by waiting until they can vote", ur:"صرف ووٹ دینے تک انتظار کرکے"},
+        {en:"By making more noise on quiet streets", ur:"پرسکون گلیوں میں شور مچا کر"},
+        {en:"By never listening in class", ur:"کلاس میں کبھی نہ سن کر"}
+      ],
+      correct:0,
+      why:{en:"Small kind actions every day make a stronger community.",
+           ur:"روز کے چھوٹے مہربان اعمال کمیونٹی کو مضبوط بناتے ہیں۔"}
+    },
+    {
+      q:{en:"Rights and duties together mean…",
+         ur:"حقوق اور فرض مل کر مطلب…"},
+      opts:[
+        {en:"We receive care AND we give care back", ur:"ہم دیکھ بھال پاتے ہیں اور واپس بھی دیتے ہیں"},
+        {en:"Only duties matter, never rights", ur:"صرف فرض اہم ہیں، حقوق کبھی نہیں"},
+        {en:"Only rights matter, never duties", ur:"صرف حقوق اہم ہیں، فرض کبھی نہیں"},
+        {en:"Citizenship is only about money", ur:"شہریت صرف پیسے کے بارے میں ہے"}
+      ],
+      correct:0,
+      why:{en:"Balance: haqooq protect you; farz help others — that is citizenship.",
+           ur:"توازن: حقوق تمہیں بچاتے؛ فرض دوسروں کی مدد — یہی شہریت ہے۔"}
+    }
+  ];
+
+  var rightsIdx = 0, rightsSelected = null, rightsSort = {}, rightsDone = {};
+  var scenesIdx = 0, scenesDone = {};
+  var mapIdx = 0, mapDone = {}, mapPlaces = {home:false, school:false, hood:false};
+  var quizSet = [];
+
+  function award(key, n){
+    if (awarded[key]) return;
+    awarded[key] = true;
+    stars += (n || 1);
+    $("starCount").textContent = String(stars);
+  }
+  function recountStars(){
+    stars = 0;
+    Object.keys(awarded).forEach(function(k){
+      stars += (k.indexOf("mode-")===0) ? 2 : 1;
+    });
+    $("starCount").textContent = String(stars);
+  }
+
+  function skyHTML(){
+    return '<div class="sky-layer"><div class="sun-ball"></div>' +
+           '<div class="cloud c1"></div><div class="cloud c2"></div></div>' +
+           '<div class="hills"><div class="hill h-a"></div><div class="hill h-b"></div></div>' +
+           '<div class="ground-strip"></div>';
+  }
+
+  function kidsSVG(){
+    return '<svg class="comic-hero" style="width:min(90%,260px);height:auto;font-size:inherit" viewBox="0 0 260 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+      '<ellipse cx="130" cy="92" rx="70" ry="6" fill="rgba(0,0,0,.1)"/>' +
+      /* kid 1 */
+      '<circle cx="70" cy="38" r="16" fill="#f5c89a" stroke="#1e2a1a" stroke-width="2"/>' +
+      '<rect x="55" y="54" width="30" height="28" rx="8" fill="#1a7a45" stroke="#1e2a1a" stroke-width="2"/>' +
+      '<text x="70" y="34" text-anchor="middle" font-size="10">😊</text>' +
+      /* kid 2 */
+      '<circle cx="130" cy="34" r="17" fill="#e8b890" stroke="#1e2a1a" stroke-width="2"/>' +
+      '<rect x="114" y="51" width="32" height="30" rx="8" fill="#2f6fb5" stroke="#1e2a1a" stroke-width="2"/>' +
+      '<text x="130" y="30" text-anchor="middle" font-size="11">😄</text>' +
+      /* kid 3 */
+      '<circle cx="190" cy="38" r="16" fill="#f0c4a0" stroke="#1e2a1a" stroke-width="2"/>' +
+      '<rect x="175" y="54" width="30" height="28" rx="8" fill="#c45c3a" stroke="#1e2a1a" stroke-width="2"/>' +
+      '<text x="190" y="34" text-anchor="middle" font-size="10">🙂</text>' +
+      /* flag tiny */
+      '<rect x="118" y="8" width="24" height="14" rx="2" fill="#01411C" stroke="#1e2a1a" stroke-width="1.5"/>' +
+      '<circle cx="130" cy="15" r="3.5" fill="#fff"/>' +
+      '</svg>';
+  }
+
+  function maybeRightsDone(){
+    if (Object.keys(rightsDone).length >= RIGHTS.length){
+      doneModes.rights = true;
+      award("mode-rights", 2);
+      tabBadges();
+    }
+  }
+  function maybeScenesDone(){
+    if (Object.keys(scenesDone).length >= SCENES.length){
+      doneModes.scenes = true;
+      award("mode-scenes", 2);
+      tabBadges();
+    }
+  }
+  function maybeMapDone(){
+    if (Object.keys(mapDone).length >= MAP.length){
+      doneModes.map = true;
+      award("mode-map", 2);
+      tabBadges();
+    }
+  }
+
+  /* ---------- RIGHTS ---------- */
+  function renderRights(){
+    var ch = RIGHTS[rightsIdx];
+    var pad = $("scenePad");
+    var box = $("actionBox");
+    box.innerHTML = "";
+    $("hintbox").classList.remove("show");
+
+    setText($("statechip"), (rightsIdx+1) + " / " + RIGHTS.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (rightsDone[ch.id]?" win":"");
+    if (rightsDone[ch.id]) setText($("statechip"), t(T.nice));
+
+    if (ch.type === "sort"){
+      pad.innerHTML = skyHTML() +
+        '<div class="sort-grid">' +
+          '<div class="sort-bin right-bin'+(rightsSelected?" hot":"")+'" data-bin="right"><h3></h3><div class="drop" id="binRight"></div></div>' +
+          '<div class="sort-bin duty-bin'+(rightsSelected?" hot":"")+'" data-bin="duty"><h3></h3><div class="drop" id="binDuty"></div></div>' +
+        '</div>';
+      setText(pad.querySelector(".right-bin h3"), t(T.rightLab));
+      setText(pad.querySelector(".duty-bin h3"), t(T.dutyLab));
+
+      ["right","duty"].forEach(function(bin){
+        pad.querySelector('[data-bin="'+bin+'"]').addEventListener("click", function(){
+          if (!rightsSelected || rightsDone[ch.id]) return;
+          rightsSort[rightsSelected] = bin;
+          rightsSelected = null;
+          renderRights();
+        });
+      });
+
+      ch.items.forEach(function(id){
+        var bin = rightsSort[id];
+        if (!bin) return;
+        var el = document.createElement("span");
+        el.className = "mini-chip";
+        el.textContent = CARDS[id].em;
+        el.title = t(CARDS[id]);
+        el.addEventListener("click", function(e){
+          e.stopPropagation();
+          if (rightsDone[ch.id]) return;
+          delete rightsSort[id];
+          renderRights();
+        });
+        (bin==="right"?$("binRight"):$("binDuty")).appendChild(el);
+      });
+
+      var bank = document.createElement("div");
+      bank.className = "bank";
+      ch.items.forEach(function(id){
+        if (rightsSort[id]) return;
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "item-card" + (rightsSelected===id?" selected":"");
+        b.innerHTML = '<span class="item-em">'+CARDS[id].em+'</span><p class="item-lab"></p>';
+        setText(b.querySelector(".item-lab"), t(CARDS[id]));
+        b.addEventListener("click", function(){
+          if (rightsDone[ch.id]) return;
+          rightsSelected = id;
+          renderRights();
+        });
+        bank.appendChild(b);
+      });
+      box.appendChild(bank);
+
+      if (!rightsDone[ch.id]){
+        var chk = document.createElement("button");
+        chk.type = "button";
+        chk.style.cssText = "margin-top:10px;width:100%;border:2px solid var(--ink);border-radius:14px;background:var(--ink);color:var(--paper);font:inherit;font-weight:800;min-height:48px;cursor:pointer";
+        setText(chk, t(T.checkSort));
+        chk.addEventListener("click", function(){
+          var ok = true;
+          ch.items.forEach(function(id){
+            if (rightsSort[id] !== CARDS[id].bin) ok = false;
+          });
+          if (ok && Object.keys(rightsSort).filter(function(k){ return ch.items.indexOf(k)>=0; }).length === ch.items.length){
+            rightsDone[ch.id] = true;
+            award("rights-"+ch.id, 1);
+            setText($("headline"), t(ch.done));
+            $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.nice));
+            maybeRightsDone();
+            renderRights();
+          } else {
+            setText($("headline"), t(T.oops));
+            $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.oops));
+          }
+        });
+        box.appendChild(chk);
+      }
+
+      setText($("headline"), rightsDone[ch.id] ? t(ch.done) : t(ch.title));
+      setText($("detail"), rightsSelected ? t(CARDS[rightsSelected]) + " → ?" : t(T.askSort));
+    } else {
+      var card = CARDS[ch.card];
+      pad.innerHTML = skyHTML() +
+        '<div class="comic-stage">' + kidsSVG() +
+        '<div class="comic-panel"><span class="em">'+card.em+'</span><span class="plab"></span></div></div>';
+      setText(pad.querySelector(".plab"), t(card));
+
+      setText($("headline"), rightsDone[ch.id] ? t(ch.done) : t(ch.title));
+      setText($("detail"), t(T.askPick));
+
+      var choices = document.createElement("div");
+      choices.className = "save-choices";
+      [
+        {id:"right", em:"✊", en:"Right (Haq)", ur:"حق"},
+        {id:"duty", em:"✋", en:"Duty (Farz)", ur:"فرض"}
+      ].forEach(function(c){
+        var b = document.createElement("button");
+        b.type = "button";
+        if (rightsDone[ch.id] && c.id === card.bin) b.classList.add("right");
+        b.innerHTML = '<span class="cem">'+c.em+'</span><span class="clab"></span>';
+        setText(b.querySelector(".clab"), t(c));
+        b.disabled = !!rightsDone[ch.id];
+        b.addEventListener("click", function(){
+          if (rightsDone[ch.id]) return;
+          if (c.id === card.bin){
+            rightsDone[ch.id] = true;
+            award("rights-"+ch.id, 1);
+            b.classList.add("right");
+            setText($("headline"), t(ch.done));
+            $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.nice));
+            maybeRightsDone();
+            renderRights();
+          } else {
+            b.classList.add("wrong");
+            setText($("headline"), t(T.oops));
+            $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.oops));
+            setTimeout(function(){ b.classList.remove("wrong"); }, 600);
+          }
+        });
+        choices.appendChild(b);
+      });
+      box.appendChild(choices);
+    }
+    setText($("prog"), t(T.progR) + ": " + Object.keys(rightsDone).length + "/" + RIGHTS.length);
+  }
+
+  /* ---------- SCENES ---------- */
+  function renderScenes(){
+    var ch = SCENES[scenesIdx];
+    var pad = $("scenePad");
+    pad.innerHTML = skyHTML() +
+      '<div class="comic-stage"><div class="comic-hero">'+ch.hero+'</div>' +
+      '<div class="comic-panel"><span class="em">🧒</span><span class="plab"></span></div></div>';
+    setText(pad.querySelector(".plab"), t(ch.title));
+
+    setText($("statechip"), (scenesIdx+1) + " / " + SCENES.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (scenesDone[ch.id]?" win":"");
+    if (scenesDone[ch.id]) setText($("statechip"), t(T.nice));
+    setText($("headline"), scenesDone[ch.id] ? t(ch.done) : t(ch.title));
+    setText($("detail"), t(ch.prompt));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+    var choices = document.createElement("div");
+    choices.className = "save-choices";
+    ch.choices.forEach(function(c){
+      var b = document.createElement("button");
+      b.type = "button";
+      if (scenesDone[ch.id] && c.id === ch.correct) b.classList.add("right");
+      b.innerHTML = '<span class="cem">'+c.em+'</span><span class="clab"></span>';
+      setText(b.querySelector(".clab"), t(c));
+      b.disabled = !!scenesDone[ch.id];
+      b.addEventListener("click", function(){
+        if (scenesDone[ch.id]) return;
+        if (c.id === ch.correct){
+          scenesDone[ch.id] = true;
+          award("scenes-"+ch.id, 1);
+          b.classList.add("right");
+          setText($("headline"), t(ch.done));
+          $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.nice));
+          maybeScenesDone();
+          tabBadges();
+          renderScenes();
+        } else {
+          b.classList.add("wrong");
+          setText($("headline"), t(T.oops));
+          $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.oops));
+          setTimeout(function(){ b.classList.remove("wrong"); }, 600);
+        }
+      });
+      choices.appendChild(b);
+    });
+    box.appendChild(choices);
+    setText($("prog"), t(T.progS) + ": " + Object.keys(scenesDone).length + "/" + SCENES.length);
+  }
+
+  /* ---------- MAP ---------- */
+  function renderMap(){
+    var ch = MAP[mapIdx];
+    var pad = $("scenePad");
+    var homeDone = !!mapDone.m1 || mapPlaces.home;
+    var schoolDone = !!mapDone.m2 || mapPlaces.school;
+    var hoodDone = !!mapDone.m3 || mapPlaces.hood;
+    if (mapDone.m1) mapPlaces.home = true;
+    if (mapDone.m2) mapPlaces.school = true;
+    if (mapDone.m3) mapPlaces.hood = true;
+
+    pad.innerHTML = skyHTML() +
+      '<div class="map-row">' +
+        '<div class="map-node home'+(mapPlaces.home?" done":"")+'"><span class="nem">🏠</span><p class="nlab" id="mapHome"></p></div>' +
+        '<span class="map-arrow">→</span>' +
+        '<div class="map-node school'+(mapPlaces.school?" done":"")+'"><span class="nem">🏫</span><p class="nlab" id="mapSchool"></p></div>' +
+        '<span class="map-arrow">→</span>' +
+        '<div class="map-node hood'+(mapPlaces.hood?" done":"")+'"><span class="nem">🌳</span><p class="nlab" id="mapHood"></p></div>' +
+      '</div>';
+    setText($("mapHome"), t(T.home));
+    setText($("mapSchool"), t(T.school));
+    setText($("mapHood"), t(T.hood));
+
+    setText($("statechip"), (mapIdx+1) + " / " + MAP.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (mapDone[ch.id]?" win":"");
+    if (mapDone[ch.id]) setText($("statechip"), t(T.nice));
+    setText($("headline"), mapDone[ch.id] ? t(ch.done) : t(ch.title));
+    setText($("detail"), t(ch.prompt));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+    var choices = document.createElement("div");
+    choices.className = "save-choices";
+    ch.choices.forEach(function(c){
+      var b = document.createElement("button");
+      b.type = "button";
+      if (mapDone[ch.id] && c.id === ch.correct) b.classList.add("right");
+      b.innerHTML = '<span class="cem">'+c.em+'</span><span class="clab"></span>';
+      setText(b.querySelector(".clab"), t(c));
+      b.disabled = !!mapDone[ch.id];
+      b.addEventListener("click", function(){
+        if (mapDone[ch.id]) return;
+        if (c.id === ch.correct){
+          mapDone[ch.id] = true;
+          if (ch.place === "home") mapPlaces.home = true;
+          if (ch.place === "school") mapPlaces.school = true;
+          if (ch.place === "hood") mapPlaces.hood = true;
+          award("map-"+ch.id, 1);
+          b.classList.add("right");
+          setText($("headline"), t(ch.done));
+          $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.nice));
+          maybeMapDone();
+          tabBadges();
+          renderMap();
+        } else {
+          b.classList.add("wrong");
+          setText($("headline"), t(T.oops));
+          $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.oops));
+          setTimeout(function(){ b.classList.remove("wrong"); }, 600);
+        }
+      });
+      choices.appendChild(b);
+    });
+    box.appendChild(choices);
+    setText($("prog"), t(T.progM) + ": " + Object.keys(mapDone).length + "/" + MAP.length);
+  }
+
+  /* ---------- QUIZ ---------- */
+  function pickQuiz(){ quizSet = shuffle(QUIZ).slice(0, 5); }
+  function renderQuiz(){
+    var box = $("quizBox");
+    box.innerHTML = "";
+    quizSet.forEach(function(item, qi){
+      var wrap = document.createElement("div");
+      wrap.className = "q";
+      var p = document.createElement("p");
+      setText(p, (qi+1) + ". " + t(item.q));
+      wrap.appendChild(p);
+      var answered = false;
+      item.opts.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt" + (lang==="ur"?" ur":"");
+        setText(b, t(opt));
+        b.addEventListener("click", function(){
+          if (answered) return;
+          answered = true;
+          if (oi === item.correct){
+            b.classList.add("right");
+            award("quiz-"+qi, 1);
+          } else {
+            b.classList.add("wrong");
+            var kids = wrap.querySelectorAll(".opt");
+            if (kids[item.correct]) kids[item.correct].classList.add("right");
+          }
+          fb.classList.add("show");
+        });
+        wrap.appendChild(b);
+      });
+      var fb = document.createElement("p");
+      fb.className = "fb";
+      setText(fb, t(item.why));
+      wrap.appendChild(fb);
+      box.appendChild(wrap);
+    });
+  }
+
+  function storyHtml(){
+    if (mode === "rights") return t(T.storyRights);
+    if (mode === "scenes") return t(T.storyScenes);
+    return t(T.storyMap);
+  }
+
+  function tabBadges(){
+    function lab(btn, label, key){
+      btn.innerHTML = "";
+      var span = document.createElement("span");
+      setText(span, t(label));
+      btn.appendChild(span);
+      if (doneModes[key]){
+        var b = document.createElement("span");
+        b.className = "badge"; b.textContent = " ★";
+        btn.appendChild(b);
+      }
+    }
+    lab($("tabRights"), T.tabRights, "rights");
+    lab($("tabScenes"), T.tabScenes, "scenes");
+    lab($("tabMap"), T.tabMap, "map");
+    $("tabRights").setAttribute("aria-pressed", mode==="rights"?"true":"false");
+    $("tabScenes").setAttribute("aria-pressed", mode==="scenes"?"true":"false");
+    $("tabMap").setAttribute("aria-pressed", mode==="map"?"true":"false");
+  }
+
+  function setMode(m){
+    mode = m;
+    rightsSelected = null;
+    if (mode === "rights") renderRights();
+    else if (mode === "scenes") renderScenes();
+    else renderMap();
+    applyChrome();
+  }
+
+  function applyChrome(){
+    setText($("title"), t(T.title));
+    setText($("subtitle"), t(T.sub));
+    $("story").innerHTML = storyHtml();
+    $("story").classList.toggle("ur", lang==="ur");
+    $("story").setAttribute("dir", lang==="ur"?"rtl":"ltr");
+    setText($("ctlHead"), t(T.ctl));
+    setText($("nextBtn"), t(T.next));
+    setText($("hintBtn"), t(T.hint));
+    setText($("resetBtn"), t(T.reset));
+    setText($("quizHead"), t(T.quiz));
+    setText($("newQuiz"), t(T.newQuiz));
+    $("langBtn").textContent = (lang === "en") ? "اردو" : "EN";
+    $("langBtn").setAttribute("aria-pressed", lang==="ur"?"true":"false");
+    document.body.classList.toggle("urdu", lang==="ur");
+    document.documentElement.lang = (lang==="ur") ? "ur" : "en";
+    document.documentElement.dir = (lang==="ur") ? "rtl" : "ltr";
+    tabBadges();
+    var foot = document.querySelector("footer p");
+    if (foot) setText(foot, foot.getAttribute(lang==="ur"?"data-ur":"data-en"));
+  }
+
+  function applyLang(){
+    applyChrome();
+    if (mode === "rights") renderRights();
+    else if (mode === "scenes") renderScenes();
+    else renderMap();
+    renderQuiz();
+  }
+
+  function next(){
+    if (mode === "rights"){
+      rightsIdx = (rightsIdx + 1) % RIGHTS.length;
+      rightsSelected = null;
+      if (RIGHTS[rightsIdx].type === "sort"){
+        rightsSort = {};
+      }
+      renderRights();
+    } else if (mode === "scenes"){
+      scenesIdx = (scenesIdx + 1) % SCENES.length;
+      renderScenes();
+    } else {
+      mapIdx = (mapIdx + 1) % MAP.length;
+      renderMap();
+    }
+  }
+
+  function showHint(){
+    var h;
+    if (mode === "rights") h = RIGHTS[rightsIdx].hint;
+    else if (mode === "scenes") h = SCENES[scenesIdx].hint;
+    else h = MAP[mapIdx].hint;
+    var hb = $("hintbox");
+    setText(hb, t(h));
+    hb.classList.add("show");
+  }
+
+  function resetMode(){
+    if (mode === "rights"){
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("rights-")===0 || k==="mode-rights") delete awarded[k]; });
+      rightsDone = {}; rightsSort = {}; rightsSelected = null; rightsIdx = 0;
+      doneModes.rights = false;
+      recountStars(); renderRights();
+    } else if (mode === "scenes"){
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("scenes-")===0 || k==="mode-scenes") delete awarded[k]; });
+      scenesDone = {}; scenesIdx = 0; doneModes.scenes = false;
+      recountStars(); renderScenes();
+    } else {
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("map-")===0 || k==="mode-map") delete awarded[k]; });
+      mapDone = {}; mapIdx = 0; mapPlaces = {home:false, school:false, hood:false}; doneModes.map = false;
+      recountStars(); renderMap();
+    }
+    tabBadges();
+    applyChrome();
+  }
+
+  function cleanSpeakText(s){
+    return String(s || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  }
+  function buildSpeakText(){
+    var bits = [];
+    bits.push(t(T.title));
+    bits.push(cleanSpeakText(storyHtml()));
+    bits.push(cleanSpeakText(($("headline") && $("headline").textContent) || ""));
+    bits.push(cleanSpeakText(($("detail") && $("detail").textContent) || ""));
+    bits.push(t(T.tip));
+    return bits.filter(Boolean).join(". ");
+  }
+  function pickVoice(voices, want){
+    var i, v, L;
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf(want) === 0) return v;
+    }
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf("en") === 0) return v;
+    }
+    return voices[0] || null;
+  }
+  var speakTimer = null;
+  function setSpeaking(on){
+    var btn = $("speakBtn");
+    if (!btn) return;
+    btn.setAttribute("aria-pressed", on ? "true" : "false");
+    btn.style.opacity = on ? "0.65" : "";
+  }
+  function doSpeak(text, asLang){
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.92;
+    u.lang = (asLang === "ur") ? "ur-PK" : "en-US";
+    var voices = window.speechSynthesis.getVoices() || [];
+    var voice = pickVoice(voices, asLang === "ur" ? "ur" : "en");
+    if (voice) u.voice = voice;
+    u.onstart = function(){ setSpeaking(true); };
+    u.onend = function(){ setSpeaking(false); };
+    u.onerror = function(){
+      setSpeaking(false);
+      if (asLang === "ur"){
+        var fallback = cleanSpeakText(T.title.en + ". " + T.storyRights.en + ". " + T.tip.en);
+        var u2 = new SpeechSynthesisUtterance(fallback);
+        u2.lang = "en-US"; u2.rate = 0.92;
+        var v2 = pickVoice(window.speechSynthesis.getVoices() || [], "en");
+        if (v2) u2.voice = v2;
+        u2.onstart = function(){ setSpeaking(true); };
+        u2.onend = u2.onerror = function(){ setSpeaking(false); };
+        window.speechSynthesis.speak(u2);
+      }
+    };
+    window.speechSynthesis.speak(u);
+  }
+  if ("speechSynthesis" in window){
+    try { window.speechSynthesis.getVoices(); } catch (e0) {}
+    if (typeof window.speechSynthesis.addEventListener === "function"){
+      window.speechSynthesis.addEventListener("voiceschanged", function(){
+        try { window.speechSynthesis.getVoices(); } catch (e1) {}
+      });
+    }
+  } else {
+    var noBtn = $("speakBtn");
+    if (noBtn){ noBtn.disabled = true; noBtn.title = "Voice not available on this device"; }
+  }
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en";
+    applyLang();
+  });
+  $("tabRights").addEventListener("click", function(){ setMode("rights"); });
+  $("tabScenes").addEventListener("click", function(){ setMode("scenes"); });
+  $("tabMap").addEventListener("click", function(){ setMode("map"); });
+  $("nextBtn").addEventListener("click", next);
+  $("hintBtn").addEventListener("click", showHint);
+  $("resetBtn").addEventListener("click", resetMode);
+  $("newQuiz").addEventListener("click", function(){ pickQuiz(); renderQuiz(); });
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      var text = buildSpeakText();
+      if (!text) return;
+      if (speakTimer){ clearTimeout(speakTimer); speakTimer = null; }
+      window.speechSynthesis.cancel();
+      setSpeaking(false);
+      var speakLang = lang;
+      speakTimer = setTimeout(function(){
+        speakTimer = null;
+        doSpeak(text, speakLang);
+      }, 80);
+    }catch(e){ setSpeaking(false); }
+  });
+
+  pickQuiz();
+  applyLang();
+})();
+</script>
+</body>
+</html>
