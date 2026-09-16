@@ -247,5 +247,13 @@
       "interactive_file": "interactives/g5-state-government.html",
       "interactive_label": "Khelo — State aur Government"
     }
+  },
+  {
+    "file": "kb/grade_5/social.json",
+    "match_title": "History",
+    "add": {
+      "interactive_file": "interactives/g5-history.html",
+      "interactive_label": "Khelo — History"
+    }
   }
 ]

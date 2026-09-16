@@ -136,7 +136,9 @@
             "correct": "a"
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g5-history.html",
+      "interactive_label": "Khelo — History"
     },
     {
       "title": "Geography",
