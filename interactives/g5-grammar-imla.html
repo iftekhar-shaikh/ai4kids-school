@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Grammar aur imla — گرامر اور املا | AI4Kids Class 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#e8f0ea;--board-deep:#c5d8c8;--sky:#7eb8d4;--sky2:#4a8fb8;
+    --park:#5a9a6a;--park2:#3a7a4a;--accent:#0d5c3d;--flag-g:#01411C;
+    --ok:#2e7d4f;--ink:#1a2e22;--ink-soft:#4a5a4e;--paper:#fdfaf3;
+    --line:#d0dcc8;--gold:#d4a017;--left:#c4453a;
+    --ism-bin:#2f6fb5;--fael-bin:#0d5c3d;--sifat-bin:#c45c3a;
+    --fs-cap:clamp(12px, 3.2vw, 13px);--fs-xs:clamp(14px, 3.7vw, 15px);
+    --fs-sm:clamp(16px, 4.2vw, 17px);--fs-md:clamp(17px, 4.6vw, 19px);
+    --fs-lg:clamp(20px, 5.4vw, 23px);--fs-xl:clamp(27px, 7.4vw, 33px);--lh:1.5;
+  }
+  body.urdu{
+    --fs-cap:clamp(13px, 3.5vw, 15px);--fs-xs:clamp(15px, 4.1vw, 17px);
+    --fs-sm:clamp(17px, 4.7vw, 19px);--fs-md:clamp(19px, 5.2vw, 21px);
+    --fs-lg:clamp(22px, 6vw, 25px);--fs-xl:clamp(26px, 7vw, 31px);--lh:2.1;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  .stars{display:flex;align-items:center;gap:6px;font-weight:800;font-size:var(--fs-xs);
+         background:#fff6e2;border:2px solid var(--gold);border-radius:999px;padding:7px 13px}
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+  .tabs{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
+  .tabs button{
+    flex:1 1 28%;min-width:90px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:10px 6px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:54px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .tabs button .badge{color:var(--gold)}
+  .story{
+    background:#fff8ea;border:2px dashed var(--gold);border-radius:16px;padding:13px 15px;
+    font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;margin-bottom:14px;
+  }
+  body.urdu .story{line-height:var(--lh)}
+  .story b{color:var(--ink)}
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:
+      radial-gradient(circle at 12% 18%, rgba(212,160,23,.18) 0 8px, transparent 9px),
+      radial-gradient(circle at 88% 22%, rgba(13,92,61,.12) 0 6px, transparent 7px),
+      linear-gradient(180deg,var(--sky) 0%,var(--sky2) 34%,#a8c9a0 34%,#8fb888 42%,var(--board) 42%);
+    min-height:280px;
+  }
+  .scene-pad{padding:10px 12px 18px;min-height:260px;position:relative}
+  .sky-layer{position:absolute;inset:0 0 58% 0;pointer-events:none;overflow:hidden}
+  .pencil-deco{
+    position:absolute;top:10px;right:16px;z-index:1;font-size:28px;line-height:1;
+    filter:drop-shadow(0 1px 0 rgba(0,0,0,.12));
+  }
+  body.urdu .pencil-deco{right:auto;left:16px}
+  .cloud{position:absolute;background:rgba(255,255,255,.85);border-radius:40px;opacity:.9}
+  .cloud:before,.cloud:after{content:"";position:absolute;background:inherit;border-radius:50%}
+  .c1{width:48px;height:15px;top:18px;left:12%}
+  .c1:before{width:22px;height:22px;top:-12px;left:6px}
+  .c1:after{width:18px;height:18px;top:-8px;left:24px}
+  .c2{width:34px;height:12px;top:34px;left:55%;opacity:.7}
+  .c2:before{width:16px;height:16px;top:-9px;left:4px}
+  .c2:after{width:12px;height:12px;top:-5px;left:16px}
+  .hills{position:absolute;left:0;right:0;bottom:42%;height:40px;z-index:1;pointer-events:none}
+  .hill{position:absolute;bottom:0;border-radius:50% 50% 0 0;
+        background:linear-gradient(180deg,#4a8a5a,#2d5530)}
+  .h-a{width:42%;height:36px;left:-4%;opacity:.55}
+  .h-b{width:38%;height:28px;right:8%;opacity:.5}
+  .ground-strip{
+    position:absolute;left:0;right:0;bottom:0;height:32%;
+    background:
+      repeating-linear-gradient(90deg, transparent 0 18px, rgba(13,92,61,.06) 18px 20px),
+      linear-gradient(180deg,#8fbc78 0%,#6a9a58 100%);
+    z-index:2;border-top:3px solid #4a7040;
+  }
+  .geom-edge{
+    position:absolute;left:0;right:0;bottom:31%;height:6px;z-index:3;pointer-events:none;
+    background:repeating-linear-gradient(90deg, var(--gold) 0 8px, var(--accent) 8px 16px, transparent 16px 20px);
+    opacity:.55;
+  }
+  .comic-stage{position:relative;z-index:5;padding-top:78px;text-align:center;min-height:150px}
+  .comic-hero{font-size:56px;line-height:1;margin:4px 0 8px;filter:drop-shadow(0 2px 0 rgba(0,0,0,.12))}
+  .comic-panel{
+    display:inline-flex;align-items:center;gap:8px;background:rgba(253,250,243,.95);
+    border:2.5px solid var(--ink);border-radius:16px;padding:10px 14px;margin:4px;
+    box-shadow:0 3px 0 rgba(30,42,26,.12);font-weight:800;font-size:var(--fs-cap);
+  }
+  .comic-panel .em{font-size:28px}
+  .sort-grid{
+    position:relative;z-index:5;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;
+    padding-top:78px;
+  }
+  .sort-bin{
+    border:2.5px solid var(--ink);border-radius:14px;padding:8px 6px;min-height:110px;
+    background:rgba(253,250,243,.88);text-align:center;cursor:pointer;
+  }
+  .sort-bin.ism-bin{border-color:var(--ism-bin);background:rgba(230,238,248,.95)}
+  .sort-bin.fael-bin{border-color:var(--fael-bin);background:rgba(230,242,234,.95)}
+  .sort-bin.sifat-bin{border-color:var(--sifat-bin);background:rgba(255,240,232,.95)}
+  .sort-bin.hot{box-shadow:0 0 0 3px rgba(13,92,61,.3)}
+  .sort-bin h3{margin:0 0 6px;font-size:var(--fs-cap);font-weight:800}
+  .sort-bin .drop{min-height:50px;display:flex;flex-wrap:wrap;gap:4px;justify-content:center;align-items:center}
+  .item-card{
+    background:rgba(253,250,243,.95);border:2.5px solid var(--ink);border-radius:16px;
+    padding:8px 10px 10px;text-align:center;min-width:72px;max-width:130px;
+    box-shadow:0 3px 0 rgba(30,42,26,.15);cursor:pointer;user-select:none;
+  }
+  .item-card:hover{transform:translateY(-2px)}
+  .item-card.selected{border-color:var(--accent);background:#e8f5ec;box-shadow:0 0 0 3px rgba(13,92,61,.25)}
+  .item-card.ok{border-color:var(--ok);background:#e8f2ed}
+  .item-card.no{border-color:var(--left);background:#fbeae8}
+  .item-em{font-size:34px;line-height:1.1;display:block;margin-bottom:2px}
+  .item-lab{font-size:var(--fs-cap);font-weight:800;line-height:1.25;margin:0}
+  .bank{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:8px;position:relative;z-index:5}
+  .mini-chip{
+    border:2px solid var(--ink);border-radius:12px;padding:6px 8px;background:#fff;
+    line-height:1;cursor:pointer;min-width:40px;font-size:22px;
+  }
+  .save-choices{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+  .save-choices button{
+    border:2.5px solid var(--ink);background:var(--paper);border-radius:14px;
+    padding:12px 14px;font:inherit;font-weight:800;font-size:var(--fs-xs);
+    cursor:pointer;text-align:left;min-height:52px;display:flex;align-items:center;gap:10px;
+  }
+  body.urdu .save-choices button{text-align:right}
+  .save-choices button .cem{font-size:26px}
+  .save-choices button.right{border-color:var(--ok);background:#e8f2ed}
+  .save-choices button.wrong{border-color:var(--left);background:#fbeae8}
+  .vocab-card{
+    position:relative;z-index:5;margin:88px auto 8px;max-width:300px;
+    background:rgba(253,250,243,.96);border:2.5px solid var(--ink);border-radius:18px;
+    padding:16px 14px;text-align:center;box-shadow:0 3px 0 rgba(30,42,26,.12);
+  }
+  .vocab-card .vem{font-size:42px;line-height:1;display:block;margin-bottom:6px}
+  .vocab-card .vword{font-weight:800;font-size:var(--fs-lg);margin:0 0 4px}
+  .vocab-card .vroman{font-size:var(--fs-cap);color:var(--ink-soft);margin:0;font-weight:700}
+  .story-box{
+    position:relative;z-index:5;margin:78px auto 8px;max-width:320px;
+    background:rgba(253,250,243,.96);border:2.5px dashed var(--gold);border-radius:16px;
+    padding:14px 12px;text-align:center;
+  }
+  .story-box .sem{font-size:40px;display:block;margin-bottom:6px}
+  .story-box .stitle{font-weight:800;font-size:var(--fs-sm);margin:0 0 6px}
+  .story-box .sbody{font-size:var(--fs-xs);color:var(--ink-soft);margin:0;line-height:1.45;font-weight:600}
+  .sent-line{
+    position:relative;z-index:5;margin:78px auto 8px;max-width:340px;
+    background:rgba(253,250,243,.96);border:2.5px solid var(--ink);border-radius:16px;
+    padding:14px 12px;text-align:center;font-weight:800;font-size:var(--fs-md);
+  }
+  .sent-line .blank{
+    display:inline-block;min-width:72px;border-bottom:3px dashed var(--accent);
+    margin:0 4px;color:var(--accent);padding:0 4px;
+  }
+  .pick-chip{
+    display:inline-flex;align-items:center;gap:6px;margin:4px;
+    border:2px solid var(--ink);background:#fff;border-radius:999px;
+    padding:8px 14px;font:inherit;font-weight:800;font-size:var(--fs-xs);
+    cursor:pointer;min-height:42px;
+  }
+  .pick-chip.used{opacity:.35;pointer-events:none}
+  .pick-chip.ok{border-color:var(--ok);background:#e8f2ed}
+  .pick-chip.no{border-color:var(--left);background:#fbeae8}
+  .chip-row{display:flex;flex-wrap:wrap;justify-content:center;gap:2px;margin-top:8px}
+  .readout{
+    margin-top:-18px;position:relative;z-index:2;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+  .statechip.ur{padding:2px 14px 7px}
+  .statechip.win{background:var(--ok)}
+  .statechip.miss{background:var(--left)}
+  .headline{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+  .headline.ur{line-height:1.95}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+  .hintbox{
+    margin-top:14px;border:2px solid var(--accent);background:#e8f5ec;border-radius:14px;
+    padding:11px 14px;font-size:var(--fs-xs);color:var(--accent);font-weight:700;line-height:1.55;
+    display:none;
+  }
+  .hintbox.show{display:block}
+  body.urdu .hintbox{line-height:var(--lh)}
+  .panel{margin-top:22px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .prog{margin:0 0 10px;font-size:var(--fs-xs);font-weight:700;color:var(--ink-soft)}
+  .btns{display:flex;gap:9px;margin-top:8px;flex-wrap:wrap}
+  .btns button{
+    border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);
+    font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:50px;
+    padding:8px 14px;flex:1;
+  }
+  .btns .go{background:var(--ink);color:var(--paper)}
+  .btns button:active{transform:scale(.97)}
+  .btns button:disabled{opacity:.4;cursor:default}
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .qhead{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+  .qhead h2{font-size:var(--fs-lg);font-weight:800;margin:0;flex:1}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:50px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+  .opt.wrong{border-color:var(--left);background:#fbeae8}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
+      grid-template-areas:
+        "bar   bar" "head  head" "tabs  tabs" "story story"
+        "left  right" "quiz  quiz" "foot  foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+    .story{grid-area:story} .left{grid-area:left} .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+    .panel{margin-top:0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition-duration:.01ms !important;animation:none !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 5 · Urdu</span>
+    <span class="stars" id="starBox">⭐ <span id="starCount">0</span></span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 id="title"></h1>
+  <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group">
+    <button type="button" id="tabSort" aria-pressed="true"></button>
+    <button type="button" id="tabImla" aria-pressed="false"></button>
+    <button type="button" id="tabBuild" aria-pressed="false"></button>
+  </div>
+
+  <p class="story" id="story"></p>
+
+  <div class="left">
+  <div class="scene">
+    <div class="scene-pad" id="scenePad"></div>
+  </div>
+  <div class="readout">
+    <span class="statechip" id="statechip"></span>
+    <p class="headline" id="headline"></p>
+    <p class="detail" id="detail"></p>
+    <p class="hintbox" id="hintbox"></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="panel">
+    <h2 id="ctlHead"></h2>
+    <p class="prog" id="prog"></p>
+    <div id="actionBox"></div>
+    <div class="btns">
+      <button type="button" class="go" id="nextBtn"></button>
+    </div>
+    <div class="btns">
+      <button type="button" id="hintBtn"></button>
+      <button type="button" id="resetBtn"></button>
+    </div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <div class="qhead">
+      <h2 id="quizHead"></h2>
+      <button type="button" class="chip" id="newQuiz"></button>
+    </div>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad bilingual school. Offline play · no APIs. WhatsApp 0337 1468899 · Urdu Class 5 (helping interactive)"
+       data-ur="اے آئی فور کڈز — اسلام آباد۔ آف لائن کھیلو۔ واٹس ایپ 0337 1468899 · اردو جماعت ۵ (مددگار انٹرایکٹو)"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  function $(id){ return document.getElementById(id); }
+  function isolate(s){ return "\u2066" + s + "\u2069"; }
+  function setText(el, str){
+    if (!el) return;
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+  function t(o){ return (o && o[lang]) || (o && o.en) || ""; }
+  function shuffle(arr){
+    var a = arr.slice(), i, j, tmp;
+    for (i = a.length - 1; i > 0; i--){
+      j = Math.floor(Math.random() * (i + 1));
+      tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  var lang = "en";
+  var mode = "sort";
+  var stars = 0;
+  var awarded = {};
+  var doneModes = {sort:false, imla:false, build:false};
+
+  var T = {
+    title:{en:"Grammar aur imla", ur:"گرامر اور املا"},
+    sub:{en:"Sort ism / fael / sifat, fix common spellings, and build simple Class 5 sentences — Roman + Urdu practice!",
+         ur:"اسم / فعل / صفت چھانٹو، عام املا درست کرو، اور جماعت ۵ کے سادہ جملے بناؤ — رومن + اردو مشق!"},
+    tabSort:{en:"Sort the word", ur:"لفظ چھانٹو"},
+    tabImla:{en:"Imla check", ur:"املا چیک"},
+    tabBuild:{en:"Sentence build", ur:"جملہ بناؤ"},
+    storySort:{en:"Tap word chips into bins: <b>ism</b> (noun/name), <b>fael</b> (action/verb), <b>sifat</b> (describing word)!",
+              ur:"الفاظ کے چپس باکس میں رکھو: <b>اسم</b> (نام)، <b>فعل</b> (کام)، <b>صفت</b> (بیان)!"},
+    storyImla:{en:"Pick the <b>correct spelling</b> — kitab, school, dost, Pakistan… watch double letters and missing sounds!",
+               ur:"صحیح <b>املا</b> چنو — کتاب، اسکول، دوست، پاکستان… دہرے حروف اور گم آوازیں دیکھ لو!"},
+    storyBuild:{en:"Fill the blank with the right <b>word type</b> or fix the wrong word in a short sentence.",
+                ur:"خالی جگہ صحیح <b>لفظ کی قسم</b> سے بھرو یا جملے میں غلط لفظ درست کرو۔"},
+    ctl:{en:"Your turn — word detective", ur:"تمہاری باری — لفظ جاسوس"},
+    next:{en:"Next challenge", ur:"اگلا چیلنج"},
+    hint:{en:"Hint", ur:"اشارہ"},
+    reset:{en:"Reset", ur:"ری سیٹ"},
+    quiz:{en:"Check yourself", ur:"اپنا چیک"},
+    newQuiz:{en:"New quiz", ur:"نیا کوئز"},
+    nice:{en:"Shabash — grammar star!", ur:"شاباش — گرامر ستارہ!"},
+    oops:{en:"Almost — try again", ur:"قریب — دوبارہ آزماؤ"},
+    tip:{en:"Tip: Ism = name/thing (kitab, school). Fael = action (likhta, khelta). Sifat = describing word (achha, bara). Imla = careful spelling!",
+         ur:"نکتہ: اسم = نام/چیز (کتاب، اسکول)۔ فعل = کام (لکھتا، کھیلتا)۔ صفت = بیان (اچھا، بڑا)۔ املا = احتیاط سے ہجے!"},
+    progS:{en:"Sort the word", ur:"لفظ چھانٹو"},
+    progI:{en:"Imla check", ur:"املا چیک"},
+    progB:{en:"Sentence build", ur:"جملہ بناؤ"},
+    askSort:{en:"Tap a word, then tap Ism / Fael / Sifat", ur:"لفظ ٹیپ کرو، پھر اسم / فعل / صفت"},
+    askImla:{en:"Which spelling is correct?", ur:"کون سا املا درست ہے؟"},
+    askBuild:{en:"Pick what fits the blank or fix the word", ur:"خالی جگہ بھرو یا لفظ درست کرو"},
+    checkSort:{en:"Check sort", ur:"چھانٹی چیک کرو"},
+    ismLab:{en:"📘 Ism", ur:"📘 اسم"},
+    faelLab:{en:"⚡ Fael", ur:"⚡ فعل"},
+    sifatLab:{en:"✨ Sifat", ur:"✨ صفت"},
+    pick:{en:"Tap a word first", ur:"پہلے لفظ ٹیپ کرو"}
+  };
+
+  /* Word cards for sort mode */
+  var WORDS = {
+    w_kitab:{em:"📖", en:"kitab (book)", ur:"کتاب", bin:"ism"},
+    w_school:{em:"🏫", en:"school", ur:"اسکول", bin:"ism"},
+    w_dost:{em:"🤝", en:"dost (friend)", ur:"دوست", bin:"ism"},
+    w_pakistan:{em:"🇵🇰", en:"Pakistan", ur:"پاکستان", bin:"ism"},
+    w_ali:{em:"👦", en:"Ali", ur:"علی", bin:"ism"},
+    w_ghar:{em:"🏠", en:"ghar (home)", ur:"گھر", bin:"ism"},
+    w_likhta:{em:"✍️", en:"likhta (writes)", ur:"لکھتا", bin:"fael"},
+    w_khelta:{em:"⚽", en:"khelta (plays)", ur:"کھیلتا", bin:"fael"},
+    w_padhta:{em:"📚", en:"padhta (reads)", ur:"پڑھتا", bin:"fael"},
+    w_daurta:{em:"🏃", en:"daurta (runs)", ur:"دوڑتا", bin:"fael"},
+    w_khata:{em:"🍎", en:"khata (eats)", ur:"کھاتا", bin:"fael"},
+    w_bolta:{em:"🗣️", en:"bolta (speaks)", ur:"بولتا", bin:"fael"},
+    w_achha:{em:"👍", en:"achha (good)", ur:"اچھا", bin:"sifat"},
+    w_bara:{em:"🦁", en:"bara (big)", ur:"بڑا", bin:"sifat"},
+    w_naya:{em:"✨", en:"naya (new)", ur:"نیا", bin:"sifat"},
+    w_sundar:{em:"🌸", en:"sundar (beautiful)", ur:"خوبصورت", bin:"sifat"},
+    w_tez:{em:"💨", en:"tez (fast)", ur:"تیز", bin:"sifat"},
+    w_chhota:{em:"🐜", en:"chhota (small)", ur:"چھوٹا", bin:"sifat"}
+  };
+
+  var SORT = [
+    {
+      id:"s1", type:"sort",
+      title:{en:"Sort: Ali padhta hai", ur:"چھانٹو: علی پڑھتا ہے"},
+      sent:{en:"Ali · kitab · padhta", ur:"علی · کتاب · پڑھتا"},
+      items:["w_ali","w_kitab","w_padhta","w_achha"],
+      hint:{en:"Ali & kitab = ism (names/things). Padhta = fael (action). Achha = sifat (describes).",
+            ur:"علی اور کتاب = اسم۔ پڑھتا = فعل۔ اچھا = صفت۔"},
+      done:{en:"Words sorted!", ur:"الفاظ چھانٹے!"}
+    },
+    {
+      id:"s2", type:"sort",
+      title:{en:"School yard words", ur:"اسکول یارڈ کے الفاظ"},
+      sent:{en:"school · khelta · tez · dost", ur:"اسکول · کھیلتا · تیز · دوست"},
+      items:["w_school","w_khelta","w_tez","w_dost"],
+      hint:{en:"School & dost = ism. Khelta = fael. Tez = sifat (how he plays).",
+            ur:"اسکول اور دوست = اسم۔ کھیلتا = فعل۔ تیز = صفت۔"},
+      done:{en:"Yard words locked!", ur:"یارڈ الفاظ تیار!"}
+    },
+    {
+      id:"s3", type:"pick",
+      title:{en:"What kind of word is Pakistan?", ur:"پاکستان کس قسم کا لفظ ہے؟"},
+      card:"w_pakistan",
+      choices:[
+        {id:"ism", em:"📘", en:"Ism — a name / place (noun)", ur:"اسم — نام / جگہ"},
+        {id:"fael", em:"⚡", en:"Fael — an action word", ur:"فعل — کام کا لفظ"},
+        {id:"sifat", em:"✨", en:"Sifat — a describing word", ur:"صفت — بیان کا لفظ"}
+      ],
+      correct:"ism",
+      hint:{en:"Pakistan is a place name — that is an ism (noun).",
+            ur:"پاکستان جگہ کا نام ہے — یہ اسم ہے۔"},
+      done:{en:"Ism locked!", ur:"اسم تیار!"}
+    },
+    {
+      id:"s4", type:"pick",
+      title:{en:"What kind of word is likhta?", ur:"لکھتا کس قسم کا لفظ ہے؟"},
+      card:"w_likhta",
+      choices:[
+        {id:"fael", em:"⚡", en:"Fael — writes (action)", ur:"فعل — لکھتا (کام)"},
+        {id:"ism", em:"📘", en:"Ism — only a thing name", ur:"اسم — صرف چیز کا نام"},
+        {id:"sifat", em:"✨", en:"Sifat — only a colour word", ur:"صفت — صرف رنگ کا لفظ"}
+      ],
+      correct:"fael",
+      hint:{en:"Likhta = the action of writing → fael (verb).",
+            ur:"لکھتا = لکھنے کا کام → فعل۔"},
+      done:{en:"Fael locked!", ur:"فعل تیار!"}
+    }
+  ];
+
+  /* Imla check challenges */
+  var IMLA = [
+    {
+      id:"i1",
+      title:{en:"Spell: book", ur:"ہجے: کتاب"},
+      hero:"📖✏️",
+      prompt:{en:"Choose the correct Roman spelling for کتاب", ur:"کتاب کا صحیح رومن املا چنو"},
+      choices:[
+        {id:"kitab", em:"✅", en:"kitab", ur:"kitab"},
+        {id:"kitaab", em:"❌", en:"kitaab", ur:"kitaab"},
+        {id:"kitb", em:"❌", en:"kitb", ur:"kitb"}
+      ],
+      correct:"kitab",
+      hint:{en:"Common Class 5 spelling: kitab (not kitaab / kitb).",
+            ur:"جماعت ۵ عام املا: kitab (kitaab / kitb نہیں)۔"},
+      done:{en:"Kitab locked!", ur:"کتاب تیار!"}
+    },
+    {
+      id:"i2",
+      title:{en:"Spell: school", ur:"ہجے: اسکول"},
+      hero:"🏫✏️",
+      prompt:{en:"Which spelling is correct?", ur:"کون سا املا درست ہے؟"},
+      choices:[
+        {id:"school", em:"✅", en:"school", ur:"school"},
+        {id:"skool", em:"❌", en:"skool", ur:"skool"},
+        {id:"scool", em:"❌", en:"scool", ur:"scool"}
+      ],
+      correct:"school",
+      hint:{en:"Remember the double o and the h: school.",
+            ur:"دہرے o اور h یاد رکھو: school۔"},
+      done:{en:"School locked!", ur:"اسکول تیار!"}
+    },
+    {
+      id:"i3",
+      title:{en:"Spell: friend", ur:"ہجے: دوست"},
+      hero:"🤝✏️",
+      prompt:{en:"Pick correct Roman for دوست", ur:"دوست کا صحیح رومن چنو"},
+      choices:[
+        {id:"dost", em:"✅", en:"dost", ur:"dost"},
+        {id:"dostt", em:"❌", en:"dostt", ur:"dostt"},
+        {id:"dust", em:"❌", en:"dust", ur:"dust"}
+      ],
+      correct:"dost",
+      hint:{en:"Dost has one s and one t — not dostt or dust.",
+            ur:"دوست میں ایک s اور ایک t — dostt یا dust نہیں۔"},
+      done:{en:"Dost locked!", ur:"دوست تیار!"}
+    },
+    {
+      id:"i4",
+      title:{en:"Spell: Pakistan", ur:"ہجے: پاکستان"},
+      hero:"🇵🇰✏️",
+      prompt:{en:"Choose the correct country spelling", ur:"ملک کا صحیح املا چنو"},
+      choices:[
+        {id:"Pakistan", em:"✅", en:"Pakistan", ur:"Pakistan"},
+        {id:"Pakstan", em:"❌", en:"Pakstan", ur:"Pakstan"},
+        {id:"Pakisten", em:"❌", en:"Pakisten", ur:"Pakisten"}
+      ],
+      correct:"Pakistan",
+      hint:{en:"Do not drop the i sound: Pak-i-stan.",
+            ur:"i کی آواز نہ چھوڑو: Pak-i-stan۔"},
+      done:{en:"Pakistan locked!", ur:"پاکستان تیار!"}
+    },
+    {
+      id:"i5",
+      title:{en:"Spell: good", ur:"ہجے: اچھا"},
+      hero:"👍✏️",
+      prompt:{en:"Correct Roman for اچھا?", ur:"اچھا کا صحیح رومن؟"},
+      choices:[
+        {id:"achha", em:"✅", en:"achha", ur:"achha"},
+        {id:"acha", em:"❌", en:"acha", ur:"acha"},
+        {id:"achhaa", em:"❌", en:"achhaa", ur:"achhaa"}
+      ],
+      correct:"achha",
+      hint:{en:"Double h (chh) is common: achha — not acha.",
+            ur:"دہرا h (chh) عام ہے: achha — acha نہیں۔"},
+      done:{en:"Achha locked!", ur:"اچھا تیار!"}
+    }
+  ];
+
+  /* Sentence build */
+  var BUILD = [
+    {
+      id:"b1",
+      title:{en:"Fill: missing ism", ur:"بھرو: گم اسم"},
+      hero:"👦📘",
+      before:{en:"_____ padhta hai.", ur:"_____ پڑھتا ہے۔"},
+      blankHint:{en:"(ism — who?)", ur:"(اسم — کون؟)"},
+      choices:[
+        {id:"Ali", em:"👦", en:"Ali (ism)", ur:"علی (اسم)"},
+        {id:"tez", em:"💨", en:"tez (sifat)", ur:"تیز (صفت)"},
+        {id:"likhta", em:"✍️", en:"likhta (fael)", ur:"لکھتا (فعل)"}
+      ],
+      correct:"Ali",
+      hint:{en:"Who reads? Need an ism (name): Ali.",
+            ur:"کون پڑھتا ہے؟ اسم چاہیے: علی۔"},
+      done:{en:"Sentence built!", ur:"جملہ بن گیا!"}
+    },
+    {
+      id:"b2",
+      title:{en:"Fill: missing fael", ur:"بھرو: گم فعل"},
+      hero:"⚽⚡",
+      before:{en:"Sara ball _____ hai.", ur:"سارہ بال _____ ہے۔"},
+      blankHint:{en:"(fael — action)", ur:"(فعل — کام)"},
+      choices:[
+        {id:"khelti", em:"⚽", en:"khelti (fael)", ur:"کھیلتی (فعل)"},
+        {id:"school", em:"🏫", en:"school (ism)", ur:"اسکول (اسم)"},
+        {id:"naya", em:"✨", en:"naya (sifat)", ur:"نیا (صفت)"}
+      ],
+      correct:"khelti",
+      hint:{en:"What is Sara doing with the ball? Need a fael: khelti.",
+            ur:"سارہ بال کے ساتھ کیا کر رہی ہے؟ فعل چاہیے: کھیلتی۔"},
+      done:{en:"Action filled!", ur:"کام بھرا!"}
+    },
+    {
+      id:"b3",
+      title:{en:"Fix the wrong word", ur:"غلط لفظ درست کرو"},
+      hero:"🔧📝",
+      before:{en:"Yeh kitab bahut ____ hai. (wrong: daurta)", ur:"یہ کتاب بہت ____ ہے۔ (غلط: دوڑتا)"},
+      blankHint:{en:"Replace wrong fael with sifat", ur:"غلط فعل کی جگہ صفت"},
+      choices:[
+        {id:"achhi", em:"👍", en:"achhi (sifat — good)", ur:"اچھی (صفت)"},
+        {id:"daurta", em:"🏃", en:"daurta (fael — runs)", ur:"دوڑتا (فعل)"},
+        {id:"Pakistan", em:"🇵🇰", en:"Pakistan (ism)", ur:"پاکستان (اسم)"}
+      ],
+      correct:"achhi",
+      hint:{en:"A book is not 'running' — use sifat: achhi (good).",
+            ur:"کتاب 'دوڑتی' نہیں — صفت استعمال کرو: اچھی۔"},
+      done:{en:"Word fixed!", ur:"لفظ درست!"}
+    },
+    {
+      id:"b4",
+      title:{en:"Fill: missing sifat", ur:"بھرو: گم صفت"},
+      hero:"🏠✨",
+      before:{en:"Hamara ghar _____ hai.", ur:"ہمارا گھر _____ ہے۔"},
+      blankHint:{en:"(sifat — describe)", ur:"(صفت — بیان)"},
+      choices:[
+        {id:"bara", em:"🦁", en:"bara (sifat — big)", ur:"بڑا (صفت)"},
+        {id:"khata", em:"🍎", en:"khata (fael)", ur:"کھاتا (فعل)"},
+        {id:"dost", em:"🤝", en:"dost (ism)", ur:"دوست (اسم)"}
+      ],
+      correct:"bara",
+      hint:{en:"Describe the house → sifat: bara (big).",
+            ur:"گھر بیان کرو → صفت: بڑا۔"},
+      done:{en:"Sifat filled!", ur:"صفت بھری!"}
+    },
+    {
+      id:"b5",
+      title:{en:"Pick word type for blank", ur:"خالی جگہ کی قسم چنو"},
+      hero:"🇵🇰📘",
+      before:{en:"Main _____ se hoon.", ur:"میں _____ سے ہوں۔"},
+      blankHint:{en:"(ism — place name)", ur:"(اسم — جگہ کا نام)"},
+      choices:[
+        {id:"Pakistan", em:"🇵🇰", en:"Pakistan (ism)", ur:"پاکستان (اسم)"},
+        {id:"bolta", em:"🗣️", en:"bolta (fael)", ur:"بولتا (فعل)"},
+        {id:"sundar", em:"🌸", en:"sundar (sifat)", ur:"خوبصورت (صفت)"}
+      ],
+      correct:"Pakistan",
+      hint:{en:"'Main ___ se hoon' needs a place ism: Pakistan.",
+            ur:"'میں ___ سے ہوں' کے لیے جگہ کا اسم: پاکستان۔"},
+      done:{en:"Place locked!", ur:"جگہ تیار!"}
+    }
+  ];
+
+  /* Quiz — EN + Roman Urdu; 7 pool → pick 5 */
+  var QUIZ = [
+    {
+      q:{en:"What is an ism?",
+         ur:"Ism (اسم) kya hota hai?"},
+      opts:[
+        {en:"A noun — name of a person, place, or thing", ur:"Noun — shakhs, jagah, ya cheez ka naam"},
+        {en:"Only a colour on a crayon", ur:"Sirf crayon ka rang"},
+        {en:"A silent empty desk", ur:"Khamosh khali desk"},
+        {en:"A random math sum", ur:"Random hisaab"}
+      ],
+      correct:0,
+      why:{en:"Ism = noun — kitab, school, Ali, Pakistan.",
+           ur:"Ism = noun — kitab, school, Ali, Pakistan."}
+    },
+    {
+      q:{en:"Fael means…",
+         ur:"Fael (فعل) ka matlab…"},
+      opts:[
+        {en:"A verb — an action word (likhta, khelta)", ur:"Verb — kaam ka lafz (likhta, khelta)"},
+        {en:"Only the page number", ur:"Sirf page number"},
+        {en:"A shopping list", ur:"Shopping list"},
+        {en:"Skipping homework forever", ur:"Hamesha homework chhor dena"}
+      ],
+      correct:0,
+      why:{en:"Fael = action — what someone does.",
+           ur:"Fael = amal — koi kya karta hai."}
+    },
+    {
+      q:{en:"Sifat is…",
+         ur:"Sifat (صفت)…"},
+      opts:[
+        {en:"An adjective — a describing word (achha, bara)", ur:"Adjective — bayan ka lafz (achha, bara)"},
+        {en:"Only a cricket scoreboard", ur:"Sirf cricket scoreboard"},
+        {en:"A school timetable alone", ur:"Sirf school timetable"},
+        {en:"An empty notebook", ur:"Khali notebook"}
+      ],
+      correct:0,
+      why:{en:"Sifat describes an ism — big, good, fast, new.",
+           ur:"Sifat ism ko bayan karti hai — bara, achha, tez, naya."}
+    },
+    {
+      q:{en:"Correct Roman spelling for کتاب is…",
+         ur:"کتاب ka sahi Roman spelling…"},
+      opts:[
+        {en:"kitab", ur:"kitab"},
+        {en:"kitb", ur:"kitb"},
+        {en:"kitaabb", ur:"kitaabb"},
+        {en:"ktab", ur:"ktab"}
+      ],
+      correct:0,
+      why:{en:"Class 5 practice spelling: kitab.",
+           ur:"Jamaat 5 practice: kitab."}
+    },
+    {
+      q:{en:"Which spelling is correct?",
+         ur:"Kaun sa spelling sahi hai?"},
+      opts:[
+        {en:"school", ur:"school"},
+        {en:"skool", ur:"skool"},
+        {en:"scool", ur:"scool"},
+        {en:"schol", ur:"schol"}
+      ],
+      correct:0,
+      why:{en:"Remember double o and h: school.",
+           ur:"Double o aur h yaad rakho: school."}
+    },
+    {
+      q:{en:"In 'Ali tez daurta hai', which word is sifat?",
+         ur:"'Ali tez daurta hai' mein sifat kaun sa hai?"},
+      opts:[
+        {en:"tez (describes how he runs)", ur:"tez (kaise daurta hai — bayan)"},
+        {en:"Ali only", ur:"Sirf Ali"},
+        {en:"daurta only", ur:"Sirf daurta"},
+        {en:"hai only", ur:"Sirf hai"}
+      ],
+      correct:0,
+      why:{en:"Tez = sifat; Ali = ism; daurta = fael.",
+           ur:"Tez = sifat; Ali = ism; daurta = fael."}
+    },
+    {
+      q:{en:"Common imla tip: do not drop the 'i' in…",
+         ur:"Aam imla tip: 'i' ki awaaz na chhoro…"},
+      opts:[
+        {en:"Pakistan (not Pakstan)", ur:"Pakistan (Pakstan nahi)"},
+        {en:"Only the letter Z forever", ur:"Hamesha sirf Z"},
+        {en:"A blank eraser", ur:"Khali eraser"},
+        {en:"Skipping the alphabet", ur:"Alphabet chhor dena"}
+      ],
+      correct:0,
+      why:{en:"Say Pak-i-stan — keep the i sound in spelling.",
+           ur:"Pak-i-stan bolo — spelling mein i rakho."}
+    }
+  ];
+
+  var sortIdx = 0, sortSelected = null, sortMap = {}, sortDone = {};
+  var imlaIdx = 0, imlaDone = {};
+  var buildIdx = 0, buildDone = {};
+  var quizSet = [];
+
+  function award(key, n){
+    if (awarded[key]) return;
+    awarded[key] = true;
+    stars += (n || 1);
+    $("starCount").textContent = String(stars);
+  }
+  function recountStars(){
+    stars = 0;
+    Object.keys(awarded).forEach(function(k){
+      if (!awarded[k]) return;
+      stars += (k.indexOf("mode-")===0) ? 2 : 1;
+    });
+    $("starCount").textContent = String(stars);
+  }
+  function maybeSortDone(){
+    var all = SORT.every(function(c){ return sortDone[c.id]; });
+    if (all){ doneModes.sort = true; award("mode-sort", 2); tabBadges(); }
+  }
+  function maybeImlaDone(){
+    var all = IMLA.every(function(c){ return imlaDone[c.id]; });
+    if (all){ doneModes.imla = true; award("mode-imla", 2); tabBadges(); }
+  }
+  function maybeBuildDone(){
+    var all = BUILD.every(function(c){ return buildDone[c.id]; });
+    if (all){ doneModes.build = true; award("mode-build", 2); tabBadges(); }
+  }
+
+  function skyHTML(){
+    return '<div class="sky-layer"><div class="cloud c1"></div><div class="cloud c2"></div></div>' +
+      '<div class="pencil-deco" aria-hidden="true">✏️</div>' +
+      '<div class="hills"><div class="hill h-a"></div><div class="hill h-b"></div></div>' +
+      '<div class="geom-edge"></div><div class="ground-strip"></div>';
+  }
+
+  /* ---------- SORT ---------- */
+  function renderSort(){
+    var ch = SORT[sortIdx];
+    var pad = $("scenePad");
+    var box = $("actionBox");
+    box.innerHTML = "";
+    $("hintbox").classList.remove("show");
+    setText($("prog"), t(T.progS) + " · " + (sortIdx+1) + "/" + SORT.length);
+    setText($("statechip"), (sortIdx+1) + " / " + SORT.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (sortDone[ch.id]?" win":"");
+    if (sortDone[ch.id]) setText($("statechip"), t(T.nice));
+    setText($("headline"), t(ch.title));
+
+    if (ch.type === "sort"){
+      setText($("detail"), sortDone[ch.id] ? t(ch.done) : t(T.askSort));
+      pad.innerHTML = skyHTML() +
+        '<div class="sort-grid">' +
+        '<div class="sort-bin ism-bin" data-bin="ism"><h3></h3><div class="drop" id="binIsm"></div></div>' +
+        '<div class="sort-bin fael-bin" data-bin="fael"><h3></h3><div class="drop" id="binFael"></div></div>' +
+        '<div class="sort-bin sifat-bin" data-bin="sifat"><h3></h3><div class="drop" id="binSifat"></div></div>' +
+        '</div>';
+      setText(pad.querySelector(".ism-bin h3"), t(T.ismLab));
+      setText(pad.querySelector(".fael-bin h3"), t(T.faelLab));
+      setText(pad.querySelector(".sifat-bin h3"), t(T.sifatLab));
+
+      var bank = document.createElement("div");
+      bank.className = "bank";
+      var localMap = sortMap[ch.id] || {};
+      sortMap[ch.id] = localMap;
+
+      function paint(){
+        $("binIsm").innerHTML = ""; $("binFael").innerHTML = ""; $("binSifat").innerHTML = "";
+        bank.innerHTML = "";
+        ch.items.forEach(function(id){
+          var card = WORDS[id];
+          var bin = localMap[id];
+          if (bin){
+            var el = document.createElement("span");
+            el.className = "mini-chip";
+            el.textContent = card.em;
+            el.title = t(card);
+            el.addEventListener("click", function(){
+              if (sortDone[ch.id]) return;
+              delete localMap[id];
+              sortSelected = null;
+              paint();
+            });
+            ($(bin === "ism" ? "binIsm" : bin === "fael" ? "binFael" : "binSifat")).appendChild(el);
+          } else {
+            var b = document.createElement("button");
+            b.type = "button";
+            b.className = "item-card" + (sortSelected === id ? " selected" : "");
+            b.innerHTML = '<span class="item-em">'+card.em+'</span><p class="item-lab"></p>';
+            setText(b.querySelector(".item-lab"), lang==="ur" ? card.ur : card.en);
+            b.addEventListener("click", function(){
+              if (sortDone[ch.id]) return;
+              sortSelected = id;
+              paint();
+            });
+            bank.appendChild(b);
+          }
+        });
+      }
+      paint();
+      box.appendChild(bank);
+
+      pad.querySelectorAll(".sort-bin").forEach(function(binEl){
+        binEl.addEventListener("click", function(){
+          if (sortDone[ch.id]) return;
+          if (!sortSelected){ setText($("detail"), t(T.pick)); return; }
+          localMap[sortSelected] = binEl.getAttribute("data-bin");
+          sortSelected = null;
+          paint();
+        });
+      });
+
+      if (!sortDone[ch.id]){
+        var chk = document.createElement("button");
+        chk.type = "button";
+        chk.style.cssText = "margin-top:10px;width:100%;border:2px solid var(--ink);border-radius:14px;background:var(--ink);color:var(--paper);font:inherit;font-weight:800;min-height:48px;cursor:pointer";
+        setText(chk, t(T.checkSort));
+        chk.addEventListener("click", function(){
+          var ok = ch.items.every(function(id){ return localMap[id] === WORDS[id].bin; });
+          if (ok){
+            sortDone[ch.id] = true;
+            award("sort-"+ch.id, 1);
+            setText($("headline"), t(ch.done));
+            setText($("detail"), t(T.nice));
+            maybeSortDone();
+            renderSort();
+          } else {
+            setText($("headline"), t(T.oops));
+            setText($("detail"), {en:"Check ism / fael / sifat again.", ur:"دوبارہ اسم / فعل / صفت چیک کرو۔"}[lang]);
+          }
+        });
+        box.appendChild(chk);
+      }
+      return;
+    }
+
+    /* pick type */
+    setText($("detail"), sortDone[ch.id] ? t(ch.done) : t(T.askSort));
+    var card = WORDS[ch.card];
+    pad.innerHTML = skyHTML() +
+      '<div class="comic-stage"><div class="comic-hero">'+card.em+'</div>' +
+      '<div class="comic-panel"><span class="em">📝</span><span class="plab"></span></div></div>';
+    setText(pad.querySelector(".plab"), lang==="ur" ? card.ur : card.en);
+
+    var choices = document.createElement("div");
+    choices.className = "save-choices";
+    ch.choices.forEach(function(c){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.innerHTML = '<span class="cem">'+c.em+'</span><span class="clab"></span>';
+      setText(b.querySelector(".clab"), t(c));
+      if (sortDone[ch.id] && c.id === ch.correct) b.classList.add("right");
+      b.addEventListener("click", function(){
+        if (sortDone[ch.id]) return;
+        if (c.id === ch.correct){
+          sortDone[ch.id] = true;
+          award("sort-"+ch.id, 1);
+          b.classList.add("right");
+          setText($("headline"), t(ch.done));
+          setText($("detail"), t(T.nice));
+          maybeSortDone();
+          renderSort();
+        } else {
+          b.classList.add("wrong");
+          setText($("headline"), t(T.oops));
+          setTimeout(function(){ b.classList.remove("wrong"); }, 600);
+        }
+      });
+      choices.appendChild(b);
+    });
+    box.appendChild(choices);
+  }
+
+  /* ---------- IMLA ---------- */
+  function renderImla(){
+    var ch = IMLA[imlaIdx];
+    var pad = $("scenePad");
+    var box = $("actionBox");
+    box.innerHTML = "";
+    $("hintbox").classList.remove("show");
+    setText($("prog"), t(T.progI) + " · " + (imlaIdx+1) + "/" + IMLA.length);
+    setText($("statechip"), (imlaIdx+1) + " / " + IMLA.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (imlaDone[ch.id]?" win":"");
+    if (imlaDone[ch.id]) setText($("statechip"), t(T.nice));
+    setText($("headline"), t(ch.title));
+    setText($("detail"), imlaDone[ch.id] ? t(ch.done) : t(T.askImla));
+
+    pad.innerHTML = skyHTML() +
+      '<div class="story-box"><span class="sem">'+ch.hero+'</span>' +
+      '<p class="stitle"></p><p class="sbody"></p></div>';
+    setText(pad.querySelector(".stitle"), t(ch.title));
+    setText(pad.querySelector(".sbody"), t(ch.prompt));
+
+    var choices = document.createElement("div");
+    choices.className = "save-choices";
+    var opts = shuffle(ch.choices.slice());
+    opts.forEach(function(c){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.innerHTML = '<span class="cem">🔤</span><span class="clab"></span>';
+      setText(b.querySelector(".clab"), t(c));
+      b.querySelector(".clab").setAttribute("dir","ltr");
+      b.querySelector(".clab").style.fontFamily = '"Baloo Bhaijaan 2",sans-serif';
+      if (imlaDone[ch.id] && c.id === ch.correct) b.classList.add("right");
+      b.addEventListener("click", function(){
+        if (imlaDone[ch.id]) return;
+        if (c.id === ch.correct){
+          imlaDone[ch.id] = true;
+          award("imla-"+ch.id, 1);
+          b.classList.add("right");
+          setText($("headline"), t(ch.done));
+          setText($("detail"), t(T.nice));
+          maybeImlaDone();
+          renderImla();
+        } else {
+          b.classList.add("wrong");
+          setText($("headline"), t(T.oops));
+          setTimeout(function(){ b.classList.remove("wrong"); }, 600);
+        }
+      });
+      choices.appendChild(b);
+    });
+    box.appendChild(choices);
+  }
+
+  /* ---------- BUILD ---------- */
+  function renderBuild(){
+    var ch = BUILD[buildIdx];
+    var pad = $("scenePad");
+    var box = $("actionBox");
+    box.innerHTML = "";
+    $("hintbox").classList.remove("show");
+    setText($("prog"), t(T.progB) + " · " + (buildIdx+1) + "/" + BUILD.length);
+    setText($("statechip"), (buildIdx+1) + " / " + BUILD.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (buildDone[ch.id]?" win":"");
+    if (buildDone[ch.id]) setText($("statechip"), t(T.nice));
+    setText($("headline"), t(ch.title));
+    setText($("detail"), buildDone[ch.id] ? t(ch.done) : t(T.askBuild));
+
+    var before = t(ch.before);
+    var shown = before.replace("_____", '<span class="blank">?</span>');
+    pad.innerHTML = skyHTML() +
+      '<div class="sent-line"><span class="sem" style="display:block;font-size:36px;margin-bottom:6px">'+ch.hero+'</span>' +
+      '<div class="sline">'+shown+'</div>' +
+      '<p class="sbody" style="font-size:var(--fs-cap);color:var(--ink-soft);font-weight:700;margin:8px 0 0"></p></div>';
+    setText(pad.querySelector(".sbody"), t(ch.blankHint));
+    if (lang === "ur"){
+      pad.querySelector(".sline").setAttribute("dir","rtl");
+      pad.querySelector(".sline").classList.add("ur");
+    }
+
+    var choices = document.createElement("div");
+    choices.className = "save-choices";
+    ch.choices.forEach(function(c){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.innerHTML = '<span class="cem">'+c.em+'</span><span class="clab"></span>';
+      setText(b.querySelector(".clab"), t(c));
+      if (buildDone[ch.id] && c.id === ch.correct) b.classList.add("right");
+      b.addEventListener("click", function(){
+        if (buildDone[ch.id]) return;
+        if (c.id === ch.correct){
+          buildDone[ch.id] = true;
+          award("build-"+ch.id, 1);
+          b.classList.add("right");
+          setText($("headline"), t(ch.done));
+          setText($("detail"), t(T.nice));
+          maybeBuildDone();
+          renderBuild();
+        } else {
+          b.classList.add("wrong");
+          setText($("headline"), t(T.oops));
+          setTimeout(function(){ b.classList.remove("wrong"); }, 600);
+        }
+      });
+      choices.appendChild(b);
+    });
+    box.appendChild(choices);
+  }
+
+  /* ---------- QUIZ ---------- */
+  function pickQuiz(){ quizSet = shuffle(QUIZ).slice(0, 5); }
+  function renderQuiz(){
+    var box = $("quizBox");
+    box.innerHTML = "";
+    quizSet.forEach(function(item, qi){
+      var wrap = document.createElement("div");
+      wrap.className = "q";
+      var p = document.createElement("p");
+      if (lang === "ur"){
+        p.textContent = isolate((qi+1) + ". " + t(item.q));
+        p.setAttribute("dir", "ltr");
+        p.style.fontFamily = '"Baloo Bhaijaan 2",sans-serif';
+        p.style.textAlign = "left";
+        p.style.lineHeight = "1.5";
+      } else {
+        setText(p, (qi+1) + ". " + t(item.q));
+      }
+      wrap.appendChild(p);
+      var answered = false;
+      item.opts.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        if (lang === "ur"){
+          b.className = "opt";
+          b.textContent = isolate(t(opt));
+          b.setAttribute("dir", "ltr");
+          b.style.textAlign = "left";
+          b.style.fontFamily = '"Baloo Bhaijaan 2",sans-serif';
+        } else {
+          b.className = "opt";
+          setText(b, t(opt));
+        }
+        b.addEventListener("click", function(){
+          if (answered) return;
+          answered = true;
+          if (oi === item.correct){
+            b.classList.add("right");
+            award("quiz-"+qi, 1);
+          } else {
+            b.classList.add("wrong");
+            var kids = wrap.querySelectorAll(".opt");
+            if (kids[item.correct]) kids[item.correct].classList.add("right");
+          }
+          fb.classList.add("show");
+        });
+        wrap.appendChild(b);
+      });
+      var fb = document.createElement("p");
+      fb.className = "fb";
+      if (lang === "ur"){
+        fb.textContent = isolate(t(item.why));
+        fb.setAttribute("dir", "ltr");
+        fb.style.fontFamily = '"Baloo Bhaijaan 2",sans-serif';
+      } else {
+        setText(fb, t(item.why));
+      }
+      wrap.appendChild(fb);
+      box.appendChild(wrap);
+    });
+  }
+
+  function storyHtml(){
+    if (mode === "sort") return t(T.storySort);
+    if (mode === "imla") return t(T.storyImla);
+    return t(T.storyBuild);
+  }
+
+  function tabBadges(){
+    function lab(btn, label, key){
+      btn.innerHTML = "";
+      var span = document.createElement("span");
+      setText(span, t(label));
+      btn.appendChild(span);
+      if (doneModes[key]){
+        var b = document.createElement("span");
+        b.className = "badge"; b.textContent = " ★";
+        btn.appendChild(b);
+      }
+    }
+    lab($("tabSort"), T.tabSort, "sort");
+    lab($("tabImla"), T.tabImla, "imla");
+    lab($("tabBuild"), T.tabBuild, "build");
+    $("tabSort").setAttribute("aria-pressed", mode==="sort"?"true":"false");
+    $("tabImla").setAttribute("aria-pressed", mode==="imla"?"true":"false");
+    $("tabBuild").setAttribute("aria-pressed", mode==="build"?"true":"false");
+  }
+
+  function setMode(m){
+    mode = m;
+    sortSelected = null;
+    if (mode === "sort") renderSort();
+    else if (mode === "imla") renderImla();
+    else renderBuild();
+    applyChrome();
+  }
+
+  function applyChrome(){
+    setText($("title"), t(T.title));
+    setText($("subtitle"), t(T.sub));
+    $("story").innerHTML = storyHtml();
+    $("story").classList.toggle("ur", lang==="ur");
+    $("story").setAttribute("dir", lang==="ur"?"rtl":"ltr");
+    setText($("ctlHead"), t(T.ctl));
+    setText($("nextBtn"), t(T.next));
+    setText($("hintBtn"), t(T.hint));
+    setText($("resetBtn"), t(T.reset));
+    setText($("quizHead"), t(T.quiz));
+    setText($("newQuiz"), t(T.newQuiz));
+    $("langBtn").textContent = (lang === "en") ? "اردو" : "EN";
+    $("langBtn").setAttribute("aria-pressed", lang==="ur"?"true":"false");
+    document.body.classList.toggle("urdu", lang==="ur");
+    document.documentElement.lang = (lang==="ur") ? "ur" : "en";
+    document.documentElement.dir = (lang==="ur") ? "rtl" : "ltr";
+    tabBadges();
+    var foot = document.querySelector("footer p");
+    if (foot) setText(foot, foot.getAttribute(lang==="ur"?"data-ur":"data-en"));
+  }
+
+  function applyLang(){
+    applyChrome();
+    if (mode === "sort") renderSort();
+    else if (mode === "imla") renderImla();
+    else renderBuild();
+    renderQuiz();
+  }
+
+  function next(){
+    $("hintbox").classList.remove("show");
+    if (mode === "sort"){
+      sortIdx = (sortIdx + 1) % SORT.length;
+      sortSelected = null;
+      renderSort();
+    } else if (mode === "imla"){
+      imlaIdx = (imlaIdx + 1) % IMLA.length;
+      renderImla();
+    } else {
+      buildIdx = (buildIdx + 1) % BUILD.length;
+      renderBuild();
+    }
+  }
+
+  function showHint(){
+    var h;
+    if (mode === "sort") h = SORT[sortIdx].hint;
+    else if (mode === "imla") h = IMLA[imlaIdx].hint;
+    else h = BUILD[buildIdx].hint;
+    var hb = $("hintbox");
+    setText(hb, t(h));
+    hb.classList.add("show");
+  }
+
+  function resetMode(){
+    if (mode === "sort"){
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("sort-")===0 || k==="mode-sort") delete awarded[k]; });
+      sortDone = {}; sortMap = {}; sortSelected = null; sortIdx = 0;
+      doneModes.sort = false;
+      recountStars(); renderSort();
+    } else if (mode === "imla"){
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("imla-")===0 || k==="mode-imla") delete awarded[k]; });
+      imlaDone = {}; imlaIdx = 0; doneModes.imla = false;
+      recountStars(); renderImla();
+    } else {
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("build-")===0 || k==="mode-build") delete awarded[k]; });
+      buildDone = {}; buildIdx = 0; doneModes.build = false;
+      recountStars(); renderBuild();
+    }
+    tabBadges();
+    applyChrome();
+  }
+
+  function cleanSpeakText(s){
+    return String(s || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  }
+  function buildSpeakText(){
+    var bits = [];
+    bits.push(t(T.title));
+    bits.push(cleanSpeakText(storyHtml()));
+    bits.push(cleanSpeakText(($("headline") && $("headline").textContent) || ""));
+    bits.push(cleanSpeakText(($("detail") && $("detail").textContent) || ""));
+    bits.push(t(T.tip));
+    return bits.filter(Boolean).join(". ");
+  }
+  function pickVoice(voices, want){
+    var i, v, L;
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf(want) === 0) return v;
+    }
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf("en") === 0) return v;
+    }
+    return voices[0] || null;
+  }
+  var speakTimer = null;
+  function setSpeaking(on){
+    var btn = $("speakBtn");
+    if (!btn) return;
+    btn.setAttribute("aria-pressed", on ? "true" : "false");
+    btn.style.opacity = on ? "0.65" : "";
+  }
+  function doSpeak(text, asLang){
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.92;
+    u.lang = (asLang === "ur") ? "ur-PK" : "en-US";
+    var voices = window.speechSynthesis.getVoices() || [];
+    var voice = pickVoice(voices, asLang === "ur" ? "ur" : "en");
+    if (voice) u.voice = voice;
+    u.onstart = function(){ setSpeaking(true); };
+    u.onend = function(){ setSpeaking(false); };
+    u.onerror = function(){
+      setSpeaking(false);
+      if (asLang === "ur"){
+        var fallback = cleanSpeakText(T.title.en + ". " + T.storySort.en + ". " + T.tip.en);
+        var u2 = new SpeechSynthesisUtterance(fallback);
+        u2.lang = "en-US"; u2.rate = 0.92;
+        var v2 = pickVoice(window.speechSynthesis.getVoices() || [], "en");
+        if (v2) u2.voice = v2;
+        u2.onstart = function(){ setSpeaking(true); };
+        u2.onend = u2.onerror = function(){ setSpeaking(false); };
+        window.speechSynthesis.speak(u2);
+      }
+    };
+    window.speechSynthesis.speak(u);
+  }
+  if ("speechSynthesis" in window){
+    try { window.speechSynthesis.getVoices(); } catch (e0) {}
+    if (typeof window.speechSynthesis.addEventListener === "function"){
+      window.speechSynthesis.addEventListener("voiceschanged", function(){
+        try { window.speechSynthesis.getVoices(); } catch (e1) {}
+      });
+    }
+  } else {
+    var noBtn = $("speakBtn");
+    if (noBtn){ noBtn.disabled = true; noBtn.title = "Voice not available on this device"; }
+  }
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en";
+    applyLang();
+  });
+  $("tabSort").addEventListener("click", function(){ setMode("sort"); });
+  $("tabImla").addEventListener("click", function(){ setMode("imla"); });
+  $("tabBuild").addEventListener("click", function(){ setMode("build"); });
+  $("nextBtn").addEventListener("click", next);
+  $("hintBtn").addEventListener("click", showHint);
+  $("resetBtn").addEventListener("click", resetMode);
+  $("newQuiz").addEventListener("click", function(){ pickQuiz(); renderQuiz(); });
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      var text = buildSpeakText();
+      if (!text) return;
+      if (speakTimer){ clearTimeout(speakTimer); speakTimer = null; }
+      window.speechSynthesis.cancel();
+      setSpeaking(false);
+      var speakLang = lang;
+      speakTimer = setTimeout(function(){
+        speakTimer = null;
+        doSpeak(text, speakLang);
+      }, 80);
+    }catch(e){ setSpeaking(false); }
+  });
+
+  pickQuiz();
+  applyLang();
+})();
+</script>
+</body>
+</html>

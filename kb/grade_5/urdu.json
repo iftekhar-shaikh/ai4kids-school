@@ -164,7 +164,9 @@
             "correct": "a"
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g5-grammar-imla.html",
+      "interactive_label": "Khelo - Grammar aur imla"
     },
     {
       "title": "Tahrir",
