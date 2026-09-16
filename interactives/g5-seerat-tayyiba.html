@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Seerat-e-Tayyiba — سیرتِ طیبہ | AI4Kids Class 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#e8f0ea;--board-deep:#c5d8c8;--sky:#7eb8d4;--sky2:#4a8fb8;
+    --park:#5a9a6a;--park2:#3a7a4a;--accent:#0d5c3d;--flag-g:#01411C;
+    --ok:#2e7d4f;--ink:#1a2e22;--ink-soft:#4a5a4e;--paper:#fdfaf3;
+    --line:#d0dcc8;--gold:#d4a017;--left:#c4453a;
+    --good-bin:#0d5c3d;--opp-bin:#c4453a;
+    --home:#c45c3a;--school:#2f6fb5;--hood:#0d5c3d;
+    --fs-cap:clamp(12px, 3.2vw, 13px);--fs-xs:clamp(14px, 3.7vw, 15px);
+    --fs-sm:clamp(16px, 4.2vw, 17px);--fs-md:clamp(17px, 4.6vw, 19px);
+    --fs-lg:clamp(20px, 5.4vw, 23px);--fs-xl:clamp(27px, 7.4vw, 33px);--lh:1.5;
+  }
+  body.urdu{
+    --fs-cap:clamp(13px, 3.5vw, 15px);--fs-xs:clamp(15px, 4.1vw, 17px);
+    --fs-sm:clamp(17px, 4.7vw, 19px);--fs-md:clamp(19px, 5.2vw, 21px);
+    --fs-lg:clamp(22px, 6vw, 25px);--fs-xl:clamp(26px, 7vw, 31px);--lh:2.1;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  .stars{display:flex;align-items:center;gap:6px;font-weight:800;font-size:var(--fs-xs);
+         background:#fff6e2;border:2px solid var(--gold);border-radius:999px;padding:7px 13px}
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+  .tabs{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
+  .tabs button{
+    flex:1 1 28%;min-width:90px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:10px 6px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:54px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .tabs button .badge{color:var(--gold)}
+  .story{
+    background:#fff8ea;border:2px dashed var(--gold);border-radius:16px;padding:13px 15px;
+    font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;margin-bottom:14px;
+  }
+  body.urdu .story{line-height:var(--lh)}
+  .story b{color:var(--ink)}
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:
+      radial-gradient(circle at 12% 18%, rgba(212,160,23,.18) 0 8px, transparent 9px),
+      radial-gradient(circle at 88% 22%, rgba(13,92,61,.12) 0 6px, transparent 7px),
+      linear-gradient(180deg,var(--sky) 0%,var(--sky2) 34%,#a8c9a0 34%,#8fb888 42%,var(--board) 42%);
+    min-height:280px;
+  }
+  .scene-pad{padding:10px 12px 18px;min-height:260px;position:relative}
+  .sky-layer{position:absolute;inset:0 0 58% 0;pointer-events:none;overflow:hidden}
+  .crescent-deco{
+    position:absolute;top:10px;right:16px;width:36px;height:36px;z-index:1;
+  }
+  body.urdu .crescent-deco{right:auto;left:16px}
+  .cloud{position:absolute;background:rgba(255,255,255,.85);border-radius:40px;opacity:.9}
+  .cloud:before,.cloud:after{content:"";position:absolute;background:inherit;border-radius:50%}
+  .c1{width:48px;height:15px;top:18px;left:12%}
+  .c1:before{width:22px;height:22px;top:-12px;left:6px}
+  .c1:after{width:18px;height:18px;top:-8px;left:24px}
+  .c2{width:34px;height:12px;top:34px;left:55%;opacity:.7}
+  .c2:before{width:16px;height:16px;top:-9px;left:4px}
+  .c2:after{width:12px;height:12px;top:-5px;left:16px}
+  .hills{position:absolute;left:0;right:0;bottom:42%;height:40px;z-index:1;pointer-events:none}
+  .hill{position:absolute;bottom:0;border-radius:50% 50% 0 0;
+        background:linear-gradient(180deg,#4a8a5a,#2d5530)}
+  .h-a{width:42%;height:36px;left:-4%;opacity:.55}
+  .h-b{width:38%;height:28px;right:8%;opacity:.5}
+  .ground-strip{
+    position:absolute;left:0;right:0;bottom:0;height:32%;
+    background:
+      repeating-linear-gradient(90deg, transparent 0 18px, rgba(13,92,61,.06) 18px 20px),
+      linear-gradient(180deg,#8fbc78 0%,#6a9a58 100%);
+    z-index:2;border-top:3px solid #4a7040;
+  }
+  .geom-edge{
+    position:absolute;left:0;right:0;bottom:31%;height:6px;z-index:3;pointer-events:none;
+    background:repeating-linear-gradient(90deg, var(--gold) 0 8px, var(--accent) 8px 16px, transparent 16px 20px);
+    opacity:.55;
+  }
+  .comic-stage{position:relative;z-index:5;padding-top:78px;text-align:center;min-height:150px}
+  .comic-hero{font-size:56px;line-height:1;margin:4px 0 8px;filter:drop-shadow(0 2px 0 rgba(0,0,0,.12))}
+  .comic-panel{
+    display:inline-flex;align-items:center;gap:8px;background:rgba(253,250,243,.95);
+    border:2.5px solid var(--ink);border-radius:16px;padding:10px 14px;margin:4px;
+    box-shadow:0 3px 0 rgba(30,42,26,.12);font-weight:800;font-size:var(--fs-cap);
+  }
+  .comic-panel .em{font-size:28px}
+  .sort-grid{
+    position:relative;z-index:5;display:grid;grid-template-columns:1fr 1fr;gap:10px;
+    padding-top:88px;
+  }
+  .sort-bin{
+    border:2.5px solid var(--ink);border-radius:14px;padding:10px 8px;min-height:120px;
+    background:rgba(253,250,243,.88);text-align:center;cursor:pointer;
+  }
+  .sort-bin.good-bin{border-color:var(--good-bin);background:rgba(230,242,234,.95)}
+  .sort-bin.opp-bin{border-color:var(--opp-bin);background:rgba(251,234,232,.92)}
+  .sort-bin.hot{box-shadow:0 0 0 3px rgba(13,92,61,.3)}
+  .sort-bin h3{margin:0 0 8px;font-size:var(--fs-cap);font-weight:800}
+  .sort-bin .drop{min-height:60px;display:flex;flex-wrap:wrap;gap:4px;justify-content:center;align-items:center}
+  .item-card{
+    background:rgba(253,250,243,.95);border:2.5px solid var(--ink);border-radius:16px;
+    padding:8px 10px 10px;text-align:center;min-width:72px;max-width:120px;
+    box-shadow:0 3px 0 rgba(30,42,26,.15);cursor:pointer;user-select:none;
+  }
+  .item-card:hover{transform:translateY(-2px)}
+  .item-card.selected{border-color:var(--accent);background:#e8f5ec;box-shadow:0 0 0 3px rgba(13,92,61,.25)}
+  .item-card.ok{border-color:var(--ok);background:#e8f2ed}
+  .item-card.no{border-color:var(--left);background:#fbeae8}
+  .item-em{font-size:34px;line-height:1.1;display:block;margin-bottom:2px}
+  .item-lab{font-size:var(--fs-cap);font-weight:800;line-height:1.25;margin:0}
+  .bank{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:8px;position:relative;z-index:5}
+  .mini-chip{
+    border:2px solid var(--ink);border-radius:12px;padding:6px 8px;background:#fff;
+    line-height:1;cursor:pointer;min-width:40px;font-size:22px;
+  }
+  .save-choices{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+  .save-choices button{
+    border:2.5px solid var(--ink);background:var(--paper);border-radius:14px;
+    padding:12px 14px;font:inherit;font-weight:800;font-size:var(--fs-xs);
+    cursor:pointer;text-align:left;min-height:52px;display:flex;align-items:center;gap:10px;
+  }
+  body.urdu .save-choices button{text-align:right}
+  .save-choices button .cem{font-size:26px}
+  .save-choices button.right{border-color:var(--ok);background:#e8f2ed}
+  .save-choices button.wrong{border-color:var(--left);background:#fbeae8}
+  .map-row{
+    position:relative;z-index:5;display:flex;flex-wrap:wrap;gap:8px;
+    justify-content:center;align-items:stretch;padding-top:88px;min-height:130px;
+  }
+  .map-node{
+    flex:1 1 28%;min-width:90px;border:2.5px solid var(--ink);border-radius:16px;
+    background:rgba(253,250,243,.95);padding:10px 8px;text-align:center;
+    box-shadow:0 3px 0 rgba(30,42,26,.12);
+  }
+  .map-node .nem{font-size:36px;line-height:1;display:block;margin-bottom:4px}
+  .map-node .nlab{font-size:var(--fs-cap);font-weight:800;margin:0}
+  .map-node.home{border-color:var(--home)}
+  .map-node.school{border-color:var(--school)}
+  .map-node.hood{border-color:var(--hood)}
+  .map-node.done{background:#e8f2ed;border-color:var(--ok)}
+  .map-arrow{font-size:20px;font-weight:800;color:var(--accent);align-self:center}
+  .readout{
+    margin-top:-18px;position:relative;z-index:2;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+  .statechip.ur{padding:2px 14px 7px}
+  .statechip.win{background:var(--ok)}
+  .statechip.miss{background:var(--left)}
+  .headline{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+  .headline.ur{line-height:1.95}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+  .hintbox{
+    margin-top:14px;border:2px solid var(--accent);background:#e8f5ec;border-radius:14px;
+    padding:11px 14px;font-size:var(--fs-xs);color:var(--accent);font-weight:700;line-height:1.55;
+    display:none;
+  }
+  .hintbox.show{display:block}
+  body.urdu .hintbox{line-height:var(--lh)}
+  .panel{margin-top:22px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .prog{margin:0 0 10px;font-size:var(--fs-xs);font-weight:700;color:var(--ink-soft)}
+  .btns{display:flex;gap:9px;margin-top:8px;flex-wrap:wrap}
+  .btns button{
+    border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);
+    font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:50px;
+    padding:8px 14px;flex:1;
+  }
+  .btns .go{background:var(--ink);color:var(--paper)}
+  .btns button:active{transform:scale(.97)}
+  .btns button:disabled{opacity:.4;cursor:default}
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .qhead{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+  .qhead h2{font-size:var(--fs-lg);font-weight:800;margin:0;flex:1}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:50px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+  .opt.wrong{border-color:var(--left);background:#fbeae8}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
+      grid-template-areas:
+        "bar   bar" "head  head" "tabs  tabs" "story story"
+        "left  right" "quiz  quiz" "foot  foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+    .story{grid-area:story} .left{grid-area:left} .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+    .panel{margin-top:0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition-duration:.01ms !important;animation:none !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 5 · Islamiat</span>
+    <span class="stars" id="starBox">⭐ <span id="starCount">0</span></span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 id="title"></h1>
+  <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group">
+    <button type="button" id="tabValues" aria-pressed="true"></button>
+    <button type="button" id="tabStories" aria-pressed="false"></button>
+    <button type="button" id="tabAmal" aria-pressed="false"></button>
+  </div>
+
+  <p class="story" id="story"></p>
+
+  <div class="left">
+  <div class="scene">
+    <div class="scene-pad" id="scenePad"></div>
+  </div>
+  <div class="readout">
+    <span class="statechip" id="statechip"></span>
+    <p class="headline" id="headline"></p>
+    <p class="detail" id="detail"></p>
+    <p class="hintbox" id="hintbox"></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="panel">
+    <h2 id="ctlHead"></h2>
+    <p class="prog" id="prog"></p>
+    <div id="actionBox"></div>
+    <div class="btns">
+      <button type="button" class="go" id="nextBtn"></button>
+    </div>
+    <div class="btns">
+      <button type="button" id="hintBtn"></button>
+      <button type="button" id="resetBtn"></button>
+    </div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <div class="qhead">
+      <h2 id="quizHead"></h2>
+      <button type="button" class="chip" id="newQuiz"></button>
+    </div>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad bilingual school. Offline play · no APIs. WhatsApp 0337 1468899 · Islamiat Class 5 (helping interactive)"
+       data-ur="اے آئی فور کڈز — اسلام آباد۔ آف لائن کھیلو۔ واٹس ایپ 0337 1468899 · اسلامیات جماعت ۵ (مددگار انٹرایکٹو)"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  function $(id){ return document.getElementById(id); }
+  function isolate(s){ return "\u2066" + s + "\u2069"; }
+  function setText(el, str){
+    if (!el) return;
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+  function t(o){ return (o && o[lang]) || (o && o.en) || ""; }
+  function shuffle(arr){
+    var a = arr.slice(), i, j, tmp;
+    for (i = a.length - 1; i > 0; i--){
+      j = Math.floor(Math.random() * (i + 1));
+      tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  var lang = "en";
+  var mode = "values";
+  var stars = 0;
+  var awarded = {};
+  var doneModes = {values:false, stories:false, amal:false};
+
+  var T = {
+    title:{en:"Seerat-e-Tayyiba", ur:"سیرتِ طیبہ"},
+    sub:{en:"Seerat = learning beautiful character from the Prophet ﷺ's life — rehmat, truth, hilm, and helping the weak!",
+         ur:"سیرت = نبی ﷺ کی زندگی سے خوبصورت اخلاق سیکھنا — رحمت، سچائی، حلم، اور کمزور کی مدد!"},
+    tabValues:{en:"Seerat values", ur:"سیرت کی قدریں"},
+    tabStories:{en:"Stories → lessons", ur:"کہانیاں → سبق"},
+    tabAmal:{en:"Amal today", ur:"آج کا عمل"},
+    storyValues:{en:"<b>Seerat</b> teaches beautiful manners: honesty, mercy, patience, helping. Sort seerat beauty vs the opposite!",
+                 ur:"<b>سیرت</b> خوبصورت اخلاق سکھاتی ہے: ایمانداری، رحمت، صبر، مدد۔ سیرت کی خوبصورتی اور اس کے الٹ کو چھانٹو!"},
+    storyStories:{en:"Short comics from seerat lessons: guest hospitality, speaking truth, kindness to animals & people. Pick the lesson!",
+                  ur:"سیرت کے چھوٹے کارٹون سبق: مہمان نوازی، سچ بولنا، جانوروں اور لوگوں سے مہربانی۔ سبق چنو!"},
+    storyAmal:{en:"<b>Amal today</b>: Home → School → Neighbours. How will you practise a seerat value today?",
+               ur:"<b>آج کا عمل</b>: گھر → اسکول → پڑوسی۔ آج سیرت کی کون سی قدر اپناؤ گے؟"},
+    ctl:{en:"Your turn — soft hearts", ur:"تمہاری باری — نرم دل"},
+    next:{en:"Next challenge", ur:"اگلا چیلنج"},
+    hint:{en:"Hint", ur:"اشارہ"},
+    reset:{en:"Reset", ur:"ری سیٹ"},
+    quiz:{en:"Check yourself", ur:"اپنا چیک"},
+    newQuiz:{en:"New quiz", ur:"نیا کوئز"},
+    nice:{en:"Shabash — seerat hearts!", ur:"شاباش — سیرت والے دل!"},
+    oops:{en:"Almost — try again", ur:"قریب — دوبارہ آزماؤ"},
+    tip:{en:"Tip: Seerat means learning kindness, honesty, patience, and helping from the Prophet ﷺ's beautiful life. Be gentle every day.",
+         ur:"نکتہ: سیرت کا مطلب نبی ﷺ کی خوبصورت زندگی سے مہربانی، ایمانداری، صبر اور مدد سیکھنا۔ ہر روز نرمی۔"},
+    progV:{en:"Seerat values", ur:"سیرت کی قدریں"},
+    progS:{en:"Stories", ur:"کہانیاں"},
+    progA:{en:"Amal today", ur:"آج کا عمل"},
+    askSort:{en:"Tap a card, then tap Seerat beauty or Opposite", ur:"کارڈ ٹیپ کرو، پھر سیرت کی خوبصورتی یا الٹ"},
+    askPick:{en:"Seerat beauty, or the opposite?", ur:"سیرت کی خوبصورتی، یا الٹ؟"},
+    askScene:{en:"What lesson does this story teach?", ur:"یہ کہانی کیا سبق سکھاتی ہے؟"},
+    askMap:{en:"Pick how to apply seerat today", ur:"آج سیرت کیسے اپناؤ گے"},
+    checkSort:{en:"Check sort", ur:"چھانٹی چیک کرو"},
+    goodLab:{en:"💚 Seerat beauty", ur:"💚 سیرت کی خوبصورتی"},
+    oppLab:{en:"🚫 Opposite", ur:"🚫 الٹ"},
+    pick:{en:"Tap a card first", ur:"پہلے کارڈ ٹیپ کرو"},
+    home:{en:"Home", ur:"گھر"},
+    school:{en:"School", ur:"اسکول"},
+    hood:{en:"Neighbours", ur:"پڑوسی"}
+  };
+
+  /* Cards: seerat beauty vs opposite */
+  var CARDS = {
+    honest:{em:"✋", en:"Honesty / truth", ur:"ایمانداری / سچ", bin:"good"},
+    mercy:{em:"💚", en:"Mercy / rehmat", ur:"رحمت / مہربانی", bin:"good"},
+    patience:{em:"🕊️", en:"Patience / hilm", ur:"صبر / حلم", bin:"good"},
+    help:{em:"🤝", en:"Helping the weak", ur:"کمزور کی مدد", bin:"good"},
+    guest:{em:"🏠", en:"Guest hospitality", ur:"مہمان نوازی", bin:"good"},
+    gentle:{em:"😊", en:"Gentle words", ur:"نرم الفاظ", bin:"good"},
+    lie:{em:"🤥", en:"Lying", ur:"جھوٹ", bin:"opp"},
+    cruel:{em:"😤", en:"Being cruel", ur:"بے رحمی", bin:"opp"},
+    anger:{em:"💢", en:"Angry shouting", ur:"غصے سے چیخنا", bin:"opp"},
+    ignore:{em:"🙈", en:"Ignoring someone in need", ur:"ضرورت مند کو نظرانداز", bin:"opp"},
+    rude:{em:"😒", en:"Rude to guests", ur:"مہمان سے بدتمیزی", bin:"opp"},
+    mock:{em:"😜", en:"Mocking others", ur:"مذاق اڑانا", bin:"opp"}
+  };
+
+  /* Mode 1: Seerat values — 4 challenges */
+  var VALUES = [
+    {
+      id:"v1", type:"sort",
+      title:{en:"Honesty & mercy", ur:"ایمانداری اور رحمت"},
+      items:["honest","lie","mercy","cruel"],
+      hint:{en:"Honesty and mercy are seerat beauty. Lying and cruelty are the opposite.",
+            ur:"ایمانداری اور رحمت سیرت کی خوبصورتی ہیں۔ جھوٹ اور بے رحمی الٹ ہیں۔"},
+      done:{en:"Sorted — truth + rehmat!", ur:"چھانٹی ہوئی — سچ + رحمت!"}
+    },
+    {
+      id:"v2", type:"sort",
+      title:{en:"Patience & helping", ur:"صبر اور مدد"},
+      items:["patience","anger","help","ignore"],
+      hint:{en:"Hilm (patience) and helping the weak = seerat. Angry shouting and ignoring need = opposite.",
+            ur:"حلم اور کمزور کی مدد = سیرت۔ غصہ اور نظراندازی = الٹ۔"},
+      done:{en:"Beautiful sort — hilm + help!", ur:"خوبصورت چھانٹی — حلم + مدد!"}
+    },
+    {
+      id:"v3", type:"pick",
+      title:{en:"Guest hospitality", ur:"مہمان نوازی"},
+      card:"guest",
+      hint:{en:"Welcoming guests kindly is a famous seerat beauty — not rude behaviour.",
+            ur:"مہمانوں کا مہربان استقبال سیرت کی مشہور خوبصورتی ہے — بدتمیزی نہیں۔"},
+      done:{en:"Seerat beauty — guests!", ur:"سیرت کی خوبصورتی — مہمان!"}
+    },
+    {
+      id:"v4", type:"pick",
+      title:{en:"Gentle words", ur:"نرم الفاظ"},
+      card:"gentle",
+      hint:{en:"Soft speech is seerat. Mocking others is the opposite.",
+            ur:"نرم بات سیرت ہے۔ مذاق اڑانا الٹ ہے۔"},
+      done:{en:"Seerat beauty — soft speech!", ur:"سیرت کی خوبصورتی — نرم بات!"}
+    }
+  ];
+
+  /* Mode 2: Stories → lessons — 4 comics */
+  var STORIES = [
+    {
+      id:"s1",
+      title:{en:"A guest at the door", ur:"دروازے پر مہمان"},
+      hero:"🚪🫖😊",
+      prompt:{en:"A tired guest arrives. From seerat, what is the beautiful lesson?",
+              ur:"تھکا ہوا مہمان آیا۔ سیرت سے خوبصورت سبق کیا ہے؟"},
+      choices:[
+        {id:"welcome", em:"🫶", en:"Welcome kindly — offer water, rest, and soft words", ur:"مہربانی سے خوش آمدید — پانی، آرام، نرم بات"},
+        {id:"shut", em:"🚪", en:"Shut the door and ignore them", ur:"دروازہ بند کرو اور نظرانداز کرو"},
+        {id:"tease", em:"😜", en:"Tease the guest for being tired", ur:"تھکن پر مہمان کا مذاق اڑاؤ"}
+      ],
+      correct:"welcome",
+      hint:{en:"Guest hospitality is a beloved seerat lesson — kindness and care.",
+            ur:"مہمان نوازی پسندیدہ سیرت سبق ہے — مہربانی اور خیال۔"},
+      done:{en:"Hospitality lesson locked!", ur:"مہمان نوازی کا سبق تیار!"}
+    },
+    {
+      id:"s2",
+      title:{en:"Speak the truth", ur:"سچ بولو"},
+      hero:"📜✋🧒",
+      prompt:{en:"You broke a cup by mistake. Seerat lesson about truth?",
+              ur:"غلطی سے پیالہ ٹوٹ گیا۔ سچائی کے بارے میں سیرت سبق؟"},
+      choices:[
+        {id:"truth", em:"✋", en:"Tell the truth gently and say sorry", ur:"نرمی سے سچ بولو اور معافی مانگو"},
+        {id:"blame", em:"🙈", en:"Blame a sibling or friend", ur:"بھائی/بہن یا دوست پر الزام"},
+        {id:"hide", em:"🤫", en:"Hide the pieces and stay silent forever", ur:"ٹکڑے چھپاؤ اور ہمیشہ خاموش رہو"}
+      ],
+      correct:"truth",
+      hint:{en:"Speaking truth — even when it is hard — is core seerat honesty.",
+            ur:"سچ بولنا — چاہے مشکل ہو — سیرت کی بنیادی ایمانداری ہے۔"},
+      done:{en:"Truth lesson — Shabash!", ur:"سچائی کا سبق — شاباش!"}
+    },
+    {
+      id:"s3",
+      title:{en:"Kind to animals", ur:"جانوروں سے مہربانی"},
+      hero:"🐱💧💚",
+      prompt:{en:"A thirsty cat is near. What seerat lesson fits?",
+              ur:"پیاس بلی قریب ہے۔ کون سا سیرت سبق فٹ ہے؟"},
+      choices:[
+        {id:"water", em:"💧", en:"Give water gently — mercy to Allah's creatures", ur:"نرمی سے پانی دو — اللہ کی مخلوق پر رحمت"},
+        {id:"chase", em:"👟", en:"Chase it away roughly", ur:"سختی سے بھگا دو"},
+        {id:"laugh", em:"😂", en:"Laugh and throw stones", ur:"ہنسو اور پتھر پھینکو"}
+      ],
+      correct:"water",
+      hint:{en:"Mercy to animals is a famous seerat beauty — soft hearts help living beings.",
+            ur:"جانوروں پر رحمت مشہور سیرت خوبصورتی ہے — نرم دل جانداروں کی مدد کرتے ہیں۔"},
+      done:{en:"Animal kindness — soft hearts!", ur:"جانوروں سے مہربانی — نرم دل!"}
+    },
+    {
+      id:"s4",
+      title:{en:"Help a weak neighbour", ur:"کمزور پڑوسی کی مدد"},
+      hero:"🧓🛒🤝",
+      prompt:{en:"An elder neighbour carries heavy bags. Seerat lesson?",
+              ur:"بزرگ پڑوسی بھاری تھیلے اٹھا رہے ہیں۔ سیرت سبق؟"},
+      choices:[
+        {id:"carry", em:"🤝", en:"Offer to help carry — help the weak with joy", ur:"اٹھانے میں مدد پیش کرو — خوشی سے کمزور کی مدد"},
+        {id:"pass", em:"🚶", en:"Walk past without looking", ur:"بغیر دیکھے گزر جاؤ"},
+        {id:"film", em:"📱", en:"Only film them and walk away", ur:"صرف فلم بناؤ اور چلے جاؤ"}
+      ],
+      correct:"carry",
+      hint:{en:"Helping the weak is seerat in action — mercy and service.",
+            ur:"کمزور کی مدد سیرت کا عمل ہے — رحمت اور خدمت۔"},
+      done:{en:"Helping lesson complete!", ur:"مدد کا سبق مکمل!"}
+    }
+  ];
+
+  /* Mode 3: Amal today — home, school, neighbours */
+  var AMAL = [
+    {
+      id:"a1", place:"home",
+      title:{en:"At home today", ur:"آج گھر پر"},
+      prompt:{en:"How can you practise hilm (patience) at home today?",
+              ur:"آج گھر پر حلم (صبر) کیسے اپناؤ گے؟"},
+      choices:[
+        {id:"calm", em:"🕊️", en:"Speak softly when someone asks you to tidy up", ur:"سمیٹنے کو کہے تو نرم آواز میں بولو"},
+        {id:"yell", em:"📢", en:"Yell because you are busy on a game", ur:"گیم میں مصروف ہو کر چیخو"},
+        {id:"slam", em:"🚪", en:"Slam the door in anger", ur:"غصے میں دروازہ پیٹو"}
+      ],
+      correct:"calm",
+      hint:{en:"Hilm at home = soft voice and patience when asked to help.",
+            ur:"گھر پر حلم = مدد مانگے تو نرم آواز اور صبر۔"},
+      done:{en:"Home amal locked!", ur:"گھر کا عمل تیار!"}
+    },
+    {
+      id:"a2", place:"school",
+      title:{en:"At school today", ur:"آج اسکول میں"},
+      prompt:{en:"How do you practise seerat honesty in class?",
+              ur:"کلاس میں سیرت کی ایمانداری کیسے؟"},
+      choices:[
+        {id:"own", em:"✋", en:"Do your own work and tell the truth if you forgot homework", ur:"اپنا کام کرو؛ ہوم ورک بھولے تو سچ بولو"},
+        {id:"copy", em:"📝", en:"Copy a friend's answers secretly", ur:"دوست کے جواب چھپ کر نقل کرو"},
+        {id:"lie", em:"🤥", en:"Make up a big excuse to the teacher", ur:"استاد سے بڑا بہانا بناؤ"}
+      ],
+      correct:"own",
+      hint:{en:"Honesty at school is seerat: your own work and truthful words.",
+            ur:"اسکول میں ایمانداری سیرت ہے: اپنا کام اور سچی بات۔"},
+      done:{en:"School amal ready!", ur:"اسکول کا عمل تیار!"}
+    },
+    {
+      id:"a3", place:"hood",
+      title:{en:"With neighbours today", ur:"آج پڑوسیوں کے ساتھ"},
+      prompt:{en:"A younger child falls and cries nearby. Seerat amal?",
+              ur:"قریب ایک چھوٹا بچہ گرا اور رو رہا ہے۔ سیرت عمل؟"},
+      choices:[
+        {id:"help", em:"💚", en:"Help them up gently and call an adult if needed", ur:"نرمی سے اٹھاؤ؛ ضرورت ہو تو بڑے کو بلاؤ"},
+        {id:"laugh", em:"😂", en:"Laugh and walk away", ur:"ہنسو اور چلے جاؤ"},
+        {id:"film", em:"📱", en:"Only record a video for fun", ur:"صرف مزے کے لیے ویڈیو بناؤ"}
+      ],
+      correct:"help",
+      hint:{en:"Mercy and helping — rehmat in daily life near neighbours.",
+            ur:"رحمت اور مدد — پڑوسیوں کے قریب روزمرہ رحمت۔"},
+      done:{en:"Neighbour amal star!", ur:"پڑوسی عمل کا ستارہ!"}
+    },
+    {
+      id:"a4", place:"all",
+      title:{en:"Everywhere check", ur:"ہر جگہ چیک"},
+      prompt:{en:"Which sentence is TRUE about Seerat-e-Tayyiba for Class 5?",
+              ur:"جماعت ۵ کے لیے سیرتِ طیبہ کے بارے میں کون سی بات سچ ہے؟"},
+      choices:[
+        {id:"learn", em:"⭐", en:"We learn beautiful character — kindness, honesty, patience, helping — from the Prophet ﷺ's life", ur:"ہم نبی ﷺ کی زندگی سے خوبصورت اخلاق سیکھتے ہیں — مہربانی، ایمانداری، صبر، مدد"},
+        {id:"only", em:"🚫", en:"Only adults can practise seerat values", ur:"صرف بالغ سیرت کی قدریں اپنا سکتے ہیں"},
+        {id:"mean", em:"😤", en:"Being mean is also seerat", ur:"بدتمیزی بھی سیرت ہے"}
+      ],
+      correct:"learn",
+      hint:{en:"Kids can practise seerat every day with soft hearts.",
+            ur:"بچے نرم دلوں سے ہر روز سیرت اپنا سکتے ہیں۔"},
+      done:{en:"Amal map complete!", ur:"عمل کا نقشہ مکمل!"}
+    }
+  ];
+
+  /* Quiz: EN + Roman Urdu */
+  var QUIZ = [
+    {
+      q:{en:"What does Seerat-e-Tayyiba mean for Class 5?",
+         ur:"Class 5 ke liye Seerat-e-Tayyiba ka matlab kya hai?"},
+      opts:[
+        {en:"Learning beautiful character from the Prophet ﷺ's life", ur:"Nabi ﷺ ki zindagi se khoobsurat ikhlaaq seekhna"},
+        {en:"Only collecting stickers", ur:"Sirf stickers ikattha karna"},
+        {en:"Being rude to guests", ur:"Mehmaanon se badtameezi"},
+        {en:"Ignoring people in need", ur:"Zarooratmand ko nazarandaz karna"}
+      ],
+      correct:0,
+      why:{en:"Seerat = learning kindness, honesty, patience, and helping from the Prophet ﷺ's life.",
+           ur:"Seerat = Nabi ﷺ ki zindagi se meherbani, imandari, sabr aur madad seekhna."}
+    },
+    {
+      q:{en:"Which is a seerat beauty (not the opposite)?",
+         ur:"Kaun si seerat ki khoobsurati hai (ult nahi)?"},
+      opts:[
+        {en:"Honesty and mercy (rehmat)", ur:"Imandari aur rehmat"},
+        {en:"Lying and cruelty", ur:"Jhoot aur be-rehmi"},
+        {en:"Angry shouting", ur:"Gusse se cheekhna"},
+        {en:"Mocking others", ur:"Dusron ka mazaaq"}
+      ],
+      correct:0,
+      why:{en:"Honesty and rehmat are seerat beauty; lying and cruelty are opposite.",
+           ur:"Imandari aur rehmat seerat ki khoobsurati hain; jhoot aur be-rehmi ult hain."}
+    },
+    {
+      q:{en:"A guest arrives tired. What shows seerat?",
+         ur:"Mehmaan thaka aaya. Seerat kya dikhati hai?"},
+      opts:[
+        {en:"Welcome kindly with water, rest, and soft words", ur:"Meherbani se paani, araam, aur narm baat"},
+        {en:"Shut the door", ur:"Darwaza band karna"},
+        {en:"Tease them for being tired", ur:"Thakan pe mazaaq"},
+        {en:"Ignore them completely", ur:"Bilkul nazarandaz karna"}
+      ],
+      correct:0,
+      why:{en:"Guest hospitality is a beloved seerat lesson.",
+           ur:"Mehmaan nawazi pyara seerat sabaq hai."}
+    },
+    {
+      q:{en:"What is hilm in seerat learning?",
+         ur:"Seerat seekhne mein hilm kya hai?"},
+      opts:[
+        {en:"Patience and soft self-control", ur:"Sabr aur narm khud-ikhtiyari"},
+        {en:"Always yelling first", ur:"Hamesha pehle cheekhna"},
+        {en:"Ignoring homework forever", ur:"Hamesha homework bhoolna"},
+        {en:"Being cruel to animals", ur:"Janwaron se be-rehmi"}
+      ],
+      correct:0,
+      why:{en:"Hilm = patience and gentle self-control — a seerat beauty.",
+           ur:"Hilm = sabr aur narmi — seerat ki khoobsurati."}
+    },
+    {
+      q:{en:"How can a Class 5 child practise seerat today?",
+         ur:"Class 5 ka bachcha aaj seerat kaise amal kare?"},
+      opts:[
+        {en:"Speak truth, show mercy, help the weak at home or school", ur:"Sach bolo, rehmat dikhao, ghar ya school mein kamzor ki madad"},
+        {en:"Only adults can practise seerat", ur:"Sirf baray seerat amal kar sakte hain"},
+        {en:"Copy answers secretly", ur:"Chhup kar jawab copy karna"},
+        {en:"Laugh when someone falls", ur:"Girne pe hansna"}
+      ],
+      correct:0,
+      why:{en:"Kids practise seerat every day with truth, mercy, and helping.",
+           ur:"Bachay roz sach, rehmat aur madad se seerat amal karte hain."}
+    },
+    {
+      q:{en:"Kindness to a thirsty animal teaches…",
+         ur:"Pyasi janwar se meherbani kya sikhati hai?"},
+      opts:[
+        {en:"Mercy (rehmat) to Allah's creatures", ur:"Allah ki makhlooq par rehmat"},
+        {en:"That cruelty is fine", ur:"Ke be-rehmi theek hai"},
+        {en:"To throw stones for fun", ur:"Maze ke liye pathar phenkna"},
+        {en:"To chase roughly always", ur:"Hamesha sakhti se bhagana"}
+      ],
+      correct:0,
+      why:{en:"Mercy to animals is a famous soft-heart seerat lesson.",
+           ur:"Janwaron par rehmat mashhoor narm-dil seerat sabaq hai."}
+    }
+  ];
+
+  var valuesIdx = 0, valuesSelected = null, valuesSort = {}, valuesDone = {};
+  var storiesIdx = 0, storiesDone = {};
+  var amalIdx = 0, amalDone = {}, amalPlaces = {home:false, school:false, hood:false};
+  var quizSet = [];
+
+  function award(key, n){
+    if (awarded[key]) return;
+    awarded[key] = true;
+    stars += (n || 1);
+    $("starCount").textContent = String(stars);
+  }
+  function recountStars(){
+    stars = 0;
+    Object.keys(awarded).forEach(function(k){
+      stars += (k.indexOf("mode-")===0) ? 2 : 1;
+    });
+    $("starCount").textContent = String(stars);
+  }
+
+  function crescentSVG(){
+    return '<svg class="crescent-deco" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+      '<circle cx="22" cy="20" r="12" fill="#f5e6a8"/>' +
+      '<circle cx="28" cy="18" r="10" fill="#4a8fb8"/>' +
+      '<polygon points="12,8 13.5,12.5 18,12.5 14.5,15.5 16,20 12,17.2 8,20 9.5,15.5 6,12.5 10.5,12.5" fill="#d4a017"/>' +
+      '</svg>';
+  }
+
+  function skyHTML(){
+    return '<div class="sky-layer">' + crescentSVG() +
+           '<div class="cloud c1"></div><div class="cloud c2"></div></div>' +
+           '<div class="hills"><div class="hill h-a"></div><div class="hill h-b"></div></div>' +
+           '<div class="geom-edge"></div>' +
+           '<div class="ground-strip"></div>';
+  }
+
+  function kidsSVG(){
+    return '<svg class="comic-hero" style="width:min(90%,260px);height:auto;font-size:inherit" viewBox="0 0 260 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+      '<ellipse cx="130" cy="92" rx="70" ry="6" fill="rgba(0,0,0,.1)"/>' +
+      '<circle cx="70" cy="38" r="16" fill="#f5c89a" stroke="#1a2e22" stroke-width="2"/>' +
+      '<rect x="55" y="54" width="30" height="28" rx="8" fill="#0d5c3d" stroke="#1a2e22" stroke-width="2"/>' +
+      '<text x="70" y="34" text-anchor="middle" font-size="10">😊</text>' +
+      '<circle cx="130" cy="34" r="17" fill="#e8b890" stroke="#1a2e22" stroke-width="2"/>' +
+      '<rect x="114" y="51" width="32" height="30" rx="8" fill="#2f6fb5" stroke="#1a2e22" stroke-width="2"/>' +
+      '<text x="130" y="30" text-anchor="middle" font-size="11">😄</text>' +
+      '<circle cx="190" cy="38" r="16" fill="#f0c4a0" stroke="#1a2e22" stroke-width="2"/>' +
+      '<rect x="175" y="54" width="30" height="28" rx="8" fill="#c45c3a" stroke="#1a2e22" stroke-width="2"/>' +
+      '<text x="190" y="34" text-anchor="middle" font-size="10">🙂</text>' +
+      '<circle cx="130" cy="14" r="9" fill="#0d5c3d" stroke="#1a2e22" stroke-width="1.5"/>' +
+      '<circle cx="133" cy="13" r="6" fill="#0d5c3d"/>' +
+      '<circle cx="135" cy="12" r="5.5" fill="#7eb8d4"/>' +
+      '<polygon points="124,10 125,13 128,13 125.5,15 126.5,18 124,16 121.5,18 122.5,15 120,13 123,13" fill="#d4a017"/>' +
+      '</svg>';
+  }
+
+  function maybeValuesDone(){
+    if (Object.keys(valuesDone).length >= VALUES.length){
+      doneModes.values = true;
+      award("mode-values", 2);
+      tabBadges();
+    }
+  }
+  function maybeStoriesDone(){
+    if (Object.keys(storiesDone).length >= STORIES.length){
+      doneModes.stories = true;
+      award("mode-stories", 2);
+      tabBadges();
+    }
+  }
+  function maybeAmalDone(){
+    if (Object.keys(amalDone).length >= AMAL.length){
+      doneModes.amal = true;
+      award("mode-amal", 2);
+      tabBadges();
+    }
+  }
+
+  /* ---------- VALUES ---------- */
+  function renderValues(){
+    var ch = VALUES[valuesIdx];
+    var pad = $("scenePad");
+    var box = $("actionBox");
+    box.innerHTML = "";
+    $("hintbox").classList.remove("show");
+
+    setText($("statechip"), (valuesIdx+1) + " / " + VALUES.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (valuesDone[ch.id]?" win":"");
+    if (valuesDone[ch.id]) setText($("statechip"), t(T.nice));
+
+    if (ch.type === "sort"){
+      pad.innerHTML = skyHTML() +
+        '<div class="sort-grid">' +
+          '<div class="sort-bin good-bin'+(valuesSelected?" hot":"")+'" data-bin="good"><h3></h3><div class="drop" id="binGood"></div></div>' +
+          '<div class="sort-bin opp-bin'+(valuesSelected?" hot":"")+'" data-bin="opp"><h3></h3><div class="drop" id="binOpp"></div></div>' +
+        '</div>';
+      setText(pad.querySelector(".good-bin h3"), t(T.goodLab));
+      setText(pad.querySelector(".opp-bin h3"), t(T.oppLab));
+
+      ["good","opp"].forEach(function(bin){
+        pad.querySelector('[data-bin="'+bin+'"]').addEventListener("click", function(){
+          if (!valuesSelected || valuesDone[ch.id]) return;
+          valuesSort[valuesSelected] = bin;
+          valuesSelected = null;
+          renderValues();
+        });
+      });
+
+      ch.items.forEach(function(id){
+        var bin = valuesSort[id];
+        if (!bin) return;
+        var el = document.createElement("span");
+        el.className = "mini-chip";
+        el.textContent = CARDS[id].em;
+        el.title = t(CARDS[id]);
+        el.addEventListener("click", function(e){
+          e.stopPropagation();
+          if (valuesDone[ch.id]) return;
+          delete valuesSort[id];
+          renderValues();
+        });
+        (bin==="good"?$("binGood"):$("binOpp")).appendChild(el);
+      });
+
+      var bank = document.createElement("div");
+      bank.className = "bank";
+      ch.items.forEach(function(id){
+        if (valuesSort[id]) return;
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "item-card" + (valuesSelected===id?" selected":"");
+        b.innerHTML = '<span class="item-em">'+CARDS[id].em+'</span><p class="item-lab"></p>';
+        setText(b.querySelector(".item-lab"), t(CARDS[id]));
+        b.addEventListener("click", function(){
+          if (valuesDone[ch.id]) return;
+          valuesSelected = id;
+          renderValues();
+        });
+        bank.appendChild(b);
+      });
+      box.appendChild(bank);
+
+      if (!valuesDone[ch.id]){
+        var chk = document.createElement("button");
+        chk.type = "button";
+        chk.style.cssText = "margin-top:10px;width:100%;border:2px solid var(--ink);border-radius:14px;background:var(--ink);color:var(--paper);font:inherit;font-weight:800;min-height:48px;cursor:pointer";
+        setText(chk, t(T.checkSort));
+        chk.addEventListener("click", function(){
+          var ok = true;
+          ch.items.forEach(function(id){
+            if (valuesSort[id] !== CARDS[id].bin) ok = false;
+          });
+          if (ok && Object.keys(valuesSort).filter(function(k){ return ch.items.indexOf(k)>=0; }).length === ch.items.length){
+            valuesDone[ch.id] = true;
+            award("values-"+ch.id, 1);
+            setText($("headline"), t(ch.done));
+            $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.nice));
+            maybeValuesDone();
+            renderValues();
+          } else {
+            setText($("headline"), t(T.oops));
+            $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.oops));
+          }
+        });
+        box.appendChild(chk);
+      }
+
+      setText($("headline"), valuesDone[ch.id] ? t(ch.done) : t(ch.title));
+      setText($("detail"), valuesSelected ? t(CARDS[valuesSelected]) + " → ?" : t(T.askSort));
+    } else {
+      var card = CARDS[ch.card];
+      pad.innerHTML = skyHTML() +
+        '<div class="comic-stage">' + kidsSVG() +
+        '<div class="comic-panel"><span class="em">'+card.em+'</span><span class="plab"></span></div></div>';
+      setText(pad.querySelector(".plab"), t(card));
+
+      setText($("headline"), valuesDone[ch.id] ? t(ch.done) : t(ch.title));
+      setText($("detail"), t(T.askPick));
+
+      var choices = document.createElement("div");
+      choices.className = "save-choices";
+      [
+        {id:"good", em:"💚", en:"Seerat beauty", ur:"سیرت کی خوبصورتی"},
+        {id:"opp", em:"🚫", en:"Opposite", ur:"الٹ"}
+      ].forEach(function(c){
+        var b = document.createElement("button");
+        b.type = "button";
+        if (valuesDone[ch.id] && c.id === card.bin) b.classList.add("right");
+        b.innerHTML = '<span class="cem">'+c.em+'</span><span class="clab"></span>';
+        setText(b.querySelector(".clab"), t(c));
+        b.disabled = !!valuesDone[ch.id];
+        b.addEventListener("click", function(){
+          if (valuesDone[ch.id]) return;
+          if (c.id === card.bin){
+            valuesDone[ch.id] = true;
+            award("values-"+ch.id, 1);
+            b.classList.add("right");
+            setText($("headline"), t(ch.done));
+            $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.nice));
+            maybeValuesDone();
+            renderValues();
+          } else {
+            b.classList.add("wrong");
+            setText($("headline"), t(T.oops));
+            $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.oops));
+            setTimeout(function(){ b.classList.remove("wrong"); }, 600);
+          }
+        });
+        choices.appendChild(b);
+      });
+      box.appendChild(choices);
+    }
+    setText($("prog"), t(T.progV) + ": " + Object.keys(valuesDone).length + "/" + VALUES.length);
+  }
+
+  /* ---------- STORIES ---------- */
+  function renderStories(){
+    var ch = STORIES[storiesIdx];
+    var pad = $("scenePad");
+    pad.innerHTML = skyHTML() +
+      '<div class="comic-stage"><div class="comic-hero">'+ch.hero+'</div>' +
+      '<div class="comic-panel"><span class="em">🧒</span><span class="plab"></span></div></div>';
+    setText(pad.querySelector(".plab"), t(ch.title));
+
+    setText($("statechip"), (storiesIdx+1) + " / " + STORIES.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (storiesDone[ch.id]?" win":"");
+    if (storiesDone[ch.id]) setText($("statechip"), t(T.nice));
+    setText($("headline"), storiesDone[ch.id] ? t(ch.done) : t(ch.title));
+    setText($("detail"), t(ch.prompt));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+    var choices = document.createElement("div");
+    choices.className = "save-choices";
+    ch.choices.forEach(function(c){
+      var b = document.createElement("button");
+      b.type = "button";
+      if (storiesDone[ch.id] && c.id === ch.correct) b.classList.add("right");
+      b.innerHTML = '<span class="cem">'+c.em+'</span><span class="clab"></span>';
+      setText(b.querySelector(".clab"), t(c));
+      b.disabled = !!storiesDone[ch.id];
+      b.addEventListener("click", function(){
+        if (storiesDone[ch.id]) return;
+        if (c.id === ch.correct){
+          storiesDone[ch.id] = true;
+          award("stories-"+ch.id, 1);
+          b.classList.add("right");
+          setText($("headline"), t(ch.done));
+          $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.nice));
+          maybeStoriesDone();
+          tabBadges();
+          renderStories();
+        } else {
+          b.classList.add("wrong");
+          setText($("headline"), t(T.oops));
+          $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.oops));
+          setTimeout(function(){ b.classList.remove("wrong"); }, 600);
+        }
+      });
+      choices.appendChild(b);
+    });
+    box.appendChild(choices);
+    setText($("prog"), t(T.progS) + ": " + Object.keys(storiesDone).length + "/" + STORIES.length);
+  }
+
+  /* ---------- AMAL ---------- */
+  function renderAmal(){
+    var ch = AMAL[amalIdx];
+    var pad = $("scenePad");
+    if (amalDone.a1) amalPlaces.home = true;
+    if (amalDone.a2) amalPlaces.school = true;
+    if (amalDone.a3) amalPlaces.hood = true;
+
+    pad.innerHTML = skyHTML() +
+      '<div class="map-row">' +
+        '<div class="map-node home'+(amalPlaces.home?" done":"")+'"><span class="nem">🏠</span><p class="nlab" id="mapHome"></p></div>' +
+        '<span class="map-arrow">→</span>' +
+        '<div class="map-node school'+(amalPlaces.school?" done":"")+'"><span class="nem">🏫</span><p class="nlab" id="mapSchool"></p></div>' +
+        '<span class="map-arrow">→</span>' +
+        '<div class="map-node hood'+(amalPlaces.hood?" done":"")+'"><span class="nem">🤝</span><p class="nlab" id="mapHood"></p></div>' +
+      '</div>';
+    setText($("mapHome"), t(T.home));
+    setText($("mapSchool"), t(T.school));
+    setText($("mapHood"), t(T.hood));
+
+    setText($("statechip"), (amalIdx+1) + " / " + AMAL.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (amalDone[ch.id]?" win":"");
+    if (amalDone[ch.id]) setText($("statechip"), t(T.nice));
+    setText($("headline"), amalDone[ch.id] ? t(ch.done) : t(ch.title));
+    setText($("detail"), t(ch.prompt));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+    var choices = document.createElement("div");
+    choices.className = "save-choices";
+    ch.choices.forEach(function(c){
+      var b = document.createElement("button");
+      b.type = "button";
+      if (amalDone[ch.id] && c.id === ch.correct) b.classList.add("right");
+      b.innerHTML = '<span class="cem">'+c.em+'</span><span class="clab"></span>';
+      setText(b.querySelector(".clab"), t(c));
+      b.disabled = !!amalDone[ch.id];
+      b.addEventListener("click", function(){
+        if (amalDone[ch.id]) return;
+        if (c.id === ch.correct){
+          amalDone[ch.id] = true;
+          if (ch.place === "home") amalPlaces.home = true;
+          if (ch.place === "school") amalPlaces.school = true;
+          if (ch.place === "hood") amalPlaces.hood = true;
+          award("amal-"+ch.id, 1);
+          b.classList.add("right");
+          setText($("headline"), t(ch.done));
+          $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.nice));
+          maybeAmalDone();
+          tabBadges();
+          renderAmal();
+        } else {
+          b.classList.add("wrong");
+          setText($("headline"), t(T.oops));
+          $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.oops));
+          setTimeout(function(){ b.classList.remove("wrong"); }, 600);
+        }
+      });
+      choices.appendChild(b);
+    });
+    box.appendChild(choices);
+    setText($("prog"), t(T.progA) + ": " + Object.keys(amalDone).length + "/" + AMAL.length);
+  }
+
+  /* ---------- QUIZ ---------- */
+  function pickQuiz(){ quizSet = shuffle(QUIZ).slice(0, 5); }
+  function renderQuiz(){
+    var box = $("quizBox");
+    box.innerHTML = "";
+    quizSet.forEach(function(item, qi){
+      var wrap = document.createElement("div");
+      wrap.className = "q";
+      var p = document.createElement("p");
+      if (lang === "ur"){
+        p.textContent = isolate((qi+1) + ". " + t(item.q));
+        p.classList.remove("ur");
+        p.setAttribute("dir", "ltr");
+        p.style.fontFamily = '"Baloo Bhaijaan 2",sans-serif';
+        p.style.lineHeight = "1.5";
+      } else {
+        setText(p, (qi+1) + ". " + t(item.q));
+      }
+      wrap.appendChild(p);
+      var answered = false;
+      item.opts.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        if (lang === "ur"){
+          b.className = "opt";
+          b.textContent = isolate(t(opt));
+          b.setAttribute("dir", "ltr");
+          b.style.textAlign = "left";
+          b.style.fontFamily = '"Baloo Bhaijaan 2",sans-serif';
+        } else {
+          b.className = "opt";
+          setText(b, t(opt));
+        }
+        b.addEventListener("click", function(){
+          if (answered) return;
+          answered = true;
+          if (oi === item.correct){
+            b.classList.add("right");
+            award("quiz-"+qi, 1);
+          } else {
+            b.classList.add("wrong");
+            var kids = wrap.querySelectorAll(".opt");
+            if (kids[item.correct]) kids[item.correct].classList.add("right");
+          }
+          fb.classList.add("show");
+        });
+        wrap.appendChild(b);
+      });
+      var fb = document.createElement("p");
+      fb.className = "fb";
+      if (lang === "ur"){
+        fb.textContent = isolate(t(item.why));
+        fb.setAttribute("dir", "ltr");
+        fb.style.fontFamily = '"Baloo Bhaijaan 2",sans-serif';
+      } else {
+        setText(fb, t(item.why));
+      }
+      wrap.appendChild(fb);
+      box.appendChild(wrap);
+    });
+  }
+
+  function storyHtml(){
+    if (mode === "values") return t(T.storyValues);
+    if (mode === "stories") return t(T.storyStories);
+    return t(T.storyAmal);
+  }
+
+  function tabBadges(){
+    function lab(btn, label, key){
+      btn.innerHTML = "";
+      var span = document.createElement("span");
+      setText(span, t(label));
+      btn.appendChild(span);
+      if (doneModes[key]){
+        var b = document.createElement("span");
+        b.className = "badge"; b.textContent = " ★";
+        btn.appendChild(b);
+      }
+    }
+    lab($("tabValues"), T.tabValues, "values");
+    lab($("tabStories"), T.tabStories, "stories");
+    lab($("tabAmal"), T.tabAmal, "amal");
+    $("tabValues").setAttribute("aria-pressed", mode==="values"?"true":"false");
+    $("tabStories").setAttribute("aria-pressed", mode==="stories"?"true":"false");
+    $("tabAmal").setAttribute("aria-pressed", mode==="amal"?"true":"false");
+  }
+
+  function setMode(m){
+    mode = m;
+    valuesSelected = null;
+    if (mode === "values") renderValues();
+    else if (mode === "stories") renderStories();
+    else renderAmal();
+    applyChrome();
+  }
+
+  function applyChrome(){
+    setText($("title"), t(T.title));
+    setText($("subtitle"), t(T.sub));
+    $("story").innerHTML = storyHtml();
+    $("story").classList.toggle("ur", lang==="ur");
+    $("story").setAttribute("dir", lang==="ur"?"rtl":"ltr");
+    setText($("ctlHead"), t(T.ctl));
+    setText($("nextBtn"), t(T.next));
+    setText($("hintBtn"), t(T.hint));
+    setText($("resetBtn"), t(T.reset));
+    setText($("quizHead"), t(T.quiz));
+    setText($("newQuiz"), t(T.newQuiz));
+    $("langBtn").textContent = (lang === "en") ? "اردو" : "EN";
+    $("langBtn").setAttribute("aria-pressed", lang==="ur"?"true":"false");
+    document.body.classList.toggle("urdu", lang==="ur");
+    document.documentElement.lang = (lang==="ur") ? "ur" : "en";
+    document.documentElement.dir = (lang==="ur") ? "rtl" : "ltr";
+    tabBadges();
+    var foot = document.querySelector("footer p");
+    if (foot) setText(foot, foot.getAttribute(lang==="ur"?"data-ur":"data-en"));
+  }
+
+  function applyLang(){
+    applyChrome();
+    if (mode === "values") renderValues();
+    else if (mode === "stories") renderStories();
+    else renderAmal();
+    renderQuiz();
+  }
+
+  function next(){
+    if (mode === "values"){
+      valuesIdx = (valuesIdx + 1) % VALUES.length;
+      valuesSelected = null;
+      if (VALUES[valuesIdx].type === "sort"){
+        valuesSort = {};
+      }
+      renderValues();
+    } else if (mode === "stories"){
+      storiesIdx = (storiesIdx + 1) % STORIES.length;
+      renderStories();
+    } else {
+      amalIdx = (amalIdx + 1) % AMAL.length;
+      renderAmal();
+    }
+  }
+
+  function showHint(){
+    var h;
+    if (mode === "values") h = VALUES[valuesIdx].hint;
+    else if (mode === "stories") h = STORIES[storiesIdx].hint;
+    else h = AMAL[amalIdx].hint;
+    var hb = $("hintbox");
+    setText(hb, t(h));
+    hb.classList.add("show");
+  }
+
+  function resetMode(){
+    if (mode === "values"){
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("values-")===0 || k==="mode-values") delete awarded[k]; });
+      valuesDone = {}; valuesSort = {}; valuesSelected = null; valuesIdx = 0;
+      doneModes.values = false;
+      recountStars(); renderValues();
+    } else if (mode === "stories"){
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("stories-")===0 || k==="mode-stories") delete awarded[k]; });
+      storiesDone = {}; storiesIdx = 0; doneModes.stories = false;
+      recountStars(); renderStories();
+    } else {
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("amal-")===0 || k==="mode-amal") delete awarded[k]; });
+      amalDone = {}; amalIdx = 0; amalPlaces = {home:false, school:false, hood:false}; doneModes.amal = false;
+      recountStars(); renderAmal();
+    }
+    tabBadges();
+    applyChrome();
+  }
+
+  function cleanSpeakText(s){
+    return String(s || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  }
+  function buildSpeakText(){
+    var bits = [];
+    bits.push(t(T.title));
+    bits.push(cleanSpeakText(storyHtml()));
+    bits.push(cleanSpeakText(($("headline") && $("headline").textContent) || ""));
+    bits.push(cleanSpeakText(($("detail") && $("detail").textContent) || ""));
+    bits.push(t(T.tip));
+    return bits.filter(Boolean).join(". ");
+  }
+  function pickVoice(voices, want){
+    var i, v, L;
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf(want) === 0) return v;
+    }
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf("en") === 0) return v;
+    }
+    return voices[0] || null;
+  }
+  var speakTimer = null;
+  function setSpeaking(on){
+    var btn = $("speakBtn");
+    if (!btn) return;
+    btn.setAttribute("aria-pressed", on ? "true" : "false");
+    btn.style.opacity = on ? "0.65" : "";
+  }
+  function doSpeak(text, asLang){
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.92;
+    u.lang = (asLang === "ur") ? "ur-PK" : "en-US";
+    var voices = window.speechSynthesis.getVoices() || [];
+    var voice = pickVoice(voices, asLang === "ur" ? "ur" : "en");
+    if (voice) u.voice = voice;
+    u.onstart = function(){ setSpeaking(true); };
+    u.onend = function(){ setSpeaking(false); };
+    u.onerror = function(){
+      setSpeaking(false);
+      if (asLang === "ur"){
+        var fallback = cleanSpeakText(T.title.en + ". " + T.storyValues.en + ". " + T.tip.en);
+        var u2 = new SpeechSynthesisUtterance(fallback);
+        u2.lang = "en-US"; u2.rate = 0.92;
+        var v2 = pickVoice(window.speechSynthesis.getVoices() || [], "en");
+        if (v2) u2.voice = v2;
+        u2.onstart = function(){ setSpeaking(true); };
+        u2.onend = u2.onerror = function(){ setSpeaking(false); };
+        window.speechSynthesis.speak(u2);
+      }
+    };
+    window.speechSynthesis.speak(u);
+  }
+  if ("speechSynthesis" in window){
+    try { window.speechSynthesis.getVoices(); } catch (e0) {}
+    if (typeof window.speechSynthesis.addEventListener === "function"){
+      window.speechSynthesis.addEventListener("voiceschanged", function(){
+        try { window.speechSynthesis.getVoices(); } catch (e1) {}
+      });
+    }
+  } else {
+    var noBtn = $("speakBtn");
+    if (noBtn){ noBtn.disabled = true; noBtn.title = "Voice not available on this device"; }
+  }
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en";
+    applyLang();
+  });
+  $("tabValues").addEventListener("click", function(){ setMode("values"); });
+  $("tabStories").addEventListener("click", function(){ setMode("stories"); });
+  $("tabAmal").addEventListener("click", function(){ setMode("amal"); });
+  $("nextBtn").addEventListener("click", next);
+  $("hintBtn").addEventListener("click", showHint);
+  $("resetBtn").addEventListener("click", resetMode);
+  $("newQuiz").addEventListener("click", function(){ pickQuiz(); renderQuiz(); });
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      var text = buildSpeakText();
+      if (!text) return;
+      if (speakTimer){ clearTimeout(speakTimer); speakTimer = null; }
+      window.speechSynthesis.cancel();
+      setSpeaking(false);
+      var speakLang = lang;
+      speakTimer = setTimeout(function(){
+        speakTimer = null;
+        doSpeak(text, speakLang);
+      }, 80);
+    }catch(e){ setSpeaking(false); }
+  });
+
+  pickQuiz();
+  applyLang();
+})();
+</script>
+</body>
+</html>

@@ -279,5 +279,13 @@
       "interactive_file": "interactives/g5-imaniyat-ibadat.html",
       "interactive_label": "Khelo — Imaniyat aur ibadat"
     }
+  },
+  {
+    "file": "kb/grade_5/islamiat.json",
+    "match_title": "Seerat-e-Tayyiba",
+    "add": {
+      "interactive_file": "interactives/g5-seerat-tayyiba.html",
+      "interactive_label": "Khelo — Seerat-e-Tayyiba"
+    }
   }
 ]

@@ -1112,6 +1112,7 @@ def render_topic_interactive(subject_key, grade, topic_title):
     (5, "social", "Geography"): "interactives/g5-geography.html",
     (5, "social", "Economics"): "interactives/g5-economics.html",
     (5, "islamiat", "Imaniyat aur ibadat"): "interactives/g5-imaniyat-ibadat.html",
+    (5, "islamiat", "Seerat-e-Tayyiba"): "interactives/g5-seerat-tayyiba.html",
         }
         rel = FALLBACK.get((int(grade), subject_key, topic_title))
     if not rel:
