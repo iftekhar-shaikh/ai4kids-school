@@ -319,5 +319,13 @@
       "interactive_file": "interactives/g5-islami-taleemat-aaj.html",
       "interactive_label": "Khelo — Islami taleemat aaj"
     }
+  },
+  {
+    "file": "kb/grade_5/urdu.json",
+    "match_title": "Hamd aur Naat",
+    "add": {
+      "interactive_file": "interactives/g5-hamd-naat.html",
+      "interactive_label": "Khelo — Hamd aur Naat"
+    }
   }
 ]

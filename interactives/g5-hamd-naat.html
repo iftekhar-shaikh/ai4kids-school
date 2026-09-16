@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hamd aur Naat — حمد اور نعت | AI4Kids Class 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#e8f0ea;--board-deep:#c5d8c8;--sky:#7eb8d4;--sky2:#4a8fb8;
+    --park:#5a9a6a;--park2:#3a7a4a;--accent:#0d5c3d;--flag-g:#01411C;
+    --ok:#2e7d4f;--ink:#1a2e22;--ink-soft:#4a5a4e;--paper:#fdfaf3;
+    --line:#d0dcc8;--gold:#d4a017;--left:#c4453a;
+    --hamd-bin:#0d5c3d;--naat-bin:#2f6fb5;
+    --home:#c45c3a;--school:#2f6fb5;--hood:#0d5c3d;
+    --fs-cap:clamp(12px, 3.2vw, 13px);--fs-xs:clamp(14px, 3.7vw, 15px);
+    --fs-sm:clamp(16px, 4.2vw, 17px);--fs-md:clamp(17px, 4.6vw, 19px);
+    --fs-lg:clamp(20px, 5.4vw, 23px);--fs-xl:clamp(27px, 7.4vw, 33px);--lh:1.5;
+  }
+  body.urdu{
+    --fs-cap:clamp(13px, 3.5vw, 15px);--fs-xs:clamp(15px, 4.1vw, 17px);
+    --fs-sm:clamp(17px, 4.7vw, 19px);--fs-md:clamp(19px, 5.2vw, 21px);
+    --fs-lg:clamp(22px, 6vw, 25px);--fs-xl:clamp(26px, 7vw, 31px);--lh:2.1;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  .stars{display:flex;align-items:center;gap:6px;font-weight:800;font-size:var(--fs-xs);
+         background:#fff6e2;border:2px solid var(--gold);border-radius:999px;padding:7px 13px}
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+  .tabs{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
+  .tabs button{
+    flex:1 1 28%;min-width:90px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:10px 6px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:54px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .tabs button .badge{color:var(--gold)}
+  .story{
+    background:#fff8ea;border:2px dashed var(--gold);border-radius:16px;padding:13px 15px;
+    font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;margin-bottom:14px;
+  }
+  body.urdu .story{line-height:var(--lh)}
+  .story b{color:var(--ink)}
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:
+      radial-gradient(circle at 12% 18%, rgba(212,160,23,.18) 0 8px, transparent 9px),
+      radial-gradient(circle at 88% 22%, rgba(13,92,61,.12) 0 6px, transparent 7px),
+      linear-gradient(180deg,var(--sky) 0%,var(--sky2) 34%,#a8c9a0 34%,#8fb888 42%,var(--board) 42%);
+    min-height:280px;
+  }
+  .scene-pad{padding:10px 12px 18px;min-height:260px;position:relative}
+  .sky-layer{position:absolute;inset:0 0 58% 0;pointer-events:none;overflow:hidden}
+  .crescent-deco{
+    position:absolute;top:10px;right:16px;width:36px;height:36px;z-index:1;
+  }
+  body.urdu .crescent-deco{right:auto;left:16px}
+  .cloud{position:absolute;background:rgba(255,255,255,.85);border-radius:40px;opacity:.9}
+  .cloud:before,.cloud:after{content:"";position:absolute;background:inherit;border-radius:50%}
+  .c1{width:48px;height:15px;top:18px;left:12%}
+  .c1:before{width:22px;height:22px;top:-12px;left:6px}
+  .c1:after{width:18px;height:18px;top:-8px;left:24px}
+  .c2{width:34px;height:12px;top:34px;left:55%;opacity:.7}
+  .c2:before{width:16px;height:16px;top:-9px;left:4px}
+  .c2:after{width:12px;height:12px;top:-5px;left:16px}
+  .hills{position:absolute;left:0;right:0;bottom:42%;height:40px;z-index:1;pointer-events:none}
+  .hill{position:absolute;bottom:0;border-radius:50% 50% 0 0;
+        background:linear-gradient(180deg,#4a8a5a,#2d5530)}
+  .h-a{width:42%;height:36px;left:-4%;opacity:.55}
+  .h-b{width:38%;height:28px;right:8%;opacity:.5}
+  .ground-strip{
+    position:absolute;left:0;right:0;bottom:0;height:32%;
+    background:
+      repeating-linear-gradient(90deg, transparent 0 18px, rgba(13,92,61,.06) 18px 20px),
+      linear-gradient(180deg,#8fbc78 0%,#6a9a58 100%);
+    z-index:2;border-top:3px solid #4a7040;
+  }
+  .geom-edge{
+    position:absolute;left:0;right:0;bottom:31%;height:6px;z-index:3;pointer-events:none;
+    background:repeating-linear-gradient(90deg, var(--gold) 0 8px, var(--accent) 8px 16px, transparent 16px 20px);
+    opacity:.55;
+  }
+  .comic-stage{position:relative;z-index:5;padding-top:78px;text-align:center;min-height:150px}
+  .comic-hero{font-size:56px;line-height:1;margin:4px 0 8px;filter:drop-shadow(0 2px 0 rgba(0,0,0,.12))}
+  .comic-panel{
+    display:inline-flex;align-items:center;gap:8px;background:rgba(253,250,243,.95);
+    border:2.5px solid var(--ink);border-radius:16px;padding:10px 14px;margin:4px;
+    box-shadow:0 3px 0 rgba(30,42,26,.12);font-weight:800;font-size:var(--fs-cap);
+  }
+  .comic-panel .em{font-size:28px}
+  .sort-grid{
+    position:relative;z-index:5;display:grid;grid-template-columns:1fr 1fr;gap:10px;
+    padding-top:88px;
+  }
+  .sort-bin{
+    border:2.5px solid var(--ink);border-radius:14px;padding:10px 8px;min-height:120px;
+    background:rgba(253,250,243,.88);text-align:center;cursor:pointer;
+  }
+  .sort-bin.hamd-bin{border-color:var(--hamd-bin);background:rgba(230,242,234,.95)}
+  .sort-bin.naat-bin{border-color:var(--naat-bin);background:rgba(230,238,248,.95)}
+  .sort-bin.hot{box-shadow:0 0 0 3px rgba(13,92,61,.3)}
+  .sort-bin h3{margin:0 0 8px;font-size:var(--fs-cap);font-weight:800}
+  .sort-bin .drop{min-height:60px;display:flex;flex-wrap:wrap;gap:4px;justify-content:center;align-items:center}
+  .item-card{
+    background:rgba(253,250,243,.95);border:2.5px solid var(--ink);border-radius:16px;
+    padding:8px 10px 10px;text-align:center;min-width:72px;max-width:130px;
+    box-shadow:0 3px 0 rgba(30,42,26,.15);cursor:pointer;user-select:none;
+  }
+  .item-card:hover{transform:translateY(-2px)}
+  .item-card.selected{border-color:var(--accent);background:#e8f5ec;box-shadow:0 0 0 3px rgba(13,92,61,.25)}
+  .item-card.ok{border-color:var(--ok);background:#e8f2ed}
+  .item-card.no{border-color:var(--left);background:#fbeae8}
+  .item-em{font-size:34px;line-height:1.1;display:block;margin-bottom:2px}
+  .item-lab{font-size:var(--fs-cap);font-weight:800;line-height:1.25;margin:0}
+  .bank{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:8px;position:relative;z-index:5}
+  .mini-chip{
+    border:2px solid var(--ink);border-radius:12px;padding:6px 8px;background:#fff;
+    line-height:1;cursor:pointer;min-width:40px;font-size:22px;
+  }
+  .save-choices{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+  .save-choices button{
+    border:2.5px solid var(--ink);background:var(--paper);border-radius:14px;
+    padding:12px 14px;font:inherit;font-weight:800;font-size:var(--fs-xs);
+    cursor:pointer;text-align:left;min-height:52px;display:flex;align-items:center;gap:10px;
+  }
+  body.urdu .save-choices button{text-align:right}
+  .save-choices button .cem{font-size:26px}
+  .save-choices button.right{border-color:var(--ok);background:#e8f2ed}
+  .save-choices button.wrong{border-color:var(--left);background:#fbeae8}
+  .vocab-card{
+    position:relative;z-index:5;margin:88px auto 8px;max-width:280px;
+    background:rgba(253,250,243,.96);border:2.5px solid var(--ink);border-radius:18px;
+    padding:16px 14px;text-align:center;box-shadow:0 3px 0 rgba(30,42,26,.12);
+  }
+  .vocab-card .vem{font-size:42px;line-height:1;display:block;margin-bottom:6px}
+  .vocab-card .vword{font-weight:800;font-size:var(--fs-lg);margin:0 0 4px}
+  .vocab-card .vroman{font-size:var(--fs-cap);color:var(--ink-soft);margin:0;font-weight:700}
+  .line-box{
+    position:relative;z-index:5;margin:88px auto 8px;max-width:300px;
+    background:rgba(253,250,243,.96);border:2.5px dashed var(--gold);border-radius:16px;
+    padding:14px 12px;text-align:center;
+  }
+  .line-box .lem{font-size:36px;display:block;margin-bottom:6px}
+  .line-box .lline{font-weight:800;font-size:var(--fs-sm);margin:0;line-height:1.45}
+  .pick-chip{
+    display:inline-flex;align-items:center;gap:6px;margin:4px;
+    border:2px solid var(--ink);background:#fff;border-radius:999px;
+    padding:8px 14px;font:inherit;font-weight:800;font-size:var(--fs-xs);
+    cursor:pointer;min-height:42px;
+  }
+  .pick-chip.used{opacity:.35;pointer-events:none}
+  .pick-chip.ok{border-color:var(--ok);background:#e8f2ed}
+  .pick-chip.no{border-color:var(--left);background:#fbeae8}
+  .chip-row{display:flex;flex-wrap:wrap;justify-content:center;gap:2px;margin-top:8px}
+  .readout{
+    margin-top:-18px;position:relative;z-index:2;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+  .statechip.ur{padding:2px 14px 7px}
+  .statechip.win{background:var(--ok)}
+  .statechip.miss{background:var(--left)}
+  .headline{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+  .headline.ur{line-height:1.95}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+  .hintbox{
+    margin-top:14px;border:2px solid var(--accent);background:#e8f5ec;border-radius:14px;
+    padding:11px 14px;font-size:var(--fs-xs);color:var(--accent);font-weight:700;line-height:1.55;
+    display:none;
+  }
+  .hintbox.show{display:block}
+  body.urdu .hintbox{line-height:var(--lh)}
+  .panel{margin-top:22px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .prog{margin:0 0 10px;font-size:var(--fs-xs);font-weight:700;color:var(--ink-soft)}
+  .btns{display:flex;gap:9px;margin-top:8px;flex-wrap:wrap}
+  .btns button{
+    border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);
+    font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:50px;
+    padding:8px 14px;flex:1;
+  }
+  .btns .go{background:var(--ink);color:var(--paper)}
+  .btns button:active{transform:scale(.97)}
+  .btns button:disabled{opacity:.4;cursor:default}
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .qhead{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+  .qhead h2{font-size:var(--fs-lg);font-weight:800;margin:0;flex:1}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:50px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+  .opt.wrong{border-color:var(--left);background:#fbeae8}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
+      grid-template-areas:
+        "bar   bar" "head  head" "tabs  tabs" "story story"
+        "left  right" "quiz  quiz" "foot  foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+    .story{grid-area:story} .left{grid-area:left} .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+    .panel{margin-top:0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition-duration:.01ms !important;animation:none !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 5 · Urdu</span>
+    <span class="stars" id="starBox">⭐ <span id="starCount">0</span></span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 id="title"></h1>
+  <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group">
+    <button type="button" id="tabSort" aria-pressed="true"></button>
+    <button type="button" id="tabFeel" aria-pressed="false"></button>
+    <button type="button" id="tabVocab" aria-pressed="false"></button>
+  </div>
+
+  <p class="story" id="story"></p>
+
+  <div class="left">
+  <div class="scene">
+    <div class="scene-pad" id="scenePad"></div>
+  </div>
+  <div class="readout">
+    <span class="statechip" id="statechip"></span>
+    <p class="headline" id="headline"></p>
+    <p class="detail" id="detail"></p>
+    <p class="hintbox" id="hintbox"></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="panel">
+    <h2 id="ctlHead"></h2>
+    <p class="prog" id="prog"></p>
+    <div id="actionBox"></div>
+    <div class="btns">
+      <button type="button" class="go" id="nextBtn"></button>
+    </div>
+    <div class="btns">
+      <button type="button" id="hintBtn"></button>
+      <button type="button" id="resetBtn"></button>
+    </div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <div class="qhead">
+      <h2 id="quizHead"></h2>
+      <button type="button" class="chip" id="newQuiz"></button>
+    </div>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad bilingual school. Offline play · no APIs. WhatsApp 0337 1468899 · Urdu Class 5 (helping interactive)"
+       data-ur="اے آئی فور کڈز — اسلام آباد۔ آف لائن کھیلو۔ واٹس ایپ 0337 1468899 · اردو جماعت ۵ (مددگار انٹرایکٹو)"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  function $(id){ return document.getElementById(id); }
+  function isolate(s){ return "\u2066" + s + "\u2069"; }
+  function setText(el, str){
+    if (!el) return;
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+  function t(o){ return (o && o[lang]) || (o && o.en) || ""; }
+  function shuffle(arr){
+    var a = arr.slice(), i, j, tmp;
+    for (i = a.length - 1; i > 0; i--){
+      j = Math.floor(Math.random() * (i + 1));
+      tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  var lang = "en";
+  var mode = "sort";
+  var stars = 0;
+  var awarded = {};
+  var doneModes = {sort:false, feel:false, vocab:false};
+
+  var T = {
+    title:{en:"Hamd aur Naat", ur:"حمد اور نعت"},
+    sub:{en:"Hamd = Allah ki tarif; Naat = Nabi ﷺ ki tarif — beautiful words of love and praise. We listen, understand mood/words, and show respect!",
+         ur:"حمد = اللہ کی تعریف؛ نعت = نبی ﷺ کی تعریف — پیار اور تعریف کے خوبصورت الفاظ۔ ہم سنتے ہیں، موڈ/الفاظ سمجھتے ہیں، اور احترام دکھاتے ہیں!"},
+    tabSort:{en:"Hamd vs Naat", ur:"حمد بمقابلہ نعت"},
+    tabFeel:{en:"Feel the words", ur:"الفاظ کا احساس"},
+    tabVocab:{en:"Vocabulary", ur:"الفاظ / معنی"},
+    storySort:{en:"Sort simple lines: <b>Hamd</b> (about Allah) vs <b>Naat</b> (about Nabi ﷺ). Short kid-friendly words of praise!",
+               ur:"سادہ سطریں چھانٹو: <b>حمد</b> (اللہ کے بارے میں) بمقابلہ <b>نعت</b> (نبی ﷺ کے بارے میں)۔ تعریف کے چھوٹے الفاظ!"},
+    storyFeel:{en:"Comics: listen with a soft voice, sit respectfully, feel <b>shukr</b> and <b>mohabbat</b> in the words.",
+               ur:"کارٹون: نرم آواز سے سنو، ادب سے بیٹھو، الفاظ میں <b>شکر</b> اور <b>محبت</b> محسوس کرو۔"},
+    storyVocab:{en:"Match Urdu words — <b>tarif, shukr, rehmat, pyar</b> — to simple meanings. Literacy + respect!",
+                ur:"اردو الفاظ — <b>تعریف، شکر، رحمت، پیار</b> — سادہ معانی سے ملاؤ۔ خواندگی + احترام!"},
+    ctl:{en:"Your turn — praise with respect", ur:"تمہاری باری — احترام سے تعریف"},
+    next:{en:"Next challenge", ur:"اگلا چیلنج"},
+    hint:{en:"Hint", ur:"اشارہ"},
+    reset:{en:"Reset", ur:"ری سیٹ"},
+    quiz:{en:"Check yourself", ur:"اپنا چیک"},
+    newQuiz:{en:"New quiz", ur:"نیا کوئز"},
+    nice:{en:"Shabash — respectful!", ur:"شاباش — باادب!"},
+    oops:{en:"Almost — try again", ur:"قریب — دوبارہ آزماؤ"},
+    tip:{en:"Tip: Hamd praises Allah; Naat praises Nabi ﷺ. Listen softly, understand the words, and show respect.",
+         ur:"نکتہ: حمد اللہ کی تعریف ہے؛ نعت نبی ﷺ کی۔ نرم سنو، الفاظ سمجھو، اور احترام دکھاؤ۔"},
+    progS:{en:"Hamd vs Naat", ur:"حمد بمقابلہ نعت"},
+    progF:{en:"Feel the words", ur:"الفاظ کا احساس"},
+    progV:{en:"Vocabulary", ur:"الفاظ / معنی"},
+    askSort:{en:"Tap a card, then tap Hamd or Naat", ur:"کارڈ ٹیپ کرو، پھر حمد یا نعت"},
+    askPick:{en:"Is this Hamd or Naat?", ur:"یہ حمد ہے یا نعت؟"},
+    askFeel:{en:"What shows respect for these words?", ur:"ان الفاظ کے لیے احترام کیا ہے؟"},
+    askVocab:{en:"Tap the matching meaning", ur:"ملا ہوا معنی ٹیپ کرو"},
+    checkSort:{en:"Check sort", ur:"چھانٹی چیک کرو"},
+    hamdLab:{en:"💚 Hamd (Allah)", ur:"💚 حمد (اللہ)"},
+    naatLab:{en:"💙 Naat (Nabi ﷺ)", ur:"💙 نعت (نبی ﷺ)"},
+    pick:{en:"Tap a card first", ur:"پہلے کارڈ ٹیپ کرو"}
+  };
+
+  /* Sort cards: Hamd vs Naat — short kid-friendly lines */
+  var CARDS = {
+    h1:{em:"🌟", en:"Allah is Rahman — kind", ur:"اللہ رحمان ہے — مہربان", bin:"hamd"},
+    h2:{em:"🌍", en:"Allah made the world", ur:"اللہ نے دنیا بنائی", bin:"hamd"},
+    h3:{em:"💚", en:"All thanks to Allah", ur:"سب شکر اللہ کا", bin:"hamd"},
+    h4:{em:"☀️", en:"Allah gives us light", ur:"اللہ ہمیں روشنی دیتا ہے", bin:"hamd"},
+    h5:{em:"🤲", en:"We say Alhamdulillah", ur:"ہم الحمدللہ کہتے ہیں", bin:"hamd"},
+    h6:{em:"✨", en:"Allah's rehmat is vast", ur:"اللہ کی رحمت وسیع ہے", bin:"hamd"},
+    n1:{em:"💚", en:"Nabi ﷺ taught kindness", ur:"نبی ﷺ نے مہربانی سکھائی", bin:"naat"},
+    n2:{em:"📖", en:"Nabi ﷺ loved learning", ur:"نبی ﷺ علم سے محبت کرتے تھے", bin:"naat"},
+    n3:{em:"🫶", en:"We love Nabi ﷺ", ur:"ہم نبی ﷺ سے پیار کرتے ہیں", bin:"naat"},
+    n4:{em:"🤝", en:"Nabi ﷺ was truthful", ur:"نبی ﷺ سچے تھے", bin:"naat"},
+    n5:{em:"😊", en:"Nabi ﷺ smiled gently", ur:"نبی ﷺ نرم مسکراتے تھے", bin:"naat"},
+    n6:{em:"🌸", en:"Salawat for Nabi ﷺ", ur:"نبی ﷺ پر درود", bin:"naat"}
+  };
+
+  /* Mode 1: Hamd vs Naat — 4 challenges */
+  var SORT = [
+    {
+      id:"s1", type:"sort",
+      title:{en:"Sort: Allah or Nabi ﷺ?", ur:"چھانٹو: اللہ یا نبی ﷺ؟"},
+      items:["h1","n1","h2","n3"],
+      hint:{en:"Hamd talks about Allah. Naat talks about Nabi ﷺ with love and respect.",
+            ur:"حمد اللہ کے بارے میں ہے۔ نعت نبی ﷺ کے بارے میں پیار اور احترام سے ہے۔"},
+      done:{en:"Sorted — Hamd and Naat!", ur:"چھانٹی ہوئی — حمد اور نعت!"}
+    },
+    {
+      id:"s2", type:"sort",
+      title:{en:"Shukr & kindness lines", ur:"شکر اور مہربانی کی سطریں"},
+      items:["h3","n2","h5","n4"],
+      hint:{en:"Alhamdulillah / thanks to Allah = Hamd. Truth and learning about Nabi ﷺ = Naat.",
+            ur:"الحمدللہ / اللہ کا شکر = حمد۔ نبی ﷺ کی سچائی اور علم = نعت۔"},
+      done:{en:"Beautiful sort!", ur:"خوبصورت چھانٹی!"}
+    },
+    {
+      id:"s3", type:"pick",
+      title:{en:"Rehmat line", ur:"رحمت کی سطر"},
+      card:"h6",
+      hint:{en:"Allah's rehmat is Hamd — praise of Allah.",
+            ur:"اللہ کی رحمت حمد ہے — اللہ کی تعریف۔"},
+      done:{en:"Hamd locked!", ur:"حمد تیار!"}
+    },
+    {
+      id:"s4", type:"pick",
+      title:{en:"Gentle smile line", ur:"نرم مسکراہٹ کی سطر"},
+      card:"n5",
+      hint:{en:"Lines about Nabi ﷺ's gentle manners are Naat.",
+            ur:"نبی ﷺ کے نرم اخلاق والی سطریں نعت ہیں۔"},
+      done:{en:"Naat locked!", ur:"نعت تیار!"}
+    }
+  ];
+
+  /* Mode 2: Feel the words — 4 comics */
+  var FEEL = [
+    {
+      id:"f1",
+      title:{en:"Listening respectfully", ur:"ادب سے سننا"},
+      hero:"👂😌📗",
+      prompt:{en:"Class is reading a short Hamd line. How do you listen?",
+              ur:"کلاس ایک چھوٹی حمد سطر پڑھ رہی ہے۔ تم کیسے سنتے ہو؟"},
+      choices:[
+        {id:"soft", em:"😌", en:"Sit quietly, soft ears, no jokes during praise", ur:"خاموش بیٹھو، نرم کان، تعریف کے دوران مذاق نہیں"},
+        {id:"loud", em:"📢", en:"Talk loudly over the reader", ur:"پڑھنے والے پر زور سے بات کرو"},
+        {id:"phone", em:"📱", en:"Play games on a phone", ur:"فون پر کھیل کھیلو"}
+      ],
+      correct:"soft",
+      hint:{en:"Respect = quiet body and soft listening when praise words are shared.",
+            ur:"احترام = تعریف کے الفاظ پر خاموش جسم اور نرم سننا۔"},
+      done:{en:"Respectful listening!", ur:"باادب سننا!"}
+    },
+    {
+      id:"f2",
+      title:{en:"Soft voice", ur:"نرم آواز"},
+      hero:"🗣️💚🤫",
+      prompt:{en:"You recite a short kid-friendly Naat line. What voice fits?",
+              ur:"تم ایک چھوٹی نعت سطر پڑھتے۔ کون سی آواز فٹ ہے؟"},
+      choices:[
+        {id:"gentle", em:"🤫", en:"Soft, clear voice — love and respect", ur:"نرم، صاف آواز — پیار اور احترام"},
+        {id:"shout", em:"📣", en:"Shout and race to finish first", ur:"چیخو اور پہلے ختم کرنے کی دوڑ"},
+        {id:"mock", em:"😜", en:"Make funny voices to get laughs", ur:"ہنسی کے لیے مزاحیہ آوازیں"}
+      ],
+      correct:"gentle",
+      hint:{en:"Praise words need a soft, clear voice — not racing or joking.",
+            ur:"تعریف کے الفاظ کو نرم، صاف آواز چاہیے — دوڑ یا مذاق نہیں۔"},
+      done:{en:"Soft voice star!", ur:"نرم آواز کا ستارہ!"}
+    },
+    {
+      id:"f3",
+      title:{en:"Feel shukr", ur:"شکر محسوس کرو"},
+      hero:"🤲😊🌟",
+      prompt:{en:"A Hamd line says thanks to Allah. What mood do you feel?",
+              ur:"حمد کی سطر اللہ کا شکر کہتی ہے۔ کون سا موڈ محسوس ہوتا ہے؟"},
+      choices:[
+        {id:"thanks", em:"😊", en:"Shukr and calm joy — grateful heart", ur:"شکر اور پرسکون خوشی — شکر گزار دل"},
+        {id:"bored", em:"😑", en:"Boredom — words do not matter", ur:"بوریت — الفاظ اہم نہیں"},
+        {id:"angry", em:"😤", en:"Anger at classmates", ur:"ہم جماعت پر غصہ"}
+      ],
+      correct:"thanks",
+      hint:{en:"Hamd often carries shukr — a thankful, calm mood.",
+            ur:"حمد اکثر شکر لاتی ہے — شکر گزار، پرسکون موڈ۔"},
+      done:{en:"Shukr mood locked!", ur:"شکر کا موڈ تیار!"}
+    },
+    {
+      id:"f4",
+      title:{en:"Feel mohabbat", ur:"محبت محسوس کرو"},
+      hero:"💚🫶🌸",
+      prompt:{en:"A Naat line speaks of love for Nabi ﷺ. What do you show?",
+              ur:"نعت کی سطر نبی ﷺ سے پیار کی بات کرتی ہے۔ تم کیا دکھاتے ہو؟"},
+      choices:[
+        {id:"love", em:"🫶", en:"Mohabbat and respect — kind heart", ur:"محبت اور احترام — مہربان دل"},
+        {id:"rush", em:"🏃", en:"Rush out before the line ends", ur:"سطر ختم ہونے سے پہلے نکل بھاگو"},
+        {id:"tease", em:"😏", en:"Tease anyone who listens carefully", ur:"غور سے سننے والے کا مذاق"}
+      ],
+      correct:"love",
+      hint:{en:"Naat mood = mohabbat (love) and adab (respect) for Nabi ﷺ.",
+            ur:"نعت کا موڈ = نبی ﷺ کے لیے محبت اور ادب۔"},
+      done:{en:"Mohabbat star!", ur:"محبت کا ستارہ!"}
+    }
+  ];
+
+  /* Mode 3: Vocabulary — 4 match challenges */
+  var WORDS = {
+    tarif:{em:"⭐", en:"Tarif", ur:"تعریف", roman:"tarif",
+           mean:{en:"Praise / saying good words about someone", ur:"تعریف / کسی کی اچھی بات کہنا"}},
+    shukr:{em:"🤲", en:"Shukr", ur:"شکر", roman:"shukr",
+           mean:{en:"Thanks / gratitude", ur:"شکریہ / احسان ماننا"}},
+    rehmat:{em:"💚", en:"Rehmat", ur:"رحمت", roman:"rehmat",
+            mean:{en:"Mercy / kindness from Allah", ur:"اللہ کی مہربانی / رحم"}},
+    pyar:{em:"🫶", en:"Pyar", ur:"پیار", roman:"pyar",
+          mean:{en:"Love", ur:"محبت"}},
+    adab:{em:"🙇", en:"Adab", ur:"ادب", roman:"adab",
+          mean:{en:"Respect / good manners", ur:"احترام / اچھے اخلاق"}},
+    mohabbat:{em:"🌸", en:"Mohabbat", ur:"محبت", roman:"mohabbat",
+              mean:{en:"Deep love / affection", ur:"گہری محبت"}},
+    sundar:{em:"✨", en:"Sundar", ur:"خوبصورت", roman:"khoobsurat / sundar",
+            mean:{en:"Beautiful", ur:"اچھا / خوبصورت"}},
+    sunna:{em:"👂", en:"Sunna", ur:"سننا", roman:"sunna",
+           mean:{en:"To listen", ur:"کان لگا کر سننا"}}
+  };
+
+  var VOCAB = [
+    {
+      id:"v1",
+      title:{en:"Match: tarif", ur:"ملاؤ: تعریف"},
+      word:"tarif",
+      distractors:["shukr","pyar","sunna"],
+      hint:{en:"Tarif = praise — saying good words. Hamd and Naat are forms of tarif.",
+            ur:"تعریف = اچھی بات کہنا۔ حمد اور نعت تعریف کی شکلیں ہیں۔"},
+      done:{en:"Tarif matched!", ur:"تعریف مل گئی!"}
+    },
+    {
+      id:"v2",
+      title:{en:"Match: shukr", ur:"ملاؤ: شکر"},
+      word:"shukr",
+      distractors:["adab","rehmat","sundar"],
+      hint:{en:"Shukr = thanks. Hamd often carries a feeling of shukr to Allah.",
+            ur:"شکر = شکریہ۔ حمد اکثر اللہ کا شکر لاتی ہے۔"},
+      done:{en:"Shukr matched!", ur:"شکر مل گیا!"}
+    },
+    {
+      id:"v3",
+      title:{en:"Match: rehmat", ur:"ملاؤ: رحمت"},
+      word:"rehmat",
+      distractors:["pyar","tarif","sunna"],
+      hint:{en:"Rehmat = mercy / kindness from Allah — a gentle Hamd idea.",
+            ur:"رحمت = اللہ کی مہربانی — حمد کا نرم خیال۔"},
+      done:{en:"Rehmat matched!", ur:"رحمت مل گئی!"}
+    },
+    {
+      id:"v4",
+      title:{en:"Match: pyar / mohabbat", ur:"ملاؤ: پیار / محبت"},
+      word:"pyar",
+      distractors:["shukr","adab","sundar"],
+      hint:{en:"Pyar / mohabbat = love. Naat carries love and respect for Nabi ﷺ.",
+            ur:"پیار / محبت = محبت۔ نعت میں نبی ﷺ سے پیار اور احترام ہے۔"},
+      done:{en:"Pyar matched!", ur:"پیار مل گیا!"}
+    }
+  ];
+
+  /* Quiz: bilingual MCQs — Urdu focus + Roman Urdu/EN help */
+  var QUIZ = [
+    {
+      q:{en:"What is Hamd?",
+         ur:"Hamd kya hai?"},
+      opts:[
+        {en:"Praise of Allah (Allah ki tarif)", ur:"Allah ki tarif (praise of Allah)"},
+        {en:"Only a school song about cricket", ur:"Sirf cricket ka school gaana"},
+        {en:"A shopping list", ur:"Khareedari ki list"},
+        {en:"Praise of a video game", ur:"Video game ki tarif"}
+      ],
+      correct:0,
+      why:{en:"Hamd = beautiful words of praise for Allah.",
+           ur:"Hamd = Allah ke liye tarif ke khoobsurat alfaaz."}
+    },
+    {
+      q:{en:"What is Naat?",
+         ur:"Naat kya hai?"},
+      opts:[
+        {en:"Praise of Nabi ﷺ (Nabi ﷺ ki tarif)", ur:"Nabi ﷺ ki tarif (praise of the Prophet ﷺ)"},
+        {en:"A math worksheet", ur:"Math ka worksheet"},
+        {en:"Praise only of mountains", ur:"Sirf paharon ki tarif"},
+        {en:"A weather report", ur:"Mausam ki report"}
+      ],
+      correct:0,
+      why:{en:"Naat = loving praise of Nabi ﷺ with respect.",
+           ur:"Naat = Nabi ﷺ ki mohabbat aur adab se tarif."}
+    },
+    {
+      q:{en:"Which word means thanks / gratitude?",
+         ur:"Kaun sa lafz shukriya / gratitude ka matlab rakhta hai?"},
+      opts:[
+        {en:"Shukr (شکر)", ur:"Shukr (شکر)"},
+        {en:"Ball (گیند)", ur:"Ball (گیند)"},
+        {en:"Door (دروازہ)", ur:"Door (دروازہ)"},
+        {en:"Pencil (پنسل)", ur:"Pencil (پنسل)"}
+      ],
+      correct:0,
+      why:{en:"Shukr = thanks. Hamd often feels like shukr to Allah.",
+           ur:"Shukr = shukriya. Hamd aksar Allah ka shukr mehsoos karati hai."}
+    },
+    {
+      q:{en:"When you listen to Hamd or Naat, you should…",
+         ur:"Jab Hamd ya Naat suno to…"},
+      opts:[
+        {en:"Listen softly and show respect (adab)", ur:"Narmi se suno aur adab dikhao"},
+        {en:"Talk loudly over the reader", ur:"Parhne wale par zor se baat karo"},
+        {en:"Make jokes during the lines", ur:"Satron ke dauran mazaaq karo"},
+        {en:"Ignore the meaning of the words", ur:"Alfaaz ke matlab nazarandaz karo"}
+      ],
+      correct:0,
+      why:{en:"Beautiful praise words need soft listening and respect.",
+           ur:"Khoobsurat tarif ke alfaaz ko narm sunna aur adab chahiye."}
+    },
+    {
+      q:{en:"Tarif means…",
+         ur:"Tarif ka matlab…"},
+      opts:[
+        {en:"Praise / saying good words", ur:"Tarif / achhi baat kehna"},
+        {en:"Running fast", ur:"Tez daurna"},
+        {en:"Eating lunch", ur:"Lunch khana"},
+        {en:"Closing a book forever", ur:"Kitab hamesha band karna"}
+      ],
+      correct:0,
+      why:{en:"Tarif = praise. Hamd and Naat are kinds of tarif.",
+           ur:"Tarif = praise. Hamd aur Naat tarif ki qismein hain."}
+    },
+    {
+      q:{en:"Rehmat in simple kid words means…",
+         ur:"Rehmat seedhe bachchon ke alfaaz mein…"},
+      opts:[
+        {en:"Mercy / kindness from Allah", ur:"Allah ki meherbani / rehmat"},
+        {en:"A loud drum", ur:"Ek zor ka drum"},
+        {en:"A broken pencil", ur:"Tooti hui pencil"},
+        {en:"Skipping homework", ur:"Homework chhorna"}
+      ],
+      correct:0,
+      why:{en:"Rehmat = Allah's mercy and kindness — often felt in Hamd.",
+           ur:"Rehmat = Allah ki meherbani — aksar Hamd mein mehsoos hoti hai."}
+    },
+    {
+      q:{en:"Naat mood is closest to…",
+         ur:"Naat ka mood sab se qareeb hai…"},
+      opts:[
+        {en:"Mohabbat and respect for Nabi ﷺ", ur:"Nabi ﷺ ke liye mohabbat aur adab"},
+        {en:"Anger and rushing", ur:"Gussa aur jaldbaazi"},
+        {en:"Teasing classmates", ur:"Hum-jamaat ka mazaaq"},
+        {en:"Ignoring soft voices", ur:"Narm awaz nazarandaz"}
+      ],
+      correct:0,
+      why:{en:"Naat carries love (mohabbat/pyar) and respect for Nabi ﷺ.",
+           ur:"Naat mein Nabi ﷺ ke liye mohabbat/pyar aur adab hota hai."}
+    }
+  ];
+
+  var sortIdx = 0, sortSelected = null, sortMap = {}, sortDone = {};
+  var feelIdx = 0, feelDone = {};
+  var vocabIdx = 0, vocabDone = {};
+  var quizSet = [];
+
+  function award(key, n){
+    if (awarded[key]) return;
+    awarded[key] = true;
+    stars += (n || 1);
+    $("starCount").textContent = String(stars);
+  }
+  function recountStars(){
+    stars = 0;
+    Object.keys(awarded).forEach(function(k){
+      stars += (k.indexOf("mode-")===0) ? 2 : 1;
+    });
+    $("starCount").textContent = String(stars);
+  }
+
+  function crescentSVG(){
+    return '<svg class="crescent-deco" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+      '<circle cx="22" cy="20" r="12" fill="#f5e6a8"/>' +
+      '<circle cx="28" cy="18" r="10" fill="#4a8fb8"/>' +
+      '<polygon points="12,8 13.5,12.5 18,12.5 14.5,15.5 16,20 12,17.2 8,20 9.5,15.5 6,12.5 10.5,12.5" fill="#d4a017"/>' +
+      '</svg>';
+  }
+
+  function skyHTML(){
+    return '<div class="sky-layer">' + crescentSVG() +
+           '<div class="cloud c1"></div><div class="cloud c2"></div></div>' +
+           '<div class="hills"><div class="hill h-a"></div><div class="hill h-b"></div></div>' +
+           '<div class="geom-edge"></div>' +
+           '<div class="ground-strip"></div>';
+  }
+
+  function kidsSVG(){
+    return '<svg class="comic-hero" style="width:min(90%,260px);height:auto;font-size:inherit" viewBox="0 0 260 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+      '<ellipse cx="130" cy="92" rx="70" ry="6" fill="rgba(0,0,0,.1)"/>' +
+      '<circle cx="70" cy="38" r="16" fill="#f5c89a" stroke="#1a2e22" stroke-width="2"/>' +
+      '<rect x="55" y="54" width="30" height="28" rx="8" fill="#0d5c3d" stroke="#1a2e22" stroke-width="2"/>' +
+      '<text x="70" y="34" text-anchor="middle" font-size="10">😊</text>' +
+      '<circle cx="130" cy="34" r="17" fill="#e8b890" stroke="#1a2e22" stroke-width="2"/>' +
+      '<rect x="114" y="51" width="32" height="30" rx="8" fill="#2f6fb5" stroke="#1a2e22" stroke-width="2"/>' +
+      '<text x="130" y="30" text-anchor="middle" font-size="11">😄</text>' +
+      '<circle cx="190" cy="38" r="16" fill="#f0c4a0" stroke="#1a2e22" stroke-width="2"/>' +
+      '<rect x="175" y="54" width="30" height="28" rx="8" fill="#c45c3a" stroke="#1a2e22" stroke-width="2"/>' +
+      '<text x="190" y="34" text-anchor="middle" font-size="10">🙂</text>' +
+      '<circle cx="130" cy="14" r="9" fill="#0d5c3d" stroke="#1a2e22" stroke-width="1.5"/>' +
+      '<circle cx="133" cy="13" r="6" fill="#0d5c3d"/>' +
+      '<circle cx="135" cy="12" r="5.5" fill="#7eb8d4"/>' +
+      '<polygon points="124,10 125,13 128,13 125.5,15 126.5,18 124,16 121.5,18 122.5,15 120,13 123,13" fill="#d4a017"/>' +
+      '</svg>';
+  }
+
+  function maybeSortDone(){
+    if (Object.keys(sortDone).length >= SORT.length){
+      doneModes.sort = true;
+      award("mode-sort", 2);
+      tabBadges();
+    }
+  }
+  function maybeFeelDone(){
+    if (Object.keys(feelDone).length >= FEEL.length){
+      doneModes.feel = true;
+      award("mode-feel", 2);
+      tabBadges();
+    }
+  }
+  function maybeVocabDone(){
+    if (Object.keys(vocabDone).length >= VOCAB.length){
+      doneModes.vocab = true;
+      award("mode-vocab", 2);
+      tabBadges();
+    }
+  }
+
+  /* ---------- SORT: Hamd vs Naat ---------- */
+  function renderSort(){
+    var ch = SORT[sortIdx];
+    var pad = $("scenePad");
+    var box = $("actionBox");
+    box.innerHTML = "";
+    $("hintbox").classList.remove("show");
+
+    setText($("statechip"), (sortIdx+1) + " / " + SORT.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (sortDone[ch.id]?" win":"");
+    if (sortDone[ch.id]) setText($("statechip"), t(T.nice));
+
+    if (ch.type === "sort"){
+      pad.innerHTML = skyHTML() +
+        '<div class="sort-grid">' +
+          '<div class="sort-bin hamd-bin'+(sortSelected?" hot":"")+'" data-bin="hamd"><h3></h3><div class="drop" id="binHamd"></div></div>' +
+          '<div class="sort-bin naat-bin'+(sortSelected?" hot":"")+'" data-bin="naat"><h3></h3><div class="drop" id="binNaat"></div></div>' +
+        '</div>';
+      setText(pad.querySelector(".hamd-bin h3"), t(T.hamdLab));
+      setText(pad.querySelector(".naat-bin h3"), t(T.naatLab));
+
+      ["hamd","naat"].forEach(function(bin){
+        pad.querySelector('[data-bin="'+bin+'"]').addEventListener("click", function(){
+          if (!sortSelected || sortDone[ch.id]) return;
+          sortMap[sortSelected] = bin;
+          sortSelected = null;
+          renderSort();
+        });
+      });
+
+      ch.items.forEach(function(id){
+        var bin = sortMap[id];
+        if (!bin) return;
+        var el = document.createElement("span");
+        el.className = "mini-chip";
+        el.textContent = CARDS[id].em;
+        el.title = t(CARDS[id]);
+        el.addEventListener("click", function(e){
+          e.stopPropagation();
+          if (sortDone[ch.id]) return;
+          delete sortMap[id];
+          renderSort();
+        });
+        (bin==="hamd"?$("binHamd"):$("binNaat")).appendChild(el);
+      });
+
+      var bank = document.createElement("div");
+      bank.className = "bank";
+      ch.items.forEach(function(id){
+        if (sortMap[id]) return;
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "item-card" + (sortSelected===id?" selected":"");
+        b.innerHTML = '<span class="item-em">'+CARDS[id].em+'</span><p class="item-lab"></p>';
+        setText(b.querySelector(".item-lab"), t(CARDS[id]));
+        b.addEventListener("click", function(){
+          if (sortDone[ch.id]) return;
+          sortSelected = id;
+          renderSort();
+        });
+        bank.appendChild(b);
+      });
+      box.appendChild(bank);
+
+      if (!sortDone[ch.id]){
+        var chk = document.createElement("button");
+        chk.type = "button";
+        chk.style.cssText = "margin-top:10px;width:100%;border:2px solid var(--ink);border-radius:14px;background:var(--ink);color:var(--paper);font:inherit;font-weight:800;min-height:48px;cursor:pointer";
+        setText(chk, t(T.checkSort));
+        chk.addEventListener("click", function(){
+          var ok = true;
+          ch.items.forEach(function(id){
+            if (sortMap[id] !== CARDS[id].bin) ok = false;
+          });
+          if (ok && Object.keys(sortMap).filter(function(k){ return ch.items.indexOf(k)>=0; }).length === ch.items.length){
+            sortDone[ch.id] = true;
+            award("sort-"+ch.id, 1);
+            setText($("headline"), t(ch.done));
+            $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.nice));
+            maybeSortDone();
+            renderSort();
+          } else {
+            setText($("headline"), t(T.oops));
+            $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.oops));
+          }
+        });
+        box.appendChild(chk);
+      }
+
+      setText($("headline"), sortDone[ch.id] ? t(ch.done) : t(ch.title));
+      setText($("detail"), sortSelected ? t(CARDS[sortSelected]) + " → ?" : t(T.askSort));
+    } else {
+      var card = CARDS[ch.card];
+      pad.innerHTML = skyHTML() +
+        '<div class="comic-stage">' + kidsSVG() +
+        '<div class="line-box"><span class="lem">'+card.em+'</span><p class="lline"></p></div></div>';
+      setText(pad.querySelector(".lline"), t(card));
+
+      setText($("headline"), sortDone[ch.id] ? t(ch.done) : t(ch.title));
+      setText($("detail"), t(T.askPick));
+
+      var choices = document.createElement("div");
+      choices.className = "save-choices";
+      [
+        {id:"hamd", em:"💚", en:"Hamd (about Allah)", ur:"حمد (اللہ کے بارے میں)"},
+        {id:"naat", em:"💙", en:"Naat (about Nabi ﷺ)", ur:"نعت (نبی ﷺ کے بارے میں)"}
+      ].forEach(function(c){
+        var b = document.createElement("button");
+        b.type = "button";
+        if (sortDone[ch.id] && c.id === card.bin) b.classList.add("right");
+        b.innerHTML = '<span class="cem">'+c.em+'</span><span class="clab"></span>';
+        setText(b.querySelector(".clab"), t(c));
+        b.disabled = !!sortDone[ch.id];
+        b.addEventListener("click", function(){
+          if (sortDone[ch.id]) return;
+          if (c.id === card.bin){
+            sortDone[ch.id] = true;
+            award("sort-"+ch.id, 1);
+            b.classList.add("right");
+            setText($("headline"), t(ch.done));
+            $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.nice));
+            maybeSortDone();
+            renderSort();
+          } else {
+            b.classList.add("wrong");
+            setText($("headline"), t(T.oops));
+            $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.oops));
+            setTimeout(function(){ b.classList.remove("wrong"); }, 600);
+          }
+        });
+        choices.appendChild(b);
+      });
+      box.appendChild(choices);
+    }
+    setText($("prog"), t(T.progS) + ": " + Object.keys(sortDone).length + "/" + SORT.length);
+  }
+
+  /* ---------- FEEL ---------- */
+  function renderFeel(){
+    var ch = FEEL[feelIdx];
+    var pad = $("scenePad");
+    var box = $("actionBox");
+    box.innerHTML = "";
+    $("hintbox").classList.remove("show");
+
+    setText($("statechip"), (feelIdx+1) + " / " + FEEL.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (feelDone[ch.id]?" win":"");
+    if (feelDone[ch.id]) setText($("statechip"), t(T.nice));
+
+    pad.innerHTML = skyHTML() +
+      '<div class="comic-stage">' + kidsSVG() +
+      '<div class="comic-panel"><span class="em">'+ch.hero+'</span><span class="plab"></span></div></div>';
+    setText(pad.querySelector(".plab"), t(ch.title));
+
+    setText($("headline"), feelDone[ch.id] ? t(ch.done) : t(ch.title));
+    setText($("detail"), t(ch.prompt));
+
+    var choices = document.createElement("div");
+    choices.className = "save-choices";
+    ch.choices.forEach(function(c){
+      var b = document.createElement("button");
+      b.type = "button";
+      if (feelDone[ch.id] && c.id === ch.correct) b.classList.add("right");
+      b.innerHTML = '<span class="cem">'+c.em+'</span><span class="clab"></span>';
+      setText(b.querySelector(".clab"), t(c));
+      b.disabled = !!feelDone[ch.id];
+      b.addEventListener("click", function(){
+        if (feelDone[ch.id]) return;
+        if (c.id === ch.correct){
+          feelDone[ch.id] = true;
+          award("feel-"+ch.id, 1);
+          b.classList.add("right");
+          setText($("headline"), t(ch.done));
+          $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.nice));
+          maybeFeelDone();
+          renderFeel();
+        } else {
+          b.classList.add("wrong");
+          setText($("headline"), t(T.oops));
+          $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.oops));
+          setTimeout(function(){ b.classList.remove("wrong"); }, 600);
+        }
+      });
+      choices.appendChild(b);
+    });
+    box.appendChild(choices);
+    setText($("prog"), t(T.progF) + ": " + Object.keys(feelDone).length + "/" + FEEL.length);
+  }
+
+  /* ---------- VOCAB ---------- */
+  function renderVocab(){
+    var ch = VOCAB[vocabIdx];
+    var w = WORDS[ch.word];
+    var pad = $("scenePad");
+    var box = $("actionBox");
+    box.innerHTML = "";
+    $("hintbox").classList.remove("show");
+
+    setText($("statechip"), (vocabIdx+1) + " / " + VOCAB.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (vocabDone[ch.id]?" win":"");
+    if (vocabDone[ch.id]) setText($("statechip"), t(T.nice));
+
+    pad.innerHTML = skyHTML() +
+      '<div class="vocab-card"><span class="vem">'+w.em+'</span>' +
+      '<p class="vword"></p><p class="vroman"></p></div>';
+    var vword = pad.querySelector(".vword");
+    if (lang === "ur"){
+      setText(vword, w.ur);
+    } else {
+      vword.textContent = w.ur + " · " + w.en;
+      vword.classList.remove("ur");
+      vword.setAttribute("dir","ltr");
+    }
+    setText(pad.querySelector(".vroman"), w.roman);
+
+    setText($("headline"), vocabDone[ch.id] ? t(ch.done) : t(ch.title));
+    setText($("detail"), t(T.askVocab));
+
+    var opts = [{id:ch.word, mean:w.mean}];
+    ch.distractors.forEach(function(d){
+      opts.push({id:d, mean:WORDS[d].mean});
+    });
+    opts = shuffle(opts);
+
+    var choices = document.createElement("div");
+    choices.className = "save-choices";
+    opts.forEach(function(c){
+      var b = document.createElement("button");
+      b.type = "button";
+      if (vocabDone[ch.id] && c.id === ch.word) b.classList.add("right");
+      b.innerHTML = '<span class="cem">'+WORDS[c.id].em+'</span><span class="clab"></span>';
+      setText(b.querySelector(".clab"), t(c.mean));
+      b.disabled = !!vocabDone[ch.id];
+      b.addEventListener("click", function(){
+        if (vocabDone[ch.id]) return;
+        if (c.id === ch.word){
+          vocabDone[ch.id] = true;
+          award("vocab-"+ch.id, 1);
+          b.classList.add("right");
+          setText($("headline"), t(ch.done));
+          $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.nice));
+          maybeVocabDone();
+          renderVocab();
+        } else {
+          b.classList.add("wrong");
+          setText($("headline"), t(T.oops));
+          $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.oops));
+          setTimeout(function(){ b.classList.remove("wrong"); }, 600);
+        }
+      });
+      choices.appendChild(b);
+    });
+    box.appendChild(choices);
+    setText($("prog"), t(T.progV) + ": " + Object.keys(vocabDone).length + "/" + VOCAB.length);
+  }
+
+  /* ---------- QUIZ ---------- */
+  function pickQuiz(){ quizSet = shuffle(QUIZ).slice(0, 5); }
+  function renderQuiz(){
+    var box = $("quizBox");
+    box.innerHTML = "";
+    quizSet.forEach(function(item, qi){
+      var wrap = document.createElement("div");
+      wrap.className = "q";
+      var p = document.createElement("p");
+      if (lang === "ur"){
+        p.textContent = isolate((qi+1) + ". " + t(item.q));
+        p.classList.remove("ur");
+        p.setAttribute("dir", "ltr");
+        p.style.fontFamily = '"Baloo Bhaijaan 2",sans-serif';
+        p.style.lineHeight = "1.5";
+      } else {
+        setText(p, (qi+1) + ". " + t(item.q));
+      }
+      wrap.appendChild(p);
+      var answered = false;
+      item.opts.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        if (lang === "ur"){
+          b.className = "opt";
+          b.textContent = isolate(t(opt));
+          b.setAttribute("dir", "ltr");
+          b.style.textAlign = "left";
+          b.style.fontFamily = '"Baloo Bhaijaan 2",sans-serif';
+        } else {
+          b.className = "opt";
+          setText(b, t(opt));
+        }
+        b.addEventListener("click", function(){
+          if (answered) return;
+          answered = true;
+          if (oi === item.correct){
+            b.classList.add("right");
+            award("quiz-"+qi, 1);
+          } else {
+            b.classList.add("wrong");
+            var kids = wrap.querySelectorAll(".opt");
+            if (kids[item.correct]) kids[item.correct].classList.add("right");
+          }
+          fb.classList.add("show");
+        });
+        wrap.appendChild(b);
+      });
+      var fb = document.createElement("p");
+      fb.className = "fb";
+      if (lang === "ur"){
+        fb.textContent = isolate(t(item.why));
+        fb.setAttribute("dir", "ltr");
+        fb.style.fontFamily = '"Baloo Bhaijaan 2",sans-serif';
+      } else {
+        setText(fb, t(item.why));
+      }
+      wrap.appendChild(fb);
+      box.appendChild(wrap);
+    });
+  }
+
+  function storyHtml(){
+    if (mode === "sort") return t(T.storySort);
+    if (mode === "feel") return t(T.storyFeel);
+    return t(T.storyVocab);
+  }
+
+  function tabBadges(){
+    function lab(btn, label, key){
+      btn.innerHTML = "";
+      var span = document.createElement("span");
+      setText(span, t(label));
+      btn.appendChild(span);
+      if (doneModes[key]){
+        var b = document.createElement("span");
+        b.className = "badge"; b.textContent = " ★";
+        btn.appendChild(b);
+      }
+    }
+    lab($("tabSort"), T.tabSort, "sort");
+    lab($("tabFeel"), T.tabFeel, "feel");
+    lab($("tabVocab"), T.tabVocab, "vocab");
+    $("tabSort").setAttribute("aria-pressed", mode==="sort"?"true":"false");
+    $("tabFeel").setAttribute("aria-pressed", mode==="feel"?"true":"false");
+    $("tabVocab").setAttribute("aria-pressed", mode==="vocab"?"true":"false");
+  }
+
+  function setMode(m){
+    mode = m;
+    sortSelected = null;
+    if (mode === "sort") renderSort();
+    else if (mode === "feel") renderFeel();
+    else renderVocab();
+    applyChrome();
+  }
+
+  function applyChrome(){
+    setText($("title"), t(T.title));
+    setText($("subtitle"), t(T.sub));
+    $("story").innerHTML = storyHtml();
+    $("story").classList.toggle("ur", lang==="ur");
+    $("story").setAttribute("dir", lang==="ur"?"rtl":"ltr");
+    setText($("ctlHead"), t(T.ctl));
+    setText($("nextBtn"), t(T.next));
+    setText($("hintBtn"), t(T.hint));
+    setText($("resetBtn"), t(T.reset));
+    setText($("quizHead"), t(T.quiz));
+    setText($("newQuiz"), t(T.newQuiz));
+    $("langBtn").textContent = (lang === "en") ? "اردو" : "EN";
+    $("langBtn").setAttribute("aria-pressed", lang==="ur"?"true":"false");
+    document.body.classList.toggle("urdu", lang==="ur");
+    document.documentElement.lang = (lang==="ur") ? "ur" : "en";
+    document.documentElement.dir = (lang==="ur") ? "rtl" : "ltr";
+    tabBadges();
+    var foot = document.querySelector("footer p");
+    if (foot) setText(foot, foot.getAttribute(lang==="ur"?"data-ur":"data-en"));
+  }
+
+  function applyLang(){
+    applyChrome();
+    if (mode === "sort") renderSort();
+    else if (mode === "feel") renderFeel();
+    else renderVocab();
+    renderQuiz();
+  }
+
+  function next(){
+    $("hintbox").classList.remove("show");
+    if (mode === "sort"){
+      sortIdx = (sortIdx + 1) % SORT.length;
+      sortSelected = null;
+      if (SORT[sortIdx].type === "sort"){
+        /* keep sortMap only for current challenge items cleared on new */
+        var keep = {};
+        Object.keys(sortMap).forEach(function(k){
+          if (SORT[sortIdx].items && SORT[sortIdx].items.indexOf(k)>=0) keep[k]=sortMap[k];
+        });
+        sortMap = keep;
+      }
+      renderSort();
+    } else if (mode === "feel"){
+      feelIdx = (feelIdx + 1) % FEEL.length;
+      renderFeel();
+    } else {
+      vocabIdx = (vocabIdx + 1) % VOCAB.length;
+      renderVocab();
+    }
+  }
+
+  function showHint(){
+    var h;
+    if (mode === "sort") h = SORT[sortIdx].hint;
+    else if (mode === "feel") h = FEEL[feelIdx].hint;
+    else h = VOCAB[vocabIdx].hint;
+    var hb = $("hintbox");
+    setText(hb, t(h));
+    hb.classList.add("show");
+  }
+
+  function resetMode(){
+    if (mode === "sort"){
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("sort-")===0 || k==="mode-sort") delete awarded[k]; });
+      sortDone = {}; sortMap = {}; sortSelected = null; sortIdx = 0;
+      doneModes.sort = false;
+      recountStars(); renderSort();
+    } else if (mode === "feel"){
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("feel-")===0 || k==="mode-feel") delete awarded[k]; });
+      feelDone = {}; feelIdx = 0; doneModes.feel = false;
+      recountStars(); renderFeel();
+    } else {
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("vocab-")===0 || k==="mode-vocab") delete awarded[k]; });
+      vocabDone = {}; vocabIdx = 0; doneModes.vocab = false;
+      recountStars(); renderVocab();
+    }
+    tabBadges();
+    applyChrome();
+  }
+
+  function cleanSpeakText(s){
+    return String(s || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  }
+  function buildSpeakText(){
+    var bits = [];
+    bits.push(t(T.title));
+    bits.push(cleanSpeakText(storyHtml()));
+    bits.push(cleanSpeakText(($("headline") && $("headline").textContent) || ""));
+    bits.push(cleanSpeakText(($("detail") && $("detail").textContent) || ""));
+    bits.push(t(T.tip));
+    return bits.filter(Boolean).join(". ");
+  }
+  function pickVoice(voices, want){
+    var i, v, L;
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf(want) === 0) return v;
+    }
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf("en") === 0) return v;
+    }
+    return voices[0] || null;
+  }
+  var speakTimer = null;
+  function setSpeaking(on){
+    var btn = $("speakBtn");
+    if (!btn) return;
+    btn.setAttribute("aria-pressed", on ? "true" : "false");
+    btn.style.opacity = on ? "0.65" : "";
+  }
+  function doSpeak(text, asLang){
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.92;
+    u.lang = (asLang === "ur") ? "ur-PK" : "en-US";
+    var voices = window.speechSynthesis.getVoices() || [];
+    var voice = pickVoice(voices, asLang === "ur" ? "ur" : "en");
+    if (voice) u.voice = voice;
+    u.onstart = function(){ setSpeaking(true); };
+    u.onend = function(){ setSpeaking(false); };
+    u.onerror = function(){
+      setSpeaking(false);
+      if (asLang === "ur"){
+        var fallback = cleanSpeakText(T.title.en + ". " + T.storySort.en + ". " + T.tip.en);
+        var u2 = new SpeechSynthesisUtterance(fallback);
+        u2.lang = "en-US"; u2.rate = 0.92;
+        var v2 = pickVoice(window.speechSynthesis.getVoices() || [], "en");
+        if (v2) u2.voice = v2;
+        u2.onstart = function(){ setSpeaking(true); };
+        u2.onend = u2.onerror = function(){ setSpeaking(false); };
+        window.speechSynthesis.speak(u2);
+      }
+    };
+    window.speechSynthesis.speak(u);
+  }
+  if ("speechSynthesis" in window){
+    try { window.speechSynthesis.getVoices(); } catch (e0) {}
+    if (typeof window.speechSynthesis.addEventListener === "function"){
+      window.speechSynthesis.addEventListener("voiceschanged", function(){
+        try { window.speechSynthesis.getVoices(); } catch (e1) {}
+      });
+    }
+  } else {
+    var noBtn = $("speakBtn");
+    if (noBtn){ noBtn.disabled = true; noBtn.title = "Voice not available on this device"; }
+  }
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en";
+    applyLang();
+  });
+  $("tabSort").addEventListener("click", function(){ setMode("sort"); });
+  $("tabFeel").addEventListener("click", function(){ setMode("feel"); });
+  $("tabVocab").addEventListener("click", function(){ setMode("vocab"); });
+  $("nextBtn").addEventListener("click", next);
+  $("hintBtn").addEventListener("click", showHint);
+  $("resetBtn").addEventListener("click", resetMode);
+  $("newQuiz").addEventListener("click", function(){ pickQuiz(); renderQuiz(); });
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      var text = buildSpeakText();
+      if (!text) return;
+      if (speakTimer){ clearTimeout(speakTimer); speakTimer = null; }
+      window.speechSynthesis.cancel();
+      setSpeaking(false);
+      var speakLang = lang;
+      speakTimer = setTimeout(function(){
+        speakTimer = null;
+        doSpeak(text, speakLang);
+      }, 80);
+    }catch(e){ setSpeaking(false); }
+  });
+
+  pickQuiz();
+  applyLang();
+})();
+</script>
+</body>
+</html>

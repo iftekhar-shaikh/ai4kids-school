@@ -1,0 +1,190 @@
+{
+  "subject": "urdu",
+  "name": "Urdu",
+  "teacher": "Urdu Teacher",
+  "grade": 5,
+  "topics": [
+    {
+      "title": "Hamd aur Naat",
+      "description": "Hamd Allah ki tarif; Naat Nabi ﷺ ki tarif",
+      "lesson": "## HOOK\nPyare alfaaz se Allah aur Nabi ﷺ ki tarif — Hamd aur Naat.\n\n## SAMJHAO\nHamd = Allah ki tarif. Naat = Nabi ﷺ ki sifat o tarif.\n\n## MISAAL\nSoft awaz se sunna, adab se parhna, shukr aur mohabbat ke alfaaz.\n\n## KARO\nEk hamd / naat line soft awaz mein suno aur matlab socho.\n\n## SAWAAL\n1. Hamd kis ki tarif?\n2. Naat kis ki?\n3. Adab se sunna kyun?",
+      "quiz": {
+        "title": "Hamd aur Naat Quiz",
+        "questions": [
+          {
+            "q": "Hamd kis ki tarif hai?",
+            "a": "Allah",
+            "b": "Dost",
+            "c": "Game",
+            "d": "Map",
+            "correct": "a"
+          },
+          {
+            "q": "Naat kis ki tarif?",
+            "a": "Nabi Muhammad ﷺ",
+            "b": "Sirf school",
+            "c": "Cartoon",
+            "d": "Car",
+            "correct": "a"
+          },
+          {
+            "q": "Sunne ka tariqa?",
+            "a": "Adab aur soft awaz",
+            "b": "Shor",
+            "c": "Ignore",
+            "d": "Laugh only",
+            "correct": "a"
+          },
+          {
+            "q": "Shukr ka matlab?",
+            "a": "Allah ka shukriya",
+            "b": "Gussa",
+            "c": "Cheat",
+            "d": "Litter",
+            "correct": "a"
+          },
+          {
+            "q": "Hamd aur Naat dono?",
+            "a": "Pyare tarif ke kalam",
+            "b": "Math sums",
+            "c": "Traffic rules",
+            "d": "Shopping list",
+            "correct": "a"
+          }
+        ]
+      },
+      "interactive_file": "interactives/g5-hamd-naat.html",
+      "interactive_label": "Khelo — Hamd aur Naat"
+    },
+    {
+      "title": "Rahmat-e-Aalam aur seerat stories",
+      "description": "Parhna + sawalat — seerat stories",
+      "lesson": "## HOOK\nRehmat wali kahaniyan dil ko narmi deti hain.\n\n## SAMJHAO\nStories se akhlaq seekho.\n\n## MISAAL\nMadad, sachchai, hilm.\n\n## KARO\nEk story ka lesson likho.\n\n## SAWAAL\n1. Story se kya seekha?\n2. Ek amal?",
+      "quiz": {
+        "title": "Seerat stories Quiz",
+        "questions": [
+          {
+            "q": "In stories se seekhte hain?",
+            "a": "Akhlaq",
+            "b": "Cheating",
+            "c": "Litter",
+            "d": "Anger only",
+            "correct": "a"
+          },
+          {
+            "q": "Rehmat ka matlab qareeb?",
+            "a": "Meharbani",
+            "b": "Gussa",
+            "c": "Noise",
+            "d": "Map",
+            "correct": "a"
+          }
+        ]
+      }
+    },
+    {
+      "title": "Qomi tehwar aur watan",
+      "description": "Pakistan themes, vocabulary",
+      "lesson": "## HOOK\nWatan aur tehwar — hamari pehchan.\n\n## SAMJHAO\nQomi din aur watan se pyar ke alfaaz.\n\n## MISAAL\n14 August, Pakistan Zindabad.\n\n## KARO\n3 watan words likho.\n\n## SAWAAL\n1. Ek qomi tehwar?\n2. Watan se pyar kaise?",
+      "quiz": {
+        "title": "Qomi tehwar Quiz",
+        "questions": [
+          {
+            "q": "14 August?",
+            "a": "Independence Day",
+            "b": "Eid only",
+            "c": "Sports day",
+            "d": "Exam",
+            "correct": "a"
+          },
+          {
+            "q": "Watan?",
+            "a": "Apna mulk",
+            "b": "Sirf game",
+            "c": "Car",
+            "d": "Phone",
+            "correct": "a"
+          }
+        ]
+      }
+    },
+    {
+      "title": "Kahani aur afsana",
+      "description": "Comprehension + morals",
+      "lesson": "## HOOK\nKahani suno, matlab samjho.\n\n## SAMJHAO\nCharacters, plot, lesson.\n\n## MISAAL\nChhoti moral story.\n\n## KARO\nStory ka moral likho.\n\n## SAWAAL\n1. Character kaun?\n2. Moral kya?",
+      "quiz": {
+        "title": "Kahani Quiz",
+        "questions": [
+          {
+            "q": "Kahani mein hota hai?",
+            "a": "Characters aur event",
+            "b": "Sirf numbers",
+            "c": "Maps only",
+            "d": "Code",
+            "correct": "a"
+          },
+          {
+            "q": "Moral?",
+            "a": "Seekhne wali baat",
+            "b": "Shor",
+            "c": "Cheat",
+            "d": "Litter",
+            "correct": "a"
+          }
+        ]
+      }
+    },
+    {
+      "title": "Grammar aur imla",
+      "description": "Jumlah, sifat, muhavare",
+      "lesson": "## HOOK\nSahi jumlah = clear baat.\n\n## SAMJHAO\nIsm, fail, sifat, imla.\n\n## MISAAL\nSimple sentence fix.\n\n## KARO\n3 jumlah likho.\n\n## SAWAAL\n1. Ism kya?\n2. Imla kyun?",
+      "quiz": {
+        "title": "Grammar Quiz",
+        "questions": [
+          {
+            "q": "Imla?",
+            "a": "Sahi spelling",
+            "b": "Running",
+            "c": "Drawing only",
+            "d": "Sleep",
+            "correct": "a"
+          },
+          {
+            "q": "Jumlah?",
+            "a": "Poori baat",
+            "b": "Half noise",
+            "c": "Map",
+            "d": "Toy",
+            "correct": "a"
+          }
+        ]
+      }
+    },
+    {
+      "title": "Tahrir",
+      "description": "Paragraph, application, chhoti kahani",
+      "lesson": "## HOOK\nLikhna seekho — paragraph aur darkhwast.\n\n## SAMJHAO\nShuru, beech, akhir; application format.\n\n## MISAAL\nLeave application.\n\n## KARO\n5 jumlon ka paragraph.\n\n## SAWAAL\n1. Paragraph kya?\n2. Application kis liye?",
+      "quiz": {
+        "title": "Tahrir Quiz",
+        "questions": [
+          {
+            "q": "Paragraph?",
+            "a": "Connected sentences",
+            "b": "One emoji",
+            "c": "Only numbers",
+            "d": "Silence",
+            "correct": "a"
+          },
+          {
+            "q": "Application?",
+            "a": "Formal request writing",
+            "b": "Game cheat",
+            "c": "Litter note",
+            "d": "Map",
+            "correct": "a"
+          }
+        ]
+      }
+    }
+  ]
+}
