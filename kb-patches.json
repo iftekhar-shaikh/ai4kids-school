@@ -311,5 +311,13 @@
       "interactive_file": "interactives/g5-hidayat-sarchashme.html",
       "interactive_label": "Khelo — Hidayat ke sarchashme"
     }
+  },
+  {
+    "file": "kb/grade_5/islamiat.json",
+    "match_title": "Islami taleemat aaj",
+    "add": {
+      "interactive_file": "interactives/g5-islami-taleemat-aaj.html",
+      "interactive_label": "Khelo — Islami taleemat aaj"
+    }
   }
 ]
