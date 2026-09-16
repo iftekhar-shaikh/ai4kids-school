@@ -80,7 +80,9 @@
             "correct": "a"
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g5-culture.html",
+      "interactive_label": "Khelo — Culture"
     },
     {
       "title": "State aur Government",

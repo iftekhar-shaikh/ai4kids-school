@@ -231,5 +231,13 @@
       "interactive_file": "interactives/g5-citizenship.html",
       "interactive_label": "Khelo — Citizenship"
     }
+  },
+  {
+    "file": "kb/grade_5/social.json",
+    "match_title": "Culture",
+    "add": {
+      "interactive_file": "interactives/g5-culture.html",
+      "interactive_label": "Khelo — Culture"
+    }
   }
 ]

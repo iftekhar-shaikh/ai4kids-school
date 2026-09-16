@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Culture — ثقافت | AI4Kids Class 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#f5ebe0;--board-deep:#e0cbb8;--sky:#9ec9f0;--sky2:#6ba8d9;
+    --park:#c9a86c;--park2:#a67c52;--accent:#b85c2a;--flag-g:#01411C;
+    --ok:#2e7d4f;--ink:#1e2a1a;--ink-soft:#4a5744;--paper:#fdfaf3;
+    --line:#e0d4c4;--gold:#e8b23d;--left:#c4453a;--cul-bin:#8b4513;--not-bin:#5a6a7a;
+    --fest:#c45c3a;--lang:#2f6fb5;--one:#1a7a45;
+    --fs-cap:clamp(12px, 3.2vw, 13px);--fs-xs:clamp(14px, 3.7vw, 15px);
+    --fs-sm:clamp(16px, 4.2vw, 17px);--fs-md:clamp(17px, 4.6vw, 19px);
+    --fs-lg:clamp(20px, 5.4vw, 23px);--fs-xl:clamp(27px, 7.4vw, 33px);--lh:1.5;
+  }
+  body.urdu{
+    --fs-cap:clamp(13px, 3.5vw, 15px);--fs-xs:clamp(15px, 4.1vw, 17px);
+    --fs-sm:clamp(17px, 4.7vw, 19px);--fs-md:clamp(19px, 5.2vw, 21px);
+    --fs-lg:clamp(22px, 6vw, 25px);--fs-xl:clamp(26px, 7vw, 31px);--lh:2.1;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  .stars{display:flex;align-items:center;gap:6px;font-weight:800;font-size:var(--fs-xs);
+         background:#fff6e2;border:2px solid var(--gold);border-radius:999px;padding:7px 13px}
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+  .tabs{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
+  .tabs button{
+    flex:1 1 28%;min-width:90px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:10px 6px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:54px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .tabs button .badge{color:var(--gold)}
+  .story{
+    background:#fff8ea;border:2px dashed var(--gold);border-radius:16px;padding:13px 15px;
+    font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;margin-bottom:14px;
+  }
+  body.urdu .story{line-height:var(--lh)}
+  .story b{color:var(--ink)}
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:linear-gradient(180deg,var(--sky) 0%,var(--sky2) 34%,#d4b896 34%,#c4a882 42%,var(--board) 42%);
+    min-height:280px;
+  }
+  .scene-pad{padding:10px 12px 18px;min-height:260px;position:relative}
+  .sky-layer{position:absolute;inset:0 0 58% 0;pointer-events:none;overflow:hidden}
+  .sun-ball{
+    position:absolute;top:12px;right:18px;width:40px;height:40px;border-radius:50%;
+    background:radial-gradient(circle at 35% 35%,#ffe9a0,#f5c542 60%,#e0a020);
+    box-shadow:0 0 18px rgba(245,197,66,.45);z-index:1;
+  }
+  body.urdu .sun-ball{right:auto;left:18px}
+  .cloud{position:absolute;background:rgba(255,255,255,.85);border-radius:40px;opacity:.9}
+  .cloud:before,.cloud:after{content:"";position:absolute;background:inherit;border-radius:50%}
+  .c1{width:48px;height:15px;top:18px;left:12%}
+  .c1:before{width:22px;height:22px;top:-12px;left:6px}
+  .c1:after{width:18px;height:18px;top:-8px;left:24px}
+  .c2{width:34px;height:12px;top:34px;left:55%;opacity:.7}
+  .c2:before{width:16px;height:16px;top:-9px;left:4px}
+  .c2:after{width:12px;height:12px;top:-5px;left:16px}
+  .hills{position:absolute;left:0;right:0;bottom:42%;height:40px;z-index:1;pointer-events:none}
+  .hill{position:absolute;bottom:0;border-radius:50% 50% 0 0;
+        background:linear-gradient(180deg,#8a6a4a,#5a4030)}
+  .h-a{width:42%;height:36px;left:-4%;opacity:.55}
+  .h-b{width:38%;height:28px;right:8%;opacity:.5}
+  .ground-strip{
+    position:absolute;left:0;right:0;bottom:0;height:32%;
+    background:linear-gradient(180deg,#c9a86c 0%,#a67c52 100%);
+    z-index:2;border-top:3px solid #8a6840;
+  }
+  .comic-stage{position:relative;z-index:5;padding-top:78px;text-align:center;min-height:150px}
+  .comic-hero{font-size:56px;line-height:1;margin:4px 0 8px;filter:drop-shadow(0 2px 0 rgba(0,0,0,.12))}
+  .comic-panel{
+    display:inline-flex;align-items:center;gap:8px;background:rgba(253,250,243,.95);
+    border:2.5px solid var(--ink);border-radius:16px;padding:10px 14px;margin:4px;
+    box-shadow:0 3px 0 rgba(30,42,26,.12);font-weight:800;font-size:var(--fs-cap);
+  }
+  .comic-panel .em{font-size:28px}
+  .sort-grid{
+    position:relative;z-index:5;display:grid;grid-template-columns:1fr 1fr;gap:10px;
+    padding-top:88px;
+  }
+  .sort-bin{
+    border:2.5px solid var(--ink);border-radius:14px;padding:10px 8px;min-height:120px;
+    background:rgba(253,250,243,.88);text-align:center;cursor:pointer;
+  }
+  .sort-bin.cul-bin{border-color:var(--cul-bin);background:rgba(250,240,230,.92)}
+  .sort-bin.not-bin{border-color:var(--not-bin);background:rgba(232,236,240,.92)}
+  .sort-bin.hot{box-shadow:0 0 0 3px rgba(184,92,42,.3)}
+  .sort-bin h3{margin:0 0 8px;font-size:var(--fs-cap);font-weight:800}
+  .sort-bin .drop{min-height:60px;display:flex;flex-wrap:wrap;gap:4px;justify-content:center;align-items:center}
+  .item-card{
+    background:rgba(253,250,243,.95);border:2.5px solid var(--ink);border-radius:16px;
+    padding:8px 10px 10px;text-align:center;min-width:72px;max-width:120px;
+    box-shadow:0 3px 0 rgba(30,42,26,.15);cursor:pointer;user-select:none;
+  }
+  .item-card:hover{transform:translateY(-2px)}
+  .item-card.selected{border-color:var(--accent);background:#f5ebe0;box-shadow:0 0 0 3px rgba(184,92,42,.25)}
+  .item-card.ok{border-color:var(--ok);background:#e8f2ed}
+  .item-card.no{border-color:var(--left);background:#fbeae8}
+  .item-em{font-size:34px;line-height:1.1;display:block;margin-bottom:2px}
+  .item-lab{font-size:var(--fs-cap);font-weight:800;line-height:1.25;margin:0}
+  .bank{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:8px;position:relative;z-index:5}
+  .mini-chip{
+    border:2px solid var(--ink);border-radius:12px;padding:6px 8px;background:#fff;
+    line-height:1;cursor:pointer;min-width:40px;font-size:22px;
+  }
+  .save-choices{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+  .save-choices button{
+    border:2.5px solid var(--ink);background:var(--paper);border-radius:14px;
+    padding:12px 14px;font:inherit;font-weight:800;font-size:var(--fs-xs);
+    cursor:pointer;text-align:left;min-height:52px;display:flex;align-items:center;gap:10px;
+  }
+  body.urdu .save-choices button{text-align:right}
+  .save-choices button .cem{font-size:26px}
+  .save-choices button.right{border-color:var(--ok);background:#e8f2ed}
+  .save-choices button.wrong{border-color:var(--left);background:#fbeae8}
+  .lang-row{
+    position:relative;z-index:5;display:flex;flex-wrap:wrap;gap:8px;
+    justify-content:center;align-items:stretch;padding-top:88px;min-height:130px;
+  }
+  .lang-node{
+    flex:1 1 22%;min-width:70px;border:2.5px solid var(--ink);border-radius:16px;
+    background:rgba(253,250,243,.95);padding:10px 6px;text-align:center;
+    box-shadow:0 3px 0 rgba(30,42,26,.12);
+  }
+  .lang-node .nem{font-size:28px;line-height:1;display:block;margin-bottom:4px}
+  .lang-node .nlab{font-size:var(--fs-cap);font-weight:800;margin:0}
+  .lang-node.done{background:#e8f2ed;border-color:var(--ok)}
+  .lang-node.urdu-n{border-color:var(--one)}
+  .lang-node.reg-n{border-color:var(--lang)}
+  .match-pair{
+    display:flex;align-items:center;gap:8px;justify-content:center;flex-wrap:wrap;
+    margin-top:8px;position:relative;z-index:5;
+  }
+  .match-card{
+    border:2.5px solid var(--ink);border-radius:14px;padding:10px 12px;
+    background:rgba(253,250,243,.95);font-weight:800;font-size:var(--fs-xs);
+    cursor:pointer;min-height:48px;min-width:100px;text-align:center;
+  }
+  .match-card.selected{border-color:var(--accent);background:#f5ebe0;box-shadow:0 0 0 3px rgba(184,92,42,.25)}
+  .match-card.paired{border-color:var(--ok);background:#e8f2ed;opacity:.85}
+  .outcome{
+    margin-top:10px;border-radius:14px;padding:10px 12px;font-weight:700;font-size:var(--fs-xs);
+    display:none;border:2px solid var(--ok);background:#e8f2ed;color:var(--ok);
+  }
+  .outcome.show{display:block}
+  .outcome.bad{border-color:var(--left);background:#fbeae8;color:var(--left)}
+  .readout{
+    margin-top:-18px;position:relative;z-index:2;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+  .statechip.ur{padding:2px 14px 7px}
+  .statechip.win{background:var(--ok)}
+  .statechip.miss{background:var(--left)}
+  .headline{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+  .headline.ur{line-height:1.95}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+  .hintbox{
+    margin-top:14px;border:2px solid var(--accent);background:#f5ebe0;border-radius:14px;
+    padding:11px 14px;font-size:var(--fs-xs);color:var(--accent);font-weight:700;line-height:1.55;
+    display:none;
+  }
+  .hintbox.show{display:block}
+  body.urdu .hintbox{line-height:var(--lh)}
+  .panel{margin-top:22px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .prog{margin:0 0 10px;font-size:var(--fs-xs);font-weight:700;color:var(--ink-soft)}
+  .btns{display:flex;gap:9px;margin-top:8px;flex-wrap:wrap}
+  .btns button{
+    border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);
+    font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:50px;
+    padding:8px 14px;flex:1;
+  }
+  .btns .go{background:var(--ink);color:var(--paper)}
+  .btns button:active{transform:scale(.97)}
+  .btns button:disabled{opacity:.4;cursor:default}
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .qhead{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+  .qhead h2{font-size:var(--fs-lg);font-weight:800;margin:0;flex:1}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:50px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+  .opt.wrong{border-color:var(--left);background:#fbeae8}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
+      grid-template-areas:
+        "bar   bar" "head  head" "tabs  tabs" "story story"
+        "left  right" "quiz  quiz" "foot  foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+    .story{grid-area:story} .left{grid-area:left} .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+    .panel{margin-top:0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition-duration:.01ms !important;animation:none !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 5</span>
+    <span class="stars" id="starBox">⭐ <span id="starCount">0</span></span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 id="title"></h1>
+  <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group">
+    <button type="button" id="tabWhat" aria-pressed="true"></button>
+    <button type="button" id="tabFest" aria-pressed="false"></button>
+    <button type="button" id="tabLang" aria-pressed="false"></button>
+  </div>
+
+  <p class="story" id="story"></p>
+
+  <div class="left">
+  <div class="scene">
+    <div class="scene-pad" id="scenePad"></div>
+  </div>
+  <div class="readout">
+    <span class="statechip" id="statechip"></span>
+    <p class="headline" id="headline"></p>
+    <p class="detail" id="detail"></p>
+    <p class="hintbox" id="hintbox"></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="panel">
+    <h2 id="ctlHead"></h2>
+    <p class="prog" id="prog"></p>
+    <div id="actionBox"></div>
+    <div class="btns">
+      <button type="button" class="go" id="nextBtn"></button>
+    </div>
+    <div class="btns">
+      <button type="button" id="hintBtn"></button>
+      <button type="button" id="resetBtn"></button>
+    </div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <div class="qhead">
+      <h2 id="quizHead"></h2>
+      <button type="button" class="chip" id="newQuiz"></button>
+    </div>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad bilingual school. Offline play · no APIs. WhatsApp 0337 1468899 · Culture Social Studies SNC"
+       data-ur="اے آئی فور کڈز — اسلام آباد۔ آف لائن کھیلو۔ واٹس ایپ 0337 1468899 · ثقافت سماجی علوم"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  function $(id){ return document.getElementById(id); }
+  function isolate(s){ return "\u2066" + s + "\u2069"; }
+  function setText(el, str){
+    if (!el) return;
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+  function t(o){ return (o && o[lang]) || (o && o.en) || ""; }
+  function shuffle(arr){
+    var a = arr.slice(), i, j, tmp;
+    for (i = a.length - 1; i > 0; i--){
+      j = Math.floor(Math.random() * (i + 1));
+      tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  var lang = "en";
+  var mode = "what";
+  var stars = 0;
+  var awarded = {};
+  var doneModes = {what:false, fest:false, langs:false};
+
+  var T = {
+    title:{en:"Culture", ur:"ثقافت"},
+    sub:{en:"Riwayat, zubanen, festivals — Pakistan's many cultures, one respect!",
+         ur:"روایات، زبانیں، تہوار — پاکستان کی کئی ثقافتیں، ایک احترام!"},
+    tabWhat:{en:"What is culture?", ur:"ثقافت کیا ہے؟"},
+    tabFest:{en:"Festivals & life", ur:"تہوار و زندگی"},
+    tabLang:{en:"Many languages", ur:"کئی زبانیں"},
+    storyWhat:{en:"<b>Culture</b> = shared ways of living — language, food, dress, festivals, stories. Sort what IS culture from what is NOT.",
+               ur:"<b>ثقافت</b> = مشترکہ رہن سہن — زبان، کھانا، لباس، تہوار، کہانیاں۔ ثقافت ہے اور نہیں ہے، چھانٹو۔"},
+    storyFest:{en:"Islamabad & Pakistan comics — Eid, Independence Day, melas, regional dress. Pick the <b>respectful</b> action.",
+               ur:"اسلام آباد و پاکستان کارٹون — عید، یوم آزادی، میلے، علاقائی لباس۔ <b>احترام</b> والا عمل چنو۔"},
+    storyLang:{en:"Urdu unites us; regional languages are treasures. Match and pick with <b>appreciation</b> — no teasing!",
+               ur:"اردو جوڑتی ہے؛ علاقائی زبانیں خزانہ ہیں۔ تعریف سے میچ کرو — مذاق نہیں!"},
+    ctl:{en:"Your turn — culture explorer", ur:"تمہاری باری — ثقافت سیاح"},
+    next:{en:"Next challenge", ur:"اگلا چیلنج"},
+    hint:{en:"Hint", ur:"اشارہ"},
+    reset:{en:"Reset", ur:"ری سیٹ"},
+    quiz:{en:"Check yourself", ur:"اپنا چیک"},
+    newQuiz:{en:"New quiz", ur:"نیا کوئز"},
+    nice:{en:"Shabash — respect!", ur:"شاباش — احترام!"},
+    oops:{en:"Almost — try again", ur:"قریب — دوبارہ آزماؤ"},
+    tip:{en:"Tip: Culture is shared ways of living. Pakistan has many cultures — we respect differences in language, food, dress, and festivals.",
+         ur:"نکتہ: ثقافت مشترکہ رہن سہن ہے۔ پاکستان میں کئی ثقافتیں ہیں — زبان، کھانا، لباس، تہوار میں فرق کا احترام کرو۔"},
+    progW:{en:"Culture sort", ur:"ثقافت چھانٹی"},
+    progF:{en:"Festival scenes", ur:"تہوار مناظر"},
+    progL:{en:"Language love", ur:"زبان محبت"},
+    askSort:{en:"Tap a card, then tap Culture or Not culture", ur:"کارڈ ٹیپ کرو، پھر ثقافت یا نہیں"},
+    askPick:{en:"Is this part of culture?", ur:"کیا یہ ثقافت کا حصہ ہے؟"},
+    askFest:{en:"What is the respectful action?", ur:"احترام والا عمل کیا ہے؟"},
+    askLang:{en:"Pick the kind, inclusive answer", ur:"مہربان، جامع جواب چنو"},
+    checkSort:{en:"Check sort", ur:"چھانٹی چیک کرو"},
+    culLab:{en:"🎭 Culture", ur:"🎭 ثقافت"},
+    notLab:{en:"📦 Not culture", ur:"📦 ثقافت نہیں"},
+    pick:{en:"Tap a card first", ur:"پہلے کارڈ ٹیپ کرو"},
+    yesCul:{en:"Yes — culture!", ur:"ہاں — ثقافت!"},
+    noCul:{en:"No — not culture", ur:"نہیں — ثقافت نہیں"},
+    checkMatch:{en:"Check matches", ur:"میچ چیک کرو"},
+    matchHint:{en:"Tap a language, then tap its region", ur:"زبان ٹیپ کرو، پھر علاقہ"}
+  };
+
+  /* Cards for culture vs not */
+  var CARDS = {
+    eid:{em:"🌙", en:"Eid greeting & feast", ur:"عید کی مبارکباد و دستر خوان", bin:"cul"},
+    lang:{em:"🗣️", en:"Speaking Urdu / regional tongue", ur:"اردو / علاقائی زبان بولنا", bin:"cul"},
+    food:{em:"🍛", en:"Family food recipes", ur:"خاندانی کھانے کی ترکیبیں", bin:"cul"},
+    dress:{em:"👗", en:"Shalwar kameez & regional dress", ur:"شلوار قمیض و علاقائی لباس", bin:"cul"},
+    fest:{em:"🎉", en:"Local melas & festivals", ur:"مقامی میلے و تہوار", bin:"cul"},
+    story:{em:"📖", en:"Folk stories & proverbs", ur:"لوک کہانیاں و کہاوتیں", bin:"cul"},
+    traffic:{em:"🚦", en:"Traffic light colours", ur:"ٹریفک لائٹ کے رنگ", bin:"not"},
+    math:{em:"📘", en:"A math textbook", ur:"ریاضی کی کتاب", bin:"not"},
+    rain:{em:"🌧️", en:"Rain falling from clouds", ur:"بادل سے بارش", bin:"not"},
+    calc:{em:"🔢", en:"A calculator button", ur:"کیلکولیٹر کا بٹن", bin:"not"},
+    rock:{em:"🪨", en:"A random stone on the road", ur:"سڑک پر ایک پتھر", bin:"not"},
+    plug:{em:"🔌", en:"An electric plug shape", ur:"بجلی کے پلگ کی شکل", bin:"not"}
+  };
+
+  /* Mode 1: What is culture? — 4 challenges (2 sort + 2 pick) */
+  var WHAT = [
+    {
+      id:"w1", type:"sort",
+      title:{en:"Culture or not?", ur:"ثقافت یا نہیں؟"},
+      items:["eid","traffic","food","math"],
+      hint:{en:"Culture = shared living ways (Eid, food). Traffic lights and math books are tools/rules, not culture.",
+            ur:"ثقافت = مشترکہ رہن سہن (عید، کھانا)۔ ٹریفک لائٹ اور ریاضی کی کتاب ثقافت نہیں۔"},
+      done:{en:"Sorted — you know culture!", ur:"چھانٹی ہوئی — ثقافت سمجھی!"}
+    },
+    {
+      id:"w2", type:"sort",
+      title:{en:"Dress, rain, stories, rock", ur:"لباس، بارش، کہانیاں، پتھر"},
+      items:["dress","rain","story","rock"],
+      hint:{en:"Dress and folk stories are culture. Rain and roadside stones are nature — not culture.",
+            ur:"لباس اور لوک کہانیاں ثقافت ہیں۔ بارش اور پتھر قدرت ہیں — ثقافت نہیں۔"},
+      done:{en:"Great sort — culture explorers!", ur:"زبردست چھانٹی — ثقافت سیاح!"}
+    },
+    {
+      id:"w3", type:"pick",
+      title:{en:"Local mela drums", ur:"مقامی میلے کے ڈھول"},
+      card:"fest",
+      hint:{en:"Melas and festivals are shared celebrations — that is culture!",
+            ur:"میلے اور تہوار مشترکہ خوشیاں ہیں — یہی ثقافت!"},
+      done:{en:"Yes — festivals are culture!", ur:"ہاں — تہوار ثقافت ہیں!"}
+    },
+    {
+      id:"w4", type:"pick",
+      title:{en:"Calculator on the desk", ur:"میز پر کیلکولیٹر"},
+      card:"calc",
+      hint:{en:"A calculator is a tool for maths — useful, but not a shared way of living.",
+            ur:"کیلکولیٹر ریاضی کا آلہ ہے — مفید، مگر رہن سہن نہیں۔"},
+      done:{en:"Correct — not culture!", ur:"درست — ثقافت نہیں!"}
+    }
+  ];
+
+  /* Mode 2: Festival & daily life — 4 Islamabad/Pakistan comics */
+  var FEST = [
+    {
+      id:"f1",
+      title:{en:"Eid greeting in Islamabad", ur:"اسلام آباد میں عید کی مبارکباد"},
+      hero:"🌙🤝🏠",
+      prompt:{en:"It is Eid. Your neighbour of another background says Eid Mubarak. Respectful action?",
+              ur:"عید ہے۔ دوسرے پس منظر کے پڑوسی نے عید مبارک کہا۔ احترام والا عمل؟"},
+      choices:[
+        {id:"smile", em:"😊", en:"Smile and say Eid Mubarak warmly back", ur:"مسکرا کر گرم جوشی سے عید مبارک کہو"},
+        {id:"ignore", em:"🙈", en:"Ignore them and walk past", ur:"نظر انداز کرو اور آگے بڑھو"},
+        {id:"tease", em:"😜", en:"Tease them about how they celebrate", ur:"ان کے منانے پر مذاق اڑاؤ"}
+      ],
+      correct:"smile",
+      hint:{en:"Warm greetings show respect — Eid joy can be shared kindly by everyone.",
+            ur:"گرم جوشی سلام احترام ہے — عید کی خوشی سب مہربانی سے بانٹ سکتے ہیں۔"},
+      done:{en:"Warm Eid greeting — Shabash!", ur:"گرم جوش عید — شاباش!"}
+    },
+    {
+      id:"f2",
+      title:{en:"Independence Day flag", ur:"یوم آزادی کا پرچم"},
+      hero:"🇵🇰🏫🎤",
+      prompt:{en:"14 August assembly — the Pakistani flag is raised. What do you do?",
+              ur:"١٤ اگست اسمبلی — پاکستانی پرچم لہرایا جا رہا ہے۔ تم کیا کرو گے؟"},
+      choices:[
+        {id:"stand", em:"🫡", en:"Stand quietly and show respect for the flag", ur:"خاموش کھڑے رہو اور پرچم کا احترام کرو"},
+        {id:"chat", em:"💬", en:"Chat loudly during the anthem", ur:"ترانے کے دوران زور سے بات کرو"},
+        {id:"fold", em:"🗑️", en:"Drop a paper flag on the ground", ur:"کاغذی پرچم زمین پر پھینکو"}
+      ],
+      correct:"stand",
+      hint:{en:"Respecting the flag and anthem honours our shared Pakistani identity.",
+            ur:"پرچم اور ترانے کا احترام مشترکہ پاکستانی شناخت کا احترام ہے۔"},
+      done:{en:"Respectful Independence Day!", ur:"احترام والا یوم آزادی!"}
+    },
+    {
+      id:"f3",
+      title:{en:"Local mela fun", ur:"مقامی میلے کا مزہ"},
+      hero:"🎡🥁🍭",
+      prompt:{en:"At a neighbourhood mela you see dancers in regional dress. Kind choice?",
+              ur:"محلّے کے میلے میں علاقائی لباس میں رقص دیکھے۔ مہربان انتخاب؟"},
+      choices:[
+        {id:"cheer", em:"👏", en:"Clap and enjoy — every region’s art is special", ur:"تالیاں بجاؤ — ہر علاقے کا فن خاص ہے"},
+        {id:"mock", em:"😂", en:"Laugh at their clothes and music", ur:"ان کے کپڑوں اور موسیقی پر ہنسو"},
+        {id:"block", em:"🚫", en:"Say only one kind of dress is allowed", ur:"کہو صرف ایک لباس جائز ہے"}
+      ],
+      correct:"cheer",
+      hint:{en:"Melas celebrate diversity — clap for all, never mock dress or music.",
+            ur:"میلے تنوع مناتے ہیں — سب کے لیے تالیاں، لباس یا موسیقی کا مذاق نہیں۔"},
+      done:{en:"Mela respect unlocked!", ur:"میلے کا احترام کھلا!"}
+    },
+    {
+      id:"f4",
+      title:{en:"Regional dress day", ur:"علاقائی لباس کا دن"},
+      hero:"👗🧣🇵🇰",
+      prompt:{en:"A classmate wears beautiful regional dress for Culture Day. Best response?",
+              ur:"ہم جماعت نے ثقافت دن پر خوبصورت علاقائی لباس پہنا۔ بہترین جواب؟"},
+      choices:[
+        {id:"praise", em:"✨", en:"Compliment kindly: your dress looks lovely!", ur:"مہربانی سے تعریف: تمہارا لباس پیارا لگ رہا ہے!"},
+        {id:"copy", em:"😤", en:"Force them to change into only one style", ur:"زبردستی صرف ایک انداز بدلواؤ"},
+        {id:"hide", em:"🤫", en:"Hide so you never see different clothes", ur:"چھپ جاؤ تاکہ مختلف کپڑے نہ دیکھو"}
+      ],
+      correct:"praise",
+      hint:{en:"Regional dress is pride, not a joke — kind words build respect.",
+            ur:"علاقائی لباس فخر ہے، مذاق نہیں — مہربان الفاظ احترام بناتے ہیں۔"},
+      done:{en:"Kind words for culture!", ur:"ثقافت کے لیے مہربان الفاظ!"}
+    }
+  ];
+
+  /* Mode 3: Many languages / one Pakistan — 4 challenges */
+  var LANGS = [
+    {
+      id:"l1", type:"pick",
+      title:{en:"One Pakistan, many tongues", ur:"ایک پاکستان، کئی زبانیں"},
+      hero:"🗣️🇵🇰💚",
+      prompt:{en:"A new friend in Islamabad speaks Sindhi at home and Urdu at school. What is TRUE?",
+              ur:"اسلام آباد میں نیا دوست گھر پر سندھی اور اسکول میں اردو بولتا ہے۔ کیا سچ ہے؟"},
+      choices:[
+        {id:"both", em:"🤝", en:"Both languages are valuable — Urdu unites, Sindhi is treasure", ur:"دونوں زبانیں قیمتی — اردو جوڑتی، سندھی خزانہ"},
+        {id:"only", em:"❌", en:"Only Urdu is allowed; regional languages are wrong", ur:"صرف اردو جائز؛ علاقائی زبانیں غلط"},
+        {id:"shame", em:"🙈", en:"They should hide their home language", ur:"انہیں گھر کی زبان چھپانی چاہیے"}
+      ],
+      correct:"both",
+      hint:{en:"Urdu helps us talk across Pakistan; regional languages are beautiful parts of culture.",
+            ur:"اردو پورے پاکستان میں بات چیت میں مدد؛ علاقائی زبانیں ثقافت کا خوبصورت حصہ۔"},
+      done:{en:"Inclusive language love!", ur:"جامع زبان محبت!"}
+    },
+    {
+      id:"l2", type:"match",
+      title:{en:"Match language & region", ur:"زبان اور علاقہ میچ کرو"},
+      pairs:[
+        {id:"p", lang:{en:"Punjabi", ur:"پنجابی"}, place:{en:"Punjab", ur:"پنجاب"}, em:"🌾"},
+        {id:"s", lang:{en:"Sindhi", ur:"سندھی"}, place:{en:"Sindh", ur:"سندھ"}, em:"🌊"},
+        {id:"k", lang:{en:"Pashto", ur:"پشتو"}, place:{en:"Khyber Pakhtunkhwa", ur:"خیبر پختونخوا"}, em:"⛰️"},
+        {id:"b", lang:{en:"Balochi", ur:"بلوچی"}, place:{en:"Balochistan", ur:"بلوچستان"}, em:"🏜️"}
+      ],
+      hint:{en:"Tap a language, then tap its province — every tongue is a gift.",
+            ur:"زبان ٹیپ کرو، پھر صوبہ — ہر زبان تحفہ ہے۔"},
+      done:{en:"Matched with respect!", ur:"احترام سے میچ!"}
+    },
+    {
+      id:"l3", type:"pick",
+      title:{en:"Urdu in the classroom", ur:"کلاس میں اردو"},
+      hero:"🏫📚🗣️",
+      prompt:{en:"Why do many Pakistani schools teach Urdu alongside English?",
+              ur:"پاکستانی اسکول اردو اور انگریزی ساتھ کیوں پڑھاتے ہیں؟"},
+      choices:[
+        {id:"bridge", em:"🌉", en:"Urdu helps friends from different regions understand each other", ur:"اردو مختلف علاقوں کے دوستوں کو سمجھنے میں مدد کرتی ہے"},
+        {id:"erase", em:"🗑️", en:"So children forget all other languages", ur:"تاکہ بچے باقی زبانیں بھول جائیں"},
+        {id:"joke", em:"🙄", en:"Because regional languages are silly", ur:"کیونکہ علاقائی زبانیں بیوقوف ہیں"}
+      ],
+      correct:"bridge",
+      hint:{en:"Urdu is a bridge language — it does not erase Punjabi, Sindhi, Pashto, Balochi, or others.",
+            ur:"اردو پل کی زبان ہے — پنجابی، سندھی، پشتو، بلوچی وغیرہ مٹاتی نہیں۔"},
+      done:{en:"Urdu bridges — Shabash!", ur:"اردو پل — شاباش!"}
+    },
+    {
+      id:"l4", type:"pick",
+      title:{en:"Hearing a new language", ur:"نئی زبان سننا"},
+      hero:"👂😊🇵🇰",
+      prompt:{en:"On a bus in Islamabad you hear Balti or another language you do not know. Kind choice?",
+              ur:"اسلام آباد کی بس میں بلتی یا کوئی زبان سنی جو تم نہیں جانتے۔ مہربان انتخاب؟"},
+      choices:[
+        {id:"curious", em:"🙂", en:"Listen with respect — every language is part of Pakistan", ur:"احترام سے سنو — ہر زبان پاکستان کا حصہ ہے"},
+        {id:"laugh", em:"😂", en:"Laugh because it sounds different", ur:"ہنسو کیونکہ مختلف لگتی ہے"},
+        {id:"stop", em:"🛑", en:"Tell them to stop speaking forever", ur:"کہو کبھی بولنا بند کرو"}
+      ],
+      correct:"curious",
+      hint:{en:"Different sounds are not funny — they are heritage. Curiosity + respect = culture stars.",
+            ur:"مختلف آوازیں مذاق نہیں — ورثہ ہیں۔ تجسس + احترام = ثقافت ستارے۔"},
+      done:{en:"Respectful ears — culture star!", ur:"احترام والے کان — ثقافت ستارہ!"}
+    }
+  ];
+
+  var QUIZ = [
+    {
+      q:{en:"What is culture?",
+         ur:"ثقافت کیا ہے؟"},
+      opts:[
+        {en:"Shared ways of living — language, food, dress, festivals, stories", ur:"مشترکہ رہن سہن — زبان، کھانا، لباس، تہوار، کہانیاں"},
+        {en:"Only traffic lights and calculators", ur:"صرف ٹریفک لائٹس اور کیلکولیٹر"},
+        {en:"Rain falling from clouds", ur:"بادل سے بارش"},
+        {en:"A random stone on the road", ur:"سڑک پر ایک پتھر"}
+      ],
+      correct:0,
+      why:{en:"Culture is how communities live together — not nature tools alone.",
+           ur:"ثقافت کمیونٹیز کا رہن سہن ہے — صرف قدرت یا آلات نہیں۔"}
+    },
+    {
+      q:{en:"Pakistan has many cultures. What should we do?",
+         ur:"پاکستان میں کئی ثقافتیں ہیں۔ ہمیں کیا کرنا چاہیے؟"},
+      opts:[
+        {en:"Respect differences in language, food, dress, and festivals", ur:"زبان، کھانا، لباس، تہوار میں فرق کا احترام کرو"},
+        {en:"Mock regional dress at melas", ur:"میلوں میں علاقائی لباس کا مذاق اڑاؤ"},
+        {en:"Force everyone to hide home languages", ur:"سب کو گھر کی زبانیں چھپوانے پر مجبور کرو"},
+        {en:"Say only one culture is allowed", ur:"کہو صرف ایک ثقافت جائز ہے"}
+      ],
+      correct:0,
+      why:{en:"Diversity with respect makes one strong Pakistan.",
+           ur:"احترام کے ساتھ تنوع ایک مضبوط پاکستان بناتا ہے۔"}
+    },
+    {
+      q:{en:"Which is part of culture (not just a tool)?",
+         ur:"کون سا ثقافت کا حصہ ہے (صرف آلہ نہیں)؟"},
+      opts:[
+        {en:"Eid greetings, folk stories, and family recipes", ur:"عید کی مبارکباد، لوک کہانیاں، خاندانی ترکیبیں"},
+        {en:"A calculator button", ur:"کیلکولیٹر کا بٹن"},
+        {en:"Traffic light colours", ur:"ٹریفک لائٹ کے رنگ"},
+        {en:"An electric plug shape", ur:"بجلی کے پلگ کی شکل"}
+      ],
+      correct:0,
+      why:{en:"Festivals, stories, and food traditions are culture; gadgets are tools.",
+           ur:"تہوار، کہانیاں، کھانے کی روایات ثقافت ہیں؛ گیجٹس آلات ہیں۔"}
+    },
+    {
+      q:{en:"Why is Urdu important alongside regional languages?",
+         ur:"علاقائی زبانوں کے ساتھ اردو کیوں اہم ہے؟"},
+      opts:[
+        {en:"Urdu helps people from different regions understand each other", ur:"اردو مختلف علاقوں کے لوگوں کو سمجھنے میں مدد کرتی ہے"},
+        {en:"So we erase Punjabi, Sindhi, Pashto, and Balochi", ur:"تاکہ پنجابی، سندھی، پشتو، بلوچی مٹا دیں"},
+        {en:"Because other languages are silly", ur:"کیونکہ دوسری زبانیں بیوقوف ہیں"},
+        {en:"Urdu means we must never greet on Eid", ur:"اردو کا مطلب عید پر کبھی سلام نہ کرنا"}
+      ],
+      correct:0,
+      why:{en:"Urdu is a bridge; regional languages remain treasures.",
+           ur:"اردو پل ہے؛ علاقائی زبانیں خزانہ رہتی ہیں۔"}
+    },
+    {
+      q:{en:"At Culture Day a friend wears regional dress. Best action?",
+         ur:"ثقافت دن پر دوست نے علاقائی لباس پہنا۔ بہترین عمل؟"},
+      opts:[
+        {en:"Compliment kindly and celebrate together", ur:"مہربانی سے تعریف کرو اور مل کر مناؤ"},
+        {en:"Laugh at their clothes", ur:"ان کے کپڑوں پر ہنسو"},
+        {en:"Force them to change styles", ur:"زبردستی انداز بدلواؤ"},
+        {en:"Ignore the flag on Independence Day", ur:"یوم آزادی پر پرچم نظرانداز کرو"}
+      ],
+      correct:0,
+      why:{en:"Kind words for dress and festivals show cultural respect.",
+           ur:"لباس اور تہوار کے لیے مہربان الفاظ ثقافتی احترام ہیں۔"}
+    },
+    {
+      q:{en:"You hear a language you do not know on an Islamabad bus. What do you do?",
+         ur:"اسلام آباد کی بس میں ایسی زبان سنی جو تم نہیں جانتے۔ کیا کرو گے؟"},
+      opts:[
+        {en:"Listen with respect — every language is part of Pakistan", ur:"احترام سے سنو — ہر زبان پاکستان کا حصہ ہے"},
+        {en:"Laugh because it sounds different", ur:"ہنسو کیونکہ مختلف لگتی ہے"},
+        {en:"Tell them never to speak again", ur:"کہو کبھی بولنا بند کرو"},
+        {en:"Throw wrappers at the speakers", ur:"بولنے والوں پر ریپر پھینکو"}
+      ],
+      correct:0,
+      why:{en:"Curiosity plus respect keeps Pakistan’s cultures strong.",
+           ur:"تجسس اور احترام پاکستان کی ثقافتیں مضبوط رکھتے ہیں۔"}
+    }
+  ];
+
+  var whatIdx = 0, whatSelected = null, whatSort = {}, whatDone = {};
+  var festIdx = 0, festDone = {};
+  var langIdx = 0, langDone = {}, matchSel = null, matchPairs = {}, matchOrderCache = {};
+  var quizSet = [];
+
+  function award(key, n){
+    if (awarded[key]) return;
+    awarded[key] = true;
+    stars += (n || 1);
+    $("starCount").textContent = String(stars);
+  }
+  function recountStars(){
+    stars = 0;
+    Object.keys(awarded).forEach(function(k){
+      stars += (k.indexOf("mode-")===0) ? 2 : 1;
+    });
+    $("starCount").textContent = String(stars);
+  }
+
+  function skyHTML(){
+    return '<div class="sky-layer"><div class="sun-ball"></div>' +
+           '<div class="cloud c1"></div><div class="cloud c2"></div></div>' +
+           '<div class="hills"><div class="hill h-a"></div><div class="hill h-b"></div></div>' +
+           '<div class="ground-strip"></div>';
+  }
+
+  function kidsSVG(){
+    return '<svg class="comic-hero" style="width:min(90%,260px);height:auto;font-size:inherit" viewBox="0 0 260 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+      '<ellipse cx="130" cy="92" rx="70" ry="6" fill="rgba(0,0,0,.1)"/>' +
+      '<circle cx="70" cy="38" r="16" fill="#f5c89a" stroke="#1e2a1a" stroke-width="2"/>' +
+      '<rect x="55" y="54" width="30" height="28" rx="8" fill="#01411C" stroke="#1e2a1a" stroke-width="2"/>' +
+      '<text x="70" y="34" text-anchor="middle" font-size="10">😊</text>' +
+      '<circle cx="130" cy="34" r="17" fill="#e8b890" stroke="#1e2a1a" stroke-width="2"/>' +
+      '<rect x="114" y="51" width="32" height="30" rx="8" fill="#c45c3a" stroke="#1e2a1a" stroke-width="2"/>' +
+      '<text x="130" y="30" text-anchor="middle" font-size="11">😄</text>' +
+      '<circle cx="190" cy="38" r="16" fill="#f0c4a0" stroke="#1e2a1a" stroke-width="2"/>' +
+      '<rect x="175" y="54" width="30" height="28" rx="8" fill="#2f6fb5" stroke="#1e2a1a" stroke-width="2"/>' +
+      '<text x="190" y="34" text-anchor="middle" font-size="10">🙂</text>' +
+      '<rect x="118" y="8" width="24" height="14" rx="2" fill="#01411C" stroke="#1e2a1a" stroke-width="1.5"/>' +
+      '<circle cx="130" cy="15" r="3.5" fill="#fff"/>' +
+      '</svg>';
+  }
+
+  function maybeWhatDone(){
+    if (Object.keys(whatDone).length >= WHAT.length){
+      doneModes.what = true;
+      award("mode-what", 2);
+      tabBadges();
+    }
+  }
+  function maybeFestDone(){
+    if (Object.keys(festDone).length >= FEST.length){
+      doneModes.fest = true;
+      award("mode-fest", 2);
+      tabBadges();
+    }
+  }
+  function maybeLangDone(){
+    if (Object.keys(langDone).length >= LANGS.length){
+      doneModes.langs = true;
+      award("mode-langs", 2);
+      tabBadges();
+    }
+  }
+
+  /* ---------- WHAT IS CULTURE ---------- */
+  function renderWhat(){
+    var ch = WHAT[whatIdx];
+    var pad = $("scenePad");
+    var box = $("actionBox");
+    box.innerHTML = "";
+    $("hintbox").classList.remove("show");
+
+    setText($("statechip"), (whatIdx+1) + " / " + WHAT.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (whatDone[ch.id]?" win":"");
+    if (whatDone[ch.id]) setText($("statechip"), t(T.nice));
+
+    if (ch.type === "sort"){
+      pad.innerHTML = skyHTML() +
+        '<div class="sort-grid">' +
+          '<div class="sort-bin cul-bin'+(whatSelected?" hot":"")+'" data-bin="cul"><h3></h3><div class="drop" id="binCul"></div></div>' +
+          '<div class="sort-bin not-bin'+(whatSelected?" hot":"")+'" data-bin="not"><h3></h3><div class="drop" id="binNot"></div></div>' +
+        '</div>';
+      setText(pad.querySelector(".cul-bin h3"), t(T.culLab));
+      setText(pad.querySelector(".not-bin h3"), t(T.notLab));
+
+      ["cul","not"].forEach(function(bin){
+        pad.querySelector('[data-bin="'+bin+'"]').addEventListener("click", function(){
+          if (!whatSelected || whatDone[ch.id]) return;
+          whatSort[whatSelected] = bin;
+          whatSelected = null;
+          renderWhat();
+        });
+      });
+
+      ch.items.forEach(function(id){
+        var bin = whatSort[id];
+        if (!bin) return;
+        var el = document.createElement("span");
+        el.className = "mini-chip";
+        el.textContent = CARDS[id].em;
+        el.title = t(CARDS[id]);
+        el.addEventListener("click", function(e){
+          e.stopPropagation();
+          if (whatDone[ch.id]) return;
+          delete whatSort[id];
+          renderWhat();
+        });
+        (bin==="cul"?$("binCul"):$("binNot")).appendChild(el);
+      });
+
+      var bank = document.createElement("div");
+      bank.className = "bank";
+      ch.items.forEach(function(id){
+        if (whatSort[id]) return;
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "item-card" + (whatSelected===id?" selected":"");
+        b.innerHTML = '<span class="item-em">'+CARDS[id].em+'</span><p class="item-lab"></p>';
+        setText(b.querySelector(".item-lab"), t(CARDS[id]));
+        b.addEventListener("click", function(){
+          if (whatDone[ch.id]) return;
+          whatSelected = id;
+          renderWhat();
+        });
+        bank.appendChild(b);
+      });
+      box.appendChild(bank);
+
+      if (!whatDone[ch.id]){
+        var chk = document.createElement("button");
+        chk.type = "button";
+        chk.style.cssText = "margin-top:10px;width:100%;border:2px solid var(--ink);border-radius:14px;background:var(--ink);color:var(--paper);font:inherit;font-weight:800;min-height:48px;cursor:pointer";
+        setText(chk, t(T.checkSort));
+        chk.addEventListener("click", function(){
+          var ok = true;
+          ch.items.forEach(function(id){
+            if (whatSort[id] !== CARDS[id].bin) ok = false;
+          });
+          if (ok && Object.keys(whatSort).filter(function(k){ return ch.items.indexOf(k)>=0; }).length === ch.items.length){
+            whatDone[ch.id] = true;
+            award("what-"+ch.id, 1);
+            setText($("headline"), t(ch.done));
+            $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.nice));
+            maybeWhatDone();
+            renderWhat();
+          } else {
+            setText($("headline"), t(T.oops));
+            $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.oops));
+          }
+        });
+        box.appendChild(chk);
+      }
+
+      setText($("headline"), whatDone[ch.id] ? t(ch.done) : t(ch.title));
+      setText($("detail"), whatSelected ? t(CARDS[whatSelected]) + " → ?" : t(T.askSort));
+    } else {
+      var card = CARDS[ch.card];
+      pad.innerHTML = skyHTML() +
+        '<div class="comic-stage">' + kidsSVG() +
+        '<div class="comic-panel"><span class="em">'+card.em+'</span><span class="plab"></span></div></div>';
+      setText(pad.querySelector(".plab"), t(card));
+
+      setText($("headline"), whatDone[ch.id] ? t(ch.done) : t(ch.title));
+      setText($("detail"), t(T.askPick));
+
+      var choices = document.createElement("div");
+      choices.className = "save-choices";
+      [
+        {id:"cul", em:"🎭", lab:T.yesCul},
+        {id:"not", em:"📦", lab:T.noCul}
+      ].forEach(function(c){
+        var b = document.createElement("button");
+        b.type = "button";
+        if (whatDone[ch.id] && c.id === card.bin) b.classList.add("right");
+        b.innerHTML = '<span class="cem">'+c.em+'</span><span class="clab"></span>';
+        setText(b.querySelector(".clab"), t(c.lab));
+        b.disabled = !!whatDone[ch.id];
+        b.addEventListener("click", function(){
+          if (whatDone[ch.id]) return;
+          if (c.id === card.bin){
+            whatDone[ch.id] = true;
+            award("what-"+ch.id, 1);
+            b.classList.add("right");
+            setText($("headline"), t(ch.done));
+            $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.nice));
+            maybeWhatDone();
+            renderWhat();
+          } else {
+            b.classList.add("wrong");
+            setText($("headline"), t(T.oops));
+            $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.oops));
+            setTimeout(function(){ b.classList.remove("wrong"); }, 600);
+          }
+        });
+        choices.appendChild(b);
+      });
+      box.appendChild(choices);
+    }
+    setText($("prog"), t(T.progW) + ": " + Object.keys(whatDone).length + "/" + WHAT.length);
+  }
+
+  /* ---------- FESTIVALS ---------- */
+  function renderFest(){
+    var ch = FEST[festIdx];
+    var pad = $("scenePad");
+    pad.innerHTML = skyHTML() +
+      '<div class="comic-stage"><div class="comic-hero">'+ch.hero+'</div>' +
+      '<div class="comic-panel"><span class="em">🧒</span><span class="plab"></span></div></div>';
+    setText(pad.querySelector(".plab"), t(ch.title));
+
+    setText($("statechip"), (festIdx+1) + " / " + FEST.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (festDone[ch.id]?" win":"");
+    if (festDone[ch.id]) setText($("statechip"), t(T.nice));
+    setText($("headline"), festDone[ch.id] ? t(ch.done) : t(ch.title));
+    setText($("detail"), t(ch.prompt));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+    var choices = document.createElement("div");
+    choices.className = "save-choices";
+    ch.choices.forEach(function(c){
+      var b = document.createElement("button");
+      b.type = "button";
+      if (festDone[ch.id] && c.id === ch.correct) b.classList.add("right");
+      b.innerHTML = '<span class="cem">'+c.em+'</span><span class="clab"></span>';
+      setText(b.querySelector(".clab"), t(c));
+      b.disabled = !!festDone[ch.id];
+      b.addEventListener("click", function(){
+        if (festDone[ch.id]) return;
+        if (c.id === ch.correct){
+          festDone[ch.id] = true;
+          award("fest-"+ch.id, 1);
+          b.classList.add("right");
+          setText($("headline"), t(ch.done));
+          $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.nice));
+          maybeFestDone();
+          tabBadges();
+          renderFest();
+        } else {
+          b.classList.add("wrong");
+          setText($("headline"), t(T.oops));
+          $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.oops));
+          setTimeout(function(){ b.classList.remove("wrong"); }, 600);
+        }
+      });
+      choices.appendChild(b);
+    });
+    box.appendChild(choices);
+    setText($("prog"), t(T.progF) + ": " + Object.keys(festDone).length + "/" + FEST.length);
+  }
+
+  /* ---------- LANGUAGES ---------- */
+  function renderLang(){
+    var ch = LANGS[langIdx];
+    var pad = $("scenePad");
+    var box = $("actionBox");
+    box.innerHTML = "";
+    $("hintbox").classList.remove("show");
+
+    setText($("statechip"), (langIdx+1) + " / " + LANGS.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (langDone[ch.id]?" win":"");
+    if (langDone[ch.id]) setText($("statechip"), t(T.nice));
+    setText($("headline"), langDone[ch.id] ? t(ch.done) : t(ch.title));
+
+    if (ch.type === "match"){
+      pad.innerHTML = skyHTML() +
+        '<div class="lang-row">' +
+          '<div class="lang-node urdu-n'+(langDone[ch.id]?" done":"")+'"><span class="nem">🇵🇰</span><p class="nlab" id="lnUrdu"></p></div>' +
+          '<div class="lang-node reg-n'+(langDone[ch.id]?" done":"")+'"><span class="nem">🗣️</span><p class="nlab" id="lnReg"></p></div>' +
+          '<div class="lang-node reg-n'+(langDone[ch.id]?" done":"")+'"><span class="nem">💚</span><p class="nlab" id="lnOne"></p></div>' +
+        '</div>';
+      setText($("lnUrdu"), lang==="ur" ? "اردو جوڑتی" : "Urdu unites");
+      setText($("lnReg"), lang==="ur" ? "علاقائی خزانہ" : "Regional treasures");
+      setText($("lnOne"), lang==="ur" ? "ایک پاکستان" : "One Pakistan");
+
+      setText($("detail"), t(T.matchHint));
+
+      if (!matchOrderCache[ch.id]){
+        matchOrderCache[ch.id] = {
+          langs: shuffle(ch.pairs.slice()),
+          places: shuffle(ch.pairs.slice())
+        };
+      }
+      var langOrder = matchOrderCache[ch.id].langs;
+      var placeOrder = matchOrderCache[ch.id].places;
+
+      var langsCol = document.createElement("div");
+      langsCol.className = "match-pair";
+      var placesCol = document.createElement("div");
+      placesCol.className = "match-pair";
+
+      langOrder.forEach(function(p){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "match-card" + (matchPairs[p.id]?" paired":"") + (matchSel===p.id?" selected":"");
+        b.disabled = !!langDone[ch.id] || !!matchPairs[p.id];
+        setText(b, p.em + " " + t(p.lang));
+        b.addEventListener("click", function(){
+          if (langDone[ch.id] || matchPairs[p.id]) return;
+          matchSel = p.id;
+          renderLang();
+        });
+        langsCol.appendChild(b);
+      });
+
+      placeOrder.forEach(function(p){
+        var b = document.createElement("button");
+        b.type = "button";
+        var paired = false;
+        Object.keys(matchPairs).forEach(function(k){ if (matchPairs[k]===p.id) paired = true; });
+        b.className = "match-card" + (paired?" paired":"");
+        b.disabled = !!langDone[ch.id] || paired;
+        setText(b, t(p.place));
+        b.addEventListener("click", function(){
+          if (langDone[ch.id] || paired || !matchSel) return;
+          if (matchSel === p.id){
+            matchPairs[matchSel] = p.id;
+            matchSel = null;
+            renderLang();
+          } else {
+            b.classList.add("wrong");
+            setText($("headline"), t(T.oops));
+            $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.oops));
+            setTimeout(function(){ b.classList.remove("wrong"); }, 600);
+          }
+        });
+        placesCol.appendChild(b);
+      });
+
+      box.appendChild(langsCol);
+      box.appendChild(placesCol);
+
+      if (!langDone[ch.id]){
+        var chk = document.createElement("button");
+        chk.type = "button";
+        chk.style.cssText = "margin-top:10px;width:100%;border:2px solid var(--ink);border-radius:14px;background:var(--ink);color:var(--paper);font:inherit;font-weight:800;min-height:48px;cursor:pointer";
+        setText(chk, t(T.checkMatch));
+        chk.addEventListener("click", function(){
+          var ok = ch.pairs.every(function(p){ return matchPairs[p.id] === p.id; });
+          if (ok && Object.keys(matchPairs).length === ch.pairs.length){
+            langDone[ch.id] = true;
+            award("lang-"+ch.id, 1);
+            setText($("headline"), t(ch.done));
+            $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.nice));
+            maybeLangDone();
+            renderLang();
+          } else {
+            setText($("headline"), t(T.oops));
+            $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.oops));
+          }
+        });
+        box.appendChild(chk);
+      }
+    } else {
+      pad.innerHTML = skyHTML() +
+        '<div class="comic-stage"><div class="comic-hero">'+ch.hero+'</div>' +
+        '<div class="comic-panel"><span class="em">🗣️</span><span class="plab"></span></div></div>';
+      setText(pad.querySelector(".plab"), t(ch.title));
+      setText($("detail"), t(ch.prompt));
+
+      var choices = document.createElement("div");
+      choices.className = "save-choices";
+      ch.choices.forEach(function(c){
+        var b = document.createElement("button");
+        b.type = "button";
+        if (langDone[ch.id] && c.id === ch.correct) b.classList.add("right");
+        b.innerHTML = '<span class="cem">'+c.em+'</span><span class="clab"></span>';
+        setText(b.querySelector(".clab"), t(c));
+        b.disabled = !!langDone[ch.id];
+        b.addEventListener("click", function(){
+          if (langDone[ch.id]) return;
+          if (c.id === ch.correct){
+            langDone[ch.id] = true;
+            award("lang-"+ch.id, 1);
+            b.classList.add("right");
+            setText($("headline"), t(ch.done));
+            $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.nice));
+            maybeLangDone();
+            tabBadges();
+            renderLang();
+          } else {
+            b.classList.add("wrong");
+            setText($("headline"), t(T.oops));
+            $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.oops));
+            setTimeout(function(){ b.classList.remove("wrong"); }, 600);
+          }
+        });
+        choices.appendChild(b);
+      });
+      box.appendChild(choices);
+    }
+    setText($("prog"), t(T.progL) + ": " + Object.keys(langDone).length + "/" + LANGS.length);
+  }
+
+  /* ---------- QUIZ ---------- */
+  function pickQuiz(){ quizSet = shuffle(QUIZ).slice(0, 5); }
+  function renderQuiz(){
+    var box = $("quizBox");
+    box.innerHTML = "";
+    quizSet.forEach(function(item, qi){
+      var wrap = document.createElement("div");
+      wrap.className = "q";
+      var p = document.createElement("p");
+      setText(p, (qi+1) + ". " + t(item.q));
+      wrap.appendChild(p);
+      var answered = false;
+      item.opts.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt" + (lang==="ur"?" ur":"");
+        setText(b, t(opt));
+        b.addEventListener("click", function(){
+          if (answered) return;
+          answered = true;
+          if (oi === item.correct){
+            b.classList.add("right");
+            award("quiz-"+qi, 1);
+          } else {
+            b.classList.add("wrong");
+            var kids = wrap.querySelectorAll(".opt");
+            if (kids[item.correct]) kids[item.correct].classList.add("right");
+          }
+          fb.classList.add("show");
+        });
+        wrap.appendChild(b);
+      });
+      var fb = document.createElement("p");
+      fb.className = "fb";
+      setText(fb, t(item.why));
+      wrap.appendChild(fb);
+      box.appendChild(wrap);
+    });
+  }
+
+  function storyHtml(){
+    if (mode === "what") return t(T.storyWhat);
+    if (mode === "fest") return t(T.storyFest);
+    return t(T.storyLang);
+  }
+
+  function tabBadges(){
+    function lab(btn, label, key){
+      btn.innerHTML = "";
+      var span = document.createElement("span");
+      setText(span, t(label));
+      btn.appendChild(span);
+      if (doneModes[key]){
+        var b = document.createElement("span");
+        b.className = "badge"; b.textContent = " ★";
+        btn.appendChild(b);
+      }
+    }
+    lab($("tabWhat"), T.tabWhat, "what");
+    lab($("tabFest"), T.tabFest, "fest");
+    lab($("tabLang"), T.tabLang, "langs");
+    $("tabWhat").setAttribute("aria-pressed", mode==="what"?"true":"false");
+    $("tabFest").setAttribute("aria-pressed", mode==="fest"?"true":"false");
+    $("tabLang").setAttribute("aria-pressed", mode==="langs"?"true":"false");
+  }
+
+  function setMode(m){
+    mode = m;
+    whatSelected = null;
+    matchSel = null;
+    if (mode === "what") renderWhat();
+    else if (mode === "fest") renderFest();
+    else renderLang();
+    applyChrome();
+  }
+
+  function applyChrome(){
+    setText($("title"), t(T.title));
+    setText($("subtitle"), t(T.sub));
+    $("story").innerHTML = storyHtml();
+    $("story").classList.toggle("ur", lang==="ur");
+    $("story").setAttribute("dir", lang==="ur"?"rtl":"ltr");
+    setText($("ctlHead"), t(T.ctl));
+    setText($("nextBtn"), t(T.next));
+    setText($("hintBtn"), t(T.hint));
+    setText($("resetBtn"), t(T.reset));
+    setText($("quizHead"), t(T.quiz));
+    setText($("newQuiz"), t(T.newQuiz));
+    $("langBtn").textContent = (lang === "en") ? "اردو" : "EN";
+    $("langBtn").setAttribute("aria-pressed", lang==="ur"?"true":"false");
+    document.body.classList.toggle("urdu", lang==="ur");
+    document.documentElement.lang = (lang==="ur") ? "ur" : "en";
+    document.documentElement.dir = (lang==="ur") ? "rtl" : "ltr";
+    tabBadges();
+    var foot = document.querySelector("footer p");
+    if (foot) setText(foot, foot.getAttribute(lang==="ur"?"data-ur":"data-en"));
+  }
+
+  function applyLang(){
+    applyChrome();
+    if (mode === "what") renderWhat();
+    else if (mode === "fest") renderFest();
+    else renderLang();
+    renderQuiz();
+  }
+
+  function next(){
+    if (mode === "what"){
+      whatIdx = (whatIdx + 1) % WHAT.length;
+      whatSelected = null;
+      if (WHAT[whatIdx].type === "sort"){
+        whatSort = {};
+      }
+      renderWhat();
+    } else if (mode === "fest"){
+      festIdx = (festIdx + 1) % FEST.length;
+      renderFest();
+    } else {
+      langIdx = (langIdx + 1) % LANGS.length;
+      matchSel = null;
+      if (LANGS[langIdx].type === "match" && !langDone[LANGS[langIdx].id]){
+        matchPairs = {};
+        delete matchOrderCache[LANGS[langIdx].id];
+      }
+      renderLang();
+    }
+  }
+
+  function showHint(){
+    var h;
+    if (mode === "what") h = WHAT[whatIdx].hint;
+    else if (mode === "fest") h = FEST[festIdx].hint;
+    else h = LANGS[langIdx].hint;
+    var hb = $("hintbox");
+    setText(hb, t(h));
+    hb.classList.add("show");
+  }
+
+  function resetMode(){
+    if (mode === "what"){
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("what-")===0 || k==="mode-what") delete awarded[k]; });
+      whatDone = {}; whatSort = {}; whatSelected = null; whatIdx = 0;
+      doneModes.what = false;
+      recountStars(); renderWhat();
+    } else if (mode === "fest"){
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("fest-")===0 || k==="mode-fest") delete awarded[k]; });
+      festDone = {}; festIdx = 0; doneModes.fest = false;
+      recountStars(); renderFest();
+    } else {
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("lang-")===0 || k==="mode-langs") delete awarded[k]; });
+      langDone = {}; langIdx = 0; matchSel = null; matchPairs = {}; matchOrderCache = {}; doneModes.langs = false;
+      recountStars(); renderLang();
+    }
+    tabBadges();
+    applyChrome();
+  }
+
+  function cleanSpeakText(s){
+    return String(s || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  }
+  function buildSpeakText(){
+    var bits = [];
+    bits.push(t(T.title));
+    bits.push(cleanSpeakText(storyHtml()));
+    bits.push(cleanSpeakText(($("headline") && $("headline").textContent) || ""));
+    bits.push(cleanSpeakText(($("detail") && $("detail").textContent) || ""));
+    bits.push(t(T.tip));
+    return bits.filter(Boolean).join(". ");
+  }
+  function pickVoice(voices, want){
+    var i, v, L;
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf(want) === 0) return v;
+    }
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf("en") === 0) return v;
+    }
+    return voices[0] || null;
+  }
+  var speakTimer = null;
+  function setSpeaking(on){
+    var btn = $("speakBtn");
+    if (!btn) return;
+    btn.setAttribute("aria-pressed", on ? "true" : "false");
+    btn.style.opacity = on ? "0.65" : "";
+  }
+  function doSpeak(text, asLang){
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.92;
+    u.lang = (asLang === "ur") ? "ur-PK" : "en-US";
+    var voices = window.speechSynthesis.getVoices() || [];
+    var voice = pickVoice(voices, asLang === "ur" ? "ur" : "en");
+    if (voice) u.voice = voice;
+    u.onstart = function(){ setSpeaking(true); };
+    u.onend = function(){ setSpeaking(false); };
+    u.onerror = function(){
+      setSpeaking(false);
+      if (asLang === "ur"){
+        var fallback = cleanSpeakText(T.title.en + ". " + T.storyWhat.en + ". " + T.tip.en);
+        var u2 = new SpeechSynthesisUtterance(fallback);
+        u2.lang = "en-US"; u2.rate = 0.92;
+        var v2 = pickVoice(window.speechSynthesis.getVoices() || [], "en");
+        if (v2) u2.voice = v2;
+        u2.onstart = function(){ setSpeaking(true); };
+        u2.onend = u2.onerror = function(){ setSpeaking(false); };
+        window.speechSynthesis.speak(u2);
+      }
+    };
+    window.speechSynthesis.speak(u);
+  }
+  if ("speechSynthesis" in window){
+    try { window.speechSynthesis.getVoices(); } catch (e0) {}
+    if (typeof window.speechSynthesis.addEventListener === "function"){
+      window.speechSynthesis.addEventListener("voiceschanged", function(){
+        try { window.speechSynthesis.getVoices(); } catch (e1) {}
+      });
+    }
+  } else {
+    var noBtn = $("speakBtn");
+    if (noBtn){ noBtn.disabled = true; noBtn.title = "Voice not available on this device"; }
+  }
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en";
+    applyLang();
+  });
+  $("tabWhat").addEventListener("click", function(){ setMode("what"); });
+  $("tabFest").addEventListener("click", function(){ setMode("fest"); });
+  $("tabLang").addEventListener("click", function(){ setMode("langs"); });
+  $("nextBtn").addEventListener("click", next);
+  $("hintBtn").addEventListener("click", showHint);
+  $("resetBtn").addEventListener("click", resetMode);
+  $("newQuiz").addEventListener("click", function(){ pickQuiz(); renderQuiz(); });
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      var text = buildSpeakText();
+      if (!text) return;
+      if (speakTimer){ clearTimeout(speakTimer); speakTimer = null; }
+      window.speechSynthesis.cancel();
+      setSpeaking(false);
+      var speakLang = lang;
+      speakTimer = setTimeout(function(){
+        speakTimer = null;
+        doSpeak(text, speakLang);
+      }, 80);
+    }catch(e){ setSpeaking(false); }
+  });
+
+  pickQuiz();
+  applyLang();
+})();
+</script>
+</body>
+</html>
