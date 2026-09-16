@@ -1,0 +1,190 @@
+{
+  "subject": "islamiat",
+  "name": "Islamiat",
+  "teacher": "Islamiat Teacher",
+  "grade": 5,
+  "topics": [
+    {
+      "title": "Imaniyat aur ibadat",
+      "description": "Allah pe iman, namaz, roza",
+      "lesson": "## HOOK\nIman dil ki roshni hai — Allah pe bharosa, shukr, aur ibadat.\n\n## SAMJHAO\nImaniyat = Allah pe iman. Ibadat = namaz, roza, shukr, achhe amal.\n\n## MISAAL\nNamaz waqt, Bismillah, khane ke baad shukr, walidain ki khidmat.\n\n## KARO\nAaj 3 ibadat / achhe amal likho.\n\n## SAWAAL\n1. Iman kya hai?\n2. Ibadat ki ek misaal?\n3. Rozana ek achha amal?",
+      "quiz": {
+        "title": "Imaniyat aur ibadat Quiz",
+        "questions": [
+          {
+            "q": "Iman ka matlab?",
+            "a": "Allah pe bharosa aur mohabbat",
+            "b": "Sirf khel",
+            "c": "Sirf shopping",
+            "d": "Sirf TV",
+            "correct": "a"
+          },
+          {
+            "q": "Namaz kya hai?",
+            "a": "Ibadat",
+            "b": "Game",
+            "c": "Map",
+            "d": "Exam only",
+            "correct": "a"
+          },
+          {
+            "q": "Roza kis mahine mein?",
+            "a": "Ramadan",
+            "b": "Sirf cricket season",
+            "c": "Winter only",
+            "d": "Never",
+            "correct": "a"
+          },
+          {
+            "q": "Shukr karna?",
+            "a": "Allah ka shukr ada karna",
+            "b": "Gussa",
+            "c": "Litter",
+            "d": "Cheat",
+            "correct": "a"
+          },
+          {
+            "q": "Walidain ki madad?",
+            "a": "Achha amal / ibadat se qareeb",
+            "b": "Faltu",
+            "c": "Saza",
+            "d": "Game",
+            "correct": "a"
+          }
+        ]
+      },
+      "interactive_file": "interactives/g5-imaniyat-ibadat.html",
+      "interactive_label": "Khelo — Imaniyat aur ibadat"
+    },
+    {
+      "title": "Seerat-e-Tayyiba",
+      "description": "Nabi ﷺ ki zindagi se sikh",
+      "lesson": "## HOOK\nNabi ﷺ ki zindagi se sikh — rehmat, sachchai, hilm.\n\n## SAMJHAO\nSeerat = Nabi ﷺ ke akhlaq aur amal ki kahaniyan (age-appropriate).\n\n## MISAAL\nSach bolna, mehman nawazi, yatim / kamzor ki madad.\n\n## KARO\nEk seerat lesson likho jo aaj amal karoge.\n\n## SAWAAL\n1. Seerat se kya seekhte hain?\n2. Ek akhlaqi misaal?",
+      "quiz": {
+        "title": "Seerat Quiz",
+        "questions": [
+          {
+            "q": "Seerat kis ki zindagi?",
+            "a": "Nabi Muhammad ﷺ",
+            "b": "Sirf kings",
+            "c": "Games",
+            "d": "Maps",
+            "correct": "a"
+          },
+          {
+            "q": "Seerat se seekhte hain?",
+            "a": "Akhlaq aur rehmat",
+            "b": "Litter",
+            "c": "Cheating",
+            "d": "Anger only",
+            "correct": "a"
+          }
+        ]
+      }
+    },
+    {
+      "title": "Akhlaq aur aadaab",
+      "description": "Sachchai, adab, ehteram",
+      "lesson": "## HOOK\nAchha akhlaq insan ko pyara banata hai.\n\n## SAMJHAO\nSachchai, adab, ehteram — ghar aur school dono mein.\n\n## MISAAL\nSalam, line mein intezar, buzurgon ka ehteram.\n\n## KARO\nAaj ek adab amal karo.\n\n## SAWAAL\n1. Sachchai kyun zaroori?\n2. Ek aadaab misaal?",
+      "quiz": {
+        "title": "Akhlaq Quiz",
+        "questions": [
+          {
+            "q": "Achhe akhlaq ki misaal?",
+            "a": "Sachchai aur adab",
+            "b": "Jhoot",
+            "c": "Rona",
+            "d": "Litter",
+            "correct": "a"
+          },
+          {
+            "q": "Salam dena?",
+            "a": "Adab",
+            "b": "Gussa",
+            "c": "Cheat",
+            "d": "Noise",
+            "correct": "a"
+          }
+        ]
+      }
+    },
+    {
+      "title": "Husn-e-muamalat",
+      "description": "Ghar, dost, padosi se sulook",
+      "lesson": "## HOOK\nAche muamalat se ghar aur mohalla sukoon mein rehta hai.\n\n## SAMJHAO\nHusn-e-muamalat = achha sulook — ghar, dost, padosi.\n\n## MISAAL\nShare karna, madad, soft baat.\n\n## KARO\nPadosi / dost ke sath ek niki karo.\n\n## SAWAAL\n1. Husn-e-muamalat kya hai?\n2. Ek misaal?",
+      "quiz": {
+        "title": "Husn-e-muamalat Quiz",
+        "questions": [
+          {
+            "q": "Achha sulook kis ke sath?",
+            "a": "Ghar, dost, padosi",
+            "b": "Sirf khud",
+            "c": "Sirf games",
+            "d": "Nobody",
+            "correct": "a"
+          },
+          {
+            "q": "Madad karna?",
+            "a": "Husn-e-muamalat",
+            "b": "Bura amal",
+            "c": "Cheat",
+            "d": "Litter",
+            "correct": "a"
+          }
+        ]
+      }
+    },
+    {
+      "title": "Hidayat ke sarchashme",
+      "description": "Quran, Hadith, mashahir-e-Islam",
+      "lesson": "## HOOK\nHidayat ke sarchashme humari rah dikhate hain.\n\n## SAMJHAO\nQuran, Hadith, aur nek logon ki misalein.\n\n## MISAAL\nSimple Quranic adab / Hadith of kindness (age-safe).\n\n## KARO\nEk hidayat point likho.\n\n## SAWAAL\n1. Quran kya hai?\n2. Hadith se kya milta hai?",
+      "quiz": {
+        "title": "Hidayat Quiz",
+        "questions": [
+          {
+            "q": "Quran?",
+            "a": "Allah ki kitab",
+            "b": "Game book",
+            "c": "Map only",
+            "d": "Newspaper",
+            "correct": "a"
+          },
+          {
+            "q": "Hadith?",
+            "a": "Nabi ﷺ ke aqwal o afaal",
+            "b": "Cartoon",
+            "c": "Math formula",
+            "d": "Traffic sign",
+            "correct": "a"
+          }
+        ]
+      }
+    },
+    {
+      "title": "Islami taleemat aaj",
+      "description": "Daily life mein amal",
+      "lesson": "## HOOK\nIslam aaj bhi rozmarra zindagi mein amal mangta hai.\n\n## SAMJHAO\nSchool, ghar, internet — har jagah achhe amal.\n\n## MISAAL\nTime waste kam, honesty, kindness online bhi.\n\n## KARO\nAaj ka 1 amal set karo.\n\n## SAWAAL\n1. Daily life mein ek islami amal?\n2. Online adab kyun?",
+      "quiz": {
+        "title": "Islami taleemat aaj Quiz",
+        "questions": [
+          {
+            "q": "Aaj amal kahan?",
+            "a": "Ghar, school, online",
+            "b": "Sirf Eid pe",
+            "c": "Kabhi nahi",
+            "d": "Sirf dream",
+            "correct": "a"
+          },
+          {
+            "q": "Online bhi?",
+            "a": "Adab aur sachchai",
+            "b": "Koi rule nahi",
+            "c": "Sirf memes",
+            "d": "Anger",
+            "correct": "a"
+          }
+        ]
+      }
+    }
+  ]
+}

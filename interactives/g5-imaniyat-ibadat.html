@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Imaniyat aur ibadat — ایمانیات اور عبادات | AI4Kids Class 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#e6f2ea;--board-deep:#c5dbc8;--sky:#7eb8d4;--sky2:#4a8fb8;
+    --park:#5a9a6a;--park2:#3a7a4a;--accent:#0d5c3d;--flag-g:#01411C;
+    --ok:#2e7d4f;--ink:#1a2e22;--ink-soft:#4a5a4e;--paper:#fdfaf3;
+    --line:#d0dcc8;--gold:#d4a017;--left:#c4453a;
+    --iman-bin:#0d5c3d;--live-bin:#c9702e;
+    --home:#c45c3a;--school:#2f6fb5;--hood:#0d5c3d;
+    --fs-cap:clamp(12px, 3.2vw, 13px);--fs-xs:clamp(14px, 3.7vw, 15px);
+    --fs-sm:clamp(16px, 4.2vw, 17px);--fs-md:clamp(17px, 4.6vw, 19px);
+    --fs-lg:clamp(20px, 5.4vw, 23px);--fs-xl:clamp(27px, 7.4vw, 33px);--lh:1.5;
+  }
+  body.urdu{
+    --fs-cap:clamp(13px, 3.5vw, 15px);--fs-xs:clamp(15px, 4.1vw, 17px);
+    --fs-sm:clamp(17px, 4.7vw, 19px);--fs-md:clamp(19px, 5.2vw, 21px);
+    --fs-lg:clamp(22px, 6vw, 25px);--fs-xl:clamp(26px, 7vw, 31px);--lh:2.1;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  .stars{display:flex;align-items:center;gap:6px;font-weight:800;font-size:var(--fs-xs);
+         background:#fff6e2;border:2px solid var(--gold);border-radius:999px;padding:7px 13px}
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+  .tabs{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
+  .tabs button{
+    flex:1 1 28%;min-width:90px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:10px 6px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:54px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .tabs button .badge{color:var(--gold)}
+  .story{
+    background:#fff8ea;border:2px dashed var(--gold);border-radius:16px;padding:13px 15px;
+    font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;margin-bottom:14px;
+  }
+  body.urdu .story{line-height:var(--lh)}
+  .story b{color:var(--ink)}
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:
+      radial-gradient(circle at 12% 18%, rgba(212,160,23,.18) 0 8px, transparent 9px),
+      radial-gradient(circle at 88% 22%, rgba(13,92,61,.12) 0 6px, transparent 7px),
+      linear-gradient(180deg,var(--sky) 0%,var(--sky2) 34%,#a8c9a0 34%,#8fb888 42%,var(--board) 42%);
+    min-height:280px;
+  }
+  .scene-pad{padding:10px 12px 18px;min-height:260px;position:relative}
+  .sky-layer{position:absolute;inset:0 0 58% 0;pointer-events:none;overflow:hidden}
+  .crescent-deco{
+    position:absolute;top:10px;right:16px;width:36px;height:36px;z-index:1;
+  }
+  body.urdu .crescent-deco{right:auto;left:16px}
+  .cloud{position:absolute;background:rgba(255,255,255,.85);border-radius:40px;opacity:.9}
+  .cloud:before,.cloud:after{content:"";position:absolute;background:inherit;border-radius:50%}
+  .c1{width:48px;height:15px;top:18px;left:12%}
+  .c1:before{width:22px;height:22px;top:-12px;left:6px}
+  .c1:after{width:18px;height:18px;top:-8px;left:24px}
+  .c2{width:34px;height:12px;top:34px;left:55%;opacity:.7}
+  .c2:before{width:16px;height:16px;top:-9px;left:4px}
+  .c2:after{width:12px;height:12px;top:-5px;left:16px}
+  .hills{position:absolute;left:0;right:0;bottom:42%;height:40px;z-index:1;pointer-events:none}
+  .hill{position:absolute;bottom:0;border-radius:50% 50% 0 0;
+        background:linear-gradient(180deg,#4a8a5a,#2d5530)}
+  .h-a{width:42%;height:36px;left:-4%;opacity:.55}
+  .h-b{width:38%;height:28px;right:8%;opacity:.5}
+  .ground-strip{
+    position:absolute;left:0;right:0;bottom:0;height:32%;
+    background:
+      repeating-linear-gradient(90deg, transparent 0 18px, rgba(13,92,61,.06) 18px 20px),
+      linear-gradient(180deg,#8fbc78 0%,#6a9a58 100%);
+    z-index:2;border-top:3px solid #4a7040;
+  }
+  .geom-edge{
+    position:absolute;left:0;right:0;bottom:31%;height:6px;z-index:3;pointer-events:none;
+    background:repeating-linear-gradient(90deg, var(--gold) 0 8px, var(--accent) 8px 16px, transparent 16px 20px);
+    opacity:.55;
+  }
+  .comic-stage{position:relative;z-index:5;padding-top:78px;text-align:center;min-height:150px}
+  .comic-hero{font-size:56px;line-height:1;margin:4px 0 8px;filter:drop-shadow(0 2px 0 rgba(0,0,0,.12))}
+  .comic-panel{
+    display:inline-flex;align-items:center;gap:8px;background:rgba(253,250,243,.95);
+    border:2.5px solid var(--ink);border-radius:16px;padding:10px 14px;margin:4px;
+    box-shadow:0 3px 0 rgba(30,42,26,.12);font-weight:800;font-size:var(--fs-cap);
+  }
+  .comic-panel .em{font-size:28px}
+  .sort-grid{
+    position:relative;z-index:5;display:grid;grid-template-columns:1fr 1fr;gap:10px;
+    padding-top:88px;
+  }
+  .sort-bin{
+    border:2.5px solid var(--ink);border-radius:14px;padding:10px 8px;min-height:120px;
+    background:rgba(253,250,243,.88);text-align:center;cursor:pointer;
+  }
+  .sort-bin.iman-bin{border-color:var(--iman-bin);background:rgba(230,242,234,.95)}
+  .sort-bin.live-bin{border-color:var(--live-bin);background:rgba(250,238,220,.92)}
+  .sort-bin.hot{box-shadow:0 0 0 3px rgba(13,92,61,.3)}
+  .sort-bin h3{margin:0 0 8px;font-size:var(--fs-cap);font-weight:800}
+  .sort-bin .drop{min-height:60px;display:flex;flex-wrap:wrap;gap:4px;justify-content:center;align-items:center}
+  .item-card{
+    background:rgba(253,250,243,.95);border:2.5px solid var(--ink);border-radius:16px;
+    padding:8px 10px 10px;text-align:center;min-width:72px;max-width:120px;
+    box-shadow:0 3px 0 rgba(30,42,26,.15);cursor:pointer;user-select:none;
+  }
+  .item-card:hover{transform:translateY(-2px)}
+  .item-card.selected{border-color:var(--accent);background:#e8f5ec;box-shadow:0 0 0 3px rgba(13,92,61,.25)}
+  .item-card.ok{border-color:var(--ok);background:#e8f2ed}
+  .item-card.no{border-color:var(--left);background:#fbeae8}
+  .item-em{font-size:34px;line-height:1.1;display:block;margin-bottom:2px}
+  .item-lab{font-size:var(--fs-cap);font-weight:800;line-height:1.25;margin:0}
+  .bank{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:8px;position:relative;z-index:5}
+  .mini-chip{
+    border:2px solid var(--ink);border-radius:12px;padding:6px 8px;background:#fff;
+    line-height:1;cursor:pointer;min-width:40px;font-size:22px;
+  }
+  .save-choices{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+  .save-choices button{
+    border:2.5px solid var(--ink);background:var(--paper);border-radius:14px;
+    padding:12px 14px;font:inherit;font-weight:800;font-size:var(--fs-xs);
+    cursor:pointer;text-align:left;min-height:52px;display:flex;align-items:center;gap:10px;
+  }
+  body.urdu .save-choices button{text-align:right}
+  .save-choices button .cem{font-size:26px}
+  .save-choices button.right{border-color:var(--ok);background:#e8f2ed}
+  .save-choices button.wrong{border-color:var(--left);background:#fbeae8}
+  .map-row{
+    position:relative;z-index:5;display:flex;flex-wrap:wrap;gap:8px;
+    justify-content:center;align-items:stretch;padding-top:88px;min-height:130px;
+  }
+  .map-node{
+    flex:1 1 28%;min-width:90px;border:2.5px solid var(--ink);border-radius:16px;
+    background:rgba(253,250,243,.95);padding:10px 8px;text-align:center;
+    box-shadow:0 3px 0 rgba(30,42,26,.12);
+  }
+  .map-node .nem{font-size:36px;line-height:1;display:block;margin-bottom:4px}
+  .map-node .nlab{font-size:var(--fs-cap);font-weight:800;margin:0}
+  .map-node.home{border-color:var(--home)}
+  .map-node.school{border-color:var(--school)}
+  .map-node.hood{border-color:var(--hood)}
+  .map-node.done{background:#e8f2ed;border-color:var(--ok)}
+  .map-arrow{font-size:20px;font-weight:800;color:var(--accent);align-self:center}
+  .outcome{
+    margin-top:10px;border-radius:14px;padding:10px 12px;font-weight:700;font-size:var(--fs-xs);
+    display:none;border:2px solid var(--ok);background:#e8f2ed;color:var(--ok);
+  }
+  .outcome.show{display:block}
+  .outcome.bad{border-color:var(--left);background:#fbeae8;color:var(--left)}
+  .readout{
+    margin-top:-18px;position:relative;z-index:2;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+  .statechip.ur{padding:2px 14px 7px}
+  .statechip.win{background:var(--ok)}
+  .statechip.miss{background:var(--left)}
+  .headline{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+  .headline.ur{line-height:1.95}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+  .hintbox{
+    margin-top:14px;border:2px solid var(--accent);background:#e8f5ec;border-radius:14px;
+    padding:11px 14px;font-size:var(--fs-xs);color:var(--accent);font-weight:700;line-height:1.55;
+    display:none;
+  }
+  .hintbox.show{display:block}
+  body.urdu .hintbox{line-height:var(--lh)}
+  .panel{margin-top:22px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .prog{margin:0 0 10px;font-size:var(--fs-xs);font-weight:700;color:var(--ink-soft)}
+  .btns{display:flex;gap:9px;margin-top:8px;flex-wrap:wrap}
+  .btns button{
+    border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);
+    font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:50px;
+    padding:8px 14px;flex:1;
+  }
+  .btns .go{background:var(--ink);color:var(--paper)}
+  .btns button:active{transform:scale(.97)}
+  .btns button:disabled{opacity:.4;cursor:default}
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .qhead{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+  .qhead h2{font-size:var(--fs-lg);font-weight:800;margin:0;flex:1}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:50px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+  .opt.wrong{border-color:var(--left);background:#fbeae8}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
+      grid-template-areas:
+        "bar   bar" "head  head" "tabs  tabs" "story story"
+        "left  right" "quiz  quiz" "foot  foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+    .story{grid-area:story} .left{grid-area:left} .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+    .panel{margin-top:0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition-duration:.01ms !important;animation:none !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 5 · Islamiat</span>
+    <span class="stars" id="starBox">⭐ <span id="starCount">0</span></span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 id="title"></h1>
+  <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group">
+    <button type="button" id="tabIman" aria-pressed="true"></button>
+    <button type="button" id="tabIbadat" aria-pressed="false"></button>
+    <button type="button" id="tabDeeds" aria-pressed="false"></button>
+  </div>
+
+  <p class="story" id="story"></p>
+
+  <div class="left">
+  <div class="scene">
+    <div class="scene-pad" id="scenePad"></div>
+  </div>
+  <div class="readout">
+    <span class="statechip" id="statechip"></span>
+    <p class="headline" id="headline"></p>
+    <p class="detail" id="detail"></p>
+    <p class="hintbox" id="hintbox"></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="panel">
+    <h2 id="ctlHead"></h2>
+    <p class="prog" id="prog"></p>
+    <div id="actionBox"></div>
+    <div class="btns">
+      <button type="button" class="go" id="nextBtn"></button>
+    </div>
+    <div class="btns">
+      <button type="button" id="hintBtn"></button>
+      <button type="button" id="resetBtn"></button>
+    </div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <div class="qhead">
+      <h2 id="quizHead"></h2>
+      <button type="button" class="chip" id="newQuiz"></button>
+    </div>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad bilingual school. Offline play · no APIs. WhatsApp 0337 1468899 · Islamiat Class 5 (helping interactive)"
+       data-ur="اے آئی فور کڈز — اسلام آباد۔ آف لائن کھیلو۔ واٹس ایپ 0337 1468899 · اسلامیات جماعت ۵ (مددگار انٹرایکٹو)"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  function $(id){ return document.getElementById(id); }
+  function isolate(s){ return "\u2066" + s + "\u2069"; }
+  function setText(el, str){
+    if (!el) return;
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+  function t(o){ return (o && o[lang]) || (o && o.en) || ""; }
+  function shuffle(arr){
+    var a = arr.slice(), i, j, tmp;
+    for (i = a.length - 1; i > 0; i--){
+      j = Math.floor(Math.random() * (i + 1));
+      tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  var lang = "en";
+  var mode = "iman";
+  var stars = 0;
+  var awarded = {};
+  var doneModes = {iman:false, ibadat:false, deeds:false};
+
+  var T = {
+    title:{en:"Imaniyat aur ibadat", ur:"ایمانیات اور عبادات"},
+    sub:{en:"Iman = trusting & loving Allah; ibadat = ways we remember Allah — namaz, shukr, kind deeds!",
+         ur:"ایمان = اللہ پر بھروسہ اور محبت؛ عبادت = اللہ کو یاد کرنے کے طریقے — نماز، شکر، اچھے کام!"},
+    tabIman:{en:"Iman basics", ur:"ایمان کی بنیاد"},
+    tabIbadat:{en:"Ibadat habits", ur:"عبادت کی عادتیں"},
+    tabDeeds:{en:"Good deeds map", ur:"نیک کاموں کا نقشہ"},
+    storyIman:{en:"<b>Iman</b> means trusting and loving <b>Allah</b>. Living iman shows in kindness and honesty. Sort: heart of iman vs living iman!",
+               ur:"<b>ایمان</b> کا مطلب اللہ پر بھروسہ اور محبت ہے۔ زندہ ایمان مہربانی اور ایمانداری میں نظر آتا ہے۔ چھانٹو!"},
+    storyIbadat:{en:"<b>Ibadat</b> = ways we remember Allah. Comic habits: namaz time, Bismillah, shukr after food, helping parents.",
+                 ur:"<b>عبادت</b> = اللہ کو یاد کرنے کے طریقے۔ کارٹون عادتیں: نماز کا وقت، بسم اللہ، کھانے کے بعد شکر، والدین کی مدد۔"},
+    storyDeeds:{en:"Good deeds map: <b>Home → School → Mosque & neighbours</b>. Pick respectful, age-safe actions!",
+                ur:"نیک کاموں کا نقشہ: <b>گھر → اسکول → مسجد و پڑوسی</b>۔ احترام والے محفوظ اعمال چنو!"},
+    ctl:{en:"Your turn — little momin", ur:"تمہاری باری — چھوٹے مومن"},
+    next:{en:"Next challenge", ur:"اگلا چیلنج"},
+    hint:{en:"Hint", ur:"اشارہ"},
+    reset:{en:"Reset", ur:"ری سیٹ"},
+    quiz:{en:"Check yourself", ur:"اپنا چیک"},
+    newQuiz:{en:"New quiz", ur:"نیا کوئز"},
+    nice:{en:"Shabash — soft hearts!", ur:"شاباش — نرم دل!"},
+    oops:{en:"Almost — try again", ur:"قریب — دوبارہ آزماؤ"},
+    tip:{en:"Tip: Iman is trusting Allah; ibadat is remembering Him — prayer, thanks, and kind manners. Be gentle with everyone.",
+         ur:"نکتہ: ایمان اللہ پر بھروسہ؛ عبادت یاد رکھنا — نماز، شکر، اور اچھے اخلاق۔ سب سے نرمی۔"},
+    progI:{en:"Iman basics", ur:"ایمان کی بنیاد"},
+    progB:{en:"Ibadat habits", ur:"عبادت کی عادتیں"},
+    progD:{en:"Good deeds", ur:"نیک کام"},
+    askSort:{en:"Tap a card, then tap Heart of iman or Living iman", ur:"کارڈ ٹیپ کرو، پھر ایمان کا دل یا زندہ ایمان"},
+    askPick:{en:"Heart of iman, or living iman?", ur:"ایمان کا دل، یا زندہ ایمان؟"},
+    askScene:{en:"What is the better ibadat habit?", ur:"بہتر عبادت کی عادت کیا ہے؟"},
+    askMap:{en:"Pick one good deed for this place", ur:"اس جگہ کے لیے ایک نیک کام چنو"},
+    checkSort:{en:"Check sort", ur:"چھانٹی چیک کرو"},
+    imanLab:{en:"💚 Heart of iman", ur:"💚 ایمان کا دل"},
+    liveLab:{en:"🤝 Living iman", ur:"🤝 زندہ ایمان"},
+    pick:{en:"Tap a card first", ur:"پہلے کارڈ ٹیپ کرو"},
+    home:{en:"Home", ur:"گھر"},
+    school:{en:"School", ur:"اسکول"},
+    hood:{en:"Mosque & neighbours", ur:"مسجد و پڑوسی"}
+  };
+
+  /* Cards: heart of iman vs living iman */
+  var CARDS = {
+    allah:{em:"💚", en:"Believe in Allah", ur:"اللہ پر ایمان", bin:"iman"},
+    trust:{em:"🤲", en:"Trust Allah's care", ur:"اللہ کی رحمت پر بھروسہ", bin:"iman"},
+    love:{em:"💗", en:"Love Allah", ur:"اللہ سے محبت", bin:"iman"},
+    one:{em:"✨", en:"Allah is One", ur:"اللہ ایک ہے", bin:"iman"},
+    kind:{em:"🤝", en:"Be kind to others", ur:"دوسروں سے مہربانی", bin:"live"},
+    honest:{em:"✋", en:"Speak honestly", ur:"ایمانداری سے بولنا", bin:"live"},
+    share:{em:"🍎", en:"Share with friends", ur:"دوستوں سے بانٹنا", bin:"live"},
+    gentle:{em:"🕊️", en:"Gentle words", ur:"نرم الفاظ", bin:"live"},
+    help:{em:"🧑‍🤝‍🧑", en:"Help someone in need", ur:"ضرورت مند کی مدد", bin:"live"},
+    truth:{em:"📜", en:"Tell the truth", ur:"سچ بولنا", bin:"live"},
+    care:{em:"🌱", en:"Care for Allah's creation", ur:"اللہ کی مخلوق کی حفاظت", bin:"live"},
+    peace:{em:"😊", en:"Stay calm & fair", ur:"پرسکون اور منصفانہ رہنا", bin:"live"}
+  };
+
+  /* Mode 1: Iman basics — 4 challenges */
+  var IMAN = [
+    {
+      id:"i1", type:"sort",
+      title:{en:"Heart & living iman", ur:"دل اور زندہ ایمان"},
+      items:["allah","kind","trust","honest"],
+      hint:{en:"Heart of iman = belief & trust in Allah. Living iman = kindness and honesty in daily life.",
+            ur:"ایمان کا دل = اللہ پر یقین و بھروسہ۔ زندہ ایمان = روزمرہ مہربانی اور ایمانداری۔"},
+      done:{en:"Sorted — belief + kind actions!", ur:"چھانٹی ہوئی — یقین + مہربان عمل!"}
+    },
+    {
+      id:"i2", type:"sort",
+      title:{en:"Love Allah, share kindness", ur:"اللہ سے محبت، مہربانی بانٹو"},
+      items:["love","share","one","gentle"],
+      hint:{en:"Loving Allah and knowing He is One = heart. Sharing and soft words = living iman.",
+            ur:"اللہ سے محبت اور توحید = دل۔ بانٹنا اور نرم بات = زندہ ایمان۔"},
+      done:{en:"Beautiful sort — soft hearts!", ur:"خوبصورت چھانٹی — نرم دل!"}
+    },
+    {
+      id:"i3", type:"pick",
+      title:{en:"Helping a classmate", ur:"ہم جماعت کی مدد"},
+      card:"help",
+      hint:{en:"Helping someone is living iman — your belief shows in kind deeds.",
+            ur:"مدد کرنا زندہ ایمان ہے — یقین مہربان کاموں میں دکھتا ہے۔"},
+      done:{en:"Living iman — helping!", ur:"زندہ ایمان — مدد!"}
+    },
+    {
+      id:"i4", type:"pick",
+      title:{en:"Believe in Allah", ur:"اللہ پر ایمان"},
+      card:"allah",
+      hint:{en:"Belief in Allah is the heart of iman — the start of everything good.",
+            ur:"اللہ پر ایمان، ایمان کا دل ہے — ہر اچھے کام کی ابتدا۔"},
+      done:{en:"Heart of iman — Allah!", ur:"ایمان کا دل — اللہ!"}
+    }
+  ];
+
+  /* Mode 2: Ibadat habits — 4 comics */
+  var IBADAT = [
+    {
+      id:"b1",
+      title:{en:"Namaz time reminder", ur:"نماز کے وقت کی یاد"},
+      hero:"🕐🕌💚",
+      prompt:{en:"It is nearly namaz time at home. What is a gentle, good habit?",
+              ur:"گھر پر نماز کا وقت قریب ہے۔ نرم اچھی عادت کیا ہے؟"},
+      choices:[
+        {id:"ready", em:"🧼", en:"Wash up calmly and get ready for namaz", ur:"پرسکون وضو / صفائی اور نماز کے لیے تیار ہو جاؤ"},
+        {id:"ignore", em:"🎮", en:"Keep playing and forget completely", ur:"کھیلتے رہو اور بالکل بھول جاؤ"},
+        {id:"tease", em:"😜", en:"Tease someone who is praying", ur:"نماز پڑھنے والے کا مذاق اڑاؤ"}
+      ],
+      correct:"ready",
+      hint:{en:"Remembering namaz gently is a beautiful ibadat habit — no rushing, no teasing.",
+            ur:"نرمی سے نماز یاد رکھنا خوبصورت عبادت کی عادت ہے — جلدی یا مذاق نہیں۔"},
+      done:{en:"Namaz reminder — Shabash!", ur:"نماز کی یاد — شاباش!"}
+    },
+    {
+      id:"b2",
+      title:{en:"Say Bismillah", ur:"بسم اللہ کہو"},
+      hero:"📖✨🧒",
+      prompt:{en:"Before starting homework or a meal, what do many Muslim families say?",
+              ur:"ہوم ورک یا کھانا شروع کرنے سے پہلے اکثر مسلم خاندان کیا کہتے ہیں؟"},
+      choices:[
+        {id:"bismi", em:"🤲", en:"Say Bismillah and begin kindly", ur:"بسم اللہ کہو اور نرمی سے شروع کرو"},
+        {id:"rush", em:"💨", en:"Rush in without any thanks or pause", ur:"بغیر شکر یا وقفے کے دوڑ پڑو"},
+        {id:"shout", em:"📢", en:"Shout at everyone first", ur:"پہلے سب پر چیخو"}
+      ],
+      correct:"bismi",
+      hint:{en:"Bismillah means starting with Allah's name — a simple, loving habit.",
+            ur:"بسم اللہ کا مطلب اللہ کے نام سے شروع کرنا — سادہ محبت بھری عادت۔"},
+      done:{en:"Bismillah habit locked!", ur:"بسم اللہ عادت تیار!"}
+    },
+    {
+      id:"b3",
+      title:{en:"Shukr after food", ur:"کھانے کے بعد شکر"},
+      hero:"🍲🙏😊",
+      prompt:{en:"You finished lunch. What shows shukr (thanks) to Allah?",
+              ur:"کھانا ختم ہوا۔ اللہ کا شکر کیسے دکھاتے ہو؟"},
+      choices:[
+        {id:"thanks", em:"🤲", en:"Say Alhamdulillah / thank Allah for the food", ur:"الحمد للہ کہو / کھانے پر اللہ کا شکر"},
+        {id:"waste", em:"🗑️", en:"Throw leftover food carelessly", ur:"بچا کھانا لاپرواہی سے پھینکو"},
+        {id:"complain", em:"😤", en:"Only complain that it was not your favourite", ur:"صرف شکایت کرو کہ پسندیدہ نہیں تھا"}
+      ],
+      correct:"thanks",
+      hint:{en:"Shukr after food is ibadat-adjacent manners — thank Allah and avoid waste.",
+            ur:"کھانے کے بعد شکر عبادت سے جڑی اخلاقیات ہے — اللہ کا شکر اور فضول خرچی نہ۔"},
+      done:{en:"Shukr hearts — lovely!", ur:"شکر والے دل — خوبصورت!"}
+    },
+    {
+      id:"b4",
+      title:{en:"Helping parents", ur:"والدین کی مدد"},
+      hero:"👨‍👩‍👧🧹💚",
+      prompt:{en:"Amma asks for a small help at home. Better ibadat-minded choice?",
+              ur:"اماں گھر میں چھوٹی مدد مانگتی ہیں۔ بہتر عبادت والا انتخاب؟"},
+      choices:[
+        {id:"help", em:"🫶", en:"Help cheerfully — service is a loving deed", ur:"خوشی سے مدد کرو — خدمت محبت بھرا عمل ہے"},
+        {id:"refuse", em:"🙅", en:"Refuse and stay on the phone", ur:"انکار کرو اور فون پر رہو"},
+        {id:"argue", em:"🗯️", en:"Argue loudly before helping", ur:"مدد سے پہلے زور سے بحث کرو"}
+      ],
+      correct:"help",
+      hint:{en:"Helping parents kindly is a beloved good deed — part of remembering Allah with manners.",
+            ur:"والدین کی نرمی سے مدد پسندیدہ نیک کام ہے — اخلاق کے ساتھ اللہ کو یاد رکھنا۔"},
+      done:{en:"Helped parents — true kindness!", ur:"والدین کی مدد — سچی مہربانی!"}
+    }
+  ];
+
+  /* Mode 3: Good deeds map — home, school, mosque-neighbours */
+  var DEEDS = [
+    {
+      id:"d1", place:"home",
+      title:{en:"At home", ur:"گھر پر"},
+      prompt:{en:"Which action is a respectful good deed at home?",
+              ur:"گھر پر کون سا عمل احترام والا نیک کام ہے؟"},
+      choices:[
+        {id:"listen", em:"👂", en:"Listen to parents and speak gently", ur:"والدین کی بات سنو اور نرمی سے بولو"},
+        {id:"shout", em:"📢", en:"Shout when asked to tidy toys", ur:"کھلونے سمیٹنے پر چیخنا"},
+        {id:"hide", em:"🙈", en:"Hide mess and blame a sibling", ur:"گندگی چھپاؤ اور بھائی/بہن پر الزام"}
+      ],
+      correct:"listen",
+      hint:{en:"Home good deeds: soft speech, help, and honesty.",
+            ur:"گھر کے نیک کام: نرم بات، مدد، اور ایمانداری۔"},
+      done:{en:"Home deed locked!", ur:"گھر کا نیک کام تیار!"}
+    },
+    {
+      id:"d2", place:"school",
+      title:{en:"At school", ur:"اسکول میں"},
+      prompt:{en:"At school in Islamabad — which is a good deed?",
+              ur:"اسلام آباد کے اسکول میں — کون سا نیک کام ہے؟"},
+      choices:[
+        {id:"respect", em:"🙏", en:"Respect teachers and help classmates kindly", ur:"اساتذہ کا احترام اور ہم جماعت کی مہربان مدد"},
+        {id:"cheat", em:"📝", en:"Copy answers secretly", ur:"چھپ کر جواب نقل کرو"},
+        {id:"mock", em:"😂", en:"Mock someone who made a mistake", ur:"غلطی کرنے والے کا مذاق اڑاؤ"}
+      ],
+      correct:"respect",
+      hint:{en:"School manners that please Allah: respect, honesty, and kindness.",
+            ur:"اسکول کے اخلاق جو اللہ کو پسند: احترام، ایمانداری، مہربانی۔"},
+      done:{en:"School deed ready!", ur:"اسکول کا نیک کام تیار!"}
+    },
+    {
+      id:"d3", place:"hood",
+      title:{en:"Mosque & neighbours", ur:"مسجد و پڑوسی"},
+      prompt:{en:"Near the mosque or neighbours — best age-safe action?",
+              ur:"مسجد یا پڑوسیوں کے قریب — بہترین محفوظ عمل؟"},
+      choices:[
+        {id:"quiet", em:"🤫", en:"Stay quiet and respectful near the mosque; greet neighbours politely", ur:"مسجد کے قریب خاموش و محترم رہو؛ پڑوسیوں کو ادب سے سلام"},
+        {id:"noise", em:"🔊", en:"Make loud noise outside during prayer time", ur:"نماز کے وقت باہر زور کا شور"},
+        {id:"litter", em:"🗑️", en:"Drop wrappers on the mosque path", ur:"مسجد کے راستے پر ریپر پھینکو"}
+      ],
+      correct:"quiet",
+      hint:{en:"Respect mosque space and neighbours — quiet, clean, and polite.",
+            ur:"مسجد اور پڑوسیوں کا احترام — خاموشی، صفائی، ادب۔"},
+      done:{en:"Neighbour & mosque star!", ur:"پڑوسی و مسجد کا ستارہ!"}
+    },
+    {
+      id:"d4", place:"all",
+      title:{en:"Everywhere check", ur:"ہر جگہ چیک"},
+      prompt:{en:"Which sentence is TRUE about iman and ibadat for Class 5?",
+              ur:"جماعت ۵ کے لیے ایمان اور عبادت کے بارے میں کون سی بات سچ ہے؟"},
+      choices:[
+        {id:"both", em:"⭐", en:"Iman is trusting Allah; ibadat includes prayer, thanks, and kind deeds", ur:"ایمان اللہ پر بھروسہ؛ عبادت میں نماز، شکر اور مہربان کام شامل"},
+        {id:"only", em:"🚫", en:"Only adults can remember Allah", ur:"صرف بالغ اللہ کو یاد رکھ سکتے ہیں"},
+        {id:"mean", em:"😤", en:"Being mean is also a form of ibadat", ur:"بدتمیزی بھی عبادت کی ایک شکل ہے"}
+      ],
+      correct:"both",
+      hint:{en:"Kids can practise iman and gentle ibadat habits every day.",
+            ur:"بچے روز ایمان اور نرم عبادت کی عادتیں اپنا سکتے ہیں۔"},
+      done:{en:"Map complete — you understand!", ur:"نقشہ مکمل — سمجھ گئے!"}
+    }
+  ];
+
+  /* Quiz: EN + Roman Urdu */
+  var QUIZ = [
+    {
+      q:{en:"What does iman mean for a Class 5 child?",
+         ur:"Class 5 ke bachay ke liye iman ka matlab kya hai?"},
+      opts:[
+        {en:"Trusting and loving Allah", ur:"Allah pe bharosa aur mohabbat"},
+        {en:"Only collecting stickers", ur:"Sirf stickers ikattha karna"},
+        {en:"Never saying thank you", ur:"Kabhi shukriya na kehna"},
+        {en:"Being unkind to friends", ur:"Doston se badtameezi"}
+      ],
+      correct:0,
+      why:{en:"Iman = trusting and loving Allah — the heart of faith.",
+           ur:"Iman = Allah pe bharosa aur mohabbat — eeman ka dil."}
+    },
+    {
+      q:{en:"What is ibadat in simple words?",
+         ur:"Seedhe lafzoun mein ibadat kya hai?"},
+      opts:[
+        {en:"Ways we remember Allah — prayer, thanks, good deeds", ur:"Allah ko yaad rakhne ke tareeqay — namaz, shukr, ache kaam"},
+        {en:"Only buying new toys", ur:"Sirf naye khilone kharidna"},
+        {en:"Ignoring parents", ur:"Walidain ko nazarandaz karna"},
+        {en:"Making noise near the mosque", ur:"Masjid ke paas shor machana"}
+      ],
+      correct:0,
+      why:{en:"Ibadat = remembering Allah with namaz, shukr, and kind manners.",
+           ur:"Ibadat = namaz, shukr aur ache ikhlaaq se Allah ko yaad rakhna."}
+    },
+    {
+      q:{en:"Which habit shows living iman?",
+         ur:"Kaun si aadat living iman dikhati hai?"},
+      opts:[
+        {en:"Kindness and honesty with people", ur:"Logon se meherbani aur imandari"},
+        {en:"Cheating in class", ur:"Class mein cheating"},
+        {en:"Throwing litter near the mosque", ur:"Masjid ke paas kachra phenkna"},
+        {en:"Teasing someone who is praying", ur:"Namaz parhne wale ka mazaaq"}
+      ],
+      correct:0,
+      why:{en:"Living iman shows in kindness and honesty every day.",
+           ur:"Living iman roz meherbani aur imandari mein dikhta hai."}
+    },
+    {
+      q:{en:"Why say Bismillah or Alhamdulillah?",
+         ur:"Bismillah ya Alhamdulillah kyun kehte hain?"},
+      opts:[
+        {en:"To start with Allah's name and give thanks (shukr)", ur:"Allah ke naam se shuru aur shukr ada karne ke liye"},
+        {en:"To rush and waste food", ur:"Jaldi karne aur khana zaya karne ke liye"},
+        {en:"To shout at family", ur:"Ghar walon pe cheekhne ke liye"},
+        {en:"To skip helping parents", ur:"Walidain ki madad chorne ke liye"}
+      ],
+      correct:0,
+      why:{en:"Bismillah starts with Allah; Alhamdulillah is shukr — gentle ibadat habits.",
+           ur:"Bismillah shuru Allah se; Alhamdulillah shukr hai — narm ibadat aadatein."}
+    },
+    {
+      q:{en:"Near the mosque, what should kids do?",
+         ur:"Masjid ke paas bachon ko kya karna chahiye?"},
+      opts:[
+        {en:"Stay quiet, respectful, and keep the path clean", ur:"Khamosh, ehtiram wala, aur rasta saaf rakho"},
+        {en:"Play loud music during prayer time", ur:"Namaz ke waqt zor ki music"},
+        {en:"Drop wrappers on the path", ur:"Raste pe wrappers phenko"},
+        {en:"Argue loudly with neighbours", ur:"Padosiyon se zor se jhagra"}
+      ],
+      correct:0,
+      why:{en:"Respect for mosque and neighbours is a good deed for every child.",
+           ur:"Masjid aur padosiyon ka ehtiram har bachay ka nek kaam hai."}
+    },
+    {
+      q:{en:"Helping parents cheerfully is…",
+         ur:"Walidain ki khushi se madad…"},
+      opts:[
+        {en:"A loving good deed connected to remembering Allah", ur:"Mohabbat bhara nek kaam — Allah ko yaad rakhne se juda"},
+        {en:"A waste of time", ur:"Waqt zaya karna"},
+        {en:"Only for adults", ur:"Sirf baron ke liye"},
+        {en:"Something to argue about first", ur:"Pehle jhagra karne wali baat"}
+      ],
+      correct:0,
+      why:{en:"Serving parents kindly is beloved manners — worship-adjacent love.",
+           ur:"Walidain ki narmi se khidmat pyari ikhlaaq hai — mohabbat wali ibadat-adjacent."}
+    }
+  ];
+
+  var imanIdx = 0, imanSelected = null, imanSort = {}, imanDone = {};
+  var ibadatIdx = 0, ibadatDone = {};
+  var deedsIdx = 0, deedsDone = {}, deedPlaces = {home:false, school:false, hood:false};
+  var quizSet = [];
+
+  function award(key, n){
+    if (awarded[key]) return;
+    awarded[key] = true;
+    stars += (n || 1);
+    $("starCount").textContent = String(stars);
+  }
+  function recountStars(){
+    stars = 0;
+    Object.keys(awarded).forEach(function(k){
+      stars += (k.indexOf("mode-")===0) ? 2 : 1;
+    });
+    $("starCount").textContent = String(stars);
+  }
+
+  function crescentSVG(){
+    return '<svg class="crescent-deco" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+      '<circle cx="22" cy="20" r="12" fill="#f5e6a8"/>' +
+      '<circle cx="28" cy="18" r="10" fill="#4a8fb8"/>' +
+      '<polygon points="12,8 13.5,12.5 18,12.5 14.5,15.5 16,20 12,17.2 8,20 9.5,15.5 6,12.5 10.5,12.5" fill="#d4a017"/>' +
+      '</svg>';
+  }
+
+  function skyHTML(){
+    return '<div class="sky-layer">' + crescentSVG() +
+           '<div class="cloud c1"></div><div class="cloud c2"></div></div>' +
+           '<div class="hills"><div class="hill h-a"></div><div class="hill h-b"></div></div>' +
+           '<div class="geom-edge"></div>' +
+           '<div class="ground-strip"></div>';
+  }
+
+  function kidsSVG(){
+    return '<svg class="comic-hero" style="width:min(90%,260px);height:auto;font-size:inherit" viewBox="0 0 260 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+      '<ellipse cx="130" cy="92" rx="70" ry="6" fill="rgba(0,0,0,.1)"/>' +
+      '<circle cx="70" cy="38" r="16" fill="#f5c89a" stroke="#1a2e22" stroke-width="2"/>' +
+      '<rect x="55" y="54" width="30" height="28" rx="8" fill="#0d5c3d" stroke="#1a2e22" stroke-width="2"/>' +
+      '<text x="70" y="34" text-anchor="middle" font-size="10">😊</text>' +
+      '<circle cx="130" cy="34" r="17" fill="#e8b890" stroke="#1a2e22" stroke-width="2"/>' +
+      '<rect x="114" y="51" width="32" height="30" rx="8" fill="#2f6fb5" stroke="#1a2e22" stroke-width="2"/>' +
+      '<text x="130" y="30" text-anchor="middle" font-size="11">😄</text>' +
+      '<circle cx="190" cy="38" r="16" fill="#f0c4a0" stroke="#1a2e22" stroke-width="2"/>' +
+      '<rect x="175" y="54" width="30" height="28" rx="8" fill="#c45c3a" stroke="#1a2e22" stroke-width="2"/>' +
+      '<text x="190" y="34" text-anchor="middle" font-size="10">🙂</text>' +
+      /* tasteful crescent-star badge (decor, not calligraphy) */
+      '<circle cx="130" cy="14" r="9" fill="#0d5c3d" stroke="#1a2e22" stroke-width="1.5"/>' +
+      '<circle cx="133" cy="13" r="6" fill="#0d5c3d"/>' +
+      '<circle cx="135" cy="12" r="5.5" fill="#7eb8d4"/>' +
+      '<polygon points="124,10 125,13 128,13 125.5,15 126.5,18 124,16 121.5,18 122.5,15 120,13 123,13" fill="#d4a017"/>' +
+      '</svg>';
+  }
+
+  function maybeImanDone(){
+    if (Object.keys(imanDone).length >= IMAN.length){
+      doneModes.iman = true;
+      award("mode-iman", 2);
+      tabBadges();
+    }
+  }
+  function maybeIbadatDone(){
+    if (Object.keys(ibadatDone).length >= IBADAT.length){
+      doneModes.ibadat = true;
+      award("mode-ibadat", 2);
+      tabBadges();
+    }
+  }
+  function maybeDeedsDone(){
+    if (Object.keys(deedsDone).length >= DEEDS.length){
+      doneModes.deeds = true;
+      award("mode-deeds", 2);
+      tabBadges();
+    }
+  }
+
+  /* ---------- IMAN ---------- */
+  function renderIman(){
+    var ch = IMAN[imanIdx];
+    var pad = $("scenePad");
+    var box = $("actionBox");
+    box.innerHTML = "";
+    $("hintbox").classList.remove("show");
+
+    setText($("statechip"), (imanIdx+1) + " / " + IMAN.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (imanDone[ch.id]?" win":"");
+    if (imanDone[ch.id]) setText($("statechip"), t(T.nice));
+
+    if (ch.type === "sort"){
+      pad.innerHTML = skyHTML() +
+        '<div class="sort-grid">' +
+          '<div class="sort-bin iman-bin'+(imanSelected?" hot":"")+'" data-bin="iman"><h3></h3><div class="drop" id="binIman"></div></div>' +
+          '<div class="sort-bin live-bin'+(imanSelected?" hot":"")+'" data-bin="live"><h3></h3><div class="drop" id="binLive"></div></div>' +
+        '</div>';
+      setText(pad.querySelector(".iman-bin h3"), t(T.imanLab));
+      setText(pad.querySelector(".live-bin h3"), t(T.liveLab));
+
+      ["iman","live"].forEach(function(bin){
+        pad.querySelector('[data-bin="'+bin+'"]').addEventListener("click", function(){
+          if (!imanSelected || imanDone[ch.id]) return;
+          imanSort[imanSelected] = bin;
+          imanSelected = null;
+          renderIman();
+        });
+      });
+
+      ch.items.forEach(function(id){
+        var bin = imanSort[id];
+        if (!bin) return;
+        var el = document.createElement("span");
+        el.className = "mini-chip";
+        el.textContent = CARDS[id].em;
+        el.title = t(CARDS[id]);
+        el.addEventListener("click", function(e){
+          e.stopPropagation();
+          if (imanDone[ch.id]) return;
+          delete imanSort[id];
+          renderIman();
+        });
+        (bin==="iman"?$("binIman"):$("binLive")).appendChild(el);
+      });
+
+      var bank = document.createElement("div");
+      bank.className = "bank";
+      ch.items.forEach(function(id){
+        if (imanSort[id]) return;
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "item-card" + (imanSelected===id?" selected":"");
+        b.innerHTML = '<span class="item-em">'+CARDS[id].em+'</span><p class="item-lab"></p>';
+        setText(b.querySelector(".item-lab"), t(CARDS[id]));
+        b.addEventListener("click", function(){
+          if (imanDone[ch.id]) return;
+          imanSelected = id;
+          renderIman();
+        });
+        bank.appendChild(b);
+      });
+      box.appendChild(bank);
+
+      if (!imanDone[ch.id]){
+        var chk = document.createElement("button");
+        chk.type = "button";
+        chk.style.cssText = "margin-top:10px;width:100%;border:2px solid var(--ink);border-radius:14px;background:var(--ink);color:var(--paper);font:inherit;font-weight:800;min-height:48px;cursor:pointer";
+        setText(chk, t(T.checkSort));
+        chk.addEventListener("click", function(){
+          var ok = true;
+          ch.items.forEach(function(id){
+            if (imanSort[id] !== CARDS[id].bin) ok = false;
+          });
+          if (ok && Object.keys(imanSort).filter(function(k){ return ch.items.indexOf(k)>=0; }).length === ch.items.length){
+            imanDone[ch.id] = true;
+            award("iman-"+ch.id, 1);
+            setText($("headline"), t(ch.done));
+            $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.nice));
+            maybeImanDone();
+            renderIman();
+          } else {
+            setText($("headline"), t(T.oops));
+            $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.oops));
+          }
+        });
+        box.appendChild(chk);
+      }
+
+      setText($("headline"), imanDone[ch.id] ? t(ch.done) : t(ch.title));
+      setText($("detail"), imanSelected ? t(CARDS[imanSelected]) + " → ?" : t(T.askSort));
+    } else {
+      var card = CARDS[ch.card];
+      pad.innerHTML = skyHTML() +
+        '<div class="comic-stage">' + kidsSVG() +
+        '<div class="comic-panel"><span class="em">'+card.em+'</span><span class="plab"></span></div></div>';
+      setText(pad.querySelector(".plab"), t(card));
+
+      setText($("headline"), imanDone[ch.id] ? t(ch.done) : t(ch.title));
+      setText($("detail"), t(T.askPick));
+
+      var choices = document.createElement("div");
+      choices.className = "save-choices";
+      [
+        {id:"iman", em:"💚", en:"Heart of iman", ur:"ایمان کا دل"},
+        {id:"live", em:"🤝", en:"Living iman", ur:"زندہ ایمان"}
+      ].forEach(function(c){
+        var b = document.createElement("button");
+        b.type = "button";
+        if (imanDone[ch.id] && c.id === card.bin) b.classList.add("right");
+        b.innerHTML = '<span class="cem">'+c.em+'</span><span class="clab"></span>';
+        setText(b.querySelector(".clab"), t(c));
+        b.disabled = !!imanDone[ch.id];
+        b.addEventListener("click", function(){
+          if (imanDone[ch.id]) return;
+          if (c.id === card.bin){
+            imanDone[ch.id] = true;
+            award("iman-"+ch.id, 1);
+            b.classList.add("right");
+            setText($("headline"), t(ch.done));
+            $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.nice));
+            maybeImanDone();
+            renderIman();
+          } else {
+            b.classList.add("wrong");
+            setText($("headline"), t(T.oops));
+            $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.oops));
+            setTimeout(function(){ b.classList.remove("wrong"); }, 600);
+          }
+        });
+        choices.appendChild(b);
+      });
+      box.appendChild(choices);
+    }
+    setText($("prog"), t(T.progI) + ": " + Object.keys(imanDone).length + "/" + IMAN.length);
+  }
+
+  /* ---------- IBADAT ---------- */
+  function renderIbadat(){
+    var ch = IBADAT[ibadatIdx];
+    var pad = $("scenePad");
+    pad.innerHTML = skyHTML() +
+      '<div class="comic-stage"><div class="comic-hero">'+ch.hero+'</div>' +
+      '<div class="comic-panel"><span class="em">🧒</span><span class="plab"></span></div></div>';
+    setText(pad.querySelector(".plab"), t(ch.title));
+
+    setText($("statechip"), (ibadatIdx+1) + " / " + IBADAT.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (ibadatDone[ch.id]?" win":"");
+    if (ibadatDone[ch.id]) setText($("statechip"), t(T.nice));
+    setText($("headline"), ibadatDone[ch.id] ? t(ch.done) : t(ch.title));
+    setText($("detail"), t(ch.prompt));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+    var choices = document.createElement("div");
+    choices.className = "save-choices";
+    ch.choices.forEach(function(c){
+      var b = document.createElement("button");
+      b.type = "button";
+      if (ibadatDone[ch.id] && c.id === ch.correct) b.classList.add("right");
+      b.innerHTML = '<span class="cem">'+c.em+'</span><span class="clab"></span>';
+      setText(b.querySelector(".clab"), t(c));
+      b.disabled = !!ibadatDone[ch.id];
+      b.addEventListener("click", function(){
+        if (ibadatDone[ch.id]) return;
+        if (c.id === ch.correct){
+          ibadatDone[ch.id] = true;
+          award("ibadat-"+ch.id, 1);
+          b.classList.add("right");
+          setText($("headline"), t(ch.done));
+          $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.nice));
+          maybeIbadatDone();
+          tabBadges();
+          renderIbadat();
+        } else {
+          b.classList.add("wrong");
+          setText($("headline"), t(T.oops));
+          $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.oops));
+          setTimeout(function(){ b.classList.remove("wrong"); }, 600);
+        }
+      });
+      choices.appendChild(b);
+    });
+    box.appendChild(choices);
+    setText($("prog"), t(T.progB) + ": " + Object.keys(ibadatDone).length + "/" + IBADAT.length);
+  }
+
+  /* ---------- DEEDS MAP ---------- */
+  function renderDeeds(){
+    var ch = DEEDS[deedsIdx];
+    var pad = $("scenePad");
+    if (deedsDone.d1) deedPlaces.home = true;
+    if (deedsDone.d2) deedPlaces.school = true;
+    if (deedsDone.d3) deedPlaces.hood = true;
+
+    pad.innerHTML = skyHTML() +
+      '<div class="map-row">' +
+        '<div class="map-node home'+(deedPlaces.home?" done":"")+'"><span class="nem">🏠</span><p class="nlab" id="mapHome"></p></div>' +
+        '<span class="map-arrow">→</span>' +
+        '<div class="map-node school'+(deedPlaces.school?" done":"")+'"><span class="nem">🏫</span><p class="nlab" id="mapSchool"></p></div>' +
+        '<span class="map-arrow">→</span>' +
+        '<div class="map-node hood'+(deedPlaces.hood?" done":"")+'"><span class="nem">🕌</span><p class="nlab" id="mapHood"></p></div>' +
+      '</div>';
+    setText($("mapHome"), t(T.home));
+    setText($("mapSchool"), t(T.school));
+    setText($("mapHood"), t(T.hood));
+
+    setText($("statechip"), (deedsIdx+1) + " / " + DEEDS.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (deedsDone[ch.id]?" win":"");
+    if (deedsDone[ch.id]) setText($("statechip"), t(T.nice));
+    setText($("headline"), deedsDone[ch.id] ? t(ch.done) : t(ch.title));
+    setText($("detail"), t(ch.prompt));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+    var choices = document.createElement("div");
+    choices.className = "save-choices";
+    ch.choices.forEach(function(c){
+      var b = document.createElement("button");
+      b.type = "button";
+      if (deedsDone[ch.id] && c.id === ch.correct) b.classList.add("right");
+      b.innerHTML = '<span class="cem">'+c.em+'</span><span class="clab"></span>';
+      setText(b.querySelector(".clab"), t(c));
+      b.disabled = !!deedsDone[ch.id];
+      b.addEventListener("click", function(){
+        if (deedsDone[ch.id]) return;
+        if (c.id === ch.correct){
+          deedsDone[ch.id] = true;
+          if (ch.place === "home") deedPlaces.home = true;
+          if (ch.place === "school") deedPlaces.school = true;
+          if (ch.place === "hood") deedPlaces.hood = true;
+          award("deeds-"+ch.id, 1);
+          b.classList.add("right");
+          setText($("headline"), t(ch.done));
+          $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.nice));
+          maybeDeedsDone();
+          tabBadges();
+          renderDeeds();
+        } else {
+          b.classList.add("wrong");
+          setText($("headline"), t(T.oops));
+          $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.oops));
+          setTimeout(function(){ b.classList.remove("wrong"); }, 600);
+        }
+      });
+      choices.appendChild(b);
+    });
+    box.appendChild(choices);
+    setText($("prog"), t(T.progD) + ": " + Object.keys(deedsDone).length + "/" + DEEDS.length);
+  }
+
+  /* ---------- QUIZ ---------- */
+  function pickQuiz(){ quizSet = shuffle(QUIZ).slice(0, 5); }
+  function renderQuiz(){
+    var box = $("quizBox");
+    box.innerHTML = "";
+    quizSet.forEach(function(item, qi){
+      var wrap = document.createElement("div");
+      wrap.className = "q";
+      var p = document.createElement("p");
+      /* Quiz uses Roman Urdu (not Nastaliq) when ur — keep latin script readable */
+      if (lang === "ur"){
+        p.textContent = isolate((qi+1) + ". " + t(item.q));
+        p.classList.remove("ur");
+        p.setAttribute("dir", "ltr");
+        p.style.fontFamily = '"Baloo Bhaijaan 2",sans-serif';
+        p.style.lineHeight = "1.5";
+      } else {
+        setText(p, (qi+1) + ". " + t(item.q));
+      }
+      wrap.appendChild(p);
+      var answered = false;
+      item.opts.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        if (lang === "ur"){
+          b.className = "opt";
+          b.textContent = isolate(t(opt));
+          b.setAttribute("dir", "ltr");
+          b.style.textAlign = "left";
+          b.style.fontFamily = '"Baloo Bhaijaan 2",sans-serif';
+        } else {
+          b.className = "opt";
+          setText(b, t(opt));
+        }
+        b.addEventListener("click", function(){
+          if (answered) return;
+          answered = true;
+          if (oi === item.correct){
+            b.classList.add("right");
+            award("quiz-"+qi, 1);
+          } else {
+            b.classList.add("wrong");
+            var kids = wrap.querySelectorAll(".opt");
+            if (kids[item.correct]) kids[item.correct].classList.add("right");
+          }
+          fb.classList.add("show");
+        });
+        wrap.appendChild(b);
+      });
+      var fb = document.createElement("p");
+      fb.className = "fb";
+      if (lang === "ur"){
+        fb.textContent = isolate(t(item.why));
+        fb.setAttribute("dir", "ltr");
+        fb.style.fontFamily = '"Baloo Bhaijaan 2",sans-serif';
+      } else {
+        setText(fb, t(item.why));
+      }
+      wrap.appendChild(fb);
+      box.appendChild(wrap);
+    });
+  }
+
+  function storyHtml(){
+    if (mode === "iman") return t(T.storyIman);
+    if (mode === "ibadat") return t(T.storyIbadat);
+    return t(T.storyDeeds);
+  }
+
+  function tabBadges(){
+    function lab(btn, label, key){
+      btn.innerHTML = "";
+      var span = document.createElement("span");
+      setText(span, t(label));
+      btn.appendChild(span);
+      if (doneModes[key]){
+        var b = document.createElement("span");
+        b.className = "badge"; b.textContent = " ★";
+        btn.appendChild(b);
+      }
+    }
+    lab($("tabIman"), T.tabIman, "iman");
+    lab($("tabIbadat"), T.tabIbadat, "ibadat");
+    lab($("tabDeeds"), T.tabDeeds, "deeds");
+    $("tabIman").setAttribute("aria-pressed", mode==="iman"?"true":"false");
+    $("tabIbadat").setAttribute("aria-pressed", mode==="ibadat"?"true":"false");
+    $("tabDeeds").setAttribute("aria-pressed", mode==="deeds"?"true":"false");
+  }
+
+  function setMode(m){
+    mode = m;
+    imanSelected = null;
+    if (mode === "iman") renderIman();
+    else if (mode === "ibadat") renderIbadat();
+    else renderDeeds();
+    applyChrome();
+  }
+
+  function applyChrome(){
+    setText($("title"), t(T.title));
+    setText($("subtitle"), t(T.sub));
+    $("story").innerHTML = storyHtml();
+    $("story").classList.toggle("ur", lang==="ur");
+    $("story").setAttribute("dir", lang==="ur"?"rtl":"ltr");
+    setText($("ctlHead"), t(T.ctl));
+    setText($("nextBtn"), t(T.next));
+    setText($("hintBtn"), t(T.hint));
+    setText($("resetBtn"), t(T.reset));
+    setText($("quizHead"), t(T.quiz));
+    setText($("newQuiz"), t(T.newQuiz));
+    $("langBtn").textContent = (lang === "en") ? "اردو" : "EN";
+    $("langBtn").setAttribute("aria-pressed", lang==="ur"?"true":"false");
+    document.body.classList.toggle("urdu", lang==="ur");
+    document.documentElement.lang = (lang==="ur") ? "ur" : "en";
+    document.documentElement.dir = (lang==="ur") ? "rtl" : "ltr";
+    tabBadges();
+    var foot = document.querySelector("footer p");
+    if (foot) setText(foot, foot.getAttribute(lang==="ur"?"data-ur":"data-en"));
+  }
+
+  function applyLang(){
+    applyChrome();
+    if (mode === "iman") renderIman();
+    else if (mode === "ibadat") renderIbadat();
+    else renderDeeds();
+    renderQuiz();
+  }
+
+  function next(){
+    if (mode === "iman"){
+      imanIdx = (imanIdx + 1) % IMAN.length;
+      imanSelected = null;
+      if (IMAN[imanIdx].type === "sort"){
+        imanSort = {};
+      }
+      renderIman();
+    } else if (mode === "ibadat"){
+      ibadatIdx = (ibadatIdx + 1) % IBADAT.length;
+      renderIbadat();
+    } else {
+      deedsIdx = (deedsIdx + 1) % DEEDS.length;
+      renderDeeds();
+    }
+  }
+
+  function showHint(){
+    var h;
+    if (mode === "iman") h = IMAN[imanIdx].hint;
+    else if (mode === "ibadat") h = IBADAT[ibadatIdx].hint;
+    else h = DEEDS[deedsIdx].hint;
+    var hb = $("hintbox");
+    setText(hb, t(h));
+    hb.classList.add("show");
+  }
+
+  function resetMode(){
+    if (mode === "iman"){
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("iman-")===0 || k==="mode-iman") delete awarded[k]; });
+      imanDone = {}; imanSort = {}; imanSelected = null; imanIdx = 0;
+      doneModes.iman = false;
+      recountStars(); renderIman();
+    } else if (mode === "ibadat"){
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("ibadat-")===0 || k==="mode-ibadat") delete awarded[k]; });
+      ibadatDone = {}; ibadatIdx = 0; doneModes.ibadat = false;
+      recountStars(); renderIbadat();
+    } else {
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("deeds-")===0 || k==="mode-deeds") delete awarded[k]; });
+      deedsDone = {}; deedsIdx = 0; deedPlaces = {home:false, school:false, hood:false}; doneModes.deeds = false;
+      recountStars(); renderDeeds();
+    }
+    tabBadges();
+    applyChrome();
+  }
+
+  function cleanSpeakText(s){
+    return String(s || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  }
+  function buildSpeakText(){
+    var bits = [];
+    bits.push(t(T.title));
+    bits.push(cleanSpeakText(storyHtml()));
+    bits.push(cleanSpeakText(($("headline") && $("headline").textContent) || ""));
+    bits.push(cleanSpeakText(($("detail") && $("detail").textContent) || ""));
+    bits.push(t(T.tip));
+    return bits.filter(Boolean).join(". ");
+  }
+  function pickVoice(voices, want){
+    var i, v, L;
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf(want) === 0) return v;
+    }
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf("en") === 0) return v;
+    }
+    return voices[0] || null;
+  }
+  var speakTimer = null;
+  function setSpeaking(on){
+    var btn = $("speakBtn");
+    if (!btn) return;
+    btn.setAttribute("aria-pressed", on ? "true" : "false");
+    btn.style.opacity = on ? "0.65" : "";
+  }
+  function doSpeak(text, asLang){
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.92;
+    u.lang = (asLang === "ur") ? "ur-PK" : "en-US";
+    var voices = window.speechSynthesis.getVoices() || [];
+    var voice = pickVoice(voices, asLang === "ur" ? "ur" : "en");
+    if (voice) u.voice = voice;
+    u.onstart = function(){ setSpeaking(true); };
+    u.onend = function(){ setSpeaking(false); };
+    u.onerror = function(){
+      setSpeaking(false);
+      if (asLang === "ur"){
+        var fallback = cleanSpeakText(T.title.en + ". " + T.storyIman.en + ". " + T.tip.en);
+        var u2 = new SpeechSynthesisUtterance(fallback);
+        u2.lang = "en-US"; u2.rate = 0.92;
+        var v2 = pickVoice(window.speechSynthesis.getVoices() || [], "en");
+        if (v2) u2.voice = v2;
+        u2.onstart = function(){ setSpeaking(true); };
+        u2.onend = u2.onerror = function(){ setSpeaking(false); };
+        window.speechSynthesis.speak(u2);
+      }
+    };
+    window.speechSynthesis.speak(u);
+  }
+  if ("speechSynthesis" in window){
+    try { window.speechSynthesis.getVoices(); } catch (e0) {}
+    if (typeof window.speechSynthesis.addEventListener === "function"){
+      window.speechSynthesis.addEventListener("voiceschanged", function(){
+        try { window.speechSynthesis.getVoices(); } catch (e1) {}
+      });
+    }
+  } else {
+    var noBtn = $("speakBtn");
+    if (noBtn){ noBtn.disabled = true; noBtn.title = "Voice not available on this device"; }
+  }
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en";
+    applyLang();
+  });
+  $("tabIman").addEventListener("click", function(){ setMode("iman"); });
+  $("tabIbadat").addEventListener("click", function(){ setMode("ibadat"); });
+  $("tabDeeds").addEventListener("click", function(){ setMode("deeds"); });
+  $("nextBtn").addEventListener("click", next);
+  $("hintBtn").addEventListener("click", showHint);
+  $("resetBtn").addEventListener("click", resetMode);
+  $("newQuiz").addEventListener("click", function(){ pickQuiz(); renderQuiz(); });
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      var text = buildSpeakText();
+      if (!text) return;
+      if (speakTimer){ clearTimeout(speakTimer); speakTimer = null; }
+      window.speechSynthesis.cancel();
+      setSpeaking(false);
+      var speakLang = lang;
+      speakTimer = setTimeout(function(){
+        speakTimer = null;
+        doSpeak(text, speakLang);
+      }, 80);
+    }catch(e){ setSpeaking(false); }
+  });
+
+  pickQuiz();
+  applyLang();
+})();
+</script>
+</body>
+</html>

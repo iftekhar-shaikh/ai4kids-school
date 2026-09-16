@@ -1,6 +1,6 @@
 """
 AI4Kids.pk — School v5  (5-Subject School Edition)
-6 Subjects: AI, Robotics, English, Math, Science
+7 Subjects: AI, Robotics, English, Math, Science
 Daily routine: Assembly -> Timetable -> 5 Periods
 Admin dashboard + Student portal
 Run:  streamlit run ai4kids_school.py
@@ -1111,6 +1111,7 @@ def render_topic_interactive(subject_key, grade, topic_title):
     (5, "social", "History"): "interactives/g5-history.html",
     (5, "social", "Geography"): "interactives/g5-geography.html",
     (5, "social", "Economics"): "interactives/g5-economics.html",
+    (5, "islamiat", "Imaniyat aur ibadat"): "interactives/g5-imaniyat-ibadat.html",
         }
         rel = FALLBACK.get((int(grade), subject_key, topic_title))
     if not rel:

@@ -271,5 +271,13 @@
       "interactive_file": "interactives/g5-economics.html",
       "interactive_label": "Khelo — Economics"
     }
+  },
+  {
+    "file": "kb/grade_5/islamiat.json",
+    "match_title": "Imaniyat aur ibadat",
+    "add": {
+      "interactive_file": "interactives/g5-imaniyat-ibadat.html",
+      "interactive_label": "Khelo — Imaniyat aur ibadat"
+    }
   }
 ]
