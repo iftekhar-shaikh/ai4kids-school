@@ -327,5 +327,13 @@
       "interactive_file": "interactives/g5-hamd-naat.html",
       "interactive_label": "Khelo — Hamd aur Naat"
     }
+  },
+  {
+    "file": "kb/grade_5/urdu.json",
+    "match_title": "Rahmat-e-Aalam aur seerat stories",
+    "add": {
+      "interactive_file": "interactives/g5-rahmat-aalam.html",
+      "interactive_label": "Khelo - Rahmat-e-Aalam"
+    }
   }
 ]

@@ -1118,6 +1118,7 @@ def render_topic_interactive(subject_key, grade, topic_title):
     (5, "islamiat", "Hidayat ke sarchashme"): "interactives/g5-hidayat-sarchashme.html",
     (5, "islamiat", "Islami taleemat aaj"): "interactives/g5-islami-taleemat-aaj.html",
     (5, "urdu", "Hamd aur Naat"): "interactives/g5-hamd-naat.html",
+    (5, "urdu", "Rahmat-e-Aalam aur seerat stories"): "interactives/g5-rahmat-aalam.html",
         }
         rel = FALLBACK.get((int(grade), subject_key, topic_title))
     if not rel:
