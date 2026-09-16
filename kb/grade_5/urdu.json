@@ -136,7 +136,9 @@
             "correct": "a"
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g5-kahani-afsana.html",
+      "interactive_label": "Khelo - Kahani aur afsana"
     },
     {
       "title": "Grammar aur imla",

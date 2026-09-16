@@ -1120,6 +1120,7 @@ def render_topic_interactive(subject_key, grade, topic_title):
     (5, "urdu", "Hamd aur Naat"): "interactives/g5-hamd-naat.html",
     (5, "urdu", "Rahmat-e-Aalam aur seerat stories"): "interactives/g5-rahmat-aalam.html",
     (5, "urdu", "Qomi tehwar aur watan"): "interactives/g5-qomi-tehwar.html",
+    (5, "urdu", "Kahani aur afsana"): "interactives/g5-kahani-afsana.html",
         }
         rel = FALLBACK.get((int(grade), subject_key, topic_title))
     if not rel:

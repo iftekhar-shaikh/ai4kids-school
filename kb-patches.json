@@ -343,5 +343,13 @@
       "interactive_file": "interactives/g5-qomi-tehwar.html",
       "interactive_label": "Khelo - Qomi tehwar aur watan"
     }
+  },
+  {
+    "file": "kb/grade_5/urdu.json",
+    "match_title": "Kahani aur afsana",
+    "add": {
+      "interactive_file": "interactives/g5-kahani-afsana.html",
+      "interactive_label": "Khelo - Kahani aur afsana"
+    }
   }
 ]

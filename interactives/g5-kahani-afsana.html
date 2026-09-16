@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kahani aur afsana — کہانی اور افسانہ | AI4Kids Class 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#e8f0ea;--board-deep:#c5d8c8;--sky:#7eb8d4;--sky2:#4a8fb8;
+    --park:#5a9a6a;--park2:#3a7a4a;--accent:#0d5c3d;--flag-g:#01411C;
+    --ok:#2e7d4f;--ink:#1a2e22;--ink-soft:#4a5a4e;--paper:#fdfaf3;
+    --line:#d0dcc8;--gold:#d4a017;--left:#c4453a;
+    --char-bin:#2f6fb5;--set-bin:#0d5c3d;--evt-bin:#c45c3a;
+    --fs-cap:clamp(12px, 3.2vw, 13px);--fs-xs:clamp(14px, 3.7vw, 15px);
+    --fs-sm:clamp(16px, 4.2vw, 17px);--fs-md:clamp(17px, 4.6vw, 19px);
+    --fs-lg:clamp(20px, 5.4vw, 23px);--fs-xl:clamp(27px, 7.4vw, 33px);--lh:1.5;
+  }
+  body.urdu{
+    --fs-cap:clamp(13px, 3.5vw, 15px);--fs-xs:clamp(15px, 4.1vw, 17px);
+    --fs-sm:clamp(17px, 4.7vw, 19px);--fs-md:clamp(19px, 5.2vw, 21px);
+    --fs-lg:clamp(22px, 6vw, 25px);--fs-xl:clamp(26px, 7vw, 31px);--lh:2.1;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  .stars{display:flex;align-items:center;gap:6px;font-weight:800;font-size:var(--fs-xs);
+         background:#fff6e2;border:2px solid var(--gold);border-radius:999px;padding:7px 13px}
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+  .tabs{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
+  .tabs button{
+    flex:1 1 28%;min-width:90px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:10px 6px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:54px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .tabs button .badge{color:var(--gold)}
+  .story{
+    background:#fff8ea;border:2px dashed var(--gold);border-radius:16px;padding:13px 15px;
+    font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;margin-bottom:14px;
+  }
+  body.urdu .story{line-height:var(--lh)}
+  .story b{color:var(--ink)}
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:
+      radial-gradient(circle at 12% 18%, rgba(212,160,23,.18) 0 8px, transparent 9px),
+      radial-gradient(circle at 88% 22%, rgba(13,92,61,.12) 0 6px, transparent 7px),
+      linear-gradient(180deg,var(--sky) 0%,var(--sky2) 34%,#a8c9a0 34%,#8fb888 42%,var(--board) 42%);
+    min-height:280px;
+  }
+  .scene-pad{padding:10px 12px 18px;min-height:260px;position:relative}
+  .sky-layer{position:absolute;inset:0 0 58% 0;pointer-events:none;overflow:hidden}
+  .book-deco{
+    position:absolute;top:10px;right:16px;width:34px;height:28px;z-index:1;
+    border:2px solid var(--ink);border-radius:3px 6px 6px 3px;
+    background:linear-gradient(90deg,#f5e6c8 0 48%,#e8d4a8 48% 100%);
+  }
+  body.urdu .book-deco{right:auto;left:16px}
+  .cloud{position:absolute;background:rgba(255,255,255,.85);border-radius:40px;opacity:.9}
+  .cloud:before,.cloud:after{content:"";position:absolute;background:inherit;border-radius:50%}
+  .c1{width:48px;height:15px;top:18px;left:12%}
+  .c1:before{width:22px;height:22px;top:-12px;left:6px}
+  .c1:after{width:18px;height:18px;top:-8px;left:24px}
+  .c2{width:34px;height:12px;top:34px;left:55%;opacity:.7}
+  .c2:before{width:16px;height:16px;top:-9px;left:4px}
+  .c2:after{width:12px;height:12px;top:-5px;left:16px}
+  .hills{position:absolute;left:0;right:0;bottom:42%;height:40px;z-index:1;pointer-events:none}
+  .hill{position:absolute;bottom:0;border-radius:50% 50% 0 0;
+        background:linear-gradient(180deg,#4a8a5a,#2d5530)}
+  .h-a{width:42%;height:36px;left:-4%;opacity:.55}
+  .h-b{width:38%;height:28px;right:8%;opacity:.5}
+  .ground-strip{
+    position:absolute;left:0;right:0;bottom:0;height:32%;
+    background:
+      repeating-linear-gradient(90deg, transparent 0 18px, rgba(13,92,61,.06) 18px 20px),
+      linear-gradient(180deg,#8fbc78 0%,#6a9a58 100%);
+    z-index:2;border-top:3px solid #4a7040;
+  }
+  .geom-edge{
+    position:absolute;left:0;right:0;bottom:31%;height:6px;z-index:3;pointer-events:none;
+    background:repeating-linear-gradient(90deg, var(--gold) 0 8px, var(--accent) 8px 16px, transparent 16px 20px);
+    opacity:.55;
+  }
+  .comic-stage{position:relative;z-index:5;padding-top:78px;text-align:center;min-height:150px}
+  .comic-hero{font-size:56px;line-height:1;margin:4px 0 8px;filter:drop-shadow(0 2px 0 rgba(0,0,0,.12))}
+  .comic-panel{
+    display:inline-flex;align-items:center;gap:8px;background:rgba(253,250,243,.95);
+    border:2.5px solid var(--ink);border-radius:16px;padding:10px 14px;margin:4px;
+    box-shadow:0 3px 0 rgba(30,42,26,.12);font-weight:800;font-size:var(--fs-cap);
+  }
+  .comic-panel .em{font-size:28px}
+  .sort-grid{
+    position:relative;z-index:5;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;
+    padding-top:78px;
+  }
+  .sort-bin{
+    border:2.5px solid var(--ink);border-radius:14px;padding:8px 6px;min-height:110px;
+    background:rgba(253,250,243,.88);text-align:center;cursor:pointer;
+  }
+  .sort-bin.char-bin{border-color:var(--char-bin);background:rgba(230,238,248,.95)}
+  .sort-bin.set-bin{border-color:var(--set-bin);background:rgba(230,242,234,.95)}
+  .sort-bin.evt-bin{border-color:var(--evt-bin);background:rgba(255,240,232,.95)}
+  .sort-bin.hot{box-shadow:0 0 0 3px rgba(13,92,61,.3)}
+  .sort-bin h3{margin:0 0 6px;font-size:var(--fs-cap);font-weight:800}
+  .sort-bin .drop{min-height:50px;display:flex;flex-wrap:wrap;gap:4px;justify-content:center;align-items:center}
+  .item-card{
+    background:rgba(253,250,243,.95);border:2.5px solid var(--ink);border-radius:16px;
+    padding:8px 10px 10px;text-align:center;min-width:72px;max-width:130px;
+    box-shadow:0 3px 0 rgba(30,42,26,.15);cursor:pointer;user-select:none;
+  }
+  .item-card:hover{transform:translateY(-2px)}
+  .item-card.selected{border-color:var(--accent);background:#e8f5ec;box-shadow:0 0 0 3px rgba(13,92,61,.25)}
+  .item-card.ok{border-color:var(--ok);background:#e8f2ed}
+  .item-card.no{border-color:var(--left);background:#fbeae8}
+  .item-em{font-size:34px;line-height:1.1;display:block;margin-bottom:2px}
+  .item-lab{font-size:var(--fs-cap);font-weight:800;line-height:1.25;margin:0}
+  .bank{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:8px;position:relative;z-index:5}
+  .mini-chip{
+    border:2px solid var(--ink);border-radius:12px;padding:6px 8px;background:#fff;
+    line-height:1;cursor:pointer;min-width:40px;font-size:22px;
+  }
+  .save-choices{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+  .save-choices button{
+    border:2.5px solid var(--ink);background:var(--paper);border-radius:14px;
+    padding:12px 14px;font:inherit;font-weight:800;font-size:var(--fs-xs);
+    cursor:pointer;text-align:left;min-height:52px;display:flex;align-items:center;gap:10px;
+  }
+  body.urdu .save-choices button{text-align:right}
+  .save-choices button .cem{font-size:26px}
+  .save-choices button.right{border-color:var(--ok);background:#e8f2ed}
+  .save-choices button.wrong{border-color:var(--left);background:#fbeae8}
+  .vocab-card{
+    position:relative;z-index:5;margin:88px auto 8px;max-width:280px;
+    background:rgba(253,250,243,.96);border:2.5px solid var(--ink);border-radius:18px;
+    padding:16px 14px;text-align:center;box-shadow:0 3px 0 rgba(30,42,26,.12);
+  }
+  .vocab-card .vem{font-size:42px;line-height:1;display:block;margin-bottom:6px}
+  .vocab-card .vword{font-weight:800;font-size:var(--fs-lg);margin:0 0 4px}
+  .vocab-card .vroman{font-size:var(--fs-cap);color:var(--ink-soft);margin:0;font-weight:700}
+  .story-box{
+    position:relative;z-index:5;margin:78px auto 8px;max-width:320px;
+    background:rgba(253,250,243,.96);border:2.5px dashed var(--gold);border-radius:16px;
+    padding:14px 12px;text-align:center;
+  }
+  .story-box .sem{font-size:40px;display:block;margin-bottom:6px}
+  .story-box .stitle{font-weight:800;font-size:var(--fs-sm);margin:0 0 6px}
+  .story-box .sbody{font-size:var(--fs-xs);color:var(--ink-soft);margin:0;line-height:1.45;font-weight:600}
+  .pick-chip{
+    display:inline-flex;align-items:center;gap:6px;margin:4px;
+    border:2px solid var(--ink);background:#fff;border-radius:999px;
+    padding:8px 14px;font:inherit;font-weight:800;font-size:var(--fs-xs);
+    cursor:pointer;min-height:42px;
+  }
+  .pick-chip.used{opacity:.35;pointer-events:none}
+  .pick-chip.ok{border-color:var(--ok);background:#e8f2ed}
+  .pick-chip.no{border-color:var(--left);background:#fbeae8}
+  .chip-row{display:flex;flex-wrap:wrap;justify-content:center;gap:2px;margin-top:8px}
+  .readout{
+    margin-top:-18px;position:relative;z-index:2;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+  .statechip.ur{padding:2px 14px 7px}
+  .statechip.win{background:var(--ok)}
+  .statechip.miss{background:var(--left)}
+  .headline{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+  .headline.ur{line-height:1.95}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+  .hintbox{
+    margin-top:14px;border:2px solid var(--accent);background:#e8f5ec;border-radius:14px;
+    padding:11px 14px;font-size:var(--fs-xs);color:var(--accent);font-weight:700;line-height:1.55;
+    display:none;
+  }
+  .hintbox.show{display:block}
+  body.urdu .hintbox{line-height:var(--lh)}
+  .panel{margin-top:22px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .prog{margin:0 0 10px;font-size:var(--fs-xs);font-weight:700;color:var(--ink-soft)}
+  .btns{display:flex;gap:9px;margin-top:8px;flex-wrap:wrap}
+  .btns button{
+    border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);
+    font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:50px;
+    padding:8px 14px;flex:1;
+  }
+  .btns .go{background:var(--ink);color:var(--paper)}
+  .btns button:active{transform:scale(.97)}
+  .btns button:disabled{opacity:.4;cursor:default}
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .qhead{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+  .qhead h2{font-size:var(--fs-lg);font-weight:800;margin:0;flex:1}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:50px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+  .opt.wrong{border-color:var(--left);background:#fbeae8}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
+      grid-template-areas:
+        "bar   bar" "head  head" "tabs  tabs" "story story"
+        "left  right" "quiz  quiz" "foot  foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+    .story{grid-area:story} .left{grid-area:left} .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+    .panel{margin-top:0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition-duration:.01ms !important;animation:none !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 5 · Urdu</span>
+    <span class="stars" id="starBox">⭐ <span id="starCount">0</span></span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 id="title"></h1>
+  <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group">
+    <button type="button" id="tabPieces" aria-pressed="true"></button>
+    <button type="button" id="tabMoral" aria-pressed="false"></button>
+    <button type="button" id="tabVocab" aria-pressed="false"></button>
+  </div>
+
+  <p class="story" id="story"></p>
+
+  <div class="left">
+  <div class="scene">
+    <div class="scene-pad" id="scenePad"></div>
+  </div>
+  <div class="readout">
+    <span class="statechip" id="statechip"></span>
+    <p class="headline" id="headline"></p>
+    <p class="detail" id="detail"></p>
+    <p class="hintbox" id="hintbox"></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="panel">
+    <h2 id="ctlHead"></h2>
+    <p class="prog" id="prog"></p>
+    <div id="actionBox"></div>
+    <div class="btns">
+      <button type="button" class="go" id="nextBtn"></button>
+    </div>
+    <div class="btns">
+      <button type="button" id="hintBtn"></button>
+      <button type="button" id="resetBtn"></button>
+    </div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <div class="qhead">
+      <h2 id="quizHead"></h2>
+      <button type="button" class="chip" id="newQuiz"></button>
+    </div>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad bilingual school. Offline play · no APIs. WhatsApp 0337 1468899 · Urdu Class 5 (helping interactive)"
+       data-ur="اے آئی فور کڈز — اسلام آباد۔ آف لائن کھیلو۔ واٹس ایپ 0337 1468899 · اردو جماعت ۵ (مددگار انٹرایکٹو)"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  function $(id){ return document.getElementById(id); }
+  function isolate(s){ return "\u2066" + s + "\u2069"; }
+  function setText(el, str){
+    if (!el) return;
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+  function t(o){ return (o && o[lang]) || (o && o.en) || ""; }
+  function shuffle(arr){
+    var a = arr.slice(), i, j, tmp;
+    for (i = a.length - 1; i > 0; i--){
+      j = Math.floor(Math.random() * (i + 1));
+      tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  var lang = "en";
+  var mode = "pieces";
+  var stars = 0;
+  var awarded = {};
+  var doneModes = {pieces:false, moral:false, vocab:false};
+
+  var T = {
+    title:{en:"Kahani aur afsana", ur:"کہانی اور افسانہ"},
+    sub:{en:"Read short comics: spot character, setting, event; find the moral; learn kahani vs afsana — school, home, friendship, honesty!",
+         ur:"چھوٹی کامکس پڑھو: کردار، مقام، واقعہ پہچانو؛ سبق تلاش کرو؛ کہانی اور افسانہ سیکھو — اسکول، گھر، دوستی، دیانت!"},
+    tabPieces:{en:"Story pieces", ur:"کہانی کے ٹکڑے"},
+    tabMoral:{en:"Find the moral", ur:"سبق تلاش کرو"},
+    tabVocab:{en:"Vocab match", ur:"الفاظ میچ"},
+    storyPieces:{en:"Tap comic pieces into bins: <b>character</b> (who), <b>setting</b> (where), <b>event</b> (what happened)!",
+                 ur:"کامکس کے ٹکڑے باکس میں رکھو: <b>کردار</b> (کون)، <b>مقام</b> (کہاں)، <b>واقعہ</b> (کیا ہوا)!"},
+    storyMoral:{en:"Read a short school/home story, then pick the <b>correct lesson / moral</b> — honesty, kindness, sharing!",
+                ur:"چھوٹی اسکول/گھر کہانی پڑھو، پھر صحیح <b>سبق / اخلاقیات</b> چنو — دیانت، مہربانی، بانٹنا!"},
+    storyVocab:{en:"Match kid words: <b>character, plot/event, moral, kahani, afsana</b> — simple meanings!",
+                ur:"بچوں کے الفاظ ملاؤ: <b>کردار، پلاٹ/واقعہ، سبق، کہانی، افسانہ</b> — سادہ معنی!"},
+    ctl:{en:"Your turn — story detective", ur:"تمہاری باری — کہانی جاسوس"},
+    next:{en:"Next challenge", ur:"اگلا چیلنج"},
+    hint:{en:"Hint", ur:"اشارہ"},
+    reset:{en:"Reset", ur:"ری سیٹ"},
+    quiz:{en:"Check yourself", ur:"اپنا چیک"},
+    newQuiz:{en:"New quiz", ur:"نیا کوئز"},
+    nice:{en:"Shabash — story smart!", ur:"شاباش — کہانی ہوشیار!"},
+    oops:{en:"Almost — try again", ur:"قریب — دوبارہ آزماؤ"},
+    tip:{en:"Tip: Character = who; setting = where; event = what happens. Moral = the lesson. Kahani = story; afsana = short imaginative story.",
+         ur:"نکتہ: کردار = کون؛ مقام = کہاں؛ واقعہ = کیا ہوتا ہے۔ سبق = سبق۔ کہانی = story؛ افسانہ = مختصر خیالی کہانی۔"},
+    progP:{en:"Story pieces", ur:"کہانی کے ٹکڑے"},
+    progM:{en:"Find the moral", ur:"سبق تلاش کرو"},
+    progV:{en:"Vocab match", ur:"الفاظ میچ"},
+    askSort:{en:"Tap a card, then tap Character / Setting / Event", ur:"کارڈ ٹیپ کرو، پھر کردار / مقام / واقعہ"},
+    askPick:{en:"What story piece is this?", ur:"یہ کہانی کا کون سا ٹکڑا ہے؟"},
+    askMoral:{en:"What is the lesson of this story?", ur:"اس کہانی کا سبق کیا ہے؟"},
+    askVocab:{en:"Tap the matching meaning", ur:"ملا ہوا معنی ٹیپ کرو"},
+    checkSort:{en:"Check sort", ur:"چھانٹی چیک کرو"},
+    charLab:{en:"👤 Character", ur:"👤 کردار"},
+    setLab:{en:"📍 Setting", ur:"📍 مقام"},
+    evtLab:{en:"⚡ Event", ur:"⚡ واقعہ"},
+    pick:{en:"Tap a card first", ur:"پہلے کارڈ ٹیپ کرو"}
+  };
+
+  /* Comic piece cards */
+  var CARDS = {
+    c1:{em:"👧", en:"Sara (Class 5 girl)", ur:"سارہ (جماعت ۵ لڑکی)", bin:"char"},
+    c2:{em:"👦", en:"Ali (helpful friend)", ur:"علی (مددگار دوست)", bin:"char"},
+    c3:{em:"👩‍🏫", en:"Miss Noor (teacher)", ur:"مس نور (استانی)", bin:"char"},
+    c4:{em:"👴", en:"Dada (kind grandpa)", ur:"دادا (مہربان دادا)", bin:"char"},
+    s1:{em:"🏫", en:"Islamabad school yard", ur:"اسلام آباد اسکول یارڈ", bin:"set"},
+    s2:{em:"🏠", en:"Home kitchen table", ur:"گھر کی کچن میز", bin:"set"},
+    s3:{em:"🌳", en:"Park near F-7", ur:"ایف-۷ قریب پارک", bin:"set"},
+    s4:{em:"📚", en:"Class library corner", ur:"کلاس لائبریری کونے", bin:"set"},
+    e1:{em:"📖", en:"Lost book found & returned", ur:"گم شدہ کتاب ملی اور واپس", bin:"evt"},
+    e2:{em:"🤝", en:"Friends share lunch", ur:"دوست لنچ بانٹتے ہیں", bin:"evt"},
+    e3:{em:"✏️", en:"Homework done honestly", ur:"ہوم ورک ایمانداری سے", bin:"evt"},
+    e4:{em:"🧹", en:"Kids clean the park bench", ur:"بچے پارک بینچ صاف کرتے", bin:"evt"}
+  };
+
+  var PIECES = [
+    {
+      id:"p1", type:"sort",
+      title:{en:"Sort: who / where / what?", ur:"چھانٹو: کون / کہاں / کیا؟"},
+      items:["c1","s1","e1","c2"],
+      hint:{en:"Sara & Ali = characters (who). School yard = setting. Returning a book = event.",
+            ur:"سارہ اور علی = کردار۔ اسکول یارڈ = مقام۔ کتاب واپس = واقعہ۔"},
+      done:{en:"Pieces sorted!", ur:"ٹکڑے چھانٹے!"}
+    },
+    {
+      id:"p2", type:"sort",
+      title:{en:"Home & honesty pieces", ur:"گھر اور دیانت کے ٹکڑے"},
+      items:["c4","s2","e3","s4"],
+      hint:{en:"Dada = character. Kitchen / library = settings. Honest homework = event.",
+            ur:"دادا = کردار۔ کچن / لائبریری = مقام۔ ایماندار ہوم ورک = واقعہ۔"},
+      done:{en:"Home pieces locked!", ur:"گھر کے ٹکڑے تیار!"}
+    },
+    {
+      id:"p3", type:"pick",
+      title:{en:"Who is in the comic?", ur:"کامکس میں کون ہے؟"},
+      card:"c3",
+      choices:[
+        {id:"char", em:"👤", en:"Character — Miss Noor the teacher", ur:"کردار — استانی مس نور"},
+        {id:"set", em:"📍", en:"Setting — a place only", ur:"مقام — صرف جگہ"},
+        {id:"evt", em:"⚡", en:"Event — something that happened", ur:"واقعہ — جو کچھ ہوا"}
+      ],
+      correct:"char",
+      hint:{en:"A person in the story is the character (who).",
+            ur:"کہانی کا شخص کردار ہے (کون)۔"},
+      done:{en:"Character locked!", ur:"کردار تیار!"}
+    },
+    {
+      id:"p4", type:"pick",
+      title:{en:"Park clean-up moment", ur:"پارک صفائی کا لمحہ"},
+      card:"e4",
+      choices:[
+        {id:"evt", em:"⚡", en:"Event — kids cleaning the bench", ur:"واقعہ — بچے بینچ صاف کرتے"},
+        {id:"char", em:"👤", en:"Only a character name", ur:"صرف کردار کا نام"},
+        {id:"set", em:"📍", en:"Only the park address", ur:"صرف پارک کا پتہ"}
+      ],
+      correct:"evt",
+      hint:{en:"What happens in the story is the event / plot moment.",
+            ur:"کہانی میں جو ہوتا ہے وہ واقعہ / پلاٹ ہے۔"},
+      done:{en:"Event locked!", ur:"واقعہ تیار!"}
+    }
+  ];
+
+  /* Moral stories — age-safe */
+  var MORAL = [
+    {
+      id:"m1",
+      title:{en:"The lost eraser", ur:"گم شدہ ربر"},
+      hero:"✏️👧💚",
+      story:{en:"Sara finds Zain's eraser under a desk. She quietly puts it back on his bag.",
+             ur:"سارہ کو زین کا ربر میز کے نیچے ملتا ہے۔ وہ خاموشی سے اسے بیگ پر رکھ دیتی ہے۔"},
+      choices:[
+        {id:"honest", em:"💚", en:"Return what is not yours — be honest", ur:"جو تمہارا نہیں واپس کرو — دیانتدار بنو"},
+        {id:"hide", em:"🙈", en:"Hide it and keep quiet forever", ur:"چھپاؤ اور ہمیشہ خاموش رہو"},
+        {id:"tease", em:"😜", en:"Tease Zain about losing things", ur:"زین کا گم کرنے پر مذاق اڑاؤ"}
+      ],
+      correct:"honest",
+      hint:{en:"The kind lesson is honesty — return what belongs to someone else.",
+            ur:"مہربان سبق دیانت ہے — دوسروں کی چیز واپس کرو۔"},
+      done:{en:"Honesty moral!", ur:"دیانت کا سبق!"}
+    },
+    {
+      id:"m2",
+      title:{en:"Shared lunch", ur:"مشترکہ لنچ"},
+      hero:"🍎🤝👦",
+      story:{en:"Ali forgot his lunch. Bilal shares half his sandwich without making Ali feel small.",
+             ur:"علی لنچ بھول گیا۔ بلال آدھا سینڈوچ بانٹتا ہے بغیر علی کو چھوٹا محسوس کرائے۔"},
+      choices:[
+        {id:"share", em:"🤝", en:"Share kindly with friends", ur:"دوستوں کے ساتھ مہربانی سے بانٹو"},
+        {id:"boast", em:"📢", en:"Boast loudly about your food", ur:"اپنے کھانے پر زور سے فخر کرو"},
+        {id:"ignore", em:"😑", en:"Ignore a hungry classmate", ur:"بھوکے ہم جماعت کو نظرانداز کرو"}
+      ],
+      correct:"share",
+      hint:{en:"Friendship lesson = share food kindly and quietly.",
+            ur:"دوستی کا سبق = مہربانی اور خاموشی سے کھانا بانٹو۔"},
+      done:{en:"Sharing moral!", ur:"بانٹنے کا سبق!"}
+    },
+    {
+      id:"m3",
+      title:{en:"Homework truth", ur:"ہوم ورک کی سچائی"},
+      hero:"📝🏠👴",
+      story:{en:"Dada asks if homework is done. Ayesha admits two sums are left — then finishes them honestly.",
+             ur:"دادا پوچھتے ہیں ہوم ورک ہوا؟ عائشہ کہتی ہے دو سوال باقی ہیں — پھر ایمانداری سے مکمل کرتی ہے۔"},
+      choices:[
+        {id:"truth", em:"✨", en:"Tell the truth, then finish the work", ur:"سچ بولو، پھر کام مکمل کرو"},
+        {id:"lie", em:"🙊", en:"Say 'all done' when it is not", ur:"کہو 'سب ہو گیا' جب نہیں ہوا"},
+        {id:"blame", em:"👉", en:"Blame a friend for your work", ur:"اپنے کام کا الزام دوست پر"}
+      ],
+      correct:"truth",
+      hint:{en:"Home honesty = speak truth and complete your own work.",
+            ur:"گھر کی دیانت = سچ بولو اور اپنا کام خود مکمل کرو۔"},
+      done:{en:"Truth moral!", ur:"سچائی کا سبق!"}
+    },
+    {
+      id:"m4",
+      title:{en:"Park bench team", ur:"پارک بینچ ٹیم"},
+      hero:"🌳🧹😊",
+      story:{en:"After play, friends wipe crumbs from the park bench so the next family finds it clean.",
+             ur:"کھیل کے بعد دوست پارک بینچ سے ٹکڑیاں صاف کرتے ہیں تاکہ اگلا خاندان صاف پائے۔"},
+      choices:[
+        {id:"care", em:"🌱", en:"Leave places nicer for others", ur:"جگہیں دوسروں کے لیے بہتر چھوڑو"},
+        {id:"mess", em:"🗑️", en:"Leave more mess for fun", ur:"مزے کے لیے مزید گندگی چھوڑو"},
+        {id:"fight", em:"😤", en:"Argue about who sits first", ur:"پہلے بیٹھنے پر جھگڑا کرو"}
+      ],
+      correct:"care",
+      hint:{en:"Community care = clean up so others feel welcome.",
+            ur:"کمیونٹی کی دیکھ بھال = صاف کرو تاکہ دوسرے خوش ہوں۔"},
+      done:{en:"Care moral!", ur:"دیکھ بھال کا سبق!"}
+    }
+  ];
+
+  /* Vocab */
+  var WORDS = {
+    character:{em:"👤", en:"Character", ur:"کردار", roman:"kirdar / character",
+               mean:{en:"Who is in the story (people)", ur:"کہانی میں کون ہے (لوگ)"}},
+    plot:{em:"⚡", en:"Plot / event", ur:"پلاٹ / واقعہ", roman:"plot / waqia",
+          mean:{en:"What happens in the story", ur:"کہانی میں کیا ہوتا ہے"}},
+    moral:{em:"💡", en:"Moral / lesson", ur:"سبق / اخلاقیات", roman:"sabq / moral",
+           mean:{en:"The lesson we learn from the story", ur:"کہانی سے جو سبق سیکھتے ہیں"}},
+    kahani:{em:"📖", en:"Kahani", ur:"کہانی", roman:"kahani",
+            mean:{en:"A story — people, place, and events", ur:"کہانی — لوگ، جگہ، اور واقعات"}},
+    afsana:{em:"✨", en:"Afsana", ur:"افسانہ", roman:"afsana",
+            mean:{en:"A short imaginative story (kid idea)", ur:"مختصر خیالی کہانی (بچوں کا خیال)"}},
+    setting:{em:"📍", en:"Setting", ur:"مقام / سیٹنگ", roman:"maqam / setting",
+             mean:{en:"Where the story happens", ur:"کہانی کہاں ہوتی ہے"}},
+    title:{em:"🏷️", en:"Title", ur:"عنوان", roman:"unwan / title",
+           mean:{en:"The name of the story", ur:"کہانی کا نام"}},
+    friendship:{em:"🤝", en:"Friendship", ur:"دوستی", roman:"dosti",
+                mean:{en:"Being kind helpers to each other", ur:"ایک دوسرے کے مہربان مددگار بننا"}}
+  };
+
+  var VOCAB = [
+    {
+      id:"v1",
+      title:{en:"Match: character", ur:"ملاؤ: کردار"},
+      word:"character",
+      distractors:["setting","moral","title"],
+      hint:{en:"Character = who is in the story (Sara, Ali, teacher…).",
+            ur:"کردار = کہانی میں کون ہے (سارہ، علی، استانی…)۔"},
+      done:{en:"Character matched!", ur:"کردار مل گیا!"}
+    },
+    {
+      id:"v2",
+      title:{en:"Match: plot / event", ur:"ملاؤ: پلاٹ / واقعہ"},
+      word:"plot",
+      distractors:["kahani","friendship","title"],
+      hint:{en:"Plot / event = what happens (sharing lunch, returning a book).",
+            ur:"پلاٹ / واقعہ = کیا ہوتا ہے (لنچ بانٹنا، کتاب واپس)۔"},
+      done:{en:"Plot matched!", ur:"پلاٹ مل گیا!"}
+    },
+    {
+      id:"v3",
+      title:{en:"Match: moral", ur:"ملاؤ: سبق"},
+      word:"moral",
+      distractors:["setting","afsana","character"],
+      hint:{en:"Moral = the lesson (be honest, share kindly).",
+            ur:"سبق = سبق (دیانتدار بنو، مہربانی سے بانٹو)۔"},
+      done:{en:"Moral matched!", ur:"سبق مل گیا!"}
+    },
+    {
+      id:"v4",
+      title:{en:"Match: kahani", ur:"ملاؤ: کہانی"},
+      word:"kahani",
+      distractors:["plot","title","friendship"],
+      hint:{en:"Kahani = a story with people, place, and events.",
+            ur:"کہانی = لوگوں، جگہ، اور واقعات والی story۔"},
+      done:{en:"Kahani matched!", ur:"کہانی مل گئی!"}
+    },
+    {
+      id:"v5",
+      title:{en:"Match: afsana", ur:"ملاؤ: افسانہ"},
+      word:"afsana",
+      distractors:["setting","moral","character"],
+      hint:{en:"Afsana (kid idea) = a short imaginative story — often short and creative.",
+            ur:"افسانہ (بچوں کا خیال) = مختصر خیالی کہانی — اکثر مختصر اور تخلیقی۔"},
+      done:{en:"Afsana matched!", ur:"افسانہ مل گیا!"}
+    }
+  ];
+
+  /* Quiz — EN + Roman Urdu; 7 pool → pick 5 */
+  var QUIZ = [
+    {
+      q:{en:"What is a character in a story?",
+         ur:"Kahani mein character (kirdar) kya hota hai?"},
+      opts:[
+        {en:"Who is in the story (people)", ur:"Kahani mein kaun hai (log)"},
+        {en:"Only the page number", ur:"Sirf page number"},
+        {en:"The weather report", ur:"Mausam ki report"},
+        {en:"A silent empty desk", ur:"Khamosh khali desk"}
+      ],
+      correct:0,
+      why:{en:"Character = who — the people in the kahani.",
+           ur:"Character = kaun — kahani ke log."}
+    },
+    {
+      q:{en:"Setting means…",
+         ur:"Setting (maqam) ka matlab…"},
+      opts:[
+        {en:"Where the story happens", ur:"Kahani kahan hoti hai"},
+        {en:"Only the author's phone number", ur:"Sirf writer ka phone"},
+        {en:"Skipping the ending", ur:"Anjam chhor dena"},
+        {en:"A random math sum", ur:"Random hisaab"}
+      ],
+      correct:0,
+      why:{en:"Setting = where — school, home, park.",
+           ur:"Setting = kahan — school, ghar, park."}
+    },
+    {
+      q:{en:"The moral of a story is…",
+         ur:"Kahani ka moral (sabq)…"},
+      opts:[
+        {en:"The lesson we learn (honesty, kindness…)", ur:"Jo sabq seekhte hain (diyanat, meherbani…)"},
+        {en:"Only the cover colour", ur:"Sirf cover ka rang"},
+        {en:"How many pages to tear", ur:"Kitne pages phaarna"},
+        {en:"A shopping list", ur:"Shopping list"}
+      ],
+      correct:0,
+      why:{en:"Moral = lesson — what the story teaches us to do.",
+           ur:"Moral = sabq — kahani humein kya sikhati hai."}
+    },
+    {
+      q:{en:"Kahani (story) usually has…",
+         ur:"Kahani mein aksar hota hai…"},
+      opts:[
+        {en:"Characters, setting, and events", ur:"Kirdar, maqam, aur waqiat"},
+        {en:"Only blank lines forever", ur:"Hamesha khali lines"},
+        {en:"Only one random emoji", ur:"Sirf ek random emoji"},
+        {en:"No people and no place", ur:"Na log na jagah"}
+      ],
+      correct:0,
+      why:{en:"A kahani needs who, where, and what happens.",
+           ur:"Kahani mein kaun, kahan, aur kya hota hai — yeh chahiye."}
+    },
+    {
+      q:{en:"Afsana in kid-simple words is…",
+         ur:"Afsana bachchon ke simple alfaaz mein…"},
+      opts:[
+        {en:"A short imaginative story", ur:"Mukhtasar khayali kahani"},
+        {en:"A cricket scoreboard only", ur:"Sirf cricket scoreboard"},
+        {en:"A school timetable", ur:"School timetable"},
+        {en:"A silent empty room", ur:"Khamosh khali kamra"}
+      ],
+      correct:0,
+      why:{en:"Afsana ≈ short imaginative story — creative and often short.",
+           ur:"Afsana ≈ mukhtasar khayali kahani — creative aur aksar short."}
+    },
+    {
+      q:{en:"Sara returns a lost eraser. The moral is…",
+         ur:"Sara gum-shuda eraser wapas karti hai. Sabq…"},
+      opts:[
+        {en:"Be honest — return what is not yours", ur:"Diyanatdar bano — jo tumhara nahi wapas karo"},
+        {en:"Hide things for fun", ur:"Mazay ke liye cheezen chhupao"},
+        {en:"Tease classmates", ur:"Hum-jamaat ka mazaq urao"},
+        {en:"Ignore lost items always", ur:"Hamesha gum cheezen nazarandaz"}
+      ],
+      correct:0,
+      why:{en:"Honesty moral: return what belongs to someone else.",
+           ur:"Diyanat ka sabq: doosron ki cheez wapas karo."}
+    },
+    {
+      q:{en:"Which is an event (plot moment)?",
+         ur:"Kaun sa event (plot / waqia) hai?"},
+      opts:[
+        {en:"Friends share lunch in the yard", ur:"Dost yard mein lunch baantte hain"},
+        {en:"Only the word 'Islamabad'", ur:"Sirf lafz 'Islamabad'"},
+        {en:"A character's name alone", ur:"Sirf character ka naam"},
+        {en:"The blank back cover", ur:"Khali back cover"}
+      ],
+      correct:0,
+      why:{en:"Event = what happens — sharing lunch is an action in the story.",
+           ur:"Event = kya hota hai — lunch baantna kahani ka amal hai."}
+    }
+  ];
+
+  var piecesIdx = 0, piecesSelected = null, piecesMap = {}, piecesDone = {};
+  var moralIdx = 0, moralDone = {};
+  var vocabIdx = 0, vocabDone = {};
+  var quizSet = [];
+
+  function award(key, n){
+    if (awarded[key]) return;
+    awarded[key] = true;
+    stars += (n || 1);
+    $("starCount").textContent = String(stars);
+  }
+  function recountStars(){
+    stars = 0;
+    Object.keys(awarded).forEach(function(k){
+      if (!awarded[k]) return;
+      stars += (k.indexOf("mode-")===0) ? 2 : 1;
+    });
+    $("starCount").textContent = String(stars);
+  }
+  function maybePiecesDone(){
+    var all = PIECES.every(function(c){ return piecesDone[c.id]; });
+    if (all){ doneModes.pieces = true; award("mode-pieces", 2); tabBadges(); }
+  }
+  function maybeMoralDone(){
+    var all = MORAL.every(function(c){ return moralDone[c.id]; });
+    if (all){ doneModes.moral = true; award("mode-moral", 2); tabBadges(); }
+  }
+  function maybeVocabDone(){
+    var all = VOCAB.every(function(c){ return vocabDone[c.id]; });
+    if (all){ doneModes.vocab = true; award("mode-vocab", 2); tabBadges(); }
+  }
+
+  function skyHTML(){
+    return '<div class="sky-layer"><div class="cloud c1"></div><div class="cloud c2"></div></div>' +
+      '<div class="book-deco" aria-hidden="true"></div>' +
+      '<div class="hills"><div class="hill h-a"></div><div class="hill h-b"></div></div>' +
+      '<div class="geom-edge"></div><div class="ground-strip"></div>';
+  }
+
+  /* ---------- STORY PIECES ---------- */
+  function renderPieces(){
+    var ch = PIECES[piecesIdx];
+    var pad = $("scenePad");
+    var box = $("actionBox");
+    box.innerHTML = "";
+    $("hintbox").classList.remove("show");
+    setText($("prog"), t(T.progP) + " · " + (piecesIdx+1) + "/" + PIECES.length);
+    setText($("statechip"), (piecesIdx+1) + " / " + PIECES.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (piecesDone[ch.id]?" win":"");
+    if (piecesDone[ch.id]) setText($("statechip"), t(T.nice));
+    setText($("headline"), t(ch.title));
+
+    if (ch.type === "sort"){
+      setText($("detail"), piecesDone[ch.id] ? t(ch.done) : t(T.askSort));
+      pad.innerHTML = skyHTML() +
+        '<div class="sort-grid">' +
+        '<div class="sort-bin char-bin" data-bin="char"><h3></h3><div class="drop" id="binChar"></div></div>' +
+        '<div class="sort-bin set-bin" data-bin="set"><h3></h3><div class="drop" id="binSet"></div></div>' +
+        '<div class="sort-bin evt-bin" data-bin="evt"><h3></h3><div class="drop" id="binEvt"></div></div>' +
+        '</div>';
+      setText(pad.querySelector(".char-bin h3"), t(T.charLab));
+      setText(pad.querySelector(".set-bin h3"), t(T.setLab));
+      setText(pad.querySelector(".evt-bin h3"), t(T.evtLab));
+
+      var bank = document.createElement("div");
+      bank.className = "bank";
+      var localMap = piecesMap[ch.id] || {};
+      piecesMap[ch.id] = localMap;
+
+      function paint(){
+        $("binChar").innerHTML = ""; $("binSet").innerHTML = ""; $("binEvt").innerHTML = "";
+        bank.innerHTML = "";
+        ch.items.forEach(function(id){
+          var card = CARDS[id];
+          var bin = localMap[id];
+          if (bin){
+            var el = document.createElement("span");
+            el.className = "mini-chip";
+            el.textContent = card.em;
+            el.title = t(card);
+            el.addEventListener("click", function(){
+              if (piecesDone[ch.id]) return;
+              delete localMap[id];
+              piecesSelected = null;
+              paint();
+            });
+            ($(bin === "char" ? "binChar" : bin === "set" ? "binSet" : "binEvt")).appendChild(el);
+          } else {
+            var b = document.createElement("button");
+            b.type = "button";
+            b.className = "item-card" + (piecesSelected === id ? " selected" : "");
+            b.innerHTML = '<span class="item-em">'+card.em+'</span><p class="item-lab"></p>';
+            setText(b.querySelector(".item-lab"), lang==="ur" ? card.ur : card.en);
+            b.addEventListener("click", function(){
+              if (piecesDone[ch.id]) return;
+              piecesSelected = id;
+              paint();
+            });
+            bank.appendChild(b);
+          }
+        });
+      }
+      paint();
+      box.appendChild(bank);
+
+      pad.querySelectorAll(".sort-bin").forEach(function(binEl){
+        binEl.addEventListener("click", function(){
+          if (piecesDone[ch.id]) return;
+          if (!piecesSelected){ setText($("detail"), t(T.pick)); return; }
+          localMap[piecesSelected] = binEl.getAttribute("data-bin");
+          piecesSelected = null;
+          paint();
+        });
+      });
+
+      if (!piecesDone[ch.id]){
+        var chk = document.createElement("button");
+        chk.type = "button";
+        chk.style.cssText = "margin-top:10px;width:100%;border:2px solid var(--ink);border-radius:14px;background:var(--ink);color:var(--paper);font:inherit;font-weight:800;min-height:48px;cursor:pointer";
+        setText(chk, t(T.checkSort));
+        chk.addEventListener("click", function(){
+          var ok = ch.items.every(function(id){ return localMap[id] === CARDS[id].bin; });
+          if (ok){
+            piecesDone[ch.id] = true;
+            award("pieces-"+ch.id, 1);
+            setText($("headline"), t(ch.done));
+            setText($("detail"), t(T.nice));
+            maybePiecesDone();
+            renderPieces();
+          } else {
+            setText($("headline"), t(T.oops));
+            setText($("detail"), {en:"Check who / where / what again.", ur:"دوبارہ کون / کہاں / کیا چیک کرو۔"}[lang]);
+          }
+        });
+        box.appendChild(chk);
+      }
+      return;
+    }
+
+    /* pick type */
+    setText($("detail"), piecesDone[ch.id] ? t(ch.done) : t(T.askPick));
+    var card = CARDS[ch.card];
+    pad.innerHTML = skyHTML() +
+      '<div class="comic-stage"><div class="comic-hero">'+card.em+'</div>' +
+      '<div class="comic-panel"><span class="em">📖</span><span class="plab"></span></div></div>';
+    setText(pad.querySelector(".plab"), lang==="ur" ? card.ur : card.en);
+
+    var choices = document.createElement("div");
+    choices.className = "save-choices";
+    ch.choices.forEach(function(c){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.innerHTML = '<span class="cem">'+c.em+'</span><span class="clab"></span>';
+      setText(b.querySelector(".clab"), t(c));
+      if (piecesDone[ch.id] && c.id === ch.correct) b.classList.add("right");
+      b.addEventListener("click", function(){
+        if (piecesDone[ch.id]) return;
+        if (c.id === ch.correct){
+          piecesDone[ch.id] = true;
+          award("pieces-"+ch.id, 1);
+          b.classList.add("right");
+          setText($("headline"), t(ch.done));
+          setText($("detail"), t(T.nice));
+          maybePiecesDone();
+          renderPieces();
+        } else {
+          b.classList.add("wrong");
+          setText($("headline"), t(T.oops));
+          setTimeout(function(){ b.classList.remove("wrong"); }, 600);
+        }
+      });
+      choices.appendChild(b);
+    });
+    box.appendChild(choices);
+  }
+
+  /* ---------- MORAL ---------- */
+  function renderMoral(){
+    var ch = MORAL[moralIdx];
+    var pad = $("scenePad");
+    var box = $("actionBox");
+    box.innerHTML = "";
+    $("hintbox").classList.remove("show");
+    setText($("prog"), t(T.progM) + " · " + (moralIdx+1) + "/" + MORAL.length);
+    setText($("statechip"), (moralIdx+1) + " / " + MORAL.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (moralDone[ch.id]?" win":"");
+    if (moralDone[ch.id]) setText($("statechip"), t(T.nice));
+    setText($("headline"), t(ch.title));
+    setText($("detail"), moralDone[ch.id] ? t(ch.done) : t(T.askMoral));
+
+    pad.innerHTML = skyHTML() +
+      '<div class="story-box"><span class="sem">'+ch.hero+'</span>' +
+      '<p class="stitle"></p><p class="sbody"></p></div>';
+    setText(pad.querySelector(".stitle"), t(ch.title));
+    setText(pad.querySelector(".sbody"), t(ch.story));
+
+    var choices = document.createElement("div");
+    choices.className = "save-choices";
+    ch.choices.forEach(function(c){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.innerHTML = '<span class="cem">'+c.em+'</span><span class="clab"></span>';
+      setText(b.querySelector(".clab"), t(c));
+      if (moralDone[ch.id] && c.id === ch.correct) b.classList.add("right");
+      b.addEventListener("click", function(){
+        if (moralDone[ch.id]) return;
+        if (c.id === ch.correct){
+          moralDone[ch.id] = true;
+          award("moral-"+ch.id, 1);
+          b.classList.add("right");
+          setText($("headline"), t(ch.done));
+          setText($("detail"), t(T.nice));
+          maybeMoralDone();
+          renderMoral();
+        } else {
+          b.classList.add("wrong");
+          setText($("headline"), t(T.oops));
+          setTimeout(function(){ b.classList.remove("wrong"); }, 600);
+        }
+      });
+      choices.appendChild(b);
+    });
+    box.appendChild(choices);
+  }
+
+  /* ---------- VOCAB ---------- */
+  function renderVocab(){
+    var ch = VOCAB[vocabIdx];
+    var pad = $("scenePad");
+    var box = $("actionBox");
+    box.innerHTML = "";
+    $("hintbox").classList.remove("show");
+    setText($("prog"), t(T.progV) + " · " + (vocabIdx+1) + "/" + VOCAB.length);
+    setText($("statechip"), (vocabIdx+1) + " / " + VOCAB.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (vocabDone[ch.id]?" win":"");
+    if (vocabDone[ch.id]) setText($("statechip"), t(T.nice));
+    setText($("headline"), t(ch.title));
+    setText($("detail"), vocabDone[ch.id] ? t(ch.done) : t(T.askVocab));
+
+    var w = WORDS[ch.word];
+    pad.innerHTML = skyHTML() +
+      '<div class="vocab-card"><span class="vem">'+w.em+'</span>' +
+      '<p class="vword"></p><p class="vroman"></p></div>';
+    setText(pad.querySelector(".vword"), lang==="ur" ? w.ur : w.en);
+    pad.querySelector(".vroman").textContent = w.roman;
+    pad.querySelector(".vroman").setAttribute("dir","ltr");
+
+    var opts = shuffle([ch.word].concat(ch.distractors));
+    var row = document.createElement("div");
+    row.className = "chip-row";
+    opts.forEach(function(oid){
+      var ow = WORDS[oid];
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "pick-chip";
+      setText(b, t(ow.mean));
+      if (vocabDone[ch.id] && oid === ch.word) b.classList.add("ok");
+      b.addEventListener("click", function(){
+        if (vocabDone[ch.id]) return;
+        if (oid === ch.word){
+          vocabDone[ch.id] = true;
+          award("vocab-"+ch.id, 1);
+          b.classList.add("ok");
+          setText($("headline"), t(ch.done));
+          setText($("detail"), t(ow.mean));
+          maybeVocabDone();
+          renderVocab();
+        } else {
+          b.classList.add("no");
+          setText($("headline"), t(T.oops));
+          setTimeout(function(){ b.classList.remove("no"); }, 600);
+        }
+      });
+      row.appendChild(b);
+    });
+    box.appendChild(row);
+  }
+
+  /* ---------- QUIZ ---------- */
+  function pickQuiz(){ quizSet = shuffle(QUIZ).slice(0, 5); }
+  function renderQuiz(){
+    var box = $("quizBox");
+    box.innerHTML = "";
+    quizSet.forEach(function(item, qi){
+      var wrap = document.createElement("div");
+      wrap.className = "q";
+      var p = document.createElement("p");
+      if (lang === "ur"){
+        p.textContent = isolate((qi+1) + ". " + t(item.q));
+        p.setAttribute("dir", "ltr");
+        p.style.fontFamily = '"Baloo Bhaijaan 2",sans-serif';
+        p.style.textAlign = "left";
+        p.style.lineHeight = "1.5";
+      } else {
+        setText(p, (qi+1) + ". " + t(item.q));
+      }
+      wrap.appendChild(p);
+      var answered = false;
+      item.opts.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        if (lang === "ur"){
+          b.className = "opt";
+          b.textContent = isolate(t(opt));
+          b.setAttribute("dir", "ltr");
+          b.style.textAlign = "left";
+          b.style.fontFamily = '"Baloo Bhaijaan 2",sans-serif';
+        } else {
+          b.className = "opt";
+          setText(b, t(opt));
+        }
+        b.addEventListener("click", function(){
+          if (answered) return;
+          answered = true;
+          if (oi === item.correct){
+            b.classList.add("right");
+            award("quiz-"+qi, 1);
+          } else {
+            b.classList.add("wrong");
+            var kids = wrap.querySelectorAll(".opt");
+            if (kids[item.correct]) kids[item.correct].classList.add("right");
+          }
+          fb.classList.add("show");
+        });
+        wrap.appendChild(b);
+      });
+      var fb = document.createElement("p");
+      fb.className = "fb";
+      if (lang === "ur"){
+        fb.textContent = isolate(t(item.why));
+        fb.setAttribute("dir", "ltr");
+        fb.style.fontFamily = '"Baloo Bhaijaan 2",sans-serif';
+      } else {
+        setText(fb, t(item.why));
+      }
+      wrap.appendChild(fb);
+      box.appendChild(wrap);
+    });
+  }
+
+  function storyHtml(){
+    if (mode === "pieces") return t(T.storyPieces);
+    if (mode === "moral") return t(T.storyMoral);
+    return t(T.storyVocab);
+  }
+
+  function tabBadges(){
+    function lab(btn, label, key){
+      btn.innerHTML = "";
+      var span = document.createElement("span");
+      setText(span, t(label));
+      btn.appendChild(span);
+      if (doneModes[key]){
+        var b = document.createElement("span");
+        b.className = "badge"; b.textContent = " ★";
+        btn.appendChild(b);
+      }
+    }
+    lab($("tabPieces"), T.tabPieces, "pieces");
+    lab($("tabMoral"), T.tabMoral, "moral");
+    lab($("tabVocab"), T.tabVocab, "vocab");
+    $("tabPieces").setAttribute("aria-pressed", mode==="pieces"?"true":"false");
+    $("tabMoral").setAttribute("aria-pressed", mode==="moral"?"true":"false");
+    $("tabVocab").setAttribute("aria-pressed", mode==="vocab"?"true":"false");
+  }
+
+  function setMode(m){
+    mode = m;
+    piecesSelected = null;
+    if (mode === "pieces") renderPieces();
+    else if (mode === "moral") renderMoral();
+    else renderVocab();
+    applyChrome();
+  }
+
+  function applyChrome(){
+    setText($("title"), t(T.title));
+    setText($("subtitle"), t(T.sub));
+    $("story").innerHTML = storyHtml();
+    $("story").classList.toggle("ur", lang==="ur");
+    $("story").setAttribute("dir", lang==="ur"?"rtl":"ltr");
+    setText($("ctlHead"), t(T.ctl));
+    setText($("nextBtn"), t(T.next));
+    setText($("hintBtn"), t(T.hint));
+    setText($("resetBtn"), t(T.reset));
+    setText($("quizHead"), t(T.quiz));
+    setText($("newQuiz"), t(T.newQuiz));
+    $("langBtn").textContent = (lang === "en") ? "اردو" : "EN";
+    $("langBtn").setAttribute("aria-pressed", lang==="ur"?"true":"false");
+    document.body.classList.toggle("urdu", lang==="ur");
+    document.documentElement.lang = (lang==="ur") ? "ur" : "en";
+    document.documentElement.dir = (lang==="ur") ? "rtl" : "ltr";
+    tabBadges();
+    var foot = document.querySelector("footer p");
+    if (foot) setText(foot, foot.getAttribute(lang==="ur"?"data-ur":"data-en"));
+  }
+
+  function applyLang(){
+    applyChrome();
+    if (mode === "pieces") renderPieces();
+    else if (mode === "moral") renderMoral();
+    else renderVocab();
+    renderQuiz();
+  }
+
+  function next(){
+    $("hintbox").classList.remove("show");
+    if (mode === "pieces"){
+      piecesIdx = (piecesIdx + 1) % PIECES.length;
+      piecesSelected = null;
+      renderPieces();
+    } else if (mode === "moral"){
+      moralIdx = (moralIdx + 1) % MORAL.length;
+      renderMoral();
+    } else {
+      vocabIdx = (vocabIdx + 1) % VOCAB.length;
+      renderVocab();
+    }
+  }
+
+  function showHint(){
+    var h;
+    if (mode === "pieces") h = PIECES[piecesIdx].hint;
+    else if (mode === "moral") h = MORAL[moralIdx].hint;
+    else h = VOCAB[vocabIdx].hint;
+    var hb = $("hintbox");
+    setText(hb, t(h));
+    hb.classList.add("show");
+  }
+
+  function resetMode(){
+    if (mode === "pieces"){
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("pieces-")===0 || k==="mode-pieces") delete awarded[k]; });
+      piecesDone = {}; piecesMap = {}; piecesSelected = null; piecesIdx = 0;
+      doneModes.pieces = false;
+      recountStars(); renderPieces();
+    } else if (mode === "moral"){
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("moral-")===0 || k==="mode-moral") delete awarded[k]; });
+      moralDone = {}; moralIdx = 0; doneModes.moral = false;
+      recountStars(); renderMoral();
+    } else {
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("vocab-")===0 || k==="mode-vocab") delete awarded[k]; });
+      vocabDone = {}; vocabIdx = 0; doneModes.vocab = false;
+      recountStars(); renderVocab();
+    }
+    tabBadges();
+    applyChrome();
+  }
+
+  function cleanSpeakText(s){
+    return String(s || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  }
+  function buildSpeakText(){
+    var bits = [];
+    bits.push(t(T.title));
+    bits.push(cleanSpeakText(storyHtml()));
+    bits.push(cleanSpeakText(($("headline") && $("headline").textContent) || ""));
+    bits.push(cleanSpeakText(($("detail") && $("detail").textContent) || ""));
+    bits.push(t(T.tip));
+    return bits.filter(Boolean).join(". ");
+  }
+  function pickVoice(voices, want){
+    var i, v, L;
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf(want) === 0) return v;
+    }
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf("en") === 0) return v;
+    }
+    return voices[0] || null;
+  }
+  var speakTimer = null;
+  function setSpeaking(on){
+    var btn = $("speakBtn");
+    if (!btn) return;
+    btn.setAttribute("aria-pressed", on ? "true" : "false");
+    btn.style.opacity = on ? "0.65" : "";
+  }
+  function doSpeak(text, asLang){
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.92;
+    u.lang = (asLang === "ur") ? "ur-PK" : "en-US";
+    var voices = window.speechSynthesis.getVoices() || [];
+    var voice = pickVoice(voices, asLang === "ur" ? "ur" : "en");
+    if (voice) u.voice = voice;
+    u.onstart = function(){ setSpeaking(true); };
+    u.onend = function(){ setSpeaking(false); };
+    u.onerror = function(){
+      setSpeaking(false);
+      if (asLang === "ur"){
+        var fallback = cleanSpeakText(T.title.en + ". " + T.storyPieces.en + ". " + T.tip.en);
+        var u2 = new SpeechSynthesisUtterance(fallback);
+        u2.lang = "en-US"; u2.rate = 0.92;
+        var v2 = pickVoice(window.speechSynthesis.getVoices() || [], "en");
+        if (v2) u2.voice = v2;
+        u2.onstart = function(){ setSpeaking(true); };
+        u2.onend = u2.onerror = function(){ setSpeaking(false); };
+        window.speechSynthesis.speak(u2);
+      }
+    };
+    window.speechSynthesis.speak(u);
+  }
+  if ("speechSynthesis" in window){
+    try { window.speechSynthesis.getVoices(); } catch (e0) {}
+    if (typeof window.speechSynthesis.addEventListener === "function"){
+      window.speechSynthesis.addEventListener("voiceschanged", function(){
+        try { window.speechSynthesis.getVoices(); } catch (e1) {}
+      });
+    }
+  } else {
+    var noBtn = $("speakBtn");
+    if (noBtn){ noBtn.disabled = true; noBtn.title = "Voice not available on this device"; }
+  }
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en";
+    applyLang();
+  });
+  $("tabPieces").addEventListener("click", function(){ setMode("pieces"); });
+  $("tabMoral").addEventListener("click", function(){ setMode("moral"); });
+  $("tabVocab").addEventListener("click", function(){ setMode("vocab"); });
+  $("nextBtn").addEventListener("click", next);
+  $("hintBtn").addEventListener("click", showHint);
+  $("resetBtn").addEventListener("click", resetMode);
+  $("newQuiz").addEventListener("click", function(){ pickQuiz(); renderQuiz(); });
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      var text = buildSpeakText();
+      if (!text) return;
+      if (speakTimer){ clearTimeout(speakTimer); speakTimer = null; }
+      window.speechSynthesis.cancel();
+      setSpeaking(false);
+      var speakLang = lang;
+      speakTimer = setTimeout(function(){
+        speakTimer = null;
+        doSpeak(text, speakLang);
+      }, 80);
+    }catch(e){ setSpeaking(false); }
+  });
+
+  pickQuiz();
+  applyLang();
+})();
+</script>
+</body>
+</html>
