@@ -2062,7 +2062,35 @@ def _school_gate():
     st.stop()
 
 
-_school_gate()
+# ===== DEVICE-LOCKED ACCESS CODES =====
+_DEVICE_LOCK = False
+_DL_ERR = None
+try:
+    import device_lock
+    _DEVICE_LOCK = device_lock.is_configured()
+    if not _DEVICE_LOCK:
+        _DL_ERR = "is_configured() = False (secrets nahi mile)"
+except Exception as _e:
+    import traceback as _tb
+    _DL_ERR = _tb.format_exc()
+
+if _DL_ERR:
+    st.error("⚠️ DEVICE LOCK OFF — wajah:")
+    st.code(_DL_ERR)
+
+if _DEVICE_LOCK:
+    if not device_lock.login_gate():
+        st.stop()
+    if st.session_state.get("ai4k_admin"):
+        with st.sidebar:
+            st.success("👑 Admin mode")
+            _show = st.checkbox("🔑 Access Codes panel")
+        if _show:
+            import admin_codes
+            admin_codes.render()
+            st.stop()
+else:
+    _school_gate()
 
 st.markdown("""<style>.block-container{max-width:100% !important;padding-left:2rem !important;padding-right:2rem !important;}</style>""", unsafe_allow_html=True)
 st.markdown("""<style>
