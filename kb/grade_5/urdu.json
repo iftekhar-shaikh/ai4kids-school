@@ -192,7 +192,9 @@
             "correct": "a"
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g5-tahrir.html",
+      "interactive_label": "Khelo - Tahrir"
     }
   ]
 }

@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tahrir — تحریر | AI4Kids Class 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#e8f0ea;--board-deep:#c5d8c8;--sky:#7eb8d4;--sky2:#4a8fb8;
+    --park:#5a9a6a;--park2:#3a7a4a;--accent:#0d5c3d;--flag-g:#01411C;
+    --ok:#2e7d4f;--ink:#1a2e22;--ink-soft:#4a5a4e;--paper:#fdfaf3;
+    --line:#d0dcc8;--gold:#d4a017;--left:#c4453a;
+    --start-bin:#0d5c3d;--mid-bin:#2f6fb5;--end-bin:#c45c3a;
+    --fs-cap:clamp(12px, 3.2vw, 13px);--fs-xs:clamp(14px, 3.7vw, 15px);
+    --fs-sm:clamp(16px, 4.2vw, 17px);--fs-md:clamp(17px, 4.6vw, 19px);
+    --fs-lg:clamp(20px, 5.4vw, 23px);--fs-xl:clamp(27px, 7.4vw, 33px);--lh:1.5;
+  }
+  body.urdu{
+    --fs-cap:clamp(13px, 3.5vw, 15px);--fs-xs:clamp(15px, 4.1vw, 17px);
+    --fs-sm:clamp(17px, 4.7vw, 19px);--fs-md:clamp(19px, 5.2vw, 21px);
+    --fs-lg:clamp(22px, 6vw, 25px);--fs-xl:clamp(26px, 7vw, 31px);--lh:2.1;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  .stars{display:flex;align-items:center;gap:6px;font-weight:800;font-size:var(--fs-xs);
+         background:#fff6e2;border:2px solid var(--gold);border-radius:999px;padding:7px 13px}
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+  .tabs{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
+  .tabs button{
+    flex:1 1 28%;min-width:90px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:10px 6px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:54px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .tabs button .badge{color:var(--gold)}
+  .story{
+    background:#fff8ea;border:2px dashed var(--gold);border-radius:16px;padding:13px 15px;
+    font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;margin-bottom:14px;
+  }
+  body.urdu .story{line-height:var(--lh)}
+  .story b{color:var(--ink)}
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:
+      radial-gradient(circle at 12% 18%, rgba(212,160,23,.18) 0 8px, transparent 9px),
+      radial-gradient(circle at 88% 22%, rgba(13,92,61,.12) 0 6px, transparent 7px),
+      linear-gradient(180deg,var(--sky) 0%,var(--sky2) 34%,#a8c9a0 34%,#8fb888 42%,var(--board) 42%);
+    min-height:280px;
+  }
+  .scene-pad{padding:10px 12px 18px;min-height:260px;position:relative}
+  .sky-layer{position:absolute;inset:0 0 58% 0;pointer-events:none;overflow:hidden}
+  .note-deco{
+    position:absolute;top:10px;right:16px;z-index:1;font-size:28px;line-height:1;
+    filter:drop-shadow(0 1px 0 rgba(0,0,0,.12));
+  }
+  body.urdu .note-deco{right:auto;left:16px}
+  .cloud{position:absolute;background:rgba(255,255,255,.85);border-radius:40px;opacity:.9}
+  .cloud:before,.cloud:after{content:"";position:absolute;background:inherit;border-radius:50%}
+  .c1{width:48px;height:15px;top:18px;left:12%}
+  .c1:before{width:22px;height:22px;top:-12px;left:6px}
+  .c1:after{width:18px;height:18px;top:-8px;left:24px}
+  .c2{width:34px;height:12px;top:34px;left:55%;opacity:.7}
+  .c2:before{width:16px;height:16px;top:-9px;left:4px}
+  .c2:after{width:12px;height:12px;top:-5px;left:16px}
+  .hills{position:absolute;left:0;right:0;bottom:42%;height:40px;z-index:1;pointer-events:none}
+  .hill{position:absolute;bottom:0;border-radius:50% 50% 0 0;
+        background:linear-gradient(180deg,#4a8a5a,#2d5530)}
+  .h-a{width:42%;height:36px;left:-4%;opacity:.55}
+  .h-b{width:38%;height:28px;right:8%;opacity:.5}
+  .ground-strip{
+    position:absolute;left:0;right:0;bottom:0;height:32%;
+    background:
+      repeating-linear-gradient(90deg, transparent 0 18px, rgba(13,92,61,.06) 18px 20px),
+      linear-gradient(180deg,#8fbc78 0%,#6a9a58 100%);
+    z-index:2;border-top:3px solid #4a7040;
+  }
+  .geom-edge{
+    position:absolute;left:0;right:0;bottom:31%;height:6px;z-index:3;pointer-events:none;
+    background:repeating-linear-gradient(90deg, var(--gold) 0 8px, var(--accent) 8px 16px, transparent 16px 20px);
+    opacity:.55;
+  }
+  .comic-stage{position:relative;z-index:5;padding-top:78px;text-align:center;min-height:150px}
+  .comic-hero{font-size:56px;line-height:1;margin:4px 0 8px;filter:drop-shadow(0 2px 0 rgba(0,0,0,.12))}
+  .comic-panel{
+    display:inline-flex;align-items:center;gap:8px;background:rgba(253,250,243,.95);
+    border:2.5px solid var(--ink);border-radius:16px;padding:10px 14px;margin:4px;
+    box-shadow:0 3px 0 rgba(30,42,26,.12);font-weight:800;font-size:var(--fs-cap);
+  }
+  .comic-panel .em{font-size:28px}
+  .sort-grid{
+    position:relative;z-index:5;display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;
+    padding-top:72px;
+  }
+  .sort-bin{
+    border:2.5px solid var(--ink);border-radius:14px;padding:8px 6px;min-height:110px;
+    background:rgba(253,250,243,.88);text-align:center;cursor:pointer;
+  }
+  .sort-bin.start-bin{border-color:var(--start-bin);background:rgba(230,242,234,.95)}
+  .sort-bin.mid-bin{border-color:var(--mid-bin);background:rgba(230,238,248,.95)}
+  .sort-bin.end-bin{border-color:var(--end-bin);background:rgba(255,240,232,.95)}
+  .sort-bin.hot{box-shadow:0 0 0 3px rgba(13,92,61,.3)}
+  .sort-bin h3{margin:0 0 6px;font-size:var(--fs-cap);font-weight:800}
+  .sort-bin .drop{min-height:50px;display:flex;flex-wrap:wrap;gap:4px;justify-content:center;align-items:center}
+  .item-card{
+    background:rgba(253,250,243,.95);border:2.5px solid var(--ink);border-radius:16px;
+    padding:8px 10px 10px;text-align:center;min-width:72px;max-width:140px;
+    box-shadow:0 3px 0 rgba(30,42,26,.15);cursor:pointer;user-select:none;
+  }
+  .item-card:hover{transform:translateY(-2px)}
+  .item-card.selected{border-color:var(--accent);background:#e8f5ec;box-shadow:0 0 0 3px rgba(13,92,61,.25)}
+  .item-card.ok{border-color:var(--ok);background:#e8f2ed}
+  .item-card.no{border-color:var(--left);background:#fbeae8}
+  .item-em{font-size:34px;line-height:1.1;display:block;margin-bottom:2px}
+  .item-lab{font-size:var(--fs-cap);font-weight:800;line-height:1.25;margin:0}
+  .bank{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:8px;position:relative;z-index:5}
+  .mini-chip{
+    border:2px solid var(--ink);border-radius:12px;padding:6px 8px;background:#fff;
+    line-height:1;cursor:pointer;min-width:40px;font-size:22px;
+  }
+  .save-choices{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+  .save-choices button{
+    border:2.5px solid var(--ink);background:var(--paper);border-radius:14px;
+    padding:12px 14px;font:inherit;font-weight:800;font-size:var(--fs-xs);
+    cursor:pointer;text-align:left;min-height:52px;display:flex;align-items:center;gap:10px;
+  }
+  body.urdu .save-choices button{text-align:right}
+  .save-choices button .cem{font-size:26px}
+  .save-choices button.right{border-color:var(--ok);background:#e8f2ed}
+  .save-choices button.wrong{border-color:var(--left);background:#fbeae8}
+  .order-col{
+    position:relative;z-index:5;display:flex;flex-direction:column;gap:6px;
+    padding-top:72px;
+  }
+  .order-slot{
+    border:2.5px dashed var(--ink);border-radius:12px;padding:7px 8px;
+    min-height:40px;background:rgba(253,250,243,.92);
+    display:flex;align-items:center;gap:8px;cursor:pointer;
+  }
+  .order-slot.hot{box-shadow:0 0 0 3px rgba(13,92,61,.28);border-style:solid;border-color:var(--accent)}
+  .order-slot.filled{border-style:solid}
+  .order-slot .num{
+    flex-shrink:0;font-weight:800;background:var(--accent);color:#fff;
+    border-radius:8px;min-width:26px;height:26px;
+    display:flex;align-items:center;justify-content:center;font-size:var(--fs-cap);
+  }
+  .order-slot .slot-lab{font-size:var(--fs-cap);font-weight:800;line-height:1.3;flex:1}
+  .sent-chip{
+    border:2px solid var(--ink);border-radius:12px;padding:10px 12px;
+    background:#fff;font:inherit;font-weight:800;font-size:var(--fs-xs);
+    cursor:pointer;text-align:left;width:100%;min-height:44px;line-height:1.35;
+  }
+  body.urdu .sent-chip{text-align:right;line-height:var(--lh)}
+  .sent-chip.selected{border-color:var(--accent);background:#e8f5ec;box-shadow:0 0 0 3px rgba(13,92,61,.2)}
+  .prompt-box{
+    position:relative;z-index:5;margin:78px auto 8px;max-width:320px;
+    background:rgba(253,250,243,.96);border:2.5px dashed var(--gold);border-radius:16px;
+    padding:14px 12px;text-align:center;
+  }
+  .prompt-box .pem{font-size:40px;display:block;margin-bottom:6px}
+  .prompt-box .ptitle{font-weight:800;font-size:var(--fs-sm);margin:0 0 6px}
+  .prompt-box .pbody{font-size:var(--fs-xs);color:var(--ink-soft);margin:0;line-height:1.45;font-weight:600}
+  .readout{
+    margin-top:-18px;position:relative;z-index:2;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+  .statechip.ur{padding:2px 14px 7px}
+  .statechip.win{background:var(--ok)}
+  .statechip.miss{background:var(--left)}
+  .headline{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+  .headline.ur{line-height:1.95}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+  .hintbox{
+    margin-top:14px;border:2px solid var(--accent);background:#e8f5ec;border-radius:14px;
+    padding:11px 14px;font-size:var(--fs-xs);color:var(--accent);font-weight:700;line-height:1.55;
+    display:none;
+  }
+  .hintbox.show{display:block}
+  body.urdu .hintbox{line-height:var(--lh)}
+  .panel{margin-top:22px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .prog{margin:0 0 10px;font-size:var(--fs-xs);font-weight:700;color:var(--ink-soft)}
+  .btns{display:flex;gap:9px;margin-top:8px;flex-wrap:wrap}
+  .btns button{
+    border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);
+    font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:50px;
+    padding:8px 14px;flex:1;
+  }
+  .btns .go{background:var(--ink);color:var(--paper)}
+  .btns button:active{transform:scale(.97)}
+  .btns button:disabled{opacity:.4;cursor:default}
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .qhead{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+  .qhead h2{font-size:var(--fs-lg);font-weight:800;margin:0;flex:1}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:50px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+  .opt.wrong{border-color:var(--left);background:#fbeae8}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
+      grid-template-areas:
+        "bar   bar" "head  head" "tabs  tabs" "story story"
+        "left  right" "quiz  quiz" "foot  foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+    .story{grid-area:story} .left{grid-area:left} .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+    .panel{margin-top:0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition-duration:.01ms !important;animation:none !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 5 · Urdu</span>
+    <span class="stars" id="starBox">⭐ <span id="starCount">0</span></span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 id="title"></h1>
+  <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group">
+    <button type="button" id="tabPara" aria-pressed="true"></button>
+    <button type="button" id="tabNote" aria-pressed="false"></button>
+    <button type="button" id="tabStart" aria-pressed="false"></button>
+  </div>
+
+  <p class="story" id="story"></p>
+
+  <div class="left">
+  <div class="scene">
+    <div class="scene-pad" id="scenePad"></div>
+  </div>
+  <div class="readout">
+    <span class="statechip" id="statechip"></span>
+    <p class="headline" id="headline"></p>
+    <p class="detail" id="detail"></p>
+    <p class="hintbox" id="hintbox"></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="panel">
+    <h2 id="ctlHead"></h2>
+    <p class="prog" id="prog"></p>
+    <div id="actionBox"></div>
+    <div class="btns">
+      <button type="button" class="go" id="nextBtn"></button>
+    </div>
+    <div class="btns">
+      <button type="button" id="hintBtn"></button>
+      <button type="button" id="resetBtn"></button>
+    </div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <div class="qhead">
+      <h2 id="quizHead"></h2>
+      <button type="button" class="chip" id="newQuiz"></button>
+    </div>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad bilingual school. Offline play · no APIs. WhatsApp 0337 1468899 · Urdu Class 5 (helping interactive)"
+       data-ur="اے آئی فور کڈز — اسلام آباد۔ آف لائن کھیلو۔ واٹس ایپ 0337 1468899 · اردو جماعت ۵ (مددگار انٹرایکٹو)"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  function $(id){ return document.getElementById(id); }
+  function isolate(s){ return "\u2066" + s + "\u2069"; }
+  function setText(el, str){
+    if (!el) return;
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+  function t(o){ return (o && o[lang]) || (o && o.en) || ""; }
+  function shuffle(arr){
+    var a = arr.slice(), i, j, tmp;
+    for (i = a.length - 1; i > 0; i--){
+      j = Math.floor(Math.random() * (i + 1));
+      tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  var lang = "en";
+  var mode = "para";
+  var stars = 0;
+  var awarded = {};
+  var doneModes = {para:false, note:false, start:false};
+
+  var T = {
+    title:{en:"Tahrir", ur:"تحریر"},
+    sub:{en:"Order a short paragraph, sort a simple letter (salam · body · dua), and pick strong sentence starters — school, friends, watan, family, thanks!",
+         ur:"چھوٹا پیراگراف ترتیب دو، سادہ خط چھانٹو (سلام · مضمون · دعا)، اور مضبوط جملے کے آغاز چنو — اسکول، دوست، وطن، خاندان، شکریہ!"},
+    tabPara:{en:"Paragraph order", ur:"پیراگراف ترتیب"},
+    tabNote:{en:"Letter pieces", ur:"خط کے ٹکڑے"},
+    tabStart:{en:"Starter pick", ur:"شروع چنو"},
+    storyPara:{en:"Scrambled sentences! Tap a line, then tap box <b>1 · 2 · 3 · 4</b> to build a short paragraph in the right order.",
+               ur:"جملے گڈمڈ ہیں! ایک سطر ٹیپ کرو، پھر باکس <b>۱ · ۲ · ۳ · ۴</b> ٹیپ کرو تاکہ پیراگراف درست ترتیب میں بنے۔"},
+    storyNote:{en:"Sort a short note: <b>start</b> (salam/greeting), <b>middle</b> (body), <b>end</b> (dua / Khuda hafiz).",
+               ur:"چھوٹا نوٹ چھانٹو: <b>شروع</b> (سلام)، <b>درمیان</b> (مضمون)، <b>اختتام</b> (دعا / خدا حافظ)."},
+    storyStart:{en:"Pick the best <b>opening</b> or <b>linking word</b> (phir, kyunkay, aaj…) for the prompt. No free writing — chips only!",
+                ur:"پرامپٹ کے لیے بہترین <b>آغاز</b> یا <b>جوڑنے والا لفظ</b> (پھر، کیونکہ، آج…) چنو۔ صرف چپس!"},
+    ctl:{en:"Your turn — young writer", ur:"تمہاری باری — نوجوان مصنف"},
+    next:{en:"Next challenge", ur:"اگلا چیلنج"},
+    hint:{en:"Hint", ur:"اشارہ"},
+    reset:{en:"Reset", ur:"ری سیٹ"},
+    quiz:{en:"Check yourself", ur:"اپنا چیک"},
+    newQuiz:{en:"New quiz", ur:"نیا کوئز"},
+    nice:{en:"Shabash — neat writing!", ur:"شاباش — صاف تحریر!"},
+    oops:{en:"Almost — try again", ur:"قریب — دوبارہ آزماؤ"},
+    tip:{en:"Tip: A paragraph goes beginning → middle → end. A note has salam, body, then dua. Starters like Aaj, Phir, Kyunkay help sentences join.",
+         ur:"نکتہ: پیراگراف آغاز → درمیان → اختتام۔ نوٹ میں سلام، مضمون، پھر دعا۔ آج، پھر، کیونکہ جملے جوڑتے ہیں۔"},
+    progP:{en:"Paragraph order", ur:"پیراگراف ترتیب"},
+    progN:{en:"Letter pieces", ur:"خط کے ٹکڑے"},
+    progS:{en:"Starter pick", ur:"شروع چنو"},
+    askPara:{en:"Tap a sentence, then tap its number box", ur:"جملہ ٹیپ کرو، پھر نمبر باکس"},
+    askNote:{en:"Tap a piece, then tap Start / Middle / End", ur:"ٹکڑا ٹیپ کرو، پھر شروع / درمیان / اختتام"},
+    askPick:{en:"Which part of the note is this?", ur:"یہ نوٹ کا کون سا حصہ ہے؟"},
+    askStart:{en:"Pick the best opening or connector", ur:"بہترین آغاز یا جوڑ چنو"},
+    checkOrder:{en:"Check order", ur:"ترتیب چیک کرو"},
+    checkSort:{en:"Check sort", ur:"چھانٹی چیک کرو"},
+    startLab:{en:"🙏 Start", ur:"🙏 شروع"},
+    midLab:{en:"✏️ Middle", ur:"✏️ درمیان"},
+    endLab:{en:"💚 End", ur:"💚 اختتام"},
+    pick:{en:"Tap a piece first", ur:"پہلے ٹکڑا ٹیپ کرو"},
+    slotEmpty:{en:"(empty)", ur:"(خالی)"}
+  };
+
+  /* ---------- Paragraph sentences ---------- */
+  var SENTS = {
+    a1:{em:"🎒", en:"Sara packs her bag for school.", ur:"سارہ اسکول کا بیگ باندھتی ہے۔", ord:1},
+    a2:{em:"🚶", en:"She walks with her brother to the gate.", ur:"وہ بھائی کے ساتھ گیٹ تک چلتی ہے۔", ord:2},
+    a3:{em:"👩‍🏫", en:"Miss Noor greets the class with a smile.", ur:"مس نور مسکرا کر کلاس کو سلام کرتی ہیں۔", ord:3},
+    a4:{em:"📖", en:"They open books for the first lesson.", ur:"وہ پہلے سبق کے لیے کتابیں کھولتے ہیں۔", ord:4},
+    b1:{em:"😟", en:"Ali forgot his lunch box.", ur:"علی لنچ باکس بھول گیا۔", ord:1},
+    b2:{em:"🥪", en:"Bilal shares half his sandwich.", ur:"بلال آدھا سینڈوچ بانٹتا ہے۔", ord:2},
+    b3:{em:"😊", en:"Both friends eat and thank each other.", ur:"دونوں دوست کھاتے ہیں اور شکر ادا کرتے ہیں۔", ord:3},
+    c1:{em:"🇵🇰", en:"Pakistan is our dear watan.", ur:"پاکستان ہمارا پیارا وطن ہے۔", ord:1},
+    c2:{em:"💚", en:"We love the green flag with a crescent.", ur:"ہم سبز جھنڈے اور چاند تارے سے محبت کرتے ہیں۔", ord:2},
+    c3:{em:"🎉", en:"On 14 August we celebrate with joy.", ur:"۱۴ اگست ہم خوشی سے مناتے ہیں۔", ord:3},
+    c4:{em:"🧹", en:"We keep our streets and parks clean.", ur:"ہم گلیاں اور پارک صاف رکھتے ہیں۔", ord:4},
+    d1:{em:"👩", en:"Ammi cooks dinner in the kitchen.", ur:"امی کچن میں کھانا پکاتی ہیں۔", ord:1},
+    d2:{em:"🍽️", en:"We sit together at the table.", ur:"ہم میز پر اکٹھے بیٹھتے ہیں۔", ord:2},
+    d3:{em:"🙏", en:"We say shukr for the food.", ur:"ہم کھانے کا شکر ادا کرتے ہیں۔", ord:3},
+    d4:{em:"🫧", en:"Then we help wash the dishes.", ur:"پھر ہم برتن دھونے میں مدد کرتے ہیں۔", ord:4}
+  };
+
+  var PARA = [
+    {
+      id:"p1", hero:"🏫🎒",
+      title:{en:"School morning paragraph", ur:"اسکول کی صبح کا پیراگراف"},
+      items:["a1","a2","a3","a4"],
+      hint:{en:"Start with packing the bag, then walking, greeting, then the first lesson.",
+            ur:"بیگ باندھنے سے شروع، پھر چلنا، سلام، پھر پہلا سبق۔"},
+      done:{en:"School paragraph in order!", ur:"اسکول پیراگراف ترتیب میں!"}
+    },
+    {
+      id:"p2", hero:"🤝🥪",
+      title:{en:"Friends share lunch", ur:"دوست لنچ بانٹتے ہیں"},
+      items:["b1","b2","b3"],
+      hint:{en:"Problem first (forgot lunch), then kind action, then both are happy.",
+            ur:"پہلے مسئلہ (لنچ بھول)، پھر مہربانی، پھر دونوں خوش۔"},
+      done:{en:"Friendship paragraph locked!", ur:"دوستی پیراگراف تیار!"}
+    },
+    {
+      id:"p3", hero:"🇵🇰💚",
+      title:{en:"Our watan paragraph", ur:"ہمارے وطن کا پیراگراف"},
+      items:["c1","c2","c3","c4"],
+      hint:{en:"Name the watan, then the flag, then 14 August, then keeping places clean.",
+            ur:"وطن کا نام، پھر جھنڈا، پھر ۱۴ اگست، پھر صفائی۔"},
+      done:{en:"Watan paragraph in order!", ur:"وطن پیراگراف ترتیب میں!"}
+    },
+    {
+      id:"p4", hero:"🏠🍽️",
+      title:{en:"Family dinner paragraph", ur:"خاندانی کھانے کا پیراگراف"},
+      items:["d1","d2","d3","d4"],
+      hint:{en:"Cook → sit together → say shukr → then help with dishes.",
+            ur:"پکانا → اکٹھے بیٹھنا → شکر → پھر برتن۔"},
+      done:{en:"Family paragraph locked!", ur:"خاندان پیراگراف تیار!"}
+    }
+  ];
+
+  /* ---------- Letter / note pieces ---------- */
+  var PIECES = {
+    t1:{em:"🙏", en:"Assalamu alaikum, Miss Noor.", ur:"السلام علیکم، مس نور۔", bin:"start"},
+    t2:{em:"✏️", en:"Thank you for helping my writing.", ur:"تحریر میں مدد کا شکریہ۔", bin:"mid"},
+    t3:{em:"🏠", en:"I practised every evening at home.", ur:"میں گھر ہر شام مشق کرتا ہوں۔", bin:"mid"},
+    t4:{em:"💚", en:"Dua ke saath — your student, Sara", ur:"دعا کے ساتھ — شاگردہ سارہ", bin:"end"},
+    f1:{em:"👋", en:"Dear Zain, salam!", ur:"پیارے زین، سلام!", bin:"start"},
+    f2:{em:"🌳", en:"Come to the park after school.", ur:"اسکول کے بعد پارک آنا۔", bin:"mid"},
+    f3:{em:"⚽", en:"We can play football together.", ur:"ہم ساتھ فٹبال کھیل سکتے ہیں۔", bin:"mid"},
+    f4:{em:"🌙", en:"Khuda hafiz, Ali", ur:"خدا حافظ، علی", bin:"end"},
+    m1:{em:"👩", en:"Ammi, assalamu alaikum.", ur:"امی، السلام علیکم۔", bin:"start"},
+    m2:{em:"🍎", en:"Thank you for packing my lunch.", ur:"لنچ پیک کرنے کا شکریہ۔", bin:"mid"},
+    m3:{em:"💌", en:"Love and dua, Ayesha", ur:"محبت اور دعا، عائشہ", bin:"end"},
+    x1:{em:"🌙", en:"Wassalam / Khuda hafiz", ur:"والسلام / خدا حافظ", bin:"end"}
+  };
+
+  var NOTE = [
+    {
+      id:"n1", type:"sort",
+      title:{en:"Thanks note to teacher", ur:"استانی کو شکریہ نوٹ"},
+      items:["t1","t2","t3","t4"],
+      hint:{en:"Start = salam. Middle = thanks + what you did. End = dua and name.",
+            ur:"شروع = سلام۔ درمیان = شکریہ + کام۔ اختتام = دعا اور نام۔"},
+      done:{en:"Thanks note sorted!", ur:"شکریہ نوٹ چھانٹا!"}
+    },
+    {
+      id:"n2", type:"sort",
+      title:{en:"Note to a friend", ur:"دوست کو نوٹ"},
+      items:["f1","f2","f3","f4"],
+      hint:{en:"Salam first, park plan in the middle, Khuda hafiz at the end.",
+            ur:"پہلے سلام، درمیان میں پارک پلان، آخر میں خدا حافظ۔"},
+      done:{en:"Friend note sorted!", ur:"دوست نوٹ چھانٹا!"}
+    },
+    {
+      id:"n3", type:"pick",
+      title:{en:"Where does this piece go?", ur:"یہ ٹکڑا کہاں جائے؟"},
+      card:"x1",
+      choices:[
+        {id:"end", em:"💚", en:"End — dua / closing words", ur:"اختتام — دعا / اختتامی الفاظ"},
+        {id:"start", em:"🙏", en:"Start — only the first salam", ur:"شروع — صرف پہلا سلام"},
+        {id:"mid", em:"✏️", en:"Middle — the main news / body", ur:"درمیان — اصل خبر / مضمون"}
+      ],
+      correct:"end",
+      hint:{en:"Wassalam and Khuda hafiz close a note — they belong at the end.",
+            ur:"والسلام اور خدا حافظ نوٹ بند کرتے ہیں — اختتام پر۔"},
+      done:{en:"Closing locked!", ur:"اختتام تیار!"}
+    },
+    {
+      id:"n4", type:"sort",
+      title:{en:"Thanks note to Ammi", ur:"امی کو شکریہ نوٹ"},
+      items:["m1","m2","m3"],
+      hint:{en:"Greet Ammi, say thanks in the body, close with love and dua.",
+            ur:"امی کو سلام، مضمون میں شکریہ، محبت اور دعا سے بند کرو۔"},
+      done:{en:"Family note sorted!", ur:"خاندانی نوٹ چھانٹا!"}
+    }
+  ];
+
+  /* ---------- Starter / connector pick ---------- */
+  var START = [
+    {
+      id:"s1", hero:"🏫☀️",
+      title:{en:"Open a school-day paragraph", ur:"اسکول کے دن کا آغاز"},
+      prompt:{en:"You will write 3 lines about this morning at school.",
+              ur:"تم اسکول کی اس صبح پر ۳ سطریں لکھو گے۔"},
+      choices:[
+        {id:"aaj", em:"☀️", en:"Aaj subah school mein… (Today at school…)", ur:"آج صبح اسکول میں…"},
+        {id:"end", em:"🏁", en:"The end. Khuda hafiz forever.", ur:"ختم۔ ہمیشہ کے لیے خدا حافظ۔"},
+        {id:"score", em:"🏏", en:"Only a cricket scoreboard", ur:"صرف کرکٹ اسکور بورڈ"}
+      ],
+      correct:"aaj",
+      hint:{en:"Open with time/place: Aaj subah school mein…",
+            ur:"وقت/جگہ سے کھولو: آج صبح اسکول میں…"},
+      done:{en:"Strong school starter!", ur:"مضبوط اسکول آغاز!"}
+    },
+    {
+      id:"s2", hero:"🎒➡️",
+      title:{en:"Link the next sentence", ur:"اگلا جملہ جوڑو"},
+      prompt:{en:"First line: Sara packed her bag. What comes next?",
+              ur:"پہلی سطر: سارہ نے بیگ باندھا۔ آگے کیا؟"},
+      choices:[
+        {id:"phir", em:"➡️", en:"Phir / Then she walked to school.", ur:"پھر وہ اسکول چلی۔"},
+        {id:"bye", em:"🌙", en:"Khuda hafiz (end of a letter)", ur:"خدا حافظ (خط کا اختتام)"},
+        {id:"dear", em:"✉️", en:"Dear Teacher, (letter start only)", ur:"پیاری استانی، (صرف خط کا شروع)"}
+      ],
+      correct:"phir",
+      hint:{en:"Phir / Then joins what happened next in the paragraph.",
+            ur:"پھر اگلا کام جوڑتا ہے پیراگراف میں۔"},
+      done:{en:"Connector locked!", ur:"جوڑ تیار!"}
+    },
+    {
+      id:"s3", hero:"🙏✏️",
+      title:{en:"Open a thanks note", ur:"شکریہ نوٹ کا آغاز"},
+      prompt:{en:"You write a short thanks note to Miss Noor.",
+              ur:"تم مس نور کو چھوٹا شکریہ نوٹ لکھتے ہو۔"},
+      choices:[
+        {id:"salam", em:"🙏", en:"Assalamu alaikum, Miss Noor.", ur:"السلام علیکم، مس نور۔"},
+        {id:"bodyonly", em:"📝", en:"Jump to the last dua with no greeting", ur:"سلام کے بغیر آخری دعا"},
+        {id:"flag", em:"🇵🇰", en:"Only the flag colours, no words", ur:"صرف جھنڈے کے رنگ، الفاظ نہیں"}
+      ],
+      correct:"salam",
+      hint:{en:"A note starts with salam / greeting, then the body.",
+            ur:"نوٹ سلام / شروع سے کھلتا ہے، پھر مضمون۔"},
+      done:{en:"Polite opening!", ur:"باادب آغاز!"}
+    },
+    {
+      id:"s4", hero:"🇵🇰💚",
+      title:{en:"Open a watan paragraph", ur:"وطن پیراگراف کا آغاز"},
+      prompt:{en:"Write a short paragraph about Pakistan, our watan.",
+              ur:"پاکستان، ہمارے وطن، پر چھوٹا پیراگراف لکھو۔"},
+      choices:[
+        {id:"watan", em:"🇵🇰", en:"Pakistan hamara watan hai.", ur:"پاکستان ہمارا وطن ہے۔"},
+        {id:"pencil", em:"✏️", en:"I forgot my pencil under the desk.", ur:"میں نے ربر میز کے نیچے بھول دیا۔"},
+        {id:"dishes", em:"🫧", en:"Then we wash the dishes.", ur:"پھر ہم برتن دھوتے ہیں۔"}
+      ],
+      correct:"watan",
+      hint:{en:"Name the topic first: Pakistan is our watan.",
+            ur:"پہلے موضوع نام لو: پاکستان ہمارا وطن ہے۔"},
+      done:{en:"Watan starter locked!", ur:"وطن آغاز تیار!"}
+    },
+    {
+      id:"s5", hero:"💚🔗",
+      title:{en:"Give a reason (kyunkay)", ur:"وجہ دو (کیونکہ)"},
+      prompt:{en:"We keep parks clean. Why? Pick the linking sentence.",
+              ur:"ہم پارک صاف رکھتے ہیں۔ کیوں؟ جوڑنے والا جملہ چنو۔"},
+      choices:[
+        {id:"kyun", em:"🌱", en:"Kyunkay / Because we love our watan.", ur:"کیونکہ ہم اپنے وطن سے محبت کرتے ہیں۔"},
+        {id:"salam2", em:"🙏", en:"Assalamu alaikum (letter start)", ur:"السلام علیکم (خط کا شروع)"},
+        {id:"num", em:"🔢", en:"A random page number", ur:"بے ترتیب صفحہ نمبر"}
+      ],
+      correct:"kyun",
+      hint:{en:"Kyunkay / Because joins a reason after a fact.",
+            ur:"کیونکہ حقیقت کے بعد وجہ جوڑتا ہے۔"},
+      done:{en:"Reason linker locked!", ur:"وجہ کا جوڑ تیار!"}
+    }
+  ];
+
+  /* Quiz — EN + Roman Urdu; 7 pool → pick 5 */
+  var QUIZ = [
+    {
+      q:{en:"A short paragraph should start with…",
+         ur:"Chhota paragraph shuru hona chahiye…"},
+      opts:[
+        {en:"A clear first sentence (topic / opening)", ur:"Saaf pehli sentence (mauzoo / opening)"},
+        {en:"Only the last dua of a letter", ur:"Sirf khat ki aakhri dua"},
+        {en:"A blank page with no words", ur:"Khali page — koi lafz nahi"},
+        {en:"A cricket scoreboard only", ur:"Sirf cricket scoreboard"}
+      ],
+      correct:0,
+      why:{en:"Begin with the topic, then add middle details, then a close.",
+           ur:"Pehle mauzoo, phir darmiyan tafseel, phir ikhtitam."}
+    },
+    {
+      q:{en:"A simple letter or thanks note usually starts with…",
+         ur:"Sada khat ya shukriya note aksar shuru hota hai…"},
+      opts:[
+        {en:"Salam / greeting (Assalamu alaikum, Dear…)", ur:"Salam / greeting (Assalamu alaikum, Dear…)"},
+        {en:"Only washing dishes", ur:"Sirf bartan dhona"},
+        {en:"The very last Khuda hafiz first", ur:"Sab se aakhri Khuda hafiz pehle"},
+        {en:"A random number", ur:"Random number"}
+      ],
+      correct:0,
+      why:{en:"Start = salam. Middle = body. End = dua / name.",
+           ur:"Shuru = salam. Darmiyan = body. Ikhtitam = dua / naam."}
+    },
+    {
+      q:{en:"The end of a short note often has…",
+         ur:"Chhote note ke end par aksar hota hai…"},
+      opts:[
+        {en:"Dua and a closing (Wassalam / Khuda hafiz + name)", ur:"Dua aur closing (Wassalam / Khuda hafiz + naam)"},
+        {en:"Only the first bag-packing sentence", ur:"Sirf pehli bag-bandhne wali sentence"},
+        {en:"A silent empty desk", ur:"Khamosh khali desk"},
+        {en:"Skipping the alphabet", ur:"Alphabet chhor dena"}
+      ],
+      correct:0,
+      why:{en:"Close politely: dua, Wassalam or Khuda hafiz, and your name.",
+           ur:"Adab se band karo: dua, Wassalam ya Khuda hafiz, aur naam."}
+    },
+    {
+      q:{en:"Best starter for a school-day paragraph?",
+         ur:"School-din paragraph ka behtareen starter?"},
+      opts:[
+        {en:"Aaj subah school mein… (Today at school…)", ur:"Aaj subah school mein…"},
+        {en:"The end. Bye forever.", ur:"The end. Hamesha ke liye bye."},
+        {en:"Only a shopping list", ur:"Sirf shopping list"},
+        {en:"An empty eraser", ur:"Khali eraser"}
+      ],
+      correct:0,
+      why:{en:"Open with time and place so the reader knows the topic.",
+           ur:"Waqt aur jagah se kholo taake reader ko mauzoo pata chale."}
+    },
+    {
+      q:{en:"The linking word “phir” means…",
+         ur:"Joṛne wala lafz “phir” matlab…"},
+      opts:[
+        {en:"Then — what happens next", ur:"Then — agla kya hota hai"},
+        {en:"Only the teacher’s name", ur:"Sirf ustani ka naam"},
+        {en:"A flag colour by itself", ur:"Akela jhande ka rang"},
+        {en:"Skipping homework forever", ur:"Hamesha homework chhor dena"}
+      ],
+      correct:0,
+      why:{en:"Phir / then joins the next step in order.",
+           ur:"Phir agla qadam tartib mein jorta hai."}
+    },
+    {
+      q:{en:"The body (middle) of a letter is…",
+         ur:"Khat ka body (darmiyan)…"},
+      opts:[
+        {en:"The main message — news, thanks, or request", ur:"Asal paigham — khabar, shukriya, ya darkhwast"},
+        {en:"Only the word salam repeated", ur:"Sirf lafz salam dohrana"},
+        {en:"A blank notebook cover", ur:"Khali notebook cover"},
+        {en:"The school timetable alone", ur:"Sirf school timetable"}
+      ],
+      correct:0,
+      why:{en:"Middle = why you are writing (thanks, news, invite).",
+           ur:"Darmiyan = kyun likh rahe ho (shukriya, khabar, dawat)."}
+    },
+    {
+      q:{en:"Correct order of a short paragraph is…",
+         ur:"Chhote paragraph ki sahi tartib…"},
+      opts:[
+        {en:"Beginning → middle → end", ur:"Shuru → darmiyan → ikhtitam"},
+        {en:"End first, then no beginning", ur:"Pehle ikhtitam, phir koi shuru nahi"},
+        {en:"Only middle sentences forever", ur:"Hamesha sirf darmiyan jumle"},
+        {en:"Random scramble with no check", ur:"Bila check random scramble"}
+      ],
+      correct:0,
+      why:{en:"Order helps the reader follow your idea smoothly.",
+           ur:"Tartib se reader tumhara khayal asani se samajhta hai."}
+    }
+  ];
+
+  var paraIdx = 0, paraSelected = null, paraMap = {}, paraDone = {}, paraScramble = {};
+  var noteIdx = 0, noteSelected = null, noteMap = {}, noteDone = {};
+  var startIdx = 0, startDone = {};
+  var quizSet = [];
+
+  function award(key, n){
+    if (awarded[key]) return;
+    awarded[key] = true;
+    stars += (n || 1);
+    $("starCount").textContent = String(stars);
+  }
+  function recountStars(){
+    stars = 0;
+    Object.keys(awarded).forEach(function(k){
+      if (!awarded[k]) return;
+      stars += (k.indexOf("mode-")===0) ? 2 : 1;
+    });
+    $("starCount").textContent = String(stars);
+  }
+  function maybeParaDone(){
+    if (PARA.every(function(c){ return paraDone[c.id]; })){
+      doneModes.para = true; award("mode-para", 2); tabBadges();
+    }
+  }
+  function maybeNoteDone(){
+    if (NOTE.every(function(c){ return noteDone[c.id]; })){
+      doneModes.note = true; award("mode-note", 2); tabBadges();
+    }
+  }
+  function maybeStartDone(){
+    if (START.every(function(c){ return startDone[c.id]; })){
+      doneModes.start = true; award("mode-start", 2); tabBadges();
+    }
+  }
+
+  function skyHTML(){
+    return '<div class="sky-layer"><div class="cloud c1"></div><div class="cloud c2"></div></div>' +
+      '<div class="note-deco" aria-hidden="true">📝</div>' +
+      '<div class="hills"><div class="hill h-a"></div><div class="hill h-b"></div></div>' +
+      '<div class="geom-edge"></div><div class="ground-strip"></div>';
+  }
+
+  function checkBtn(label, fn){
+    var chk = document.createElement("button");
+    chk.type = "button";
+    chk.style.cssText = "margin-top:10px;width:100%;border:2px solid var(--ink);border-radius:14px;background:var(--ink);color:var(--paper);font:inherit;font-weight:800;min-height:48px;cursor:pointer";
+    setText(chk, t(label));
+    chk.addEventListener("click", fn);
+    return chk;
+  }
+
+  /* ---------- PARA ---------- */
+  function renderPara(){
+    var ch = PARA[paraIdx];
+    var pad = $("scenePad");
+    var box = $("actionBox");
+    box.innerHTML = "";
+    $("hintbox").classList.remove("show");
+    setText($("prog"), t(T.progP) + " · " + (paraIdx+1) + "/" + PARA.length);
+    setText($("statechip"), (paraIdx+1) + " / " + PARA.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (paraDone[ch.id]?" win":"");
+    if (paraDone[ch.id]) setText($("statechip"), t(T.nice));
+    setText($("headline"), paraDone[ch.id] ? t(ch.done) : t(ch.title));
+    setText($("detail"), paraSelected ? t(SENTS[paraSelected]) + " → ?" : t(T.askPara));
+
+    if (!paraScramble[ch.id]) paraScramble[ch.id] = shuffle(ch.items);
+
+    var n = ch.items.length;
+    var html = skyHTML() + '<div class="order-col">';
+    var s;
+    for (s = 1; s <= n; s++){
+      html += '<div class="order-slot" data-slot="'+s+'"><span class="num">'+s+'</span><span class="slot-lab" id="slotLab'+s+'"></span></div>';
+    }
+    html += '</div>';
+    pad.innerHTML = html;
+
+    var idBySlot = {};
+    Object.keys(paraMap).forEach(function(id){
+      if (ch.items.indexOf(id) >= 0) idBySlot[paraMap[id]] = id;
+    });
+    for (s = 1; s <= n; s++){
+      var slotEl = pad.querySelector('[data-slot="'+s+'"]');
+      var lab = $("slotLab"+s);
+      var occ = idBySlot[s];
+      if (occ){
+        slotEl.classList.add("filled");
+        setText(lab, t(SENTS[occ]));
+      } else {
+        setText(lab, t(T.slotEmpty));
+      }
+      if (paraSelected) slotEl.classList.add("hot");
+      slotEl.addEventListener("click", (function(slotNum){
+        return function(){
+          if (paraDone[ch.id]) return;
+          if (!paraSelected){
+            /* tap filled slot to return it */
+            var cur = null;
+            Object.keys(paraMap).forEach(function(id){
+              if (paraMap[id] === slotNum && ch.items.indexOf(id)>=0) cur = id;
+            });
+            if (cur){ delete paraMap[cur]; renderPara(); }
+            else setText($("detail"), t(T.askPara));
+            return;
+          }
+          Object.keys(paraMap).forEach(function(id){
+            if (paraMap[id] === slotNum) delete paraMap[id];
+          });
+          paraMap[paraSelected] = slotNum;
+          paraSelected = null;
+          renderPara();
+        };
+      })(s));
+    }
+
+    var bank = document.createElement("div");
+    bank.className = "bank";
+    bank.style.flexDirection = "column";
+    paraScramble[ch.id].forEach(function(id){
+      if (paraMap[id]) return;
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "sent-chip" + (paraSelected===id?" selected":"");
+      setText(b, SENTS[id].em + "  " + t(SENTS[id]));
+      b.addEventListener("click", function(){
+        if (paraDone[ch.id]) return;
+        paraSelected = id;
+        renderPara();
+      });
+      bank.appendChild(b);
+    });
+    box.appendChild(bank);
+
+    if (!paraDone[ch.id]){
+      box.appendChild(checkBtn(T.checkOrder, function(){
+        var ok = ch.items.every(function(id){ return paraMap[id] === SENTS[id].ord; });
+        if (ok){
+          paraDone[ch.id] = true;
+          award("para-"+ch.id, 1);
+          setText($("headline"), t(ch.done));
+          $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.nice));
+          maybeParaDone();
+          renderPara();
+        } else {
+          setText($("headline"), t(T.oops));
+          $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.oops));
+        }
+      }));
+    }
+  }
+
+  /* ---------- NOTE ---------- */
+  function renderNote(){
+    var ch = NOTE[noteIdx];
+    var pad = $("scenePad");
+    var box = $("actionBox");
+    box.innerHTML = "";
+    $("hintbox").classList.remove("show");
+    setText($("prog"), t(T.progN) + " · " + (noteIdx+1) + "/" + NOTE.length);
+    setText($("statechip"), (noteIdx+1) + " / " + NOTE.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (noteDone[ch.id]?" win":"");
+    if (noteDone[ch.id]) setText($("statechip"), t(T.nice));
+    setText($("headline"), noteDone[ch.id] ? t(ch.done) : t(ch.title));
+
+    if (ch.type === "sort"){
+      setText($("detail"), noteSelected ? t(PIECES[noteSelected]) + " → ?" : t(T.askNote));
+      pad.innerHTML = skyHTML() +
+        '<div class="sort-grid">' +
+          '<div class="sort-bin start-bin'+(noteSelected?" hot":"")+'" data-bin="start"><h3></h3><div class="drop" id="binStart"></div></div>' +
+          '<div class="sort-bin mid-bin'+(noteSelected?" hot":"")+'" data-bin="mid"><h3></h3><div class="drop" id="binMid"></div></div>' +
+          '<div class="sort-bin end-bin'+(noteSelected?" hot":"")+'" data-bin="end"><h3></h3><div class="drop" id="binEnd"></div></div>' +
+        '</div>';
+      setText(pad.querySelector(".start-bin h3"), t(T.startLab));
+      setText(pad.querySelector(".mid-bin h3"), t(T.midLab));
+      setText(pad.querySelector(".end-bin h3"), t(T.endLab));
+
+      ["start","mid","end"].forEach(function(bin){
+        pad.querySelector('[data-bin="'+bin+'"]').addEventListener("click", function(){
+          if (noteDone[ch.id]) return;
+          if (!noteSelected){ setText($("detail"), t(T.pick)); return; }
+          noteMap[noteSelected] = bin;
+          noteSelected = null;
+          renderNote();
+        });
+      });
+
+      ch.items.forEach(function(id){
+        var bin = noteMap[id];
+        if (!bin) return;
+        var el = document.createElement("span");
+        el.className = "mini-chip";
+        el.textContent = PIECES[id].em;
+        el.title = t(PIECES[id]);
+        el.addEventListener("click", function(e){
+          e.stopPropagation();
+          if (noteDone[ch.id]) return;
+          delete noteMap[id];
+          renderNote();
+        });
+        $(bin==="start"?"binStart": bin==="mid"?"binMid":"binEnd").appendChild(el);
+      });
+
+      var bank = document.createElement("div");
+      bank.className = "bank";
+      ch.items.forEach(function(id){
+        if (noteMap[id]) return;
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "item-card" + (noteSelected===id?" selected":"");
+        b.innerHTML = '<span class="item-em">'+PIECES[id].em+'</span><p class="item-lab"></p>';
+        setText(b.querySelector(".item-lab"), t(PIECES[id]));
+        b.addEventListener("click", function(){
+          if (noteDone[ch.id]) return;
+          noteSelected = id;
+          renderNote();
+        });
+        bank.appendChild(b);
+      });
+      box.appendChild(bank);
+
+      if (!noteDone[ch.id]){
+        box.appendChild(checkBtn(T.checkSort, function(){
+          var placed = ch.items.every(function(id){ return !!noteMap[id]; });
+          var ok = placed && ch.items.every(function(id){ return noteMap[id] === PIECES[id].bin; });
+          if (ok){
+            noteDone[ch.id] = true;
+            award("note-"+ch.id, 1);
+            setText($("headline"), t(ch.done));
+            $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.nice));
+            maybeNoteDone();
+            renderNote();
+          } else {
+            setText($("headline"), t(T.oops));
+            $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.oops));
+          }
+        }));
+      }
+      return;
+    }
+
+    /* pick */
+    var card = PIECES[ch.card];
+    setText($("detail"), noteDone[ch.id] ? t(ch.done) : t(T.askPick));
+    pad.innerHTML = skyHTML() +
+      '<div class="comic-stage"><div class="comic-hero">'+card.em+'</div>' +
+      '<div class="comic-panel"><span class="em">✉️</span><span class="plab"></span></div></div>';
+    setText(pad.querySelector(".plab"), t(card));
+
+    var choices = document.createElement("div");
+    choices.className = "save-choices";
+    ch.choices.forEach(function(c){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.innerHTML = '<span class="cem">'+c.em+'</span><span class="clab"></span>';
+      setText(b.querySelector(".clab"), t(c));
+      if (noteDone[ch.id] && c.id === ch.correct) b.classList.add("right");
+      b.addEventListener("click", function(){
+        if (noteDone[ch.id]) return;
+        if (c.id === ch.correct){
+          noteDone[ch.id] = true;
+          award("note-"+ch.id, 1);
+          b.classList.add("right");
+          setText($("headline"), t(ch.done));
+          $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.nice));
+          maybeNoteDone();
+          renderNote();
+        } else {
+          b.classList.add("wrong");
+          setText($("headline"), t(T.oops));
+          $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.oops));
+          setTimeout(function(){ b.classList.remove("wrong"); }, 600);
+        }
+      });
+      choices.appendChild(b);
+    });
+    box.appendChild(choices);
+  }
+
+  /* ---------- START ---------- */
+  function renderStart(){
+    var ch = START[startIdx];
+    var pad = $("scenePad");
+    var box = $("actionBox");
+    box.innerHTML = "";
+    $("hintbox").classList.remove("show");
+    setText($("prog"), t(T.progS) + " · " + (startIdx+1) + "/" + START.length);
+    setText($("statechip"), (startIdx+1) + " / " + START.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (startDone[ch.id]?" win":"");
+    if (startDone[ch.id]) setText($("statechip"), t(T.nice));
+    setText($("headline"), startDone[ch.id] ? t(ch.done) : t(ch.title));
+    setText($("detail"), startDone[ch.id] ? t(ch.done) : t(T.askStart));
+
+    pad.innerHTML = skyHTML() +
+      '<div class="prompt-box"><span class="pem">'+ch.hero+'</span><p class="ptitle"></p><p class="pbody"></p></div>';
+    setText(pad.querySelector(".ptitle"), t(ch.title));
+    setText(pad.querySelector(".pbody"), t(ch.prompt));
+
+    var choices = document.createElement("div");
+    choices.className = "save-choices";
+    ch.choices.forEach(function(c){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.innerHTML = '<span class="cem">'+c.em+'</span><span class="clab"></span>';
+      setText(b.querySelector(".clab"), t(c));
+      if (startDone[ch.id] && c.id === ch.correct) b.classList.add("right");
+      b.addEventListener("click", function(){
+        if (startDone[ch.id]) return;
+        if (c.id === ch.correct){
+          startDone[ch.id] = true;
+          award("start-"+ch.id, 1);
+          b.classList.add("right");
+          setText($("headline"), t(ch.done));
+          $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.nice));
+          maybeStartDone();
+          renderStart();
+        } else {
+          b.classList.add("wrong");
+          setText($("headline"), t(T.oops));
+          $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.oops));
+          setTimeout(function(){ b.classList.remove("wrong"); }, 600);
+        }
+      });
+      choices.appendChild(b);
+    });
+    box.appendChild(choices);
+  }
+
+  /* ---------- QUIZ ---------- */
+  function pickQuiz(){ quizSet = shuffle(QUIZ).slice(0, 5); }
+  function renderQuiz(){
+    var box = $("quizBox");
+    box.innerHTML = "";
+    quizSet.forEach(function(item, qi){
+      var wrap = document.createElement("div");
+      wrap.className = "q";
+      var p = document.createElement("p");
+      if (lang === "ur"){
+        p.textContent = isolate((qi+1) + ". " + t(item.q));
+        p.setAttribute("dir", "ltr");
+        p.style.fontFamily = '"Baloo Bhaijaan 2",sans-serif';
+        p.style.textAlign = "left";
+        p.style.lineHeight = "1.5";
+      } else {
+        setText(p, (qi+1) + ". " + t(item.q));
+      }
+      wrap.appendChild(p);
+      var answered = false;
+      item.opts.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        if (lang === "ur"){
+          b.className = "opt";
+          b.textContent = isolate(t(opt));
+          b.setAttribute("dir", "ltr");
+          b.style.textAlign = "left";
+          b.style.fontFamily = '"Baloo Bhaijaan 2",sans-serif';
+        } else {
+          b.className = "opt";
+          setText(b, t(opt));
+        }
+        b.addEventListener("click", function(){
+          if (answered) return;
+          answered = true;
+          if (oi === item.correct){
+            b.classList.add("right");
+            award("quiz-"+qi, 1);
+          } else {
+            b.classList.add("wrong");
+            var kids = wrap.querySelectorAll(".opt");
+            if (kids[item.correct]) kids[item.correct].classList.add("right");
+          }
+          fb.classList.add("show");
+        });
+        wrap.appendChild(b);
+      });
+      var fb = document.createElement("p");
+      fb.className = "fb";
+      if (lang === "ur"){
+        fb.textContent = isolate(t(item.why));
+        fb.setAttribute("dir", "ltr");
+        fb.style.fontFamily = '"Baloo Bhaijaan 2",sans-serif';
+      } else {
+        setText(fb, t(item.why));
+      }
+      wrap.appendChild(fb);
+      box.appendChild(wrap);
+    });
+  }
+
+  function storyHtml(){
+    if (mode === "para") return t(T.storyPara);
+    if (mode === "note") return t(T.storyNote);
+    return t(T.storyStart);
+  }
+
+  function tabBadges(){
+    function lab(btn, label, key){
+      btn.innerHTML = "";
+      var span = document.createElement("span");
+      setText(span, t(label));
+      btn.appendChild(span);
+      if (doneModes[key]){
+        var b = document.createElement("span");
+        b.className = "badge"; b.textContent = " ★";
+        btn.appendChild(b);
+      }
+    }
+    lab($("tabPara"), T.tabPara, "para");
+    lab($("tabNote"), T.tabNote, "note");
+    lab($("tabStart"), T.tabStart, "start");
+    $("tabPara").setAttribute("aria-pressed", mode==="para"?"true":"false");
+    $("tabNote").setAttribute("aria-pressed", mode==="note"?"true":"false");
+    $("tabStart").setAttribute("aria-pressed", mode==="start"?"true":"false");
+  }
+
+  function setMode(m){
+    mode = m;
+    paraSelected = null;
+    noteSelected = null;
+    if (mode === "para") renderPara();
+    else if (mode === "note") renderNote();
+    else renderStart();
+    applyChrome();
+  }
+
+  function applyChrome(){
+    setText($("title"), t(T.title));
+    setText($("subtitle"), t(T.sub));
+    $("story").innerHTML = storyHtml();
+    $("story").classList.toggle("ur", lang==="ur");
+    $("story").setAttribute("dir", lang==="ur"?"rtl":"ltr");
+    setText($("ctlHead"), t(T.ctl));
+    setText($("nextBtn"), t(T.next));
+    setText($("hintBtn"), t(T.hint));
+    setText($("resetBtn"), t(T.reset));
+    setText($("quizHead"), t(T.quiz));
+    setText($("newQuiz"), t(T.newQuiz));
+    $("langBtn").textContent = (lang === "en") ? "اردو" : "EN";
+    $("langBtn").setAttribute("aria-pressed", lang==="ur"?"true":"false");
+    document.body.classList.toggle("urdu", lang==="ur");
+    document.documentElement.lang = (lang==="ur") ? "ur" : "en";
+    document.documentElement.dir = (lang==="ur") ? "rtl" : "ltr";
+    tabBadges();
+    var foot = document.querySelector("footer p");
+    if (foot) setText(foot, foot.getAttribute(lang==="ur"?"data-ur":"data-en"));
+  }
+
+  function applyLang(){
+    applyChrome();
+    if (mode === "para") renderPara();
+    else if (mode === "note") renderNote();
+    else renderStart();
+    renderQuiz();
+  }
+
+  function next(){
+    $("hintbox").classList.remove("show");
+    if (mode === "para"){
+      paraIdx = (paraIdx + 1) % PARA.length;
+      paraSelected = null;
+      renderPara();
+    } else if (mode === "note"){
+      noteIdx = (noteIdx + 1) % NOTE.length;
+      noteSelected = null;
+      renderNote();
+    } else {
+      startIdx = (startIdx + 1) % START.length;
+      renderStart();
+    }
+  }
+
+  function showHint(){
+    var h;
+    if (mode === "para") h = PARA[paraIdx].hint;
+    else if (mode === "note") h = NOTE[noteIdx].hint;
+    else h = START[startIdx].hint;
+    var hb = $("hintbox");
+    setText(hb, t(h));
+    hb.classList.add("show");
+  }
+
+  function resetMode(){
+    if (mode === "para"){
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("para-")===0 || k==="mode-para") delete awarded[k]; });
+      paraDone = {}; paraMap = {}; paraSelected = null; paraIdx = 0; paraScramble = {};
+      doneModes.para = false;
+      recountStars(); renderPara();
+    } else if (mode === "note"){
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("note-")===0 || k==="mode-note") delete awarded[k]; });
+      noteDone = {}; noteMap = {}; noteSelected = null; noteIdx = 0;
+      doneModes.note = false;
+      recountStars(); renderNote();
+    } else {
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("start-")===0 || k==="mode-start") delete awarded[k]; });
+      startDone = {}; startIdx = 0; doneModes.start = false;
+      recountStars(); renderStart();
+    }
+    tabBadges();
+    applyChrome();
+  }
+
+  function cleanSpeakText(s){
+    return String(s || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  }
+  function buildSpeakText(){
+    var bits = [];
+    bits.push(t(T.title));
+    bits.push(cleanSpeakText(storyHtml()));
+    bits.push(cleanSpeakText(($("headline") && $("headline").textContent) || ""));
+    bits.push(cleanSpeakText(($("detail") && $("detail").textContent) || ""));
+    bits.push(t(T.tip));
+    return bits.filter(Boolean).join(". ");
+  }
+  function pickVoice(voices, want){
+    var i, v, L;
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf(want) === 0) return v;
+    }
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf("en") === 0) return v;
+    }
+    return voices[0] || null;
+  }
+  var speakTimer = null;
+  function setSpeaking(on){
+    var btn = $("speakBtn");
+    if (!btn) return;
+    btn.setAttribute("aria-pressed", on ? "true" : "false");
+    btn.style.opacity = on ? "0.65" : "";
+  }
+  function doSpeak(text, asLang){
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.92;
+    u.lang = (asLang === "ur") ? "ur-PK" : "en-US";
+    var voices = window.speechSynthesis.getVoices() || [];
+    var voice = pickVoice(voices, asLang === "ur" ? "ur" : "en");
+    if (voice) u.voice = voice;
+    u.onstart = function(){ setSpeaking(true); };
+    u.onend = function(){ setSpeaking(false); };
+    u.onerror = function(){
+      setSpeaking(false);
+      if (asLang === "ur"){
+        var fallback = cleanSpeakText(T.title.en + ". " + T.storyPara.en + ". " + T.tip.en);
+        var u2 = new SpeechSynthesisUtterance(fallback);
+        u2.lang = "en-US"; u2.rate = 0.92;
+        var v2 = pickVoice(window.speechSynthesis.getVoices() || [], "en");
+        if (v2) u2.voice = v2;
+        u2.onstart = function(){ setSpeaking(true); };
+        u2.onend = u2.onerror = function(){ setSpeaking(false); };
+        window.speechSynthesis.speak(u2);
+      }
+    };
+    window.speechSynthesis.speak(u);
+  }
+  if ("speechSynthesis" in window){
+    try { window.speechSynthesis.getVoices(); } catch (e0) {}
+    if (typeof window.speechSynthesis.addEventListener === "function"){
+      window.speechSynthesis.addEventListener("voiceschanged", function(){
+        try { window.speechSynthesis.getVoices(); } catch (e1) {}
+      });
+    }
+  } else {
+    var noBtn = $("speakBtn");
+    if (noBtn){ noBtn.disabled = true; noBtn.title = "Voice not available on this device"; }
+  }
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en";
+    applyLang();
+  });
+  $("tabPara").addEventListener("click", function(){ setMode("para"); });
+  $("tabNote").addEventListener("click", function(){ setMode("note"); });
+  $("tabStart").addEventListener("click", function(){ setMode("start"); });
+  $("nextBtn").addEventListener("click", next);
+  $("hintBtn").addEventListener("click", showHint);
+  $("resetBtn").addEventListener("click", resetMode);
+  $("newQuiz").addEventListener("click", function(){ pickQuiz(); renderQuiz(); });
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      var text = buildSpeakText();
+      if (!text) return;
+      if (speakTimer){ clearTimeout(speakTimer); speakTimer = null; }
+      window.speechSynthesis.cancel();
+      setSpeaking(false);
+      var speakLang = lang;
+      speakTimer = setTimeout(function(){
+        speakTimer = null;
+        doSpeak(text, speakLang);
+      }, 80);
+    }catch(e){ setSpeaking(false); }
+  });
+
+  pickQuiz();
+  applyLang();
+})();
+</script>
+</body>
+</html>
