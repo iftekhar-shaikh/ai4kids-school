@@ -263,5 +263,13 @@
       "interactive_file": "interactives/g5-geography.html",
       "interactive_label": "Khelo — Geography"
     }
+  },
+  {
+    "file": "kb/grade_5/social.json",
+    "match_title": "Economics",
+    "add": {
+      "interactive_file": "interactives/g5-economics.html",
+      "interactive_label": "Khelo — Economics"
+    }
   }
 ]
