@@ -295,5 +295,13 @@
       "interactive_file": "interactives/g5-akhlaq-aadaab.html",
       "interactive_label": "Khelo — Akhlaq aur aadaab"
     }
+  },
+  {
+    "file": "kb/grade_5/islamiat.json",
+    "match_title": "Husn-e-muamalat",
+    "add": {
+      "interactive_file": "interactives/g5-husn-muamalat.html",
+      "interactive_label": "Khelo — Husn-e-muamalat"
+    }
   }
 ]

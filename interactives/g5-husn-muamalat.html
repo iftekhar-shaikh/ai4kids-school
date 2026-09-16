@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Husn-e-muamalat — حسنِ معاملات | AI4Kids Class 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#e8f0ea;--board-deep:#c5d8c8;--sky:#7eb8d4;--sky2:#4a8fb8;
+    --park:#5a9a6a;--park2:#3a7a4a;--accent:#0d5c3d;--flag-g:#01411C;
+    --ok:#2e7d4f;--ink:#1a2e22;--ink-soft:#4a5a4e;--paper:#fdfaf3;
+    --line:#d0dcc8;--gold:#d4a017;--left:#c4453a;
+    --good-bin:#0d5c3d;--bad-bin:#c4453a;
+    --home:#c45c3a;--school:#2f6fb5;--hood:#0d5c3d;
+    --fs-cap:clamp(12px, 3.2vw, 13px);--fs-xs:clamp(14px, 3.7vw, 15px);
+    --fs-sm:clamp(16px, 4.2vw, 17px);--fs-md:clamp(17px, 4.6vw, 19px);
+    --fs-lg:clamp(20px, 5.4vw, 23px);--fs-xl:clamp(27px, 7.4vw, 33px);--lh:1.5;
+  }
+  body.urdu{
+    --fs-cap:clamp(13px, 3.5vw, 15px);--fs-xs:clamp(15px, 4.1vw, 17px);
+    --fs-sm:clamp(17px, 4.7vw, 19px);--fs-md:clamp(19px, 5.2vw, 21px);
+    --fs-lg:clamp(22px, 6vw, 25px);--fs-xl:clamp(26px, 7vw, 31px);--lh:2.1;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  .stars{display:flex;align-items:center;gap:6px;font-weight:800;font-size:var(--fs-xs);
+         background:#fff6e2;border:2px solid var(--gold);border-radius:999px;padding:7px 13px}
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+  .tabs{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
+  .tabs button{
+    flex:1 1 28%;min-width:90px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:10px 6px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:54px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .tabs button .badge{color:var(--gold)}
+  .story{
+    background:#fff8ea;border:2px dashed var(--gold);border-radius:16px;padding:13px 15px;
+    font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;margin-bottom:14px;
+  }
+  body.urdu .story{line-height:var(--lh)}
+  .story b{color:var(--ink)}
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:
+      radial-gradient(circle at 12% 18%, rgba(212,160,23,.18) 0 8px, transparent 9px),
+      radial-gradient(circle at 88% 22%, rgba(13,92,61,.12) 0 6px, transparent 7px),
+      linear-gradient(180deg,var(--sky) 0%,var(--sky2) 34%,#a8c9a0 34%,#8fb888 42%,var(--board) 42%);
+    min-height:280px;
+  }
+  .scene-pad{padding:10px 12px 18px;min-height:260px;position:relative}
+  .sky-layer{position:absolute;inset:0 0 58% 0;pointer-events:none;overflow:hidden}
+  .crescent-deco{
+    position:absolute;top:10px;right:16px;width:36px;height:36px;z-index:1;
+  }
+  body.urdu .crescent-deco{right:auto;left:16px}
+  .cloud{position:absolute;background:rgba(255,255,255,.85);border-radius:40px;opacity:.9}
+  .cloud:before,.cloud:after{content:"";position:absolute;background:inherit;border-radius:50%}
+  .c1{width:48px;height:15px;top:18px;left:12%}
+  .c1:before{width:22px;height:22px;top:-12px;left:6px}
+  .c1:after{width:18px;height:18px;top:-8px;left:24px}
+  .c2{width:34px;height:12px;top:34px;left:55%;opacity:.7}
+  .c2:before{width:16px;height:16px;top:-9px;left:4px}
+  .c2:after{width:12px;height:12px;top:-5px;left:16px}
+  .hills{position:absolute;left:0;right:0;bottom:42%;height:40px;z-index:1;pointer-events:none}
+  .hill{position:absolute;bottom:0;border-radius:50% 50% 0 0;
+        background:linear-gradient(180deg,#4a8a5a,#2d5530)}
+  .h-a{width:42%;height:36px;left:-4%;opacity:.55}
+  .h-b{width:38%;height:28px;right:8%;opacity:.5}
+  .ground-strip{
+    position:absolute;left:0;right:0;bottom:0;height:32%;
+    background:
+      repeating-linear-gradient(90deg, transparent 0 18px, rgba(13,92,61,.06) 18px 20px),
+      linear-gradient(180deg,#8fbc78 0%,#6a9a58 100%);
+    z-index:2;border-top:3px solid #4a7040;
+  }
+  .geom-edge{
+    position:absolute;left:0;right:0;bottom:31%;height:6px;z-index:3;pointer-events:none;
+    background:repeating-linear-gradient(90deg, var(--gold) 0 8px, var(--accent) 8px 16px, transparent 16px 20px);
+    opacity:.55;
+  }
+  .comic-stage{position:relative;z-index:5;padding-top:78px;text-align:center;min-height:150px}
+  .comic-hero{font-size:56px;line-height:1;margin:4px 0 8px;filter:drop-shadow(0 2px 0 rgba(0,0,0,.12))}
+  .comic-panel{
+    display:inline-flex;align-items:center;gap:8px;background:rgba(253,250,243,.95);
+    border:2.5px solid var(--ink);border-radius:16px;padding:10px 14px;margin:4px;
+    box-shadow:0 3px 0 rgba(30,42,26,.12);font-weight:800;font-size:var(--fs-cap);
+  }
+  .comic-panel .em{font-size:28px}
+  .sort-grid{
+    position:relative;z-index:5;display:grid;grid-template-columns:1fr 1fr;gap:10px;
+    padding-top:88px;
+  }
+  .sort-bin{
+    border:2.5px solid var(--ink);border-radius:14px;padding:10px 8px;min-height:120px;
+    background:rgba(253,250,243,.88);text-align:center;cursor:pointer;
+  }
+  .sort-bin.good-bin{border-color:var(--good-bin);background:rgba(230,242,234,.95)}
+  .sort-bin.bad-bin{border-color:var(--bad-bin);background:rgba(251,234,232,.92)}
+  .sort-bin.hot{box-shadow:0 0 0 3px rgba(13,92,61,.3)}
+  .sort-bin h3{margin:0 0 8px;font-size:var(--fs-cap);font-weight:800}
+  .sort-bin .drop{min-height:60px;display:flex;flex-wrap:wrap;gap:4px;justify-content:center;align-items:center}
+  .item-card{
+    background:rgba(253,250,243,.95);border:2.5px solid var(--ink);border-radius:16px;
+    padding:8px 10px 10px;text-align:center;min-width:72px;max-width:120px;
+    box-shadow:0 3px 0 rgba(30,42,26,.15);cursor:pointer;user-select:none;
+  }
+  .item-card:hover{transform:translateY(-2px)}
+  .item-card.selected{border-color:var(--accent);background:#e8f5ec;box-shadow:0 0 0 3px rgba(13,92,61,.25)}
+  .item-card.ok{border-color:var(--ok);background:#e8f2ed}
+  .item-card.no{border-color:var(--left);background:#fbeae8}
+  .item-em{font-size:34px;line-height:1.1;display:block;margin-bottom:2px}
+  .item-lab{font-size:var(--fs-cap);font-weight:800;line-height:1.25;margin:0}
+  .bank{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:8px;position:relative;z-index:5}
+  .mini-chip{
+    border:2px solid var(--ink);border-radius:12px;padding:6px 8px;background:#fff;
+    line-height:1;cursor:pointer;min-width:40px;font-size:22px;
+  }
+  .save-choices{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+  .save-choices button{
+    border:2.5px solid var(--ink);background:var(--paper);border-radius:14px;
+    padding:12px 14px;font:inherit;font-weight:800;font-size:var(--fs-xs);
+    cursor:pointer;text-align:left;min-height:52px;display:flex;align-items:center;gap:10px;
+  }
+  body.urdu .save-choices button{text-align:right}
+  .save-choices button .cem{font-size:26px}
+  .save-choices button.right{border-color:var(--ok);background:#e8f2ed}
+  .save-choices button.wrong{border-color:var(--left);background:#fbeae8}
+  .map-row{
+    position:relative;z-index:5;display:flex;flex-wrap:wrap;gap:8px;
+    justify-content:center;align-items:stretch;padding-top:88px;min-height:130px;
+  }
+  .map-node{
+    flex:1 1 28%;min-width:90px;border:2.5px solid var(--ink);border-radius:16px;
+    background:rgba(253,250,243,.95);padding:10px 8px;text-align:center;
+    box-shadow:0 3px 0 rgba(30,42,26,.12);
+  }
+  .map-node .nem{font-size:36px;line-height:1;display:block;margin-bottom:4px}
+  .map-node .nlab{font-size:var(--fs-cap);font-weight:800;margin:0}
+  .map-node.home{border-color:var(--home)}
+  .map-node.school{border-color:var(--school)}
+  .map-node.hood{border-color:var(--hood)}
+  .map-node.done{background:#e8f2ed;border-color:var(--ok)}
+  .map-arrow{font-size:20px;font-weight:800;color:var(--accent);align-self:center}
+  .readout{
+    margin-top:-18px;position:relative;z-index:2;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+  .statechip.ur{padding:2px 14px 7px}
+  .statechip.win{background:var(--ok)}
+  .statechip.miss{background:var(--left)}
+  .headline{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+  .headline.ur{line-height:1.95}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+  .hintbox{
+    margin-top:14px;border:2px solid var(--accent);background:#e8f5ec;border-radius:14px;
+    padding:11px 14px;font-size:var(--fs-xs);color:var(--accent);font-weight:700;line-height:1.55;
+    display:none;
+  }
+  .hintbox.show{display:block}
+  body.urdu .hintbox{line-height:var(--lh)}
+  .panel{margin-top:22px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .prog{margin:0 0 10px;font-size:var(--fs-xs);font-weight:700;color:var(--ink-soft)}
+  .btns{display:flex;gap:9px;margin-top:8px;flex-wrap:wrap}
+  .btns button{
+    border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);
+    font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:50px;
+    padding:8px 14px;flex:1;
+  }
+  .btns .go{background:var(--ink);color:var(--paper)}
+  .btns button:active{transform:scale(.97)}
+  .btns button:disabled{opacity:.4;cursor:default}
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .qhead{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+  .qhead h2{font-size:var(--fs-lg);font-weight:800;margin:0;flex:1}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:50px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+  .opt.wrong{border-color:var(--left);background:#fbeae8}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
+      grid-template-areas:
+        "bar   bar" "head  head" "tabs  tabs" "story story"
+        "left  right" "quiz  quiz" "foot  foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+    .story{grid-area:story} .left{grid-area:left} .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+    .panel{margin-top:0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition-duration:.01ms !important;animation:none !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 5 · Islamiat</span>
+    <span class="stars" id="starBox">⭐ <span id="starCount">0</span></span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 id="title"></h1>
+  <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group">
+    <button type="button" id="tabKind" aria-pressed="true"></button>
+    <button type="button" id="tabScenes" aria-pressed="false"></button>
+    <button type="button" id="tabMap" aria-pressed="false"></button>
+  </div>
+
+  <p class="story" id="story"></p>
+
+  <div class="left">
+  <div class="scene">
+    <div class="scene-pad" id="scenePad"></div>
+  </div>
+  <div class="readout">
+    <span class="statechip" id="statechip"></span>
+    <p class="headline" id="headline"></p>
+    <p class="detail" id="detail"></p>
+    <p class="hintbox" id="hintbox"></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="panel">
+    <h2 id="ctlHead"></h2>
+    <p class="prog" id="prog"></p>
+    <div id="actionBox"></div>
+    <div class="btns">
+      <button type="button" class="go" id="nextBtn"></button>
+    </div>
+    <div class="btns">
+      <button type="button" id="hintBtn"></button>
+      <button type="button" id="resetBtn"></button>
+    </div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <div class="qhead">
+      <h2 id="quizHead"></h2>
+      <button type="button" class="chip" id="newQuiz"></button>
+    </div>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad bilingual school. Offline play · no APIs. WhatsApp 0337 1468899 · Islamiat Class 5 (helping interactive)"
+       data-ur="اے آئی فور کڈز — اسلام آباد۔ آف لائن کھیلو۔ واٹس ایپ 0337 1468899 · اسلامیات جماعت ۵ (مددگار انٹرایکٹو)"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  function $(id){ return document.getElementById(id); }
+  function isolate(s){ return "\u2066" + s + "\u2069"; }
+  function setText(el, str){
+    if (!el) return;
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+  function t(o){ return (o && o[lang]) || (o && o.en) || ""; }
+  function shuffle(arr){
+    var a = arr.slice(), i, j, tmp;
+    for (i = a.length - 1; i > 0; i--){
+      j = Math.floor(Math.random() * (i + 1));
+      tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  var lang = "en";
+  var mode = "kind";
+  var stars = 0;
+  var awarded = {};
+  var doneModes = {kind:false, scenes:false, map:false};
+
+  var T = {
+    title:{en:"Husn-e-muamalat", ur:"حسنِ معاملات"},
+    sub:{en:"Husn-e-muamalat = beautiful dealings — kind words, sharing, helping, fairness with family, friends & neighbours!",
+         ur:"حسنِ معاملات = خوبصورت سلوک — نرم بات، بانٹنا، مدد، انصاف؛ گھر، دوست اور پڑوسی کے ساتھ!"},
+    tabKind:{en:"Kind vs unkind", ur:"مہربان بمقابلہ سخت"},
+    tabScenes:{en:"Sulook scenes", ur:"سلوک کے مناظر"},
+    tabMap:{en:"My dealings map", ur:"میرا معاملات نقشہ"},
+    storyKind:{en:"<b>Husn-e-muamalat</b> means beautiful dealings. Sort <b>kind</b> (share, soft speech, help) vs <b>unkind</b> (selfish, harsh, ignore neighbour)!",
+               ur:"<b>حسنِ معاملات</b> خوبصورت سلوک ہے۔ <b>مہربان</b> (بانٹنا، نرم بات، مدد) اور <b>سخت</b> (خودغرضی، تلخ بات، پڑوسی نظرانداز) چھانٹو!"},
+    storyScenes:{en:"Comic sulook: help with home chores, share with a friend, greet & help a padosi, fairness on the playground. Pick the kind choice!",
+                 ur:"کارٹون سلوک: گھر کے کام میں مدد، دوست سے بانٹنا، پڑوسی کو سلام و مدد، میدان میں انصاف۔ مہربان انتخاب چنو!"},
+    storyMap:{en:"<b>My dealings map</b>: Ghar → Dost → Padosi. Pick one beautiful dealing for each place!",
+              ur:"<b>میرا معاملات نقشہ</b>: گھر → دوست → پڑوسی۔ ہر جگہ ایک خوبصورت سلوک چنو!"},
+    ctl:{en:"Your turn — soft dealings", ur:"تمہاری باری — نرم سلوک"},
+    next:{en:"Next challenge", ur:"اگلا چیلنج"},
+    hint:{en:"Hint", ur:"اشارہ"},
+    reset:{en:"Reset", ur:"ری سیٹ"},
+    quiz:{en:"Check yourself", ur:"اپنا چیک"},
+    newQuiz:{en:"New quiz", ur:"نیا کوئز"},
+    nice:{en:"Shabash — beautiful dealings!", ur:"شاباش — خوبصورت معاملات!"},
+    oops:{en:"Almost — try again", ur:"قریب — دوبارہ آزماؤ"},
+    tip:{en:"Tip: Husn-e-muamalat is beautiful dealings — kind words, sharing, helping, and fairness with family, friends, and neighbours every day.",
+         ur:"نکتہ: حسنِ معاملات خوبصورت سلوک ہے — نرم بات، بانٹنا، مدد اور انصاف؛ گھر، دوست اور پڑوسی کے ساتھ ہر روز۔"},
+    progK:{en:"Kind vs unkind", ur:"مہربان بمقابلہ سخت"},
+    progS:{en:"Sulook scenes", ur:"سلوک کے مناظر"},
+    progA:{en:"My dealings map", ur:"میرا معاملات نقشہ"},
+    askSort:{en:"Tap a card, then tap Kind or Unkind", ur:"کارڈ ٹیپ کرو، پھر مہربان یا سخت"},
+    askPick:{en:"Kind dealing, or unkind?", ur:"مہربان سلوک، یا سخت؟"},
+    askScene:{en:"What shows husn-e-muamalat here?", ur:"یہاں حسنِ معاملات کیا ہے؟"},
+    askMap:{en:"Pick one beautiful dealing for this place", ur:"اس جگہ کے لیے ایک خوبصورت سلوک چنو"},
+    checkSort:{en:"Check sort", ur:"چھانٹی چیک کرو"},
+    goodLab:{en:"💚 Kind", ur:"💚 مہربان"},
+    badLab:{en:"🚫 Unkind", ur:"🚫 سخت"},
+    pick:{en:"Tap a card first", ur:"پہلے کارڈ ٹیپ کرو"},
+    home:{en:"Ghar", ur:"گھر"},
+    school:{en:"Dost", ur:"دوست"},
+    hood:{en:"Padosi", ur:"پڑوسی"}
+  };
+
+  /* Cards: kind vs unkind dealings */
+  var CARDS = {
+    share:{em:"🍎", en:"Share with others", ur:"دوسروں سے بانٹنا", bin:"good"},
+    soft:{em:"😊", en:"Soft kind speech", ur:"نرم مہربان بات", bin:"good"},
+    help:{em:"🤝", en:"Help someone", ur:"کسی کی مدد کرنا", bin:"good"},
+    greet:{em:"👋", en:"Greet a neighbour", ur:"پڑوسی کو سلام", bin:"good"},
+    fair:{em:"⚖️", en:"Play fairly", ur:"انصاف سے کھیلنا", bin:"good"},
+    chores:{em:"🧹", en:"Help with chores", ur:"گھر کے کام میں مدد", bin:"good"},
+    selfish:{em:"🙅", en:"Being selfish", ur:"خودغرضی", bin:"bad"},
+    harsh:{em:"💢", en:"Harsh angry words", ur:"تلخ غصے والی بات", bin:"bad"},
+    ignore:{em:"🙈", en:"Ignore a neighbour", ur:"پڑوسی کو نظرانداز", bin:"bad"},
+    snatch:{em:"😤", en:"Snatching toys", ur:"کھلونے چھیننا", bin:"bad"},
+    refuse:{em:"🚫", en:"Refuse to help family", ur:"خاندان کی مدد سے انکار", bin:"bad"},
+    cheat:{em:"🃏", en:"Cheating in a game", ur:"کھیل میں دھوکا", bin:"bad"}
+  };
+
+  /* Mode 1: Kind vs unkind — 4 challenges */
+  var KIND = [
+    {
+      id:"k1", type:"sort",
+      title:{en:"Share & soft speech", ur:"بانٹنا اور نرم بات"},
+      items:["share","selfish","soft","harsh"],
+      hint:{en:"Sharing and soft speech are kind dealings. Selfishness and harsh words are unkind.",
+            ur:"بانٹنا اور نرم بات مہربان سلوک ہیں۔ خودغرضی اور تلخ بات سخت ہیں۔"},
+      done:{en:"Sorted — share + soft words!", ur:"چھانٹی ہوئی — بانٹنا + نرم بات!"}
+    },
+    {
+      id:"k2", type:"sort",
+      title:{en:"Help & greet neighbour", ur:"مدد اور پڑوسی کا سلام"},
+      items:["help","refuse","greet","ignore"],
+      hint:{en:"Helping and greeting a neighbour = kind. Refusing family help and ignoring a padosi = unkind.",
+            ur:"مدد اور پڑوسی کا سلام = مہربان۔ خاندان کی مدد سے انکار اور نظراندازی = سخت۔"},
+      done:{en:"Beautiful sort — help + salam!", ur:"خوبصورت چھانٹی — مدد + سلام!"}
+    },
+    {
+      id:"k3", type:"pick",
+      title:{en:"Play fairly", ur:"انصاف سے کھیلنا"},
+      card:"fair",
+      hint:{en:"Fair play is husn-e-muamalat. Cheating or snatching is unkind.",
+            ur:"انصاف سے کھیلنا حسنِ معاملات ہے۔ دھوکا یا چھیننا سخت سلوک ہے۔"},
+      done:{en:"Kind dealing — fairness!", ur:"مہربان سلوک — انصاف!"}
+    },
+    {
+      id:"k4", type:"pick",
+      title:{en:"Help with chores", ur:"گھر کے کام میں مدد"},
+      card:"chores",
+      hint:{en:"Helping at home with chores shows beautiful dealings — not refusing or being selfish.",
+            ur:"گھر کے کام میں مدد خوبصورت معاملات ہیں — انکار یا خودغرضی نہیں۔"},
+      done:{en:"Kind dealing — home help!", ur:"مہربان سلوک — گھر کی مدد!"}
+    }
+  ];
+
+  /* Mode 2: Sulook scenes — 4 comics */
+  var SCENES = [
+    {
+      id:"s1",
+      title:{en:"Home chores help", ur:"گھر کے کام میں مدد"},
+      hero:"🏠🧹😊",
+      prompt:{en:"Amma asks for help tidying. What shows husn-e-muamalat?",
+              ur:"اماں سمیٹنے میں مدد مانگتی ہیں۔ حسنِ معاملات کیا ہے؟"},
+      choices:[
+        {id:"help", em:"🫶", en:"Help cheerfully and speak softly", ur:"خوشی سے مدد کرو اور نرم بات کرو"},
+        {id:"yell", em:"📢", en:"Yell that you are busy on a game", ur:"چیخو کہ گیم میں مصروف ہو"},
+        {id:"hide", em:"🙈", en:"Hide in your room and ignore her", ur:"کمرے میں چھپو اور نظرانداز کرو"}
+      ],
+      correct:"help",
+      hint:{en:"At ghar, kind dealings = help with chores and soft speech.",
+            ur:"گھر پر مہربان سلوک = کام میں مدد اور نرم بات۔"},
+      done:{en:"Home sulook locked!", ur:"گھر کا سلوک تیار!"}
+    },
+    {
+      id:"s2",
+      title:{en:"Friend share", ur:"دوست سے بانٹنا"},
+      hero:"🧒🍎🤝",
+      prompt:{en:"Your friend has no snack at break. Best sulook?",
+              ur:"بریک پر دوست کے پاس ناشتہ نہیں۔ بہترین سلوک؟"},
+      choices:[
+        {id:"share", em:"🍎", en:"Share your snack kindly and sit together", ur:"مہربانی سے ناشتہ بانٹو اور ساتھ بیٹھو"},
+        {id:"tease", em:"😜", en:"Tease them for forgetting food", ur:"کھانا بھولنے پر مذاق اڑاؤ"},
+        {id:"alone", em:"🙅", en:"Eat alone and turn away", ur:"اکیلے کھاؤ اور منہ موڑ لو"}
+      ],
+      correct:"share",
+      hint:{en:"Sharing with a dost is classic husn-e-muamalat.",
+            ur:"دوست سے بانٹنا حسنِ معاملات کی کلاسک مثال ہے۔"},
+      done:{en:"Friend share — Shabash!", ur:"دوست سے بانٹنا — شاباش!"}
+    },
+    {
+      id:"s3",
+      title:{en:"Padosi greeting & help", ur:"پڑوسی کا سلام اور مدد"},
+      hero:"🏘️👋🧓",
+      prompt:{en:"An elder padosi carries bags near your gate. Kind dealing?",
+              ur:"بزرگ پڑوسی گیٹ کے قریب تھیلے اٹھا رہے ہیں۔ مہربان سلوک؟"},
+      choices:[
+        {id:"greet", em:"🤝", en:"Say salam and offer to help carry", ur:"سلام کرو اور اٹھانے میں مدد پیش کرو"},
+        {id:"pass", em:"🚶", en:"Walk past without looking", ur:"بغیر دیکھے گزر جاؤ"},
+        {id:"laugh", em:"😂", en:"Laugh because the bags look heavy", ur:"بھاری تھیلے دیکھ کر ہنسو"}
+      ],
+      correct:"greet",
+      hint:{en:"Padosi sulook = greeting and helping — never ignore.",
+            ur:"پڑوسی کا سلوک = سلام اور مدد — نظرانداز نہیں۔"},
+      done:{en:"Padosi sulook complete!", ur:"پڑوسی کا سلوک مکمل!"}
+    },
+    {
+      id:"s4",
+      title:{en:"Playground fairness", ur:"میدان میں انصاف"},
+      hero:"⚽⚖️🧒",
+      prompt:{en:"On the playground in Islamabad — what shows fair dealings?",
+              ur:"اسلام آباد کے میدان میں — منصفانہ سلوک کیا ہے؟"},
+      choices:[
+        {id:"fair", em:"⚖️", en:"Take turns, no cheating, cheer even if you lose", ur:"باری لو، دھوکا نہیں، ہارو تو بھی خوش رہو"},
+        {id:"cheat", em:"🃏", en:"Cheat so your team always wins", ur:"دھوکا کرو تاکہ ٹیم ہمیشہ جیتے"},
+        {id:"snatch", em:"😤", en:"Snatch the ball and never share", ur:"گیند چھینو اور کبھی نہ بانٹو"}
+      ],
+      correct:"fair",
+      hint:{en:"Fairness on the playground is husn-e-muamalat with friends.",
+            ur:"میدان میں انصاف دوستوں کے ساتھ حسنِ معاملات ہے۔"},
+      done:{en:"Fair play star!", ur:"منصفانہ کھیل کا ستارہ!"}
+    }
+  ];
+
+  /* Mode 3: My dealings map — ghar, dost, padosi */
+  var MAP = [
+    {
+      id:"a1", place:"home",
+      title:{en:"Dealings at ghar", ur:"گھر پر معاملات"},
+      prompt:{en:"Pick one beautiful dealing for home today.",
+              ur:"آج گھر کے لیے ایک خوبصورت سلوک چنو۔"},
+      choices:[
+        {id:"help", em:"🧹", en:"Help with chores and speak softly to family", ur:"کام میں مدد اور خاندان سے نرم بات"},
+        {id:"yell", em:"📢", en:"Yell when asked to tidy your room", ur:"کمرہ سمیٹنے پر چیخنا"},
+        {id:"refuse", em:"🙅", en:"Refuse every request for help", ur:"ہر مدد کی درخواست سے انکار"}
+      ],
+      correct:"help",
+      hint:{en:"Ghar dealings: soft speech and cheerful help with family.",
+            ur:"گھر کے معاملات: نرم بات اور خوشی سے خاندان کی مدد۔"},
+      done:{en:"Ghar dealings locked!", ur:"گھر کے معاملات تیار!"}
+    },
+    {
+      id:"a2", place:"school",
+      title:{en:"Dealings with dost", ur:"دوست کے ساتھ معاملات"},
+      prompt:{en:"With friends — which is husn-e-muamalat?",
+              ur:"دوستوں کے ساتھ — کون سا حسنِ معاملات ہے؟"},
+      choices:[
+        {id:"share", em:"💚", en:"Share, take turns, and speak kindly even if you lose", ur:"بانٹو، باری لو، ہارو تو بھی مہربان بات"},
+        {id:"snatch", em:"😤", en:"Snatch toys and never share", ur:"کھلونے چھینو اور کبھی نہ بانٹو"},
+        {id:"tease", em:"😜", en:"Tease a friend who made a mistake", ur:"غلطی کرنے والے دوست کا مذاق"}
+      ],
+      correct:"share",
+      hint:{en:"Dost dealings = sharing, fairness, and kind words.",
+            ur:"دوست کے معاملات = بانٹنا، انصاف، اور نرم بات۔"},
+      done:{en:"Dost dealings ready!", ur:"دوست کے معاملات تیار!"}
+    },
+    {
+      id:"a3", place:"hood",
+      title:{en:"Dealings with padosi", ur:"پڑوسی کے ساتھ معاملات"},
+      prompt:{en:"A padosi needs a small favour. Best dealing?",
+              ur:"پڑوسی کو چھوٹی مدد چاہیے۔ بہترین سلوک؟"},
+      choices:[
+        {id:"kind", em:"👋", en:"Greet with salam and help kindly if you can", ur:"سلام کرو اور ممکن ہو تو مہربانی سے مدد"},
+        {id:"ignore", em:"🙈", en:"Ignore them and close the door", ur:"نظرانداز کرو اور دروازہ بند کرو"},
+        {id:"rude", em:"💢", en:"Answer with harsh angry words", ur:"تلخ غصے والی بات سے جواب"}
+      ],
+      correct:"kind",
+      hint:{en:"Padosi dealings = greeting and helping — never ignore or speak harshly.",
+            ur:"پڑوسی کے معاملات = سلام اور مدد — نظرانداز یا تلخ بات نہیں۔"},
+      done:{en:"Padosi dealings star!", ur:"پڑوسی معاملات کا ستارہ!"}
+    },
+    {
+      id:"a4", place:"all",
+      title:{en:"Everywhere check", ur:"ہر جگہ چیک"},
+      prompt:{en:"Which sentence is TRUE about Husn-e-muamalat for Class 5?",
+              ur:"جماعت ۵ کے لیے حسنِ معاملات کے بارے میں کون سی بات سچ ہے؟"},
+      choices:[
+        {id:"both", em:"⭐", en:"Beautiful dealings = kind words, sharing, helping, fairness with ghar, dost, and padosi", ur:"خوبصورت سلوک = نرم بات، بانٹنا، مدد، انصاف؛ گھر، دوست اور پڑوسی کے ساتھ"},
+        {id:"only", em:"🚫", en:"Only adults need good dealings with neighbours", ur:"صرف بالغوں کو پڑوسیوں سے اچھا سلوک چاہیے"},
+        {id:"mean", em:"😤", en:"Being selfish and harsh is also husn-e-muamalat", ur:"خودغرضی اور تلخ بات بھی حسنِ معاملات ہے"}
+      ],
+      correct:"both",
+      hint:{en:"Kids practise husn-e-muamalat every day at home, with friends, and with neighbours.",
+            ur:"بچے گھر، دوستوں اور پڑوسیوں کے ساتھ ہر روز حسنِ معاملات اپناتے ہیں۔"},
+      done:{en:"Dealings map complete!", ur:"معاملات کا نقشہ مکمل!"}
+    }
+  ];
+
+  /* Quiz: EN + Roman Urdu */
+  var QUIZ = [
+    {
+      q:{en:"What does Husn-e-muamalat mean for Class 5?",
+         ur:"Class 5 ke liye Husn-e-muamalat ka matlab kya hai?"},
+      opts:[
+        {en:"Beautiful dealings — kind words, sharing, helping, fairness", ur:"Khoobsurat sulook — narm baat, baantna, madad, insaaf"},
+        {en:"Only collecting stickers", ur:"Sirf stickers ikattha karna"},
+        {en:"Being selfish every day", ur:"Roz khudgharaz hona"},
+        {en:"Ignoring every neighbour", ur:"Har padosi ko nazarandaz karna"}
+      ],
+      correct:0,
+      why:{en:"Husn-e-muamalat = beautiful dealings shown in daily kind sulook.",
+           ur:"Husn-e-muamalat = roz ke meherban sulook mein khoobsurat muamalat."}
+    },
+    {
+      q:{en:"Which is a KIND dealing (not unkind)?",
+         ur:"Kaun sa MEHERBAN sulook hai (sakht nahi)?"},
+      opts:[
+        {en:"Sharing and soft kind speech", ur:"Baantna aur narm meherban baat"},
+        {en:"Selfishness and harsh words", ur:"Khudgharazi aur talkh baat"},
+        {en:"Ignoring a neighbour in need", ur:"Zarooratmand padosi ko nazarandaz"},
+        {en:"Cheating in a game", ur:"Khel mein dhoka"}
+      ],
+      correct:0,
+      why:{en:"Sharing and soft speech are kind; selfishness and harsh words are unkind.",
+           ur:"Baantna aur narm baat meherban hain; khudgharazi aur talkh baat sakht hain."}
+    },
+    {
+      q:{en:"Your friend has no snack. What shows husn-e-muamalat?",
+         ur:"Dost ke paas nashta nahi. Husn-e-muamalat kya dikhati hai?"},
+      opts:[
+        {en:"Share your snack kindly and sit together", ur:"Meherbani se nashta baanto aur saath baitho"},
+        {en:"Tease them for forgetting food", ur:"Khana bhoolne pe mazaaq"},
+        {en:"Eat alone and turn away", ur:"Akele khao aur munh mor lo"},
+        {en:"Snatch someone else's snack", ur:"Kisi aur ka nashta cheeno"}
+      ],
+      correct:0,
+      why:{en:"Sharing with a dost is classic beautiful dealings.",
+           ur:"Dost se baantna classic khoobsurat muamalat hai."}
+    },
+    {
+      q:{en:"An elder padosi carries heavy bags. Kind dealing?",
+         ur:"Buzurg padosi bhari thailay uthaye. Meherban sulook?"},
+      opts:[
+        {en:"Say salam and offer to help carry", ur:"Salam karo aur uthane mein madad pesh karo"},
+        {en:"Walk past without looking", ur:"Bina dekhe guzar jao"},
+        {en:"Laugh because bags look heavy", ur:"Bhari thailay dekh kar hanso"},
+        {en:"Close the gate and ignore them", ur:"Gate band karo aur nazarandaz"}
+      ],
+      correct:0,
+      why:{en:"Padosi sulook = greeting and helping — never ignore.",
+           ur:"Padosi sulook = salam aur madad — nazarandaz nahi."}
+    },
+    {
+      q:{en:"How can a Class 5 child practise husn-e-muamalat today?",
+         ur:"Class 5 ka bachcha aaj husn-e-muamalat kaise amal kare?"},
+      opts:[
+        {en:"Help at ghar, share with dost, greet & help padosi, play fairly", ur:"Ghar pe madad, dost se baantna, padosi ko salam-madad, insaaf se khel"},
+        {en:"Only adults need good dealings", ur:"Sirf baray ko ache muamalat chahiye"},
+        {en:"Cheat so you always win", ur:"Dhoka karo taake hamesha jeeto"},
+        {en:"Yell at family when asked to help", ur:"Madad mangne pe family pe cheekhna"}
+      ],
+      correct:0,
+      why:{en:"Kids practise beautiful dealings daily with family, friends, and neighbours.",
+           ur:"Bachay roz ghar, doston aur padosiyon se khoobsurat muamalat amal karte hain."}
+    },
+    {
+      q:{en:"Fair play on the playground shows…",
+         ur:"Maidan pe insaaf se khelna kya dikhata hai?"},
+      opts:[
+        {en:"Husn-e-muamalat — fairness with friends", ur:"Husn-e-muamalat — doston ke saath insaaf"},
+        {en:"That cheating is better", ur:"Ke dhoka behtar hai"},
+        {en:"That snatching is fine", ur:"Ke cheenna theek hai"},
+        {en:"That ignoring friends is okay", ur:"Ke doston ko nazarandaz theek hai"}
+      ],
+      correct:0,
+      why:{en:"Fairness is beautiful dealings with friends on the playground.",
+           ur:"Insaaf maidan pe doston ke saath khoobsurat muamalat hai."}
+    }
+  ];
+
+  var kindIdx = 0, kindSelected = null, kindSort = {}, kindDone = {};
+  var scenesIdx = 0, scenesDone = {};
+  var mapIdx = 0, mapDone = {}, mapPlaces = {home:false, school:false, hood:false};
+  var quizSet = [];
+
+  function award(key, n){
+    if (awarded[key]) return;
+    awarded[key] = true;
+    stars += (n || 1);
+    $("starCount").textContent = String(stars);
+  }
+  function recountStars(){
+    stars = 0;
+    Object.keys(awarded).forEach(function(k){
+      stars += (k.indexOf("mode-")===0) ? 2 : 1;
+    });
+    $("starCount").textContent = String(stars);
+  }
+
+  function crescentSVG(){
+    return '<svg class="crescent-deco" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+      '<circle cx="22" cy="20" r="12" fill="#f5e6a8"/>' +
+      '<circle cx="28" cy="18" r="10" fill="#4a8fb8"/>' +
+      '<polygon points="12,8 13.5,12.5 18,12.5 14.5,15.5 16,20 12,17.2 8,20 9.5,15.5 6,12.5 10.5,12.5" fill="#d4a017"/>' +
+      '</svg>';
+  }
+
+  function skyHTML(){
+    return '<div class="sky-layer">' + crescentSVG() +
+           '<div class="cloud c1"></div><div class="cloud c2"></div></div>' +
+           '<div class="hills"><div class="hill h-a"></div><div class="hill h-b"></div></div>' +
+           '<div class="geom-edge"></div>' +
+           '<div class="ground-strip"></div>';
+  }
+
+  function kidsSVG(){
+    return '<svg class="comic-hero" style="width:min(90%,260px);height:auto;font-size:inherit" viewBox="0 0 260 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+      '<ellipse cx="130" cy="92" rx="70" ry="6" fill="rgba(0,0,0,.1)"/>' +
+      '<circle cx="70" cy="38" r="16" fill="#f5c89a" stroke="#1a2e22" stroke-width="2"/>' +
+      '<rect x="55" y="54" width="30" height="28" rx="8" fill="#0d5c3d" stroke="#1a2e22" stroke-width="2"/>' +
+      '<text x="70" y="34" text-anchor="middle" font-size="10">😊</text>' +
+      '<circle cx="130" cy="34" r="17" fill="#e8b890" stroke="#1a2e22" stroke-width="2"/>' +
+      '<rect x="114" y="51" width="32" height="30" rx="8" fill="#2f6fb5" stroke="#1a2e22" stroke-width="2"/>' +
+      '<text x="130" y="30" text-anchor="middle" font-size="11">😄</text>' +
+      '<circle cx="190" cy="38" r="16" fill="#f0c4a0" stroke="#1a2e22" stroke-width="2"/>' +
+      '<rect x="175" y="54" width="30" height="28" rx="8" fill="#c45c3a" stroke="#1a2e22" stroke-width="2"/>' +
+      '<text x="190" y="34" text-anchor="middle" font-size="10">🙂</text>' +
+      '<circle cx="130" cy="14" r="9" fill="#0d5c3d" stroke="#1a2e22" stroke-width="1.5"/>' +
+      '<circle cx="133" cy="13" r="6" fill="#0d5c3d"/>' +
+      '<circle cx="135" cy="12" r="5.5" fill="#7eb8d4"/>' +
+      '<polygon points="124,10 125,13 128,13 125.5,15 126.5,18 124,16 121.5,18 122.5,15 120,13 123,13" fill="#d4a017"/>' +
+      '</svg>';
+  }
+
+  function maybeKindDone(){
+    if (Object.keys(kindDone).length >= KIND.length){
+      doneModes.kind = true;
+      award("mode-kind", 2);
+      tabBadges();
+    }
+  }
+  function maybeScenesDone(){
+    if (Object.keys(scenesDone).length >= SCENES.length){
+      doneModes.scenes = true;
+      award("mode-scenes", 2);
+      tabBadges();
+    }
+  }
+  function maybeMapDone(){
+    if (Object.keys(mapDone).length >= MAP.length){
+      doneModes.map = true;
+      award("mode-map", 2);
+      tabBadges();
+    }
+  }
+
+  /* ---------- KIND ---------- */
+  function renderKind(){
+    var ch = KIND[kindIdx];
+    var pad = $("scenePad");
+    var box = $("actionBox");
+    box.innerHTML = "";
+    $("hintbox").classList.remove("show");
+
+    setText($("statechip"), (kindIdx+1) + " / " + KIND.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (kindDone[ch.id]?" win":"");
+    if (kindDone[ch.id]) setText($("statechip"), t(T.nice));
+
+    if (ch.type === "sort"){
+      pad.innerHTML = skyHTML() +
+        '<div class="sort-grid">' +
+          '<div class="sort-bin good-bin'+(kindSelected?" hot":"")+'" data-bin="good"><h3></h3><div class="drop" id="binGood"></div></div>' +
+          '<div class="sort-bin bad-bin'+(kindSelected?" hot":"")+'" data-bin="bad"><h3></h3><div class="drop" id="binBad"></div></div>' +
+        '</div>';
+      setText(pad.querySelector(".good-bin h3"), t(T.goodLab));
+      setText(pad.querySelector(".bad-bin h3"), t(T.badLab));
+
+      ["good","bad"].forEach(function(bin){
+        pad.querySelector('[data-bin="'+bin+'"]').addEventListener("click", function(){
+          if (!kindSelected || kindDone[ch.id]) return;
+          kindSort[kindSelected] = bin;
+          kindSelected = null;
+          renderKind();
+        });
+      });
+
+      ch.items.forEach(function(id){
+        var bin = kindSort[id];
+        if (!bin) return;
+        var el = document.createElement("span");
+        el.className = "mini-chip";
+        el.textContent = CARDS[id].em;
+        el.title = t(CARDS[id]);
+        el.addEventListener("click", function(e){
+          e.stopPropagation();
+          if (kindDone[ch.id]) return;
+          delete kindSort[id];
+          renderKind();
+        });
+        (bin==="good"?$("binGood"):$("binBad")).appendChild(el);
+      });
+
+      var bank = document.createElement("div");
+      bank.className = "bank";
+      ch.items.forEach(function(id){
+        if (kindSort[id]) return;
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "item-card" + (kindSelected===id?" selected":"");
+        b.innerHTML = '<span class="item-em">'+CARDS[id].em+'</span><p class="item-lab"></p>';
+        setText(b.querySelector(".item-lab"), t(CARDS[id]));
+        b.addEventListener("click", function(){
+          if (kindDone[ch.id]) return;
+          kindSelected = id;
+          renderKind();
+        });
+        bank.appendChild(b);
+      });
+      box.appendChild(bank);
+
+      if (!kindDone[ch.id]){
+        var chk = document.createElement("button");
+        chk.type = "button";
+        chk.style.cssText = "margin-top:10px;width:100%;border:2px solid var(--ink);border-radius:14px;background:var(--ink);color:var(--paper);font:inherit;font-weight:800;min-height:48px;cursor:pointer";
+        setText(chk, t(T.checkSort));
+        chk.addEventListener("click", function(){
+          var ok = true;
+          ch.items.forEach(function(id){
+            if (kindSort[id] !== CARDS[id].bin) ok = false;
+          });
+          if (ok && Object.keys(kindSort).filter(function(k){ return ch.items.indexOf(k)>=0; }).length === ch.items.length){
+            kindDone[ch.id] = true;
+            award("kind-"+ch.id, 1);
+            setText($("headline"), t(ch.done));
+            $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.nice));
+            maybeKindDone();
+            renderKind();
+          } else {
+            setText($("headline"), t(T.oops));
+            $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.oops));
+          }
+        });
+        box.appendChild(chk);
+      }
+
+      setText($("headline"), kindDone[ch.id] ? t(ch.done) : t(ch.title));
+      setText($("detail"), kindSelected ? t(CARDS[kindSelected]) + " → ?" : t(T.askSort));
+    } else {
+      var card = CARDS[ch.card];
+      pad.innerHTML = skyHTML() +
+        '<div class="comic-stage">' + kidsSVG() +
+        '<div class="comic-panel"><span class="em">'+card.em+'</span><span class="plab"></span></div></div>';
+      setText(pad.querySelector(".plab"), t(card));
+
+      setText($("headline"), kindDone[ch.id] ? t(ch.done) : t(ch.title));
+      setText($("detail"), t(T.askPick));
+
+      var choices = document.createElement("div");
+      choices.className = "save-choices";
+      [
+        {id:"good", em:"💚", en:"Kind", ur:"مہربان"},
+        {id:"bad", em:"🚫", en:"Unkind", ur:"سخت"}
+      ].forEach(function(c){
+        var b = document.createElement("button");
+        b.type = "button";
+        if (kindDone[ch.id] && c.id === card.bin) b.classList.add("right");
+        b.innerHTML = '<span class="cem">'+c.em+'</span><span class="clab"></span>';
+        setText(b.querySelector(".clab"), t(c));
+        b.disabled = !!kindDone[ch.id];
+        b.addEventListener("click", function(){
+          if (kindDone[ch.id]) return;
+          if (c.id === card.bin){
+            kindDone[ch.id] = true;
+            award("kind-"+ch.id, 1);
+            b.classList.add("right");
+            setText($("headline"), t(ch.done));
+            $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.nice));
+            maybeKindDone();
+            renderKind();
+          } else {
+            b.classList.add("wrong");
+            setText($("headline"), t(T.oops));
+            $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.oops));
+            setTimeout(function(){ b.classList.remove("wrong"); }, 600);
+          }
+        });
+        choices.appendChild(b);
+      });
+      box.appendChild(choices);
+    }
+    setText($("prog"), t(T.progK) + ": " + Object.keys(kindDone).length + "/" + KIND.length);
+  }
+
+  /* ---------- SCENES ---------- */
+  function renderScenes(){
+    var ch = SCENES[scenesIdx];
+    var pad = $("scenePad");
+    pad.innerHTML = skyHTML() +
+      '<div class="comic-stage"><div class="comic-hero">'+ch.hero+'</div>' +
+      '<div class="comic-panel"><span class="em">🧒</span><span class="plab"></span></div></div>';
+    setText(pad.querySelector(".plab"), t(ch.title));
+
+    setText($("statechip"), (scenesIdx+1) + " / " + SCENES.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (scenesDone[ch.id]?" win":"");
+    if (scenesDone[ch.id]) setText($("statechip"), t(T.nice));
+    setText($("headline"), scenesDone[ch.id] ? t(ch.done) : t(ch.title));
+    setText($("detail"), t(ch.prompt));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+    var choices = document.createElement("div");
+    choices.className = "save-choices";
+    ch.choices.forEach(function(c){
+      var b = document.createElement("button");
+      b.type = "button";
+      if (scenesDone[ch.id] && c.id === ch.correct) b.classList.add("right");
+      b.innerHTML = '<span class="cem">'+c.em+'</span><span class="clab"></span>';
+      setText(b.querySelector(".clab"), t(c));
+      b.disabled = !!scenesDone[ch.id];
+      b.addEventListener("click", function(){
+        if (scenesDone[ch.id]) return;
+        if (c.id === ch.correct){
+          scenesDone[ch.id] = true;
+          award("scenes-"+ch.id, 1);
+          b.classList.add("right");
+          setText($("headline"), t(ch.done));
+          $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.nice));
+          maybeScenesDone();
+          tabBadges();
+          renderScenes();
+        } else {
+          b.classList.add("wrong");
+          setText($("headline"), t(T.oops));
+          $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.oops));
+          setTimeout(function(){ b.classList.remove("wrong"); }, 600);
+        }
+      });
+      choices.appendChild(b);
+    });
+    box.appendChild(choices);
+    setText($("prog"), t(T.progS) + ": " + Object.keys(scenesDone).length + "/" + SCENES.length);
+  }
+
+  /* ---------- MAP ---------- */
+  function renderMap(){
+    var ch = MAP[mapIdx];
+    var pad = $("scenePad");
+    if (mapDone.a1) mapPlaces.home = true;
+    if (mapDone.a2) mapPlaces.school = true;
+    if (mapDone.a3) mapPlaces.hood = true;
+
+    pad.innerHTML = skyHTML() +
+      '<div class="map-row">' +
+        '<div class="map-node home'+(mapPlaces.home?" done":"")+'"><span class="nem">🏠</span><p class="nlab" id="mapHome"></p></div>' +
+        '<span class="map-arrow">→</span>' +
+        '<div class="map-node school'+(mapPlaces.school?" done":"")+'"><span class="nem">🤝</span><p class="nlab" id="mapSchool"></p></div>' +
+        '<span class="map-arrow">→</span>' +
+        '<div class="map-node hood'+(mapPlaces.hood?" done":"")+'"><span class="nem">🏘️</span><p class="nlab" id="mapHood"></p></div>' +
+      '</div>';
+    setText($("mapHome"), t(T.home));
+    setText($("mapSchool"), t(T.school));
+    setText($("mapHood"), t(T.hood));
+
+    setText($("statechip"), (mapIdx+1) + " / " + MAP.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (mapDone[ch.id]?" win":"");
+    if (mapDone[ch.id]) setText($("statechip"), t(T.nice));
+    setText($("headline"), mapDone[ch.id] ? t(ch.done) : t(ch.title));
+    setText($("detail"), t(ch.prompt));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+    var choices = document.createElement("div");
+    choices.className = "save-choices";
+    ch.choices.forEach(function(c){
+      var b = document.createElement("button");
+      b.type = "button";
+      if (mapDone[ch.id] && c.id === ch.correct) b.classList.add("right");
+      b.innerHTML = '<span class="cem">'+c.em+'</span><span class="clab"></span>';
+      setText(b.querySelector(".clab"), t(c));
+      b.disabled = !!mapDone[ch.id];
+      b.addEventListener("click", function(){
+        if (mapDone[ch.id]) return;
+        if (c.id === ch.correct){
+          mapDone[ch.id] = true;
+          if (ch.place === "home") mapPlaces.home = true;
+          if (ch.place === "school") mapPlaces.school = true;
+          if (ch.place === "hood") mapPlaces.hood = true;
+          award("map-"+ch.id, 1);
+          b.classList.add("right");
+          setText($("headline"), t(ch.done));
+          $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.nice));
+          maybeMapDone();
+          tabBadges();
+          renderMap();
+        } else {
+          b.classList.add("wrong");
+          setText($("headline"), t(T.oops));
+          $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.oops));
+          setTimeout(function(){ b.classList.remove("wrong"); }, 600);
+        }
+      });
+      choices.appendChild(b);
+    });
+    box.appendChild(choices);
+    setText($("prog"), t(T.progA) + ": " + Object.keys(mapDone).length + "/" + MAP.length);
+  }
+
+  /* ---------- QUIZ ---------- */
+  function pickQuiz(){ quizSet = shuffle(QUIZ).slice(0, 5); }
+  function renderQuiz(){
+    var box = $("quizBox");
+    box.innerHTML = "";
+    quizSet.forEach(function(item, qi){
+      var wrap = document.createElement("div");
+      wrap.className = "q";
+      var p = document.createElement("p");
+      if (lang === "ur"){
+        p.textContent = isolate((qi+1) + ". " + t(item.q));
+        p.classList.remove("ur");
+        p.setAttribute("dir", "ltr");
+        p.style.fontFamily = '"Baloo Bhaijaan 2",sans-serif';
+        p.style.lineHeight = "1.5";
+      } else {
+        setText(p, (qi+1) + ". " + t(item.q));
+      }
+      wrap.appendChild(p);
+      var answered = false;
+      item.opts.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        if (lang === "ur"){
+          b.className = "opt";
+          b.textContent = isolate(t(opt));
+          b.setAttribute("dir", "ltr");
+          b.style.textAlign = "left";
+          b.style.fontFamily = '"Baloo Bhaijaan 2",sans-serif';
+        } else {
+          b.className = "opt";
+          setText(b, t(opt));
+        }
+        b.addEventListener("click", function(){
+          if (answered) return;
+          answered = true;
+          if (oi === item.correct){
+            b.classList.add("right");
+            award("quiz-"+qi, 1);
+          } else {
+            b.classList.add("wrong");
+            var kids = wrap.querySelectorAll(".opt");
+            if (kids[item.correct]) kids[item.correct].classList.add("right");
+          }
+          fb.classList.add("show");
+        });
+        wrap.appendChild(b);
+      });
+      var fb = document.createElement("p");
+      fb.className = "fb";
+      if (lang === "ur"){
+        fb.textContent = isolate(t(item.why));
+        fb.setAttribute("dir", "ltr");
+        fb.style.fontFamily = '"Baloo Bhaijaan 2",sans-serif';
+      } else {
+        setText(fb, t(item.why));
+      }
+      wrap.appendChild(fb);
+      box.appendChild(wrap);
+    });
+  }
+
+  function storyHtml(){
+    if (mode === "kind") return t(T.storyKind);
+    if (mode === "scenes") return t(T.storyScenes);
+    return t(T.storyMap);
+  }
+
+  function tabBadges(){
+    function lab(btn, label, key){
+      btn.innerHTML = "";
+      var span = document.createElement("span");
+      setText(span, t(label));
+      btn.appendChild(span);
+      if (doneModes[key]){
+        var b = document.createElement("span");
+        b.className = "badge"; b.textContent = " ★";
+        btn.appendChild(b);
+      }
+    }
+    lab($("tabKind"), T.tabKind, "kind");
+    lab($("tabScenes"), T.tabScenes, "scenes");
+    lab($("tabMap"), T.tabMap, "map");
+    $("tabKind").setAttribute("aria-pressed", mode==="kind"?"true":"false");
+    $("tabScenes").setAttribute("aria-pressed", mode==="scenes"?"true":"false");
+    $("tabMap").setAttribute("aria-pressed", mode==="map"?"true":"false");
+  }
+
+  function setMode(m){
+    mode = m;
+    kindSelected = null;
+    if (mode === "kind") renderKind();
+    else if (mode === "scenes") renderScenes();
+    else renderMap();
+    applyChrome();
+  }
+
+  function applyChrome(){
+    setText($("title"), t(T.title));
+    setText($("subtitle"), t(T.sub));
+    $("story").innerHTML = storyHtml();
+    $("story").classList.toggle("ur", lang==="ur");
+    $("story").setAttribute("dir", lang==="ur"?"rtl":"ltr");
+    setText($("ctlHead"), t(T.ctl));
+    setText($("nextBtn"), t(T.next));
+    setText($("hintBtn"), t(T.hint));
+    setText($("resetBtn"), t(T.reset));
+    setText($("quizHead"), t(T.quiz));
+    setText($("newQuiz"), t(T.newQuiz));
+    $("langBtn").textContent = (lang === "en") ? "اردو" : "EN";
+    $("langBtn").setAttribute("aria-pressed", lang==="ur"?"true":"false");
+    document.body.classList.toggle("urdu", lang==="ur");
+    document.documentElement.lang = (lang==="ur") ? "ur" : "en";
+    document.documentElement.dir = (lang==="ur") ? "rtl" : "ltr";
+    tabBadges();
+    var foot = document.querySelector("footer p");
+    if (foot) setText(foot, foot.getAttribute(lang==="ur"?"data-ur":"data-en"));
+  }
+
+  function applyLang(){
+    applyChrome();
+    if (mode === "kind") renderKind();
+    else if (mode === "scenes") renderScenes();
+    else renderMap();
+    renderQuiz();
+  }
+
+  function next(){
+    if (mode === "kind"){
+      kindIdx = (kindIdx + 1) % KIND.length;
+      kindSelected = null;
+      if (KIND[kindIdx].type === "sort"){
+        kindSort = {};
+      }
+      renderKind();
+    } else if (mode === "scenes"){
+      scenesIdx = (scenesIdx + 1) % SCENES.length;
+      renderScenes();
+    } else {
+      mapIdx = (mapIdx + 1) % MAP.length;
+      renderMap();
+    }
+  }
+
+  function showHint(){
+    var h;
+    if (mode === "kind") h = KIND[kindIdx].hint;
+    else if (mode === "scenes") h = SCENES[scenesIdx].hint;
+    else h = MAP[mapIdx].hint;
+    var hb = $("hintbox");
+    setText(hb, t(h));
+    hb.classList.add("show");
+  }
+
+  function resetMode(){
+    if (mode === "kind"){
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("kind-")===0 || k==="mode-kind") delete awarded[k]; });
+      kindDone = {}; kindSort = {}; kindSelected = null; kindIdx = 0;
+      doneModes.kind = false;
+      recountStars(); renderKind();
+    } else if (mode === "scenes"){
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("scenes-")===0 || k==="mode-scenes") delete awarded[k]; });
+      scenesDone = {}; scenesIdx = 0; doneModes.scenes = false;
+      recountStars(); renderScenes();
+    } else {
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("map-")===0 || k==="mode-map") delete awarded[k]; });
+      mapDone = {}; mapIdx = 0; mapPlaces = {home:false, school:false, hood:false}; doneModes.map = false;
+      recountStars(); renderMap();
+    }
+    tabBadges();
+    applyChrome();
+  }
+
+  function cleanSpeakText(s){
+    return String(s || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  }
+  function buildSpeakText(){
+    var bits = [];
+    bits.push(t(T.title));
+    bits.push(cleanSpeakText(storyHtml()));
+    bits.push(cleanSpeakText(($("headline") && $("headline").textContent) || ""));
+    bits.push(cleanSpeakText(($("detail") && $("detail").textContent) || ""));
+    bits.push(t(T.tip));
+    return bits.filter(Boolean).join(". ");
+  }
+  function pickVoice(voices, want){
+    var i, v, L;
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf(want) === 0) return v;
+    }
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf("en") === 0) return v;
+    }
+    return voices[0] || null;
+  }
+  var speakTimer = null;
+  function setSpeaking(on){
+    var btn = $("speakBtn");
+    if (!btn) return;
+    btn.setAttribute("aria-pressed", on ? "true" : "false");
+    btn.style.opacity = on ? "0.65" : "";
+  }
+  function doSpeak(text, asLang){
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.92;
+    u.lang = (asLang === "ur") ? "ur-PK" : "en-US";
+    var voices = window.speechSynthesis.getVoices() || [];
+    var voice = pickVoice(voices, asLang === "ur" ? "ur" : "en");
+    if (voice) u.voice = voice;
+    u.onstart = function(){ setSpeaking(true); };
+    u.onend = function(){ setSpeaking(false); };
+    u.onerror = function(){
+      setSpeaking(false);
+      if (asLang === "ur"){
+        var fallback = cleanSpeakText(T.title.en + ". " + T.storyKind.en + ". " + T.tip.en);
+        var u2 = new SpeechSynthesisUtterance(fallback);
+        u2.lang = "en-US"; u2.rate = 0.92;
+        var v2 = pickVoice(window.speechSynthesis.getVoices() || [], "en");
+        if (v2) u2.voice = v2;
+        u2.onstart = function(){ setSpeaking(true); };
+        u2.onend = u2.onerror = function(){ setSpeaking(false); };
+        window.speechSynthesis.speak(u2);
+      }
+    };
+    window.speechSynthesis.speak(u);
+  }
+  if ("speechSynthesis" in window){
+    try { window.speechSynthesis.getVoices(); } catch (e0) {}
+    if (typeof window.speechSynthesis.addEventListener === "function"){
+      window.speechSynthesis.addEventListener("voiceschanged", function(){
+        try { window.speechSynthesis.getVoices(); } catch (e1) {}
+      });
+    }
+  } else {
+    var noBtn = $("speakBtn");
+    if (noBtn){ noBtn.disabled = true; noBtn.title = "Voice not available on this device"; }
+  }
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en";
+    applyLang();
+  });
+  $("tabKind").addEventListener("click", function(){ setMode("kind"); });
+  $("tabScenes").addEventListener("click", function(){ setMode("scenes"); });
+  $("tabMap").addEventListener("click", function(){ setMode("map"); });
+  $("nextBtn").addEventListener("click", next);
+  $("hintBtn").addEventListener("click", showHint);
+  $("resetBtn").addEventListener("click", resetMode);
+  $("newQuiz").addEventListener("click", function(){ pickQuiz(); renderQuiz(); });
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      var text = buildSpeakText();
+      if (!text) return;
+      if (speakTimer){ clearTimeout(speakTimer); speakTimer = null; }
+      window.speechSynthesis.cancel();
+      setSpeaking(false);
+      var speakLang = lang;
+      speakTimer = setTimeout(function(){
+        speakTimer = null;
+        doSpeak(text, speakLang);
+      }, 80);
+    }catch(e){ setSpeaking(false); }
+  });
+
+  pickQuiz();
+  applyLang();
+})();
+</script>
+</body>
+</html>
