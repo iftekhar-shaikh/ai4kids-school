@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hidayat ke sarchashme — ہدایت کے سرچشمے | AI4Kids Class 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#e8f0ea;--board-deep:#c5d8c8;--sky:#7eb8d4;--sky2:#4a8fb8;
+    --park:#5a9a6a;--park2:#3a7a4a;--accent:#0d5c3d;--flag-g:#01411C;
+    --ok:#2e7d4f;--ink:#1a2e22;--ink-soft:#4a5a4e;--paper:#fdfaf3;
+    --line:#d0dcc8;--gold:#d4a017;--left:#c4453a;
+    --good-bin:#0d5c3d;--bad-bin:#c4453a;
+    --home:#c45c3a;--school:#2f6fb5;--hood:#0d5c3d;
+    --fs-cap:clamp(12px, 3.2vw, 13px);--fs-xs:clamp(14px, 3.7vw, 15px);
+    --fs-sm:clamp(16px, 4.2vw, 17px);--fs-md:clamp(17px, 4.6vw, 19px);
+    --fs-lg:clamp(20px, 5.4vw, 23px);--fs-xl:clamp(27px, 7.4vw, 33px);--lh:1.5;
+  }
+  body.urdu{
+    --fs-cap:clamp(13px, 3.5vw, 15px);--fs-xs:clamp(15px, 4.1vw, 17px);
+    --fs-sm:clamp(17px, 4.7vw, 19px);--fs-md:clamp(19px, 5.2vw, 21px);
+    --fs-lg:clamp(22px, 6vw, 25px);--fs-xl:clamp(26px, 7vw, 31px);--lh:2.1;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  .stars{display:flex;align-items:center;gap:6px;font-weight:800;font-size:var(--fs-xs);
+         background:#fff6e2;border:2px solid var(--gold);border-radius:999px;padding:7px 13px}
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+  .tabs{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
+  .tabs button{
+    flex:1 1 28%;min-width:90px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:10px 6px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:54px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .tabs button .badge{color:var(--gold)}
+  .story{
+    background:#fff8ea;border:2px dashed var(--gold);border-radius:16px;padding:13px 15px;
+    font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;margin-bottom:14px;
+  }
+  body.urdu .story{line-height:var(--lh)}
+  .story b{color:var(--ink)}
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:
+      radial-gradient(circle at 12% 18%, rgba(212,160,23,.18) 0 8px, transparent 9px),
+      radial-gradient(circle at 88% 22%, rgba(13,92,61,.12) 0 6px, transparent 7px),
+      linear-gradient(180deg,var(--sky) 0%,var(--sky2) 34%,#a8c9a0 34%,#8fb888 42%,var(--board) 42%);
+    min-height:280px;
+  }
+  .scene-pad{padding:10px 12px 18px;min-height:260px;position:relative}
+  .sky-layer{position:absolute;inset:0 0 58% 0;pointer-events:none;overflow:hidden}
+  .crescent-deco{
+    position:absolute;top:10px;right:16px;width:36px;height:36px;z-index:1;
+  }
+  body.urdu .crescent-deco{right:auto;left:16px}
+  .cloud{position:absolute;background:rgba(255,255,255,.85);border-radius:40px;opacity:.9}
+  .cloud:before,.cloud:after{content:"";position:absolute;background:inherit;border-radius:50%}
+  .c1{width:48px;height:15px;top:18px;left:12%}
+  .c1:before{width:22px;height:22px;top:-12px;left:6px}
+  .c1:after{width:18px;height:18px;top:-8px;left:24px}
+  .c2{width:34px;height:12px;top:34px;left:55%;opacity:.7}
+  .c2:before{width:16px;height:16px;top:-9px;left:4px}
+  .c2:after{width:12px;height:12px;top:-5px;left:16px}
+  .hills{position:absolute;left:0;right:0;bottom:42%;height:40px;z-index:1;pointer-events:none}
+  .hill{position:absolute;bottom:0;border-radius:50% 50% 0 0;
+        background:linear-gradient(180deg,#4a8a5a,#2d5530)}
+  .h-a{width:42%;height:36px;left:-4%;opacity:.55}
+  .h-b{width:38%;height:28px;right:8%;opacity:.5}
+  .ground-strip{
+    position:absolute;left:0;right:0;bottom:0;height:32%;
+    background:
+      repeating-linear-gradient(90deg, transparent 0 18px, rgba(13,92,61,.06) 18px 20px),
+      linear-gradient(180deg,#8fbc78 0%,#6a9a58 100%);
+    z-index:2;border-top:3px solid #4a7040;
+  }
+  .geom-edge{
+    position:absolute;left:0;right:0;bottom:31%;height:6px;z-index:3;pointer-events:none;
+    background:repeating-linear-gradient(90deg, var(--gold) 0 8px, var(--accent) 8px 16px, transparent 16px 20px);
+    opacity:.55;
+  }
+  .comic-stage{position:relative;z-index:5;padding-top:78px;text-align:center;min-height:150px}
+  .comic-hero{font-size:56px;line-height:1;margin:4px 0 8px;filter:drop-shadow(0 2px 0 rgba(0,0,0,.12))}
+  .comic-panel{
+    display:inline-flex;align-items:center;gap:8px;background:rgba(253,250,243,.95);
+    border:2.5px solid var(--ink);border-radius:16px;padding:10px 14px;margin:4px;
+    box-shadow:0 3px 0 rgba(30,42,26,.12);font-weight:800;font-size:var(--fs-cap);
+  }
+  .comic-panel .em{font-size:28px}
+  .sort-grid{
+    position:relative;z-index:5;display:grid;grid-template-columns:1fr 1fr;gap:10px;
+    padding-top:88px;
+  }
+  .sort-bin{
+    border:2.5px solid var(--ink);border-radius:14px;padding:10px 8px;min-height:120px;
+    background:rgba(253,250,243,.88);text-align:center;cursor:pointer;
+  }
+  .sort-bin.good-bin{border-color:var(--good-bin);background:rgba(230,242,234,.95)}
+  .sort-bin.bad-bin{border-color:var(--bad-bin);background:rgba(251,234,232,.92)}
+  .sort-bin.hot{box-shadow:0 0 0 3px rgba(13,92,61,.3)}
+  .sort-bin h3{margin:0 0 8px;font-size:var(--fs-cap);font-weight:800}
+  .sort-bin .drop{min-height:60px;display:flex;flex-wrap:wrap;gap:4px;justify-content:center;align-items:center}
+  .item-card{
+    background:rgba(253,250,243,.95);border:2.5px solid var(--ink);border-radius:16px;
+    padding:8px 10px 10px;text-align:center;min-width:72px;max-width:120px;
+    box-shadow:0 3px 0 rgba(30,42,26,.15);cursor:pointer;user-select:none;
+  }
+  .item-card:hover{transform:translateY(-2px)}
+  .item-card.selected{border-color:var(--accent);background:#e8f5ec;box-shadow:0 0 0 3px rgba(13,92,61,.25)}
+  .item-card.ok{border-color:var(--ok);background:#e8f2ed}
+  .item-card.no{border-color:var(--left);background:#fbeae8}
+  .item-em{font-size:34px;line-height:1.1;display:block;margin-bottom:2px}
+  .item-lab{font-size:var(--fs-cap);font-weight:800;line-height:1.25;margin:0}
+  .bank{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:8px;position:relative;z-index:5}
+  .mini-chip{
+    border:2px solid var(--ink);border-radius:12px;padding:6px 8px;background:#fff;
+    line-height:1;cursor:pointer;min-width:40px;font-size:22px;
+  }
+  .save-choices{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+  .save-choices button{
+    border:2.5px solid var(--ink);background:var(--paper);border-radius:14px;
+    padding:12px 14px;font:inherit;font-weight:800;font-size:var(--fs-xs);
+    cursor:pointer;text-align:left;min-height:52px;display:flex;align-items:center;gap:10px;
+  }
+  body.urdu .save-choices button{text-align:right}
+  .save-choices button .cem{font-size:26px}
+  .save-choices button.right{border-color:var(--ok);background:#e8f2ed}
+  .save-choices button.wrong{border-color:var(--left);background:#fbeae8}
+  .map-row{
+    position:relative;z-index:5;display:flex;flex-wrap:wrap;gap:8px;
+    justify-content:center;align-items:stretch;padding-top:88px;min-height:130px;
+  }
+  .map-node{
+    flex:1 1 28%;min-width:90px;border:2.5px solid var(--ink);border-radius:16px;
+    background:rgba(253,250,243,.95);padding:10px 8px;text-align:center;
+    box-shadow:0 3px 0 rgba(30,42,26,.12);
+  }
+  .map-node .nem{font-size:36px;line-height:1;display:block;margin-bottom:4px}
+  .map-node .nlab{font-size:var(--fs-cap);font-weight:800;margin:0}
+  .map-node.home{border-color:var(--home)}
+  .map-node.school{border-color:var(--school)}
+  .map-node.hood{border-color:var(--hood)}
+  .map-node.done{background:#e8f2ed;border-color:var(--ok)}
+  .map-arrow{font-size:20px;font-weight:800;color:var(--accent);align-self:center}
+  .readout{
+    margin-top:-18px;position:relative;z-index:2;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+  .statechip.ur{padding:2px 14px 7px}
+  .statechip.win{background:var(--ok)}
+  .statechip.miss{background:var(--left)}
+  .headline{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+  .headline.ur{line-height:1.95}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+  .hintbox{
+    margin-top:14px;border:2px solid var(--accent);background:#e8f5ec;border-radius:14px;
+    padding:11px 14px;font-size:var(--fs-xs);color:var(--accent);font-weight:700;line-height:1.55;
+    display:none;
+  }
+  .hintbox.show{display:block}
+  body.urdu .hintbox{line-height:var(--lh)}
+  .panel{margin-top:22px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .prog{margin:0 0 10px;font-size:var(--fs-xs);font-weight:700;color:var(--ink-soft)}
+  .btns{display:flex;gap:9px;margin-top:8px;flex-wrap:wrap}
+  .btns button{
+    border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);
+    font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:50px;
+    padding:8px 14px;flex:1;
+  }
+  .btns .go{background:var(--ink);color:var(--paper)}
+  .btns button:active{transform:scale(.97)}
+  .btns button:disabled{opacity:.4;cursor:default}
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .qhead{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+  .qhead h2{font-size:var(--fs-lg);font-weight:800;margin:0;flex:1}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:50px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+  .opt.wrong{border-color:var(--left);background:#fbeae8}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
+      grid-template-areas:
+        "bar   bar" "head  head" "tabs  tabs" "story story"
+        "left  right" "quiz  quiz" "foot  foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+    .story{grid-area:story} .left{grid-area:left} .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+    .panel{margin-top:0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition-duration:.01ms !important;animation:none !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 5 · Islamiat</span>
+    <span class="stars" id="starBox">⭐ <span id="starCount">0</span></span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 id="title"></h1>
+  <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group">
+    <button type="button" id="tabKind" aria-pressed="true"></button>
+    <button type="button" id="tabScenes" aria-pressed="false"></button>
+    <button type="button" id="tabMap" aria-pressed="false"></button>
+  </div>
+
+  <p class="story" id="story"></p>
+
+  <div class="left">
+  <div class="scene">
+    <div class="scene-pad" id="scenePad"></div>
+  </div>
+  <div class="readout">
+    <span class="statechip" id="statechip"></span>
+    <p class="headline" id="headline"></p>
+    <p class="detail" id="detail"></p>
+    <p class="hintbox" id="hintbox"></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="panel">
+    <h2 id="ctlHead"></h2>
+    <p class="prog" id="prog"></p>
+    <div id="actionBox"></div>
+    <div class="btns">
+      <button type="button" class="go" id="nextBtn"></button>
+    </div>
+    <div class="btns">
+      <button type="button" id="hintBtn"></button>
+      <button type="button" id="resetBtn"></button>
+    </div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <div class="qhead">
+      <h2 id="quizHead"></h2>
+      <button type="button" class="chip" id="newQuiz"></button>
+    </div>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad bilingual school. Offline play · no APIs. WhatsApp 0337 1468899 · Islamiat Class 5 (helping interactive)"
+       data-ur="اے آئی فور کڈز — اسلام آباد۔ آف لائن کھیلو۔ واٹس ایپ 0337 1468899 · اسلامیات جماعت ۵ (مددگار انٹرایکٹو)"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  function $(id){ return document.getElementById(id); }
+  function isolate(s){ return "\u2066" + s + "\u2069"; }
+  function setText(el, str){
+    if (!el) return;
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+  function t(o){ return (o && o[lang]) || (o && o.en) || ""; }
+  function shuffle(arr){
+    var a = arr.slice(), i, j, tmp;
+    for (i = a.length - 1; i > 0; i--){
+      j = Math.floor(Math.random() * (i + 1));
+      tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  var lang = "en";
+  var mode = "kind";
+  var stars = 0;
+  var awarded = {};
+  var doneModes = {kind:false, scenes:false, map:false};
+
+  var T = {
+    title:{en:"Hidayat ke sarchashme", ur:"ہدایت کے سرچشمے"},
+    sub:{en:"Hidayat ke sarchashme = maps for the heart — Quran (Allah's book), Hadith (Prophet ﷺ's guidance), and good examples from righteous people!",
+         ur:"ہدایت کے سرچشمے = دل کے نقشے — قرآن (اللہ کی کتاب)، حدیث (نبی ﷺ کی رہنمائی)، اور نیک لوگوں کی اچھی مثالیں!"},
+    tabKind:{en:"Three sources", ur:"تین سرچشمے"},
+    tabScenes:{en:"What they teach", ur:"وہ کیا سکھاتے ہیں"},
+    tabMap:{en:"Follow guidance", ur:"رہنمائی پر چلو"},
+    storyKind:{en:"<b>Hidayat</b> means guidance. Sort <b>sources</b> (Quran, Hadith, good examples) vs <b>not sources</b> (gossip, cheating, ignoring kindness)!",
+               ur:"<b>ہدایت</b> رہنمائی ہے۔ <b>سرچشمے</b> (قرآن، حدیث، اچھی مثالیں) اور <b>غیر سرچشمے</b> (گپ شپ، دھوکا، مہربانی نظرانداز) چھانٹو!"},
+    storyScenes:{en:"Comics: kindness, honesty, learning. Which source gently reminds us — Quran, Hadith, or good examples?",
+                 ur:"کارٹون: مہربانی، ایمانداری، سیکھنا۔ کون سا سرچشمہ یاد دلاتا ہے — قرآن، حدیث، یا اچھی مثالیں؟"},
+    storyMap:{en:"<b>Follow guidance</b>: Ghar → School → Friends. Pick one simple lesson from guidance for each place!",
+              ur:"<b>رہنمائی پر چلو</b>: گھر → اسکول → دوست۔ ہر جگہ رہنمائی سے ایک سادہ سبق چنو!"},
+    ctl:{en:"Your turn — heart maps", ur:"تمہاری باری — دل کے نقشے"},
+    next:{en:"Next challenge", ur:"اگلا چیلنج"},
+    hint:{en:"Hint", ur:"اشارہ"},
+    reset:{en:"Reset", ur:"ری سیٹ"},
+    quiz:{en:"Check yourself", ur:"اپنا چیک"},
+    newQuiz:{en:"New quiz", ur:"نیا کوئز"},
+    nice:{en:"Shabash — guided hearts!", ur:"شاباش — رہنمائی والے دل!"},
+    oops:{en:"Almost — try again", ur:"قریب — دوبارہ آزماؤ"},
+    tip:{en:"Tip: Hidayat ke sarchashme are maps for the heart — Quran, Hadith, and good examples teach us how to live kindly and honestly.",
+         ur:"نکتہ: ہدایت کے سرچشمے دل کے نقشے ہیں — قرآن، حدیث اور اچھی مثالیں مہربانی اور ایمانداری سکھاتی ہیں۔"},
+    progK:{en:"Three sources", ur:"تین سرچشمے"},
+    progS:{en:"What they teach", ur:"وہ کیا سکھاتے ہیں"},
+    progA:{en:"Follow guidance", ur:"رہنمائی پر چلو"},
+    askSort:{en:"Tap a card, then tap Source or Not a source", ur:"کارڈ ٹیپ کرو، پھر سرچشمہ یا غیر سرچشمہ"},
+    askPick:{en:"Is this a source of hidayat?", ur:"کیا یہ ہدایت کا سرچشمہ ہے؟"},
+    askScene:{en:"Which source gently reminds us here?", ur:"یہاں کون سا سرچشمہ نرمی سے یاد دلاتا ہے؟"},
+    askMap:{en:"Pick one simple lesson from guidance", ur:"رہنمائی سے ایک سادہ سبق چنو"},
+    checkSort:{en:"Check sort", ur:"چھانٹی چیک کرو"},
+    goodLab:{en:"💚 Source of hidayat", ur:"💚 ہدایت کا سرچشمہ"},
+    badLab:{en:"🚫 Not a source", ur:"🚫 غیر سرچشمہ"},
+    pick:{en:"Tap a card first", ur:"پہلے کارڈ ٹیپ کرو"},
+    home:{en:"Ghar", ur:"گھر"},
+    school:{en:"School", ur:"اسکول"},
+    hood:{en:"Friends", ur:"دوست"}
+  };
+
+  /* Cards: sources of hidayat vs unrelated */
+  var CARDS = {
+    quran:{em:"📗", en:"Quran — Allah's book", ur:"قرآن — اللہ کی کتاب", bin:"good"},
+    hadith:{em:"💬", en:"Hadith — Prophet ﷺ guidance", ur:"حدیث — نبی ﷺ کی رہنمائی", bin:"good"},
+    mashahir:{em:"⭐", en:"Good examples (mashahir)", ur:"اچھی مثالیں (مشاہیر)", bin:"good"},
+    kindex:{em:"🤝", en:"Righteous kindness stories", ur:"نیک لوگوں کی مہربانی کی کہانیاں", bin:"good"},
+    learn:{em:"📖", en:"Learning from Quran gently", ur:"قرآن سے نرمی سے سیکھنا", bin:"good"},
+    sunnah:{em:"🕊️", en:"Prophet ﷺ's kind ways", ur:"نبی ﷺ کے مہربان طریقے", bin:"good"},
+    gossip:{em:"📢", en:"Harsh gossip videos", ur:"تلخ گپ شپ ویڈیوز", bin:"bad"},
+    cheat:{em:"🃏", en:"Cheating to win", ur:"جیتنے کے لیے دھوکا", bin:"bad"},
+    ignore:{em:"🙈", en:"Ignoring kindness", ur:"مہربانی کو نظرانداز", bin:"bad"},
+    rude:{em:"💢", en:"Rude teasing as 'fun'", ur:"بدتمیز مذاق کو 'مزہ' کہنا", bin:"bad"},
+    waste:{em:"🗑️", en:"Wasting time on meanness", ur:"بدتمیزی پر وقت ضائع", bin:"bad"},
+    lie:{em:"🤥", en:"Lying for no reason", ur:"بے وجہ جھوٹ بولنا", bin:"bad"}
+  };
+
+  /* Mode 1: Three sources — 4 challenges */
+  var KIND = [
+    {
+      id:"k1", type:"sort",
+      title:{en:"Quran, Hadith & noise", ur:"قرآن، حدیث اور شور"},
+      items:["quran","gossip","hadith","cheat"],
+      hint:{en:"Quran and Hadith are sources of hidayat. Gossip videos and cheating are not.",
+            ur:"قرآن اور حدیث ہدایت کے سرچشمے ہیں۔ گپ شپ ویڈیوز اور دھوکا نہیں۔"},
+      done:{en:"Sorted — real sources!", ur:"چھانٹی ہوئی — حقیقی سرچشمے!"}
+    },
+    {
+      id:"k2", type:"sort",
+      title:{en:"Good examples vs unkind", ur:"اچھی مثالیں بمقابلہ بدتمیزی"},
+      items:["mashahir","ignore","kindex","rude"],
+      hint:{en:"Good examples from righteous people guide us. Ignoring kindness and rude teasing do not.",
+            ur:"نیک لوگوں کی اچھی مثالیں رہنمائی کرتی ہیں۔ مہربانی نظرانداز اور بدتمیز مذاق نہیں۔"},
+      done:{en:"Beautiful sort — mashahir!", ur:"خوبصورت چھانٹی — مشاہیر!"}
+    },
+    {
+      id:"k3", type:"pick",
+      title:{en:"Prophet ﷺ's kind ways", ur:"نبی ﷺ کے مہربان طریقے"},
+      card:"sunnah",
+      hint:{en:"The Prophet ﷺ's kind ways (from Hadith) are a source of hidayat — not meanness or lying.",
+            ur:"نبی ﷺ کے مہربان طریقے (حدیث سے) ہدایت کا سرچشمہ ہیں — بدتمیزی یا جھوٹ نہیں۔"},
+      done:{en:"Source locked — Hadith kindness!", ur:"سرچشمہ تیار — حدیث کی مہربانی!"}
+    },
+    {
+      id:"k4", type:"pick",
+      title:{en:"Learning from Quran", ur:"قرآن سے سیکھنا"},
+      card:"learn",
+      hint:{en:"Gently learning from the Quran is a source of guidance for Class 5 — never wasting time on meanness.",
+            ur:"نرمی سے قرآن سے سیکھنا جماعت ۵ کے لیے رہنمائی کا سرچشمہ ہے — بدتمیزی پر وقت ضائع نہیں۔"},
+      done:{en:"Source locked — Quran learning!", ur:"سرچشمہ تیار — قرآن سے سیکھنا!"}
+    }
+  ];
+
+  /* Mode 2: What they teach — 4 comics */
+  var SCENES = [
+    {
+      id:"s1",
+      title:{en:"Kindness reminder", ur:"مہربانی کی یاد"},
+      hero:"💚🤝🧒",
+      prompt:{en:"A friend looks sad. Which source gently reminds us to be kind?",
+              ur:"دوست اداس لگتا ہے۔ کون سا سرچشمہ مہربان رہنے کی یاد دلاتا ہے؟"},
+      choices:[
+        {id:"all", em:"⭐", en:"Quran, Hadith & good examples all teach kindness", ur:"قرآن، حدیث اور اچھی مثالیں سب مہربانی سکھاتے ہیں"},
+        {id:"gossip", em:"📢", en:"Harsh gossip videos teach kindness best", ur:"تلخ گپ شپ ویڈیوز بہترین مہربانی سکھاتی ہیں"},
+        {id:"cheat", em:"🃏", en:"Cheating a friend is also kindness", ur:"دوست سے دھوکا بھی مہربانی ہے"}
+      ],
+      correct:"all",
+      hint:{en:"All three sources of hidayat gently teach kindness — never gossip or cheating.",
+            ur:"ہدایت کے تینوں سرچشمے نرمی سے مہربانی سکھاتے ہیں — گپ شپ یا دھوکا نہیں۔"},
+      done:{en:"Kindness from guidance!", ur:"رہنمائی سے مہربانی!"}
+    },
+    {
+      id:"s2",
+      title:{en:"Honesty at school", ur:"اسکول میں ایمانداری"},
+      hero:"✋📗🏫",
+      prompt:{en:"You could copy a test answer. What does guidance teach?",
+              ur:"ٹیسٹ کا جواب نقل کر سکتے ہو۔ رہنمائی کیا سکھاتی ہے؟"},
+      choices:[
+        {id:"honest", em:"✋", en:"Be honest — Quran & Hadith remind us to tell the truth", ur:"ایماندار رہو — قرآن و حدیث سچ بولنے کی یاد دلاتے ہیں"},
+        {id:"copy", em:"📝", en:"Copy secretly; nobody will know", ur:"چھپ کر نقل کرو؛ کوئی نہیں جانے گا"},
+        {id:"blame", em:"😜", en:"Lie and blame a classmate", ur:"جھوٹ بولو اور ہم جماعت پر الزام"}
+      ],
+      correct:"honest",
+      hint:{en:"Honesty is a simple lesson from Quran and Hadith — no deep debate, just truth.",
+            ur:"ایمانداری قرآن و حدیث کا سادہ سبق ہے — بحث نہیں، صرف سچ۔"},
+      done:{en:"Honesty star!", ur:"ایمانداری کا ستارہ!"}
+    },
+    {
+      id:"s3",
+      title:{en:"Love of learning", ur:"سیکھنے کی محبت"},
+      hero:"📖✨🧒",
+      prompt:{en:"Homework feels hard. Which source encourages learning gently?",
+              ur:"ہوم ورک مشکل لگتا ہے۔ کون سا سرچشمہ نرمی سے سیکھنے کی حوصلہ افزائی کرتا ہے؟"},
+      choices:[
+        {id:"learn", em:"📗", en:"Quran & Hadith value seeking knowledge kindly", ur:"قرآن و حدیث علم حاصل کرنے کی قدر کرتے ہیں"},
+        {id:"quit", em:"😴", en:"Give up and tease kids who study", ur:"ہار مانو اور پڑھنے والوں کا مذاق"},
+        {id:"waste", em:"🗑️", en:"Waste time on rude videos instead", ur:"بدتمیز ویڈیوز پر وقت ضائع کرو"}
+      ],
+      correct:"learn",
+      hint:{en:"Seeking knowledge kindly is a gentle lesson from our sources of hidayat.",
+            ur:"نرمی سے علم حاصل کرنا ہدایت کے سرچشموں کا نرم سبق ہے۔"},
+      done:{en:"Learning hearts — Shabash!", ur:"سیکھنے والے دل — شاباش!"}
+    },
+    {
+      id:"s4",
+      title:{en:"Good examples inspire", ur:"اچھی مثالیں حوصلہ دیتی ہیں"},
+      hero:"⭐😊🏘️",
+      prompt:{en:"You see someone share food with a neighbour. What does that remind us of?",
+              ur:"کوئی پڑوسی کے ساتھ کھانا بانٹتا ہے۔ یہ کس کی یاد دلاتا ہے؟"},
+      choices:[
+        {id:"mash", em:"⭐", en:"Good examples (mashahir) — live kindly like righteous people", ur:"اچھی مثالیں (مشاہیر) — نیک لوگوں کی طرح مہربان رہو"},
+        {id:"ignore", em:"🙈", en:"Ignore neighbours; examples do not matter", ur:"پڑوسی نظرانداز؛ مثالیں اہم نہیں"},
+        {id:"rude", em:"💢", en:"Be rude so you look strong", ur:"بدتمیز رہو تاکہ مضبوط لگو"}
+      ],
+      correct:"mash",
+      hint:{en:"Mashahir and righteous people give age-safe examples of kindness to copy.",
+            ur:"مشاہیر اور نیک لوگ مہربانی کی محفوظ مثالیں دیتے ہیں جن کی پیروی کر سکو۔"},
+      done:{en:"Good example locked!", ur:"اچھی مثال تیار!"}
+    }
+  ];
+
+  /* Mode 3: Follow guidance — ghar, school, friends */
+  var MAP = [
+    {
+      id:"a1", place:"home",
+      title:{en:"Guidance at ghar", ur:"گھر پر رہنمائی"},
+      prompt:{en:"At home today — apply a simple lesson from guidance.",
+              ur:"آج گھر پر — رہنمائی سے ایک سادہ سبق اپناؤ۔"},
+      choices:[
+        {id:"soft", em:"😊", en:"Speak softly and help family — as guidance teaches", ur:"نرم بات اور خاندان کی مدد — جیسا رہنمائی سکھاتی ہے"},
+        {id:"yell", em:"📢", en:"Yell when asked to tidy your room", ur:"کمرہ سمیٹنے پر چیخنا"},
+        {id:"lie", em:"🤥", en:"Lie about finishing chores", ur:"کام ختم ہونے کے بارے میں جھوٹ"}
+      ],
+      correct:"soft",
+      hint:{en:"At ghar: soft speech and help — simple lessons from Quran, Hadith, and good examples.",
+            ur:"گھر پر: نرم بات اور مدد — قرآن، حدیث اور اچھی مثالوں کے سادہ سبق۔"},
+      done:{en:"Ghar guidance locked!", ur:"گھر کی رہنمائی تیار!"}
+    },
+    {
+      id:"a2", place:"school",
+      title:{en:"Guidance at school", ur:"اسکول میں رہنمائی"},
+      prompt:{en:"At school in Islamabad — which follows hidayat?",
+              ur:"اسلام آباد کے اسکول میں — کون سی ہدایت پر چلتی ہے؟"},
+      choices:[
+        {id:"honest", em:"✋", en:"Be honest, respect teachers, help classmates", ur:"ایماندار رہو، اساتذہ کا احترام، ہم جماعت کی مدد"},
+        {id:"cheat", em:"🃏", en:"Cheat so you get the highest marks", ur:"دھوکا کرو تاکہ سب سے زیادہ نمبر ملیں"},
+        {id:"mock", em:"😜", en:"Mock someone who made a mistake", ur:"غلطی کرنے والے کا مذاق"}
+      ],
+      correct:"honest",
+      hint:{en:"School guidance = honesty, respect, and kindness — maps for the heart.",
+            ur:"اسکول کی رہنمائی = ایمانداری، احترام، مہربانی — دل کے نقشے۔"},
+      done:{en:"School guidance ready!", ur:"اسکول کی رہنمائی تیار!"}
+    },
+    {
+      id:"a3", place:"hood",
+      title:{en:"Guidance with friends", ur:"دوستوں کے ساتھ رہنمائی"},
+      prompt:{en:"With friends — which choice follows the sources of hidayat?",
+              ur:"دوستوں کے ساتھ — کون سا انتخاب ہدایت کے سرچشموں پر چلتا ہے؟"},
+      choices:[
+        {id:"share", em:"🍎", en:"Share, play fairly, and speak kindly", ur:"بانٹو، انصاف سے کھیلو، مہربان بات کرو"},
+        {id:"snatch", em:"😤", en:"Snatch toys and never share", ur:"کھلونے چھینو اور کبھی نہ بانٹو"},
+        {id:"gossip", em:"📢", en:"Spread harsh gossip about a friend", ur:"دوست کے بارے میں تلخ گپ شپ پھیلاؤ"}
+      ],
+      correct:"share",
+      hint:{en:"Friends: share, fairness, kind words — lessons from our three sources.",
+            ur:"دوست: بانٹنا، انصاف، نرم بات — ہمارے تین سرچشموں کے سبق۔"},
+      done:{en:"Friends guidance star!", ur:"دوست رہنمائی کا ستارہ!"}
+    },
+    {
+      id:"a4", place:"all",
+      title:{en:"Everywhere check", ur:"ہر جگہ چیک"},
+      prompt:{en:"Which sentence is TRUE about Hidayat ke sarchashme for Class 5?",
+              ur:"جماعت ۵ کے لیے ہدایت کے سرچشموں کے بارے میں کون سی بات سچ ہے؟"},
+      choices:[
+        {id:"both", em:"⭐", en:"Maps for the heart: Quran, Hadith, and good examples teach kind living", ur:"دل کے نقشے: قرآن، حدیث اور اچھی مثالیں مہربان زندگی سکھاتی ہیں"},
+        {id:"only", em:"🚫", en:"Only adults need sources of guidance", ur:"صرف بالغوں کو رہنمائی کے سرچشمے چاہیے"},
+        {id:"mean", em:"😤", en:"Cheating and gossip are also sources of hidayat", ur:"دھوکا اور گپ شپ بھی ہدایت کے سرچشمے ہیں"}
+      ],
+      correct:"both",
+      hint:{en:"Kids use Quran, Hadith, and good examples as gentle maps for daily life.",
+            ur:"بچے قرآن، حدیث اور اچھی مثالوں کو روزمرہ کی نرم نقشے کے طور پر استعمال کرتے ہیں۔"},
+      done:{en:"Guidance map complete!", ur:"رہنمائی کا نقشہ مکمل!"}
+    }
+  ];
+
+  /* Quiz: EN + Roman Urdu */
+  var QUIZ = [
+    {
+      q:{en:"What does Hidayat ke sarchashme mean for Class 5?",
+         ur:"Class 5 ke liye Hidayat ke sarchashme ka matlab kya hai?"},
+      opts:[
+        {en:"Maps for the heart — Quran, Hadith, and good examples", ur:"Dil ke naqshay — Quran, Hadith, aur achi misalein"},
+        {en:"Only collecting stickers", ur:"Sirf stickers ikattha karna"},
+        {en:"Cheating to win every game", ur:"Har khel jeetne ke liye dhoka"},
+        {en:"Ignoring kindness every day", ur:"Roz meherbani ko nazarandaz karna"}
+      ],
+      correct:0,
+      why:{en:"Hidayat ke sarchashme = sources of guidance — maps for the heart.",
+           ur:"Hidayat ke sarchashme = rehnumai ke sarchashme — dil ke naqshay."}
+    },
+    {
+      q:{en:"Which is a SOURCE of hidayat (not unrelated)?",
+         ur:"Kaun sa HIDAYAT ka sarchashma hai (ghair nahi)?"},
+      opts:[
+        {en:"Quran — Allah's book", ur:"Quran — Allah ki kitaab"},
+        {en:"Harsh gossip videos", ur:"Talkh gap-shap videos"},
+        {en:"Cheating in a test", ur:"Test mein dhoka"},
+        {en:"Rude teasing as fun", ur:"Badtameez mazaaq ko maza kehna"}
+      ],
+      correct:0,
+      why:{en:"Quran is a main source of hidayat; gossip and cheating are not.",
+           ur:"Quran hidayat ka ahem sarchashma hai; gap-shap aur dhoka nahi."}
+    },
+    {
+      q:{en:"What does Hadith gently teach Class 5 kids?",
+         ur:"Hadith Class 5 ke bachon ko narmi se kya sikhati hai?"},
+      opts:[
+        {en:"Prophet ﷺ's kind ways — honesty, mercy, good manners", ur:"Nabi ﷺ ke meherban tareeqay — imandari, reham, ache ikhlaaq"},
+        {en:"How to cheat without getting caught", ur:"Bagair pakray jaaye dhoka kaise karein"},
+        {en:"That lying is always fine", ur:"Ke jhoot hamesha theek hai"},
+        {en:"That kindness is only for adults", ur:"Ke meherbani sirf baron ke liye hai"}
+      ],
+      correct:0,
+      why:{en:"Hadith shares the Prophet ﷺ's guidance — kind, age-safe lessons.",
+           ur:"Hadith Nabi ﷺ ki rehnumai batati hai — meherban, age-safe sabaq."}
+    },
+    {
+      q:{en:"Why learn from mashahir / good examples?",
+         ur:"Mashahir / achi misalon se kyun seekhein?"},
+      opts:[
+        {en:"Righteous people show how to live kindly and honestly", ur:"Nek log dikhate hain ke meherbani aur imandari se kaise jiyain"},
+        {en:"So we can ignore neighbours", ur:"Taake padosiyon ko nazarandaz karein"},
+        {en:"So we can spread harsh gossip", ur:"Taake talkh gap-shap failayein"},
+        {en:"Because examples do not matter", ur:"Kyunke misalein important nahi"}
+      ],
+      correct:0,
+      why:{en:"Good examples are a source of hidayat — kind living we can copy.",
+           ur:"Achi misalein hidayat ka sarchashma hain — meherban zindagi jo hum follow kar sakte hain."}
+    },
+    {
+      q:{en:"How can a Class 5 child follow guidance today?",
+         ur:"Class 5 ka bachcha aaj rehnumai kaise follow kare?"},
+      opts:[
+        {en:"Be kind at ghar, honest at school, fair with friends", ur:"Ghar pe meherban, school pe imandar, doston ke saath insaaf"},
+        {en:"Only adults need guidance", ur:"Sirf baray ko rehnumai chahiye"},
+        {en:"Cheat so you always win", ur:"Dhoka karo taake hamesha jeeto"},
+        {en:"Yell at family when asked to help", ur:"Madad mangne pe family pe cheekhna"}
+      ],
+      correct:0,
+      why:{en:"Kids apply simple lessons from Quran, Hadith, and good examples every day.",
+           ur:"Bachay roz Quran, Hadith aur achi misalon ke simple sabaq amal karte hain."}
+    },
+    {
+      q:{en:"Seeking knowledge kindly connects to…",
+         ur:"Narmi se ilm hasil karna kis se juda hai?"},
+      opts:[
+        {en:"Hidayat — Quran & Hadith value learning", ur:"Hidayat — Quran o Hadith ilm ki qadr karte hain"},
+        {en:"Wasting time on meanness", ur:"Badtameezi pe waqt zaya"},
+        {en:"Teasing kids who study", ur:"Parhne walon ka mazaaq"},
+        {en:"Giving up forever", ur:"Hamesha ke liye haar manna"}
+      ],
+      correct:0,
+      why:{en:"Learning gently is a beautiful lesson from our sources of guidance.",
+           ur:"Narmi se seekhna hamare rehnumai ke sarchashmon ka khoobsurat sabaq hai."}
+    }
+  ];
+
+  var kindIdx = 0, kindSelected = null, kindSort = {}, kindDone = {};
+  var scenesIdx = 0, scenesDone = {};
+  var mapIdx = 0, mapDone = {}, mapPlaces = {home:false, school:false, hood:false};
+  var quizSet = [];
+
+  function award(key, n){
+    if (awarded[key]) return;
+    awarded[key] = true;
+    stars += (n || 1);
+    $("starCount").textContent = String(stars);
+  }
+  function recountStars(){
+    stars = 0;
+    Object.keys(awarded).forEach(function(k){
+      stars += (k.indexOf("mode-")===0) ? 2 : 1;
+    });
+    $("starCount").textContent = String(stars);
+  }
+
+  function crescentSVG(){
+    return '<svg class="crescent-deco" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+      '<circle cx="22" cy="20" r="12" fill="#f5e6a8"/>' +
+      '<circle cx="28" cy="18" r="10" fill="#4a8fb8"/>' +
+      '<polygon points="12,8 13.5,12.5 18,12.5 14.5,15.5 16,20 12,17.2 8,20 9.5,15.5 6,12.5 10.5,12.5" fill="#d4a017"/>' +
+      '</svg>';
+  }
+
+  function skyHTML(){
+    return '<div class="sky-layer">' + crescentSVG() +
+           '<div class="cloud c1"></div><div class="cloud c2"></div></div>' +
+           '<div class="hills"><div class="hill h-a"></div><div class="hill h-b"></div></div>' +
+           '<div class="geom-edge"></div>' +
+           '<div class="ground-strip"></div>';
+  }
+
+  function kidsSVG(){
+    return '<svg class="comic-hero" style="width:min(90%,260px);height:auto;font-size:inherit" viewBox="0 0 260 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+      '<ellipse cx="130" cy="92" rx="70" ry="6" fill="rgba(0,0,0,.1)"/>' +
+      '<circle cx="70" cy="38" r="16" fill="#f5c89a" stroke="#1a2e22" stroke-width="2"/>' +
+      '<rect x="55" y="54" width="30" height="28" rx="8" fill="#0d5c3d" stroke="#1a2e22" stroke-width="2"/>' +
+      '<text x="70" y="34" text-anchor="middle" font-size="10">😊</text>' +
+      '<circle cx="130" cy="34" r="17" fill="#e8b890" stroke="#1a2e22" stroke-width="2"/>' +
+      '<rect x="114" y="51" width="32" height="30" rx="8" fill="#2f6fb5" stroke="#1a2e22" stroke-width="2"/>' +
+      '<text x="130" y="30" text-anchor="middle" font-size="11">😄</text>' +
+      '<circle cx="190" cy="38" r="16" fill="#f0c4a0" stroke="#1a2e22" stroke-width="2"/>' +
+      '<rect x="175" y="54" width="30" height="28" rx="8" fill="#c45c3a" stroke="#1a2e22" stroke-width="2"/>' +
+      '<text x="190" y="34" text-anchor="middle" font-size="10">🙂</text>' +
+      '<circle cx="130" cy="14" r="9" fill="#0d5c3d" stroke="#1a2e22" stroke-width="1.5"/>' +
+      '<circle cx="133" cy="13" r="6" fill="#0d5c3d"/>' +
+      '<circle cx="135" cy="12" r="5.5" fill="#7eb8d4"/>' +
+      '<polygon points="124,10 125,13 128,13 125.5,15 126.5,18 124,16 121.5,18 122.5,15 120,13 123,13" fill="#d4a017"/>' +
+      '</svg>';
+  }
+
+  function maybeKindDone(){
+    if (Object.keys(kindDone).length >= KIND.length){
+      doneModes.kind = true;
+      award("mode-kind", 2);
+      tabBadges();
+    }
+  }
+  function maybeScenesDone(){
+    if (Object.keys(scenesDone).length >= SCENES.length){
+      doneModes.scenes = true;
+      award("mode-scenes", 2);
+      tabBadges();
+    }
+  }
+  function maybeMapDone(){
+    if (Object.keys(mapDone).length >= MAP.length){
+      doneModes.map = true;
+      award("mode-map", 2);
+      tabBadges();
+    }
+  }
+
+  /* ---------- KIND (Three sources) ---------- */
+  function renderKind(){
+    var ch = KIND[kindIdx];
+    var pad = $("scenePad");
+    var box = $("actionBox");
+    box.innerHTML = "";
+    $("hintbox").classList.remove("show");
+
+    setText($("statechip"), (kindIdx+1) + " / " + KIND.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (kindDone[ch.id]?" win":"");
+    if (kindDone[ch.id]) setText($("statechip"), t(T.nice));
+
+    if (ch.type === "sort"){
+      pad.innerHTML = skyHTML() +
+        '<div class="sort-grid">' +
+          '<div class="sort-bin good-bin'+(kindSelected?" hot":"")+'" data-bin="good"><h3></h3><div class="drop" id="binGood"></div></div>' +
+          '<div class="sort-bin bad-bin'+(kindSelected?" hot":"")+'" data-bin="bad"><h3></h3><div class="drop" id="binBad"></div></div>' +
+        '</div>';
+      setText(pad.querySelector(".good-bin h3"), t(T.goodLab));
+      setText(pad.querySelector(".bad-bin h3"), t(T.badLab));
+
+      ["good","bad"].forEach(function(bin){
+        pad.querySelector('[data-bin="'+bin+'"]').addEventListener("click", function(){
+          if (!kindSelected || kindDone[ch.id]) return;
+          kindSort[kindSelected] = bin;
+          kindSelected = null;
+          renderKind();
+        });
+      });
+
+      ch.items.forEach(function(id){
+        var bin = kindSort[id];
+        if (!bin) return;
+        var el = document.createElement("span");
+        el.className = "mini-chip";
+        el.textContent = CARDS[id].em;
+        el.title = t(CARDS[id]);
+        el.addEventListener("click", function(e){
+          e.stopPropagation();
+          if (kindDone[ch.id]) return;
+          delete kindSort[id];
+          renderKind();
+        });
+        (bin==="good"?$("binGood"):$("binBad")).appendChild(el);
+      });
+
+      var bank = document.createElement("div");
+      bank.className = "bank";
+      ch.items.forEach(function(id){
+        if (kindSort[id]) return;
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "item-card" + (kindSelected===id?" selected":"");
+        b.innerHTML = '<span class="item-em">'+CARDS[id].em+'</span><p class="item-lab"></p>';
+        setText(b.querySelector(".item-lab"), t(CARDS[id]));
+        b.addEventListener("click", function(){
+          if (kindDone[ch.id]) return;
+          kindSelected = id;
+          renderKind();
+        });
+        bank.appendChild(b);
+      });
+      box.appendChild(bank);
+
+      if (!kindDone[ch.id]){
+        var chk = document.createElement("button");
+        chk.type = "button";
+        chk.style.cssText = "margin-top:10px;width:100%;border:2px solid var(--ink);border-radius:14px;background:var(--ink);color:var(--paper);font:inherit;font-weight:800;min-height:48px;cursor:pointer";
+        setText(chk, t(T.checkSort));
+        chk.addEventListener("click", function(){
+          var ok = true;
+          ch.items.forEach(function(id){
+            if (kindSort[id] !== CARDS[id].bin) ok = false;
+          });
+          if (ok && Object.keys(kindSort).filter(function(k){ return ch.items.indexOf(k)>=0; }).length === ch.items.length){
+            kindDone[ch.id] = true;
+            award("kind-"+ch.id, 1);
+            setText($("headline"), t(ch.done));
+            $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.nice));
+            maybeKindDone();
+            renderKind();
+          } else {
+            setText($("headline"), t(T.oops));
+            $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.oops));
+          }
+        });
+        box.appendChild(chk);
+      }
+
+      setText($("headline"), kindDone[ch.id] ? t(ch.done) : t(ch.title));
+      setText($("detail"), kindSelected ? t(CARDS[kindSelected]) + " → ?" : t(T.askSort));
+    } else {
+      var card = CARDS[ch.card];
+      pad.innerHTML = skyHTML() +
+        '<div class="comic-stage">' + kidsSVG() +
+        '<div class="comic-panel"><span class="em">'+card.em+'</span><span class="plab"></span></div></div>';
+      setText(pad.querySelector(".plab"), t(card));
+
+      setText($("headline"), kindDone[ch.id] ? t(ch.done) : t(ch.title));
+      setText($("detail"), t(T.askPick));
+
+      var choices = document.createElement("div");
+      choices.className = "save-choices";
+      [
+        {id:"good", em:"💚", en:"Yes — source of hidayat", ur:"ہاں — ہدایت کا سرچشمہ"},
+        {id:"bad", em:"🚫", en:"No — not a source", ur:"نہیں — غیر سرچشمہ"}
+      ].forEach(function(c){
+        var b = document.createElement("button");
+        b.type = "button";
+        if (kindDone[ch.id] && c.id === card.bin) b.classList.add("right");
+        b.innerHTML = '<span class="cem">'+c.em+'</span><span class="clab"></span>';
+        setText(b.querySelector(".clab"), t(c));
+        b.disabled = !!kindDone[ch.id];
+        b.addEventListener("click", function(){
+          if (kindDone[ch.id]) return;
+          if (c.id === card.bin){
+            kindDone[ch.id] = true;
+            award("kind-"+ch.id, 1);
+            b.classList.add("right");
+            setText($("headline"), t(ch.done));
+            $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.nice));
+            maybeKindDone();
+            renderKind();
+          } else {
+            b.classList.add("wrong");
+            setText($("headline"), t(T.oops));
+            $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+            setText($("statechip"), t(T.oops));
+            setTimeout(function(){ b.classList.remove("wrong"); }, 600);
+          }
+        });
+        choices.appendChild(b);
+      });
+      box.appendChild(choices);
+    }
+    setText($("prog"), t(T.progK) + ": " + Object.keys(kindDone).length + "/" + KIND.length);
+  }
+
+  /* ---------- SCENES ---------- */
+  function renderScenes(){
+    var ch = SCENES[scenesIdx];
+    var pad = $("scenePad");
+    pad.innerHTML = skyHTML() +
+      '<div class="comic-stage"><div class="comic-hero">'+ch.hero+'</div>' +
+      '<div class="comic-panel"><span class="em">🧒</span><span class="plab"></span></div></div>';
+    setText(pad.querySelector(".plab"), t(ch.title));
+
+    setText($("statechip"), (scenesIdx+1) + " / " + SCENES.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (scenesDone[ch.id]?" win":"");
+    if (scenesDone[ch.id]) setText($("statechip"), t(T.nice));
+    setText($("headline"), scenesDone[ch.id] ? t(ch.done) : t(ch.title));
+    setText($("detail"), t(ch.prompt));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+    var choices = document.createElement("div");
+    choices.className = "save-choices";
+    ch.choices.forEach(function(c){
+      var b = document.createElement("button");
+      b.type = "button";
+      if (scenesDone[ch.id] && c.id === ch.correct) b.classList.add("right");
+      b.innerHTML = '<span class="cem">'+c.em+'</span><span class="clab"></span>';
+      setText(b.querySelector(".clab"), t(c));
+      b.disabled = !!scenesDone[ch.id];
+      b.addEventListener("click", function(){
+        if (scenesDone[ch.id]) return;
+        if (c.id === ch.correct){
+          scenesDone[ch.id] = true;
+          award("scenes-"+ch.id, 1);
+          b.classList.add("right");
+          setText($("headline"), t(ch.done));
+          $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.nice));
+          maybeScenesDone();
+          tabBadges();
+          renderScenes();
+        } else {
+          b.classList.add("wrong");
+          setText($("headline"), t(T.oops));
+          $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.oops));
+          setTimeout(function(){ b.classList.remove("wrong"); }, 600);
+        }
+      });
+      choices.appendChild(b);
+    });
+    box.appendChild(choices);
+    setText($("prog"), t(T.progS) + ": " + Object.keys(scenesDone).length + "/" + SCENES.length);
+  }
+
+  /* ---------- MAP ---------- */
+  function renderMap(){
+    var ch = MAP[mapIdx];
+    var pad = $("scenePad");
+    if (mapDone.a1) mapPlaces.home = true;
+    if (mapDone.a2) mapPlaces.school = true;
+    if (mapDone.a3) mapPlaces.hood = true;
+
+    pad.innerHTML = skyHTML() +
+      '<div class="map-row">' +
+        '<div class="map-node home'+(mapPlaces.home?" done":"")+'"><span class="nem">🏠</span><p class="nlab" id="mapHome"></p></div>' +
+        '<span class="map-arrow">→</span>' +
+        '<div class="map-node school'+(mapPlaces.school?" done":"")+'"><span class="nem">🏫</span><p class="nlab" id="mapSchool"></p></div>' +
+        '<span class="map-arrow">→</span>' +
+        '<div class="map-node hood'+(mapPlaces.hood?" done":"")+'"><span class="nem">🤝</span><p class="nlab" id="mapHood"></p></div>' +
+      '</div>';
+    setText($("mapHome"), t(T.home));
+    setText($("mapSchool"), t(T.school));
+    setText($("mapHood"), t(T.hood));
+
+    setText($("statechip"), (mapIdx+1) + " / " + MAP.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (mapDone[ch.id]?" win":"");
+    if (mapDone[ch.id]) setText($("statechip"), t(T.nice));
+    setText($("headline"), mapDone[ch.id] ? t(ch.done) : t(ch.title));
+    setText($("detail"), t(ch.prompt));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+    var choices = document.createElement("div");
+    choices.className = "save-choices";
+    ch.choices.forEach(function(c){
+      var b = document.createElement("button");
+      b.type = "button";
+      if (mapDone[ch.id] && c.id === ch.correct) b.classList.add("right");
+      b.innerHTML = '<span class="cem">'+c.em+'</span><span class="clab"></span>';
+      setText(b.querySelector(".clab"), t(c));
+      b.disabled = !!mapDone[ch.id];
+      b.addEventListener("click", function(){
+        if (mapDone[ch.id]) return;
+        if (c.id === ch.correct){
+          mapDone[ch.id] = true;
+          if (ch.place === "home") mapPlaces.home = true;
+          if (ch.place === "school") mapPlaces.school = true;
+          if (ch.place === "hood") mapPlaces.hood = true;
+          award("map-"+ch.id, 1);
+          b.classList.add("right");
+          setText($("headline"), t(ch.done));
+          $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.nice));
+          maybeMapDone();
+          tabBadges();
+          renderMap();
+        } else {
+          b.classList.add("wrong");
+          setText($("headline"), t(T.oops));
+          $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.oops));
+          setTimeout(function(){ b.classList.remove("wrong"); }, 600);
+        }
+      });
+      choices.appendChild(b);
+    });
+    box.appendChild(choices);
+    setText($("prog"), t(T.progA) + ": " + Object.keys(mapDone).length + "/" + MAP.length);
+  }
+
+  /* ---------- QUIZ ---------- */
+  function pickQuiz(){ quizSet = shuffle(QUIZ).slice(0, 5); }
+  function renderQuiz(){
+    var box = $("quizBox");
+    box.innerHTML = "";
+    quizSet.forEach(function(item, qi){
+      var wrap = document.createElement("div");
+      wrap.className = "q";
+      var p = document.createElement("p");
+      if (lang === "ur"){
+        p.textContent = isolate((qi+1) + ". " + t(item.q));
+        p.classList.remove("ur");
+        p.setAttribute("dir", "ltr");
+        p.style.fontFamily = '"Baloo Bhaijaan 2",sans-serif';
+        p.style.lineHeight = "1.5";
+      } else {
+        setText(p, (qi+1) + ". " + t(item.q));
+      }
+      wrap.appendChild(p);
+      var answered = false;
+      item.opts.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        if (lang === "ur"){
+          b.className = "opt";
+          b.textContent = isolate(t(opt));
+          b.setAttribute("dir", "ltr");
+          b.style.textAlign = "left";
+          b.style.fontFamily = '"Baloo Bhaijaan 2",sans-serif';
+        } else {
+          b.className = "opt";
+          setText(b, t(opt));
+        }
+        b.addEventListener("click", function(){
+          if (answered) return;
+          answered = true;
+          if (oi === item.correct){
+            b.classList.add("right");
+            award("quiz-"+qi, 1);
+          } else {
+            b.classList.add("wrong");
+            var kids = wrap.querySelectorAll(".opt");
+            if (kids[item.correct]) kids[item.correct].classList.add("right");
+          }
+          fb.classList.add("show");
+        });
+        wrap.appendChild(b);
+      });
+      var fb = document.createElement("p");
+      fb.className = "fb";
+      if (lang === "ur"){
+        fb.textContent = isolate(t(item.why));
+        fb.setAttribute("dir", "ltr");
+        fb.style.fontFamily = '"Baloo Bhaijaan 2",sans-serif';
+      } else {
+        setText(fb, t(item.why));
+      }
+      wrap.appendChild(fb);
+      box.appendChild(wrap);
+    });
+  }
+
+  function storyHtml(){
+    if (mode === "kind") return t(T.storyKind);
+    if (mode === "scenes") return t(T.storyScenes);
+    return t(T.storyMap);
+  }
+
+  function tabBadges(){
+    function lab(btn, label, key){
+      btn.innerHTML = "";
+      var span = document.createElement("span");
+      setText(span, t(label));
+      btn.appendChild(span);
+      if (doneModes[key]){
+        var b = document.createElement("span");
+        b.className = "badge"; b.textContent = " ★";
+        btn.appendChild(b);
+      }
+    }
+    lab($("tabKind"), T.tabKind, "kind");
+    lab($("tabScenes"), T.tabScenes, "scenes");
+    lab($("tabMap"), T.tabMap, "map");
+    $("tabKind").setAttribute("aria-pressed", mode==="kind"?"true":"false");
+    $("tabScenes").setAttribute("aria-pressed", mode==="scenes"?"true":"false");
+    $("tabMap").setAttribute("aria-pressed", mode==="map"?"true":"false");
+  }
+
+  function setMode(m){
+    mode = m;
+    kindSelected = null;
+    if (mode === "kind") renderKind();
+    else if (mode === "scenes") renderScenes();
+    else renderMap();
+    applyChrome();
+  }
+
+  function applyChrome(){
+    setText($("title"), t(T.title));
+    setText($("subtitle"), t(T.sub));
+    $("story").innerHTML = storyHtml();
+    $("story").classList.toggle("ur", lang==="ur");
+    $("story").setAttribute("dir", lang==="ur"?"rtl":"ltr");
+    setText($("ctlHead"), t(T.ctl));
+    setText($("nextBtn"), t(T.next));
+    setText($("hintBtn"), t(T.hint));
+    setText($("resetBtn"), t(T.reset));
+    setText($("quizHead"), t(T.quiz));
+    setText($("newQuiz"), t(T.newQuiz));
+    $("langBtn").textContent = (lang === "en") ? "اردو" : "EN";
+    $("langBtn").setAttribute("aria-pressed", lang==="ur"?"true":"false");
+    document.body.classList.toggle("urdu", lang==="ur");
+    document.documentElement.lang = (lang==="ur") ? "ur" : "en";
+    document.documentElement.dir = (lang==="ur") ? "rtl" : "ltr";
+    tabBadges();
+    var foot = document.querySelector("footer p");
+    if (foot) setText(foot, foot.getAttribute(lang==="ur"?"data-ur":"data-en"));
+  }
+
+  function applyLang(){
+    applyChrome();
+    if (mode === "kind") renderKind();
+    else if (mode === "scenes") renderScenes();
+    else renderMap();
+    renderQuiz();
+  }
+
+  function next(){
+    if (mode === "kind"){
+      kindIdx = (kindIdx + 1) % KIND.length;
+      kindSelected = null;
+      if (KIND[kindIdx].type === "sort"){
+        kindSort = {};
+      }
+      renderKind();
+    } else if (mode === "scenes"){
+      scenesIdx = (scenesIdx + 1) % SCENES.length;
+      renderScenes();
+    } else {
+      mapIdx = (mapIdx + 1) % MAP.length;
+      renderMap();
+    }
+  }
+
+  function showHint(){
+    var h;
+    if (mode === "kind") h = KIND[kindIdx].hint;
+    else if (mode === "scenes") h = SCENES[scenesIdx].hint;
+    else h = MAP[mapIdx].hint;
+    var hb = $("hintbox");
+    setText(hb, t(h));
+    hb.classList.add("show");
+  }
+
+  function resetMode(){
+    if (mode === "kind"){
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("kind-")===0 || k==="mode-kind") delete awarded[k]; });
+      kindDone = {}; kindSort = {}; kindSelected = null; kindIdx = 0;
+      doneModes.kind = false;
+      recountStars(); renderKind();
+    } else if (mode === "scenes"){
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("scenes-")===0 || k==="mode-scenes") delete awarded[k]; });
+      scenesDone = {}; scenesIdx = 0; doneModes.scenes = false;
+      recountStars(); renderScenes();
+    } else {
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("map-")===0 || k==="mode-map") delete awarded[k]; });
+      mapDone = {}; mapIdx = 0; mapPlaces = {home:false, school:false, hood:false}; doneModes.map = false;
+      recountStars(); renderMap();
+    }
+    tabBadges();
+    applyChrome();
+  }
+
+  function cleanSpeakText(s){
+    return String(s || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  }
+  function buildSpeakText(){
+    var bits = [];
+    bits.push(t(T.title));
+    bits.push(cleanSpeakText(storyHtml()));
+    bits.push(cleanSpeakText(($("headline") && $("headline").textContent) || ""));
+    bits.push(cleanSpeakText(($("detail") && $("detail").textContent) || ""));
+    bits.push(t(T.tip));
+    return bits.filter(Boolean).join(". ");
+  }
+  function pickVoice(voices, want){
+    var i, v, L;
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf(want) === 0) return v;
+    }
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf("en") === 0) return v;
+    }
+    return voices[0] || null;
+  }
+  var speakTimer = null;
+  function setSpeaking(on){
+    var btn = $("speakBtn");
+    if (!btn) return;
+    btn.setAttribute("aria-pressed", on ? "true" : "false");
+    btn.style.opacity = on ? "0.65" : "";
+  }
+  function doSpeak(text, asLang){
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.92;
+    u.lang = (asLang === "ur") ? "ur-PK" : "en-US";
+    var voices = window.speechSynthesis.getVoices() || [];
+    var voice = pickVoice(voices, asLang === "ur" ? "ur" : "en");
+    if (voice) u.voice = voice;
+    u.onstart = function(){ setSpeaking(true); };
+    u.onend = function(){ setSpeaking(false); };
+    u.onerror = function(){
+      setSpeaking(false);
+      if (asLang === "ur"){
+        var fallback = cleanSpeakText(T.title.en + ". " + T.storyKind.en + ". " + T.tip.en);
+        var u2 = new SpeechSynthesisUtterance(fallback);
+        u2.lang = "en-US"; u2.rate = 0.92;
+        var v2 = pickVoice(window.speechSynthesis.getVoices() || [], "en");
+        if (v2) u2.voice = v2;
+        u2.onstart = function(){ setSpeaking(true); };
+        u2.onend = u2.onerror = function(){ setSpeaking(false); };
+        window.speechSynthesis.speak(u2);
+      }
+    };
+    window.speechSynthesis.speak(u);
+  }
+  if ("speechSynthesis" in window){
+    try { window.speechSynthesis.getVoices(); } catch (e0) {}
+    if (typeof window.speechSynthesis.addEventListener === "function"){
+      window.speechSynthesis.addEventListener("voiceschanged", function(){
+        try { window.speechSynthesis.getVoices(); } catch (e1) {}
+      });
+    }
+  } else {
+    var noBtn = $("speakBtn");
+    if (noBtn){ noBtn.disabled = true; noBtn.title = "Voice not available on this device"; }
+  }
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en";
+    applyLang();
+  });
+  $("tabKind").addEventListener("click", function(){ setMode("kind"); });
+  $("tabScenes").addEventListener("click", function(){ setMode("scenes"); });
+  $("tabMap").addEventListener("click", function(){ setMode("map"); });
+  $("nextBtn").addEventListener("click", next);
+  $("hintBtn").addEventListener("click", showHint);
+  $("resetBtn").addEventListener("click", resetMode);
+  $("newQuiz").addEventListener("click", function(){ pickQuiz(); renderQuiz(); });
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      var text = buildSpeakText();
+      if (!text) return;
+      if (speakTimer){ clearTimeout(speakTimer); speakTimer = null; }
+      window.speechSynthesis.cancel();
+      setSpeaking(false);
+      var speakLang = lang;
+      speakTimer = setTimeout(function(){
+        speakTimer = null;
+        doSpeak(text, speakLang);
+      }, 80);
+    }catch(e){ setSpeaking(false); }
+  });
+
+  pickQuiz();
+  applyLang();
+})();
+</script>
+</body>
+</html>

@@ -303,5 +303,13 @@
       "interactive_file": "interactives/g5-husn-muamalat.html",
       "interactive_label": "Khelo — Husn-e-muamalat"
     }
+  },
+  {
+    "file": "kb/grade_5/islamiat.json",
+    "match_title": "Hidayat ke sarchashme",
+    "add": {
+      "interactive_file": "interactives/g5-hidayat-sarchashme.html",
+      "interactive_label": "Khelo — Hidayat ke sarchashme"
+    }
   }
 ]
