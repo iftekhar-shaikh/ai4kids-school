@@ -407,5 +407,13 @@
       "interactive_file": "interactives/g4-data-types.html",
       "interactive_label": "Khelo - Data types"
     }
+  },
+  {
+    "file": "kb/grade_4/ai.json",
+    "match_title": "AI decision tree",
+    "add": {
+      "interactive_file": "interactives/g4-ai-decision-tree.html",
+      "interactive_label": "Khelo - AI decision tree"
+    }
   }
 ]

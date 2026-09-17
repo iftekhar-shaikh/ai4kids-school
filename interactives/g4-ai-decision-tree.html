@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI decision tree / اے آئی ڈیسیژن ٹری | AI4Kids Class 4</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#e8e4f5;--board-deep:#d4cce8;--sky:#c9b8f0;--sky2:#9b7fd4;
+    --accent:#5b4a8f;--ok:#2e7d4f;--ink:#1e2a1a;--ink-soft:#4a5744;
+    --paper:#fdfaf3;--line:#d5dec8;--gold:#e8b23d;--left:#c4453a;
+    --yes:#2e7d4f;--no:#c4453a;--leaf:#3d9b8f;--qnode:#2f6fb5;
+    --fs-cap:clamp(12px, 3.2vw, 13px);--fs-xs:clamp(14px, 3.7vw, 15px);
+    --fs-sm:clamp(16px, 4.2vw, 17px);--fs-md:clamp(17px, 4.6vw, 19px);
+    --fs-lg:clamp(20px, 5.4vw, 23px);--fs-xl:clamp(27px, 7.4vw, 33px);--lh:1.5;
+  }
+  body.urdu{
+    --fs-cap:clamp(13px, 3.5vw, 15px);--fs-xs:clamp(15px, 4.1vw, 17px);
+    --fs-sm:clamp(17px, 4.7vw, 19px);--fs-md:clamp(19px, 5.2vw, 21px);
+    --fs-lg:clamp(22px, 6vw, 25px);--fs-xl:clamp(26px, 7vw, 31px);--lh:2.1;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  .stars{display:flex;align-items:center;gap:6px;font-weight:800;font-size:var(--fs-xs);
+         background:#fff6e2;border:2px solid var(--gold);border-radius:999px;padding:7px 13px}
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+  .tabs{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
+  .tabs button{
+    flex:1 1 28%;min-width:90px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:10px 6px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:54px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .tabs button .badge{color:var(--gold)}
+  .story{
+    background:#fff8ea;border:2px dashed var(--gold);border-radius:16px;padding:13px 15px;
+    font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;margin-bottom:14px;
+  }
+  body.urdu .story{line-height:var(--lh)}
+  .story b{color:var(--ink)}
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:linear-gradient(180deg,var(--sky) 0%,var(--sky2) 38%,var(--board) 38%,var(--board-deep) 100%);
+    min-height:280px;
+  }
+  .scene-pad{padding:10px 12px 18px;min-height:260px;position:relative}
+  .sky-layer{position:absolute;inset:0 0 58% 0;pointer-events:none;overflow:hidden}
+  .sun-ball{
+    position:absolute;top:12px;right:18px;width:36px;height:36px;border-radius:50%;
+    background:radial-gradient(circle at 35% 35%,#ffe9a0,#f5c542 60%,#e0a020);
+    box-shadow:0 0 18px rgba(245,197,66,.45);z-index:1;
+  }
+  body.urdu .sun-ball{right:auto;left:18px}
+  .cloud{position:absolute;background:rgba(255,255,255,.85);border-radius:40px;opacity:.9}
+  .cloud:before,.cloud:after{content:"";position:absolute;background:inherit;border-radius:50%}
+  .c1{width:48px;height:15px;top:18px;left:12%}
+  .c1:before{width:22px;height:22px;top:-12px;left:6px}
+  .c1:after{width:18px;height:18px;top:-8px;left:24px}
+  .c2{width:34px;height:12px;top:34px;left:55%;opacity:.7}
+  .c2:before{width:16px;height:16px;top:-9px;left:4px}
+  .c2:after{width:12px;height:12px;top:-5px;left:16px}
+  .tree-stage{position:relative;z-index:5;padding-top:70px;text-align:center;min-height:150px}
+  .tree-hero{font-size:52px;line-height:1;margin:4px 0 8px;filter:drop-shadow(0 2px 0 rgba(0,0,0,.12))}
+  .q-card{
+    background:rgba(253,250,243,.96);border:2.5px solid var(--qnode);border-radius:16px;
+    padding:12px 14px;max-width:300px;margin:0 auto 8px;font-weight:800;font-size:var(--fs-xs);
+    box-shadow:0 3px 0 rgba(30,42,26,.12);line-height:1.4;
+  }
+  body.urdu .q-card{line-height:1.85}
+  .leaf-card{
+    background:#e6f5f2;border:2.5px solid var(--leaf);border-radius:16px;
+    padding:14px 16px;max-width:300px;margin:0 auto;font-weight:800;font-size:var(--fs-sm);
+    box-shadow:0 3px 0 rgba(30,42,26,.12);
+  }
+  .path-trail{font-size:var(--fs-cap);color:var(--ink-soft);font-weight:700;margin:6px 0;min-height:22px}
+  .yn-row{display:flex;gap:10px;justify-content:center;margin-top:8px;flex-wrap:wrap}
+  .yn-btn{
+    border:2.5px solid var(--ink);border-radius:14px;padding:12px 22px;font:inherit;font-weight:800;
+    font-size:var(--fs-sm);cursor:pointer;min-height:52px;min-width:110px;
+  }
+  .yn-btn.yes{background:#e8f2ed;border-color:var(--yes);color:var(--yes)}
+  .yn-btn.no{background:#fbeae8;border-color:var(--no);color:var(--no)}
+  .yn-btn:disabled{opacity:.4;cursor:default}
+  .save-choices{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+  .save-choices button{
+    border:2.5px solid var(--ink);background:var(--paper);border-radius:14px;
+    padding:12px 14px;font:inherit;font-weight:800;font-size:var(--fs-xs);
+    cursor:pointer;text-align:left;min-height:52px;display:flex;align-items:center;gap:10px;
+  }
+  body.urdu .save-choices button{text-align:right}
+  .save-choices button .cem{font-size:26px}
+  .save-choices button.right{border-color:var(--ok);background:#e8f2ed}
+  .save-choices button.wrong{border-color:var(--left);background:#fbeae8}
+  .sort-bins{display:flex;gap:8px;margin-top:8px}
+  .sort-bin{
+    flex:1;border:2.5px dashed rgba(30,42,26,.4);border-radius:14px;
+    background:rgba(253,250,243,.75);padding:10px 8px;min-height:90px;
+    text-align:center;font-weight:800;font-size:var(--fs-cap);
+  }
+  .sort-bin.care{border-color:var(--ok)}
+  .sort-bin.guess{border-color:var(--left)}
+  .sort-bin .bin-title{margin-bottom:6px;color:var(--ink-soft)}
+  .sort-bin .drop{font-size:22px;min-height:36px;line-height:1.3}
+  .bank{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:8px;position:relative;z-index:5}
+  .mini-item{
+    border:2px solid var(--ink);border-radius:12px;padding:8px 10px;background:#fff;
+    line-height:1;cursor:pointer;min-width:44px;min-height:48px;font-weight:800;font-size:var(--fs-cap);
+    display:flex;align-items:center;gap:4px;
+  }
+  .mini-item.used{opacity:.3;pointer-events:none}
+  .mini-item.selected{border-color:var(--accent);box-shadow:0 0 0 3px rgba(91,74,143,.2)}
+  .goal-box{
+    background:rgba(253,250,243,.95);border:2.5px dashed var(--accent);border-radius:14px;
+    padding:10px 12px;font-weight:800;font-size:var(--fs-xs);max-width:300px;margin:0 auto 8px;
+  }
+  .outcome{
+    margin-top:10px;border-radius:14px;padding:10px 12px;font-weight:700;font-size:var(--fs-xs);
+    display:none;border:2px solid var(--ok);background:#e8f2ed;color:var(--ok);
+  }
+  .outcome.show{display:block}
+  .outcome.bad{border-color:var(--left);background:#fbeae8;color:var(--left)}
+  .readout{
+    margin-top:-18px;position:relative;z-index:2;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+  .statechip.ur{padding:2px 14px 7px}
+  .statechip.win{background:var(--ok)}
+  .statechip.miss{background:var(--left)}
+  .headline{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+  .headline.ur{line-height:1.95}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+  .hintbox{
+    margin-top:14px;border:2px solid var(--accent);background:#f0ebf8;border-radius:14px;
+    padding:11px 14px;font-size:var(--fs-xs);color:var(--accent);font-weight:700;line-height:1.55;
+    display:none;
+  }
+  .hintbox.show{display:block}
+  body.urdu .hintbox{line-height:var(--lh)}
+  .panel{margin-top:22px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .prog{margin:0 0 10px;font-size:var(--fs-xs);font-weight:700;color:var(--ink-soft)}
+  .btns{display:flex;gap:9px;margin-top:8px;flex-wrap:wrap}
+  .btns button{
+    border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);
+    font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:50px;
+    padding:8px 14px;flex:1;
+  }
+  .btns .go{background:var(--ink);color:var(--paper)}
+  .btns button:active{transform:scale(.97)}
+  .btns button:disabled{opacity:.4;cursor:default}
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .qhead{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+  .qhead h2{font-size:var(--fs-lg);font-weight:800;margin:0;flex:1}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:50px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+  .opt.wrong{border-color:var(--left);background:#fbeae8}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
+      grid-template-areas:
+        "bar   bar" "head  head" "tabs  tabs" "story story"
+        "left  right" "quiz  quiz" "foot  foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+    .story{grid-area:story} .left{grid-area:left} .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+    .panel{margin-top:0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition-duration:.01ms !important;animation:none !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 4 · AI &amp; Technology</span>
+    <span class="stars" id="starBox">⭐ <span id="starCount">0</span></span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 id="title"></h1>
+  <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group">
+    <button type="button" id="tabFollow" aria-pressed="true"></button>
+    <button type="button" id="tabBuild" aria-pressed="false"></button>
+    <button type="button" id="tabSort" aria-pressed="false"></button>
+  </div>
+
+  <p class="story" id="story"></p>
+
+  <div class="left">
+  <div class="scene">
+    <div class="scene-pad" id="scenePad"></div>
+  </div>
+  <div class="readout">
+    <span class="statechip" id="statechip"></span>
+    <p class="headline" id="headline"></p>
+    <p class="detail" id="detail"></p>
+    <p class="hintbox" id="hintbox"></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="panel">
+    <h2 id="ctlHead"></h2>
+    <p class="prog" id="prog"></p>
+    <div id="actionBox"></div>
+    <div class="btns">
+      <button type="button" class="go" id="nextBtn"></button>
+    </div>
+    <div class="btns">
+      <button type="button" id="hintBtn"></button>
+      <button type="button" id="resetBtn"></button>
+    </div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <div class="qhead">
+      <h2 id="quizHead"></h2>
+      <button type="button" class="chip" id="newQuiz"></button>
+    </div>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad bilingual school. Offline. WhatsApp 0337 1468899 · AI decision tree"
+       data-ur="اے آئی فور کڈز — اسلام آباد دو لسانی اسکول۔ آف لائن۔ واٹس ایپ 0337 1468899 · اے آئی ڈیسیژن ٹری"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  function $(id){ return document.getElementById(id); }
+  function isolate(s){ return "\u2066" + s + "\u2069"; }
+  function setText(el, str){
+    if (!el) return;
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+  function t(o){ return (o && o[lang]) || (o && o.en) || ""; }
+  function shuffle(arr){
+    var a = arr.slice(), i, j, tmp;
+    for (i = a.length - 1; i > 0; i--){
+      j = Math.floor(Math.random() * (i + 1));
+      tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  var lang = "en";
+  var mode = "follow";
+  var stars = 0;
+  var awarded = {};
+  var doneModes = {follow:false, build:false, sort:false};
+
+  var T = {
+    title:{en:"AI decision tree", ur:"اے آئی ڈیسیژن ٹری"},
+    sub:{en:"Yes/no questions step by step — like a flowchart kids can follow!",
+         ur:"ہاں/نہیں سوال قدم بہ قدم — جیسے فلو چارٹ جو بچے چلا سکیں!"},
+    tabFollow:{en:"Follow the tree", ur:"درخت چلو"},
+    tabBuild:{en:"Build a branch", ur:"شاخ بناؤ"},
+    tabSort:{en:"Tree vs guess", ur:"درخت بمقابلہ اندازہ"},
+    storyFollow:{en:"Tap <b>Yes</b> or <b>No</b> — each answer sends you down a branch to a leaf answer. Fruit, weather, school bag!",
+                ur:"<b>ہاں</b> یا <b>نہیں</b> ٹیپ کرو — ہر جواب ایک شاخ پر لے جاتا ہے، پھر پتہ جواب۔ پھل، موسم، اسکول بیگ!"},
+    storyBuild:{en:"Goal given — pick the <b>next best yes/no question</b> that splits choices well (not a silly guess)!",
+               ur:"ہدف دیا گیا — وہ <b>اگلا بہترین ہاں/نہیں سوال</b> چنو جو انتخاب اچھی طرح بانٹے!"},
+    storySort:{en:"Sort cards: <b>careful tree questions</b> vs <b>random guessing</b>. Trees ask smart splits!",
+              ur:"کارڈز چھانٹو: <b>سمجھدار درخت سوال</b> بمقابلہ <b>بے ترتیب اندازہ</b>۔ درخت ہوشیار بانٹ پوچھتے ہیں!"},
+    ctl:{en:"Your turn — tree explorer", ur:"تمہاری باری — درخت سیاح"},
+    next:{en:"Next challenge", ur:"اگلا چیلنج"},
+    hint:{en:"Hint", ur:"اشارہ"},
+    reset:{en:"Reset", ur:"ری سیٹ"},
+    quiz:{en:"Check yourself", ur:"اپنا چیک"},
+    newQuiz:{en:"New quiz", ur:"نیا کوئز"},
+    nice:{en:"Shabash — leaf found!", ur:"شاباش — پتہ مل گیا!"},
+    oops:{en:"Almost — try again", ur:"قریب — دوبارہ آزماؤ"},
+    tip:{en:"Tip: A decision tree asks yes/no questions one by one to reach an answer — like a flowchart. Careful questions beat random guessing!",
+         ur:"نکتہ: ڈیسیژن ٹری ہاں/نہیں سوال ایک ایک کر کے پوچھ کر جواب تک پہنچتی ہے — جیسے فلو چارٹ۔ سمجھدار سوال بے ترتیب اندازے سے بہتر!"},
+    progFollow:{en:"Trees finished", ur:"درخت مکمل"},
+    progBuild:{en:"Branch picks", ur:"شاخ انتخاب"},
+    progSort:{en:"Sort rounds", ur:"چھانٹ راؤنڈ"},
+    askFollow:{en:"Answer Yes or No to walk the tree", ur:"درخت چلنے کے لیے ہاں یا نہیں جواب دو"},
+    askBuild:{en:"Which question should come next?", ur:"اگلا سوال کون سا ہونا چاہیے؟"},
+    askSort:{en:"Tap a card, then Careful or Guess bin", ur:"کارڈ ٹیپ کرو، پھر سمجھدار یا اندازہ"},
+    yesLab:{en:"Yes ✓", ur:"ہاں ✓"},
+    noLab:{en:"No ✗", ur:"نہیں ✗"},
+    restartTree:{en:"Walk again", ur:"دوبارہ چلو"},
+    checkSort:{en:"Check sort", ur:"چھانٹ چیک کرو"},
+    binCare:{en:"Careful Q ✓", ur:"سمجھدار سوال ✓"},
+    binGuess:{en:"Random guess ✗", ur:"بے ترتیب اندازہ ✗"},
+    leafSays:{en:"Answer", ur:"جواب"},
+    pathLabel:{en:"Path", ur:"راستہ"}
+  };
+
+  /* Mode 1: Follow the tree — 4 short yes/no trees */
+  var FOLLOW = [
+    {
+      id:"f1", em:"🥭🍎🍌",
+      title:{en:"Guess the fruit", ur:"پھل اندازہ لگاؤ"},
+      start:"q1",
+      nodes:{
+        q1:{type:"q", en:"Is it yellow?", ur:"کیا یہ پیلا ہے؟", yes:"q2", no:"q3"},
+        q2:{type:"q", en:"Is it long and curved?", ur:"کیا یہ لمبا اور مڑا ہے؟", yes:"banana", no:"mango"},
+        q3:{type:"q", en:"Is it red or green and crunchy?", ur:"کیا یہ سرخ یا سبز اور کرنچی ہے؟", yes:"apple", no:"mango"},
+        banana:{type:"leaf", em:"🍌", en:"Banana!", ur:"کیلا!"},
+        mango:{type:"leaf", em:"🥭", en:"Mango (aam)!", ur:"آم!"},
+        apple:{type:"leaf", em:"🍎", en:"Apple!", ur:"سیب!"}
+      },
+      hint:{en:"Yellow + curved = banana. Yellow but round = mango. Red/green crunchy = apple.",
+            ur:"پیلا + مڑا = کیلا۔ پیلا مگر گول = آم۔ سرخ/سبز کرنچی = سیب۔"},
+      done:{en:"You followed the fruit tree to a leaf!", ur:"تم پھل کے درخت پر پتہ تک پہنچے!"}
+    },
+    {
+      id:"f2", em:"☀️🌧️🏠",
+      title:{en:"Play outside or stay?", ur:"باہر کھیلو یا گھر رہو؟"},
+      start:"q1",
+      nodes:{
+        q1:{type:"q", en:"Is it raining hard?", ur:"کیا تیز بارش ہو رہی ہے؟", yes:"stay", no:"q2"},
+        q2:{type:"q", en:"Is it very hot (35°C+)?", ur:"کیا بہت گرمی ہے (۳۵°+)؟", yes:"q3", no:"play"},
+        q3:{type:"q", en:"Do you have shade & water?", ur:"کیا سایہ اور پانی ہے؟", yes:"play", no:"stay"},
+        play:{type:"leaf", em:"⚽", en:"Play outside — cricket or park!", ur:"باہر کھیلو — کرکٹ یا پارک!"},
+        stay:{type:"leaf", em:"🏠", en:"Stay indoors — read or board game!", ur:"گھر رہو — پڑھو یا بورڈ گیم!"}
+      },
+      hint:{en:"Hard rain → stay. Hot but shade+water → play. Hot with no water → stay.",
+            ur:"تیز بارش → گھر۔ گرمی مگر سایہ+پانی → کھیلو۔ گرمی بغیر پانی → گھر۔"},
+      done:{en:"Weather tree decided play or stay!", ur:"موسم درخت نے کھیلو یا رہو فیصلہ کیا!"}
+    },
+    {
+      id:"f3", em:"🎒📘✏️",
+      title:{en:"School bag check", ur:"اسکول بیگ چیک"},
+      start:"q1",
+      nodes:{
+        q1:{type:"q", en:"Is tomorrow a school day?", ur:"کیا کل اسکول کا دن ہے؟", yes:"q2", no:"fun"},
+        q2:{type:"q", en:"Do you have your homework notebook?", ur:"کیا ہوم ورک کاپی ہے؟", yes:"q3", no:"packHw"},
+        q3:{type:"q", en:"Is your water bottle filled?", ur:"کیا پانی کی بوتل بھری ہے؟", yes:"ready", no:"fill"},
+        fun:{type:"leaf", em:"🎮", en:"Weekend bag — toys & storybook OK!", ur:"چھٹی بیگ — کھلونے اور کہانی ٹھیک!"},
+        packHw:{type:"leaf", em:"📝", en:"Pack homework first!", ur:"پہلے ہوم ورک رکھو!"},
+        fill:{type:"leaf", em:"💧", en:"Fill the bottle, then go!", ur:"بوتل بھرو، پھر جاؤ!"},
+        ready:{type:"leaf", em:"✅", en:"Bag ready — Shabash!", ur:"بیگ تیار — شاباش!"}
+      },
+      hint:{en:"No school → fun bag. School but no homework → pack it. No water → fill. All yes → ready!",
+            ur:"اسکول نہیں → مزے کا بیگ۔ اسکول مگر ہوم ورک نہیں → رکھو۔ پانی نہیں → بھرو۔ سب ہاں → تیار!"},
+      done:{en:"Bag tree checked every step!", ur:"بیگ درخت نے ہر قدم چیک کیا!"}
+    },
+    {
+      id:"f4", em:"🏏🥪🧃",
+      title:{en:"Snack after cricket?", ur:"کرکٹ کے بعد اسنیک؟"},
+      start:"q1",
+      nodes:{
+        q1:{type:"q", en:"Did you just finish a match?", ur:"کیا ابھی میچ ختم ہوا؟", yes:"q2", no:"later"},
+        q2:{type:"q", en:"Are you thirsty?", ur:"کیا پیاس لگی ہے؟", yes:"lassi", no:"q3"},
+        q3:{type:"q", en:"Are you hungry?", ur:"کیا بھوک لگی ہے؟", yes:"samosa", no:"rest"},
+        later:{type:"leaf", em:"⏰", en:"Snack later — practice first!", ur:"اسنیک بعد میں — پہلے پریکٹس!"},
+        lassi:{type:"leaf", em:"🥛", en:"Cool lassi or water!", ur:"ٹھنڈی لسی یا پانی!"},
+        samosa:{type:"leaf", em:"🥟", en:"Samosa time (share with friends)!", ur:"سموسے کا وقت (دوستوں سے بانٹو)!"},
+        rest:{type:"leaf", em:"😌", en:"Rest in shade — no snack needed!", ur:"سایہ میں آرام — اسنیک نہیں چاہیے!"}
+      },
+      hint:{en:"After match + thirsty → drink. Hungry → snack. Not hungry → rest. No match yet → later.",
+            ur:"میچ کے بعد + پیاس → پیو۔ بھوک → اسنیک۔ بھوک نہیں → آرام۔ میچ نہیں → بعد میں۔"},
+      done:{en:"Snack tree reached a tasty leaf!", ur:"اسنیک درخت مزے دار پتہ تک پہنچا!"}
+    }
+  ];
+
+  /* Mode 2: Build a branch — pick best next question */
+  var BUILD = [
+    {
+      id:"b1", em:"🥭",
+      title:{en:"Guess: mango or banana?", ur:"اندازہ: آم یا کیلا؟"},
+      goal:{en:"Goal: tell mango from banana with one smart question.",
+            ur:"ہدف: ایک سمجھدار سوال سے آم اور کیلا الگ کرو۔"},
+      choices:[
+        {id:"color", em:"🟡", en:"Is it yellow?", ur:"کیا یہ پیلا ہے؟"},
+        {id:"curve", em:"🍌", en:"Is it long and curved?", ur:"کیا یہ لمبا اور مڑا ہے؟"},
+        {id:"lucky", em:"🎲", en:"Pick a random fruit name?", ur:"کوئی بے ترتیب پھل کا نام؟"}
+      ],
+      correct:"curve",
+      hint:{en:"Both can look yellow — curved shape splits banana from mango better.",
+            ur:"دونوں پیلے لگ سکتے ہیں — مڑی شکل کیلے کو آم سے بہتر الگ کرتی ہے۔"},
+      done:{en:"Yes — shape splits them well!", ur:"ہاں — شکل اچھی طرح بانٹتی ہے!"}
+    },
+    {
+      id:"b2", em:"🌧️",
+      title:{en:"Play or stay indoors?", ur:"کھیلو یا گھر رہو؟"},
+      goal:{en:"Goal: decide play outside vs stay — first question?",
+            ur:"ہدف: باہر کھیلو یا گھر — پہلا سوال؟"},
+      choices:[
+        {id:"rain", em:"☔", en:"Is it raining hard?", ur:"کیا تیز بارش ہو رہی ہے؟"},
+        {id:"color", em:"👕", en:"What colour is your shirt?", ur:"تمہاری قمیض کا رنگ کیا ہے؟"},
+        {id:"guess", em:"🤞", en:"Just guess play?", ur:"بس اندازہ لگاؤ کھیلو؟"}
+      ],
+      correct:"rain",
+      hint:{en:"Weather matters for outdoor play. Shirt colour does not help the decision.",
+            ur:"باہر کھیلنے کے لیے موسم اہم ہے۔ قمیض کا رنگ فیصلے میں مدد نہیں کرتا۔"},
+      done:{en:"Rain check is the smart first split!", ur:"بارش چیک پہلی سمجھدار بانٹ ہے!"}
+    },
+    {
+      id:"b3", em:"🎒",
+      title:{en:"Ready for school?", ur:"اسکول کے لیے تیار؟"},
+      goal:{en:"Goal: check if bag is ready for school tomorrow.",
+            ur:"ہدف: چیک کرو کل کے اسکول کے لیے بیگ تیار ہے؟"},
+      choices:[
+        {id:"school", em:"🏫", en:"Is tomorrow a school day?", ur:"کیا کل اسکول کا دن ہے؟"},
+        {id:"cartoon", em:"📺", en:"Did you watch cartoons?", ur:"کیا کارٹون دیکھے؟"},
+        {id:"rand", em:"🎰", en:"Close eyes and pick yes?", ur:"آنکھیں بند کر کے ہاں؟"}
+      ],
+      correct:"school",
+      hint:{en:"First ask if school is tomorrow — weekends need a different bag plan.",
+            ur:"پہلے پوچھو کل اسکول ہے؟ — چھٹی پر بیگ کا منصوبہ الگ ہوتا ہے۔"},
+      done:{en:"School-day check comes first!", ur:"اسکول دن کا چیک پہلے آتا ہے!"}
+    },
+    {
+      id:"b4", em:"🏏",
+      title:{en:"Snack after cricket", ur:"کرکٹ کے بعد اسنیک"},
+      goal:{en:"Goal: choose drink vs food after a match — best next Q?",
+            ur:"ہدف: میچ کے بعد مشروب یا کھانا — بہترین اگلا سوال؟"},
+      choices:[
+        {id:"thirst", em:"💧", en:"Are you thirsty?", ur:"کیا پیاس لگی ہے؟"},
+        {id:"team", em:"👕", en:"Which team won in 1992?", ur:"۱۹۹۲ میں کون سی ٹیم جیتی؟"},
+        {id:"flip", em:"🪙", en:"Flip a coin for samosa?", ur:"سموسے کے لیے سکہ اچھالو؟"}
+      ],
+      correct:"thirst",
+      hint:{en:"Thirst vs hunger splits drink from food. Old cricket facts don't help this snack tree.",
+            ur:"پیاس بمقابلہ بھوک مشروب اور کھانے کو بانٹتی ہے۔ پرانے کرکٹ حقائق اس اسنیک درخت میں مدد نہیں کرتے۔"},
+      done:{en:"Thirst question splits the snack branch!", ur:"پیاس والا سوال اسنیک شاخ بانٹتا ہے!"}
+    }
+  ];
+
+  /* Mode 3: Tree vs guess — sort careful vs random */
+  var SORT = [
+    {
+      id:"s1",
+      title:{en:"Smart split or silly guess?", ur:"سمجھدار بانٹ یا بیوقوف اندازہ؟"},
+      cards:[
+        {id:"a", em:"🟡", en:"Is the fruit yellow?", ur:"کیا پھل پیلا ہے؟", kind:"care"},
+        {id:"b", em:"🎲", en:"Say any fruit at random", ur:"کوئی بھی پھل بے ترتیب بولو", kind:"guess"},
+        {id:"c", em:"☔", en:"Is it raining hard?", ur:"کیا تیز بارش ہے؟", kind:"care"},
+        {id:"d", em:"🤞", en:"Hope for the best, no question", ur:"امید رکھو، سوال نہیں", kind:"guess"}
+      ],
+      hint:{en:"Careful = yes/no that splits options. Guess = random or no question.",
+            ur:"سمجھدار = ہاں/نہیں جو اختیارات بانٹے۔ اندازہ = بے ترتیب یا بغیر سوال۔"},
+      done:{en:"You sorted tree questions from guesses!", ur:"تم نے درخت سوال اندازوں سے الگ کیے!"}
+    },
+    {
+      id:"s2",
+      title:{en:"Bag & weather splits", ur:"بیگ اور موسم بانٹ"},
+      cards:[
+        {id:"a", em:"📘", en:"Is homework in the bag?", ur:"کیا ہوم ورک بیگ میں ہے؟", kind:"care"},
+        {id:"b", em:"🪙", en:"Flip a coin for water bottle", ur:"پانی بوتل کے لیے سکہ اچھالو", kind:"guess"},
+        {id:"c", em:"🌡️", en:"Is it hotter than 35°C?", ur:"کیا ۳۵° سے زیادہ گرمی ہے؟", kind:"care"},
+        {id:"d", em:"🪄", en:"Magic will pack the bag", ur:"جادو بیگ پیک کر دے گا", kind:"guess"}
+      ],
+      hint:{en:"Homework? and temperature? are careful splits. Coin flips and magic are guesses.",
+            ur:"ہوم ورک؟ اور درجہ حرارت؟ سمجھدار بانٹ ہیں۔ سکے اور جادو اندازے ہیں۔"},
+      done:{en:"Careful questions pack smarter bags!", ur:"سمجھدار سوال ہوشیار بیگ بناتے ہیں!"}
+    },
+    {
+      id:"s3",
+      title:{en:"Cricket snack tree", ur:"کرکٹ اسنیک درخت"},
+      cards:[
+        {id:"a", em:"💧", en:"Are you thirsty after the match?", ur:"کیا میچ کے بعد پیاس ہے؟", kind:"care"},
+        {id:"b", em:"🎰", en:"Close eyes, pick samosa or lassi", ur:"آنکھیں بند، سموسہ یا لسی چنو", kind:"guess"},
+        {id:"c", em:"🍽️", en:"Are you hungry?", ur:"کیا بھوک لگی ہے؟", kind:"care"},
+        {id:"d", em:"📺", en:"Whatever the TV ad says", ur:"جو ٹی وی اشتہار کہے", kind:"guess"}
+      ],
+      hint:{en:"Thirsty? Hungry? = tree questions. Blind pick or TV ad = guessing.",
+            ur:"پیاس؟ بھوک؟ = درخت سوال۔ اندھا انتخاب یا اشتہار = اندازہ۔"},
+      done:{en:"Snack tree beats random picks!", ur:"اسنیک درخت بے ترتیب چن سے بہتر!"}
+    },
+    {
+      id:"s4",
+      title:{en:"Pakistan playground mix", ur:"پاکستان کھیلوں کا مکس"},
+      cards:[
+        {id:"a", em:"🏫", en:"Is tomorrow a school day?", ur:"کیا کل اسکول کا دن ہے؟", kind:"care"},
+        {id:"b", em:"🦄", en:"Ask a unicorn for the answer", ur:"جواب کے لیے یونیکورن سے پوچھو", kind:"guess"},
+        {id:"c", em:"🌳", en:"Is there shade in the park?", ur:"کیا پارک میں سایہ ہے؟", kind:"care"},
+        {id:"d", em:"📱", en:"Tap random buttons until lucky", ur:"بے ترتیب بٹن دباتے رہو", kind:"guess"}
+      ],
+      hint:{en:"School day? Shade? help decisions. Unicorns and random taps do not.",
+            ur:"اسکول دن؟ سایہ؟ فیصلے میں مدد۔ یونیکورن اور بے ترتیب ٹیپ نہیں۔"},
+      done:{en:"Tree thinking wins on the playground!", ur:"درخت سوچ کھیلوں کے میدان میں جیتتی ہے!"}
+    }
+  ];
+
+  /* Quiz pool: 7 EN + Roman Urdu, pick 5 */
+  var QUIZ = [
+    {
+      q:{en:"What is a decision tree?", ur:"ڈیسیژن ٹری کیا ہے؟ / Decision tree kya hai?"},
+      opts:[
+        {en:"Yes/no questions step by step to an answer", ur:"ہاں/نہیں سوال قدم بہ قدم جواب تک"},
+        {en:"A real tree that grows apples", ur:"ایک حقیقی درخت جو سیب اگاتا ہے"},
+        {en:"Only random guessing", ur:"صرف بے ترتیب اندازہ"},
+        {en:"A magic spell", ur:"ایک جادو کا منتر"}
+      ],
+      correct:0,
+      why:{en:"A decision tree is like a flowchart of yes/no questions that leads to a leaf answer.",
+           ur:"ڈیسیژن ٹری فلو چارٹ جیسی ہاں/نہیں سوالات کی سیڑھی ہے جو پتہ جواب تک لے جاتی ہے۔"}
+    },
+    {
+      q:{en:"In a fruit tree: yellow + long & curved → ?", ur:"پھل درخت: پیلا + لمبا مڑا → ؟ / Peela + lambaa mora → ?"},
+      opts:[
+        {en:"Banana", ur:"کیلا / Kela"},
+        {en:"Apple", ur:"سیب / Seb"},
+        {en:"Water bottle", ur:"پانی کی بوتل"},
+        {en:"Cricket bat", ur:"کرکٹ بیٹ"}
+      ],
+      correct:0,
+      why:{en:"Yellow and curved points to banana — that is following branches to a leaf.",
+           ur:"پیلا اور مڑا کیلے کی طرف جاتا ہے — یہی شاخوں پر چل کر پتہ تک پہنچنا ہے۔"}
+    },
+    {
+      q:{en:"Why ask \"Is it raining?\" before play/stay?", ur:"کھیلو/رہو سے پہلے \"بارش؟\" کیوں؟ / Barish? kyun?"},
+      opts:[
+        {en:"It carefully splits outdoor vs indoor", ur:"یہ باہر بمقابلہ گھر سمجھداری سے بانٹتا ہے"},
+        {en:"Rain has nothing to do with play", ur:"بارش کا کھیل سے کوئی تعلق نہیں"},
+        {en:"Because guessing is better", ur:"کیونکہ اندازہ بہتر ہے"},
+        {en:"To confuse the computer", ur:"کمپیوٹر کو الجھانے کے لیے"}
+      ],
+      correct:0,
+      why:{en:"A good first question splits the big choices — rain is a smart split for play vs stay.",
+           ur:"اچھا پہلا سوال بڑے اختیارات بانٹتا ہے — بارش کھیلو بمقابلہ رہو کے لیے سمجھدار بانٹ ہے۔"}
+    },
+    {
+      q:{en:"Which is NOT a careful tree question?", ur:"کون سا سمجھدار درخت سوال نہیں؟ / Careful sawaal nahi?"},
+      opts:[
+        {en:"Flip a coin for the answer", ur:"جواب کے لیے سکہ اچھالو / Sikka uchhalo"},
+        {en:"Is homework in the bag?", ur:"کیا ہوم ورک بیگ میں ہے؟"},
+        {en:"Are you thirsty?", ur:"کیا پیاس لگی ہے؟"},
+        {en:"Is tomorrow a school day?", ur:"کیا کل اسکول کا دن ہے؟"}
+      ],
+      correct:0,
+      why:{en:"Coin flips are random guessing. Tree questions are clear yes/no splits.",
+           ur:"سکے اچھالنا بے ترتیب اندازہ ہے۔ درخت سوال صاف ہاں/نہیں بانٹ ہیں۔"}
+    },
+    {
+      q:{en:"What do we call the final answer on a tree?", ur:"درخت پر آخری جواب کو کیا کہتے ہیں؟ / Aakhri jawab?"},
+      opts:[
+        {en:"A leaf", ur:"ایک پتہ / Ek patta (leaf)"},
+        {en:"A root vegetable", ur:"جڑ والی سبزی"},
+        {en:"A random number", ur:"ایک بے ترتیب نمبر"},
+        {en:"A cloud", ur:"ایک بادل"}
+      ],
+      correct:0,
+      why:{en:"Leaves are the end answers. Questions are nodes; yes/no are branches.",
+           ur:"پتے آخری جواب ہیں۔ سوال نوڈ ہیں؛ ہاں/نہیں شاخیں ہیں۔"}
+    },
+    {
+      q:{en:"Best next Q to tell mango from banana?", ur:"آم اور کیلا الگ کرنے کا بہترین سوال؟ / Aam vs kela?"},
+      opts:[
+        {en:"Is it long and curved?", ur:"کیا یہ لمبا اور مڑا ہے؟ / Lamba mora?"},
+        {en:"What is your favourite cartoon?", ur:"تمہارا پسندیدہ کارٹون؟"},
+        {en:"Guess any fruit name", ur:"کوئی بھی پھل کا نام اندازہ لگاؤ"},
+        {en:"Ask a unicorn", ur:"یونیکورن سے پوچھو"}
+      ],
+      correct:0,
+      why:{en:"Shape (long & curved) splits banana from mango better than unrelated questions.",
+           ur:"شکل (لمبا مڑا) کیلے کو آم سے بہتر الگ کرتی ہے — غیر متعلق سوالوں سے نہیں۔"}
+    },
+    {
+      q:{en:"Decision trees help AI by…", ur:"ڈیسیژن ٹری اے آئی کی مدد کرتی ہے… / AI madad?"},
+      opts:[
+        {en:"Following clear yes/no rules to decide", ur:"صاف ہاں/نہیں قواعد سے فیصلہ کرنا"},
+        {en:"Only flipping coins", ur:"صرف سکے اچھالنا"},
+        {en:"Never asking questions", ur:"کبھی سوال نہ پوچھنا"},
+        {en:"Growing real mango trees", ur:"حقیقی آم کے درخت اگانا"}
+      ],
+      correct:0,
+      why:{en:"AI can use decision trees as step-by-step yes/no rules — careful, not random.",
+           ur:"اے آئی ڈیسیژن ٹری کو قدم بہ قدم ہاں/نہیں قواعد کی طرح استعمال کر سکتی ہے — سمجھدار، بے ترتیب نہیں۔"}
+    }
+  ];
+
+  var followIdx = 0, followDone = {}, followNode = null, followPath = [];
+  var buildIdx = 0, buildDone = {};
+  var sortIdx = 0, sortDone = {}, sortMap = {}, sortSelected = null;
+  var quizSet = [];
+
+  function award(key, n){
+    if (awarded[key]) return;
+    awarded[key] = true;
+    stars += (n || 1);
+    $("starCount").textContent = String(stars);
+  }
+  function recountStars(){
+    stars = 0;
+    Object.keys(awarded).forEach(function(k){
+      stars += (k.indexOf("mode-")===0) ? 2 : 1;
+    });
+    $("starCount").textContent = String(stars);
+  }
+
+  function skyHTML(){
+    return '<div class="sky-layer"><div class="sun-ball"></div>' +
+           '<div class="cloud c1"></div><div class="cloud c2"></div></div>';
+  }
+
+  function ensureFollowNode(){
+    var ch = FOLLOW[followIdx];
+    if (!followNode || !ch.nodes[followNode]){
+      followNode = ch.start;
+      followPath = [];
+    }
+  }
+
+  /* ---------- FOLLOW ---------- */
+  function renderFollow(){
+    ensureFollowNode();
+    var ch = FOLLOW[followIdx];
+    var node = ch.nodes[followNode];
+    var pad = $("scenePad");
+    var pathStr = followPath.map(function(p){ return p; }).join(" → ");
+    var body = "";
+    if (node.type === "leaf"){
+      body = '<div class="leaf-card"><span style="font-size:40px;display:block;margin-bottom:4px">'+node.em+'</span><span id="leafTxt"></span></div>';
+    } else {
+      body = '<div class="q-card" id="qCard"></div>';
+    }
+    pad.innerHTML = skyHTML() +
+      '<div class="tree-stage">' +
+      '<div class="tree-hero">'+ch.em+'</div>' +
+      '<div class="path-trail" id="pathTrail"></div>' +
+      body +
+      '</div>';
+
+    if (node.type === "leaf"){
+      setText($("leafTxt"), t(T.leafSays) + ": " + t(node));
+    } else {
+      setText($("qCard"), "❓ " + t(node));
+    }
+    var trail = $("pathTrail");
+    if (pathStr) setText(trail, t(T.pathLabel) + ": " + pathStr);
+    else setText(trail, "🌳");
+
+    setText($("statechip"), (followIdx+1) + " / " + FOLLOW.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"");
+    setText($("headline"), t(ch.title));
+    setText($("detail"), t(T.askFollow));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+
+    if (node.type === "q"){
+      var row = document.createElement("div");
+      row.className = "yn-row";
+      var yb = document.createElement("button");
+      yb.type = "button"; yb.className = "yn-btn yes";
+      setText(yb, t(T.yesLab));
+      yb.addEventListener("click", function(){
+        followPath.push(lang==="ur"?"ہاں":"Yes");
+        followNode = node.yes;
+        var next = ch.nodes[followNode];
+        if (next && next.type === "leaf" && !followDone[ch.id]){
+          followDone[ch.id] = true;
+          award("follow-"+ch.id, 1);
+          setText($("headline"), t(ch.done));
+          $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.nice));
+          if (Object.keys(followDone).length >= FOLLOW.length){
+            doneModes.follow = true;
+            award("mode-follow", 2);
+          }
+          tabBadges();
+        }
+        renderFollow();
+      });
+      var nb = document.createElement("button");
+      nb.type = "button"; nb.className = "yn-btn no";
+      setText(nb, t(T.noLab));
+      nb.addEventListener("click", function(){
+        followPath.push(lang==="ur"?"نہیں":"No");
+        followNode = node.no;
+        var next = ch.nodes[followNode];
+        if (next && next.type === "leaf" && !followDone[ch.id]){
+          followDone[ch.id] = true;
+          award("follow-"+ch.id, 1);
+          setText($("headline"), t(ch.done));
+          $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.nice));
+          if (Object.keys(followDone).length >= FOLLOW.length){
+            doneModes.follow = true;
+            award("mode-follow", 2);
+          }
+          tabBadges();
+        }
+        renderFollow();
+      });
+      row.appendChild(yb); row.appendChild(nb);
+      box.appendChild(row);
+    } else {
+      var again = document.createElement("button");
+      again.type = "button";
+      again.style.cssText = "width:100%;border:2px solid var(--ink);border-radius:14px;background:var(--paper);font:inherit;font-weight:800;min-height:48px;cursor:pointer";
+      setText(again, t(T.restartTree));
+      again.addEventListener("click", function(){
+        followNode = ch.start;
+        followPath = [];
+        renderFollow();
+      });
+      box.appendChild(again);
+      var out = document.createElement("div");
+      out.className = "outcome show";
+      setText(out, t(ch.done));
+      box.appendChild(out);
+    }
+
+    setText($("prog"), t(T.progFollow) + ": " + Object.keys(followDone).length + "/" + FOLLOW.length);
+  }
+
+  /* ---------- BUILD ---------- */
+  function renderBuild(){
+    var ch = BUILD[buildIdx];
+    var pad = $("scenePad");
+    pad.innerHTML = skyHTML() +
+      '<div class="tree-stage">' +
+      '<div class="tree-hero">'+ch.em+'</div>' +
+      '<div class="goal-box" id="goalBox"></div></div>';
+    setText($("goalBox"), t(ch.goal));
+
+    setText($("statechip"), (buildIdx+1) + " / " + BUILD.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"");
+    setText($("headline"), t(ch.title));
+    setText($("detail"), t(T.askBuild));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+    var col = document.createElement("div");
+    col.className = "save-choices";
+    ch.choices.forEach(function(c){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.innerHTML = '<span class="cem">'+c.em+'</span><span class="clab"></span>';
+      setText(b.querySelector(".clab"), t(c));
+      if (buildDone[ch.id]){
+        b.disabled = true;
+        if (c.id === ch.correct) b.classList.add("right");
+      }
+      b.addEventListener("click", function(){
+        if (buildDone[ch.id]) return;
+        if (c.id === ch.correct){
+          buildDone[ch.id] = true;
+          award("build-"+ch.id, 1);
+          b.classList.add("right");
+          setText($("headline"), t(ch.done));
+          $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.nice));
+          if (Object.keys(buildDone).length >= BUILD.length){
+            doneModes.build = true;
+            award("mode-build", 2);
+          }
+          tabBadges();
+          renderBuild();
+        } else {
+          b.classList.add("wrong");
+          setText($("headline"), t(T.oops));
+          $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.oops));
+          setTimeout(function(){ b.classList.remove("wrong"); }, 600);
+        }
+      });
+      col.appendChild(b);
+    });
+    box.appendChild(col);
+    setText($("prog"), t(T.progBuild) + ": " + Object.keys(buildDone).length + "/" + BUILD.length);
+  }
+
+  /* ---------- SORT ---------- */
+  function renderSort(){
+    var ch = SORT[sortIdx];
+    var pad = $("scenePad");
+    pad.innerHTML = skyHTML() +
+      '<div class="tree-stage">' +
+      '<div class="tree-hero">🌳❓🎲</div>' +
+      '<div class="sort-bins">' +
+      '<div class="sort-bin care"><div class="bin-title" id="binCare"></div><div class="drop" id="dropCare"></div></div>' +
+      '<div class="sort-bin guess"><div class="bin-title" id="binGuess"></div><div class="drop" id="dropGuess"></div></div>' +
+      '</div></div>';
+    setText($("binCare"), t(T.binCare));
+    setText($("binGuess"), t(T.binGuess));
+
+    function refreshBins(){
+      var drops = {care:"", guess:""};
+      ch.cards.forEach(function(c){
+        if (sortMap[c.id]) drops[sortMap[c.id]] += c.em + " ";
+      });
+      $("dropCare").textContent = drops.care || "—";
+      $("dropGuess").textContent = drops.guess || "—";
+    }
+    refreshBins();
+
+    setText($("statechip"), (sortIdx+1) + " / " + SORT.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"");
+    setText($("headline"), t(ch.title));
+    setText($("detail"), t(T.askSort));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+    var bank = document.createElement("div");
+    bank.className = "bank";
+    ch.cards.forEach(function(c){
+      var used = !!sortMap[c.id];
+      var m = document.createElement("button");
+      m.type = "button";
+      m.className = "mini-item" + (used ? " used" : "") + (sortSelected===c.id ? " selected" : "");
+      m.innerHTML = c.em + " <span></span>";
+      setText(m.querySelector("span"), t(c));
+      m.disabled = used || !!sortDone[ch.id];
+      m.addEventListener("click", function(){
+        if (used || sortDone[ch.id]) return;
+        sortSelected = c.id;
+        renderSort();
+      });
+      bank.appendChild(m);
+    });
+    box.appendChild(bank);
+
+    var bins = document.createElement("div");
+    bins.className = "save-choices";
+    [{k:"care", em:"🌳", lab:T.binCare},{k:"guess", em:"🎲", lab:T.binGuess}].forEach(function(bn){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.innerHTML = '<span class="cem">'+bn.em+'</span><span class="clab"></span>';
+      setText(b.querySelector(".clab"), t(bn.lab));
+      b.disabled = !!sortDone[ch.id] || !sortSelected;
+      b.addEventListener("click", function(){
+        if (sortDone[ch.id] || !sortSelected) return;
+        sortMap[sortSelected] = bn.k;
+        sortSelected = null;
+        renderSort();
+      });
+      bins.appendChild(b);
+    });
+    box.appendChild(bins);
+
+    if (!sortDone[ch.id]){
+      var chk = document.createElement("button");
+      chk.type = "button";
+      chk.style.cssText = "margin-top:10px;width:100%;border:2px solid var(--ink);border-radius:14px;background:var(--ink);color:var(--paper);font:inherit;font-weight:800;min-height:48px;cursor:pointer";
+      setText(chk, t(T.checkSort));
+      chk.addEventListener("click", function(){
+        var ok = true;
+        ch.cards.forEach(function(c){
+          if (sortMap[c.id] !== c.kind) ok = false;
+        });
+        if (ok && Object.keys(sortMap).length === ch.cards.length){
+          sortDone[ch.id] = true;
+          award("sort-"+ch.id, 1);
+          setText($("headline"), t(ch.done));
+          $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.nice));
+          if (Object.keys(sortDone).length >= SORT.length){
+            doneModes.sort = true;
+            award("mode-sort", 2);
+          }
+          tabBadges();
+          renderSort();
+        } else {
+          setText($("headline"), t(T.oops));
+          $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.oops));
+        }
+      });
+      box.appendChild(chk);
+    }
+
+    setText($("prog"), t(T.progSort) + ": " + Object.keys(sortDone).length + "/" + SORT.length);
+  }
+
+  /* ---------- QUIZ ---------- */
+  function pickQuiz(){ quizSet = shuffle(QUIZ).slice(0, 5); }
+  function renderQuiz(){
+    var box = $("quizBox");
+    box.innerHTML = "";
+    quizSet.forEach(function(item, qi){
+      var wrap = document.createElement("div");
+      wrap.className = "q";
+      var p = document.createElement("p");
+      setText(p, (qi+1) + ". " + t(item.q));
+      wrap.appendChild(p);
+      var answered = false;
+      item.opts.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt" + (lang==="ur"?" ur":"");
+        setText(b, t(opt));
+        b.addEventListener("click", function(){
+          if (answered) return;
+          answered = true;
+          if (oi === item.correct){
+            b.classList.add("right");
+            award("quiz-"+qi+"-"+item.q.en.slice(0,12), 1);
+          } else {
+            b.classList.add("wrong");
+            var kids = wrap.querySelectorAll(".opt");
+            if (kids[item.correct]) kids[item.correct].classList.add("right");
+          }
+          fb.classList.add("show");
+        });
+        wrap.appendChild(b);
+      });
+      var fb = document.createElement("p");
+      fb.className = "fb";
+      setText(fb, t(item.why));
+      wrap.appendChild(fb);
+      box.appendChild(wrap);
+    });
+  }
+
+  function storyHtml(){
+    if (mode === "follow") return t(T.storyFollow);
+    if (mode === "build") return t(T.storyBuild);
+    return t(T.storySort);
+  }
+
+  function tabBadges(){
+    function lab(btn, label, key){
+      btn.innerHTML = "";
+      var span = document.createElement("span");
+      setText(span, t(label));
+      btn.appendChild(span);
+      if (doneModes[key]){
+        var b = document.createElement("span");
+        b.className = "badge"; b.textContent = " ★";
+        btn.appendChild(b);
+      }
+    }
+    lab($("tabFollow"), T.tabFollow, "follow");
+    lab($("tabBuild"), T.tabBuild, "build");
+    lab($("tabSort"), T.tabSort, "sort");
+    $("tabFollow").setAttribute("aria-pressed", mode==="follow"?"true":"false");
+    $("tabBuild").setAttribute("aria-pressed", mode==="build"?"true":"false");
+    $("tabSort").setAttribute("aria-pressed", mode==="sort"?"true":"false");
+  }
+
+  function setMode(m){
+    mode = m;
+    if (mode === "follow"){ ensureFollowNode(); renderFollow(); }
+    else if (mode === "build") renderBuild();
+    else { renderSort(); }
+    applyChrome();
+  }
+
+  function applyChrome(){
+    setText($("title"), t(T.title));
+    setText($("subtitle"), t(T.sub));
+    $("story").innerHTML = storyHtml();
+    $("story").classList.toggle("ur", lang==="ur");
+    $("story").setAttribute("dir", lang==="ur"?"rtl":"ltr");
+    setText($("ctlHead"), t(T.ctl));
+    setText($("nextBtn"), t(T.next));
+    setText($("hintBtn"), t(T.hint));
+    setText($("resetBtn"), t(T.reset));
+    setText($("quizHead"), t(T.quiz));
+    setText($("newQuiz"), t(T.newQuiz));
+    $("langBtn").textContent = (lang === "en") ? "اردو" : "EN";
+    $("langBtn").setAttribute("aria-pressed", lang==="ur"?"true":"false");
+    document.body.classList.toggle("urdu", lang==="ur");
+    document.documentElement.lang = (lang==="ur") ? "ur" : "en";
+    document.documentElement.dir = (lang==="ur") ? "rtl" : "ltr";
+    tabBadges();
+    var foot = document.querySelector("footer p");
+    if (foot) setText(foot, foot.getAttribute(lang==="ur"?"data-ur":"data-en"));
+  }
+
+  function applyLang(){
+    applyChrome();
+    if (mode === "follow") renderFollow();
+    else if (mode === "build") renderBuild();
+    else renderSort();
+    renderQuiz();
+  }
+
+  function next(){
+    if (mode === "follow"){
+      followIdx = (followIdx + 1) % FOLLOW.length;
+      followNode = FOLLOW[followIdx].start;
+      followPath = [];
+      renderFollow();
+    } else if (mode === "build"){
+      buildIdx = (buildIdx + 1) % BUILD.length;
+      renderBuild();
+    } else {
+      sortIdx = (sortIdx + 1) % SORT.length;
+      sortMap = {}; sortSelected = null;
+      renderSort();
+    }
+  }
+
+  function showHint(){
+    var h;
+    if (mode === "follow") h = FOLLOW[followIdx].hint;
+    else if (mode === "build") h = BUILD[buildIdx].hint;
+    else h = SORT[sortIdx].hint;
+    var hb = $("hintbox");
+    setText(hb, t(h));
+    hb.classList.add("show");
+  }
+
+  function resetMode(){
+    if (mode === "follow"){
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("follow-")===0 || k==="mode-follow") delete awarded[k]; });
+      followDone = {}; followIdx = 0; followNode = FOLLOW[0].start; followPath = []; doneModes.follow = false;
+      recountStars(); renderFollow();
+    } else if (mode === "build"){
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("build-")===0 || k==="mode-build") delete awarded[k]; });
+      buildDone = {}; buildIdx = 0; doneModes.build = false;
+      recountStars(); renderBuild();
+    } else {
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("sort-")===0 || k==="mode-sort") delete awarded[k]; });
+      sortDone = {}; sortIdx = 0; sortMap = {}; sortSelected = null; doneModes.sort = false;
+      recountStars(); renderSort();
+    }
+    tabBadges();
+    applyChrome();
+  }
+
+  function cleanSpeakText(s){
+    return String(s || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  }
+  function buildSpeakText(){
+    var bits = [];
+    bits.push(t(T.title));
+    bits.push(cleanSpeakText(storyHtml()));
+    bits.push(cleanSpeakText(($("headline") && $("headline").textContent) || ""));
+    bits.push(cleanSpeakText(($("detail") && $("detail").textContent) || ""));
+    bits.push(t(T.tip));
+    return bits.filter(Boolean).join(". ");
+  }
+  function pickVoice(voices, want){
+    var i, v, L;
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf(want) === 0) return v;
+    }
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf("en") === 0) return v;
+    }
+    return voices[0] || null;
+  }
+  var speakTimer = null;
+  function setSpeaking(on){
+    var btn = $("speakBtn");
+    if (!btn) return;
+    btn.setAttribute("aria-pressed", on ? "true" : "false");
+    btn.style.opacity = on ? "0.65" : "";
+  }
+  function doSpeak(text, asLang){
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.92;
+    u.lang = (asLang === "ur") ? "ur-PK" : "en-US";
+    var voices = window.speechSynthesis.getVoices() || [];
+    var voice = pickVoice(voices, asLang === "ur" ? "ur" : "en");
+    if (voice) u.voice = voice;
+    u.onstart = function(){ setSpeaking(true); };
+    u.onend = function(){ setSpeaking(false); };
+    u.onerror = function(){
+      setSpeaking(false);
+      if (asLang === "ur"){
+        var fallback = cleanSpeakText(T.title.en + ". " + T.storyFollow.en + ". " + T.tip.en);
+        var u2 = new SpeechSynthesisUtterance(fallback);
+        u2.lang = "en-US"; u2.rate = 0.92;
+        var v2 = pickVoice(window.speechSynthesis.getVoices() || [], "en");
+        if (v2) u2.voice = v2;
+        u2.onstart = function(){ setSpeaking(true); };
+        u2.onend = u2.onerror = function(){ setSpeaking(false); };
+        window.speechSynthesis.speak(u2);
+      }
+    };
+    window.speechSynthesis.speak(u);
+  }
+  if ("speechSynthesis" in window){
+    try { window.speechSynthesis.getVoices(); } catch (e0) {}
+    if (typeof window.speechSynthesis.addEventListener === "function"){
+      window.speechSynthesis.addEventListener("voiceschanged", function(){
+        try { window.speechSynthesis.getVoices(); } catch (e1) {}
+      });
+    }
+  } else {
+    var noBtn = $("speakBtn");
+    if (noBtn){ noBtn.disabled = true; noBtn.title = "Voice not available on this device"; }
+  }
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en";
+    applyLang();
+  });
+  $("tabFollow").addEventListener("click", function(){ setMode("follow"); });
+  $("tabBuild").addEventListener("click", function(){ setMode("build"); });
+  $("tabSort").addEventListener("click", function(){ setMode("sort"); });
+  $("nextBtn").addEventListener("click", next);
+  $("hintBtn").addEventListener("click", showHint);
+  $("resetBtn").addEventListener("click", resetMode);
+  $("newQuiz").addEventListener("click", function(){ pickQuiz(); renderQuiz(); });
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      var text = buildSpeakText();
+      if (!text) return;
+      if (speakTimer){ clearTimeout(speakTimer); speakTimer = null; }
+      window.speechSynthesis.cancel();
+      setSpeaking(false);
+      var speakLang = lang;
+      speakTimer = setTimeout(function(){
+        speakTimer = null;
+        doSpeak(text, speakLang);
+      }, 80);
+    }catch(e){ setSpeaking(false); }
+  });
+
+  followNode = FOLLOW[0].start;
+  pickQuiz();
+  applyLang();
+})();
+</script>
+</body>
+</html>

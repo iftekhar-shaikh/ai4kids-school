@@ -228,7 +228,9 @@
             "explanation": "Knowledge dene wala show educational hota hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g4-ai-decision-tree.html",
+      "interactive_label": "Khelo - AI decision tree"
     },
     {
       "title": "Fake vs real",
