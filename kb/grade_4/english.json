@@ -57,7 +57,9 @@
             "explanation": "Yeh puraani kahaniyan ghalatiyon par mabni hoti hain."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g4-fiction-nonfiction.html",
+      "interactive_label": "Khelo - Fiction aur non-fiction"
     },
     {
       "title": "Grammar advanced",

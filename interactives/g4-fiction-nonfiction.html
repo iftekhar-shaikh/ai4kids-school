@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fiction aur non-fiction / فکشن اور نان فکشن | AI4Kids Class 4</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#e8e4f5;--board-deep:#d4cce8;--sky:#c9b8f0;--sky2:#9b7fd4;
+    --accent:#5b4a8f;--ok:#2e7d4f;--ink:#1e2a1a;--ink-soft:#4a5744;
+    --paper:#fdfaf3;--line:#d5dec8;--gold:#e8b23d;--left:#c4453a;
+    --fic:#c9702e;--non:#2f6fb5;
+    --fs-cap:clamp(12px, 3.2vw, 13px);--fs-xs:clamp(14px, 3.7vw, 15px);
+    --fs-sm:clamp(16px, 4.2vw, 17px);--fs-md:clamp(17px, 4.6vw, 19px);
+    --fs-lg:clamp(20px, 5.4vw, 23px);--fs-xl:clamp(27px, 7.4vw, 33px);--lh:1.5;
+  }
+  body.urdu{
+    --fs-cap:clamp(13px, 3.5vw, 15px);--fs-xs:clamp(15px, 4.1vw, 17px);
+    --fs-sm:clamp(17px, 4.7vw, 19px);--fs-md:clamp(19px, 5.2vw, 21px);
+    --fs-lg:clamp(22px, 6vw, 25px);--fs-xl:clamp(26px, 7vw, 31px);--lh:2.1;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  .stars{display:flex;align-items:center;gap:6px;font-weight:800;font-size:var(--fs-xs);
+         background:#fff6e2;border:2px solid var(--gold);border-radius:999px;padding:7px 13px}
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+  .tabs{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
+  .tabs button{
+    flex:1 1 28%;min-width:90px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:10px 6px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:54px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .tabs button .badge{color:var(--gold)}
+  .story{
+    background:#fff8ea;border:2px dashed var(--gold);border-radius:16px;padding:13px 15px;
+    font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;margin-bottom:14px;
+  }
+  body.urdu .story{line-height:var(--lh)}
+  .story b{color:var(--ink)}
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:linear-gradient(180deg,var(--sky) 0%,var(--sky2) 38%,var(--board) 38%,var(--board-deep) 100%);
+    min-height:280px;
+  }
+  .scene-pad{padding:10px 12px 18px;min-height:260px;position:relative}
+  .sky-layer{position:absolute;inset:0 0 58% 0;pointer-events:none;overflow:hidden}
+  .sun-ball{
+    position:absolute;top:12px;right:18px;width:36px;height:36px;border-radius:50%;
+    background:radial-gradient(circle at 35% 35%,#ffe9a0,#f5c542 60%,#e0a020);
+    box-shadow:0 0 18px rgba(245,197,66,.45);z-index:1;
+  }
+  body.urdu .sun-ball{right:auto;left:18px}
+  .cloud{position:absolute;background:rgba(255,255,255,.85);border-radius:40px;opacity:.9}
+  .cloud:before,.cloud:after{content:"";position:absolute;background:inherit;border-radius:50%}
+  .c1{width:48px;height:15px;top:18px;left:12%}
+  .c1:before{width:22px;height:22px;top:-12px;left:6px}
+  .c1:after{width:18px;height:18px;top:-8px;left:24px}
+  .c2{width:34px;height:12px;top:34px;left:55%;opacity:.7}
+  .c2:before{width:16px;height:16px;top:-9px;left:4px}
+  .c2:after{width:12px;height:12px;top:-5px;left:16px}
+  .book-stage{position:relative;z-index:5;padding-top:70px;text-align:center;min-height:150px}
+  .book-hero{font-size:52px;line-height:1;margin:4px 0 8px;filter:drop-shadow(0 2px 0 rgba(0,0,0,.12))}
+  .bin-row{display:flex;gap:8px;margin-top:6px;justify-content:center}
+  .type-bin{
+    flex:1;border:2.5px dashed rgba(30,42,26,.4);border-radius:14px;
+    background:rgba(253,250,243,.85);padding:8px 6px;min-height:72px;
+    text-align:center;font-weight:800;font-size:var(--fs-cap);
+  }
+  .type-bin.fic{border-color:var(--fic)}
+  .type-bin.non{border-color:var(--non)}
+  .type-bin .bin-title{margin-bottom:4px;color:var(--ink-soft);font-size:11px}
+  .type-bin .drop{font-size:18px;min-height:28px;line-height:1.2}
+  .bank{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:8px;position:relative;z-index:5}
+  .mini-item{
+    border:2px solid var(--ink);border-radius:12px;padding:8px 10px;background:#fff;
+    line-height:1.2;cursor:pointer;min-width:44px;min-height:48px;font-weight:800;font-size:var(--fs-cap);
+    display:flex;align-items:center;gap:4px;
+  }
+  .mini-item.used{opacity:.3;pointer-events:none}
+  .mini-item.selected{border-color:var(--accent);box-shadow:0 0 0 3px rgba(91,74,143,.2)}
+  .save-choices{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+  .save-choices button{
+    border:2.5px solid var(--ink);background:var(--paper);border-radius:14px;
+    padding:12px 14px;font:inherit;font-weight:800;font-size:var(--fs-xs);
+    cursor:pointer;text-align:left;min-height:52px;display:flex;align-items:center;gap:10px;
+  }
+  body.urdu .save-choices button{text-align:right}
+  .save-choices button .cem{font-size:26px}
+  .save-choices button.right{border-color:var(--ok);background:#e8f2ed}
+  .save-choices button.wrong{border-color:var(--left);background:#fbeae8}
+  .card-box{
+    background:rgba(253,250,243,.95);border:2.5px solid var(--ink);border-radius:14px;
+    padding:12px;font-weight:800;font-size:var(--fs-xs);max-width:300px;margin:0 auto;line-height:1.4;
+  }
+  body.urdu .card-box{line-height:1.85}
+  .clue-tag{
+    display:inline-block;margin-top:8px;padding:4px 10px;border-radius:999px;
+    background:#f0ebf8;color:var(--accent);font-size:11px;font-weight:800;
+  }
+  .type-row{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:6px 0}
+  .type-pill{
+    border:2px solid var(--ink);border-radius:12px;padding:8px 12px;background:#fff;
+    font-size:var(--fs-cap);font-weight:800;cursor:pointer;min-height:44px;
+  }
+  .type-pill.fic{border-color:var(--fic);background:#fef3e8}
+  .type-pill.non{border-color:var(--non);background:#e8f1f9}
+  .type-pill.right{border-color:var(--ok);background:#e8f2ed}
+  .type-pill.wrong{border-color:var(--left);background:#fbeae8}
+  .match-grid{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+  .match-row{
+    display:flex;align-items:center;gap:8px;background:rgba(253,250,243,.95);
+    border:2px solid var(--ink);border-radius:14px;padding:10px 12px;font-weight:800;font-size:var(--fs-xs);
+  }
+  .match-row .mem{font-size:28px;flex-shrink:0}
+  .match-row .mtxt{flex:1;line-height:1.35;text-align:left}
+  body.urdu .match-row .mtxt{text-align:right;line-height:1.85}
+  .match-opts{display:flex;flex-wrap:wrap;gap:4px;justify-content:flex-end}
+  .match-opts button{
+    border:2px solid var(--ink);border-radius:10px;padding:6px 10px;background:#fff;
+    font:inherit;font-weight:800;font-size:11px;cursor:pointer;min-height:36px;
+  }
+  .match-opts button.right{border-color:var(--ok);background:#e8f2ed}
+  .match-opts button.wrong{border-color:var(--left);background:#fbeae8}
+  .outcome{
+    margin-top:10px;border-radius:14px;padding:10px 12px;font-weight:700;font-size:var(--fs-xs);
+    display:none;border:2px solid var(--ok);background:#e8f2ed;color:var(--ok);
+  }
+  .outcome.show{display:block}
+  .outcome.bad{border-color:var(--left);background:#fbeae8;color:var(--left)}
+  .readout{
+    margin-top:-18px;position:relative;z-index:2;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+  .statechip.ur{padding:2px 14px 7px}
+  .statechip.win{background:var(--ok)}
+  .statechip.miss{background:var(--left)}
+  .headline{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+  .headline.ur{line-height:1.95}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+  .hintbox{
+    margin-top:14px;border:2px solid var(--accent);background:#f0ebf8;border-radius:14px;
+    padding:11px 14px;font-size:var(--fs-xs);color:var(--accent);font-weight:700;line-height:1.55;
+    display:none;
+  }
+  .hintbox.show{display:block}
+  body.urdu .hintbox{line-height:var(--lh)}
+  .panel{margin-top:22px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .prog{margin:0 0 10px;font-size:var(--fs-xs);font-weight:700;color:var(--ink-soft)}
+  .btns{display:flex;gap:9px;margin-top:8px;flex-wrap:wrap}
+  .btns button{
+    border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);
+    font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:50px;
+    padding:8px 14px;flex:1;
+  }
+  .btns .go{background:var(--ink);color:var(--paper)}
+  .btns button:active{transform:scale(.97)}
+  .btns button:disabled{opacity:.4;cursor:default}
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .qhead{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+  .qhead h2{font-size:var(--fs-lg);font-weight:800;margin:0;flex:1}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:50px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+  .opt.wrong{border-color:var(--left);background:#fbeae8}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
+      grid-template-areas:
+        "bar   bar" "head  head" "tabs  tabs" "story story"
+        "left  right" "quiz  quiz" "foot  foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+    .story{grid-area:story} .left{grid-area:left} .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+    .panel{margin-top:0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition-duration:.01ms !important;animation:none !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 4 · English</span>
+    <span class="stars" id="starBox">⭐ <span id="starCount">0</span></span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 id="title"></h1>
+  <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group">
+    <button type="button" id="tabSort" aria-pressed="true"></button>
+    <button type="button" id="tabClue" aria-pressed="false"></button>
+    <button type="button" id="tabWhy" aria-pressed="false"></button>
+  </div>
+
+  <p class="story" id="story"></p>
+
+  <div class="left">
+  <div class="scene">
+    <div class="scene-pad" id="scenePad"></div>
+  </div>
+  <div class="readout">
+    <span class="statechip" id="statechip"></span>
+    <p class="headline" id="headline"></p>
+    <p class="detail" id="detail"></p>
+    <p class="hintbox" id="hintbox"></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="panel">
+    <h2 id="ctlHead"></h2>
+    <p class="prog" id="prog"></p>
+    <div id="actionBox"></div>
+    <div class="btns">
+      <button type="button" class="go" id="nextBtn"></button>
+    </div>
+    <div class="btns">
+      <button type="button" id="hintBtn"></button>
+      <button type="button" id="resetBtn"></button>
+    </div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <div class="qhead">
+      <h2 id="quizHead"></h2>
+      <button type="button" class="chip" id="newQuiz"></button>
+    </div>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad bilingual school. Offline. WhatsApp 0337 1468899 · Fiction aur non-fiction"
+       data-ur="اے آئی فور کڈز — اسلام آباد دو لسانی اسکول۔ آف لائن۔ واٹس ایپ 0337 1468899 · فکشن اور نان فکشن"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  function $(id){ return document.getElementById(id); }
+  function isolate(s){ return "\u2066" + s + "\u2069"; }
+  function setText(el, str){
+    if (!el) return;
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+  function t(o){ return (o && o[lang]) || (o && o.en) || ""; }
+  function shuffle(arr){
+    var a = arr.slice(), i, j, tmp;
+    for (i = a.length - 1; i > 0; i--){
+      j = Math.floor(Math.random() * (i + 1));
+      tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  var lang = "en";
+  var mode = "sort";
+  var stars = 0;
+  var awarded = {};
+  var doneModes = {sort:false, clue:false, why:false};
+
+  var KINDS = {
+    fic:{em:"📖✨", en:"Fiction", ur:"فکشن", cls:"fic"},
+    non:{em:"📘✅", en:"Non-fiction", ur:"نان فکشن", cls:"non"}
+  };
+
+  var T = {
+    title:{en:"Fiction aur non-fiction", ur:"فکشن اور نان فکشن"},
+    sub:{en:"Made-up stories vs true facts — sort books and explain why!",
+         ur:"بنائی ہوئی کہانیاں بمقابلہ سچے حقائق — کتابیں چھانٹو اور وجہ بتاؤ!"},
+    tabSort:{en:"Sort the book", ur:"کتاب چھانٹو"},
+    tabClue:{en:"Clue hunt", ur:"اشارہ تلاش"},
+    tabWhy:{en:"Why?", ur:"کیوں؟"},
+    storySort:{en:"Tap a book, then put it in <b>Fiction</b> (made-up) or <b>Non-fiction</b> (true facts)!",
+              ur:"کتاب ٹیپ کرو، پھر <b>فکشن</b> (بنائی ہوئی) یا <b>نان فکشن</b> (سچے حقائق) میں ڈالو!"},
+    storyClue:{en:"Read the book bit — which <b>clue</b> shows it is fiction or non-fiction?",
+               ur:"کتاب کا ٹکڑا پڑھو — کون سا <b>اشارہ</b> بتاتا ہے یہ فکشن ہے یا نان فکشن؟"},
+    storyWhy:{en:"Match each example to the <b>reason</b> — why is it fiction or non-fiction?",
+              ur:"ہر مثال کو <b>وجہ</b> سے ملاؤ — یہ فکشن یا نان فکشن کیوں ہے؟"},
+    ctl:{en:"Your turn — book detective", ur:"تمہاری باری — کتاب جاسوس"},
+    next:{en:"Next challenge", ur:"اگلا چیلنج"},
+    hint:{en:"Hint", ur:"اشارہ"},
+    reset:{en:"Reset", ur:"ری سیٹ"},
+    quiz:{en:"Check yourself", ur:"اپنا چیک"},
+    newQuiz:{en:"New quiz", ur:"نیا کوئز"},
+    nice:{en:"Shabash — sorted!", ur:"شاباش — چھانٹ لیا!"},
+    oops:{en:"Almost — try again", ur:"قریب — دوبارہ آزماؤ"},
+    tip:{en:"Tip: Fiction = made-up stories (fairy tales, talking animals). Non-fiction = true information (cricket scores, animal facts, school news). Ask: Did this really happen?",
+         ur:"نکتہ: فکشن = بنائی ہوئی کہانیاں (پری کہانی، بولتے جانور)۔ نان فکشن = سچی معلومات (کرکٹ سکور، جانوروں کے حقائق، اسکول خبر)۔ پوچھو: کیا یہ واقعی ہوا؟"},
+    progSort:{en:"Sort rounds", ur:"چھانٹ راؤنڈ"},
+    progClue:{en:"Clue hunts", ur:"اشارہ تلاش"},
+    progWhy:{en:"Why matches", ur:"کیوں میچ"},
+    askSort:{en:"Tap a book, then tap Fiction or Non-fiction", ur:"کتاب ٹیپ کرو، پھر فکشن یا نان فکشن"},
+    askClue:{en:"Which clue proves the type?", ur:"کون سا اشارہ قسم ثابت کرتا ہے؟"},
+    askWhy:{en:"Match example → reason", ur:"مثال → وجہ ملاؤ"},
+    checkSort:{en:"Check sort", ur:"چھانٹ چیک کرو"},
+    checkMatch:{en:"Check matches", ur:"میچ چیک کرو"}
+  };
+
+  /* Mode 1: Sort the book */
+  var SORT = [
+    {
+      id:"s1",
+      title:{en:"Library shelf 1", ur:"لائبریری شیلف ۱"},
+      cards:[
+        {id:"a", em:"🧚", en:"Princess & magic carpet", ur:"شہزادی اور جادوئی قالین", type:"fic"},
+        {id:"b", em:"🏏", en:"Pakistan cricket scorecard", ur:"پاکستان کرکٹ سکور کارڈ", type:"non"},
+        {id:"c", em:"🐯", en:"Talking tiger in a jungle", ur:"جنگل میں بولتا شیر", type:"fic"},
+        {id:"d", em:"🐼", en:"Pandas eat bamboo", ur:"پانڈا بانس کھاتے ہیں", type:"non"}
+      ],
+      hint:{en:"Magic & talking animals = fiction. Real scores & animal facts = non-fiction.",
+            ur:"جادو اور بولتے جانور = فکشن۔ حقیقی سکور اور جانور حقائق = نان فکشن۔"},
+      done:{en:"Shelf sorted — Shabash!", ur:"شیلف چھانٹی — شاباش!"}
+    },
+    {
+      id:"s2",
+      title:{en:"Ayesha's book bag", ur:"عائشہ کا کتابی بیگ"},
+      cards:[
+        {id:"a", em:"🏫", en:"News: school fair Friday", ur:"خبر: جمعہ کو اسکول میلہ", type:"non"},
+        {id:"b", em:"🐉", en:"Dragon who loves chai", ur:"ڈریگن جو چائے پسند کرتا ہے", type:"fic"},
+        {id:"c", em:"🗺️", en:"Map facts: Islamabad capital", ur:"نقشہ حقائق: اسلام آباد دارالحکومت", type:"non"},
+        {id:"d", em:"🌙", en:"Boy who flies to the moon", ur:"لڑکا جو چاند پر اڑتا ہے", type:"fic"}
+      ],
+      hint:{en:"School news and map facts are true. Dragons and flying to the moon are made-up.",
+            ur:"اسکول خبر اور نقشہ حقائق سچے۔ ڈریگن اور چاند پر اڑنا بنایا ہوا ہے۔"},
+      done:{en:"Ayesha's bag sorted!", ur:"عائشہ کا بیگ چھانٹا!"}
+    },
+    {
+      id:"s3",
+      title:{en:"Ali's weekend reads", ur:"علی کی ویک اینڈ کتابیں"},
+      cards:[
+        {id:"a", em:"⚽", en:"How football rules work", ur:"فٹبال کے قوانین کیسے کام کرتے ہیں", type:"non"},
+        {id:"b", em:"🦄", en:"Unicorn picnic in Murree", ur:"مری میں یونیکارن پکنک", type:"fic"},
+        {id:"c", em:"🌧️", en:"Weather report for Lahore", ur:"لاہور کا موسم رپورٹ", type:"non"},
+        {id:"d", em:"👻", en:"Friendly ghost at school", ur:"اسکول میں دوستانہ بھوت", type:"fic"}
+      ],
+      hint:{en:"Rules and weather reports are true info. Unicorns and ghosts in stories are fiction.",
+            ur:"قوانین اور موسم رپورٹ سچی معلومات۔ کہانی میں یونیکارن اور بھوت فکشن ہیں۔"},
+      done:{en:"Weekend reads sorted!", ur:"ویک اینڈ کتابیں چھانٹیں!"}
+    },
+    {
+      id:"s4",
+      title:{en:"Class 4 book corner", ur:"کلاس ۴ کتاب کونا"},
+      cards:[
+        {id:"a", em:"🐝", en:"Bees make honey — true facts", ur:"شہد کی مکھیاں شہد بناتی ہیں — سچ", type:"non"},
+        {id:"b", em:"🏰", en:"Fairy tale of a lost castle", ur:"کھوئے قلعے کی پری کہانی", type:"fic"},
+        {id:"c", em:"📰", en:"Hamza wins spelling bee", ur:"حمزہ نے سپیلنگ جیت لی", type:"non"},
+        {id:"d", em:"🚀", en:"Cat drives a rocket to Mars", ur:"بلی مریخ تک راکٹ چلاتی ہے", type:"fic"}
+      ],
+      hint:{en:"Real animal facts and school news = non-fiction. Fairy tales and rocket cats = fiction.",
+            ur:"حقیقی جانور حقائق اور اسکول خبر = نان فکشن۔ پری کہانی اور راکٹ بلی = فکشن۔"},
+      done:{en:"You know fiction from fact!", ur:"تم فکشن اور حقیقت جان گئے!"}
+    }
+  ];
+
+  /* Mode 2: Clue hunt */
+  var CLUE = [
+    {
+      id:"c1",
+      title:{en:"Magic carpet ride", ur:"جادوئی قالین کی سواری"},
+      em:"🧞✨",
+      scene:{en:"Zara flew on a magic carpet over Lahore.", ur:"زارا جادوئی قالین پر لاہور کے اوپر اڑی۔"},
+      kind:"fic",
+      clues:[
+        {en:"A carpet that flies — made-up!", ur:"اڑنے والا قالین — بنایا ہوا!"},
+        {en:"Lahore is a real city map only", ur:"لاہور صرف حقیقی شہر کا نقشہ"},
+        {en:"It lists cricket scores", ur:"اس میں کرکٹ سکور ہیں"},
+        {en:"It teaches bee facts", ur:"یہ مکھیوں کے حقائق سکھاتا ہے"}
+      ],
+      correct:0,
+      hint:{en:"Flying carpets cannot happen in real life — that clue means fiction.",
+            ur:"اڑتے قالین حقیقی زندگی میں نہیں ہوتے — یہ اشارہ فکشن ہے۔"},
+      done:{en:"Clue found — fiction!", ur:"اشارہ ملا — فکشن!"}
+    },
+    {
+      id:"c2",
+      title:{en:"Cricket scoreboard", ur:"کرکٹ سکور بورڈ"},
+      em:"🏏📊",
+      scene:{en:"Babar scored 78 runs. Match facts from Saturday.", ur:"بابر نے ۷۸ رنز بنائے۔ ہفتے کے میچ کے حقائق۔"},
+      kind:"non",
+      clues:[
+        {en:"Real runs & match day — true info", ur:"حقیقی رنز اور میچ دن — سچی معلومات"},
+        {en:"A dragon ate the cricket ball", ur:"ڈریگن نے کرکٹ بال کھا لی"},
+        {en:"The bat turned into a snake", ur:"بلّا سانپ بن گیا"},
+        {en:"Players flew home on clouds", ur:"کھلاڑی بادلوں پر گھر گئے"}
+      ],
+      correct:0,
+      hint:{en:"Scores and match dates are true facts — non-fiction clue.",
+            ur:"سکور اور میچ کی تاریخ سچے حقائق ہیں — نان فکشن اشارہ۔"},
+      done:{en:"Clue found — non-fiction!", ur:"اشارہ ملا — نان فکشن!"}
+    },
+    {
+      id:"c3",
+      title:{en:"School fair news", ur:"اسکول میلہ خبر"},
+      em:"🎪🏫",
+      scene:{en:"AI4Kids Class 4 fair: Friday, stalls, games. True school notice.",
+             ur:"اے آئی فور کڈز کلاس ۴ میلہ: جمعہ، سٹالز، کھیل۔ سچی اسکول نوٹس۔"},
+      kind:"non",
+      clues:[
+        {en:"Real date & school event notice", ur:"حقیقی تاریخ اور اسکول تقریب نوٹس"},
+        {en:"Fairies sold magic candy", ur:"پریوں نے جادوئی کینڈی بیچی"},
+        {en:"The school floated into space", ur:"اسکول خلا میں تیر گیا"},
+        {en:"A unicorn cut the ribbon", ur:"یونیکارن نے ربن کاٹا"}
+      ],
+      correct:0,
+      hint:{en:"A real school notice with day and stalls is non-fiction.",
+            ur:"حقیقی دن اور سٹالز والی اسکول نوٹس نان فکشن ہے۔"},
+      done:{en:"News clue spotted!", ur:"خبر کا اشارہ مل گیا!"}
+    },
+    {
+      id:"c4",
+      title:{en:"Talking parrot tale", ur:"بولتے طوطے کی کہانی"},
+      em:"🦜💬",
+      scene:{en:"Mango the parrot argued with Bilal about homework in perfect Urdu.",
+             ur:"آم نامی طوطے نے بلال سے ہوم ورک پر بہترین اردو میں بحث کی۔"},
+      kind:"fic",
+      clues:[
+        {en:"Parrot debates homework — not real", ur:"طوطا ہوم ورک پر بحث — حقیقی نہیں"},
+        {en:"Bird size chart from a zoo book", ur:"چڑیا گھر کی کتاب کا سائز چارٹ"},
+        {en:"True parrot diet facts only", ur:"صرف طوطے کی خوراک کے سچے حقائق"},
+        {en:"School timetable for Class 4", ur:"کلاس ۴ کا ٹائم ٹیبل"}
+      ],
+      correct:0,
+      hint:{en:"Animals chatting like people is a fiction clue.",
+            ur:"جانوروں کا انسانوں جیسا بات کرنا فکشن اشارہ ہے۔"},
+      done:{en:"Fiction clue found!", ur:"فکشن اشارہ ملا!"}
+    },
+    {
+      id:"c5",
+      title:{en:"Animal fact card", ur:"جانور حقیقت کارڈ"},
+      em:"🐘📚",
+      scene:{en:"Elephants use trunks to drink. Fact from a science book.",
+             ur:"ہاتھی سونڈ سے پانی پیتے ہیں۔ سائنس کتاب کا حقیقت۔"},
+      kind:"non",
+      clues:[
+        {en:"Science fact you can check", ur:"سائنس حقیقت جو چیک کر سکتے ہو"},
+        {en:"Elephant flew to Karachi", ur:"ہاتھی کراچی اڑ گیا"},
+        {en:"Trunk turned into a rocket", ur:"سونڈ راکٹ بن گئی"},
+        {en:"Elephant sang pop songs", ur:"ہاتھی نے پاپ گانے گائے"}
+      ],
+      correct:0,
+      hint:{en:"Checkable animal facts = non-fiction.",
+            ur:"چیک کیے جا سکتے جانور حقائق = نان فکشن۔"},
+      done:{en:"Fact clue found!", ur:"حقیقت کا اشارہ ملا!"}
+    }
+  ];
+
+  /* Mode 3: Why? — match example → reason */
+  var WHY = [
+    {
+      id:"w1",
+      title:{en:"Why fiction or fact?", ur:"فکشن یا حقیقت کیوں؟"},
+      rows:[
+        {id:"r1", em:"🧚", kind:"fic",
+         use:{en:"Fairy tale princess", ur:"پری کہانی کی شہزادی"},
+         reason:"made"},
+        {id:"r2", em:"🏏", kind:"non",
+         use:{en:"Cricket score 54", ur:"کرکٹ سکور ۵۴"},
+         reason:"true"},
+        {id:"r3", em:"🐯", kind:"fic",
+         use:{en:"Talking tiger story", ur:"بولتے شیر کی کہانی"},
+         reason:"made"},
+        {id:"r4", em:"🐼", kind:"non",
+         use:{en:"Pandas eat bamboo", ur:"پانڈا بانس کھاتے ہیں"},
+         reason:"true"}
+      ],
+      hint:{en:"Made-up = fiction. True checkable facts = non-fiction.",
+            ur:"بنایا ہوا = فکشن۔ سچے چیک ہونے والے حقائق = نان فکشن۔"},
+      done:{en:"You matched every reason!", ur:"ہر وجہ ملائی!"}
+    },
+    {
+      id:"w2",
+      title:{en:"School & story mix", ur:"اسکول اور کہانی مکس"},
+      rows:[
+        {id:"r1", em:"🏫", kind:"non",
+         use:{en:"School fair news", ur:"اسکول میلہ خبر"},
+         reason:"true"},
+        {id:"r2", em:"🐉", kind:"fic",
+         use:{en:"Dragon who drinks chai", ur:"ڈریگن جو چائے پیتا ہے"},
+         reason:"made"},
+        {id:"r3", em:"🗺️", kind:"non",
+         use:{en:"Islamabad is capital", ur:"اسلام آباد دارالحکومت ہے"},
+         reason:"true"},
+        {id:"r4", em:"🚀", kind:"fic",
+         use:{en:"Cat rockets to Mars", ur:"بلی مریخ تک راکٹ"},
+         reason:"made"}
+      ],
+      hint:{en:"News & map facts are true. Dragons & rocket cats are made-up stories.",
+            ur:"خبر اور نقشہ حقائق سچے۔ ڈریگن اور راکٹ بلی بنائی ہوئی کہانیاں ہیں۔"},
+      done:{en:"Reasons matched — great!", ur:"وجوہات ملیں — زبردست!"}
+    },
+    {
+      id:"w3",
+      title:{en:"Spot the reason", ur:"وجہ پہچانو"},
+      rows:[
+        {id:"r1", em:"👻", kind:"fic",
+         use:{en:"Friendly school ghost", ur:"اسکول کا دوستانہ بھوت"},
+         reason:"made"},
+        {id:"r2", em:"🐝", kind:"non",
+         use:{en:"Bees make honey", ur:"مکھیاں شہد بناتی ہیں"},
+         reason:"true"},
+        {id:"r3", em:"🌙", kind:"fic",
+         use:{en:"Boy flies to the moon", ur:"لڑکا چاند پر اڑتا ہے"},
+         reason:"made"},
+        {id:"r4", em:"🌧️", kind:"non",
+         use:{en:"Lahore weather report", ur:"لاہور موسم رپورٹ"},
+         reason:"true"}
+      ],
+      hint:{en:"Ghosts & flying boys = fiction. Honey facts & weather = non-fiction.",
+            ur:"بھوت اور اڑتے لڑکے = فکشن۔ شہد حقائق اور موسم = نان فکشن۔"},
+      done:{en:"You can explain fiction vs fact!", ur:"تم فکشن بمقابلہ حقیقت بتا سکتے ہو!"}
+    }
+  ];
+
+  var REASONS = {
+    made:{em:"✨", en:"Made-up story", ur:"بنائی ہوئی کہانی"},
+    true:{em:"✅", en:"True information", ur:"سچی معلومات"}
+  };
+
+  /* Quiz pool 7 → pick 5 */
+  var QUIZ = [
+    {
+      q:{en:"Fiction means…", ur:"فکشن کا مطلب ہے…"},
+      opts:[
+        {en:"Made-up stories", ur:"بنائی ہوئی کہانیاں"},
+        {en:"Only cricket scores", ur:"صرف کرکٹ سکور"},
+        {en:"True weather reports", ur:"سچی موسم رپورٹس"},
+        {en:"School timetable only", ur:"صرف اسکول ٹائم ٹیبل"}
+      ],
+      correct:0,
+      why:{en:"Fiction = Fiction / banayi hui kahaniyan — not real events.",
+           ur:"فکشن = بنائی ہوئی کہانیاں — حقیقی واقعات نہیں۔"}
+    },
+    {
+      q:{en:"Non-fiction means…", ur:"نان فکشن کا مطلب ہے…"},
+      opts:[
+        {en:"True information & facts", ur:"سچی معلومات اور حقائق"},
+        {en:"Only magic carpets", ur:"صرف جادوئی قالین"},
+        {en:"Talking animals only", ur:"صرف بولتے جانور"},
+        {en:"Made-up dragons", ur:"بنائے ہوئے ڈریگن"}
+      ],
+      correct:0,
+      why:{en:"Non-fiction = Non-fiction / sachi maloomat — real facts you can check.",
+           ur:"نان فکشن = سچی معلومات — حقیقی حقائق جو چیک کر سکتے ہو۔"}
+    },
+    {
+      q:{en:"'Princess rides a magic carpet' is…",
+         ur:"'شہزادی جادوئی قالین پر سواری کرتی ہے' ہے…"},
+      opts:[
+        {en:"Fiction", ur:"فکشن"},
+        {en:"Non-fiction", ur:"نان فکشن"},
+        {en:"A cricket score", ur:"کرکٹ سکور"},
+        {en:"A weather report", ur:"موسم رپورٹ"}
+      ],
+      correct:0,
+      why:{en:"Magic carpets are made-up — Fiction / fiction.",
+           ur:"جادوئی قالین بنائے ہوئے ہیں — فکشن۔"}
+    },
+    {
+      q:{en:"'Pandas eat bamboo' is…", ur:"'پانڈا بانس کھاتے ہیں' ہے…"},
+      opts:[
+        {en:"Non-fiction", ur:"نان فکشن"},
+        {en:"Fiction fairy tale", ur:"فکشن پری کہانی"},
+        {en:"A magic spell", ur:"جادو کا منتر"},
+        {en:"Not a book type", ur:"کتاب کی قسم نہیں"}
+      ],
+      correct:0,
+      why:{en:"Real animal fact = Non-fiction / non-fiction.",
+           ur:"حقیقی جانور حقیقت = نان فکشن۔"}
+    },
+    {
+      q:{en:"School fair news (Friday, stalls) is…",
+         ur:"اسکول میلہ خبر (جمعہ، سٹالز) ہے…"},
+      opts:[
+        {en:"Non-fiction", ur:"نان فکشن"},
+        {en:"Fiction only", ur:"صرف فکشن"},
+        {en:"A talking tiger tale", ur:"بولتے شیر کی کہانی"},
+        {en:"A unicorn picnic", ur:"یونیکارن پکنک"}
+      ],
+      correct:0,
+      why:{en:"Real school notice = Non-fiction / sachi khabar.",
+           ur:"حقیقی اسکول نوٹس = نان فکشن / سچی خبر۔"}
+    },
+    {
+      q:{en:"Which clue shows fiction?", ur:"کون سا اشارہ فکشن دکھاتا ہے؟"},
+      opts:[
+        {en:"A parrot debates homework", ur:"طوطا ہوم ورک پر بحث کرتا ہے"},
+        {en:"Babar scored 78 runs", ur:"بابر نے ۷۸ رنز بنائے"},
+        {en:"Elephants use trunks to drink", ur:"ہاتھی سونڈ سے پانی پیتے ہیں"},
+        {en:"Islamabad is the capital", ur:"اسلام آباد دارالحکومت ہے"}
+      ],
+      correct:0,
+      why:{en:"Talking animals like people = Fiction / banayi hui kahani.",
+           ur:"انسانوں جیسے بولتے جانور = فکشن۔"}
+    },
+    {
+      q:{en:"Why sort fiction from non-fiction?",
+         ur:"فکشن اور نان فکشن کیوں الگ کریں؟"},
+      opts:[
+        {en:"So we know story vs true facts", ur:"تاکہ کہانی اور سچے حقائق جانیں"},
+        {en:"Only to decorate covers", ur:"صرف کور سجانے کے لیے"},
+        {en:"Books never need labels", ur:"کتابوں کو لیبل نہیں چاہیے"},
+        {en:"Only for drawing dragons", ur:"صرف ڈریگن کھینچنے کے لیے"}
+      ],
+      correct:0,
+      why:{en:"Sorting helps kids explain: story or true fact? Fiction vs Non-fiction.",
+           ur:"چھانٹنا بچوں کو بتانے میں مدد دیتا ہے: کہانی یا سچ؟ فکشن بمقابلہ نان فکشن۔"}
+    }
+  ];
+
+  var sortIdx = 0, sortDone = {}, sortMap = {}, sortSelected = null;
+  var clueIdx = 0, clueDone = {};
+  var whyIdx = 0, whyDone = {}, whyMap = {};
+  var quizSet = [];
+
+  function award(key, n){
+    if (awarded[key]) return;
+    awarded[key] = true;
+    stars += (n || 1);
+    $("starCount").textContent = String(stars);
+  }
+  function recountStars(){
+    stars = 0;
+    Object.keys(awarded).forEach(function(k){
+      stars += (k.indexOf("mode-")===0) ? 2 : 1;
+    });
+    $("starCount").textContent = String(stars);
+  }
+
+  function skyHTML(){
+    return '<div class="sky-layer"><div class="sun-ball"></div>' +
+           '<div class="cloud c1"></div><div class="cloud c2"></div></div>';
+  }
+
+  function kindLabel(key){
+    var k = KINDS[key];
+    if (!k) return key;
+    return k.em + " " + t(k);
+  }
+
+  /* ---------- SORT ---------- */
+  function renderSort(){
+    var ch = SORT[sortIdx];
+    var pad = $("scenePad");
+    pad.innerHTML = skyHTML() +
+      '<div class="book-stage">' +
+      '<div class="book-hero">📚📖</div>' +
+      '<div class="bin-row">' +
+      '<div class="type-bin fic"><div class="bin-title" id="binFic"></div><div class="drop" id="dropFic"></div></div>' +
+      '<div class="type-bin non"><div class="bin-title" id="binNon"></div><div class="drop" id="dropNon"></div></div>' +
+      '</div></div>';
+    setText($("binFic"), kindLabel("fic"));
+    setText($("binNon"), kindLabel("non"));
+
+    function refreshBins(){
+      var drops = {fic:"", non:""};
+      ch.cards.forEach(function(c){
+        if (sortMap[c.id]) drops[sortMap[c.id]] += c.em + " ";
+      });
+      $("dropFic").textContent = drops.fic || "—";
+      $("dropNon").textContent = drops.non || "—";
+    }
+    refreshBins();
+
+    setText($("statechip"), (sortIdx+1) + " / " + SORT.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"");
+    setText($("headline"), t(ch.title));
+    setText($("detail"), t(T.askSort));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+    var bank = document.createElement("div");
+    bank.className = "bank";
+    ch.cards.forEach(function(c){
+      var used = !!sortMap[c.id];
+      var m = document.createElement("button");
+      m.type = "button";
+      m.className = "mini-item" + (used ? " used" : "") + (sortSelected===c.id ? " selected" : "");
+      m.innerHTML = c.em + " <span></span>";
+      setText(m.querySelector("span"), t(c));
+      m.disabled = used || !!sortDone[ch.id];
+      m.addEventListener("click", function(){
+        if (used || sortDone[ch.id]) return;
+        sortSelected = c.id;
+        renderSort();
+      });
+      bank.appendChild(m);
+    });
+    box.appendChild(bank);
+
+    var bins = document.createElement("div");
+    bins.className = "save-choices";
+    ["fic","non"].forEach(function(tk){
+      var tp = KINDS[tk];
+      var b = document.createElement("button");
+      b.type = "button";
+      b.innerHTML = '<span class="cem">'+tp.em+'</span><span class="clab"></span>';
+      setText(b.querySelector(".clab"), t(tp));
+      b.disabled = !!sortDone[ch.id] || !sortSelected;
+      b.addEventListener("click", function(){
+        if (sortDone[ch.id] || !sortSelected) return;
+        sortMap[sortSelected] = tk;
+        sortSelected = null;
+        renderSort();
+      });
+      bins.appendChild(b);
+    });
+    box.appendChild(bins);
+
+    if (!sortDone[ch.id]){
+      var chk = document.createElement("button");
+      chk.type = "button";
+      chk.style.cssText = "margin-top:10px;width:100%;border:2px solid var(--ink);border-radius:14px;background:var(--ink);color:var(--paper);font:inherit;font-weight:800;min-height:48px;cursor:pointer";
+      setText(chk, t(T.checkSort));
+      chk.addEventListener("click", function(){
+        var ok = true;
+        ch.cards.forEach(function(c){
+          if (sortMap[c.id] !== c.type) ok = false;
+        });
+        if (ok && Object.keys(sortMap).length === ch.cards.length){
+          sortDone[ch.id] = true;
+          award("sort-"+ch.id, 1);
+          setText($("headline"), t(ch.done));
+          $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.nice));
+          if (Object.keys(sortDone).length >= SORT.length){
+            doneModes.sort = true;
+            award("mode-sort", 2);
+          }
+          tabBadges();
+          renderSort();
+        } else {
+          setText($("headline"), t(T.oops));
+          $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.oops));
+        }
+      });
+      box.appendChild(chk);
+    }
+
+    setText($("prog"), t(T.progSort) + ": " + Object.keys(sortDone).length + "/" + SORT.length);
+  }
+
+  /* ---------- CLUE ---------- */
+  function renderClue(){
+    var ch = CLUE[clueIdx];
+    var pad = $("scenePad");
+    pad.innerHTML = skyHTML() +
+      '<div class="book-stage">' +
+      '<div class="book-hero">'+ch.em+'</div>' +
+      '<div id="clueScene"></div></div>';
+    var sc = document.createElement("div");
+    sc.className = "card-box";
+    setText(sc, t(ch.scene));
+    var tag = document.createElement("div");
+    tag.className = "clue-tag";
+    setText(tag, lang==="en" ? "Find the clue!" : "اشارہ ڈھونڈو!");
+    sc.appendChild(document.createElement("br"));
+    sc.appendChild(tag);
+    $("clueScene").appendChild(sc);
+
+    setText($("statechip"), (clueIdx+1) + " / " + CLUE.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"");
+    setText($("headline"), t(ch.title));
+    setText($("detail"), t(T.askClue));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+    var choices = document.createElement("div");
+    choices.className = "save-choices";
+    ch.clues.forEach(function(cl, oi){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.innerHTML = '<span class="cem">'+(oi===0?"🔍":"·")+'</span><span class="clab"></span>';
+      setText(b.querySelector(".clab"), t(cl));
+      if (clueDone[ch.id] && oi === ch.correct) b.classList.add("right");
+      b.disabled = !!clueDone[ch.id];
+      b.addEventListener("click", function(){
+        if (clueDone[ch.id]) return;
+        if (oi === ch.correct){
+          clueDone[ch.id] = true;
+          award("clue-"+ch.id, 1);
+          b.classList.add("right");
+          setText($("headline"), t(ch.done));
+          $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.nice));
+          if (Object.keys(clueDone).length >= CLUE.length){
+            doneModes.clue = true;
+            award("mode-clue", 2);
+          }
+          tabBadges();
+        } else {
+          b.classList.add("wrong");
+          setText($("headline"), t(T.oops));
+          $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.oops));
+        }
+      });
+      choices.appendChild(b);
+    });
+    box.appendChild(choices);
+    setText($("prog"), t(T.progClue) + ": " + Object.keys(clueDone).length + "/" + CLUE.length);
+  }
+
+  /* ---------- WHY ---------- */
+  function renderWhy(){
+    var ch = WHY[whyIdx];
+    var pad = $("scenePad");
+    pad.innerHTML = skyHTML() +
+      '<div class="book-stage">' +
+      '<div class="book-hero">🧩💡</div>' +
+      '<div class="type-row">' +
+      '<span class="type-pill fic">'+KINDS.fic.em+'</span>' +
+      '<span class="type-pill non">'+KINDS.non.em+'</span>' +
+      '</div></div>';
+
+    setText($("statechip"), (whyIdx+1) + " / " + WHY.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"");
+    setText($("headline"), t(ch.title));
+    setText($("detail"), t(T.askWhy));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+    var grid = document.createElement("div");
+    grid.className = "match-grid";
+    ch.rows.forEach(function(row){
+      var div = document.createElement("div");
+      div.className = "match-row";
+      div.innerHTML = '<span class="mem">'+row.em+'</span><span class="mtxt"></span><span class="match-opts"></span>';
+      setText(div.querySelector(".mtxt"), t(row.use));
+      var opts = div.querySelector(".match-opts");
+      ["made","true"].forEach(function(rk){
+        var rp = REASONS[rk];
+        var b = document.createElement("button");
+        b.type = "button";
+        b.textContent = rp.em + " " + (lang==="en" ? (rk==="made"?"Made-up":"True") : (rk==="made"?"بنایا":"سچ"));
+        b.title = t(rp);
+        if (whyDone[ch.id] && whyMap[row.id] === rk){
+          if (rk === row.reason) b.classList.add("right");
+        } else if (whyMap[row.id] === rk){
+          b.style.boxShadow = "0 0 0 2px var(--accent)";
+        }
+        b.disabled = !!whyDone[ch.id];
+        b.addEventListener("click", function(){
+          if (whyDone[ch.id]) return;
+          whyMap[row.id] = rk;
+          renderWhy();
+        });
+        opts.appendChild(b);
+      });
+      grid.appendChild(div);
+    });
+    box.appendChild(grid);
+
+    if (!whyDone[ch.id]){
+      var chk = document.createElement("button");
+      chk.type = "button";
+      chk.style.cssText = "margin-top:10px;width:100%;border:2px solid var(--ink);border-radius:14px;background:var(--ink);color:var(--paper);font:inherit;font-weight:800;min-height:48px;cursor:pointer";
+      setText(chk, t(T.checkMatch));
+      chk.addEventListener("click", function(){
+        var ok = true;
+        ch.rows.forEach(function(r){
+          if (whyMap[r.id] !== r.reason) ok = false;
+        });
+        if (ok && Object.keys(whyMap).length === ch.rows.length){
+          whyDone[ch.id] = true;
+          award("why-"+ch.id, 1);
+          setText($("headline"), t(ch.done));
+          $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.nice));
+          if (Object.keys(whyDone).length >= WHY.length){
+            doneModes.why = true;
+            award("mode-why", 2);
+          }
+          tabBadges();
+          renderWhy();
+        } else {
+          setText($("headline"), t(T.oops));
+          $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.oops));
+        }
+      });
+      box.appendChild(chk);
+    }
+
+    setText($("prog"), t(T.progWhy) + ": " + Object.keys(whyDone).length + "/" + WHY.length);
+  }
+
+  /* ---------- QUIZ ---------- */
+  function pickQuiz(){ quizSet = shuffle(QUIZ).slice(0, 5); }
+  function renderQuiz(){
+    var box = $("quizBox");
+    box.innerHTML = "";
+    quizSet.forEach(function(item, qi){
+      var wrap = document.createElement("div");
+      wrap.className = "q";
+      var p = document.createElement("p");
+      setText(p, (qi+1) + ". " + t(item.q));
+      wrap.appendChild(p);
+      var answered = false;
+      item.opts.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt" + (lang==="ur"?" ur":"");
+        setText(b, t(opt));
+        b.addEventListener("click", function(){
+          if (answered) return;
+          answered = true;
+          if (oi === item.correct){
+            b.classList.add("right");
+            award("quiz-"+qi, 1);
+          } else {
+            b.classList.add("wrong");
+            var kids = wrap.querySelectorAll(".opt");
+            if (kids[item.correct]) kids[item.correct].classList.add("right");
+          }
+          fb.classList.add("show");
+        });
+        wrap.appendChild(b);
+      });
+      var fb = document.createElement("p");
+      fb.className = "fb";
+      setText(fb, t(item.why));
+      wrap.appendChild(fb);
+      box.appendChild(wrap);
+    });
+  }
+
+  function storyHtml(){
+    if (mode === "sort") return t(T.storySort);
+    if (mode === "clue") return t(T.storyClue);
+    return t(T.storyWhy);
+  }
+
+  function tabBadges(){
+    function lab(btn, label, key){
+      btn.innerHTML = "";
+      var span = document.createElement("span");
+      setText(span, t(label));
+      btn.appendChild(span);
+      if (doneModes[key]){
+        var b = document.createElement("span");
+        b.className = "badge"; b.textContent = " ★";
+        btn.appendChild(b);
+      }
+    }
+    lab($("tabSort"), T.tabSort, "sort");
+    lab($("tabClue"), T.tabClue, "clue");
+    lab($("tabWhy"), T.tabWhy, "why");
+    $("tabSort").setAttribute("aria-pressed", mode==="sort"?"true":"false");
+    $("tabClue").setAttribute("aria-pressed", mode==="clue"?"true":"false");
+    $("tabWhy").setAttribute("aria-pressed", mode==="why"?"true":"false");
+  }
+
+  function setMode(m){
+    mode = m;
+    if (mode === "sort"){ sortSelected = null; renderSort(); }
+    else if (mode === "clue") renderClue();
+    else { renderWhy(); }
+    applyChrome();
+  }
+
+  function applyChrome(){
+    setText($("title"), t(T.title));
+    setText($("subtitle"), t(T.sub));
+    $("story").innerHTML = storyHtml();
+    $("story").classList.toggle("ur", lang==="ur");
+    $("story").setAttribute("dir", lang==="ur"?"rtl":"ltr");
+    setText($("ctlHead"), t(T.ctl));
+    setText($("nextBtn"), t(T.next));
+    setText($("hintBtn"), t(T.hint));
+    setText($("resetBtn"), t(T.reset));
+    setText($("quizHead"), t(T.quiz));
+    setText($("newQuiz"), t(T.newQuiz));
+    $("langBtn").textContent = (lang === "en") ? "اردو" : "EN";
+    $("langBtn").setAttribute("aria-pressed", lang==="ur"?"true":"false");
+    document.body.classList.toggle("urdu", lang==="ur");
+    document.documentElement.lang = (lang==="ur") ? "ur" : "en";
+    document.documentElement.dir = (lang==="ur") ? "rtl" : "ltr";
+    tabBadges();
+    var foot = document.querySelector("footer p");
+    if (foot) setText(foot, foot.getAttribute(lang==="ur"?"data-ur":"data-en"));
+  }
+
+  function applyLang(){
+    applyChrome();
+    if (mode === "sort") renderSort();
+    else if (mode === "clue") renderClue();
+    else renderWhy();
+    renderQuiz();
+  }
+
+  function next(){
+    if (mode === "sort"){
+      sortIdx = (sortIdx + 1) % SORT.length;
+      sortMap = {}; sortSelected = null;
+      renderSort();
+    } else if (mode === "clue"){
+      clueIdx = (clueIdx + 1) % CLUE.length;
+      renderClue();
+    } else {
+      whyIdx = (whyIdx + 1) % WHY.length;
+      whyMap = {};
+      renderWhy();
+    }
+  }
+
+  function showHint(){
+    var h;
+    if (mode === "sort") h = SORT[sortIdx].hint;
+    else if (mode === "clue") h = CLUE[clueIdx].hint;
+    else h = WHY[whyIdx].hint;
+    var hb = $("hintbox");
+    setText(hb, t(h));
+    hb.classList.add("show");
+  }
+
+  function resetMode(){
+    if (mode === "sort"){
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("sort-")===0 || k==="mode-sort") delete awarded[k]; });
+      sortDone = {}; sortIdx = 0; sortMap = {}; sortSelected = null; doneModes.sort = false;
+      recountStars(); renderSort();
+    } else if (mode === "clue"){
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("clue-")===0 || k==="mode-clue") delete awarded[k]; });
+      clueDone = {}; clueIdx = 0; doneModes.clue = false;
+      recountStars(); renderClue();
+    } else {
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("why-")===0 || k==="mode-why") delete awarded[k]; });
+      whyDone = {}; whyIdx = 0; whyMap = {}; doneModes.why = false;
+      recountStars(); renderWhy();
+    }
+    tabBadges();
+    applyChrome();
+  }
+
+  function cleanSpeakText(s){
+    return String(s || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  }
+  function buildSpeakText(){
+    var bits = [];
+    bits.push(t(T.title));
+    bits.push(cleanSpeakText(storyHtml()));
+    bits.push(cleanSpeakText(($("headline") && $("headline").textContent) || ""));
+    bits.push(cleanSpeakText(($("detail") && $("detail").textContent) || ""));
+    bits.push(t(T.tip));
+    return bits.filter(Boolean).join(". ");
+  }
+  function pickVoice(voices, want){
+    var i, v, L;
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf(want) === 0) return v;
+    }
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf("en") === 0) return v;
+    }
+    return voices[0] || null;
+  }
+  var speakTimer = null;
+  function setSpeaking(on){
+    var btn = $("speakBtn");
+    if (!btn) return;
+    btn.setAttribute("aria-pressed", on ? "true" : "false");
+    btn.style.opacity = on ? "0.65" : "";
+  }
+  function doSpeak(text, asLang){
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.92;
+    u.lang = (asLang === "ur") ? "ur-PK" : "en-US";
+    var voices = window.speechSynthesis.getVoices() || [];
+    var voice = pickVoice(voices, asLang === "ur" ? "ur" : "en");
+    if (voice) u.voice = voice;
+    u.onstart = function(){ setSpeaking(true); };
+    u.onend = function(){ setSpeaking(false); };
+    u.onerror = function(){
+      setSpeaking(false);
+      if (asLang === "ur"){
+        var fallback = cleanSpeakText(T.title.en + ". " + T.storySort.en + ". " + T.tip.en);
+        var u2 = new SpeechSynthesisUtterance(fallback);
+        u2.lang = "en-US"; u2.rate = 0.92;
+        var v2 = pickVoice(window.speechSynthesis.getVoices() || [], "en");
+        if (v2) u2.voice = v2;
+        u2.onstart = function(){ setSpeaking(true); };
+        u2.onend = u2.onerror = function(){ setSpeaking(false); };
+        window.speechSynthesis.speak(u2);
+      }
+    };
+    window.speechSynthesis.speak(u);
+  }
+  if ("speechSynthesis" in window){
+    try { window.speechSynthesis.getVoices(); } catch (e0) {}
+    if (typeof window.speechSynthesis.addEventListener === "function"){
+      window.speechSynthesis.addEventListener("voiceschanged", function(){
+        try { window.speechSynthesis.getVoices(); } catch (e1) {}
+      });
+    }
+  } else {
+    var noBtn = $("speakBtn");
+    if (noBtn){ noBtn.disabled = true; noBtn.title = "Voice not available on this device"; }
+  }
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en";
+    applyLang();
+  });
+  $("tabSort").addEventListener("click", function(){ setMode("sort"); });
+  $("tabClue").addEventListener("click", function(){ setMode("clue"); });
+  $("tabWhy").addEventListener("click", function(){ setMode("why"); });
+  $("nextBtn").addEventListener("click", next);
+  $("hintBtn").addEventListener("click", showHint);
+  $("resetBtn").addEventListener("click", resetMode);
+  $("newQuiz").addEventListener("click", function(){ pickQuiz(); renderQuiz(); });
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      var text = buildSpeakText();
+      if (!text) return;
+      if (speakTimer){ clearTimeout(speakTimer); speakTimer = null; }
+      window.speechSynthesis.cancel();
+      setSpeaking(false);
+      var speakLang = lang;
+      speakTimer = setTimeout(function(){
+        speakTimer = null;
+        doSpeak(text, speakLang);
+      }, 80);
+    }catch(e){ setSpeaking(false); }
+  });
+
+  pickQuiz();
+  applyLang();
+})();
+</script>
+</body>
+</html>

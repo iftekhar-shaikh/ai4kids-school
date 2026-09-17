@@ -1093,6 +1093,7 @@ def render_topic_interactive(subject_key, grade, topic_title):
     (4, "ai", "AI decision tree"): "interactives/g4-ai-decision-tree.html",
     (4, "ai", "Fake vs real"): "interactives/g4-fake-vs-real.html",
     (4, "ai", "AI jobs"): "interactives/g4-ai-jobs.html",
+    (4, "english", "Fiction aur non-fiction"): "interactives/g4-fiction-nonfiction.html",
     (4, "islamiat", "Iman aur Ibadat"): "interactives/g4-iman-ibadat.html",
     (4, "islamiat", "Akhlaq aur Muamalat"): "interactives/g4-akhlaq-muamalat.html",
     (4, "islamiat", "Seerat aur Hidayat"): "interactives/g4-seerat-hidayat.html",

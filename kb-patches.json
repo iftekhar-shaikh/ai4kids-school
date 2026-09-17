@@ -431,5 +431,13 @@
       "interactive_file": "interactives/g4-ai-jobs.html",
       "interactive_label": "Khelo - AI jobs"
     }
+  },
+  {
+    "file": "kb/grade_4/english.json",
+    "match_title": "Fiction aur non-fiction",
+    "add": {
+      "interactive_file": "interactives/g4-fiction-nonfiction.html",
+      "interactive_label": "Khelo - Fiction aur non-fiction"
+    }
   }
 ]
