@@ -114,7 +114,9 @@
             "explanation": "AI ka matlab Artificial Intelligence hai, jo machines ko insaani tarah sochne aur samajhne ki salahiyat deta hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g4-chatbot-kya-hai.html",
+      "interactive_label": "Khelo - Chatbot kya hai"
     },
     {
       "title": "Data types",

@@ -391,5 +391,13 @@
       "interactive_file": "interactives/g4-seerat-hidayat.html",
       "interactive_label": "Khelo - Seerat aur Hidayat"
     }
+  },
+  {
+    "file": "kb/grade_4/ai.json",
+    "match_title": "Chatbot kya hai",
+    "add": {
+      "interactive_file": "interactives/g4-chatbot-kya-hai.html",
+      "interactive_label": "Khelo - Chatbot kya hai"
+    }
   }
 ]

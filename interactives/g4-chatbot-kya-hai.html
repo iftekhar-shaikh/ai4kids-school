@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI4Kids | LLM, Chatbot aur AI Agent</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EAF6FF; --paper:#FFFFFF; --ink:#1B2A49; --soft:#5B6B88; --line:#C9DDF0;
+  --llm:#6C4AB6; --llm-bg:#F0EAFF;
+  --chat:#1E78D8; --chat-bg:#E3F0FF;
+  --agent:#0B8A5A; --agent-bg:#E2F7EE;
+  --mem:#C77700; --mem-bg:#FFF3D6;
+  --sun:#FFC93C; --wrong:#D64545; --wrong-bg:#FDE8E8;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#101A2E; --paper:#18243D; --ink:#EAF1FF; --soft:#A7B6D3; --line:#2D3D5E;
+    --llm:#B69CFF; --llm-bg:#2A2150; --chat:#6FB3FF; --chat-bg:#17304F;
+    --agent:#4FD39C; --agent-bg:#123A2D; --mem:#FFB547; --mem-bg:#3A2C10;
+    --sun:#FFD460; --wrong:#FF7B7B; --wrong-bg:#3F1E22;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#101A2E; --paper:#18243D; --ink:#EAF1FF; --soft:#A7B6D3; --line:#2D3D5E;
+  --llm:#B69CFF; --llm-bg:#2A2150; --chat:#6FB3FF; --chat-bg:#17304F;
+  --agent:#4FD39C; --agent-bg:#123A2D; --mem:#FFB547; --mem-bg:#3A2C10;
+  --sun:#FFD460; --wrong:#FF7B7B; --wrong-bg:#3F1E22;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Baloo 2',system-ui,sans-serif;font-size:18px;line-height:1.5}
+.ur{font-family:'Noto Nastaliq Urdu','Jameel Noori Nastaleeq',serif;direction:rtl;text-align:right;line-height:2.3;font-size:17px;color:var(--soft)}
+.wrap{max-width:920px;margin:0 auto;padding:0 18px 60px}
+header{position:sticky;top:0;z-index:5;background:var(--paper);border-bottom:3px solid var(--sun)}
+.bar{max-width:920px;margin:0 auto;padding:10px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:26px;letter-spacing:-.5px}
+.logo svg{width:44px;height:44px;flex:none}
+.hi{font-size:15px;color:var(--soft);text-align:right}
+button{font-family:inherit;font-size:17px;cursor:pointer;border-radius:14px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);padding:8px 16px;font-weight:700}
+button:disabled{opacity:.45;cursor:default}
+button:focus-visible,input:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.hero{text-align:center;padding:30px 0 6px}
+.hero h1{font-size:clamp(34px,7vw,60px);line-height:1.05;margin:0 0 8px;font-weight:800}
+.hook{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:14px 0}
+.pill{padding:5px 14px;border-radius:999px;font-weight:800;font-size:19px}
+.p-llm{background:var(--llm-bg);color:var(--llm)} .p-chat{background:var(--chat-bg);color:var(--chat)} .p-agent{background:var(--agent-bg);color:var(--agent)} .p-mem{background:var(--mem-bg);color:var(--mem)}
+/* recipe strip */
+.recipe{display:grid;gap:10px;margin:14px 0}
+.row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:var(--paper);border:2px solid var(--line);border-radius:18px;padding:10px 14px}
+.row .who{font-weight:800;font-size:21px;min-width:140px}
+.chip{border-radius:12px;padding:2px 10px;font-weight:700;font-size:16px;white-space:nowrap}
+.plus{font-weight:800;color:var(--soft)}
+section{background:var(--paper);border-radius:22px;padding:22px;margin:22px 0;border:2px solid var(--line)}
+h2{margin:0 0 4px;font-size:28px;line-height:1.2}
+h3{margin:14px 0 4px;font-size:22px}
+.step{display:inline-block;background:var(--sun);color:#1B2A49;border-radius:10px;padding:0 10px;margin-right:8px;font-size:22px}
+.note{background:var(--bg);border-radius:14px;padding:10px 14px;margin:10px 0}
+/* gate */
+#gate{position:fixed;inset:0;background:var(--bg);z-index:20;display:flex;align-items:center;justify-content:center;padding:18px}
+#gate .card{background:var(--paper);border:3px solid var(--ink);border-radius:26px;padding:28px;max-width:440px;width:100%;text-align:center}
+#gate input{width:100%;font:inherit;font-size:22px;padding:10px 14px;border-radius:14px;border:2px solid var(--line);background:var(--bg);color:var(--ink);margin:12px 0}
+.go{background:var(--ink);color:var(--paper);width:100%;font-size:21px;padding:12px}
+.err{color:var(--wrong);min-height:24px;font-size:15px}
+/* builder */
+.builder{display:grid;grid-template-columns:minmax(220px,300px) 1fr;gap:22px;align-items:center}
+@media(max-width:680px){.builder{grid-template-columns:1fr}}
+.robot{width:100%;max-width:300px;margin:0 auto;display:block}
+.part{transition:opacity .45s, transform .45s;transform-origin:center}
+.robot .off{opacity:0;transform:scale(.85)}
+.stages{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.stages button[aria-pressed="true"].s1{background:var(--llm);border-color:var(--llm);color:#fff}
+.stages button[aria-pressed="true"].s2{background:var(--chat);border-color:var(--chat);color:#fff}
+.stages button[aria-pressed="true"].s3{background:var(--agent);border-color:var(--agent);color:#fff}
+.explain h3{margin:4px 0;font-size:26px}
+.formula{font-weight:800;font-size:19px;margin:6px 0}
+.say{border:none;background:none;padding:2px 6px;font-size:22px}
+/* memory lab */
+.memlab{display:grid;grid-template-columns:1fr 230px;gap:14px;margin-top:12px}
+@media(max-width:680px){.memlab{grid-template-columns:1fr}}
+.toggle{display:flex;gap:0;border:2px solid var(--ink);border-radius:14px;overflow:hidden;width:max-content;margin:10px 0}
+.toggle button{border:none;border-radius:0;padding:8px 16px}
+.toggle button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.chatbox{background:var(--bg);border-radius:18px;padding:12px;min-height:240px;display:flex;flex-direction:column;gap:8px}
+.msg{max-width:85%;padding:8px 12px;border-radius:16px;font-size:17px}
+.msg.me{align-self:flex-end;background:var(--chat);color:#fff;border-bottom-right-radius:4px}
+.msg.bot{align-self:flex-start;background:var(--paper);border:2px solid var(--line);border-bottom-left-radius:4px}
+.msg.bot.forgot{border-color:var(--wrong);background:var(--wrong-bg)}
+.msg.bot.remember{border-color:var(--agent);background:var(--agent-bg)}
+.sendrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.sendrow button{font-size:15px;padding:6px 12px;border-color:var(--chat);color:var(--chat)}
+.notebook{background:var(--mem-bg);border:2px dashed var(--mem);border-radius:16px;padding:12px}
+.notebook h4{margin:0;color:var(--mem);font-size:20px}
+.notebook ul{margin:6px 0;padding-left:20px;font-size:16px}
+.notebook .empty{color:var(--soft);font-size:15px}
+/* agent kit */
+.kitgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:12px 0}
+@media(max-width:720px){.kitgrid{grid-template-columns:1fr}}
+.kit{border-radius:18px;padding:12px;border:2px solid var(--line)}
+.kit h4{margin:0;font-size:21px}
+.kit p{margin:2px 0 8px;font-size:15px;color:var(--soft)}
+.kit .items{display:flex;flex-direction:column;gap:6px}
+.kit button{font-size:15px;padding:6px 10px;text-align:left;border-color:var(--line)}
+.kit button[aria-pressed="true"]{border-color:var(--agent);background:var(--agent-bg);color:var(--agent)}
+.kit button[aria-pressed="true"]::after{content:" ✔"}
+.missions{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.missions button{font-size:15px;padding:6px 12px}
+.missions button[aria-pressed="true"]{background:var(--sun);border-color:var(--sun);color:#1B2A49}
+.log{background:var(--bg);border-radius:16px;padding:12px 14px;min-height:120px;margin-top:10px}
+.log div{padding:3px 0}
+.log .bad{color:var(--wrong);font-weight:700}
+.log .good{color:var(--agent);font-weight:700}
+.run{background:var(--agent);border-color:var(--agent);color:#fff;font-size:19px}
+.needs{font-size:15px;color:var(--soft);margin:4px 0}
+/* biryani */
+.ask{background:var(--bg);border-radius:16px;padding:12px 16px;font-weight:700;font-size:20px;margin:12px 0}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:720px){.trio{grid-template-columns:1fr}}
+.reply{border-radius:18px;padding:14px;border:2px solid transparent}
+.reply.llm{background:var(--llm-bg);border-color:var(--llm)} .reply.chat{background:var(--chat-bg);border-color:var(--chat)} .reply.agent{background:var(--agent-bg);border-color:var(--agent)}
+.reply h4{margin:0;font-size:22px}
+.reply button{margin-top:8px;font-size:15px;padding:4px 12px}
+.tasks{list-style:none;padding:0;margin:8px 0}
+.tasks li{padding:3px 0;opacity:.25;transition:opacity .35s;font-size:16px}
+.tasks li.done{opacity:1}
+.tag{font-size:12px;border-radius:8px;padding:0 6px;margin-left:4px;font-weight:700;white-space:nowrap}
+/* game */
+.score{font-weight:800;font-size:20px}
+.cardq{background:var(--bg);border-radius:18px;padding:16px;margin:12px 0;text-align:center}
+.cardq .emoji{font-size:44px}
+.cardq p{font-size:21px;font-weight:700;margin:4px 0}
+.choices{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:10px}
+.c-llm{border-color:var(--llm);color:var(--llm)} .c-chat{border-color:var(--chat);color:var(--chat)} .c-agent{border-color:var(--agent);color:var(--agent)}
+.feedback{min-height:60px;margin-top:10px;font-weight:700}
+.ok{color:var(--agent)} .no{color:var(--wrong)}
+.progress{height:10px;background:var(--line);border-radius:10px;overflow:hidden}
+.progress div{height:100%;background:var(--sun);width:0;transition:width .3s}
+.cert{border:5px double var(--sun);border-radius:22px;padding:24px;text-align:center;background:var(--paper)}
+.cert .nm{font-size:clamp(30px,6vw,46px);font-weight:800;margin:4px 0}
+.hidden{display:none}
+.next{background:var(--ink);color:var(--paper)}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="ai4kids-logo" viewBox="0 0 64 64">
+    <rect x="2" y="6" width="60" height="54" rx="16" fill="#1B2A49"/>
+    <line x1="32" y1="6" x2="32" y2="0" stroke="#FFC93C" stroke-width="4"/>
+    <circle cx="32" cy="3" r="3.5" fill="#FFC93C"/>
+    <circle cx="21" cy="28" r="7" fill="#7CC6FE"/><circle cx="43" cy="28" r="7" fill="#7CC6FE"/>
+    <circle cx="22" cy="29" r="3" fill="#1B2A49"/><circle cx="44" cy="29" r="3" fill="#1B2A49"/>
+    <path d="M20 44 Q32 53 44 44" stroke="#FFC93C" stroke-width="4" fill="none" stroke-linecap="round"/>
+  </symbol>
+</svg>
+
+<div id="gate" role="dialog" aria-labelledby="gateTitle">
+  <div class="card">
+    <svg width="80" height="80"><use href="#ai4kids-logo"/></svg>
+    <div class="logo" style="justify-content:center">AI4Kids</div>
+    <h2 id="gateTitle">Assalam o Alaikum!</h2>
+    <p style="margin:0">Apna naam likhein</p>
+    <div class="ur">اپنا نام لکھیں تاکہ سفر شروع ہو</div>
+    <input id="nameIn" maxlength="30" placeholder="Jaise: Ayesha" autocomplete="off" aria-label="Student name">
+    <div class="err" id="err"></div>
+    <button class="go" id="startBtn">Shuru karein</button>
+  </div>
+</div>
+
+<header>
+  <div class="bar">
+    <div class="logo"><svg><use href="#ai4kids-logo"/></svg>AI4Kids</div>
+    <div class="hi" id="hi"></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="hero">
+    <h1>LLM, Chatbot ya AI Agent?</h1>
+    <div class="ur" style="text-align:center">تین دوست، تین کام — آئیے فرق سمجھیں</div>
+  </div>
+
+  <div class="recipe" aria-label="Teeno ka formula">
+    <div class="row"><span class="who" style="color:var(--llm)">🧠 LLM</span>
+      <span class="chip p-llm">🧠 Dimagh</span>
+      <span style="font-size:15px;color:var(--wrong);font-weight:700">(memory nahi 🫥)</span></div>
+    <div class="row"><span class="who" style="color:var(--chat)">💬 Chatbot</span>
+      <span class="chip p-llm">🧠 Dimagh</span><span class="plus">+</span>
+      <span class="chip p-mem">📒 Memory</span><span class="plus">+</span>
+      <span class="chip p-chat">💬 Chat window</span></div>
+    <div class="row"><span class="who" style="color:var(--agent)">🦾 AI Agent</span>
+      <span class="chip p-llm">🧠 Dimagh</span><span class="plus">+</span>
+      <span class="chip p-mem">📒 Memory</span><span class="plus">+</span>
+      <span class="chip p-agent">🛠️ Tools</span><span class="plus">+</span>
+      <span class="chip p-agent">🔌 Connectors</span><span class="plus">+</span>
+      <span class="chip p-agent">🔑 Permissions</span></div>
+  </div>
+  <div class="hook">
+    <span class="pill p-llm">🧠 LLM knows</span>
+    <span class="pill p-chat">💬 Chatbot talks & remembers</span>
+    <span class="pill p-agent">🦾 Agent does</span>
+  </div>
+
+  <!-- STEP 1 -->
+  <section>
+    <h2><span class="step">1</span>Robot banao</h2>
+    <p style="margin:0">Buttons dabao aur dekho robot mein kaunse naye hisse judte hain.</p>
+    <div class="builder">
+      <svg class="robot" viewBox="0 0 300 330" role="img" aria-label="Robot jo har step par naye hisse jodta hai">
+        <rect x="95" y="175" width="110" height="100" rx="20" fill="var(--line)"/>
+        <g class="part" id="pBrain">
+          <rect x="80" y="40" width="140" height="130" rx="40" fill="var(--llm-bg)" stroke="var(--llm)" stroke-width="5"/>
+          <path d="M120 95 q-18 -30 12 -34 q14 -18 32 -2 q30 -6 26 24 q20 16 -2 32 q-4 22 -30 16 q-20 14 -36 -2 q-26 -2 -14 -24 q-10 -6 12 -10z" fill="var(--llm)" opacity=".85"/>
+          <path d="M150 70 v60 M130 90 q10 8 20 0 M150 110 q10 8 22 0" stroke="#fff" stroke-width="3" fill="none"/>
+        </g>
+        <!-- stage 2: memory notebook + chat -->
+        <g class="part off" id="pMemory">
+          <rect x="6" y="50" width="62" height="78" rx="8" fill="var(--mem-bg)" stroke="var(--mem)" stroke-width="4"/>
+          <path d="M18 72 h38 M18 88 h38 M18 104 h28" stroke="var(--mem)" stroke-width="3"/>
+          <text x="37" y="146" text-anchor="middle" font-size="15" font-weight="800" fill="var(--mem)" font-family="Baloo 2">Memory</text>
+          <path d="M68 90 h12" stroke="var(--mem)" stroke-width="4" stroke-dasharray="4 3"/>
+        </g>
+        <g class="part off" id="pMouth">
+          <rect x="120" y="188" width="60" height="30" rx="8" fill="var(--chat)"/>
+          <path d="M130 203 h8 M146 203 h8 M162 203 h8" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+          <path d="M215 30 h70 a12 12 0 0 1 12 12 v34 a12 12 0 0 1 -12 12 h-44 l-18 16 v-16 h-8 a12 12 0 0 1 -12 -12 v-34 a12 12 0 0 1 12 -12z" fill="var(--chat)"/>
+          <text x="250" y="66" text-anchor="middle" font-size="22" font-weight="800" fill="#fff" font-family="Baloo 2">Hello!</text>
+        </g>
+        <!-- stage 3: tools, connectors, permissions -->
+        <g class="part off" id="pArms">
+          <path d="M95 200 q-40 10 -52 50" stroke="var(--agent)" stroke-width="12" fill="none" stroke-linecap="round"/>
+          <path d="M205 200 q40 10 52 50" stroke="var(--agent)" stroke-width="12" fill="none" stroke-linecap="round"/>
+          <circle cx="40" cy="262" r="21" fill="var(--agent-bg)" stroke="var(--agent)" stroke-width="4"/>
+          <text x="40" y="271" text-anchor="middle" font-size="24">🔍</text>
+          <circle cx="260" cy="262" r="21" fill="var(--agent-bg)" stroke="var(--agent)" stroke-width="4"/>
+          <text x="260" y="271" text-anchor="middle" font-size="24">🛠️</text>
+          <path d="M205 150 q50 -10 62 30" stroke="var(--agent)" stroke-width="5" fill="none" stroke-dasharray="7 5"/>
+          <text x="272" y="205" text-anchor="middle" font-size="26">🔌</text>
+          <circle cx="150" cy="248" r="18" fill="var(--sun)"/>
+          <text x="150" y="256" text-anchor="middle" font-size="20">🔑</text>
+          <text x="40" y="304" text-anchor="middle" font-size="13" font-weight="800" fill="var(--agent)" font-family="Baloo 2">Tools</text>
+          <text x="272" y="232" text-anchor="middle" font-size="13" font-weight="800" fill="var(--agent)" font-family="Baloo 2">Connector</text>
+          <text x="150" y="300" text-anchor="middle" font-size="13" font-weight="800" fill="var(--agent)" font-family="Baloo 2">Permission</text>
+        </g>
+        <rect x="112" y="275" width="26" height="38" rx="8" fill="var(--line)"/>
+        <rect x="162" y="275" width="26" height="38" rx="8" fill="var(--line)"/>
+      </svg>
+      <div>
+        <div class="stages" role="group" aria-label="Robot ke steps">
+          <button class="s1" data-stage="1" aria-pressed="true">🧠 LLM</button>
+          <button class="s2" data-stage="2" aria-pressed="false">📒💬 + Memory = Chatbot</button>
+          <button class="s3" data-stage="3" aria-pressed="false">🛠️🔌🔑 = Agent</button>
+        </div>
+        <div class="explain" id="explain" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 2: memory lab -->
+  <section>
+    <h2><span class="step">2</span>Memory lab 📒</h2>
+    <p style="margin:0">LLM har message ko <b>bilkul naya</b> samajhta hai — pichli baat bhool jata hai. Jab usay <b>memory</b> (pichli baaton ki copy) di jaye, tab woh chat mein shamil ho kar <b>Chatbot</b> ban jata hai.</p>
+    <div class="ur">LLM کی اپنی یادداشت نہیں ہوتی۔ جب اسے میموری دی جائے تو وہ چیٹ بوٹ بن جاتا ہے۔</div>
+    <div class="note">🧪 <b>Tajurba:</b> Pehle Memory <b>OFF</b> rakh kar teeno messages bhejo. Phir <b>ON</b> kar ke dobara. Farq dekho!</div>
+    <div class="toggle" role="group" aria-label="Memory on ya off">
+      <button id="memOff" aria-pressed="true">🫥 Memory OFF (sirf LLM)</button>
+      <button id="memOn" aria-pressed="false">📒 Memory ON (Chatbot)</button>
+    </div>
+    <div class="memlab">
+      <div>
+        <div class="chatbox" id="chatbox" aria-live="polite"></div>
+        <div class="sendrow" id="sendrow"></div>
+      </div>
+      <div class="notebook">
+        <h4>📒 Memory copy</h4>
+        <div id="nbody"></div>
+      </div>
+    </div>
+    <div class="note" id="memLesson" style="display:none"></div>
+  </section>
+
+  <!-- STEP 3: agent kit -->
+  <section>
+    <h2><span class="step">3</span>Agent ka school bag 🎒</h2>
+    <p style="margin:0">Chatbot sirf baat karta hai. Asal <b>kaam</b> karne ke liye Agent ko teen cheezein chahiye:</p>
+    <div class="kitgrid">
+      <div class="kit">
+        <h4>🛠️ Tools</h4>
+        <p><b>Auzaar</b> jo agent khud chalata hai — jaise search, calculator, mausam, map. Jaise aapke paas scale aur pencil.</p>
+        <div class="ur" style="font-size:15px">اوزار: جیسے آپ کی پنسل اور اسکیل</div>
+        <div class="items" data-kind="tool"></div>
+      </div>
+      <div class="kit">
+        <h4>🔌 Connectors</h4>
+        <p><b>Taar / plug</b> jo agent ko aapki kisi <b>app ya account</b> se jodta hai — jaise Gmail, Calendar, food app. Plug nahi to app tak pahunch nahi.</p>
+        <div class="ur" style="font-size:15px">کنیکٹر: ایپ سے جوڑنے والی تار</div>
+        <div class="items" data-kind="conn"></div>
+      </div>
+      <div class="kit">
+        <h4>🔑 Permissions</h4>
+        <p><b>Ijazat</b> — agent kya kar sakta hai aur kya nahi. Jaise Ammi kahen: "TV dekh lo, magar paise kharch karne se pehle poocho."</p>
+        <div class="ur" style="font-size:15px">اجازت: کیا کر سکتا ہے، کیا نہیں</div>
+        <div class="items" data-kind="perm"></div>
+      </div>
+    </div>
+
+    <h3>🎯 Mission chuno, bag tayyar karo, Agent chalao</h3>
+    <div class="missions" id="missions"></div>
+    <p class="needs" id="missionDesc"></p>
+    <button class="run" id="runBtn">▶️ Agent chalao</button>
+    <button id="hintBtn" style="margin-left:6px">💡 Hint</button>
+    <div class="log" id="log" aria-live="polite"><div style="color:var(--soft)">Mission chuno, bag mein cheezein daalo, phir "Agent chalao" dabao.</div></div>
+    <div class="note">🛡️ <b>Yaad rakho:</b> Achha agent sirf utni hi ijazat leta hai jitni zaroori ho, aur bade kaam (paise, message bhejna) se pehle insaan se <b>poochta</b> hai.</div>
+  </section>
+
+  <!-- STEP 4: biryani -->
+  <section>
+    <h2><span class="step">4</span>Biryani test 🍛</h2>
+    <p style="margin:0">Teeno ko ek hi baat kahi gayi. Har ek ka jawab kholo.</p>
+    <div class="ask">"Mujhe aaj raat ke khane ke liye biryani chahiye."</div>
+    <div class="trio">
+      <div class="reply llm">
+        <h4>🧠 LLM</h4>
+        <button data-open="r1">Jawab dekho</button>
+        <div id="r1" class="hidden">
+          <p>"…biryani chahiye <b>kyun ke biryani mazedaar hoti hai aur…</b>"</p>
+          <p style="font-size:16px">Sirf agle alfaaz ka andaza. Memory nahi, is liye agle sawal tak sab bhool jayega.</p>
+        </div>
+      </div>
+      <div class="reply chat">
+        <h4>💬 Chatbot</h4>
+        <button data-open="r2">Jawab dekho</button>
+        <div id="r2" class="hidden">
+          <p>"Zaroor! Aap ne pehle bataya tha aapko <b>aloo wali</b> biryani pasand hai 📒 — yeh rahi recipe…"</p>
+          <p style="font-size:16px">Memory se pichli baat yaad hai. Magar biryani ghar nahi aati — tools aur connectors nahi hain!</p>
+        </div>
+      </div>
+      <div class="reply agent">
+        <h4>🦾 AI Agent</h4>
+        <button data-open="r3">Kaam shuru karo</button>
+        <div id="r3" class="hidden">
+          <ul class="tasks" id="tasks">
+            <li>📒 Yaad kiya: aloo wali pasand hai <span class="tag p-mem">Memory</span></li>
+            <li>🗺️ Qareebi dukanein dhoondi <span class="tag p-agent">Tool</span></li>
+            <li>🛵 Food app se joda <span class="tag p-agent">Connector</span></li>
+            <li>🙋 Ammi se poocha: "Rs 800 kharch karoon?" <span class="tag p-agent">Permission</span></li>
+            <li>✅ Ijazat mili, order diya — 20 minute!</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 5: game -->
+  <section id="game">
+    <h2><span class="step">5</span>Pehchano kaun hai</h2>
+    <div class="ur">ہر کارڈ پڑھیں اور صحیح دوست چنیں</div>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;margin:8px 0">
+      <div class="score" id="score">Score: 0</div>
+      <div id="count" style="color:var(--soft)"></div>
+    </div>
+    <div class="progress"><div id="prog"></div></div>
+    <div id="playArea">
+      <div class="cardq">
+        <div class="emoji" id="qEmoji"></div>
+        <p id="qText"></p>
+        <div class="choices" id="choices"></div>
+      </div>
+      <div class="feedback" id="fb" aria-live="polite"></div>
+      <div style="text-align:center"><button class="next hidden" id="nextBtn">Agla card</button></div>
+    </div>
+  </section>
+
+  <section id="certSec" class="hidden">
+    <div class="cert">
+      <svg width="70" height="70"><use href="#ai4kids-logo"/></svg>
+      <div class="logo" style="justify-content:center">AI4Kids</div>
+      <p style="margin:10px 0 0">Shabash! Yeh certificate diya jata hai</p>
+      <div class="nm" id="certName"></div>
+      <p style="margin:0">ko, jis ne LLM, Memory, Chatbot, Tools, Connectors, Permissions aur AI Agent ka farq samajh liya.</p>
+      <div class="ur" style="text-align:center">اس نے LLM، چیٹ بوٹ اور AI ایجنٹ کا فرق سیکھ لیا</div>
+      <p class="score" id="certScore"></p>
+      <p style="font-size:15px;color:var(--soft)">📸 Screenshot le kar apne teacher ko bhejein</p>
+      <button id="again">Dobara khelo</button>
+    </div>
+  </section>
+</div>
+
+<script>
+function esc(s){ return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function speak(t){ try { speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(t); u.rate = .9; speechSynthesis.speak(u); } catch(e){} }
+
+// ---------- name ----------
+let student = "";
+const gate = document.getElementById('gate'), nameIn = document.getElementById('nameIn');
+try { student = localStorage.getItem('ai4k_student') || ""; } catch(e){}
+if (student) nameIn.value = student;
+function start(){
+  const v = nameIn.value.trim();
+  if (!v){ document.getElementById('err').textContent = "Pehle apna naam likhein."; nameIn.focus(); return; }
+  student = v;
+  try { localStorage.setItem('ai4k_student', v); } catch(e){}
+  document.getElementById('hi').innerHTML = "Salam, <b>" + esc(v) + "</b> 👋";
+  gate.style.display = 'none';
+  showStage(1); resetChat(); newGame();
+}
+document.getElementById('startBtn').onclick = start;
+nameIn.addEventListener('keydown', e => { if (e.key === 'Enter') start(); });
+nameIn.focus();
+
+// ---------- builder ----------
+const stages = {
+  1:{title:"🧠 LLM (Large Language Model)", color:"var(--llm)",
+     formula:"LLM = bohat bada dimagh (memory nahi)",
+     en:"An LLM read millions of books and web pages and learned how words fit together, so it can guess the next word. But it has no memory. Every message is brand new for it, and it forgets what you said before. It also cannot do any work.",
+     ur:"LLM نے لاکھوں کتابیں پڑھ کر الفاظ کا کھیل سیکھا۔ مگر اس کی یادداشت نہیں — ہر پیغام اس کے لیے نیا ہے۔",
+     ex:"Misaal: \"Pakistan ka capital ___\" → Islamabad. Phir poocho \"maine abhi kya poocha tha?\" → pata nahi!"},
+  2:{title:"💬 Chatbot = LLM + Memory", color:"var(--chat)",
+     formula:"Chatbot = 🧠 dimagh + 📒 memory + 💬 chat window",
+     en:"When we give the LLM a memory, which is a copy of the whole conversation, and put it in a chat window, it becomes a chatbot. Now it remembers your name and your earlier questions, so it can join a real chat. But it still only talks. It cannot go and do the job.",
+     ur:"جب LLM کو میموری (پوری گفتگو کی کاپی) ملتی ہے تو وہ چیٹ بوٹ بن جاتا ہے۔ اب نام اور پچھلی باتیں یاد رہتی ہیں، مگر کام نہیں کرتا۔",
+     ex:"Misaal: \"Mera naam Ali hai\" … baad mein \"mera naam kya hai?\" → \"Ali!\""},
+  3:{title:"🦾 AI Agent", color:"var(--agent)",
+     formula:"Agent = 🧠 + 📒 + 🛠️ Tools + 🔌 Connectors + 🔑 Permissions",
+     en:"An AI agent is a chatbot that can act. Tools are instruments it uses, like search or a calculator. Connectors are plugs that join it to your apps, like Gmail or Calendar. Permissions decide what it is allowed to do. It makes a plan, uses these, and finishes the task, asking a person before big actions.",
+     ur:"ایجنٹ کو اوزار (Tools)، ایپس سے جوڑنے والی تار (Connectors) اور اجازت (Permissions) چاہیے۔ پھر وہ منصوبہ بنا کر کام مکمل کرتا ہے۔",
+     ex:"Misaal: Mausam dekha 🛠️, Calendar se joda 🔌, Abbu ki ijazat 🔑 le kar match ka reminder lagaya."}
+};
+function showStage(n){
+  document.querySelectorAll('.stages button').forEach(b => b.setAttribute('aria-pressed', b.dataset.stage == n));
+  document.getElementById('pMemory').classList.toggle('off', n < 2);
+  document.getElementById('pMouth').classList.toggle('off', n < 2);
+  document.getElementById('pArms').classList.toggle('off', n < 3);
+  const s = stages[n];
+  document.getElementById('explain').innerHTML =
+    '<h3 style="color:'+s.color+'">'+s.title+' <button class="say" aria-label="Suno">🔊</button></h3>'+
+    '<div class="formula">'+s.formula+'</div>'+
+    '<p style="margin:4px 0">'+s.en+'</p>'+
+    '<div class="ur">'+s.ur+'</div>'+
+    '<p style="margin:4px 0;font-weight:700">'+s.ex+'</p>';
+  document.querySelector('#explain .say').onclick = () => speak(s.en);
+}
+document.querySelectorAll('.stages button').forEach(b => b.onclick = () => showStage(+b.dataset.stage));
+
+// ---------- memory lab ----------
+let memoryOn = false, memStep = 0, notes = [];
+const chatbox = document.getElementById('chatbox'), sendrow = document.getElementById('sendrow');
+function script(){
+  return [
+    {me:"Mera naam " + student + " hai.", note:"Naam: " + student,
+     off:"Wa alaikum salam! Aap kaise hain?", on:"Wa alaikum salam " + student + "! Main yaad rakhoonga. 😊"},
+    {me:"Mujhe cricket bohat pasand hai 🏏", note:"Pasand: cricket",
+     off:"Cricket ek mashhoor khel hai!", on:"Wah! Cricket — yeh bhi likh liya."},
+    {me:"Batao, mera naam kya hai aur mujhe kya pasand hai?", note:null,
+     off:"Maaf kijiye, mujhe nahi pata. 🫥 Mere liye har message naya hai — pichli baatein mere paas nahi.",
+     on:"Aapka naam " + student + " hai aur aapko cricket pasand hai! 🎉"}
+  ];
+}
+function addMsg(text, cls){ const d = document.createElement('div'); d.className = 'msg ' + cls; d.textContent = text; chatbox.appendChild(d); }
+function renderNotebook(){
+  const nb = document.getElementById('nbody');
+  if (!memoryOn){ nb.innerHTML = '<p class="empty">🫥 Memory band hai. LLM kuch likh kar nahi rakhta.</p>'; return; }
+  nb.innerHTML = notes.length ? '<ul>' + notes.map(n => '<li>' + esc(n) + '</li>').join('') + '</ul>' : '<p class="empty">Abhi khali hai. Message bhejo!</p>';
+}
+function resetChat(){
+  memStep = 0; notes = []; chatbox.innerHTML = '';
+  addMsg(memoryOn ? "📒 Chatbot (memory ON) tayyar hai." : "🧠 Sirf LLM (memory OFF) tayyar hai.", 'bot');
+  document.getElementById('memLesson').style.display = 'none';
+  renderNotebook(); renderSend();
+}
+function renderSend(){
+  const s = script();
+  sendrow.innerHTML = '';
+  if (memStep < s.length){
+    const b = document.createElement('button');
+    b.textContent = "📤 " + s[memStep].me;
+    b.onclick = sendNext;
+    sendrow.appendChild(b);
+  } else {
+    const b = document.createElement('button');
+    b.textContent = "🔄 Dobara try karo";
+    b.onclick = resetChat;
+    sendrow.appendChild(b);
+  }
+}
+function sendNext(){
+  const s = script()[memStep];
+  addMsg(s.me, 'me');
+  if (memoryOn && s.note) notes.push(s.note);
+  renderNotebook();
+  const last = memStep === 2;
+  setTimeout(() => {
+    addMsg(memoryOn ? s.on : s.off, last ? (memoryOn ? 'bot remember' : 'bot forgot') : 'bot');
+    chatbox.scrollTop = chatbox.scrollHeight;
+    if (last){
+      const L = document.getElementById('memLesson');
+      L.style.display = 'block';
+      L.innerHTML = memoryOn
+        ? "✅ <b>Memory ON:</b> har naye sawal ke saath poori guftagu ki copy LLM ko di gayi, is liye usay yaad raha. <b>LLM + Memory = Chatbot!</b>"
+        : "❌ <b>Memory OFF:</b> LLM ne sirf aakhri message dekha, is liye naam aur pasand bhool gaya. Ab upar <b>Memory ON</b> kar ke try karo!";
+    }
+  }, 450);
+  memStep++; renderSend();
+}
+document.getElementById('memOff').onclick = () => { memoryOn = false; setMemBtns(); resetChat(); };
+document.getElementById('memOn').onclick = () => { memoryOn = true; setMemBtns(); resetChat(); };
+function setMemBtns(){ document.getElementById('memOff').setAttribute('aria-pressed', !memoryOn); document.getElementById('memOn').setAttribute('aria-pressed', memoryOn); }
+
+// ---------- agent kit ----------
+const kitItems = {
+  tool:[{id:"search",l:"🔍 Web search"},{id:"weather",l:"🌦️ Mausam tool"},{id:"map",l:"🗺️ Map / qareebi jagah"}],
+  conn:[{id:"gmail",l:"📧 Gmail"},{id:"calendar",l:"📅 Calendar"},{id:"food",l:"🛵 Food app"}],
+  perm:[{id:"p_send",l:"✉️ Email bhejne ki ijazat"},{id:"p_cal",l:"✍️ Calendar mein likhne ki ijazat"},{id:"p_money",l:"💰 Paise kharch karne ki ijazat"}]
+};
+const labelOf = {}; Object.values(kitItems).flat().forEach(i => labelOf[i.id] = i.l);
+const bag = new Set();
+document.querySelectorAll('.items').forEach(box => {
+  kitItems[box.dataset.kind].forEach(it => {
+    const b = document.createElement('button');
+    b.textContent = it.l; b.setAttribute('aria-pressed','false');
+    b.onclick = () => { bag.has(it.id) ? bag.delete(it.id) : bag.add(it.id); b.setAttribute('aria-pressed', bag.has(it.id)); };
+    box.appendChild(b);
+  });
+});
+const missions = [
+  {t:"🌧️ Mausam dekh kar chhatri ka batao", d:"\"Kal Islamabad mein barish hogi? Ho to mujhe chhatri yaad dilao.\"",
+   need:{tool:["weather"],conn:[],perm:[]},
+   done:["🌦️ Mausam tool se kal ka mausam dekha: barish 70%","💬 Bataya: \"Kal chhatri le kar jana!\""],
+   extra:"Is mission mein connector aur permission ki zaroorat hi nahi thi — sirf tool kaafi tha."},
+  {t:"📧 Teacher ko homework email", d:"\"Miss Sana ko email bhejo ke mera science project kal jama hoga.\"",
+   need:{tool:[],conn:["gmail"],perm:["p_send"]},
+   done:["📧 Gmail connector se account khola","🙋 Poocha: \"Yeh email bhej doon?\" — Haan!","✅ Email bhej di gayi"]},
+  {t:"📅 Cricket practice reminder", d:"\"Kal 4 baje cricket practice mere calendar mein daal do.\"",
+   need:{tool:[],conn:["calendar"],perm:["p_cal"]},
+   done:["📅 Calendar connector se joda","✍️ Kal 4:00 baje \"Cricket practice 🏏\" likha","✅ Reminder lag gaya"]},
+  {t:"🍛 Biryani mangwao", d:"\"Qareebi dukan se aloo wali biryani mangwa do.\"",
+   need:{tool:["map"],conn:["food"],perm:["p_money"]},
+   done:["🗺️ Map tool se qareebi dukanein dhoondi","🛵 Food app connector se order form khola","🙋 Ammi se poocha: \"Rs 800 kharch karoon?\" — Haan!","✅ Order ho gaya, 20 minute!"]}
+];
+let curM = 0;
+const mBox = document.getElementById('missions');
+missions.forEach((m,i) => {
+  const b = document.createElement('button');
+  b.textContent = m.t; b.setAttribute('aria-pressed', i===0);
+  b.onclick = () => { curM = i; mBox.querySelectorAll('button').forEach((x,j) => x.setAttribute('aria-pressed', j===i)); document.getElementById('missionDesc').textContent = "Mission: " + m.d; document.getElementById('log').innerHTML = '<div style="color:var(--soft)">Bag tayyar karo aur Agent chalao.</div>'; };
+  mBox.appendChild(b);
+});
+document.getElementById('missionDesc').textContent = "Mission: " + missions[0].d;
+const why = {
+  tool:id => "Agent ke paas <b>" + labelOf[id] + "</b> tool nahi hai. Auzaar ke baghair kaam kaise karega? 🛠️",
+  conn:id => "Agent aapki <b>" + labelOf[id] + "</b> app tak pahunch hi nahi sakta — plug laga hi nahi! 🔌",
+  perm:id => "Connector laga hai, magar <b>" + labelOf[id] + "</b> nahi mili. Agent ne ruk kar kaha: \"Mujhe ijazat nahi hai.\" 🔑"
+};
+document.getElementById('runBtn').onclick = () => {
+  const m = missions[curM], log = document.getElementById('log');
+  const lines = ['<div>🧠 Dimagh ne plan banaya…</div>'];
+  let failed = false;
+  for (const kind of ["tool","conn","perm"]){
+    for (const id of m.need[kind]){
+      if (!bag.has(id)){ lines.push('<div class="bad">⛔ Ruk gaya! ' + why[kind](id) + '</div>'); failed = true; break; }
+    }
+    if (failed) break;
+  }
+  if (!failed){
+    m.done.forEach(d => lines.push('<div>' + d + '</div>'));
+    const all = [...m.need.tool, ...m.need.conn, ...m.need.perm];
+    const extras = [...bag].filter(id => !all.includes(id));
+    lines.push('<div class="good">🎉 Mission poora, ' + esc(student) + '!</div>');
+    if (m.extra) lines.push('<div>💡 ' + m.extra + '</div>');
+    if (extras.length) lines.push('<div style="color:var(--mem);font-weight:700">⚠️ Aap ne faltu cheezein bhi di: ' + extras.map(x => labelOf[x]).join(', ') + '. Achha agent sirf zaroori ijazat leta hai — baqi hata do!</div>');
+  }
+  log.innerHTML = '';
+  lines.forEach((l,i) => setTimeout(() => log.insertAdjacentHTML('beforeend', l), 350*i));
+};
+document.getElementById('hintBtn').onclick = () => {
+  const n = missions[curM].need, parts = [];
+  parts.push("🛠️ Tools: " + (n.tool.length ? n.tool.map(x => labelOf[x]).join(', ') : "koi nahi"));
+  parts.push("🔌 Connectors: " + (n.conn.length ? n.conn.map(x => labelOf[x]).join(', ') : "koi nahi"));
+  parts.push("🔑 Permissions: " + (n.perm.length ? n.perm.map(x => labelOf[x]).join(', ') : "koi nahi"));
+  document.getElementById('log').innerHTML = '<div><b>💡 Hint:</b></div>' + parts.map(p => '<div>' + p + '</div>').join('');
+};
+
+// ---------- biryani ----------
+document.querySelectorAll('[data-open]').forEach(b => b.onclick = () => {
+  document.getElementById(b.dataset.open).classList.remove('hidden'); b.remove();
+  if (b.dataset.open === 'r3') document.querySelectorAll('#tasks li').forEach((li,i) => setTimeout(() => li.classList.add('done'), 500*(i+1)));
+});
+
+// ---------- game ----------
+const cards = [
+  {e:"📚", t:"Lakhon kitaabein parh kar seekha hua dimagh jo agla lafz andaza lagata hai.", a:"llm", why:"Yeh LLM hai: bada dimagh jo alfaaz ka andaza lagata hai."},
+  {e:"🫥", t:"Aap ne abhi apna naam bataya, magar agle message mein yeh bhool gaya.", a:"llm", why:"Memory nahi = sirf LLM. Har message usay naya lagta hai."},
+  {e:"📒", t:"Isay yaad hai ke aap ne 5 minute pehle kya poocha tha, aur yeh chat mein jawab deta hai.", a:"chat", why:"LLM + memory + chat window = Chatbot."},
+  {e:"🏦", t:"Bank ki app: \"Balance ke liye 1 dabayein, card ke liye 2.\"", a:"chat", why:"Purana chatbot: sirf fixed buttons, koi kaam khud nahi karta."},
+  {e:"🌧️", t:"Mausam tool se barish dekhi aur aapko chhatri le jane ka yaad dilaya.", a:"agent", why:"Tool istemal kar ke kaam kiya: Agent."},
+  {e:"🔌", t:"Gmail connector se joda, ijazat li, aur teacher ko email bhej di.", a:"agent", why:"Connector + permission + kaam = AI Agent."},
+  {e:"🛑", t:"Paise kharch karne se pehle ruka aur poocha: \"Ammi, order kar doon?\"", a:"agent", why:"Permission maangna achhe Agent ki nishani hai — sirf Agent asal kaam karta hai."},
+  {e:"✏️", t:"\"Sooraj mashriq se ___\" — khali jagah mein \"nikalta hai\" bataya.", a:"llm", why:"Agle lafz ka andaza lagana LLM ka asal kaam hai."},
+  {e:"💬", t:"School website par: \"Admission ke baare mein poochiye!\" — sirf sawal jawab karta hai.", a:"chat", why:"Baat cheet karta hai, kaam nahi: Chatbot."},
+  {e:"📅", t:"Calendar mein likhne ki ijazat mili, to kal ki cricket practice ka reminder laga diya.", a:"agent", why:"Connector + permission se kaam kiya: Agent."}
+];
+const names = {llm:"🧠 LLM", chat:"💬 Chatbot", agent:"🦾 AI Agent"};
+const choices = document.getElementById('choices');
+[["llm","c-llm"],["chat","c-chat"],["agent","c-agent"]].forEach(([k,c]) => {
+  const b = document.createElement('button'); b.className = c; b.dataset.ans = k; b.textContent = names[k]; choices.appendChild(b);
+});
+let order = [], idx = 0, score = 0, answered = false;
+function shuffle(a){ for (let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+function newGame(){
+  order = shuffle(cards.slice()); idx = 0; score = 0;
+  document.getElementById('certSec').classList.add('hidden');
+  document.getElementById('playArea').classList.remove('hidden');
+  loadCard();
+}
+function loadCard(){
+  answered = false;
+  const c = order[idx];
+  document.getElementById('qEmoji').textContent = c.e;
+  document.getElementById('qText').textContent = c.t;
+  document.getElementById('fb').innerHTML = "";
+  document.getElementById('nextBtn').classList.add('hidden');
+  choices.querySelectorAll('button').forEach(b => b.disabled = false);
+  document.getElementById('score').textContent = "Score: " + score;
+  document.getElementById('count').textContent = "Card " + (idx+1) + " / " + order.length;
+  document.getElementById('prog').style.width = (idx/order.length*100) + "%";
+}
+choices.addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b || answered) return; answered = true;
+  const c = order[idx], fb = document.getElementById('fb');
+  choices.querySelectorAll('button').forEach(x => x.disabled = true);
+  if (b.dataset.ans === c.a){ score++; fb.innerHTML = '<span class="ok">✅ Shabash ' + esc(student) + '! </span>' + c.why; }
+  else { fb.innerHTML = '<span class="no">❌ Sahi jawab: ' + names[c.a] + '. </span>' + c.why; }
+  document.getElementById('score').textContent = "Score: " + score;
+  const nb = document.getElementById('nextBtn');
+  nb.textContent = idx === order.length-1 ? "Certificate dekho 🏅" : "Agla card";
+  nb.classList.remove('hidden'); nb.focus();
+});
+document.getElementById('nextBtn').onclick = () => {
+  idx++;
+  if (idx < order.length){ loadCard(); return; }
+  document.getElementById('prog').style.width = "100%";
+  document.getElementById('playArea').classList.add('hidden');
+  document.getElementById('certName').textContent = student;
+  document.getElementById('certScore').textContent = "Score: " + score + " / " + order.length + (score === order.length ? " ⭐⭐⭐" : score >= 7 ? " ⭐⭐" : " ⭐");
+  const cs = document.getElementById('certSec'); cs.classList.remove('hidden'); cs.scrollIntoView({behavior:'smooth'});
+};
+document.getElementById('again').onclick = () => { newGame(); document.getElementById('game').scrollIntoView({behavior:'smooth'}); };
+</script>
+</body>
+</html>
