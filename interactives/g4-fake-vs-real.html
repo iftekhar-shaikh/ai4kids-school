@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fake vs real / جعلی بمقابلہ حقیقی | AI4Kids Class 4</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#e8e4f5;--board-deep:#d4cce8;--sky:#c9b8f0;--sky2:#9b7fd4;
+    --accent:#5b4a8f;--ok:#2e7d4f;--ink:#1e2a1a;--ink-soft:#4a5744;
+    --paper:#fdfaf3;--line:#d5dec8;--gold:#e8b23d;--left:#c4453a;
+    --real:#2e7d4f;--fake:#c9702e;--ask:#2f6fb5;
+    --fs-cap:clamp(12px, 3.2vw, 13px);--fs-xs:clamp(14px, 3.7vw, 15px);
+    --fs-sm:clamp(16px, 4.2vw, 17px);--fs-md:clamp(17px, 4.6vw, 19px);
+    --fs-lg:clamp(20px, 5.4vw, 23px);--fs-xl:clamp(27px, 7.4vw, 33px);--lh:1.5;
+  }
+  body.urdu{
+    --fs-cap:clamp(13px, 3.5vw, 15px);--fs-xs:clamp(15px, 4.1vw, 17px);
+    --fs-sm:clamp(17px, 4.7vw, 19px);--fs-md:clamp(19px, 5.2vw, 21px);
+    --fs-lg:clamp(22px, 6vw, 25px);--fs-xl:clamp(26px, 7vw, 31px);--lh:2.1;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  .stars{display:flex;align-items:center;gap:6px;font-weight:800;font-size:var(--fs-xs);
+         background:#fff6e2;border:2px solid var(--gold);border-radius:999px;padding:7px 13px}
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+  .tabs{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
+  .tabs button{
+    flex:1 1 28%;min-width:90px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:10px 6px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:54px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .tabs button .badge{color:var(--gold)}
+  .story{
+    background:#fff8ea;border:2px dashed var(--gold);border-radius:16px;padding:13px 15px;
+    font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;margin-bottom:14px;
+  }
+  body.urdu .story{line-height:var(--lh)}
+  .story b{color:var(--ink)}
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:linear-gradient(180deg,var(--sky) 0%,var(--sky2) 38%,var(--board) 38%,var(--board-deep) 100%);
+    min-height:280px;
+  }
+  .scene-pad{padding:10px 12px 18px;min-height:260px;position:relative}
+  .sky-layer{position:absolute;inset:0 0 58% 0;pointer-events:none;overflow:hidden}
+  .sun-ball{
+    position:absolute;top:12px;right:18px;width:36px;height:36px;border-radius:50%;
+    background:radial-gradient(circle at 35% 35%,#ffe9a0,#f5c542 60%,#e0a020);
+    box-shadow:0 0 18px rgba(245,197,66,.45);z-index:1;
+  }
+  body.urdu .sun-ball{right:auto;left:18px}
+  .cloud{position:absolute;background:rgba(255,255,255,.85);border-radius:40px;opacity:.9}
+  .cloud:before,.cloud:after{content:"";position:absolute;background:inherit;border-radius:50%}
+  .c1{width:48px;height:15px;top:18px;left:12%}
+  .c1:before{width:22px;height:22px;top:-12px;left:6px}
+  .c1:after{width:18px;height:18px;top:-8px;left:24px}
+  .c2{width:34px;height:12px;top:34px;left:55%;opacity:.7}
+  .c2:before{width:16px;height:16px;top:-9px;left:4px}
+  .c2:after{width:12px;height:12px;top:-5px;left:16px}
+  .hero-stage{position:relative;z-index:5;padding-top:70px;text-align:center;min-height:150px}
+  .hero-em{font-size:52px;line-height:1;margin:4px 0 8px;filter:drop-shadow(0 2px 0 rgba(0,0,0,.12))}
+  .card-box{
+    background:rgba(253,250,243,.95);border:2.5px solid var(--ink);border-radius:14px;
+    padding:12px;font-weight:800;font-size:var(--fs-xs);max-width:300px;margin:0 auto;line-height:1.4;
+  }
+  body.urdu .card-box{line-height:1.85}
+  .clue-tag{
+    display:inline-block;margin-top:8px;padding:4px 10px;border-radius:999px;
+    background:#f0ebf8;color:var(--accent);font-size:11px;font-weight:800;
+  }
+  .save-choices{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+  .save-choices button{
+    border:2.5px solid var(--ink);background:var(--paper);border-radius:14px;
+    padding:12px 14px;font:inherit;font-weight:800;font-size:var(--fs-xs);
+    cursor:pointer;text-align:left;min-height:52px;display:flex;align-items:center;gap:10px;
+  }
+  body.urdu .save-choices button{text-align:right}
+  .save-choices button .cem{font-size:26px}
+  .save-choices button.right{border-color:var(--ok);background:#e8f2ed}
+  .save-choices button.wrong{border-color:var(--left);background:#fbeae8}
+  .match-grid{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+  .match-row{
+    display:flex;align-items:center;gap:8px;background:rgba(253,250,243,.95);
+    border:2px solid var(--ink);border-radius:14px;padding:10px 12px;font-weight:800;font-size:var(--fs-xs);
+  }
+  .match-row .mem{font-size:28px;flex-shrink:0}
+  .match-row .mtxt{flex:1;line-height:1.35;text-align:left}
+  body.urdu .match-row .mtxt{text-align:right;line-height:1.85}
+  .match-opts{display:flex;flex-wrap:wrap;gap:4px;justify-content:flex-end}
+  .match-opts button{
+    border:2px solid var(--ink);border-radius:10px;padding:6px 10px;background:#fff;
+    font:inherit;font-weight:800;font-size:11px;cursor:pointer;min-height:36px;
+  }
+  .match-opts button.right{border-color:var(--ok);background:#e8f2ed}
+  .match-opts button.wrong{border-color:var(--left);background:#fbeae8}
+  .share-list{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+  .share-item{
+    display:flex;align-items:center;gap:10px;background:rgba(253,250,243,.95);
+    border:2.5px solid var(--ink);border-radius:14px;padding:10px 12px;
+    font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:52px;text-align:left;
+  }
+  body.urdu .share-item{text-align:right}
+  .share-item .sem{font-size:28px;flex-shrink:0}
+  .share-item .stxt{flex:1;line-height:1.35}
+  body.urdu .share-item .stxt{line-height:1.85}
+  .share-item.picked-do{border-color:var(--ok);background:#e8f2ed}
+  .share-item.picked-dont{border-color:var(--left);background:#fbeae8}
+  .share-item.selected{box-shadow:0 0 0 3px rgba(91,74,143,.25);border-color:var(--accent)}
+  .share-bins{display:flex;gap:8px;margin-top:8px}
+  .share-bin{
+    flex:1;border:2.5px dashed rgba(30,42,26,.4);border-radius:14px;
+    background:rgba(253,250,243,.75);padding:10px 8px;min-height:70px;
+    text-align:center;font-weight:800;font-size:var(--fs-cap);
+  }
+  .share-bin.do{border-color:var(--ok)}
+  .share-bin.dont{border-color:var(--left)}
+  .share-bin .bin-title{margin-bottom:6px;color:var(--ink-soft)}
+  .share-bin .drop{font-size:22px;min-height:28px}
+  .flag-pills{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:8px 0;position:relative;z-index:5}
+  .flag-pill{
+    border:2px solid var(--ink);border-radius:12px;padding:6px 10px;background:#fff;
+    font-size:var(--fs-cap);font-weight:800;
+  }
+  .outcome{
+    margin-top:10px;border-radius:14px;padding:10px 12px;font-weight:700;font-size:var(--fs-xs);
+    display:none;border:2px solid var(--ok);background:#e8f2ed;color:var(--ok);
+  }
+  .outcome.show{display:block}
+  .outcome.bad{border-color:var(--left);background:#fbeae8;color:var(--left)}
+  .readout{
+    margin-top:-18px;position:relative;z-index:2;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+  .statechip.ur{padding:2px 14px 7px}
+  .statechip.win{background:var(--ok)}
+  .statechip.miss{background:var(--left)}
+  .headline{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+  .headline.ur{line-height:1.95}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+  .hintbox{
+    margin-top:14px;border:2px solid var(--accent);background:#f0ebf8;border-radius:14px;
+    padding:11px 14px;font-size:var(--fs-xs);color:var(--accent);font-weight:700;line-height:1.55;
+    display:none;
+  }
+  .hintbox.show{display:block}
+  body.urdu .hintbox{line-height:var(--lh)}
+  .panel{margin-top:22px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .prog{margin:0 0 10px;font-size:var(--fs-xs);font-weight:700;color:var(--ink-soft)}
+  .btns{display:flex;gap:9px;margin-top:8px;flex-wrap:wrap}
+  .btns button{
+    border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);
+    font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:50px;
+    padding:8px 14px;flex:1;
+  }
+  .btns .go{background:var(--ink);color:var(--paper)}
+  .btns button:active{transform:scale(.97)}
+  .btns button:disabled{opacity:.4;cursor:default}
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .qhead{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+  .qhead h2{font-size:var(--fs-lg);font-weight:800;margin:0;flex:1}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:50px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+  .opt.wrong{border-color:var(--left);background:#fbeae8}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
+      grid-template-areas:
+        "bar   bar" "head  head" "tabs  tabs" "story story"
+        "left  right" "quiz  quiz" "foot  foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+    .story{grid-area:story} .left{grid-area:left} .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+    .panel{margin-top:0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition-duration:.01ms !important;animation:none !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 4 · AI &amp; Technology</span>
+    <span class="stars" id="starBox">⭐ <span id="starCount">0</span></span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 id="title"></h1>
+  <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group">
+    <button type="button" id="tabSpot" aria-pressed="true"></button>
+    <button type="button" id="tabFlags" aria-pressed="false"></button>
+    <button type="button" id="tabShare" aria-pressed="false"></button>
+  </div>
+
+  <p class="story" id="story"></p>
+
+  <div class="left">
+  <div class="scene">
+    <div class="scene-pad" id="scenePad"></div>
+  </div>
+  <div class="readout">
+    <span class="statechip" id="statechip"></span>
+    <p class="headline" id="headline"></p>
+    <p class="detail" id="detail"></p>
+    <p class="hintbox" id="hintbox"></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="panel">
+    <h2 id="ctlHead"></h2>
+    <p class="prog" id="prog"></p>
+    <div id="actionBox"></div>
+    <div class="btns">
+      <button type="button" class="go" id="nextBtn"></button>
+    </div>
+    <div class="btns">
+      <button type="button" id="hintBtn"></button>
+      <button type="button" id="resetBtn"></button>
+    </div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <div class="qhead">
+      <h2 id="quizHead"></h2>
+      <button type="button" class="chip" id="newQuiz"></button>
+    </div>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad bilingual school. Offline. WhatsApp 0337 1468899 · Fake vs real"
+       data-ur="اے آئی فور کڈز — اسلام آباد دو لسانی اسکول۔ آف لائن۔ واٹس ایپ 0337 1468899 · جعلی بمقابلہ حقیقی"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  function $(id){ return document.getElementById(id); }
+  function isolate(s){ return "\u2066" + s + "\u2069"; }
+  function setText(el, str){
+    if (!el) return;
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+  function t(o){ return (o && o[lang]) || (o && o.en) || ""; }
+  function shuffle(arr){
+    var a = arr.slice(), i, j, tmp;
+    for (i = a.length - 1; i > 0; i--){
+      j = Math.floor(Math.random() * (i + 1));
+      tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  var lang = "en";
+  var mode = "spot";
+  var stars = 0;
+  var awarded = {};
+  var doneModes = {spot:false, flags:false, share:false};
+
+  var VERDICT = {
+    real:{em:"✅", en:"Real", ur:"حقیقی", cls:"real"},
+    maybe:{em:"⚠️", en:"Maybe fake", ur:"شاید جعلی", cls:"fake"},
+    ask:{em:"🙋", en:"Ask adult", ur:"بڑے سے پوچھو", cls:"ask"}
+  };
+
+  var T = {
+    title:{en:"Fake vs real", ur:"جعلی بمقابلہ حقیقی"},
+    sub:{en:"Not everything online is true — spot clues, pause, ask a trusted adult!",
+         ur:"آن لائن سب کچھ سچ نہیں — اشارے دیکھو، رک جاؤ، قابلِ اعتماد بڑے سے پوچھو!"},
+    tabSpot:{en:"Spot the clue", ur:"اشارہ دیکھو"},
+    tabFlags:{en:"Red flags", ur:"خطرے کے نشان"},
+    tabShare:{en:"Smart share", ur:"سمارٹ شیئر"},
+    storySpot:{en:"Read each kid-safe scene. Is it <b>Real</b>, <b>Maybe fake</b>, or should you <b>Ask an adult</b>?",
+              ur:"ہر منظر پڑھو۔ کیا یہ <b>حقیقی</b> ہے، <b>شاید جعلی</b>، یا <b>بڑے سے پوچھو</b>؟"},
+    storyFlags:{en:"Match each <b>clue</b> to why it matters: too perfect, weird hands, strange spelling, unbelievable claim!",
+                ur:"ہر <b>اشارے</b> کو وجہ سے ملاؤ: بہت کامل، عجیب ہاتھ، عجیب ہجے، ناقابلِ یقین دعویٰ!"},
+    storyShare:{en:"Before you forward a post — sort <b>DO</b> and <b>DON'T</b>. Pause if unsure. Never share scary or unkind things!",
+                ur:"فارورڈ سے پہلے <b>کرو</b> اور <b>مت کرو</b> چھانٹو۔ شک ہو تو رکو۔ خوفناک یا برا شیئر مت کرو!"},
+    ctl:{en:"Your turn — truth detective", ur:"تمہاری باری — سچائی جاسوس"},
+    next:{en:"Next challenge", ur:"اگلا چیلنج"},
+    hint:{en:"Hint", ur:"اشارہ"},
+    reset:{en:"Reset", ur:"ری سیٹ"},
+    quiz:{en:"Check yourself", ur:"اپنا چیک"},
+    newQuiz:{en:"New quiz", ur:"نیا کوئز"},
+    nice:{en:"Shabash — smart check!", ur:"شاباش — سمجھداری سے چیک!"},
+    oops:{en:"Almost — try again", ur:"قریب — دوبارہ آزماؤ"},
+    tip:{en:"Tip: Online photos and posts can be edited or made-up. Look for red flags (too perfect, weird hands, unbelievable free prizes). Pause, check the source, ask a trusted adult, and don't share if unsure!",
+         ur:"نکتہ: آن لائن فوٹو اور پوسٹ میں ترمیم یا بناوٹ ہو سکتی ہے۔ خطرے کے نشان دیکھو (بہت کامل، عجیب ہاتھ، مفت انعام)۔ رکو، ذریعہ چیک کرو، بڑے سے پوچھو، شک ہو تو شیئر مت کرو!"},
+    progSpot:{en:"Clue spots", ur:"اشارہ سپاٹ"},
+    progFlags:{en:"Flag matches", ur:"فلَیگ میچ"},
+    progShare:{en:"Share sorts", ur:"شیئر چھانٹ"},
+    askSpot:{en:"Real, maybe fake, or ask an adult?", ur:"حقیقی، شاید جعلی، یا بڑے سے پوچھو؟"},
+    askFlags:{en:"Match clue → why it matters", ur:"اشارہ → کیوں اہم ہے ملاؤ"},
+    askShare:{en:"Tap a tip, then DO or DON'T", ur:"نکتہ ٹیپ کرو، پھر کرو یا مت کرو"},
+    checkMatch:{en:"Check matches", ur:"میچ چیک کرو"},
+    checkShare:{en:"Check sort", ur:"چھانٹ چیک کرو"},
+    binDo:{en:"DO ✓", ur:"کرو ✓"},
+    binDont:{en:"DON'T ✗", ur:"مت کرو ✗"}
+  };
+
+  /* Mode 1: Spot the clue — 5 kid-safe scenarios */
+  var SPOT = [
+    {
+      id:"sp1",
+      em:"📸✋",
+      title:{en:"Photo of a friend", ur:"دوست کی فوٹو"},
+      scene:{en:"A photo of your classmate looks almost real — but the hand has six fingers!",
+             ur:"کلاس میٹ کی فوٹو تقریباً حقیقی لگتی ہے — مگر ہاتھ میں چھ انگلیاں ہیں!"},
+      clue:{en:"Weird hands", ur:"عجیب ہاتھ"},
+      correct:"maybe",
+      hint:{en:"Extra fingers are a common fake-image clue. Maybe fake — ask an adult before sharing.",
+            ur:"اضافی انگلیاں جعلی تصویر کا عام اشارہ ہیں۔ شاید جعلی — شیئر سے پہلے بڑے سے پوچھو۔"},
+      done:{en:"Yes — weird hands = maybe fake!", ur:"ہاں — عجیب ہاتھ = شاید جعلی!"}
+    },
+    {
+      id:"sp2",
+      em:"🏫📋",
+      title:{en:"School notice", ur:"اسکول نوٹس"},
+      scene:{en:"A neat notice from your class WhatsApp group: sports day Friday, same as teacher said in class.",
+             ur:"کلاس واٹس ایپ گروپ کا صاف نوٹس: جمعہ کو اسپورٹس ڈے — استاد نے کلاس میں بھی یہی کہا۔"},
+      clue:{en:"Known source", ur:"جانی پہچانی ذریعہ"},
+      correct:"real",
+      hint:{en:"It matches what teacher already said and comes from your known class group — likely real.",
+            ur:"استاد کی بات سے میل کھاتا ہے اور جانی پہچانی کلاس گروپ سے ہے — غالباً حقیقی۔"},
+      done:{en:"Known source + matches class = real!", ur:"جانی ذریعہ + کلاس سے میل = حقیقی!"}
+    },
+    {
+      id:"sp3",
+      em:"🎁📱",
+      title:{en:"Free phone message", ur:"مفت فون کا پیغام"},
+      scene:{en:"A stranger message: \"You WON a free phone!!! Click NOW or lose it!!!\"",
+             ur:"اجنبی پیغام: \"تم نے مفت فون جیت لیا!!! ابھی کلک کرو ورنہ کھو جاؤ!!!\""},
+      clue:{en:"Too good to be true", ur:"اتنا اچھا کہ یقین نہ آئے"},
+      correct:"ask",
+      hint:{en:"Free prizes that rush you are often tricks. Don't click — ask a trusted adult.",
+            ur:"جلدی کرانے والے مفت انعام اکثر دھوکا ہوتے ہیں۔ کلک مت کرو — بڑے سے پوچھو۔"},
+      done:{en:"Ask an adult before any \"free prize\" click!", ur:"مفت انعام پر کلک سے پہلے بڑے سے پوچھو!"}
+    },
+    {
+      id:"sp4",
+      em:"🌄✨",
+      title:{en:"Too-perfect selfie", ur:"بہت کامل سیلفی"},
+      scene:{en:"A selfie looks shiny like a doll — skin too smooth, no pores, eyes a bit odd.",
+             ur:"سیلفی گڑیا جیسی چمکدار — جلد بہت ہموار، کوئی سوراخ نہیں، آنکھیں تھوڑی عجیب۔"},
+      clue:{en:"Too perfect", ur:"بہت کامل"},
+      correct:"maybe",
+      hint:{en:"Real faces have tiny details. Super-smooth \"perfect\" faces can be edited or AI-made.",
+            ur:"حقیقی چہروں میں چھوٹی تفصیلات ہوتی ہیں۔ بہت ہموار \"کامل\" چہرے ترمیم یا اے آئی ہو سکتے ہیں۔"},
+      done:{en:"Too perfect can mean maybe fake!", ur:"بہت کامل = شاید جعلی!"}
+    },
+    {
+      id:"sp5",
+      em:"🏏📰",
+      title:{en:"Unbelievable claim", ur:"ناقابلِ یقین دعویٰ"},
+      scene:{en:"A post says: \"A Class 4 kid just became cricket captain of Pakistan overnight!!!\" with a blurry face photo.",
+             ur:"پوسٹ کہتی ہے: \"ایک کلاس ۴ کا بچہ راتوں رات پاکستان کا کرکٹ کپتان بن گیا!!!\" دھندلی فوٹو کے ساتھ۔"},
+      clue:{en:"Unbelievable + blurry", ur:"ناقابلِ یقین + دھندلا"},
+      correct:"ask",
+      hint:{en:"Huge claims with blurry pictures need a trusted adult and a real news check — don't forward yet.",
+            ur:"بڑے دعوے اور دھندلی تصویر پر بڑے سے پوچھو اور حقیقی خبر چیک کرو — ابھی فارورڈ مت کرو۔"},
+      done:{en:"Unbelievable claim? Ask adult — don't share!", ur:"ناقابلِ یقین؟ بڑے سے پوچھو — شیئر مت!"}
+    }
+  ];
+
+  /* Mode 2: Red flags — match clue → why */
+  var FLAGS = [
+    {
+      id:"f1",
+      title:{en:"Photo clues", ur:"فوٹو کے اشارے"},
+      rows:[
+        {id:"a", em:"✋6️⃣", clue:{en:"Weird / extra fingers", ur:"عجیب / اضافی انگلیاں"}, why:"hands"},
+        {id:"b", em:"✨😊", clue:{en:"Face too perfect & shiny", ur:"چہرہ بہت کامل و چمکدار"}, why:"perfect"},
+        {id:"c", em:"😶🌫️", clue:{en:"Blurry face on a \"news\" photo", ur:"\"خبر\" کی فوٹو پر دھندلا چہرہ"}, why:"blur"}
+      ],
+      whys:{
+        hands:{en:"Often a fake/edited image clue", ur:"اکثر جعلی/ترمیم شدہ تصویر کا اشارہ"},
+        perfect:{en:"May be heavily edited or AI-made", ur:"شدید ترمیم یا اے آئی ہو سکتی ہے"},
+        blur:{en:"Hard to trust — check source first", ur:"بھروسہ مشکل — پہلے ذریعہ چیک کرو"}
+      },
+      hint:{en:"Hands, perfect skin, and blurry \"news\" faces are red flags — pause and check.",
+            ur:"ہاتھ، کامل جلد، اور دھندلی \"خبر\" چہرے خطرے کے نشان ہیں — رکو اور چیک کرو۔"},
+      done:{en:"Photo red flags matched!", ur:"فوٹو کے خطرے کے نشان مل گئے!"}
+    },
+    {
+      id:"f2",
+      title:{en:"Text & claim clues", ur:"ٹیکسٹ اور دعوے"},
+      rows:[
+        {id:"a", em:"🎁‼️", clue:{en:"\"Free phone — click NOW!!!\"", ur:"\"مفت فون — ابھی کلک!!!\""}, why:"prize"},
+        {id:"b", em:"🔤❓", clue:{en:"Strange spelling in \"official\" note", ur:"\"سرکاری\" نوٹ میں عجیب ہجے"}, why:"spell"},
+        {id:"c", em:"🦄🏏", clue:{en:"Unbelievable overnight fame claim", ur:"راتوں رات مشہور ہونے کا دعویٰ"}, why:"claim"}
+      ],
+      whys:{
+        prize:{en:"Rush + free prize = often a trick", ur:"جلدی + مفت انعام = اکثر دھوکا"},
+        spell:{en:"Real school notes are usually careful", ur:"حقیقی اسکول نوٹس عام طور پر محتاط ہوتے ہیں"},
+        claim:{en:"Too wild? Ask adult before believing", ur:"بہت عجیب؟ یقین سے پہلے بڑے سے پوچھو"}
+      },
+      hint:{en:"Rush prizes, odd spelling, and wild claims are text red flags.",
+            ur:"جلدی والے انعام، عجیب ہجے، اور جنگلی دعوے ٹیکسٹ خطرے کے نشان ہیں۔"},
+      done:{en:"Text red flags matched!", ur:"ٹیکسٹ خطرے کے نشان مل گئے!"}
+    },
+    {
+      id:"f3",
+      title:{en:"What should you do?", ur:"تمہیں کیا کرنا چاہیے؟"},
+      rows:[
+        {id:"a", em:"⏸️", clue:{en:"You feel unsure about a post", ur:"پوسٹ پر شک محسوس ہو"}, why:"pause"},
+        {id:"b", em:"🔎", clue:{en:"You want to know if it's true", ur:"جاننا ہے کہ سچ ہے یا نہیں"}, why:"source"},
+        {id:"c", em:"🙅", clue:{en:"Claim sounds magical / impossible", ur:"دعویٰ جادوئی / ناممکن لگے"}, why:"noshare"}
+      ],
+      whys:{
+        pause:{en:"Pause — don't rush to believe or share", ur:"رکو — جلدی یقین یا شیئر مت کرو"},
+        source:{en:"Check who posted / ask trusted adult", ur:"کون نے پوسٹ کیا چیک کرو / بڑے سے پوچھو"},
+        noshare:{en:"Don't share if unsure", ur:"شک ہو تو شیئر مت کرو"}
+      },
+      hint:{en:"Smart kids pause, check the source, ask an adult, and skip sharing when unsure.",
+            ur:"سمجھدار بچے رکتے ہیں، ذریعہ چیک کرتے ہیں، بڑے سے پوچھتے ہیں، شک پر شیئر نہیں کرتے۔"},
+      done:{en:"Safe habits matched — Shabash!", ur:"محفوظ عادتیں مل گئیں — شاباش!"}
+    }
+  ];
+
+  /* Mode 3: Smart share — DO / DON'T */
+  var SHARE = [
+    {
+      id:"sh1",
+      title:{en:"Before you forward", ur:"فارورڈ سے پہلے"},
+      items:[
+        {id:"a", em:"🙋", en:"Ask Mum/Dad/Ustaad if unsure", ur:"شک ہو تو امی/ابو/استاد سے پوچھو", kind:"do"},
+        {id:"b", em:"⚡", en:"Forward in 1 second — no thinking", ur:"ایک سیکنڈ میں فارورڈ — بغیر سوچے", kind:"dont"},
+        {id:"c", em:"🔎", en:"Check who posted / where it came from", ur:"کون نے پوسٹ کیا / کہاں سے آیا چیک کرو", kind:"do"},
+        {id:"d", em:"🦄", en:"Share wild claims just for fun", ur:"صرف مزے کے لیے جنگلی دعوے شیئر کرو", kind:"dont"}
+      ],
+      hint:{en:"DO: ask adult + check source. DON'T: rush-forward or share wild claims.",
+            ur:"کرو: بڑے سے پوچھو + ذریعہ چیک۔ مت کرو: جلدی فارورڈ یا جنگلی دعوے۔"},
+      done:{en:"Smart share habits locked in!", ur:"سمارٹ شیئر عادتیں سیٹ!"}
+    },
+    {
+      id:"sh2",
+      title:{en:"Kind & careful", ur:"مہربان اور محتاط"},
+      items:[
+        {id:"a", em:"⏸️", en:"Pause if something feels \"off\"", ur:"اگر کچھ \"عجیب\" لگے تو رکو", kind:"do"},
+        {id:"b", em:"😱", en:"Share scary rumours to classmates", ur:"کلاس میٹس کو خوفناک افواہیں بھیجو", kind:"dont"},
+        {id:"c", em:"✅", en:"Believe only after a real check", ur:"حقیقی چیک کے بعد ہی یقین کرو", kind:"do"},
+        {id:"d", em:"👆", en:"Click unknown \"free gift\" links alone", ur:"اکیلے نامعلوم \"مفت تحفہ\" لنک کلک کرو", kind:"dont"}
+      ],
+      hint:{en:"Pause and verify. Never share scary rumours or click strange free-gift links alone.",
+            ur:"رکو اور تصدیق کرو۔ خوفناک افواہیں مت بھیجو؛ مفت تحفہ لنک اکیلے مت کلک کرو۔"},
+      done:{en:"Kind & careful — great digital citizen!", ur:"مہربان و محتاط — بہترین ڈیجیٹل شہری!"}
+    },
+    {
+      id:"sh3",
+      title:{en:"Islamabad class chat", ur:"اسلام آباد کلاس چیٹ"},
+      items:[
+        {id:"a", em:"👨‍👩‍👧", en:"Tell a trusted adult about odd posts", ur:"عجیب پوسٹ کے بارے میں بڑے کو بتاؤ", kind:"do"},
+        {id:"b", em:"🔁", en:"Reshare blurry \"news\" without checking", ur:"بغیر چیک دھندلی \"خبر\" دوبارہ شیئر", kind:"dont"},
+        {id:"c", em:"🧠", en:"Remember: not everything online is true", ur:"یاد رکھو: آن لائن سب سچ نہیں", kind:"do"},
+        {id:"d", em:"🤡", en:"Make fun of a friend with a fake edit", ur:"جعلی ایڈٹ سے دوست کا مذاق اڑاؤ", kind:"dont"}
+      ],
+      hint:{en:"Tell adults about odd posts. Don't reshare unchecked blurry news or fake-edit friends.",
+            ur:"عجیب پوسٹ بڑوں کو بتاؤ۔ بغیر چیک خبر یا دوست کی جعلی ایڈٹ مت شیئر کرو۔"},
+      done:{en:"Class chat stays safe with you!", ur:"تمہارے ساتھ کلاس چیٹ محفوظ!"}
+    }
+  ];
+
+  /* Quiz pool: 7 items — pick 5. EN + Nastaliq; EN includes light Roman Urdu cues */
+  var QUIZ = [
+    {
+      q:{en:"Not everything online is… (sab online sach nahi)", ur:"آن لائن سب کچھ… نہیں ہوتا"},
+      opts:[
+        {en:"True / real", ur:"سچ / حقیقی"},
+        {en:"Always fun", ur:"ہمیشہ مزے دار"},
+        {en:"Always from your teacher", ur:"ہمیشہ تمہارے استاد سے"},
+        {en:"Always about cricket", ur:"ہمیشہ کرکٹ کے بارے میں"}
+      ],
+      correct:0,
+      why:{en:"Photos and posts can be edited or made-up — pause and check.",
+           ur:"فوٹو اور پوسٹ میں ترمیم یا بناوٹ ہو سکتی ہے — رکو اور چیک کرو۔"}
+    },
+    {
+      q:{en:"A photo shows a hand with six fingers. This is a… (ajeeb haath)",
+         ur:"فوٹو میں ہاتھ کی چھ انگلیاں ہوں تو یہ…"},
+      opts:[
+        {en:"Red flag — maybe fake", ur:"خطرے کا نشان — شاید جعلی"},
+        {en:"Proof it is 100% real", ur:"ثبوت کہ ۱۰۰٪ حقیقی ہے"},
+        {en:"A reason to share faster", ur:"جلدی شیئر کرنے کی وجہ"},
+        {en:"A homework answer", ur:"ہوم ورک کا جواب"}
+      ],
+      correct:0,
+      why:{en:"Weird hands are a common clue that an image might be fake or edited.",
+           ur:"عجیب ہاتھ عام اشارہ ہیں کہ تصویر جعلی یا ترمیم شدہ ہو سکتی ہے۔"}
+    },
+    {
+      q:{en:"\"You won a free phone — click NOW!!!\" You should… (pehle poocho)",
+         ur:"\"مفت فون جیت لیا — ابھی کلک!!!\" تمہیں…"},
+      opts:[
+        {en:"Ask a trusted adult — don't click alone", ur:"بڑے سے پوچھو — اکیلے کلک مت کرو"},
+        {en:"Click as fast as you can", ur:"جتنا تیز ہو سکے کلک کرو"},
+        {en:"Send your home address", ur:"گھر کا پتہ بھیجو"},
+        {en:"Forward to the whole class first", ur:"پہلے پوری کلاس کو فارورڈ کرو"}
+      ],
+      correct:0,
+      why:{en:"Rush + free prize messages are often tricks. Ask an adult first.",
+           ur:"جلدی + مفت انعام اکثر دھوکا ہوتے ہیں۔ پہلے بڑے سے پوچھو۔"}
+    },
+    {
+      q:{en:"Before believing a wild claim, a smart kid will… (source check)",
+         ur:"جنگلی دعوے پر یقین سے پہلے سمجھدار بچہ…"},
+      opts:[
+        {en:"Check the source / ask an adult", ur:"ذریعہ چیک کرے / بڑے سے پوچھے"},
+        {en:"Share it to every chat", ur:"ہر چیٹ میں شیئر کرے"},
+        {en:"Add scary emojis and send", ur:"خوفناک ایموجی لگا کر بھیجے"},
+        {en:"Ignore teachers forever", ur:"استادوں کو ہمیشہ نظر انداز کرے"}
+      ],
+      correct:0,
+      why:{en:"Check who posted it and ask a trusted adult before you believe or share.",
+           ur:"کون نے پوسٹ کیا چیک کرو اور یقین/شیئر سے پہلے بڑے سے پوچھو۔"}
+    },
+    {
+      q:{en:"If you are unsure a post is real, you should… (share mat karo)",
+         ur:"اگر شک ہو کہ پوسٹ حقیقی ہے تو…"},
+      opts:[
+        {en:"Not share it until you check", ur:"چیک کرنے تک شیئر نہ کرو"},
+        {en:"Share it louder with caps lock", ur:"بڑے حروف میں اور زور سے شیئر کرو"},
+        {en:"Change the photo and pretend", ur:"فوٹو بدل کر دکھاوا کرو"},
+        {en:"Tell strangers your password", ur:"اجنبیوں کو پاس ورڈ بتاؤ"}
+      ],
+      correct:0,
+      why:{en:"Don't share if unsure — pause, check, ask an adult.",
+           ur:"شک ہو تو شیئر مت کرو — رکو، چیک کرو، بڑے سے پوچھو۔"}
+    },
+    {
+      q:{en:"A face looks doll-smooth with zero pores. Possible red flag?",
+         ur:"چہرہ گڑیا جیسا ہموار، کوئی سوراخ نہیں۔ ممکنہ خطرے کا نشان؟"},
+      opts:[
+        {en:"Yes — too perfect can mean edited/AI", ur:"ہاں — بہت کامل = ترمیم/اے آئی"},
+        {en:"No — perfect always means true", ur:"نہیں — کامل ہمیشہ سچ ہوتا ہے"},
+        {en:"Only if it is about biryani", ur:"صرف اگر بریانی کے بارے میں ہو"},
+        {en:"Only on Mondays", ur:"صرف پیر کو"}
+      ],
+      correct:0,
+      why:{en:"Super-smooth \"too perfect\" faces can be heavily edited or AI-made.",
+           ur:"بہت ہموار \"کامل\" چہرے شدید ترمیم یا اے آئی ہو سکتے ہیں۔"}
+    },
+    {
+      q:{en:"Best habit for Class 4 digital citizens?",
+         ur:"کلاس ۴ ڈیجیٹل شہریوں کی بہترین عادت؟"},
+      opts:[
+        {en:"Pause → check source → ask adult → share only if sure",
+         ur:"رکو → ذریعہ چیک → بڑے سے پوچھو → یقین ہو تو شیئر"},
+        {en:"Believe every colourful post", ur:"ہر رنگین پوسٹ پر یقین"},
+        {en:"Forward first, think later", ur:"پہلے فارورڈ، بعد میں سوچو"},
+        {en:"Never talk to teachers about online stuff", ur:"آن لائن بات استاد سے کبھی نہ کرو"}
+      ],
+      correct:0,
+      why:{en:"Pause, check, ask, then share only when you are sure — that keeps friends safe.",
+           ur:"رکو، چیک کرو، پوچھو، پھر یقین پر شیئر — اس سے دوست محفوظ رہتے ہیں۔"}
+    }
+  ];
+
+  var spotIdx = 0, spotDone = {};
+  var flagsIdx = 0, flagsDone = {}, flagsMap = {};
+  var shareIdx = 0, shareDone = {}, shareMap = {}, shareSelected = null;
+  var quizSet = [];
+
+  function award(key, n){
+    if (awarded[key]) return;
+    awarded[key] = true;
+    stars += (n || 1);
+    $("starCount").textContent = String(stars);
+  }
+  function recountStars(){
+    stars = 0;
+    Object.keys(awarded).forEach(function(k){
+      stars += (k.indexOf("mode-")===0) ? 2 : 1;
+    });
+    $("starCount").textContent = String(stars);
+  }
+
+  function skyHTML(){
+    return '<div class="sky-layer"><div class="sun-ball"></div>' +
+           '<div class="cloud c1"></div><div class="cloud c2"></div></div>';
+  }
+
+  /* ---------- SPOT ---------- */
+  function renderSpot(){
+    var ch = SPOT[spotIdx];
+    var pad = $("scenePad");
+    pad.innerHTML = skyHTML() +
+      '<div class="hero-stage">' +
+      '<div class="hero-em">'+ch.em+'</div>' +
+      '<div class="card-box" id="spotCard"></div>' +
+      '<div class="clue-tag" id="spotClue"></div></div>';
+    setText($("spotCard"), t(ch.scene));
+    setText($("spotClue"), "🔎 " + t(ch.clue));
+
+    setText($("statechip"), (spotIdx+1) + " / " + SPOT.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"");
+    setText($("headline"), t(ch.title));
+    setText($("detail"), t(T.askSpot));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+    var choices = document.createElement("div");
+    choices.className = "save-choices";
+    ["real","maybe","ask"].forEach(function(vk){
+      var v = VERDICT[vk];
+      var b = document.createElement("button");
+      b.type = "button";
+      b.innerHTML = '<span class="cem">'+v.em+'</span><span class="clab"></span>';
+      setText(b.querySelector(".clab"), t(v));
+      if (spotDone[ch.id]){
+        b.disabled = true;
+        if (vk === ch.correct) b.classList.add("right");
+      }
+      b.addEventListener("click", function(){
+        if (spotDone[ch.id]) return;
+        if (vk === ch.correct){
+          spotDone[ch.id] = true;
+          award("spot-"+ch.id, 1);
+          b.classList.add("right");
+          setText($("headline"), t(ch.done));
+          $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.nice));
+          if (Object.keys(spotDone).length >= SPOT.length){
+            doneModes.spot = true;
+            award("mode-spot", 2);
+          }
+          tabBadges();
+          renderSpot();
+        } else {
+          b.classList.add("wrong");
+          setText($("headline"), t(T.oops));
+          $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.oops));
+        }
+      });
+      choices.appendChild(b);
+    });
+    box.appendChild(choices);
+    setText($("prog"), t(T.progSpot) + ": " + Object.keys(spotDone).length + "/" + SPOT.length);
+  }
+
+  /* ---------- FLAGS ---------- */
+  function renderFlags(){
+    var ch = FLAGS[flagsIdx];
+    var whyKeys = Object.keys(ch.whys);
+    var pad = $("scenePad");
+    pad.innerHTML = skyHTML() +
+      '<div class="hero-stage">' +
+      '<div class="hero-em">🚩🔍</div>' +
+      '<div class="flag-pills" id="flagPills"></div></div>';
+    var pills = $("flagPills");
+    whyKeys.forEach(function(wk){
+      var sp = document.createElement("span");
+      sp.className = "flag-pill";
+      setText(sp, t(ch.whys[wk]));
+      pills.appendChild(sp);
+    });
+
+    setText($("statechip"), (flagsIdx+1) + " / " + FLAGS.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"");
+    setText($("headline"), t(ch.title));
+    setText($("detail"), t(T.askFlags));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+    var grid = document.createElement("div");
+    grid.className = "match-grid";
+    ch.rows.forEach(function(row){
+      var div = document.createElement("div");
+      div.className = "match-row";
+      div.innerHTML = '<span class="mem">'+row.em+'</span><span class="mtxt"></span><span class="match-opts"></span>';
+      setText(div.querySelector(".mtxt"), t(row.clue));
+      var opts = div.querySelector(".match-opts");
+      whyKeys.forEach(function(wk, wi){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.textContent = String(wi + 1);
+        b.title = t(ch.whys[wk]);
+        if (flagsDone[ch.id] && flagsMap[row.id] === wk){
+          if (wk === row.why) b.classList.add("right");
+        } else if (flagsMap[row.id] === wk){
+          b.style.boxShadow = "0 0 0 2px var(--accent)";
+          b.style.borderColor = "var(--accent)";
+        }
+        b.disabled = !!flagsDone[ch.id];
+        b.addEventListener("click", function(){
+          if (flagsDone[ch.id]) return;
+          flagsMap[row.id] = wk;
+          renderFlags();
+        });
+        opts.appendChild(b);
+      });
+      grid.appendChild(div);
+    });
+    box.appendChild(grid);
+
+    /* legend */
+    var leg = document.createElement("div");
+    leg.style.cssText = "margin-top:8px;font-size:var(--fs-cap);color:var(--ink-soft);font-weight:700";
+    var legBits = whyKeys.map(function(wk, wi){ return (wi+1) + " = " + t(ch.whys[wk]); });
+    setText(leg, legBits.join(" · "));
+    box.appendChild(leg);
+
+    if (!flagsDone[ch.id]){
+      var chk = document.createElement("button");
+      chk.type = "button";
+      chk.style.cssText = "margin-top:10px;width:100%;border:2px solid var(--ink);border-radius:14px;background:var(--ink);color:var(--paper);font:inherit;font-weight:800;min-height:48px;cursor:pointer";
+      setText(chk, t(T.checkMatch));
+      chk.addEventListener("click", function(){
+        var ok = true;
+        ch.rows.forEach(function(r){
+          if (flagsMap[r.id] !== r.why) ok = false;
+        });
+        if (ok && Object.keys(flagsMap).length === ch.rows.length){
+          flagsDone[ch.id] = true;
+          award("flags-"+ch.id, 1);
+          setText($("headline"), t(ch.done));
+          $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.nice));
+          if (Object.keys(flagsDone).length >= FLAGS.length){
+            doneModes.flags = true;
+            award("mode-flags", 2);
+          }
+          tabBadges();
+          renderFlags();
+        } else {
+          setText($("headline"), t(T.oops));
+          $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.oops));
+        }
+      });
+      box.appendChild(chk);
+    }
+
+    setText($("prog"), t(T.progFlags) + ": " + Object.keys(flagsDone).length + "/" + FLAGS.length);
+  }
+
+  /* ---------- SHARE ---------- */
+  function renderShare(){
+    var ch = SHARE[shareIdx];
+    var pad = $("scenePad");
+    pad.innerHTML = skyHTML() +
+      '<div class="hero-stage">' +
+      '<div class="hero-em">📲🤝</div>' +
+      '<div class="share-bins">' +
+      '<div class="share-bin do"><div class="bin-title" id="binDo"></div><div class="drop" id="dropDo"></div></div>' +
+      '<div class="share-bin dont"><div class="bin-title" id="binDont"></div><div class="drop" id="dropDont"></div></div>' +
+      '</div></div>';
+    setText($("binDo"), t(T.binDo));
+    setText($("binDont"), t(T.binDont));
+
+    function refreshDrops(){
+      var dDo = "", dDont = "";
+      ch.items.forEach(function(it){
+        if (shareMap[it.id] === "do") dDo += it.em + " ";
+        if (shareMap[it.id] === "dont") dDont += it.em + " ";
+      });
+      $("dropDo").textContent = dDo || "—";
+      $("dropDont").textContent = dDont || "—";
+    }
+    refreshDrops();
+
+    setText($("statechip"), (shareIdx+1) + " / " + SHARE.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"");
+    setText($("headline"), t(ch.title));
+    setText($("detail"), t(T.askShare));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+    var list = document.createElement("div");
+    list.className = "share-list";
+    ch.items.forEach(function(it){
+      var used = !!shareMap[it.id];
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "share-item";
+      if (shareSelected === it.id) b.classList.add("selected");
+      if (shareDone[ch.id]){
+        b.classList.add(it.kind === "do" ? "picked-do" : "picked-dont");
+        b.disabled = true;
+      } else if (used){
+        b.classList.add(shareMap[it.id] === "do" ? "picked-do" : "picked-dont");
+      }
+      b.innerHTML = '<span class="sem">'+it.em+'</span><span class="stxt"></span>';
+      setText(b.querySelector(".stxt"), t(it));
+      b.disabled = !!shareDone[ch.id];
+      b.addEventListener("click", function(){
+        if (shareDone[ch.id]) return;
+        shareSelected = it.id;
+        renderShare();
+      });
+      list.appendChild(b);
+    });
+    box.appendChild(list);
+
+    var bins = document.createElement("div");
+    bins.className = "save-choices";
+    ["do","dont"].forEach(function(k){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.innerHTML = '<span class="cem">'+(k==="do"?"✅":"🚫")+'</span><span class="clab"></span>';
+      setText(b.querySelector(".clab"), t(k==="do" ? T.binDo : T.binDont));
+      b.disabled = !!shareDone[ch.id] || !shareSelected;
+      b.addEventListener("click", function(){
+        if (shareDone[ch.id] || !shareSelected) return;
+        shareMap[shareSelected] = k;
+        shareSelected = null;
+        renderShare();
+      });
+      bins.appendChild(b);
+    });
+    box.appendChild(bins);
+
+    if (!shareDone[ch.id]){
+      var chk = document.createElement("button");
+      chk.type = "button";
+      chk.style.cssText = "margin-top:10px;width:100%;border:2px solid var(--ink);border-radius:14px;background:var(--ink);color:var(--paper);font:inherit;font-weight:800;min-height:48px;cursor:pointer";
+      setText(chk, t(T.checkShare));
+      chk.addEventListener("click", function(){
+        var ok = true;
+        ch.items.forEach(function(it){
+          if (shareMap[it.id] !== it.kind) ok = false;
+        });
+        if (ok && Object.keys(shareMap).length === ch.items.length){
+          shareDone[ch.id] = true;
+          award("share-"+ch.id, 1);
+          setText($("headline"), t(ch.done));
+          $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.nice));
+          if (Object.keys(shareDone).length >= SHARE.length){
+            doneModes.share = true;
+            award("mode-share", 2);
+          }
+          tabBadges();
+          renderShare();
+        } else {
+          setText($("headline"), t(T.oops));
+          $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.oops));
+        }
+      });
+      box.appendChild(chk);
+    }
+
+    setText($("prog"), t(T.progShare) + ": " + Object.keys(shareDone).length + "/" + SHARE.length);
+  }
+
+  /* ---------- QUIZ ---------- */
+  function pickQuiz(){ quizSet = shuffle(QUIZ).slice(0, 5); }
+  function renderQuiz(){
+    var box = $("quizBox");
+    box.innerHTML = "";
+    quizSet.forEach(function(item, qi){
+      var wrap = document.createElement("div");
+      wrap.className = "q";
+      var p = document.createElement("p");
+      setText(p, (qi+1) + ". " + t(item.q));
+      wrap.appendChild(p);
+      var answered = false;
+      item.opts.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt" + (lang==="ur"?" ur":"");
+        setText(b, t(opt));
+        b.addEventListener("click", function(){
+          if (answered) return;
+          answered = true;
+          if (oi === item.correct){
+            b.classList.add("right");
+            award("quiz-"+qi, 1);
+          } else {
+            b.classList.add("wrong");
+            var kids = wrap.querySelectorAll(".opt");
+            if (kids[item.correct]) kids[item.correct].classList.add("right");
+          }
+          fb.classList.add("show");
+        });
+        wrap.appendChild(b);
+      });
+      var fb = document.createElement("p");
+      fb.className = "fb";
+      setText(fb, t(item.why));
+      wrap.appendChild(fb);
+      box.appendChild(wrap);
+    });
+  }
+
+  function storyHtml(){
+    if (mode === "spot") return t(T.storySpot);
+    if (mode === "flags") return t(T.storyFlags);
+    return t(T.storyShare);
+  }
+
+  function tabBadges(){
+    function lab(btn, label, key){
+      btn.innerHTML = "";
+      var span = document.createElement("span");
+      setText(span, t(label));
+      btn.appendChild(span);
+      if (doneModes[key]){
+        var b = document.createElement("span");
+        b.className = "badge"; b.textContent = " ★";
+        btn.appendChild(b);
+      }
+    }
+    lab($("tabSpot"), T.tabSpot, "spot");
+    lab($("tabFlags"), T.tabFlags, "flags");
+    lab($("tabShare"), T.tabShare, "share");
+    $("tabSpot").setAttribute("aria-pressed", mode==="spot"?"true":"false");
+    $("tabFlags").setAttribute("aria-pressed", mode==="flags"?"true":"false");
+    $("tabShare").setAttribute("aria-pressed", mode==="share"?"true":"false");
+  }
+
+  function setMode(m){
+    mode = m;
+    if (mode === "spot") renderSpot();
+    else if (mode === "flags") renderFlags();
+    else { shareSelected = null; renderShare(); }
+    applyChrome();
+  }
+
+  function applyChrome(){
+    setText($("title"), t(T.title));
+    setText($("subtitle"), t(T.sub));
+    $("story").innerHTML = storyHtml();
+    $("story").classList.toggle("ur", lang==="ur");
+    $("story").setAttribute("dir", lang==="ur"?"rtl":"ltr");
+    setText($("ctlHead"), t(T.ctl));
+    setText($("nextBtn"), t(T.next));
+    setText($("hintBtn"), t(T.hint));
+    setText($("resetBtn"), t(T.reset));
+    setText($("quizHead"), t(T.quiz));
+    setText($("newQuiz"), t(T.newQuiz));
+    $("langBtn").textContent = (lang === "en") ? "اردو" : "EN";
+    $("langBtn").setAttribute("aria-pressed", lang==="ur"?"true":"false");
+    document.body.classList.toggle("urdu", lang==="ur");
+    document.documentElement.lang = (lang==="ur") ? "ur" : "en";
+    document.documentElement.dir = (lang==="ur") ? "rtl" : "ltr";
+    tabBadges();
+    var foot = document.querySelector("footer p");
+    if (foot) setText(foot, foot.getAttribute(lang==="ur"?"data-ur":"data-en"));
+  }
+
+  function applyLang(){
+    applyChrome();
+    if (mode === "spot") renderSpot();
+    else if (mode === "flags") renderFlags();
+    else renderShare();
+    renderQuiz();
+  }
+
+  function next(){
+    if (mode === "spot"){
+      spotIdx = (spotIdx + 1) % SPOT.length;
+      renderSpot();
+    } else if (mode === "flags"){
+      flagsIdx = (flagsIdx + 1) % FLAGS.length;
+      flagsMap = {};
+      renderFlags();
+    } else {
+      shareIdx = (shareIdx + 1) % SHARE.length;
+      shareMap = {}; shareSelected = null;
+      renderShare();
+    }
+  }
+
+  function showHint(){
+    var h;
+    if (mode === "spot") h = SPOT[spotIdx].hint;
+    else if (mode === "flags") h = FLAGS[flagsIdx].hint;
+    else h = SHARE[shareIdx].hint;
+    var hb = $("hintbox");
+    setText(hb, t(h));
+    hb.classList.add("show");
+  }
+
+  function resetMode(){
+    if (mode === "spot"){
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("spot-")===0 || k==="mode-spot") delete awarded[k]; });
+      spotDone = {}; spotIdx = 0; doneModes.spot = false;
+      recountStars(); renderSpot();
+    } else if (mode === "flags"){
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("flags-")===0 || k==="mode-flags") delete awarded[k]; });
+      flagsDone = {}; flagsIdx = 0; flagsMap = {}; doneModes.flags = false;
+      recountStars(); renderFlags();
+    } else {
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("share-")===0 || k==="mode-share") delete awarded[k]; });
+      shareDone = {}; shareIdx = 0; shareMap = {}; shareSelected = null; doneModes.share = false;
+      recountStars(); renderShare();
+    }
+    tabBadges();
+    applyChrome();
+  }
+
+  function cleanSpeakText(s){
+    return String(s || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  }
+  function buildSpeakText(){
+    var bits = [];
+    bits.push(t(T.title));
+    bits.push(cleanSpeakText(storyHtml()));
+    bits.push(cleanSpeakText(($("headline") && $("headline").textContent) || ""));
+    bits.push(cleanSpeakText(($("detail") && $("detail").textContent) || ""));
+    bits.push(t(T.tip));
+    return bits.filter(Boolean).join(". ");
+  }
+  function pickVoice(voices, want){
+    var i, v, L;
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf(want) === 0) return v;
+    }
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf("en") === 0) return v;
+    }
+    return voices[0] || null;
+  }
+  var speakTimer = null;
+  function setSpeaking(on){
+    var btn = $("speakBtn");
+    if (!btn) return;
+    btn.setAttribute("aria-pressed", on ? "true" : "false");
+    btn.style.opacity = on ? "0.65" : "";
+  }
+  function doSpeak(text, asLang){
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.92;
+    u.lang = (asLang === "ur") ? "ur-PK" : "en-US";
+    var voices = window.speechSynthesis.getVoices() || [];
+    var voice = pickVoice(voices, asLang === "ur" ? "ur" : "en");
+    if (voice) u.voice = voice;
+    u.onstart = function(){ setSpeaking(true); };
+    u.onend = function(){ setSpeaking(false); };
+    u.onerror = function(){
+      setSpeaking(false);
+      if (asLang === "ur"){
+        var fallback = cleanSpeakText(T.title.en + ". " + T.storySpot.en + ". " + T.tip.en);
+        var u2 = new SpeechSynthesisUtterance(fallback);
+        u2.lang = "en-US"; u2.rate = 0.92;
+        var v2 = pickVoice(window.speechSynthesis.getVoices() || [], "en");
+        if (v2) u2.voice = v2;
+        u2.onstart = function(){ setSpeaking(true); };
+        u2.onend = u2.onerror = function(){ setSpeaking(false); };
+        window.speechSynthesis.speak(u2);
+      }
+    };
+    window.speechSynthesis.speak(u);
+  }
+  if ("speechSynthesis" in window){
+    try { window.speechSynthesis.getVoices(); } catch (e0) {}
+    if (typeof window.speechSynthesis.addEventListener === "function"){
+      window.speechSynthesis.addEventListener("voiceschanged", function(){
+        try { window.speechSynthesis.getVoices(); } catch (e1) {}
+      });
+    }
+  } else {
+    var noBtn = $("speakBtn");
+    if (noBtn){ noBtn.disabled = true; noBtn.title = "Voice not available on this device"; }
+  }
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en";
+    applyLang();
+  });
+  $("tabSpot").addEventListener("click", function(){ setMode("spot"); });
+  $("tabFlags").addEventListener("click", function(){ setMode("flags"); });
+  $("tabShare").addEventListener("click", function(){ setMode("share"); });
+  $("nextBtn").addEventListener("click", next);
+  $("hintBtn").addEventListener("click", showHint);
+  $("resetBtn").addEventListener("click", resetMode);
+  $("newQuiz").addEventListener("click", function(){ pickQuiz(); renderQuiz(); });
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      var text = buildSpeakText();
+      if (!text) return;
+      if (speakTimer){ clearTimeout(speakTimer); speakTimer = null; }
+      window.speechSynthesis.cancel();
+      setSpeaking(false);
+      var speakLang = lang;
+      speakTimer = setTimeout(function(){
+        speakTimer = null;
+        doSpeak(text, speakLang);
+      }, 80);
+    }catch(e){ setSpeaking(false); }
+  });
+
+  pickQuiz();
+  applyLang();
+})();
+</script>
+</body>
+</html>

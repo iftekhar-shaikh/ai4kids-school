@@ -415,5 +415,13 @@
       "interactive_file": "interactives/g4-ai-decision-tree.html",
       "interactive_label": "Khelo - AI decision tree"
     }
+  },
+  {
+    "file": "kb/grade_4/ai.json",
+    "match_title": "Fake vs real",
+    "add": {
+      "interactive_file": "interactives/g4-fake-vs-real.html",
+      "interactive_label": "Khelo - Fake vs real"
+    }
   }
 ]

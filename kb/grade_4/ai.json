@@ -285,7 +285,9 @@
             "explanation": "Suspicious video dekhnay par hamesha pehle jaanch karna chahiye ke yeh asli hai ya deepfake."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g4-fake-vs-real.html",
+      "interactive_label": "Khelo - Fake vs real"
     },
     {
       "title": "AI jobs",
