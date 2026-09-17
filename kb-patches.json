@@ -399,5 +399,13 @@
       "interactive_file": "interactives/g4-chatbot-kya-hai.html",
       "interactive_label": "Khelo - Chatbot kya hai"
     }
+  },
+  {
+    "file": "kb/grade_4/ai.json",
+    "match_title": "Data types",
+    "add": {
+      "interactive_file": "interactives/g4-data-types.html",
+      "interactive_label": "Khelo - Data types"
+    }
   }
 ]

@@ -171,7 +171,9 @@
             "explanation": "Aawaz data ko gaane ya kisi ki aawaz sunne se samjha ja sakta hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g4-data-types.html",
+      "interactive_label": "Khelo - Data types"
     },
     {
       "title": "AI decision tree",

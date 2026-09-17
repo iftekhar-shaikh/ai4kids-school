@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Data types / ڈیٹا کی اقسام | AI4Kids Class 4</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#e8e4f5;--board-deep:#d4cce8;--sky:#c9b8f0;--sky2:#9b7fd4;
+    --accent:#5b4a8f;--ok:#2e7d4f;--ink:#1e2a1a;--ink-soft:#4a5744;
+    --paper:#fdfaf3;--line:#d5dec8;--gold:#e8b23d;--left:#c4453a;
+    --num:#2f6fb5;--txt:#c9702e;--bool:#3d9b8f;--list:#8b5a2b;
+    --fs-cap:clamp(12px, 3.2vw, 13px);--fs-xs:clamp(14px, 3.7vw, 15px);
+    --fs-sm:clamp(16px, 4.2vw, 17px);--fs-md:clamp(17px, 4.6vw, 19px);
+    --fs-lg:clamp(20px, 5.4vw, 23px);--fs-xl:clamp(27px, 7.4vw, 33px);--lh:1.5;
+  }
+  body.urdu{
+    --fs-cap:clamp(13px, 3.5vw, 15px);--fs-xs:clamp(15px, 4.1vw, 17px);
+    --fs-sm:clamp(17px, 4.7vw, 19px);--fs-md:clamp(19px, 5.2vw, 21px);
+    --fs-lg:clamp(22px, 6vw, 25px);--fs-xl:clamp(26px, 7vw, 31px);--lh:2.1;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  .stars{display:flex;align-items:center;gap:6px;font-weight:800;font-size:var(--fs-xs);
+         background:#fff6e2;border:2px solid var(--gold);border-radius:999px;padding:7px 13px}
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+  .tabs{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
+  .tabs button{
+    flex:1 1 28%;min-width:90px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:10px 6px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:54px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .tabs button .badge{color:var(--gold)}
+  .story{
+    background:#fff8ea;border:2px dashed var(--gold);border-radius:16px;padding:13px 15px;
+    font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;margin-bottom:14px;
+  }
+  body.urdu .story{line-height:var(--lh)}
+  .story b{color:var(--ink)}
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:linear-gradient(180deg,var(--sky) 0%,var(--sky2) 38%,var(--board) 38%,var(--board-deep) 100%);
+    min-height:280px;
+  }
+  .scene-pad{padding:10px 12px 18px;min-height:260px;position:relative}
+  .sky-layer{position:absolute;inset:0 0 58% 0;pointer-events:none;overflow:hidden}
+  .sun-ball{
+    position:absolute;top:12px;right:18px;width:36px;height:36px;border-radius:50%;
+    background:radial-gradient(circle at 35% 35%,#ffe9a0,#f5c542 60%,#e0a020);
+    box-shadow:0 0 18px rgba(245,197,66,.45);z-index:1;
+  }
+  body.urdu .sun-ball{right:auto;left:18px}
+  .cloud{position:absolute;background:rgba(255,255,255,.85);border-radius:40px;opacity:.9}
+  .cloud:before,.cloud:after{content:"";position:absolute;background:inherit;border-radius:50%}
+  .c1{width:48px;height:15px;top:18px;left:12%}
+  .c1:before{width:22px;height:22px;top:-12px;left:6px}
+  .c1:after{width:18px;height:18px;top:-8px;left:24px}
+  .c2{width:34px;height:12px;top:34px;left:55%;opacity:.7}
+  .c2:before{width:16px;height:16px;top:-9px;left:4px}
+  .c2:after{width:12px;height:12px;top:-5px;left:16px}
+  .type-stage{position:relative;z-index:5;padding-top:70px;text-align:center;min-height:150px}
+  .type-hero{font-size:52px;line-height:1;margin:4px 0 8px;filter:drop-shadow(0 2px 0 rgba(0,0,0,.12))}
+  .type-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px}
+  .type-bin{
+    border:2.5px dashed rgba(30,42,26,.4);border-radius:14px;
+    background:rgba(253,250,243,.85);padding:8px 6px;min-height:72px;
+    text-align:center;font-weight:800;font-size:var(--fs-cap);
+  }
+  .type-bin.num{border-color:var(--num)}
+  .type-bin.txt{border-color:var(--txt)}
+  .type-bin.bool{border-color:var(--bool)}
+  .type-bin.list{border-color:var(--list)}
+  .type-bin .bin-title{margin-bottom:4px;color:var(--ink-soft);font-size:11px}
+  .type-bin .drop{font-size:18px;min-height:28px;line-height:1.2}
+  .bank{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:8px;position:relative;z-index:5}
+  .mini-item{
+    border:2px solid var(--ink);border-radius:12px;padding:8px 10px;background:#fff;
+    line-height:1;cursor:pointer;min-width:44px;min-height:48px;font-weight:800;font-size:var(--fs-cap);
+    display:flex;align-items:center;gap:4px;
+  }
+  .mini-item.used{opacity:.3;pointer-events:none}
+  .mini-item.selected{border-color:var(--accent);box-shadow:0 0 0 3px rgba(91,74,143,.2)}
+  .save-choices{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+  .save-choices button{
+    border:2.5px solid var(--ink);background:var(--paper);border-radius:14px;
+    padding:12px 14px;font:inherit;font-weight:800;font-size:var(--fs-xs);
+    cursor:pointer;text-align:left;min-height:52px;display:flex;align-items:center;gap:10px;
+  }
+  body.urdu .save-choices button{text-align:right}
+  .save-choices button .cem{font-size:26px}
+  .save-choices button.right{border-color:var(--ok);background:#e8f2ed}
+  .save-choices button.wrong{border-color:var(--left);background:#fbeae8}
+  .type-row{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:6px 0}
+  .type-pill{
+    border:2px solid var(--ink);border-radius:12px;padding:8px 12px;background:#fff;
+    font-size:var(--fs-cap);font-weight:800;cursor:pointer;min-height:44px;
+  }
+  .type-pill.num{border-color:var(--num);background:#e8f1f9}
+  .type-pill.txt{border-color:var(--txt);background:#fef3e8}
+  .type-pill.bool{border-color:var(--bool);background:#e6f5f2}
+  .type-pill.list{border-color:var(--list);background:#f5efe8}
+  .type-pill.on{box-shadow:0 0 0 3px rgba(91,74,143,.3)}
+  .type-pill.right{border-color:var(--ok);background:#e8f2ed}
+  .type-pill.wrong{border-color:var(--left);background:#fbeae8}
+  .match-grid{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+  .match-row{
+    display:flex;align-items:center;gap:8px;background:rgba(253,250,243,.95);
+    border:2px solid var(--ink);border-radius:14px;padding:10px 12px;font-weight:800;font-size:var(--fs-xs);
+  }
+  .match-row .mem{font-size:28px;flex-shrink:0}
+  .match-row .mtxt{flex:1;line-height:1.35;text-align:left}
+  body.urdu .match-row .mtxt{text-align:right;line-height:1.85}
+  .match-opts{display:flex;flex-wrap:wrap;gap:4px;justify-content:flex-end}
+  .match-opts button{
+    border:2px solid var(--ink);border-radius:10px;padding:6px 10px;background:#fff;
+    font:inherit;font-weight:800;font-size:11px;cursor:pointer;min-height:36px;
+  }
+  .match-opts button.right{border-color:var(--ok);background:#e8f2ed}
+  .match-opts button.wrong{border-color:var(--left);background:#fbeae8}
+  .outcome{
+    margin-top:10px;border-radius:14px;padding:10px 12px;font-weight:700;font-size:var(--fs-xs);
+    display:none;border:2px solid var(--ok);background:#e8f2ed;color:var(--ok);
+  }
+  .outcome.show{display:block}
+  .outcome.bad{border-color:var(--left);background:#fbeae8;color:var(--left)}
+  .readout{
+    margin-top:-18px;position:relative;z-index:2;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+  .statechip.ur{padding:2px 14px 7px}
+  .statechip.win{background:var(--ok)}
+  .statechip.miss{background:var(--left)}
+  .headline{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+  .headline.ur{line-height:1.95}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+  .hintbox{
+    margin-top:14px;border:2px solid var(--accent);background:#f0ebf8;border-radius:14px;
+    padding:11px 14px;font-size:var(--fs-xs);color:var(--accent);font-weight:700;line-height:1.55;
+    display:none;
+  }
+  .hintbox.show{display:block}
+  body.urdu .hintbox{line-height:var(--lh)}
+  .panel{margin-top:22px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .prog{margin:0 0 10px;font-size:var(--fs-xs);font-weight:700;color:var(--ink-soft)}
+  .btns{display:flex;gap:9px;margin-top:8px;flex-wrap:wrap}
+  .btns button{
+    border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);
+    font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:50px;
+    padding:8px 14px;flex:1;
+  }
+  .btns .go{background:var(--ink);color:var(--paper)}
+  .btns button:active{transform:scale(.97)}
+  .btns button:disabled{opacity:.4;cursor:default}
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .qhead{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+  .qhead h2{font-size:var(--fs-lg);font-weight:800;margin:0;flex:1}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:50px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+  .opt.wrong{border-color:var(--left);background:#fbeae8}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
+      grid-template-areas:
+        "bar   bar" "head  head" "tabs  tabs" "story story"
+        "left  right" "quiz  quiz" "foot  foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+    .story{grid-area:story} .left{grid-area:left} .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+    .panel{margin-top:0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition-duration:.01ms !important;animation:none !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 4 · AI &amp; Technology</span>
+    <span class="stars" id="starBox">⭐ <span id="starCount">0</span></span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 id="title"></h1>
+  <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group">
+    <button type="button" id="tabSort" aria-pressed="true"></button>
+    <button type="button" id="tabPick" aria-pressed="false"></button>
+    <button type="button" id="tabWhy" aria-pressed="false"></button>
+  </div>
+
+  <p class="story" id="story"></p>
+
+  <div class="left">
+  <div class="scene">
+    <div class="scene-pad" id="scenePad"></div>
+  </div>
+  <div class="readout">
+    <span class="statechip" id="statechip"></span>
+    <p class="headline" id="headline"></p>
+    <p class="detail" id="detail"></p>
+    <p class="hintbox" id="hintbox"></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="panel">
+    <h2 id="ctlHead"></h2>
+    <p class="prog" id="prog"></p>
+    <div id="actionBox"></div>
+    <div class="btns">
+      <button type="button" class="go" id="nextBtn"></button>
+    </div>
+    <div class="btns">
+      <button type="button" id="hintBtn"></button>
+      <button type="button" id="resetBtn"></button>
+    </div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <div class="qhead">
+      <h2 id="quizHead"></h2>
+      <button type="button" class="chip" id="newQuiz"></button>
+    </div>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad bilingual school. Offline. WhatsApp 0337 1468899 · Data types"
+       data-ur="اے آئی فور کڈز — اسلام آباد دو لسانی اسکول۔ آف لائن۔ واٹس ایپ 0337 1468899 · ڈیٹا کی اقسام"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  function $(id){ return document.getElementById(id); }
+  function isolate(s){ return "\u2066" + s + "\u2069"; }
+  function setText(el, str){
+    if (!el) return;
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+  function t(o){ return (o && o[lang]) || (o && o.en) || ""; }
+  function shuffle(arr){
+    var a = arr.slice(), i, j, tmp;
+    for (i = a.length - 1; i > 0; i--){
+      j = Math.floor(Math.random() * (i + 1));
+      tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  var lang = "en";
+  var mode = "sort";
+  var stars = 0;
+  var awarded = {};
+  var doneModes = {sort:false, pick:false, why:false};
+
+  var TYPES = {
+    num:{em:"🔢", en:"Number", ur:"نمبر", roman:"Number / number", cls:"num"},
+    txt:{em:"🔤", en:"Text", ur:"ٹیکسٹ", roman:"Text / alfaaz", cls:"txt"},
+    bool:{em:"✅❌", en:"Yes-No", ur:"ہاں-نہیں", roman:"Yes-No / haan-nahin", cls:"bool"},
+    list:{em:"📋", en:"List", ur:"لسٹ", roman:"List / fehrist", cls:"list"}
+  };
+
+  var T = {
+    title:{en:"Data types", ur:"ڈیٹا کی اقسام"},
+    sub:{en:"Number, text, yes/no, list — computers store different kinds of data!",
+         ur:"نمبر، ٹیکسٹ، ہاں/نہیں، لسٹ — کمپیوٹر مختلف قسم کا ڈیٹا رکھتی ہے!"},
+    tabSort:{en:"Sort the data", ur:"ڈیٹا چھانٹو"},
+    tabPick:{en:"Pick the type", ur:"قسم چنو"},
+    tabWhy:{en:"Why it matters", ur:"کیوں اہم ہے"},
+    storySort:{en:"Drag chips into bins: <b>Number</b> (9, scores), <b>Text</b> (names), <b>Yes-No</b> (raining?), <b>List</b> (biryani toppings)!",
+              ur:"چپس ڈالو: <b>نمبر</b> (۹، سکور)، <b>ٹیکسٹ</b> (نام)، <b>ہاں-نہیں</b> (بارش؟)، <b>لسٹ</b> (بریانی ٹاپنگز)!"},
+    storyPick:{en:"Read each Islamabad kid scene — is it a <b>number, text, yes/no, or list</b>? Tap the right type!",
+               ur:"ہر منظر پڑھو — کیا یہ <b>نمبر، ٹیکسٹ، ہاں/نہیں، یا لسٹ</b> ہے؟ صحیح قسم ٹیپ کرو!"},
+    storyWhy:{en:"Match each type to a <b>good use</b>: count cricket scores, store names, true/false, many toppings!",
+              ur:"ہر قسم کو <b>اچھے استعمال</b> سے ملاؤ: سکور گننا، نام رکھنا، سچ/جھوٹ، بہت سی ٹاپنگز!"},
+    ctl:{en:"Your turn — data detective", ur:"تمہاری باری — ڈیٹا جاسوس"},
+    next:{en:"Next challenge", ur:"اگلا چیلنج"},
+    hint:{en:"Hint", ur:"اشارہ"},
+    reset:{en:"Reset", ur:"ری سیٹ"},
+    quiz:{en:"Check yourself", ur:"اپنا چیک"},
+    newQuiz:{en:"New quiz", ur:"نیا کوئز"},
+    nice:{en:"Shabash — type spotted!", ur:"شاباش — قسم مل گئی!"},
+    oops:{en:"Almost — try again", ur:"قریب — دوبارہ آزماؤ"},
+    tip:{en:"Tip: Computers need data types — Number for ages & scores, Text for names & words, Yes-No for true/false, List for many items like biryani toppings. Right type = clear thinking!",
+         ur:"نکتہ: کمپیوٹر کو ڈیٹا کی اقسام چاہییں — نمبر عمر و سکور کے لیے، ٹیکسٹ نام و الفاظ، ہاں-نہیں سچ/جھوٹ، لسٹ بہت سی چیزوں جیسے بریانی ٹاپنگز۔ صحیح قسم = صاف سوچ!"},
+    progSort:{en:"Sort rounds", ur:"چھانٹ راؤنڈ"},
+    progPick:{en:"Pick challenges", ur:"چن چیلنج"},
+    progWhy:{en:"Why matches", ur:"کیوں میچ"},
+    askSort:{en:"Tap a chip, then tap a type bin", ur:"چپ ٹیپ کرو، پھر قسم کا باکس"},
+    askPick:{en:"What type of data is this?", ur:"یہ کس قسم کا ڈیٹا ہے؟"},
+    askWhy:{en:"Match type → good computer use", ur:"قسم → اچھا کمپیوٹر استعمال ملاؤ"},
+    checkSort:{en:"Check sort", ur:"چھانٹ چیک کرو"},
+    checkMatch:{en:"Check matches", ur:"میچ چیک کرو"}
+  };
+
+  /* Mode 1: Sort the data — 4 rounds */
+  var SORT = [
+    {
+      id:"s1",
+      title:{en:"School bag of facts", ur:"اسکول بیگ کے حقائق"},
+      cards:[
+        {id:"a", em:"9️⃣", en:"Ali's age: 9", ur:"علی کی عمر: ۹", type:"num"},
+        {id:"b", em:"🏫", en:"School: AI4Kids Islamabad", ur:"اسکول: اے آئی فور کڈز", type:"txt"},
+        {id:"c", em:"🌧️", en:"Is it raining? No", ur:"بارش ہو رہی؟ نہیں", type:"bool"},
+        {id:"d", em:"🍛", en:"Toppings: raita, salad, egg", ur:"ٹاپنگز: رائتا، سلاد، انڈا", type:"list"}
+      ],
+      hint:{en:"Ages are numbers. School name is text. Rain yes/no is boolean. Many toppings = list.",
+            ur:"عمر نمبر ہے۔ اسکول کا نام ٹیکسٹ۔ بارش ہاں/نہیں بولین۔ بہت سی ٹاپنگز = لسٹ۔"},
+      done:{en:"All four types sorted — Shabash!", ur:"چاروں اقسام چھانٹیں — شاباش!"}
+    },
+    {
+      id:"s2",
+      title:{en:"Cricket & class", ur:"کرکٹ اور کلاس"},
+      cards:[
+        {id:"a", em:"🏏", en:"Runs: 54", ur:"رنز: ۵۴", type:"num"},
+        {id:"b", em:"👧", en:"Friend: Ayesha", ur:"دوست: عائشہ", type:"txt"},
+        {id:"c", em:"✅", en:"Homework done? Yes", ur:"ہوم ورک ہوا؟ ہاں", type:"bool"},
+        {id:"d", em:"📝", en:"Subjects: Maths, Urdu, AI", ur:"مضامین: ریاضی، اردو، اے آئی", type:"list"}
+      ],
+      hint:{en:"54 is a number. Ayesha is text (a name). Yes/No answers are boolean. Subjects list = collection.",
+            ur:"۵۴ نمبر ہے۔ عائشہ ٹیکسٹ (نام)۔ ہاں/نہیں بولین۔ مضامین کی لسٹ = مجموعہ۔"},
+      done:{en:"Cricket data typed correctly!", ur:"کرکٹ ڈیٹا درست اقسام میں!"}
+    },
+    {
+      id:"s3",
+      title:{en:"Bazaar & weather", ur:"بازار اور موسم"},
+      cards:[
+        {id:"a", em:"💰", en:"Rs 120 for samosa", ur:"سموسے کے لیے ۱۲۰ روپے", type:"num"},
+        {id:"b", em:"🛒", en:"Shop: Raja Bazaar", ur:"دکان: راجہ بازار", type:"txt"},
+        {id:"c", em:"☀️", en:"Sunny today? Yes", ur:"آج دھوپ؟ ہاں", type:"bool"},
+        {id:"d", em:"🧃", en:"Drinks: lassi, juice, water", ur:"مشروبات: لسی، جوس، پانی", type:"list"}
+      ],
+      hint:{en:"Price = number. Place name = text. Sunny? = yes/no. Drink choices = list.",
+            ur:"قیمت = نمبر۔ جگہ کا نام = ٹیکسٹ۔ دھوپ؟ = ہاں/نہیں۔ مشروبات = لسٹ۔"},
+      done:{en:"Bazaar facts sorted by type!", ur:"بازار حقائق اقسام سے چھانٹے!"}
+    },
+    {
+      id:"s4",
+      title:{en:"Mix & match Pakistan", ur:"مکس اینڈ میچ پاکستان"},
+      cards:[
+        {id:"a", em:"📅", en:"Class 4", ur:"کلاس ۴", type:"num"},
+        {id:"b", em:"🇵🇰", en:"City: Islamabad", ur:"شہر: اسلام آباد", type:"txt"},
+        {id:"c", em:"🚌", en:"Bus late? No", ur:"بس دیر سے؟ نہیں", type:"bool"},
+        {id:"d", em:"🎨", en:"Colors: green, white, gold", ur:"رنگ: سبز، سفید، سونا", type:"list"}
+      ],
+      hint:{en:"Grade 4 is stored as a number. Islamabad is text. Bus late? is yes/no. Colors are a list.",
+            ur:"گریڈ ۴ نمبر کے طور پر۔ اسلام آباد ٹیکسٹ۔ بس دیر؟ ہاں/نہیں۔ رنگ لسٹ ہیں۔"},
+      done:{en:"You know all four data types!", ur:"تم چاروں ڈیٹا اقسام جانتے ہو!"}
+    }
+  ];
+
+  /* Mode 2: Pick the type — 5 scenarios */
+  var PICK = [
+    {
+      id:"p1",
+      title:{en:"Ali's age is 9", ur:"علی کی عمر ۹ ہے"},
+      scene:{en:"Ali is in Class 4. His age is 9 years.", ur:"علی کلاس ۴ میں ہے۔ اس کی عمر ۹ سال ہے۔"},
+      em:"🎂9️⃣",
+      correct:"num",
+      hint:{en:"Age is counted with digits — that is a Number type.",
+            ur:"عمر ہندسوں سے گنتی جاتی ہے — یہ Number / نمبر قسم ہے۔"},
+      done:{en:"Number — computers count ages!", ur:"نمبر — کمپیوٹر عمر گنتی ہے!"}
+    },
+    {
+      id:"p2",
+      title:{en:"School name", ur:"اسکول کا نام"},
+      scene:{en:"The school name is AI4Kids Islamabad.", ur:"اسکول کا نام اے آئی فور کڈز اسلام آباد ہے۔"},
+      em:"🏫✨",
+      correct:"txt",
+      hint:{en:"Names and words are Text (string) — letters, not only digits.",
+            ur:"نام اور الفاظ Text / ٹیکسٹ ہیں — حروف، صرف ہندسے نہیں۔"},
+      done:{en:"Text — words and names!", ur:"ٹیکسٹ — الفاظ اور نام!"}
+    },
+    {
+      id:"p3",
+      title:{en:"Is it raining?", ur:"کیا بارش ہو رہی ہے؟"},
+      scene:{en:"Look outside: Is it raining in Islamabad? Answer: Yes or No.",
+             ur:"باہر دیکھو: اسلام آباد میں بارش؟ جواب: ہاں یا نہیں۔"},
+      em:"🌧️❓",
+      correct:"bool",
+      hint:{en:"Only two answers — Yes or No. That is Yes-No (boolean) data.",
+            ur:"صرف دو جواب — ہاں یا نہیں۔ یہ Yes-No / بولین ڈیٹا ہے۔"},
+      done:{en:"Yes-No — true or false!", ur:"ہاں-نہیں — سچ یا جھوٹ!"}
+    },
+    {
+      id:"p4",
+      title:{en:"Shopping / toppings list", ur:"خریداری / ٹاپنگز لسٹ"},
+      scene:{en:"Biryani toppings: raita, salad, boiled egg, lemon.",
+             ur:"بریانی ٹاپنگز: رائتا، سلاد، ابلا انڈا، لیموں۔"},
+      em:"🍛📋",
+      correct:"list",
+      hint:{en:"Many items together = a List (collection). Order can matter!",
+            ur:"بہت سی چیزیں اکٹھی = List / لسٹ (مجموعہ)۔ ترتیب اہم ہو سکتی ہے!"},
+      done:{en:"List — many items in one place!", ur:"لسٹ — ایک جگہ بہت سی چیزیں!"}
+    },
+    {
+      id:"p5",
+      title:{en:"Cricket score", ur:"کرکٹ سکور"},
+      scene:{en:"Babar scored 78 runs in the match.", ur:"بابر نے میچ میں ۷۸ رنز بنائے۔"},
+      em:"🏏7️⃣8️⃣",
+      correct:"num",
+      hint:{en:"Scores and runs are Numbers — computers add and compare them.",
+            ur:"سکور اور رنز Numbers / نمبر ہیں — کمپیوٹر جوڑتی اور موازنہ کرتی ہے۔"},
+      done:{en:"Number again — sports love numbers!", ur:"پھر نمبر — کھیل نمبر پسند کرتے ہیں!"}
+    }
+  ];
+
+  /* Mode 3: Why it matters — match type to use */
+  var WHY = [
+    {
+      id:"w1",
+      title:{en:"Good jobs for each type", ur:"ہر قسم کا اچھا کام"},
+      rows:[
+        {id:"r1", em:"🔢", type:"num",
+         use:{en:"Count cricket scores & ages", ur:"کرکٹ سکور اور عمر گننا"},
+         hint:"num"},
+        {id:"r2", em:"🔤", type:"txt",
+         use:{en:"Store names & school words", ur:"نام اور اسکول کے الفاظ رکھنا"},
+         hint:"txt"},
+        {id:"r3", em:"✅❌", type:"bool",
+         use:{en:"True / false — raining? done?", ur:"سچ / جھوٹ — بارش؟ ہو گیا؟"},
+         hint:"bool"},
+        {id:"r4", em:"📋", type:"list",
+         use:{en:"Many items — toppings, subjects", ur:"بہت سی چیزیں — ٹاپنگز، مضامین"},
+         hint:"list"}
+      ],
+      hint:{en:"Number→count, Text→names, Yes-No→true/false, List→many items.",
+            ur:"نمبر→گننا، ٹیکسٹ→نام، ہاں-نہیں→سچ/جھوٹ، لسٹ→بہت سی چیزیں۔"},
+      done:{en:"You matched every type to its job!", ur:"ہر قسم کا کام ملایا!"}
+    },
+    {
+      id:"w2",
+      title:{en:"Islamabad app helpers", ur:"اسلام آباد ایپ مددگار"},
+      rows:[
+        {id:"r1", em:"🚌", type:"num",
+         use:{en:"Bus number 14", ur:"بس نمبر ۱۴"},
+         hint:"num"},
+        {id:"r2", em:"📍", type:"txt",
+         use:{en:"Stop name: F-8 Markaz", ur:"اسٹاپ: ایف-۸ مرکز"},
+         hint:"txt"},
+        {id:"r3", em:"⏰", type:"bool",
+         use:{en:"Bus arrived? Yes/No", ur:"بس آ گئی؟ ہاں/نہیں"},
+         hint:"bool"},
+        {id:"r4", em:"🎒", type:"list",
+         use:{en:"Stops on the route", ur:"راستے کے اسٹاپس"},
+         hint:"list"}
+      ],
+      hint:{en:"Apps mix types: a number for bus ID, text for place names, yes/no for arrived, list for stops.",
+            ur:"ایپس اقسام ملاتی ہیں: بس آئی ڈی نمبر، جگہ نام ٹیکسٹ، آ گئی؟ ہاں/نہیں، اسٹاپس لسٹ۔"},
+      done:{en:"App data types unlocked!", ur:"ایپ ڈیٹا اقسام کھل گئیں!"}
+    },
+    {
+      id:"w3",
+      title:{en:"Kitchen computer", ur:"باورچی خانے کا کمپیوٹر"},
+      rows:[
+        {id:"r1", em:"⏲️", type:"num",
+         use:{en:"Cook time: 40 minutes", ur:"پکانے کا وقت: ۴۰ منٹ"},
+         hint:"num"},
+        {id:"r2", em:"👨‍🍳", type:"txt",
+         use:{en:"Dish name: Chicken biryani", ur:"ڈش کا نام: چکن بریانی"},
+         hint:"txt"},
+        {id:"r3", em:"🔥", type:"bool",
+         use:{en:"Stove on? Yes/No", ur:"چولہا آن؟ ہاں/نہیں"},
+         hint:"bool"},
+        {id:"r4", em:"🧂", type:"list",
+         use:{en:"Ingredients list", ur:"اجزا کی فہرست"},
+         hint:"list"}
+      ],
+      hint:{en:"Even cooking needs types — minutes (number), dish name (text), stove on? (yes/no), ingredients (list).",
+            ur:"پکانے میں بھی اقسام — منٹ (نمبر)، ڈش نام (ٹیکسٹ)، چولہا؟ (ہاں/نہیں)، اجزا (لسٹ)۔"},
+      done:{en:"Kitchen data sorted — yummy logic!", ur:"باورچی ڈیٹا چھانٹا — مزے کی منطق!"}
+    }
+  ];
+
+  /* Quiz — 7 pool, pick 5 */
+  var QUIZ = [
+    {
+      q:{en:"Which is a Number type?", ur:"کون سی Number / نمبر قسم ہے؟"},
+      opts:[
+        {en:"Ali's age 9", ur:"علی کی عمر ۹"},
+        {en:"The word Islamabad", ur:"لفظ اسلام آباد"},
+        {en:"Yes, it is raining", ur:"ہاں، بارش ہو رہی ہے"},
+        {en:"A list of toppings", ur:"ٹاپنگز کی لسٹ"}
+      ],
+      correct:0,
+      why:{en:"Ages and scores are numbers — digits computers can add.",
+           ur:"عمر اور سکور نمبر ہیں — ہندسے جنہیں کمپیوٹر جوڑ سکتی ہے۔"}
+    },
+    {
+      q:{en:"School name 'AI4Kids' is which type?", ur:"اسکول کا نام 'AI4Kids' کس قسم کا ہے؟"},
+      opts:[
+        {en:"Text (string / words)", ur:"ٹیکسٹ (الفاظ)"},
+        {en:"Only a number", ur:"صرف ایک نمبر"},
+        {en:"Yes-No only", ur:"صرف ہاں-نہیں"},
+        {en:"Not data at all", ur:"بالکل ڈیٹا نہیں"}
+      ],
+      correct:0,
+      why:{en:"Names and words are Text (also called string).",
+           ur:"نام اور الفاظ Text / ٹیکسٹ ہیں (string بھی کہتے ہیں)۔"}
+    },
+    {
+      q:{en:"'Is homework done?' needs which type?", ur:"'ہوم ورک ہو گیا؟' کس قسم کا ڈیٹا چاہتا ہے؟"},
+      opts:[
+        {en:"Yes-No (boolean)", ur:"ہاں-نہیں (بولین)"},
+        {en:"A long story only", ur:"صرف لمبی کہانی"},
+        {en:"A picture of the moon", ur:"چاند کی تصویر"},
+        {en:"A list of planets", ur:"سیاروں کی لسٹ"}
+      ],
+      correct:0,
+      why:{en:"Questions with only Yes or No answers use boolean / Yes-No data.",
+           ur:"صرف ہاں یا نہیں والے سوالات بولین / ہاں-نہیں ڈیٹا استعمال کرتے ہیں۔"}
+    },
+    {
+      q:{en:"Biryani toppings (raita, salad, egg) are a…",
+         ur:"بریانی ٹاپنگز (رائتا، سلاد، انڈا) ہیں…"},
+      opts:[
+        {en:"List / collection", ur:"لسٹ / مجموعہ"},
+        {en:"Single Yes-No", ur:"ایک ہاں-نہیں"},
+        {en:"One lonely number", ur:"ایک تنہا نمبر"},
+        {en:"Not useful data", ur:"بے کار ڈیٹا"}
+      ],
+      correct:0,
+      why:{en:"Many items together make a List (collection).",
+           ur:"بہت سی چیزیں اکٹھی لسٹ (مجموعہ) بناتی ہیں۔"}
+    },
+    {
+      q:{en:"Why do computers need data types?", ur:"کمپیوٹر کو ڈیٹا کی اقسام کیوں چاہییں؟"},
+      opts:[
+        {en:"So it knows how to store & use each kind", ur:"تاکہ ہر قسم کو صحیح رکھے اور استعمال کرے"},
+        {en:"Only to decorate the screen", ur:"صرف سکرین سجانے کے لیے"},
+        {en:"Types are never needed", ur:"اقسام کبھی نہیں چاہییں"},
+        {en:"Only for drawing cats", ur:"صرف بلیاں کھینچنے کے لیے"}
+      ],
+      correct:0,
+      why:{en:"Right type helps the computer store, compare, and use data correctly.",
+           ur:"صحیح قسم کمپیوٹر کو ڈیٹا درست رکھنے، موازنہ اور استعمال میں مدد دیتی ہے۔"}
+    },
+    {
+      q:{en:"Cricket score 54 is best stored as…", ur:"کرکٹ سکور ۵۴ بہترین کیسے محفوظ ہو؟"},
+      opts:[
+        {en:"Number", ur:"نمبر"},
+        {en:"Only Yes-No", ur:"صرف ہاں-نہیں"},
+        {en:"A random song", ur:"بے ترتیب گانا"},
+        {en:"Empty nothing", ur:"خالی کچھ نہیں"}
+      ],
+      correct:0,
+      why:{en:"Scores are numbers so we can add runs and compare totals.",
+           ur:"سکور نمبر ہیں تاکہ رنز جوڑیں اور ٹوٹل موازنہ کریں۔"}
+    },
+    {
+      q:{en:"Which is Yes-No (boolean) data?", ur:"کون سا ہاں-نہیں (بولین) ڈیٹا ہے؟"},
+      opts:[
+        {en:"Bus late? No", ur:"بس دیر سے؟ نہیں"},
+        {en:"The name Ayesha", ur:"نام عائشہ"},
+        {en:"Runs: 100", ur:"رنز: ۱۰۰"},
+        {en:"List of three colors", ur:"تین رنگوں کی لسٹ"}
+      ],
+      correct:0,
+      why:{en:"Late? Yes/No is boolean — only two possible answers.",
+           ur:"دیر؟ ہاں/نہیں بولین ہے — صرف دو ممکنہ جواب۔"}
+    }
+  ];
+
+  var sortIdx = 0, sortDone = {}, sortMap = {}, sortSelected = null;
+  var pickIdx = 0, pickDone = {};
+  var whyIdx = 0, whyDone = {}, whyMap = {};
+  var quizSet = [];
+
+  function award(key, n){
+    if (awarded[key]) return;
+    awarded[key] = true;
+    stars += (n || 1);
+    $("starCount").textContent = String(stars);
+  }
+  function recountStars(){
+    stars = 0;
+    Object.keys(awarded).forEach(function(k){
+      stars += (k.indexOf("mode-")===0) ? 2 : 1;
+    });
+    $("starCount").textContent = String(stars);
+  }
+
+  function skyHTML(){
+    return '<div class="sky-layer"><div class="sun-ball"></div>' +
+           '<div class="cloud c1"></div><div class="cloud c2"></div></div>';
+  }
+
+  function typeLabel(key){
+    var tp = TYPES[key];
+    if (!tp) return key;
+    return tp.em + " " + t(tp);
+  }
+
+  /* ---------- SORT ---------- */
+  function renderSort(){
+    var ch = SORT[sortIdx];
+    var pad = $("scenePad");
+    pad.innerHTML = skyHTML() +
+      '<div class="type-stage">' +
+      '<div class="type-hero">📦🔢🔤</div>' +
+      '<div class="type-grid">' +
+      '<div class="type-bin num"><div class="bin-title" id="binNum"></div><div class="drop" id="dropNum"></div></div>' +
+      '<div class="type-bin txt"><div class="bin-title" id="binTxt"></div><div class="drop" id="dropTxt"></div></div>' +
+      '<div class="type-bin bool"><div class="bin-title" id="binBool"></div><div class="drop" id="dropBool"></div></div>' +
+      '<div class="type-bin list"><div class="bin-title" id="binList"></div><div class="drop" id="dropList"></div></div>' +
+      '</div></div>';
+    setText($("binNum"), typeLabel("num"));
+    setText($("binTxt"), typeLabel("txt"));
+    setText($("binBool"), typeLabel("bool"));
+    setText($("binList"), typeLabel("list"));
+
+    function refreshBins(){
+      var drops = {num:"", txt:"", bool:"", list:""};
+      ch.cards.forEach(function(c){
+        if (sortMap[c.id]) drops[sortMap[c.id]] += c.em + " ";
+      });
+      $("dropNum").textContent = drops.num || "—";
+      $("dropTxt").textContent = drops.txt || "—";
+      $("dropBool").textContent = drops.bool || "—";
+      $("dropList").textContent = drops.list || "—";
+    }
+    refreshBins();
+
+    setText($("statechip"), (sortIdx+1) + " / " + SORT.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"");
+    setText($("headline"), t(ch.title));
+    setText($("detail"), t(T.askSort));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+    var bank = document.createElement("div");
+    bank.className = "bank";
+    ch.cards.forEach(function(c){
+      var used = !!sortMap[c.id];
+      var m = document.createElement("button");
+      m.type = "button";
+      m.className = "mini-item" + (used ? " used" : "") + (sortSelected===c.id ? " selected" : "");
+      m.innerHTML = c.em + " <span></span>";
+      setText(m.querySelector("span"), t(c));
+      m.disabled = used || !!sortDone[ch.id];
+      m.addEventListener("click", function(){
+        if (used || sortDone[ch.id]) return;
+        sortSelected = c.id;
+        renderSort();
+      });
+      bank.appendChild(m);
+    });
+    box.appendChild(bank);
+
+    var bins = document.createElement("div");
+    bins.className = "save-choices";
+    ["num","txt","bool","list"].forEach(function(tk){
+      var tp = TYPES[tk];
+      var b = document.createElement("button");
+      b.type = "button";
+      b.innerHTML = '<span class="cem">'+tp.em+'</span><span class="clab"></span>';
+      setText(b.querySelector(".clab"), t(tp));
+      b.disabled = !!sortDone[ch.id] || !sortSelected;
+      b.addEventListener("click", function(){
+        if (sortDone[ch.id] || !sortSelected) return;
+        sortMap[sortSelected] = tk;
+        sortSelected = null;
+        renderSort();
+      });
+      bins.appendChild(b);
+    });
+    box.appendChild(bins);
+
+    if (!sortDone[ch.id]){
+      var chk = document.createElement("button");
+      chk.type = "button";
+      chk.style.cssText = "margin-top:10px;width:100%;border:2px solid var(--ink);border-radius:14px;background:var(--ink);color:var(--paper);font:inherit;font-weight:800;min-height:48px;cursor:pointer";
+      setText(chk, t(T.checkSort));
+      chk.addEventListener("click", function(){
+        var ok = true;
+        ch.cards.forEach(function(c){
+          if (sortMap[c.id] !== c.type) ok = false;
+        });
+        if (ok && Object.keys(sortMap).length === ch.cards.length){
+          sortDone[ch.id] = true;
+          award("sort-"+ch.id, 1);
+          setText($("headline"), t(ch.done));
+          $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.nice));
+          if (Object.keys(sortDone).length >= SORT.length){
+            doneModes.sort = true;
+            award("mode-sort", 2);
+          }
+          tabBadges();
+          renderSort();
+        } else {
+          setText($("headline"), t(T.oops));
+          $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.oops));
+        }
+      });
+      box.appendChild(chk);
+    }
+
+    setText($("prog"), t(T.progSort) + ": " + Object.keys(sortDone).length + "/" + SORT.length);
+  }
+
+  /* ---------- PICK ---------- */
+  function renderPick(){
+    var ch = PICK[pickIdx];
+    var pad = $("scenePad");
+    pad.innerHTML = skyHTML() +
+      '<div class="type-stage">' +
+      '<div class="type-hero">'+ch.em+'</div>' +
+      '<div class="type-row" id="pickScene"></div></div>';
+    var sc = document.createElement("div");
+    sc.style.cssText = "background:rgba(253,250,243,.95);border:2.5px solid var(--ink);border-radius:14px;padding:12px;font-weight:800;font-size:var(--fs-xs);max-width:300px;margin:0 auto";
+    setText(sc, t(ch.scene));
+    $("pickScene").appendChild(sc);
+
+    setText($("statechip"), (pickIdx+1) + " / " + PICK.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"");
+    setText($("headline"), t(ch.title));
+    setText($("detail"), t(T.askPick));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+    var row = document.createElement("div");
+    row.className = "type-row";
+    ["num","txt","bool","list"].forEach(function(tk){
+      var tp = TYPES[tk];
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "type-pill " + tp.cls;
+      if (pickDone[ch.id] && tk === ch.correct) b.classList.add("right");
+      setText(b, tp.em + " " + t(tp));
+      b.disabled = !!pickDone[ch.id];
+      b.addEventListener("click", function(){
+        if (pickDone[ch.id]) return;
+        if (tk === ch.correct){
+          pickDone[ch.id] = true;
+          award("pick-"+ch.id, 1);
+          b.classList.add("right");
+          setText($("headline"), t(ch.done));
+          $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.nice));
+          if (Object.keys(pickDone).length >= PICK.length){
+            doneModes.pick = true;
+            award("mode-pick", 2);
+          }
+          tabBadges();
+        } else {
+          b.classList.add("wrong");
+          setText($("headline"), t(T.oops));
+          $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.oops));
+        }
+      });
+      row.appendChild(b);
+    });
+    box.appendChild(row);
+    setText($("prog"), t(T.progPick) + ": " + Object.keys(pickDone).length + "/" + PICK.length);
+  }
+
+  /* ---------- WHY ---------- */
+  function renderWhy(){
+    var ch = WHY[whyIdx];
+    var pad = $("scenePad");
+    pad.innerHTML = skyHTML() +
+      '<div class="type-stage">' +
+      '<div class="type-hero">🧩💡</div>' +
+      '<div class="type-row">' +
+      '<span class="type-pill num">'+TYPES.num.em+'</span>' +
+      '<span class="type-pill txt">'+TYPES.txt.em+'</span>' +
+      '<span class="type-pill bool">'+TYPES.bool.em+'</span>' +
+      '<span class="type-pill list">'+TYPES.list.em+'</span>' +
+      '</div></div>';
+
+    setText($("statechip"), (whyIdx+1) + " / " + WHY.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"");
+    setText($("headline"), t(ch.title));
+    setText($("detail"), t(T.askWhy));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+    var grid = document.createElement("div");
+    grid.className = "match-grid";
+    ch.rows.forEach(function(row){
+      var div = document.createElement("div");
+      div.className = "match-row";
+      div.innerHTML = '<span class="mem">'+row.em+'</span><span class="mtxt"></span><span class="match-opts"></span>';
+      setText(div.querySelector(".mtxt"), t(row.use));
+      var opts = div.querySelector(".match-opts");
+      ["num","txt","bool","list"].forEach(function(tk){
+        var tp = TYPES[tk];
+        var b = document.createElement("button");
+        b.type = "button";
+        b.textContent = tp.em;
+        b.title = t(tp);
+        if (whyDone[ch.id] && whyMap[row.id] === tk){
+          if (tk === row.type) b.classList.add("right");
+        } else if (whyMap[row.id] === tk){
+          b.classList.add("on");
+          b.style.boxShadow = "0 0 0 2px var(--accent)";
+        }
+        b.disabled = !!whyDone[ch.id];
+        b.addEventListener("click", function(){
+          if (whyDone[ch.id]) return;
+          whyMap[row.id] = tk;
+          renderWhy();
+        });
+        opts.appendChild(b);
+      });
+      grid.appendChild(div);
+    });
+    box.appendChild(grid);
+
+    if (!whyDone[ch.id]){
+      var chk = document.createElement("button");
+      chk.type = "button";
+      chk.style.cssText = "margin-top:10px;width:100%;border:2px solid var(--ink);border-radius:14px;background:var(--ink);color:var(--paper);font:inherit;font-weight:800;min-height:48px;cursor:pointer";
+      setText(chk, t(T.checkMatch));
+      chk.addEventListener("click", function(){
+        var ok = true;
+        ch.rows.forEach(function(r){
+          if (whyMap[r.id] !== r.type) ok = false;
+        });
+        if (ok && Object.keys(whyMap).length === ch.rows.length){
+          whyDone[ch.id] = true;
+          award("why-"+ch.id, 1);
+          setText($("headline"), t(ch.done));
+          $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.nice));
+          if (Object.keys(whyDone).length >= WHY.length){
+            doneModes.why = true;
+            award("mode-why", 2);
+          }
+          tabBadges();
+          renderWhy();
+        } else {
+          setText($("headline"), t(T.oops));
+          $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.oops));
+        }
+      });
+      box.appendChild(chk);
+    }
+
+    setText($("prog"), t(T.progWhy) + ": " + Object.keys(whyDone).length + "/" + WHY.length);
+  }
+
+  /* ---------- QUIZ ---------- */
+  function pickQuiz(){ quizSet = shuffle(QUIZ).slice(0, 5); }
+  function renderQuiz(){
+    var box = $("quizBox");
+    box.innerHTML = "";
+    quizSet.forEach(function(item, qi){
+      var wrap = document.createElement("div");
+      wrap.className = "q";
+      var p = document.createElement("p");
+      setText(p, (qi+1) + ". " + t(item.q));
+      wrap.appendChild(p);
+      var answered = false;
+      item.opts.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt" + (lang==="ur"?" ur":"");
+        setText(b, t(opt));
+        b.addEventListener("click", function(){
+          if (answered) return;
+          answered = true;
+          if (oi === item.correct){
+            b.classList.add("right");
+            award("quiz-"+qi, 1);
+          } else {
+            b.classList.add("wrong");
+            var kids = wrap.querySelectorAll(".opt");
+            if (kids[item.correct]) kids[item.correct].classList.add("right");
+          }
+          fb.classList.add("show");
+        });
+        wrap.appendChild(b);
+      });
+      var fb = document.createElement("p");
+      fb.className = "fb";
+      setText(fb, t(item.why));
+      wrap.appendChild(fb);
+      box.appendChild(wrap);
+    });
+  }
+
+  function storyHtml(){
+    if (mode === "sort") return t(T.storySort);
+    if (mode === "pick") return t(T.storyPick);
+    return t(T.storyWhy);
+  }
+
+  function tabBadges(){
+    function lab(btn, label, key){
+      btn.innerHTML = "";
+      var span = document.createElement("span");
+      setText(span, t(label));
+      btn.appendChild(span);
+      if (doneModes[key]){
+        var b = document.createElement("span");
+        b.className = "badge"; b.textContent = " ★";
+        btn.appendChild(b);
+      }
+    }
+    lab($("tabSort"), T.tabSort, "sort");
+    lab($("tabPick"), T.tabPick, "pick");
+    lab($("tabWhy"), T.tabWhy, "why");
+    $("tabSort").setAttribute("aria-pressed", mode==="sort"?"true":"false");
+    $("tabPick").setAttribute("aria-pressed", mode==="pick"?"true":"false");
+    $("tabWhy").setAttribute("aria-pressed", mode==="why"?"true":"false");
+  }
+
+  function setMode(m){
+    mode = m;
+    if (mode === "sort"){ sortSelected = null; renderSort(); }
+    else if (mode === "pick") renderPick();
+    else { renderWhy(); }
+    applyChrome();
+  }
+
+  function applyChrome(){
+    setText($("title"), t(T.title));
+    setText($("subtitle"), t(T.sub));
+    $("story").innerHTML = storyHtml();
+    $("story").classList.toggle("ur", lang==="ur");
+    $("story").setAttribute("dir", lang==="ur"?"rtl":"ltr");
+    setText($("ctlHead"), t(T.ctl));
+    setText($("nextBtn"), t(T.next));
+    setText($("hintBtn"), t(T.hint));
+    setText($("resetBtn"), t(T.reset));
+    setText($("quizHead"), t(T.quiz));
+    setText($("newQuiz"), t(T.newQuiz));
+    $("langBtn").textContent = (lang === "en") ? "اردو" : "EN";
+    $("langBtn").setAttribute("aria-pressed", lang==="ur"?"true":"false");
+    document.body.classList.toggle("urdu", lang==="ur");
+    document.documentElement.lang = (lang==="ur") ? "ur" : "en";
+    document.documentElement.dir = (lang==="ur") ? "rtl" : "ltr";
+    tabBadges();
+    var foot = document.querySelector("footer p");
+    if (foot) setText(foot, foot.getAttribute(lang==="ur"?"data-ur":"data-en"));
+  }
+
+  function applyLang(){
+    applyChrome();
+    if (mode === "sort") renderSort();
+    else if (mode === "pick") renderPick();
+    else renderWhy();
+    renderQuiz();
+  }
+
+  function next(){
+    if (mode === "sort"){
+      sortIdx = (sortIdx + 1) % SORT.length;
+      sortMap = {}; sortSelected = null;
+      renderSort();
+    } else if (mode === "pick"){
+      pickIdx = (pickIdx + 1) % PICK.length;
+      renderPick();
+    } else {
+      whyIdx = (whyIdx + 1) % WHY.length;
+      whyMap = {};
+      renderWhy();
+    }
+  }
+
+  function showHint(){
+    var h;
+    if (mode === "sort") h = SORT[sortIdx].hint;
+    else if (mode === "pick") h = PICK[pickIdx].hint;
+    else h = WHY[whyIdx].hint;
+    var hb = $("hintbox");
+    setText(hb, t(h));
+    hb.classList.add("show");
+  }
+
+  function resetMode(){
+    if (mode === "sort"){
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("sort-")===0 || k==="mode-sort") delete awarded[k]; });
+      sortDone = {}; sortIdx = 0; sortMap = {}; sortSelected = null; doneModes.sort = false;
+      recountStars(); renderSort();
+    } else if (mode === "pick"){
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("pick-")===0 || k==="mode-pick") delete awarded[k]; });
+      pickDone = {}; pickIdx = 0; doneModes.pick = false;
+      recountStars(); renderPick();
+    } else {
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("why-")===0 || k==="mode-why") delete awarded[k]; });
+      whyDone = {}; whyIdx = 0; whyMap = {}; doneModes.why = false;
+      recountStars(); renderWhy();
+    }
+    tabBadges();
+    applyChrome();
+  }
+
+  function cleanSpeakText(s){
+    return String(s || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  }
+  function buildSpeakText(){
+    var bits = [];
+    bits.push(t(T.title));
+    bits.push(cleanSpeakText(storyHtml()));
+    bits.push(cleanSpeakText(($("headline") && $("headline").textContent) || ""));
+    bits.push(cleanSpeakText(($("detail") && $("detail").textContent) || ""));
+    bits.push(t(T.tip));
+    return bits.filter(Boolean).join(". ");
+  }
+  function pickVoice(voices, want){
+    var i, v, L;
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf(want) === 0) return v;
+    }
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf("en") === 0) return v;
+    }
+    return voices[0] || null;
+  }
+  var speakTimer = null;
+  function setSpeaking(on){
+    var btn = $("speakBtn");
+    if (!btn) return;
+    btn.setAttribute("aria-pressed", on ? "true" : "false");
+    btn.style.opacity = on ? "0.65" : "";
+  }
+  function doSpeak(text, asLang){
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.92;
+    u.lang = (asLang === "ur") ? "ur-PK" : "en-US";
+    var voices = window.speechSynthesis.getVoices() || [];
+    var voice = pickVoice(voices, asLang === "ur" ? "ur" : "en");
+    if (voice) u.voice = voice;
+    u.onstart = function(){ setSpeaking(true); };
+    u.onend = function(){ setSpeaking(false); };
+    u.onerror = function(){
+      setSpeaking(false);
+      if (asLang === "ur"){
+        var fallback = cleanSpeakText(T.title.en + ". " + T.storySort.en + ". " + T.tip.en);
+        var u2 = new SpeechSynthesisUtterance(fallback);
+        u2.lang = "en-US"; u2.rate = 0.92;
+        var v2 = pickVoice(window.speechSynthesis.getVoices() || [], "en");
+        if (v2) u2.voice = v2;
+        u2.onstart = function(){ setSpeaking(true); };
+        u2.onend = u2.onerror = function(){ setSpeaking(false); };
+        window.speechSynthesis.speak(u2);
+      }
+    };
+    window.speechSynthesis.speak(u);
+  }
+  if ("speechSynthesis" in window){
+    try { window.speechSynthesis.getVoices(); } catch (e0) {}
+    if (typeof window.speechSynthesis.addEventListener === "function"){
+      window.speechSynthesis.addEventListener("voiceschanged", function(){
+        try { window.speechSynthesis.getVoices(); } catch (e1) {}
+      });
+    }
+  } else {
+    var noBtn = $("speakBtn");
+    if (noBtn){ noBtn.disabled = true; noBtn.title = "Voice not available on this device"; }
+  }
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en";
+    applyLang();
+  });
+  $("tabSort").addEventListener("click", function(){ setMode("sort"); });
+  $("tabPick").addEventListener("click", function(){ setMode("pick"); });
+  $("tabWhy").addEventListener("click", function(){ setMode("why"); });
+  $("nextBtn").addEventListener("click", next);
+  $("hintBtn").addEventListener("click", showHint);
+  $("resetBtn").addEventListener("click", resetMode);
+  $("newQuiz").addEventListener("click", function(){ pickQuiz(); renderQuiz(); });
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      var text = buildSpeakText();
+      if (!text) return;
+      if (speakTimer){ clearTimeout(speakTimer); speakTimer = null; }
+      window.speechSynthesis.cancel();
+      setSpeaking(false);
+      var speakLang = lang;
+      speakTimer = setTimeout(function(){
+        speakTimer = null;
+        doSpeak(text, speakLang);
+      }, 80);
+    }catch(e){ setSpeaking(false); }
+  });
+
+  pickQuiz();
+  applyLang();
+})();
+</script>
+</body>
+</html>
