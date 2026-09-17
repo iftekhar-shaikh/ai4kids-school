@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI jobs / اے آئی کی نوکریاں | AI4Kids Class 4</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#e8e4f5;--board-deep:#d4cce8;--sky:#c9b8f0;--sky2:#9b7fd4;
+    --accent:#5b4a8f;--ok:#2e7d4f;--ink:#1e2a1a;--ink-soft:#4a5744;
+    --paper:#fdfaf3;--line:#d5dec8;--gold:#e8b23d;--left:#c4453a;
+    --human:#2f6fb5;--aihelp:#c9702e;--both:#3d9b8f;
+    --fs-cap:clamp(12px, 3.2vw, 13px);--fs-xs:clamp(14px, 3.7vw, 15px);
+    --fs-sm:clamp(16px, 4.2vw, 17px);--fs-md:clamp(17px, 4.6vw, 19px);
+    --fs-lg:clamp(20px, 5.4vw, 23px);--fs-xl:clamp(27px, 7.4vw, 33px);--lh:1.5;
+  }
+  body.urdu{
+    --fs-cap:clamp(13px, 3.5vw, 15px);--fs-xs:clamp(15px, 4.1vw, 17px);
+    --fs-sm:clamp(17px, 4.7vw, 19px);--fs-md:clamp(19px, 5.2vw, 21px);
+    --fs-lg:clamp(22px, 6vw, 25px);--fs-xl:clamp(26px, 7vw, 31px);--lh:2.1;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  .stars{display:flex;align-items:center;gap:6px;font-weight:800;font-size:var(--fs-xs);
+         background:#fff6e2;border:2px solid var(--gold);border-radius:999px;padding:7px 13px}
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+  .tabs{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
+  .tabs button{
+    flex:1 1 28%;min-width:90px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:10px 6px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:54px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .tabs button .badge{color:var(--gold)}
+  .story{
+    background:#fff8ea;border:2px dashed var(--gold);border-radius:16px;padding:13px 15px;
+    font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;margin-bottom:14px;
+  }
+  body.urdu .story{line-height:var(--lh)}
+  .story b{color:var(--ink)}
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:linear-gradient(180deg,var(--sky) 0%,var(--sky2) 38%,var(--board) 38%,var(--board-deep) 100%);
+    min-height:280px;
+  }
+  .scene-pad{padding:10px 12px 18px;min-height:260px;position:relative}
+  .sky-layer{position:absolute;inset:0 0 58% 0;pointer-events:none;overflow:hidden}
+  .sun-ball{
+    position:absolute;top:12px;right:18px;width:36px;height:36px;border-radius:50%;
+    background:radial-gradient(circle at 35% 35%,#ffe9a0,#f5c542 60%,#e0a020);
+    box-shadow:0 0 18px rgba(245,197,66,.45);z-index:1;
+  }
+  body.urdu .sun-ball{right:auto;left:18px}
+  .cloud{position:absolute;background:rgba(255,255,255,.85);border-radius:40px;opacity:.9}
+  .cloud:before,.cloud:after{content:"";position:absolute;background:inherit;border-radius:50%}
+  .c1{width:48px;height:15px;top:18px;left:12%}
+  .c1:before{width:22px;height:22px;top:-12px;left:6px}
+  .c1:after{width:18px;height:18px;top:-8px;left:24px}
+  .c2{width:34px;height:12px;top:34px;left:55%;opacity:.7}
+  .c2:before{width:16px;height:16px;top:-9px;left:4px}
+  .c2:after{width:12px;height:12px;top:-5px;left:16px}
+  .hero-stage{position:relative;z-index:5;padding-top:70px;text-align:center;min-height:150px}
+  .hero-em{font-size:52px;line-height:1;margin:4px 0 8px;filter:drop-shadow(0 2px 0 rgba(0,0,0,.12))}
+  .card-box{
+    background:rgba(253,250,243,.95);border:2.5px solid var(--ink);border-radius:14px;
+    padding:12px;font-weight:800;font-size:var(--fs-xs);max-width:300px;margin:0 auto;line-height:1.4;
+  }
+  body.urdu .card-box{line-height:1.85}
+  .clue-tag{
+    display:inline-block;margin-top:8px;padding:4px 10px;border-radius:999px;
+    background:#f0ebf8;color:var(--accent);font-size:11px;font-weight:800;
+  }
+  .help-pills{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:8px 0;position:relative;z-index:5}
+  .help-pill{
+    border:2px solid var(--ink);border-radius:12px;padding:6px 10px;background:#fff;
+    font-size:var(--fs-cap);font-weight:800;
+  }
+  .save-choices{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+  .save-choices button{
+    border:2.5px solid var(--ink);background:var(--paper);border-radius:14px;
+    padding:12px 14px;font:inherit;font-weight:800;font-size:var(--fs-xs);
+    cursor:pointer;text-align:left;min-height:52px;display:flex;align-items:center;gap:10px;
+  }
+  body.urdu .save-choices button{text-align:right}
+  .save-choices button .cem{font-size:26px}
+  .save-choices button.right{border-color:var(--ok);background:#e8f2ed}
+  .save-choices button.wrong{border-color:var(--left);background:#fbeae8}
+  .match-grid{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+  .match-row{
+    display:flex;align-items:center;gap:8px;background:rgba(253,250,243,.95);
+    border:2px solid var(--ink);border-radius:14px;padding:10px 12px;font-weight:800;font-size:var(--fs-xs);
+  }
+  .match-row .mem{font-size:28px;flex-shrink:0}
+  .match-row .mtxt{flex:1;line-height:1.35;text-align:left}
+  body.urdu .match-row .mtxt{text-align:right;line-height:1.85}
+  .match-opts{display:flex;flex-wrap:wrap;gap:4px;justify-content:flex-end}
+  .match-opts button{
+    border:2px solid var(--ink);border-radius:10px;padding:6px 10px;background:#fff;
+    font:inherit;font-weight:800;font-size:11px;cursor:pointer;min-height:36px;
+  }
+  .match-opts button.right{border-color:var(--ok);background:#e8f2ed}
+  .match-opts button.wrong{border-color:var(--left);background:#fbeae8}
+  .share-list{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+  .share-item{
+    display:flex;align-items:center;gap:10px;background:rgba(253,250,243,.95);
+    border:2.5px solid var(--ink);border-radius:14px;padding:10px 12px;
+    font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:52px;text-align:left;
+  }
+  body.urdu .share-item{text-align:right}
+  .share-item .sem{font-size:28px;flex-shrink:0}
+  .share-item .stxt{flex:1;line-height:1.35}
+  body.urdu .share-item .stxt{line-height:1.85}
+  .share-item.picked-human{border-color:var(--human);background:#e8f1f9}
+  .share-item.picked-ai{border-color:var(--aihelp);background:#fef3e8}
+  .share-item.picked-both{border-color:var(--both);background:#e6f5f2}
+  .share-item.selected{box-shadow:0 0 0 3px rgba(91,74,143,.25);border-color:var(--accent)}
+  .dream-grid{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+  .dream-item{
+    display:flex;align-items:center;gap:10px;background:rgba(253,250,243,.95);
+    border:2.5px solid var(--ink);border-radius:14px;padding:10px 12px;
+    font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:52px;text-align:left;
+  }
+  body.urdu .dream-item{text-align:right}
+  .dream-item .dem{font-size:26px;flex-shrink:0}
+  .dream-item .dtxt{flex:1;line-height:1.35}
+  body.urdu .dream-item .dtxt{line-height:1.85}
+  .dream-item.on{border-color:var(--accent);box-shadow:0 0 0 3px rgba(91,74,143,.2)}
+  .dream-item.right{border-color:var(--ok);background:#e8f2ed}
+  .dream-item.wrong{border-color:var(--left);background:#fbeae8}
+  .outcome{
+    margin-top:10px;border-radius:14px;padding:10px 12px;font-weight:700;font-size:var(--fs-xs);
+    display:none;border:2px solid var(--ok);background:#e8f2ed;color:var(--ok);
+  }
+  .outcome.show{display:block}
+  .outcome.bad{border-color:var(--left);background:#fbeae8;color:var(--left)}
+  .readout{
+    margin-top:-18px;position:relative;z-index:2;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+  .statechip.ur{padding:2px 14px 7px}
+  .statechip.win{background:var(--ok)}
+  .statechip.miss{background:var(--left)}
+  .headline{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+  .headline.ur{line-height:1.95}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+  .hintbox{
+    margin-top:14px;border:2px solid var(--accent);background:#f0ebf8;border-radius:14px;
+    padding:11px 14px;font-size:var(--fs-xs);color:var(--accent);font-weight:700;line-height:1.55;
+    display:none;
+  }
+  .hintbox.show{display:block}
+  body.urdu .hintbox{line-height:var(--lh)}
+  .panel{margin-top:22px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .prog{margin:0 0 10px;font-size:var(--fs-xs);font-weight:700;color:var(--ink-soft)}
+  .btns{display:flex;gap:9px;margin-top:8px;flex-wrap:wrap}
+  .btns button{
+    border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);
+    font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:50px;
+    padding:8px 14px;flex:1;
+  }
+  .btns .go{background:var(--ink);color:var(--paper)}
+  .btns button:active{transform:scale(.97)}
+  .btns button:disabled{opacity:.4;cursor:default}
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .qhead{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+  .qhead h2{font-size:var(--fs-lg);font-weight:800;margin:0;flex:1}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:50px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+  .opt.wrong{border-color:var(--left);background:#fbeae8}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
+      grid-template-areas:
+        "bar   bar" "head  head" "tabs  tabs" "story story"
+        "left  right" "quiz  quiz" "foot  foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+    .story{grid-area:story} .left{grid-area:left} .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+    .panel{margin-top:0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition-duration:.01ms !important;animation:none !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 4 · AI &amp; Technology</span>
+    <span class="stars" id="starBox">⭐ <span id="starCount">0</span></span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 id="title"></h1>
+  <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group">
+    <button type="button" id="tabWho" aria-pressed="true"></button>
+    <button type="button" id="tabTeam" aria-pressed="false"></button>
+    <button type="button" id="tabDream" aria-pressed="false"></button>
+  </div>
+
+  <p class="story" id="story"></p>
+
+  <div class="left">
+  <div class="scene">
+    <div class="scene-pad" id="scenePad"></div>
+  </div>
+  <div class="readout">
+    <span class="statechip" id="statechip"></span>
+    <p class="headline" id="headline"></p>
+    <p class="detail" id="detail"></p>
+    <p class="hintbox" id="hintbox"></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="panel">
+    <h2 id="ctlHead"></h2>
+    <p class="prog" id="prog"></p>
+    <div id="actionBox"></div>
+    <div class="btns">
+      <button type="button" class="go" id="nextBtn"></button>
+    </div>
+    <div class="btns">
+      <button type="button" id="hintBtn"></button>
+      <button type="button" id="resetBtn"></button>
+    </div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <div class="qhead">
+      <h2 id="quizHead"></h2>
+      <button type="button" class="chip" id="newQuiz"></button>
+    </div>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad bilingual school. Offline. WhatsApp 0337 1468899 · AI jobs"
+       data-ur="اے آئی فور کڈز — اسلام آباد دو لسانی اسکول۔ آف لائن۔ واٹس ایپ 0337 1468899 · اے آئی کی نوکریاں"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  function $(id){ return document.getElementById(id); }
+  function isolate(s){ return "\u2066" + s + "\u2069"; }
+  function setText(el, str){
+    if (!el) return;
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+  function t(o){ return (o && o[lang]) || (o && o.en) || ""; }
+  function shuffle(arr){
+    var a = arr.slice(), i, j, tmp;
+    for (i = a.length - 1; i > 0; i--){
+      j = Math.floor(Math.random() * (i + 1));
+      tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  var lang = "en";
+  var mode = "who";
+  var stars = 0;
+  var awarded = {};
+  var doneModes = {who:false, team:false, dream:false};
+
+  var BINS = {
+    human:{em:"🧑", en:"Human job", ur:"انسانی کام", cls:"human"},
+    ai:{em:"🤖", en:"AI helper", ur:"اے آئی مددگار", cls:"ai"},
+    both:{em:"🤝", en:"Both together", ur:"دونوں مل کر", cls:"both"}
+  };
+
+  var T = {
+    title:{en:"AI jobs", ur:"اے آئی کی نوکریاں"},
+    sub:{en:"AI helps people at work — humans still decide, care, and create!",
+         ur:"اے آئی کام پر لوگوں کی مدد کرتی ہے — فیصلہ، خیال اور تخلیق انسانوں کی!"},
+    tabWho:{en:"Who uses AI?", ur:"کون استعمال کرتا؟"},
+    tabTeam:{en:"Human + AI", ur:"انسان + اے آئی"},
+    tabDream:{en:"Dream helper", ur:"خواب کا مددگار"},
+    storyWho:{en:"Match each <b>job</b> to how <b>AI helps</b>: farmer weather tips, doctor tools, teacher apps, shop barcode, driver maps!",
+              ur:"ہر <b>نوکری</b> کو <b>اے آئی مدد</b> سے ملاؤ: کسان موسم، ڈاکٹر ٹول، استاد ایپ، دکان بارکوڈ، ڈرائیور نقشہ!"},
+    storyTeam:{en:"Sort each card: is it mainly a <b>human job</b>, an <b>AI helper</b> tool, or <b>both together</b>? Kindness stays human!",
+               ur:"ہر کارڈ چھانٹو: کیا یہ زیادہ تر <b>انسانی کام</b> ہے، <b>اے آئی مددگار</b>، یا <b>دونوں مل کر</b>؟ مہربانی انسان کی!"},
+    storyDream:{en:"Tap the <b>good helper ideas</b> for school or home — age-safe, kind, and useful. Skip silly or unsafe ones!",
+                ur:"اسکول یا گھر کے لیے <b>اچھے مددگار خیالات</b> ٹیپ کرو — محفوظ، مہربان، مفید۔ بیوقوف یا غیر محفوظ مت چنو!"},
+    ctl:{en:"Your turn — job explorer", ur:"تمہاری باری — نوکری دریافت"},
+    next:{en:"Next challenge", ur:"اگلا چیلنج"},
+    hint:{en:"Hint", ur:"اشارہ"},
+    reset:{en:"Reset", ur:"ری سیٹ"},
+    quiz:{en:"Check yourself", ur:"اپنا چیک"},
+    newQuiz:{en:"New quiz", ur:"نیا کوئز"},
+    nice:{en:"Shabash — smart helper thinking!", ur:"شاباش — سمجھدار مددگار سوچ!"},
+    oops:{en:"Almost — try again", ur:"قریب — دوبارہ آزماؤ"},
+    tip:{en:"Tip: Many jobs use AI as a helper tool — weather for farmers, maps for drivers, apps for teachers, scanners for shops, tools for doctors. People still decide, care, and create. AI does not replace kindness or thinking!",
+         ur:"نکتہ: بہت سی نوکریاں اے آئی کو مددگار ٹول بناتی ہیں — کسان کے لیے موسم، ڈرائیور کے لیے نقشہ، استاد کی ایپ، دکان کا سکینر، ڈاکٹر کے ٹول۔ فیصلہ، خیال اور تخلیق انسانوں کی۔ اے آئی مہربانی یا سوچ کی جگہ نہیں لیتی!"},
+    progWho:{en:"Job matches", ur:"نوکری میچ"},
+    progTeam:{en:"Team sorts", ur:"ٹیم چھانٹ"},
+    progDream:{en:"Dream picks", ur:"خواب چن"},
+    askWho:{en:"Match job → how AI helps", ur:"نوکری → اے آئی کیسے مدد کرتی ملاؤ"},
+    askTeam:{en:"Tap a card, then Human / AI / Both", ur:"کارڈ ٹیپ کرو، پھر انسان / اے آئی / دونوں"},
+    askDream:{en:"Tap all the good helper ideas", ur:"تمام اچھے مددگار خیالات ٹیپ کرو"},
+    checkMatch:{en:"Check matches", ur:"میچ چیک کرو"},
+    checkTeam:{en:"Check sort", ur:"چھانٹ چیک کرو"},
+    checkDream:{en:"Check picks", ur:"چن چیک کرو"},
+    binHuman:{en:"Human job", ur:"انسانی کام"},
+    binAi:{en:"AI helper", ur:"اے آئی مددگار"},
+    binBoth:{en:"Both together", ur:"دونوں مل کر"}
+  };
+
+  /* Mode 1: Who uses AI? — match job → help */
+  var WHO = [
+    {
+      id:"w1",
+      title:{en:"Village & clinic helpers", ur:"گاؤں اور کلینک مددگار"},
+      helps:{
+        a:{en:"Weather & crop tips", ur:"موسم و فصل کے مشورے"},
+        b:{en:"Scan tools for doctors", ur:"ڈاکٹروں کے لیے سکین ٹول"},
+        c:{en:"Practice apps for kids", ur:"بچوں کے لیے مشق ایپس"},
+        d:{en:"Barcode price check", ur:"بارکوڈ قیمت چیک"}
+      },
+      rows:[
+        {id:"r1", em:"🌾", job:{en:"Farmer (Punjab fields)", ur:"کسان (پنجاب کھیت)"}, help:"a"},
+        {id:"r2", em:"🩺", job:{en:"Doctor at clinic", ur:"کلینک میں ڈاکٹر"}, help:"b"},
+        {id:"r3", em:"👩‍🏫", job:{en:"Teacher in Class 4", ur:"کلاس ۴ کی استاد"}, help:"c"},
+        {id:"r4", em:"🛒", job:{en:"Shopkeeper (bazaar)", ur:"دکان دار (بازار)"}, help:"d"}
+      ],
+      hint:{en:"Farmer needs weather. Doctor uses scan helpers. Teacher uses practice apps. Shop uses barcode.",
+            ur:"کسان کو موسم چاہیے۔ ڈاکٹر سکین مددگار۔ استاد مشق ایپ۔ دکان بارکوڈ۔"},
+      done:{en:"All four jobs matched — AI helps!", ur:"چاروں نوکریاں ملیں — اے آئی مدد کرتی!"}
+    },
+    {
+      id:"w2",
+      title:{en:"Road, game & class", ur:"سڑک، گیم اور کلاس"},
+      helps:{
+        a:{en:"Maps & traffic hints", ur:"نقشے اور ٹریفک اشارے"},
+        b:{en:"Test fun game ideas", ur:"گیم کے مزے دار آئیڈیا ٹیسٹ"},
+        c:{en:"Read-aloud helper", ur:"آواز سے پڑھنے والا مددگار"},
+        d:{en:"Crop water reminders", ur:"فصل پانی یاددہانی"}
+      },
+      rows:[
+        {id:"r1", em:"🚗", job:{en:"Driver (Islamabad roads)", ur:"ڈرائیور (اسلام آباد سڑکیں)"}, help:"a"},
+        {id:"r2", em:"🎮", job:{en:"Game designer", ur:"گیم ڈیزائنر"}, help:"b"},
+        {id:"r3", em:"📚", job:{en:"Teacher helper app", ur:"استاد کی مددگار ایپ"}, help:"c"},
+        {id:"r4", em:"🚜", job:{en:"Farmer with phone tips", ur:"فون مشوروں والا کسان"}, help:"d"}
+      ],
+      hint:{en:"Drivers use maps. Designers test ideas. Teachers get read-aloud help. Farmers get water tips.",
+            ur:"ڈرائیور نقشہ۔ ڈیزائنر آئیڈیا ٹیسٹ۔ استاد پڑھنے کی مدد۔ کسان پانی یاددہانی۔"},
+      done:{en:"Road to class — helpers matched!", ur:"سڑک سے کلاس — مددگار مل گئے!"}
+    },
+    {
+      id:"w3",
+      title:{en:"Pakistan helper mix", ur:"پاکستان مددگار مکس"},
+      helps:{
+        a:{en:"Find milk price fast", ur:"دودھ کی قیمت تیزی سے"},
+        b:{en:"X-ray helper tips", ur:"ایکس رے مددگار اشارے"},
+        c:{en:"Quiz for homework", ur:"ہوم ورک کے لیے کوئز"},
+        d:{en:"Safer route home", ur:"گھر کا محفوظ راستہ"}
+      },
+      rows:[
+        {id:"r1", em:"🏪", job:{en:"Corner shop uncle", ur:"کونے کی دکان والا انکل"}, help:"a"},
+        {id:"r2", em:"🏥", job:{en:"Clinic doctor helper", ur:"کلینک ڈاکٹر مددگار"}, help:"b"},
+        {id:"r3", em:"✏️", job:{en:"Class teacher tools", ur:"کلاس استاد کے ٹول"}, help:"c"},
+        {id:"r4", em:"🗺️", job:{en:"Van driver maps", ur:"وین ڈرائیور نقشے"}, help:"d"}
+      ],
+      hint:{en:"Shop = barcode/price. Clinic = scan tips. Teacher = quiz tools. Driver = safer maps.",
+            ur:"دکان = قیمت۔ کلینک = سکین۔ استاد = کوئز۔ ڈرائیور = محفوظ نقشہ۔"},
+      done:{en:"Pakistan mix sorted — Shabash!", ur:"پاکستان مکس چھانٹا — شاباش!"}
+    }
+  ];
+
+  /* Mode 2: Human + AI — sort */
+  var TEAM = [
+    {
+      id:"t1",
+      title:{en:"Clinic & classroom", ur:"کلینک اور کلاس روم"},
+      items:[
+        {id:"a", em:"💚", en:"Doctor listens with kindness", ur:"ڈاکٹر مہربانی سے سنتا/سنتی ہے", kind:"human"},
+        {id:"b", em:"🔬", en:"AI tool highlights a scan clue", ur:"اے آئی ٹول سکین اشارہ دکھاتا ہے", kind:"ai"},
+        {id:"c", em:"👩‍⚕️🤖", en:"Doctor checks AI tip, then decides", ur:"ڈاکٹر اے آئی ٹِپ چیک کر کے فیصلہ کرتا ہے", kind:"both"},
+        {id:"d", em:"🗣️", en:"Teacher explains with a smile", ur:"استاد مسکراہٹ سے سمجھاتا/سمجھاتی ہے", kind:"human"}
+      ],
+      hint:{en:"Kind listening & smiling teaching = human. Scan highlight = AI. Doctor checking tip then deciding = both.",
+            ur:"مہربان سننا و مسکرا کر سکھانا = انسان۔ سکین ہائی لائٹ = اے آئی۔ ٹِپ چیک کر کے فیصلہ = دونوں۔"},
+      done:{en:"Clinic team sorted — humans lead care!", ur:"کلینک ٹیم چھانٹی — خیال انسانوں کا!"}
+    },
+    {
+      id:"t2",
+      title:{en:"Farm, shop & road", ur:"کھیت، دکان اور سڑک"},
+      items:[
+        {id:"a", em:"🌧️📱", en:"Phone app shows rain chance", ur:"فون ایپ بارش کا امکان دکھاتی ہے", kind:"ai"},
+        {id:"b", em:"🤲", en:"Farmer chooses when to water", ur:"کسان پانی دینے کا وقت چنتا ہے", kind:"human"},
+        {id:"c", em:"🏷️", en:"Barcode tells the price", ur:"بارکوڈ قیمت بتاتا ہے", kind:"ai"},
+        {id:"d", em:"🚗🤝", en:"Driver follows map but watches road", ur:"ڈرائیور نقشہ دیکھتا ہے مگر سڑک دیکھتا رہتا ہے", kind:"both"}
+      ],
+      hint:{en:"Rain app & barcode = AI helpers. Choosing when to water = human. Map + watching road = both.",
+            ur:"بارش ایپ و بارکوڈ = اے آئی۔ پانی کا وقت چننا = انسان۔ نقشہ + سڑک دیکھنا = دونوں۔"},
+      done:{en:"Farm to road — helpers in place!", ur:"کھیت سے سڑک — مددگار اپنی جگہ!"}
+    },
+    {
+      id:"t3",
+      title:{en:"Games & good hearts", ur:"گیمز اور اچھے دل"},
+      items:[
+        {id:"a", em:"🎨", en:"Kid invents a kind game story", ur:"بچہ مہربان گیم کہانی بناتا ہے", kind:"human"},
+        {id:"b", em:"🧪", en:"AI tests if a level is too hard", ur:"اے آئی چیک کرتی ہے سطح بہت مشکل تو نہیں", kind:"ai"},
+        {id:"c", em:"🎮🤝", en:"Designer uses AI tips, then creates fun", ur:"ڈیزائنر اے آئی ٹِپ لے کر مزہ بناتا ہے", kind:"both"},
+        {id:"d", em:"❤️", en:"Saying sorry after a mistake", ur:"غلطی کے بعد معافی مانگنا", kind:"human"}
+      ],
+      hint:{en:"Inventing stories & saying sorry = human. Level testing = AI. Using tips then creating = both.",
+            ur:"کہانی بنانا و معافی = انسان۔ سطح ٹیسٹ = اے آئی۔ ٹِپ لے کر تخلیق = دونوں۔"},
+      done:{en:"Hearts + helpers — perfect team!", ur:"دل + مددگار — بہترین ٹیم!"}
+    }
+  ];
+
+  /* Mode 3: Dream helper — pick good ideas */
+  var DREAM = [
+    {
+      id:"d1",
+      em:"🏫✨",
+      title:{en:"School helper dreams", ur:"اسکول مددگار خواب"},
+      scene:{en:"Which AI helpers would be kind and useful at AI4Kids school?",
+             ur:"اے آئی فور کڈز اسکول میں کون سے اے آئی مددگار مہربان اور مفید ہوں؟"},
+      ideas:[
+        {id:"a", em:"📖", en:"App that reads stories aloud for practice", ur:"مشق کے لیے کہانی آواز سے پڑھنے والی ایپ", good:true},
+        {id:"b", em:"⏰", en:"Reminder to pack bag & water bottle", ur:"بیگ اور پانی کی بوتل یاددہانی", good:true},
+        {id:"c", em:"😈", en:"App that teases classmates for fun", ur:"مزے کے لیے کلاس میٹ کو چھیڑنے والی ایپ", good:false},
+        {id:"d", em:"🧮", en:"Maths practice that cheers you on", ur:"ریاضی مشق جو حوصلہ بڑھائے", good:true}
+      ],
+      hint:{en:"Good = read-aloud, bag reminder, kind maths practice. Bad = teasing friends.",
+            ur:"اچھا = آواز سے پڑھنا، بیگ یاددہانی، مہربان ریاضی۔ برا = دوستوں کو چھیڑنا۔"},
+      done:{en:"Kind school helpers chosen!", ur:"مہربان اسکول مددگار چنے!"}
+    },
+    {
+      id:"d2",
+      em:"🏠💚",
+      title:{en:"Home helper dreams", ur:"گھر کے مددگار خواب"},
+      scene:{en:"Pick helpful home AI ideas — safe for Class 4 kids!",
+             ur:"گھر کے مفید اے آئی خیالات چنو — کلاس ۴ کے لیے محفوظ!"},
+      ideas:[
+        {id:"a", em:"🌤️", en:"Weather tip before cricket outside", ur:"باہر کرکٹ سے پہلے موسم کا مشورہ", good:true},
+        {id:"b", em:"🔑", en:"Ask for your house keys password", ur:"گھر کی چابی کا پاس ورڈ مانگے", good:false},
+        {id:"c", em:"🧹", en:"Chore checklist with stars", ur:"ستاروں والی کاموں کی فہرست", good:true},
+        {id:"d", em:"🍲", en:"Remind mum's biryani timer (with adult)", ur:"امی کی بریانی ٹائمر یاد (بڑے کے ساتھ)", good:true}
+      ],
+      hint:{en:"Weather, chore list, cooking timer with adult = good. Asking for passwords = never!",
+            ur:"موسم، کام فہرست، بڑے کے ساتھ ٹائمر = اچھا۔ پاس ورڈ مانگنا = کبھی نہیں!"},
+      done:{en:"Safe home helpers — Shabash!", ur:"محفوظ گھر مددگار — شاباش!"}
+    },
+    {
+      id:"d3",
+      em:"🇵🇰🚀",
+      title:{en:"Pakistan future helpers", ur:"پاکستان مستقبل مددگار"},
+      scene:{en:"Imagine helpful AI careers in Pakistan — which ideas are good?",
+             ur:"پاکستان میں مددگار اے آئی نوکریاں سوچو — کون سے خیالات اچھے؟"},
+      ideas:[
+        {id:"a", em:"🌾", en:"Crop tip helper for village farmers", ur:"گاؤں کے کسانوں کے لیے فصل مشورہ", good:true},
+        {id:"b", em:"🚑", en:"Clinic tool that helps doctors (humans decide)", ur:"کلینک ٹول جو ڈاکٹر کی مدد کرے (فیصلہ انسان)", good:true},
+        {id:"c", em:"😤", en:"Robot that replaces all kindness forever", ur:"روبوٹ جو ہمیشہ کی مہربانی کی جگہ لے لے", good:false},
+        {id:"d", em:"🗺️", en:"Maps that help vans find safer routes", ur:"نقشے جو وین کو محفوظ راستے دکھائیں", good:true}
+      ],
+      hint:{en:"Crop tips, clinic tools (humans decide), safer maps = good. Replacing kindness = not our dream!",
+            ur:"فصل مشورہ، کلینک ٹول (فیصلہ انسان)، محفوظ نقشہ = اچھا۔ مہربانی بدلنا = ہمارا خواب نہیں!"},
+      done:{en:"Future Pakistan helpers imagined!", ur:"مستقبل پاکستان مددگار سوچے!"}
+    },
+    {
+      id:"d4",
+      em:"🎮📚",
+      title:{en:"Learn & play helpers", ur:"سیکھو اور کھیلو مددگار"},
+      scene:{en:"Which helpers make learning and play better — without being mean?",
+             ur:"کون سے مددگار سیکھنا اور کھیل بہتر بناتے ہیں — بغیر برائی کے؟"},
+      ideas:[
+        {id:"a", em:"🎯", en:"Game designer AI that tests fair levels", ur:"گیم ڈیزائنر اے آئی جو منصفانہ سطح ٹیسٹ کرے", good:true},
+        {id:"b", em:"📢", en:"Loud app that shouts secrets in class", ur:"ایپ جو کلاس میں راز چلا کر بولے", good:false},
+        {id:"c", em:"🔤", en:"Urdu–English word practice buddy", ur:"اردو–انگریزی الفاظ مشق ساتھی", good:true},
+        {id:"d", em:"🏅", en:"Star chart for finishing homework", ur:"ہوم ورک مکمل کرنے کا ستارہ چارٹ", good:true}
+      ],
+      hint:{en:"Fair game tests, language buddy, homework stars = good. Shouting secrets = bad.",
+            ur:"منصفانہ گیم ٹیسٹ، زبان ساتھی، ہوم ورک ستارے = اچھا۔ راز چلانا = برا۔"},
+      done:{en:"Learn & play helpers locked in!", ur:"سیکھو و کھیلو مددگار محفوظ!"}
+    },
+    {
+      id:"d5",
+      em:"🤝💡",
+      title:{en:"Kind career dreams", ur:"مہربان کیریئر خواب"},
+      scene:{en:"You grow up and invent AI helpers — pick the kind ideas!",
+             ur:"بڑے ہو کر اے آئی مددگار بناتے ہو — مہربان خیالات چنو!"},
+      ideas:[
+        {id:"a", em:"🩺", en:"Helper tools so doctors have more time to care", ur:"ٹول تاکہ ڈاکٹروں کے پاس خیال رکھنے کا وقت ہو", good:true},
+        {id:"b", em:"🚫🧠", en:"AI that stops kids from thinking at all", ur:"اے آئی جو بچوں کو بالکل سوچنے سے روکے", good:false},
+        {id:"c", em:"👩‍🏫", en:"Teacher apps that free time for stories", ur:"استاد ایپس جو کہانیوں کے لیے وقت بچائیں", good:true},
+        {id:"d", em:"🛒", en:"Shop tools that make checkout kinder & faster", ur:"دکان ٹول جو بل تیز و آسان بنائیں", good:true}
+      ],
+      hint:{en:"More care time, teacher story time, kinder checkout = good. Stopping thinking = never!",
+            ur:"زیادہ خیال وقت، استاد کہانی وقت، آسان بل = اچھا۔ سوچ روکنا = کبھی نہیں!"},
+      done:{en:"Kind careers — AI helps, you lead!", ur:"مہربان کیریئر — اے آئی مدد، تم رہنما!"}
+    }
+  ];
+
+  /* Quiz pool: 7 — pick 5. EN + Roman Urdu cues */
+  var QUIZ = [
+    {
+      q:{en:"AI at work is best described as a… (madadgar tool)", ur:"کام پر اے آئی بہترین طور پر… ہے"},
+      opts:[
+        {en:"Helper tool for people", ur:"لوگوں کے لیے مددگار ٹول"},
+        {en:"Boss that replaces all humans", ur:"باس جو سب انسان بدل دے"},
+        {en:"Toy that never helps", ur:"کھلونا جو کبھی مدد نہ کرے"},
+        {en:"Only for cricket scores", ur:"صرف کرکٹ سکور کے لیے"}
+      ],
+      correct:0,
+      why:{en:"AI helps people do jobs better — it does not replace kindness or thinking.",
+           ur:"اے آئی لوگوں کی نوکری بہتر کرتی ہے — مہربانی یا سوچ کی جگہ نہیں لیتی۔"}
+    },
+    {
+      q:{en:"A Punjab farmer might use AI for… (mosam / fasal tips)", ur:"پنجاب کا کسان اے آئی سے… کر سکتا ہے"},
+      opts:[
+        {en:"Weather and crop tips", ur:"موسم اور فصل کے مشورے"},
+        {en:"Deleting all kindness", ur:"ساری مہربانی مٹانا"},
+        {en:"Driving the school bus alone forever", ur:"ہمیشہ اکیلا اسکول بس چلانا"},
+        {en:"Eating all the biryani", ur:"ساری بریانی کھا جانا"}
+      ],
+      correct:0,
+      why:{en:"Farmers can get weather and crop tips from helper apps — they still decide what to do.",
+           ur:"کسان موسم و فصل کے مشورے ایپ سے لے سکتے ہیں — فیصلہ پھر بھی ان کا ہے۔"}
+    },
+    {
+      q:{en:"In a clinic, who should make the final care decision? (faisla)",
+         ur:"کلینک میں حتمی خیال/علاج کا فیصلہ کون کرے؟"},
+      opts:[
+        {en:"The doctor (human) — AI only helps", ur:"ڈاکٹر (انسان) — اے آئی صرف مدد"},
+        {en:"A random robot with no doctor", ur:"بغیر ڈاکٹر کے کوئی روبوٹ"},
+        {en:"The barcode scanner", ur:"بارکوڈ سکینر"},
+        {en:"A cricket umpire", ur:"کرکٹ امپائر"}
+      ],
+      correct:0,
+      why:{en:"AI can highlight clues; caring decisions stay with doctors and people.",
+           ur:"اے آئی اشارے دکھا سکتی ہے؛ خیال کے فیصلے ڈاکٹر اور انسانوں کے ہیں۔"}
+    },
+    {
+      q:{en:"A shopkeeper barcode tool is an example of… (dukandar helper)",
+         ur:"دکان دار کا بارکوڈ ٹول مثال ہے… کی"},
+      opts:[
+        {en:"AI/computer helper at a job", ur:"نوکری پر اے آئی/کمپیوٹر مددگار"},
+        {en:"Replacing all friends", ur:"سب دوست بدل دینا"},
+        {en:"A scary robot takeover", ur:"خوفناک روبوٹ قبضہ"},
+        {en:"Homework punishment", ur:"ہوم ورک سزا"}
+      ],
+      correct:0,
+      why:{en:"Barcode helpers speed up shops — people still greet customers and solve problems.",
+           ur:"بارکوڈ مددگار دکان تیز کرتے ہیں — لوگ پھر بھی خوش آمدید کہتے اور مسائل حل کرتے ہیں۔"}
+    },
+    {
+      q:{en:"Driver maps help with routes, but the driver must still… (sarak dekho)",
+         ur:"ڈرائیور نقشے راستے بتاتے ہیں، مگر ڈرائیور کو پھر بھی…"},
+      opts:[
+        {en:"Watch the road and decide safely", ur:"سڑک دیکھنا اور محفوظ فیصلہ"},
+        {en:"Close both eyes and trust only AI", ur:"آنکھیں بند کر صرف اے آئی پر یقین"},
+        {en:"Throw the map out the window", ur:"نقشہ کھڑکی سے پھینک دینا"},
+        {en:"Never learn any road rules", ur:"کبھی سڑک کے اصول نہ سیکھنا"}
+      ],
+      correct:0,
+      why:{en:"Maps are helpers. Safe driving needs human attention and decisions.",
+           ur:"نقشے مددگار ہیں۔ محفوظ ڈرائیونگ کے لیے انسانی توجہ اور فیصلے ضروری ہیں۔"}
+    },
+    {
+      q:{en:"Which is a GOOD Class 4 dream for AI helpers? (achha khwab)",
+         ur:"کلاس ۴ کے لیے اے آئی مددگار کا اچھا خواب کون سا ہے؟"},
+      opts:[
+        {en:"Apps that help learning, farms, clinics — kindly", ur:"ایپس جو سیکھنے، کھیت، کلینک میں مہربانی سے مدد کریں"},
+        {en:"AI that stops all thinking forever", ur:"اے آئی جو ہمیشہ سوچ روک دے"},
+        {en:"Robots that replace every smile", ur:"روبوٹ جو ہر مسکراہٹ بدل دیں"},
+        {en:"Tools that tease friends", ur:"ٹول جو دوستوں کو چھیڑیں"}
+      ],
+      correct:0,
+      why:{en:"Dream helpers that support learning, farms, and clinics — never mean or thought-stopping!",
+           ur:"مددگار خواب سیکھنے، کھیت اور کلینک کی مدد کریں — کبھی برا یا سوچ روکنے والا نہیں!"}
+    },
+    {
+      q:{en:"Humans still need to… even when AI helps (insan ki zimmedari)",
+         ur:"اے آئی مدد کرے تب بھی انسانوں کو… چاہیے"},
+      opts:[
+        {en:"Decide, care, and create", ur:"فیصلہ، خیال اور تخلیق"},
+        {en:"Stop being kind", ur:"مہربان ہونا بند کر دیں"},
+        {en:"Never ask questions", ur:"کبھی سوال نہ پوچھیں"},
+        {en:"Only copy robots forever", ur:"ہمیشہ صرف روبوٹ نقل کریں"}
+      ],
+      correct:0,
+      why:{en:"AI is a helper. People still decide, care for others, and invent new ideas.",
+           ur:"اے آئی مددگار ہے۔ لوگ پھر بھی فیصلہ کرتے، خیال رکھتے اور نئے خیالات بناتے ہیں۔"}
+    }
+  ];
+
+  var whoIdx = 0, whoDone = {}, whoMap = {};
+  var teamIdx = 0, teamDone = {}, teamMap = {}, teamSelected = null;
+  var dreamIdx = 0, dreamDone = {}, dreamPick = {};
+  var quizSet = [];
+
+  function award(key, n){
+    if (awarded[key]) return;
+    awarded[key] = true;
+    stars += (n || 1);
+    $("starCount").textContent = String(stars);
+  }
+  function recountStars(){
+    stars = 0;
+    Object.keys(awarded).forEach(function(k){
+      stars += (k.indexOf("mode-")===0) ? 2 : 1;
+    });
+    $("starCount").textContent = String(stars);
+  }
+
+  function skyHTML(){
+    return '<div class="sky-layer"><div class="sun-ball"></div>' +
+           '<div class="cloud c1"></div><div class="cloud c2"></div></div>';
+  }
+
+  /* ---------- WHO (match) ---------- */
+  function renderWho(){
+    var ch = WHO[whoIdx];
+    var helpKeys = Object.keys(ch.helps);
+    var pad = $("scenePad");
+    pad.innerHTML = skyHTML() +
+      '<div class="hero-stage">' +
+      '<div class="hero-em">💼🤖</div>' +
+      '<div class="help-pills" id="helpPills"></div></div>';
+    var pills = $("helpPills");
+    helpKeys.forEach(function(hk, hi){
+      var sp = document.createElement("span");
+      sp.className = "help-pill";
+      setText(sp, (hi+1) + ". " + t(ch.helps[hk]));
+      pills.appendChild(sp);
+    });
+
+    setText($("statechip"), (whoIdx+1) + " / " + WHO.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"");
+    setText($("headline"), t(ch.title));
+    setText($("detail"), t(T.askWho));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+    var grid = document.createElement("div");
+    grid.className = "match-grid";
+    ch.rows.forEach(function(row){
+      var div = document.createElement("div");
+      div.className = "match-row";
+      div.innerHTML = '<span class="mem">'+row.em+'</span><span class="mtxt"></span><span class="match-opts"></span>';
+      setText(div.querySelector(".mtxt"), t(row.job));
+      var opts = div.querySelector(".match-opts");
+      helpKeys.forEach(function(hk, hi){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.textContent = String(hi + 1);
+        b.title = t(ch.helps[hk]);
+        if (whoDone[ch.id] && whoMap[row.id] === hk){
+          if (hk === row.help) b.classList.add("right");
+        } else if (whoMap[row.id] === hk){
+          b.style.boxShadow = "0 0 0 2px var(--accent)";
+          b.style.borderColor = "var(--accent)";
+        }
+        b.disabled = !!whoDone[ch.id];
+        b.addEventListener("click", function(){
+          if (whoDone[ch.id]) return;
+          whoMap[row.id] = hk;
+          renderWho();
+        });
+        opts.appendChild(b);
+      });
+      grid.appendChild(div);
+    });
+    box.appendChild(grid);
+
+    if (!whoDone[ch.id]){
+      var chk = document.createElement("button");
+      chk.type = "button";
+      chk.style.cssText = "margin-top:10px;width:100%;border:2px solid var(--ink);border-radius:14px;background:var(--ink);color:var(--paper);font:inherit;font-weight:800;min-height:48px;cursor:pointer";
+      setText(chk, t(T.checkMatch));
+      chk.addEventListener("click", function(){
+        var ok = true;
+        ch.rows.forEach(function(row){
+          if (whoMap[row.id] !== row.help) ok = false;
+        });
+        if (ok && Object.keys(whoMap).length === ch.rows.length){
+          whoDone[ch.id] = true;
+          award("who-"+ch.id, 1);
+          setText($("headline"), t(ch.done));
+          $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.nice));
+          if (Object.keys(whoDone).length >= WHO.length){
+            doneModes.who = true;
+            award("mode-who", 2);
+          }
+          tabBadges();
+          renderWho();
+        } else {
+          setText($("headline"), t(T.oops));
+          $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.oops));
+        }
+      });
+      box.appendChild(chk);
+    }
+
+    setText($("prog"), t(T.progWho) + ": " + Object.keys(whoDone).length + "/" + WHO.length);
+  }
+
+  /* ---------- TEAM (sort) ---------- */
+  function renderTeam(){
+    var ch = TEAM[teamIdx];
+    var pad = $("scenePad");
+    pad.innerHTML = skyHTML() +
+      '<div class="hero-stage">' +
+      '<div class="hero-em">🧑🤝🤖</div>' +
+      '<div class="card-box" id="teamCard"></div></div>';
+    setText($("teamCard"), t(ch.title));
+
+    setText($("statechip"), (teamIdx+1) + " / " + TEAM.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"");
+    setText($("headline"), t(ch.title));
+    setText($("detail"), t(T.askTeam));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+    var list = document.createElement("div");
+    list.className = "share-list";
+    ch.items.forEach(function(it){
+      var div = document.createElement("button");
+      div.type = "button";
+      div.className = "share-item";
+      if (teamMap[it.id]) div.classList.add("picked-" + (teamMap[it.id]==="ai"?"ai":teamMap[it.id]==="both"?"both":"human"));
+      if (teamSelected === it.id) div.classList.add("selected");
+      div.innerHTML = '<span class="sem">'+it.em+'</span><span class="stxt"></span>';
+      setText(div.querySelector(".stxt"), t(it));
+      if (teamDone[ch.id]) div.disabled = true;
+      div.addEventListener("click", function(){
+        if (teamDone[ch.id]) return;
+        teamSelected = it.id;
+        renderTeam();
+      });
+      list.appendChild(div);
+    });
+    box.appendChild(list);
+
+    var bins = document.createElement("div");
+    bins.className = "save-choices";
+    ["human","ai","both"].forEach(function(k){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.innerHTML = '<span class="cem">'+BINS[k].em+'</span><span class="clab"></span>';
+      setText(b.querySelector(".clab"), t(k==="human"?T.binHuman:k==="ai"?T.binAi:T.binBoth));
+      b.disabled = !!teamDone[ch.id] || !teamSelected;
+      b.addEventListener("click", function(){
+        if (teamDone[ch.id] || !teamSelected) return;
+        teamMap[teamSelected] = k;
+        teamSelected = null;
+        renderTeam();
+      });
+      bins.appendChild(b);
+    });
+    box.appendChild(bins);
+
+    if (!teamDone[ch.id]){
+      var chk = document.createElement("button");
+      chk.type = "button";
+      chk.style.cssText = "margin-top:10px;width:100%;border:2px solid var(--ink);border-radius:14px;background:var(--ink);color:var(--paper);font:inherit;font-weight:800;min-height:48px;cursor:pointer";
+      setText(chk, t(T.checkTeam));
+      chk.addEventListener("click", function(){
+        var ok = true;
+        ch.items.forEach(function(it){
+          if (teamMap[it.id] !== it.kind) ok = false;
+        });
+        if (ok && Object.keys(teamMap).length === ch.items.length){
+          teamDone[ch.id] = true;
+          award("team-"+ch.id, 1);
+          setText($("headline"), t(ch.done));
+          $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.nice));
+          if (Object.keys(teamDone).length >= TEAM.length){
+            doneModes.team = true;
+            award("mode-team", 2);
+          }
+          tabBadges();
+          renderTeam();
+        } else {
+          setText($("headline"), t(T.oops));
+          $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.oops));
+        }
+      });
+      box.appendChild(chk);
+    }
+
+    setText($("prog"), t(T.progTeam) + ": " + Object.keys(teamDone).length + "/" + TEAM.length);
+  }
+
+  /* ---------- DREAM (multi-pick good) ---------- */
+  function renderDream(){
+    var ch = DREAM[dreamIdx];
+    if (!dreamPick[ch.id]) dreamPick[ch.id] = {};
+    var picks = dreamPick[ch.id];
+
+    var pad = $("scenePad");
+    pad.innerHTML = skyHTML() +
+      '<div class="hero-stage">' +
+      '<div class="hero-em">'+ch.em+'</div>' +
+      '<div class="card-box" id="dreamCard"></div></div>';
+    setText($("dreamCard"), t(ch.scene));
+
+    setText($("statechip"), (dreamIdx+1) + " / " + DREAM.length);
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"");
+    setText($("headline"), t(ch.title));
+    setText($("detail"), t(T.askDream));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+    var grid = document.createElement("div");
+    grid.className = "dream-grid";
+    ch.ideas.forEach(function(idea){
+      var div = document.createElement("button");
+      div.type = "button";
+      div.className = "dream-item";
+      if (picks[idea.id]) div.classList.add("on");
+      if (dreamDone[ch.id]){
+        if (idea.good) div.classList.add("right");
+        else if (picks[idea.id]) div.classList.add("wrong");
+        div.disabled = true;
+      }
+      div.innerHTML = '<span class="dem">'+idea.em+'</span><span class="dtxt"></span>';
+      setText(div.querySelector(".dtxt"), t(idea));
+      div.addEventListener("click", function(){
+        if (dreamDone[ch.id]) return;
+        if (picks[idea.id]) delete picks[idea.id];
+        else picks[idea.id] = true;
+        renderDream();
+      });
+      grid.appendChild(div);
+    });
+    box.appendChild(grid);
+
+    if (!dreamDone[ch.id]){
+      var chk = document.createElement("button");
+      chk.type = "button";
+      chk.style.cssText = "margin-top:10px;width:100%;border:2px solid var(--ink);border-radius:14px;background:var(--ink);color:var(--paper);font:inherit;font-weight:800;min-height:48px;cursor:pointer";
+      setText(chk, t(T.checkDream));
+      chk.addEventListener("click", function(){
+        var ok = true;
+        ch.ideas.forEach(function(idea){
+          var selected = !!picks[idea.id];
+          if (idea.good !== selected) ok = false;
+        });
+        if (ok){
+          dreamDone[ch.id] = true;
+          award("dream-"+ch.id, 1);
+          setText($("headline"), t(ch.done));
+          $("statechip").className = "statechip win" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.nice));
+          if (Object.keys(dreamDone).length >= DREAM.length){
+            doneModes.dream = true;
+            award("mode-dream", 2);
+          }
+          tabBadges();
+          renderDream();
+        } else {
+          setText($("headline"), t(T.oops));
+          $("statechip").className = "statechip miss" + (lang==="ur"?" ur":"");
+          setText($("statechip"), t(T.oops));
+        }
+      });
+      box.appendChild(chk);
+    }
+
+    setText($("prog"), t(T.progDream) + ": " + Object.keys(dreamDone).length + "/" + DREAM.length);
+  }
+
+  /* ---------- QUIZ ---------- */
+  function pickQuiz(){ quizSet = shuffle(QUIZ).slice(0, 5); }
+  function renderQuiz(){
+    var box = $("quizBox");
+    box.innerHTML = "";
+    quizSet.forEach(function(item, qi){
+      var wrap = document.createElement("div");
+      wrap.className = "q";
+      var p = document.createElement("p");
+      setText(p, (qi+1) + ". " + t(item.q));
+      wrap.appendChild(p);
+      var answered = false;
+      item.opts.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt" + (lang==="ur"?" ur":"");
+        setText(b, t(opt));
+        b.addEventListener("click", function(){
+          if (answered) return;
+          answered = true;
+          if (oi === item.correct){
+            b.classList.add("right");
+            award("quiz-"+qi, 1);
+          } else {
+            b.classList.add("wrong");
+            var kids = wrap.querySelectorAll(".opt");
+            if (kids[item.correct]) kids[item.correct].classList.add("right");
+          }
+          fb.classList.add("show");
+        });
+        wrap.appendChild(b);
+      });
+      var fb = document.createElement("p");
+      fb.className = "fb";
+      setText(fb, t(item.why));
+      wrap.appendChild(fb);
+      box.appendChild(wrap);
+    });
+  }
+
+  function storyHtml(){
+    if (mode === "who") return t(T.storyWho);
+    if (mode === "team") return t(T.storyTeam);
+    return t(T.storyDream);
+  }
+
+  function tabBadges(){
+    function lab(btn, label, key){
+      btn.innerHTML = "";
+      var span = document.createElement("span");
+      setText(span, t(label));
+      btn.appendChild(span);
+      if (doneModes[key]){
+        var b = document.createElement("span");
+        b.className = "badge"; b.textContent = " ★";
+        btn.appendChild(b);
+      }
+    }
+    lab($("tabWho"), T.tabWho, "who");
+    lab($("tabTeam"), T.tabTeam, "team");
+    lab($("tabDream"), T.tabDream, "dream");
+    $("tabWho").setAttribute("aria-pressed", mode==="who"?"true":"false");
+    $("tabTeam").setAttribute("aria-pressed", mode==="team"?"true":"false");
+    $("tabDream").setAttribute("aria-pressed", mode==="dream"?"true":"false");
+  }
+
+  function setMode(m){
+    mode = m;
+    if (mode === "who"){ whoMap = {}; renderWho(); }
+    else if (mode === "team"){ teamSelected = null; teamMap = {}; renderTeam(); }
+    else { renderDream(); }
+    applyChrome();
+  }
+
+  function applyChrome(){
+    setText($("title"), t(T.title));
+    setText($("subtitle"), t(T.sub));
+    $("story").innerHTML = storyHtml();
+    $("story").classList.toggle("ur", lang==="ur");
+    $("story").setAttribute("dir", lang==="ur"?"rtl":"ltr");
+    setText($("ctlHead"), t(T.ctl));
+    setText($("nextBtn"), t(T.next));
+    setText($("hintBtn"), t(T.hint));
+    setText($("resetBtn"), t(T.reset));
+    setText($("quizHead"), t(T.quiz));
+    setText($("newQuiz"), t(T.newQuiz));
+    $("langBtn").textContent = (lang === "en") ? "اردو" : "EN";
+    $("langBtn").setAttribute("aria-pressed", lang==="ur"?"true":"false");
+    document.body.classList.toggle("urdu", lang==="ur");
+    document.documentElement.lang = (lang==="ur") ? "ur" : "en";
+    document.documentElement.dir = (lang==="ur") ? "rtl" : "ltr";
+    tabBadges();
+    var foot = document.querySelector("footer p");
+    if (foot) setText(foot, foot.getAttribute(lang==="ur"?"data-ur":"data-en"));
+  }
+
+  function applyLang(){
+    applyChrome();
+    if (mode === "who") renderWho();
+    else if (mode === "team") renderTeam();
+    else renderDream();
+    renderQuiz();
+  }
+
+  function next(){
+    if (mode === "who"){
+      whoIdx = (whoIdx + 1) % WHO.length;
+      whoMap = {};
+      renderWho();
+    } else if (mode === "team"){
+      teamIdx = (teamIdx + 1) % TEAM.length;
+      teamMap = {}; teamSelected = null;
+      renderTeam();
+    } else {
+      dreamIdx = (dreamIdx + 1) % DREAM.length;
+      renderDream();
+    }
+  }
+
+  function showHint(){
+    var h;
+    if (mode === "who") h = WHO[whoIdx].hint;
+    else if (mode === "team") h = TEAM[teamIdx].hint;
+    else h = DREAM[dreamIdx].hint;
+    var hb = $("hintbox");
+    setText(hb, t(h));
+    hb.classList.add("show");
+  }
+
+  function resetMode(){
+    if (mode === "who"){
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("who-")===0 || k==="mode-who") delete awarded[k]; });
+      whoDone = {}; whoIdx = 0; whoMap = {}; doneModes.who = false;
+      recountStars(); renderWho();
+    } else if (mode === "team"){
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("team-")===0 || k==="mode-team") delete awarded[k]; });
+      teamDone = {}; teamIdx = 0; teamMap = {}; teamSelected = null; doneModes.team = false;
+      recountStars(); renderTeam();
+    } else {
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("dream-")===0 || k==="mode-dream") delete awarded[k]; });
+      dreamDone = {}; dreamIdx = 0; dreamPick = {}; doneModes.dream = false;
+      recountStars(); renderDream();
+    }
+    tabBadges();
+    applyChrome();
+  }
+
+  function cleanSpeakText(s){
+    return String(s || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  }
+  function buildSpeakText(){
+    var bits = [];
+    bits.push(t(T.title));
+    bits.push(cleanSpeakText(storyHtml()));
+    bits.push(cleanSpeakText(($("headline") && $("headline").textContent) || ""));
+    bits.push(cleanSpeakText(($("detail") && $("detail").textContent) || ""));
+    bits.push(t(T.tip));
+    return bits.filter(Boolean).join(". ");
+  }
+  function pickVoice(voices, want){
+    var i, v, L;
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf(want) === 0) return v;
+    }
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf("en") === 0) return v;
+    }
+    return voices[0] || null;
+  }
+  var speakTimer = null;
+  function setSpeaking(on){
+    var btn = $("speakBtn");
+    if (!btn) return;
+    btn.setAttribute("aria-pressed", on ? "true" : "false");
+    btn.style.opacity = on ? "0.65" : "";
+  }
+  function doSpeak(text, asLang){
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.92;
+    u.lang = (asLang === "ur") ? "ur-PK" : "en-US";
+    var voices = window.speechSynthesis.getVoices() || [];
+    var voice = pickVoice(voices, asLang === "ur" ? "ur" : "en");
+    if (voice) u.voice = voice;
+    u.onstart = function(){ setSpeaking(true); };
+    u.onend = function(){ setSpeaking(false); };
+    u.onerror = function(){
+      setSpeaking(false);
+      if (asLang === "ur"){
+        var fallback = cleanSpeakText(T.title.en + ". " + T.storyWho.en + ". " + T.tip.en);
+        var u2 = new SpeechSynthesisUtterance(fallback);
+        u2.lang = "en-US"; u2.rate = 0.92;
+        var v2 = pickVoice(window.speechSynthesis.getVoices() || [], "en");
+        if (v2) u2.voice = v2;
+        u2.onstart = function(){ setSpeaking(true); };
+        u2.onend = u2.onerror = function(){ setSpeaking(false); };
+        window.speechSynthesis.speak(u2);
+      }
+    };
+    window.speechSynthesis.speak(u);
+  }
+  if ("speechSynthesis" in window){
+    try { window.speechSynthesis.getVoices(); } catch (e0) {}
+    if (typeof window.speechSynthesis.addEventListener === "function"){
+      window.speechSynthesis.addEventListener("voiceschanged", function(){
+        try { window.speechSynthesis.getVoices(); } catch (e1) {}
+      });
+    }
+  } else {
+    var noBtn = $("speakBtn");
+    if (noBtn){ noBtn.disabled = true; noBtn.title = "Voice not available on this device"; }
+  }
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en";
+    applyLang();
+  });
+  $("tabWho").addEventListener("click", function(){ setMode("who"); });
+  $("tabTeam").addEventListener("click", function(){ setMode("team"); });
+  $("tabDream").addEventListener("click", function(){ setMode("dream"); });
+  $("nextBtn").addEventListener("click", next);
+  $("hintBtn").addEventListener("click", showHint);
+  $("resetBtn").addEventListener("click", resetMode);
+  $("newQuiz").addEventListener("click", function(){ pickQuiz(); renderQuiz(); });
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      var text = buildSpeakText();
+      if (!text) return;
+      if (speakTimer){ clearTimeout(speakTimer); speakTimer = null; }
+      window.speechSynthesis.cancel();
+      setSpeaking(false);
+      var speakLang = lang;
+      speakTimer = setTimeout(function(){
+        speakTimer = null;
+        doSpeak(text, speakLang);
+      }, 80);
+    }catch(e){ setSpeaking(false); }
+  });
+
+  pickQuiz();
+  applyLang();
+})();
+</script>
+</body>
+</html>

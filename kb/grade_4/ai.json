@@ -342,7 +342,9 @@
             "explanation": "AI bachon ki seekhayi ko behtar banane ke liye naye tarikeon ko samajhta hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g4-ai-jobs.html",
+      "interactive_label": "Khelo - AI jobs"
     }
   ]
 }
