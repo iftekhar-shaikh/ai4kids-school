@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Akhlaq aur Muamalat — اخلاق اور معاملات | AI4Kids Grade 4 Islamiyat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#f1f0e7;
+    --board-deep:#e3e1d3;
+    --home:#2e7d55;
+    --home-deep:#1d5a3c;
+    --friend:#3a6ea8;
+    --friend-deep:#26497a;
+    --nbr:#a0632c;
+    --nbr-deep:#7a4718;
+    --ink:#241f18;
+    --ink-soft:#554c41;
+    --paper:#fdfaf3;
+    --line:#ded5c4;
+    --accent:#1d5a3c;
+    --ok:#2e7d4f;
+    --soft:#c9702e;
+
+    --fs-cap:clamp(15px, 3.9vw, 16px);
+    --fs-xs:clamp(16px, 4.2vw, 18px);
+    --fs-sm:clamp(18px, 4.7vw, 19px);
+    --fs-md:clamp(19px, 5.1vw, 21px);
+    --fs-lg:clamp(22px, 5.9vw, 25px);
+    --fs-xl:clamp(28px, 7.6vw, 34px);
+    --lh:1.5;
+  }
+  /* Urdu is set larger than Latin — Nastaliq reads smaller at the same size. */
+  body.urdu{
+    --fs-cap:clamp(17px, 4.4vw, 18px);
+    --fs-xs:clamp(18px, 4.7vw, 20px);
+    --fs-sm:clamp(20px, 5.2vw, 22px);
+    --fs-md:clamp(21px, 5.6vw, 23px);
+    --fs-lg:clamp(24px, 6.4vw, 27px);
+    --fs-xl:clamp(27px, 7.2vw, 32px);
+    --lh:2.1;
+  }
+
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:44px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--soft);outline-offset:2px}
+
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+
+  .tabs{display:flex;gap:7px;margin:0 0 14px}
+  .tabs button{
+    flex:1;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:9px 6px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:58px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+
+  .scene{
+    border-radius:22px;border:3px solid var(--ink);padding:18px 16px;min-height:150px;
+    background:linear-gradient(180deg,var(--board) 0%,var(--board-deep) 100%);
+  }
+  .where{
+    display:inline-block;border-radius:999px;padding:5px 15px;margin-bottom:10px;
+    font-size:var(--fs-cap);font-weight:800;color:#fff;background:var(--home);
+  }
+  .where.f{background:var(--friend)} .where.n{background:var(--nbr)}
+  .where.ur{padding:3px 15px 8px}
+  .story{font-size:var(--fs-md);font-weight:700;line-height:1.6;margin:0}
+  .story.ur{line-height:var(--lh)}
+
+  .opts{display:flex;flex-direction:column;gap:9px;margin-top:12px}
+  .opts button{
+    border:2px solid var(--line);background:var(--paper);border-radius:14px;padding:13px 16px;
+    font:inherit;font-size:var(--fs-sm);font-weight:700;color:var(--ink);cursor:pointer;
+    min-height:58px;text-align:left;line-height:1.5;
+  }
+  body.urdu .opts button{text-align:right;line-height:var(--lh)}
+  .opts button.best{border-color:var(--ok);background:#e8f2ed}
+  .opts button.okish{border-color:var(--soft);background:#fbf1e8}
+  .opts button.poor{border-color:#b9c0c8;background:#f1f3f5}
+
+  .readout{
+    margin-top:14px;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-cap);font-weight:700;margin-bottom:10px}
+  .statechip.ur{padding:2px 14px 7px}
+  .statechip.ok{background:var(--ok)} .statechip.soft{background:var(--soft)}
+  .says{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.4}
+  .says.ur{line-height:1.95}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+
+  .teach{
+    margin-top:14px;border:2px solid var(--accent);background:#eaf2ed;border-radius:14px;
+    padding:13px 15px;
+  }
+  .teach em{display:block;font-style:normal;font-size:var(--fs-cap);color:var(--ink-soft);
+            font-weight:700;margin-bottom:6px}
+  .teach b{display:block;font-size:var(--fs-sm);font-weight:800;color:var(--accent);line-height:2}
+
+  .why-note{
+    margin:12px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.55;
+    border-left:3px solid var(--accent);padding-left:11px;
+  }
+  .why-note b{color:var(--accent);font-weight:800}
+  body.urdu .why-note{
+    border-left:0;border-right:3px solid var(--accent);padding-left:0;padding-right:11px;
+    line-height:var(--lh);
+  }
+  .review{
+    margin-top:16px;border:2px dashed var(--soft);border-radius:14px;padding:11px 13px;
+    font-size:var(--fs-cap);color:var(--nbr-deep);font-weight:700;line-height:1.6;
+  }
+  body.urdu .review{line-height:var(--lh)}
+
+  .panel{margin-top:22px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .schip{
+    border:2px solid var(--line);background:var(--paper);border-radius:999px;padding:9px 15px;
+    font:inherit;font-size:var(--fs-cap);font-weight:800;color:var(--ink);cursor:pointer;min-height:46px;
+  }
+  .schip[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+  .schip.done{border-color:var(--ok)}
+
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:52px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+  .opt.wrong{border-color:var(--soft);background:#fbf1e8}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
+      grid-template-areas:"bar bar" "head head" "tabs tabs" "left right" "quiz quiz" "foot foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+    .left{grid-area:left} .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+    .panel{margin-top:0}
+  }
+  @media (prefers-reduced-motion:reduce){ *{transition-duration:.01ms !important} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Grade 4 · Islamiyat</span>
+    <button class="chip" id="langBtn" aria-pressed="false">English</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 id="title"></h1>
+  <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group">
+    <button type="button" id="tabHome" aria-pressed="true"></button>
+    <button type="button" id="tabFriend" aria-pressed="false"></button>
+    <button type="button" id="tabNbr" aria-pressed="false"></button>
+  </div>
+
+  <div class="left">
+  <div class="scene">
+    <span class="where" id="where"></span>
+    <p class="story" id="story"></p>
+  </div>
+
+  <div class="opts" id="opts"></div>
+
+  <div class="readout">
+    <span class="statechip" id="statechip"></span>
+    <p class="says" id="says"></p>
+    <p class="detail" id="detail"></p>
+    <div class="teach" id="teach"></div>
+    <p class="why-note"><b id="whyLbl"></b> <span id="whyText"></span></p>
+    <p class="review" id="review"></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="panel">
+    <h2 id="panelHead"></h2>
+    <div class="chips" id="chips" role="group"></div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <h2 id="quizHead" style="font-size:var(--fs-lg);font-weight:800;margin:0 0 18px"></h2>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-ur="اے آئی فور کڈز — اسلام آباد کا دو زبانوں والا اے آئی اور کوڈنگ سکول۔ واٹس ایپ 0337 1468899" data-en="AI4Kids — Islamabad's bilingual AI and coding school. WhatsApp 0337 1468899"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var lang="ur", tab="home";      // this subject opens in Urdu
+  var idx={home:0, friend:0, nbr:0};
+  var picked=null, done={home:{},friend:{},nbr:{}};
+
+  /* Each situation has three choices. q = quality: 2 best, 1 partly right, 0 weak.
+     The teaching line is given as مفہوم — the sense of it, never a quoted wording. */
+  var CASES={
+    home:[
+      { s:{ur:"آپ نے کھیلتے ہوئے امی کا پیالہ توڑ دیا۔ کمرے میں کوئی اور نہیں تھا۔",
+            en:"You broke your mother's bowl while playing. Nobody else was in the room."},
+        o:[{ur:"خود جا کر بتا دیں کہ مجھ سے ٹوٹا ہے", en:"Go and tell her yourself that you broke it", q:2,
+            r:{ur:"یہی سب سے مشکل اور سب سے بہتر راستہ ہے۔ سچ بولنے میں ایک لمحہ بھاری گزرتا ہے، جھوٹ میں کئی دن۔",
+               en:"The hardest road and the best one. Truth is heavy for a moment; a lie is heavy for days."}},
+           {ur:"خاموش رہیں، شاید کسی کو پتا نہ چلے", en:"Stay quiet, maybe nobody will find out", q:0,
+            r:{ur:"چھپانا جھوٹ کا پہلا قدم ہے۔ اور جو بات چھپائی جائے، اسے سنبھالنے کے لیے اور باتیں چھپانی پڑتی ہیں۔",
+               en:"Hiding is the first step of a lie. And a hidden thing needs more hiding to keep it hidden."}},
+           {ur:"کہہ دیں کہ بلی نے گرا دیا", en:"Say the cat knocked it over", q:0,
+            r:{ur:"یہ صرف جھوٹ نہیں، کسی اور پر الزام بھی ہے۔ ایک غلطی چھپانے کے لیے دو غلطیاں کرنی پڑ گئیں۔",
+               en:"This is not only a lie, it also blames someone else. One mistake has just cost two."}}],
+        teach:{ur:"سچ بولنا مسلمان کی پہچان ہے۔ نبی ﷺ کو نبوت سے پہلے ہی \u201cصادق\u201d اور \u201cامین\u201d کہا جاتا تھا — یعنی سچا اور امانت دار۔",
+               en:"Truthfulness marks a Muslim. Even before prophethood the Prophet \uFDFA was called Sadiq and Ameen \u2014 truthful and trustworthy."},
+        why:{ur:"غور کریں کہ لوگ آپ ﷺ کو یہ نام اُس وقت دیتے تھے جب وہ ان کی بات ماننے کو تیار نہ تھے۔ اچھا اخلاق اُن پر بھی اثر کرتا ہے جو آپ سے اختلاف رکھتے ہوں۔",
+             en:"Notice that people gave him \uFDFA those names while still refusing his message. Good character reaches even those who disagree with you."} },
+
+      { s:{ur:"ابو تھکے ہوئے آئے ہیں اور آرام کر رہے ہیں۔ آپ کو اپنا نیا ڈرائنگ دکھانے کا بہت شوق ہے۔",
+            en:"Your father has come home tired and is resting. You are excited to show him your new drawing."},
+        o:[{ur:"انتظار کریں، جب وہ اٹھیں تو دکھائیں", en:"Wait, and show him when he gets up", q:2,
+            r:{ur:"یہی ادب ہے۔ اور ڈرائنگ اُس وقت زیادہ اچھی لگے گی جب دیکھنے والا تازہ دم ہو۔",
+               en:"This is adab. And the drawing will land better when the person seeing it is rested."}},
+           {ur:"آہستہ سے پاس بیٹھ جائیں اور ساتھ آرام کریں", en:"Sit beside him quietly and rest too", q:2,
+            r:{ur:"یہ بھی بہت اچھا ہے۔ کبھی کبھی سب سے اچھا ادب یہ ہوتا ہے کہ ساتھ خاموشی سے بیٹھ جائیں۔",
+               en:"Also lovely. Sometimes the best adab is simply sitting quietly beside someone."}},
+           {ur:"جگا کر ابھی دکھا دیں", en:"Wake him up and show him now", q:0,
+            r:{ur:"شوق بُرا نہیں، مگر دوسرے کا آرام اپنی خوشی سے پہلے آتا ہے۔ یہی والدین کا ادب ہے۔",
+               en:"The excitement is not wrong, but somebody's rest comes before your own eagerness. That is adab towards parents."}}],
+        teach:{ur:"قرآن میں والدین کے ساتھ حسنِ سلوک کا حکم ہے، اور اُف تک کہنے سے منع کیا گیا ہے (مفہوم)۔",
+               en:"The Quran commands kindness to parents, and forbids even saying \u201cuff\u201d to them (in meaning)."},
+        why:{ur:"غور کریں کہ منع اونچی آواز سے نہیں، سب سے چھوٹے لفظ سے کیا گیا۔ ادب بڑی باتوں سے نہیں، چھوٹی چھوٹی باتوں سے شروع ہوتا ہے۔",
+             en:"Notice the smallest word was the one forbidden, not shouting. Adab starts in small things, not big ones."} },
+
+      { s:{ur:"آپ کی چھوٹی بہن نے آپ کی کاپی پر لکیریں کھینچ دی ہیں۔ آپ کو بہت غصہ آ رہا ہے۔",
+            en:"Your little sister has scribbled on your notebook. You are very angry."},
+        o:[{ur:"ایک لمحہ رک کر گہری سانس لیں، پھر بات کریں", en:"Stop for a moment, breathe, then talk", q:2,
+            r:{ur:"غصہ آنا گناہ نہیں، غصے میں کام کرنا نقصان دیتا ہے۔ رک جانا ہی اصل طاقت ہے۔",
+               en:"Feeling anger is not a sin; acting in it does the damage. Stopping is the real strength."}},
+           {ur:"اسے مار دیں تاکہ دوبارہ نہ کرے", en:"Hit her so she does not do it again", q:0,
+            r:{ur:"اس سے کاپی بھی ٹھیک نہیں ہوگی اور بہن بھی دور ہو جائے گی۔ وہ آپ سے چھوٹی ہے، وہ آپ سے سیکھ رہی ہے۔",
+               en:"That fixes neither the notebook nor the sister. She is smaller than you, and she is learning from you."}},
+           {ur:"امی کو بلا کر شکایت کریں", en:"Call your mother and complain", q:1,
+            r:{ur:"یہ مارنے سے بہتر ہے، مگر پہلے خود اس سے نرمی سے بات کر کے دیکھیں۔ بڑا ہونا یہی ہوتا ہے۔",
+               en:"Better than hitting, but try speaking to her gently yourself first. That is what being the elder means."}}],
+        teach:{ur:"نبی ﷺ نے فرمایا کہ پہلوان وہ نہیں جو لوگوں کو پچھاڑ دے، بلکہ وہ ہے جو غصے کے وقت اپنے آپ پر قابو رکھے (مفہوم)۔",
+               en:"The Prophet \uFDFA taught that the strong one is not he who overcomes people, but he who controls himself when angry (in meaning)."},
+        why:{ur:"یہ بات الٹی لگتی ہے: طاقت کا مطلب رکنا؟ مگر سوچیں — مارنا آسان ہے، رک جانا مشکل۔ مشکل کام ہی طاقت مانگتا ہے۔",
+             en:"It sounds backwards: strength means stopping? But think \u2014 hitting is easy, stopping is hard. The hard thing is what takes strength."} }
+    ],
+
+    friend:[
+      { s:{ur:"امتحان میں آپ کا دوست پرچہ دکھانے کو کہہ رہا ہے۔ وہ آپ کا سب سے اچھا دوست ہے۔",
+            en:"In the exam your friend asks to see your paper. He is your best friend."},
+        o:[{ur:"منع کر دیں، اور بعد میں اسے پڑھا دیں", en:"Say no, and help him study afterwards", q:2,
+            r:{ur:"یہی اصل دوستی ہے۔ نقل سے اسے آج نمبر ملیں گے اور اگلے سال پھر وہی مشکل۔ پڑھانے سے مسئلہ ختم ہو جائے گا۔",
+               en:"This is real friendship. Copying gives him marks today and the same trouble next year. Teaching him ends the problem."}},
+           {ur:"دکھا دیں، دوست کا حق ہے", en:"Show him \u2014 he is a friend after all", q:0,
+            r:{ur:"دوستی کا مطلب یہ نہیں کہ دوست کے ساتھ مل کر غلط کام کیا جائے۔ یہ اس کی مدد نہیں، اس کا نقصان ہے۔",
+               en:"Friendship does not mean doing wrong together. This is not helping him; it is harming him."}},
+           {ur:"استاد سے اس کی شکایت کر دیں", en:"Report him to the teacher", q:1,
+            r:{ur:"غلط تو نہیں، مگر پہلے خود منع کرنا بہتر تھا۔ دوست کو پہلا موقع اپنے دوست سے ملنا چاہیے۔",
+               en:"Not wrong, but saying no yourself first was better. A friend deserves his first chance from his friend."}}],
+        teach:{ur:"نبی ﷺ نے فرمایا کہ جو دھوکہ دے وہ ہم میں سے نہیں (مفہوم)۔ اور یہ دھوکہ استاد کے ساتھ بھی ہے اور باقی بچوں کے ساتھ بھی۔",
+               en:"The Prophet \uFDFA taught that whoever deceives is not of us (in meaning). This deceives the teacher and every other child too."},
+        why:{ur:"سوچیں کہ نقل سے کس کس کا حق مارا گیا: استاد کا، باقی بچوں کا، اور خود اُس دوست کا جو سیکھے بغیر آگے چلا گیا۔",
+             en:"Think whose right copying took: the teacher's, the other children's, and your friend's own \u2014 he moved on without learning."} },
+
+      { s:{ur:"کچھ لڑکے ایک نئے بچے کا مذاق اڑا رہے ہیں کہ اس کے کپڑے پرانے ہیں۔",
+            en:"Some boys are making fun of a new child because his clothes are old."},
+        o:[{ur:"جا کر اس نئے بچے کے پاس بیٹھ جائیں", en:"Go and sit with the new child", q:2,
+            r:{ur:"یہ سب سے مضبوط جواب ہے، اور اس میں لڑنا بھی نہیں پڑا۔ ایک ساتھی مل جائے تو مذاق کا زور ٹوٹ جاتا ہے۔",
+               en:"The strongest answer, and it needed no fight. Once someone has one companion, the mocking loses its power."}},
+           {ur:"خاموشی سے ہٹ جائیں، جھگڑا کیوں مول لیں", en:"Quietly walk away, why get involved", q:0,
+            r:{ur:"خاموشی محفوظ لگتی ہے، مگر اُس بچے کو لگے گا کہ سب اسی طرف ہیں۔ خاموش رہنا بھی ایک جواب ہوتا ہے۔",
+               en:"Silence feels safe, but to that child it looks like everyone is on the other side. Saying nothing is also an answer."}},
+           {ur:"آپ بھی ہنس دیں تاکہ گروپ میں رہیں", en:"Laugh along so you stay in the group", q:0,
+            r:{ur:"جو گروپ آپ سے یہ مانگے، اُس میں رہنے کی قیمت بہت زیادہ ہے۔",
+               en:"A group that asks this of you is costing you far too much to stay in."}}],
+        teach:{ur:"قرآن میں منع کیا گیا ہے کہ کوئی قوم دوسری کا مذاق اڑائے؛ ہو سکتا ہے وہ اُن سے بہتر ہوں (مفہوم)۔",
+               en:"The Quran forbids one group mocking another \u2014 for they may well be better than them (in meaning)."},
+        why:{ur:"\u201cہو سکتا ہے وہ بہتر ہوں\u201d — یہی وہ جملہ ہے جو مذاق کی جڑ کاٹ دیتا ہے۔ جس کا مذاق اڑایا جا رہا ہے، اللہ کے ہاں اس کا درجہ کیا ہے، یہ کسی کو معلوم نہیں۔",
+             en:"\u201cThey may well be better\u201d cuts the root of mockery. Nobody knows the standing before Allah of the person being laughed at."} },
+
+      { s:{ur:"آپ کا دوست آپ کو ایک راز بتا کر کہتا ہے: کسی کو نہ بتانا۔ اگلے دن ایک اور دوست پوچھتا ہے۔",
+            en:"Your friend tells you a secret and says: tell nobody. The next day another friend asks about it."},
+        o:[{ur:"کہہ دیں کہ یہ میری بات نہیں کہ میں بتاؤں", en:"Say it is not mine to tell", q:2,
+            r:{ur:"مختصر، سچا، اور کسی کا راز بھی محفوظ۔ جھوٹ بولے بغیر بھی بات ختم ہو جاتی ہے۔",
+               en:"Short, honest, and the secret stays kept. The matter ends without any lie."}},
+           {ur:"تھوڑا سا بتا دیں، پورا نہیں", en:"Tell a little of it, not all", q:0,
+            r:{ur:"راز آدھا نہیں ہوتا۔ تھوڑا بتانے کے بعد باقی خود ہی کھل جاتا ہے۔",
+               en:"A secret does not come in halves. Tell a little and the rest unlocks itself."}},
+           {ur:"کہہ دیں کہ مجھے کچھ معلوم نہیں", en:"Say you know nothing about it", q:1,
+            r:{ur:"راز تو بچ گیا، مگر یہ جھوٹ تھا۔ اور اسی بات کو سچ کے ساتھ بھی کہا جا سکتا تھا۔",
+               en:"The secret is safe, but that was a lie \u2014 and the same thing could have been said truthfully."}}],
+        teach:{ur:"امانت صرف پیسے یا سامان کی نہیں ہوتی۔ بات بھی امانت ہے، اور امانت لوٹانے کا حکم ہے (مفہوم)۔",
+               en:"A trust is not only money or goods. A word spoken in confidence is a trust too, and trusts are to be kept (in meaning)."},
+        why:{ur:"دیکھیں کہ پہلا جواب سچ بھی ہے اور امانت بھی۔ اکثر ایسا راستہ موجود ہوتا ہے جس میں کوئی اچھی چیز قربان نہ کرنی پڑے — بس ڈھونڈنا پڑتا ہے۔",
+             en:"Notice the first answer is both honest and trustworthy. There is usually a road where nothing good has to be sacrificed \u2014 it just has to be looked for."} }
+    ],
+
+    nbr:[
+      { s:{ur:"پڑوس کے انکل بیمار ہیں۔ آپ کے گھر کھانا زیادہ بنا ہے۔",
+            en:"The uncle next door is unwell. Extra food has been cooked at your house."},
+        o:[{ur:"امی سے کہہ کر کچھ کھانا ان کے گھر بھجوائیں", en:"Ask your mother and send some food over", q:2,
+            r:{ur:"پڑوسی کا حق سب سے پہلے ایسے ہی وقت میں یاد آنا چاہیے۔ اور آپ کے گھر کچھ کم نہیں ہوا۔",
+               en:"A neighbour's right is remembered exactly at such a time. And nothing was lost from your own house."}},
+           {ur:"دعا کر دیں، اتنا کافی ہے", en:"Just make dua for him, that is enough", q:1,
+            r:{ur:"دعا بہت اچھی چیز ہے، مگر جب مدد کرنا آسان ہو تو صرف دعا پر رکنا کم ہے۔ دونوں کریں۔",
+               en:"Dua is a fine thing, but when helping is easy, dua alone falls short. Do both."}},
+           {ur:"کچھ نہ کریں، وہ اپنا انتظام کر لیں گے", en:"Do nothing, they will manage", q:0,
+            r:{ur:"وہ شاید کر بھی لیں۔ سوال یہ نہیں کہ انہیں ضرورت کتنی تھی، سوال یہ ہے کہ آپ کے ذمے کیا تھا۔",
+               en:"They probably would. The question is not how badly they needed it, but what was owed by you."}}],
+        teach:{ur:"نبی ﷺ نے پڑوسی کے بارے میں اتنی تاکید فرمائی کہ صحابہؓ کو گمان ہوا کہ شاید پڑوسی کو وراثت میں حصہ دے دیا جائے گا (مفہوم)۔",
+               en:"The Prophet \uFDFA urged care for the neighbour so often that the Companions thought a neighbour might be given a share of inheritance (in meaning)."},
+        why:{ur:"غور کریں کہ اس میں یہ شرط نہیں کہ پڑوسی کون ہے، کس مذہب کا ہے، یا آپ سے اچھا سلوک کرتا ہے یا نہیں۔ پڑوسی، بس پڑوسی۔",
+             en:"Notice no condition is attached \u2014 not who the neighbour is, not their religion, not whether they treat you well. Neighbour simply means neighbour."} },
+
+      { s:{ur:"آپ کا کرکٹ بال پڑوسی کی کھڑکی توڑ گیا۔ گلی میں کوئی نہیں تھا۔",
+            en:"Your cricket ball has broken the neighbour's window. Nobody was in the street."},
+        o:[{ur:"دروازہ کھٹکھٹا کر خود بتائیں اور معافی مانگیں", en:"Knock, tell them yourself, and apologise", q:2,
+            r:{ur:"یہ ڈراؤنا لگتا ہے مگر سب سے آسان راستہ یہی ہے۔ جو بات آپ خود بتا دیں، وہ چھوٹی رہ جاتی ہے۔",
+               en:"It feels frightening but it is the easiest road. A thing you report yourself stays small."}},
+           {ur:"بھاگ جائیں، کسی نے نہیں دیکھا", en:"Run \u2014 nobody saw", q:0,
+            r:{ur:"کسی نے نہیں دیکھا، یہ سچ نہیں۔ اللہ دیکھ رہا تھا، اور آپ خود بھی جانتے ہیں۔ یہی دو گواہ کافی ہیں۔",
+               en:"\u201cNobody saw\u201d is not true. Allah saw, and you know it yourself. Those two witnesses are enough."}},
+           {ur:"ابو کو بتائیں اور ان کے ساتھ جائیں", en:"Tell your father and go together", q:2,
+            r:{ur:"یہ بھی بہت اچھا ہے۔ بڑے کو ساتھ لے جانا کمزوری نہیں — مشکل کام میں مدد لینا سمجھداری ہے۔",
+               en:"Also very good. Taking an adult is not weakness \u2014 getting help with a hard thing is sense."}}],
+        teach:{ur:"اسلام میں کسی کا نقصان کرنا اور پھر چھپ جانا دو الگ باتیں ہیں، اور دوسری زیادہ بھاری ہے۔ نقصان کا ازالہ کرنا حق ہے۔",
+               en:"Causing harm and then hiding are two separate things, and the second is heavier. Putting right what was damaged is a right owed."},
+        why:{ur:"\u201cکسی نے نہیں دیکھا\u201d — یہ جملہ زندگی میں بار بار آئے گا۔ جو بچہ آج کھڑکی پر رک کر سچ بول دیتا ہے، وہ بڑا ہو کر بڑی جگہوں پر بھی رک جاتا ہے۔",
+             en:"\u201cNobody saw\u201d is a sentence that returns all your life. A child who stops for a window today stops in bigger places later."} },
+
+      { s:{ur:"گلی میں کچرا پڑا ہے۔ آپ نے نہیں پھینکا تھا۔",
+            en:"There is rubbish lying in the street. You did not throw it there."},
+        o:[{ur:"اٹھا کر ڈبے میں ڈال دیں", en:"Pick it up and put it in the bin", q:2,
+            r:{ur:"گلی بھی آپ کی ہے۔ راستے سے تکلیف دینے والی چیز ہٹانا نیکی ہے، چاہے وہ آپ نے نہ رکھی ہو۔",
+               en:"The street is yours too. Removing something harmful from a path is a good deed, even if you did not put it there."}},
+           {ur:"چھوڑ دیں، جس نے پھینکا وہ جانے", en:"Leave it \u2014 whoever threw it can deal with it", q:0,
+            r:{ur:"یہ بات ٹھیک لگتی ہے مگر گلی ویسی ہی گندی رہے گی۔ ٹھیک ہونا اور بہتر ہونا ایک بات نہیں۔",
+               en:"It sounds fair, and the street stays dirty. Being in the right and doing right are not the same thing."}},
+           {ur:"محلے والوں سے کہیں کہ صفائی کا انتظام کریں", en:"Ask the neighbours to arrange a cleanup", q:1,
+            r:{ur:"اچھی بات ہے، اور بڑے کام کے لیے ضروری بھی۔ مگر جو ابھی آپ کے ہاتھ میں ہے وہ ابھی ہو سکتا ہے۔",
+               en:"A good idea, and needed for the bigger job. But what is in your hand right now can be done right now."}}],
+        teach:{ur:"نبی ﷺ نے فرمایا کہ راستے سے تکلیف دہ چیز ہٹا دینا بھی ایمان کا ایک شعبہ ہے (مفہوم)۔",
+               en:"The Prophet \uFDFA taught that removing something harmful from the path is itself a branch of faith (in meaning)."},
+        why:{ur:"غور کریں کہ اسے ایمان کا حصہ کہا گیا — یعنی دین صرف مسجد کے اندر نہیں، گلی میں پڑے پتھر تک جاتا ہے۔",
+             en:"Notice it was called part of faith \u2014 meaning deen does not stop at the mosque door; it reaches a stone lying in the street."} }
+    ]
+  };
+
+  var T={
+    tabHome:{ur:"گھر میں", en:"At home"},
+    tabFriend:{ur:"دوستوں میں", en:"With friends"},
+    tabNbr:{ur:"پڑوس اور گلی", en:"Neighbours and street"},
+    title:{ur:"اچھا اخلاق وہ ہے جو مشکل لمحے میں نکلے۔", en:"Good character is what comes out in the hard moment."},
+    sub:{ur:"ہر صورتِ حال پڑھیں، سوچیں، پھر اپنا جواب چنیں۔",
+         en:"Read each situation, think, then choose what you would do."},
+    head:{ur:"کوئی صورتِ حال چنیں", en:"Pick a situation"},
+    whereH:{ur:"گھر", en:"Home"},
+    whereF:{ur:"دوست", en:"Friends"},
+    whereN:{ur:"پڑوس", en:"Neighbours"},
+    ask:{ur:"آپ کیا کریں گے؟", en:"What would you do?"},
+    best:{ur:"بہت اچھا", en:"Very good"},
+    okish:{ur:"ٹھیک، مگر اس سے بہتر ہو سکتا تھا", en:"Alright, but it could be better"},
+    poor:{ur:"دوبارہ سوچیں", en:"Think again"},
+    teachLbl:{ur:"دین کیا کہتا ہے", en:"What the deen says"},
+    whyLbl:{ur:"غور کریں:", en:"Notice:"},
+    quiz:{ur:"اپنا امتحان لیں", en:"Check yourself"},
+    review:{ur:"یہ ایپ سیکھنے میں مدد کے لیے ہے، استاد کی جگہ لینے کے لیے نہیں۔ دینی باتوں کا مفہوم آسان الفاظ میں لکھا گیا ہے۔ کوئی بات مزید سمجھنی ہو تو اپنے استاد یا والدین سے ضرور پوچھیں۔",
+            en:"This app is a help for learning, not a replacement for a teacher. The teachings are given in simple words, in meaning. For anything you want to understand further, ask your teacher or parents."}
+  };
+
+  var QUIZ=[
+    { q:{ur:"نبی ﷺ کو نبوت سے پہلے لوگ کن ناموں سے پکارتے تھے؟",
+         en:"What did people call the Prophet \uFDFA even before prophethood?"},
+      o:[{ur:"صادق اور امین", en:"Sadiq and Ameen"},{ur:"عالم اور حافظ", en:"Aalim and Hafiz"},
+         {ur:"شاعر اور خطیب", en:"Poet and speaker"},{ur:"تاجر اور مسافر", en:"Trader and traveller"}],
+      a:0,
+      f:{ur:"یعنی سچا اور امانت دار۔ اور یہ نام انہی لوگوں نے دیے جو ابھی ان کی بات ماننے کو تیار نہ تھے — اچھا اخلاق پہلے پہنچتا ہے۔",
+         en:"Truthful and trustworthy. And those names came from people who had not yet accepted his message \u2014 good character arrives first."} },
+    { q:{ur:"نبی ﷺ کے مطابق اصل پہلوان کون ہے؟", en:"According to the Prophet \uFDFA, who is truly strong?"},
+      o:[{ur:"جو سب سے زیادہ لوگوں کو ہرا دے", en:"The one who defeats the most people"},
+         {ur:"جو غصے کے وقت اپنے آپ پر قابو رکھے", en:"The one who controls himself when angry"},
+         {ur:"جو سب سے زیادہ وزن اٹھا لے", en:"The one who lifts the most weight"},
+         {ur:"جو سب سے تیز دوڑے", en:"The one who runs the fastest"}],
+      a:1,
+      f:{ur:"مارنا آسان ہے، رک جانا مشکل۔ جو کام مشکل ہو وہی طاقت مانگتا ہے۔",
+         en:"Hitting is easy; stopping is hard. The hard thing is the one that takes strength."} },
+    { q:{ur:"پڑوسی کے بارے میں تاکید کس حد تک تھی؟", en:"How strongly was care for the neighbour urged?"},
+      o:[{ur:"صرف عید کے دن خیال رکھا جائے", en:"Only on Eid day"},
+         {ur:"اتنی کہ صحابہؓ کو گمان ہوا شاید وراثت میں حصہ مل جائے",
+          en:"So strongly that the Companions thought a share of inheritance might follow"},
+         {ur:"صرف اگر پڑوسی رشتہ دار ہو", en:"Only if the neighbour is a relative"},
+         {ur:"صرف اگر پڑوسی مدد مانگے", en:"Only if the neighbour asks for help"}],
+      a:1,
+      f:{ur:"اور اس میں کوئی شرط نہیں لگائی گئی کہ پڑوسی کون ہے یا کس مذہب کا ہے۔ پڑوسی، بس پڑوسی۔",
+         en:"And no condition was attached about who the neighbour is or what they believe. Neighbour simply means neighbour."} },
+    { q:{ur:"دوست امتحان میں نقل مانگے تو سب سے اچھی بات کیا ہے؟",
+         en:"A friend asks to copy in an exam. What is the best thing to do?"},
+      o:[{ur:"دکھا دیں، دوستی کا تقاضا ہے", en:"Show him \u2014 friendship demands it"},
+         {ur:"منع کر دیں، اور بعد میں اسے پڑھا دیں", en:"Say no, and help him study afterwards"},
+         {ur:"خاموشی سے پرچہ چھپا لیں", en:"Quietly hide your paper"},
+         {ur:"اپنا پرچہ خراب کر دیں", en:"Spoil your own paper"}],
+      a:1,
+      f:{ur:"نقل سے اسے آج نمبر ملیں گے اور اگلے سال وہی مشکل۔ پڑھا دینے سے مسئلہ ختم ہو جاتا ہے۔ یہی اصل دوستی ہے۔",
+         en:"Copying gives marks today and the same trouble next year. Teaching him ends the problem \u2014 that is real friendship."} },
+    { q:{ur:"راستے سے تکلیف دہ چیز ہٹانے کے بارے میں کیا فرمایا گیا؟",
+         en:"What was taught about removing something harmful from a path?"},
+      o:[{ur:"یہ صفائی والوں کا کام ہے", en:"It is the cleaners' job"},
+         {ur:"یہ ایمان کا ایک شعبہ ہے", en:"It is a branch of faith"},
+         {ur:"یہ صرف مسجد کے راستے پر ضروری ہے", en:"It matters only on the way to the mosque"},
+         {ur:"اس کا کوئی ذکر نہیں", en:"There is no mention of it"}],
+      a:1,
+      f:{ur:"یعنی دین صرف مسجد کے اندر نہیں۔ گلی میں پڑا پتھر بھی اسی میں آتا ہے۔",
+         en:"Meaning deen does not stop at the mosque door. A stone in the street is part of it too."} },
+    { q:{ur:"کسی نے آپ کو راز بتایا۔ دوسرا دوست پوچھتا ہے۔ سب سے بہتر جواب؟",
+         en:"Someone told you a secret. Another friend asks. What is the best answer?"},
+      o:[{ur:"کہہ دیں: یہ میری بات نہیں کہ میں بتاؤں", en:"Say: it is not mine to tell"},
+         {ur:"کہہ دیں: مجھے کچھ معلوم نہیں", en:"Say: I know nothing about it"},
+         {ur:"تھوڑا سا بتا دیں", en:"Tell a little of it"},
+         {ur:"بتا دیں، راز تو پھیل ہی جاتے ہیں", en:"Tell it \u2014 secrets spread anyway"}],
+      a:0,
+      f:{ur:"یہ جواب سچ بھی ہے اور امانت بھی۔ دوسرا جواب راز تو بچا لیتا ہے مگر جھوٹ بول کر — اور اس کی ضرورت ہی نہیں تھی۔",
+         en:"That answer is both honest and trustworthy. The second one saves the secret by lying \u2014 and the lie was never needed."} }
+  ];
+
+  function $(id){ return document.getElementById(id); }
+  function t(o){ return o[lang]; }
+  var LRI="\u2066", PDI="\u2069";
+  var LATIN_RUN=/[A-Za-z0-9][A-Za-z0-9 .,'\u2019+()\/@_-]*[A-Za-z0-9.]|[A-Za-z0-9]/g;
+  function isolate(s){ return s.replace(LATIN_RUN, function(m){ return LRI+m+PDI; }); }
+  function setText(el,str){
+    el.textContent=(lang==="ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang==="ur");
+    el.setAttribute("dir", lang==="ur" ? "rtl":"ltr");
+  }
+
+  function list(){ return CASES[tab]; }
+
+  function render(){
+    ["Home","Friend","Nbr"].forEach(function(x){
+      var m = x==="Nbr" ? "nbr" : x.toLowerCase();
+      $("tab"+x).setAttribute("aria-pressed", tab===m ? "true":"false");
+    });
+    setText($("tabHome"), t(T.tabHome));
+    setText($("tabFriend"), t(T.tabFriend));
+    setText($("tabNbr"), t(T.tabNbr));
+    setText($("title"), t(T.title));
+    setText($("subtitle"), t(T.sub));
+    setText($("panelHead"), t(T.head));
+    $("whyLbl").textContent=t(T.whyLbl);
+    setText($("quizHead"), t(T.quiz));
+    setText($("review"), t(T.review));
+
+    var L=list(), i=idx[tab], c=L[i];
+    var w=$("where");
+    w.className="where" + (tab==="friend" ? " f" : tab==="nbr" ? " n" : "");
+    setText(w, tab==="home" ? t(T.whereH) : tab==="friend" ? t(T.whereF) : t(T.whereN));
+    setText($("story"), t(c.s));
+
+    var opts=$("opts"); opts.innerHTML="";
+    c.o.forEach(function(o,oi){
+      var b=document.createElement("button"); b.type="button";
+      setText(b, t(o));
+      if (picked!==null)
+        b.className = o.q===2 ? "best" : (o.q===1 ? "okish" : "poor");
+      b.addEventListener("click", function(){
+        if (picked!==null) return;
+        picked=oi; done[tab][i]=true; render();
+      });
+      opts.appendChild(b);
+    });
+
+    var chip=$("statechip"); chip.className="statechip";
+    var teach=$("teach");
+    if (picked===null){
+      setText(chip, t(T.ask)); setText($("says"), ""); setText($("detail"), "");
+      teach.style.display="none";
+      setText($("whyText"), t(c.why));
+    } else {
+      var o=c.o[picked];
+      chip.className="statechip " + (o.q===2 ? "ok" : o.q===1 ? "soft" : "");
+      setText(chip, o.q===2 ? t(T.best) : o.q===1 ? t(T.okish) : t(T.poor));
+      setText($("says"), t(o));
+      setText($("detail"), t(o.r));
+      teach.style.display="";
+      teach.innerHTML="";
+      var em=document.createElement("em"); em.textContent=t(T.teachLbl);
+      em.setAttribute("dir", lang==="ur"?"rtl":"ltr");
+      var b2=document.createElement("b");
+      b2.textContent=(lang==="ur") ? isolate(t(c.teach)) : t(c.teach);
+      b2.setAttribute("dir", lang==="ur"?"rtl":"ltr");
+      if (lang==="ur") b2.className="ur";
+      teach.appendChild(em); teach.appendChild(b2);
+      setText($("whyText"), t(c.why));
+    }
+
+    var chips=$("chips"); chips.innerHTML="";
+    L.forEach(function(x,j){
+      var b=document.createElement("button"); b.type="button";
+      b.className="schip" + (done[tab][j] ? " done":"");
+      b.textContent=String(j+1)+(done[tab][j] ? " \u2605":"");
+      b.setAttribute("aria-pressed", j===i ? "true":"false");
+      b.addEventListener("click", function(){ idx[tab]=j; picked=null; render(); });
+      chips.appendChild(b);
+    });
+    lastSpoken=t(c.s);
+  }
+
+  var lastSpoken="";
+
+  ["Home","Friend","Nbr"].forEach(function(x){
+    $("tab"+x).addEventListener("click", function(){
+      var m = x==="Nbr" ? "nbr" : x.toLowerCase();
+      if (tab===m) return;
+      tab=m; picked=null; render();
+    });
+  });
+
+  function buildQuiz(){
+    var box=$("quizBox"); box.innerHTML="";
+    QUIZ.forEach(function(item){
+      var wrap=document.createElement("div"); wrap.className="q";
+      var q=document.createElement("p"); setText(q,t(item.q)); wrap.appendChild(q);
+      var fb=document.createElement("p"); fb.className="fb";
+      item.o.forEach(function(opt,oi){
+        var b=document.createElement("button"); b.type="button";
+        b.className="opt" + (lang==="ur" ? " ur":"");
+        b.setAttribute("dir", lang==="ur" ? "rtl":"ltr");
+        b.textContent=t(opt);
+        b.addEventListener("click", function(){
+          if (wrap.getAttribute("data-done")==="1") return;
+          wrap.setAttribute("data-done","1");
+          Array.prototype.forEach.call(wrap.querySelectorAll(".opt"), function(x,xi){
+            if (xi===item.a) x.classList.add("right");
+            else if (xi===oi) x.classList.add("wrong");
+          });
+          setText(fb,t(item.f)); fb.classList.add("show","fb");
+        });
+        wrap.appendChild(b);
+      });
+      wrap.appendChild(fb); box.appendChild(wrap);
+    });
+  }
+
+  function applyLang(){
+    document.body.classList.toggle("urdu", lang==="ur");
+    var lb=$("langBtn");
+    lb.textContent=(lang==="ur") ? "English" : "اردو";
+    lb.setAttribute("aria-pressed", lang==="ur" ? "true":"false");
+    Array.prototype.forEach.call(document.querySelectorAll("[data-ur]"), function(el){
+      setText(el, el.getAttribute(lang==="ur" ? "data-ur":"data-en"));
+    });
+    buildQuiz(); render();
+  }
+  $("langBtn").addEventListener("click", function(){
+    lang=(lang==="ur") ? "en":"ur"; applyLang();
+  });
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      window.speechSynthesis.cancel();
+      var u=new SpeechSynthesisUtterance(lastSpoken);
+      u.lang=(lang==="ur") ? "ur-PK":"en-US"; u.rate=0.9;
+      window.speechSynthesis.speak(u);
+    }catch(e){ /* no voice available — stay quiet */ }
+  });
+
+  applyLang();
+})();
+</script>
+</body>
+</html>

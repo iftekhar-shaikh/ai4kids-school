@@ -367,5 +367,29 @@
       "interactive_file": "interactives/g5-tahrir.html",
       "interactive_label": "Khelo - Tahrir"
     }
+  },
+  {
+    "file": "kb/grade_4/islamiat.json",
+    "match_title": "Iman aur Ibadat",
+    "add": {
+      "interactive_file": "interactives/g4-iman-ibadat.html",
+      "interactive_label": "Khelo - Iman aur Ibadat"
+    }
+  },
+  {
+    "file": "kb/grade_4/islamiat.json",
+    "match_title": "Akhlaq aur Muamalat",
+    "add": {
+      "interactive_file": "interactives/g4-akhlaq-muamalat.html",
+      "interactive_label": "Khelo - Akhlaq aur Muamalat"
+    }
+  },
+  {
+    "file": "kb/grade_4/islamiat.json",
+    "match_title": "Seerat aur Hidayat",
+    "add": {
+      "interactive_file": "interactives/g4-seerat-hidayat.html",
+      "interactive_label": "Khelo - Seerat aur Hidayat"
+    }
   }
 ]

@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Seerat aur Hidayat — سیرت اور ہدایت کے سرچشمے | AI4Kids Grade 4 Islamiyat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#f2f0e8;
+    --board-deep:#e4e0d2;
+    --seerat:#2e7d55;
+    --seerat-deep:#1d5a3c;
+    --quran:#6b4a8f;
+    --quran-deep:#4a3266;
+    --ilm:#a0632c;
+    --ilm-deep:#7a4718;
+    --ink:#241f18;
+    --ink-soft:#554c41;
+    --paper:#fdfaf3;
+    --line:#ded5c4;
+    --accent:#1d5a3c;
+    --ok:#2e7d4f;
+    --no:#c4453a;
+
+    --fs-cap:clamp(15px, 3.9vw, 16px);
+    --fs-xs:clamp(16px, 4.2vw, 18px);
+    --fs-sm:clamp(18px, 4.7vw, 19px);
+    --fs-md:clamp(19px, 5.1vw, 21px);
+    --fs-lg:clamp(22px, 5.9vw, 25px);
+    --fs-xl:clamp(28px, 7.6vw, 34px);
+    --lh:1.5;
+  }
+  /* Urdu is set larger than Latin — Nastaliq reads smaller at the same size. */
+  body.urdu{
+    --fs-cap:clamp(17px, 4.4vw, 18px);
+    --fs-xs:clamp(18px, 4.7vw, 20px);
+    --fs-sm:clamp(20px, 5.2vw, 22px);
+    --fs-md:clamp(21px, 5.6vw, 23px);
+    --fs-lg:clamp(24px, 6.4vw, 27px);
+    --fs-xl:clamp(27px, 7.2vw, 32px);
+    --lh:2.1;
+  }
+
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:44px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--ilm);outline-offset:2px}
+
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+
+  .tabs{display:flex;gap:7px;margin:0 0 14px}
+  .tabs button{
+    flex:1;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:9px 6px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:58px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+
+  .scene{
+    border-radius:22px;border:3px solid var(--ink);padding:16px 15px;min-height:140px;
+    background:linear-gradient(180deg,var(--board) 0%,var(--board-deep) 100%);
+  }
+  .tagline{
+    display:inline-block;border-radius:999px;padding:5px 15px;margin-bottom:10px;
+    font-size:var(--fs-cap);font-weight:800;color:#fff;background:var(--seerat);
+  }
+  .tagline.q{background:var(--quran)} .tagline.i{background:var(--ilm)}
+  .tagline.ur{padding:3px 15px 8px}
+  .event{font-size:var(--fs-md);font-weight:700;line-height:1.6;margin:0}
+  .event.ur{line-height:var(--lh)}
+
+  .flow{display:flex;gap:8px;margin-top:14px;align-items:stretch}
+  .flowbox{
+    flex:1;border:3px solid var(--line);border-radius:14px;padding:11px 9px;
+    font-size:var(--fs-cap);font-weight:700;color:var(--ink-soft);line-height:1.5;
+  }
+  .flowbox em{display:block;font-style:normal;font-weight:800;margin-bottom:5px;
+              color:var(--ink)}
+  .flowbox.q{border-color:var(--quran);background:#f2eef8}
+  .flowbox.q em{color:var(--quran-deep)}
+  .flowbox.h{border-color:var(--seerat);background:#e9f2ec}
+  .flowbox.h em{color:var(--seerat-deep)}
+  body.urdu .flowbox{line-height:var(--lh)}
+
+  .readout{
+    margin-top:14px;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-cap);font-weight:700;margin-bottom:10px}
+  .statechip.ur{padding:2px 14px 7px}
+  .name{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.4}
+  .name.ur{line-height:1.95}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+
+  .lesson{
+    margin-top:14px;border:2px solid var(--accent);background:#eaf2ed;border-radius:14px;
+    padding:13px 15px;
+  }
+  .lesson em{display:block;font-style:normal;font-size:var(--fs-cap);color:var(--ink-soft);
+             font-weight:700;margin-bottom:6px}
+  .lesson b{display:block;font-size:var(--fs-sm);font-weight:800;color:var(--accent);line-height:2}
+
+  .why-note{
+    margin:12px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.55;
+    border-left:3px solid var(--accent);padding-left:11px;
+  }
+  .why-note b{color:var(--accent);font-weight:800}
+  body.urdu .why-note{
+    border-left:0;border-right:3px solid var(--accent);padding-left:0;padding-right:11px;
+    line-height:var(--lh);
+  }
+  .review{
+    margin-top:16px;border:2px dashed var(--ilm);border-radius:14px;padding:11px 13px;
+    font-size:var(--fs-cap);color:var(--ilm-deep);font-weight:700;line-height:1.6;
+  }
+  body.urdu .review{line-height:var(--lh)}
+
+  .panel{margin-top:22px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .chips{display:flex;flex-direction:column;gap:8px}
+  .schip{
+    border:2px solid var(--line);background:var(--paper);border-radius:14px;padding:11px 15px;
+    font:inherit;font-size:var(--fs-cap);font-weight:700;color:var(--ink);cursor:pointer;
+    min-height:52px;text-align:right;
+  }
+  body:not(.urdu) .schip{text-align:left}
+  .schip[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:52px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+  .opt.wrong{border-color:var(--no);background:#fbeae8}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
+      grid-template-areas:"bar bar" "head head" "tabs tabs" "left right" "quiz quiz" "foot foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+    .left{grid-area:left} .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+    .panel{margin-top:0}
+  }
+  @media (prefers-reduced-motion:reduce){ *{transition-duration:.01ms !important} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Grade 4 · Islamiyat</span>
+    <button class="chip" id="langBtn" aria-pressed="true">English</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 id="title"></h1>
+  <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group">
+    <button type="button" id="tabSeer" aria-pressed="true"></button>
+    <button type="button" id="tabSrc" aria-pressed="false"></button>
+    <button type="button" id="tabIlm" aria-pressed="false"></button>
+  </div>
+
+  <div class="left">
+  <div class="scene">
+    <span class="tagline" id="tagline"></span>
+    <p class="event" id="event"></p>
+    <div class="flow" id="flow"></div>
+  </div>
+
+  <div class="readout">
+    <span class="statechip" id="statechip"></span>
+    <p class="name" id="name"></p>
+    <p class="detail" id="detail"></p>
+    <div class="lesson" id="lesson"></div>
+    <p class="why-note"><b id="whyLbl"></b> <span id="whyText"></span></p>
+    <p class="review" id="review"></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="panel">
+    <h2 id="panelHead"></h2>
+    <div class="chips" id="chips" role="group"></div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <h2 id="quizHead" style="font-size:var(--fs-lg);font-weight:800;margin:0 0 18px"></h2>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-ur="اے آئی فور کڈز — اسلام آباد کا دو زبانوں والا اے آئی اور کوڈنگ سکول۔ واٹس ایپ 0337 1468899" data-en="AI4Kids — Islamabad's bilingual AI and coding school. WhatsApp 0337 1468899"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var lang="ur", tab="seer";
+  var seerI=0, srcI=0, ilmI=0;
+
+  /* ---------- episodes from the seerah, chosen for character rather than dates ---------- */
+  var SEER=[
+    { ur:"صادق اور امین", en:"Sadiq and Ameen",
+      e:{ur:"نبوت ملنے سے پہلے ہی مکہ کے لوگ آپ ﷺ کو \u201cصادق\u201d اور \u201cامین\u201d کہتے تھے۔ لوگ اپنی امانتیں آپ ﷺ کے پاس رکھواتے تھے۔",
+         en:"Even before prophethood the people of Makkah called him \uFDFA Sadiq and Ameen. They left their valuables with him for safekeeping."},
+      l:{ur:"اچھا اخلاق اعلان سے پہلے پہنچ جاتا ہے۔ لوگ آپ کی بات بعد میں سنتے ہیں، آپ کا کردار پہلے دیکھ لیتے ہیں۔",
+         en:"Good character arrives before any announcement. People hear your words later; they see your conduct first."},
+      w:{ur:"سب سے حیرت کی بات یہ ہے کہ یہ نام انہی لوگوں نے دیے جو بعد میں آپ ﷺ کے مخالف ہوئے۔ مخالفت میں بھی وہ یہ نہ کہہ سکے کہ یہ جھوٹے ہیں۔",
+         en:"The striking part is that these names came from the very people who later opposed him. Even in opposition they could not call him untruthful."} },
+
+    { ur:"حجرِ اسود کا فیصلہ", en:"The dispute over the Black Stone",
+      e:{ur:"کعبہ کی تعمیر کے بعد جھگڑا ہو گیا کہ حجرِ اسود کون رکھے۔ ہر قبیلہ یہ اعزاز چاہتا تھا اور بات لڑائی تک پہنچ رہی تھی۔ آپ ﷺ نے ایک چادر بچھائی، پتھر اس پر رکھا، اور ہر قبیلے کے سردار سے ایک کنارہ پکڑوا دیا۔",
+         en:"After the Kaaba was rebuilt, a quarrel broke out over who would place the Black Stone. Every tribe wanted the honour and it was heading towards a fight. He \uFDFA spread a cloth, placed the stone on it, and had a chief of each tribe hold an edge."},
+      l:{ur:"اچھا فیصلہ وہ ہے جس میں کسی کو ہارنا نہ پڑے۔ حل ڈھونڈنے والا ہمیشہ جیتنے والے سے زیادہ کام آتا ہے۔",
+         en:"The best solution is one where nobody has to lose. The person who finds a way is worth more than the person who wins."},
+      w:{ur:"غور کریں کہ یہ نبوت سے پہلے کا واقعہ ہے، اور اس وقت آپ ﷺ کی عمر زیادہ نہیں تھی۔ سب مان گئے، اس لیے نہیں کہ آپ ﷺ سب سے بڑے تھے — اس لیے کہ سب کو آپ ﷺ پر اعتبار تھا۔",
+         en:"Notice this happened before prophethood, and he \uFDFA was not the oldest man there. They all agreed \u2014 not because he had rank, but because they trusted him."} },
+
+    { ur:"حلف الفضول", en:"The pact of Hilf al-Fudul",
+      e:{ur:"مکہ میں ایک باہر کے تاجر کا حق مارا گیا۔ کچھ لوگوں نے مل کر عہد کیا کہ ہم ہر مظلوم کا ساتھ دیں گے، چاہے وہ ہمارا اپنا ہو یا اجنبی۔ نوجوانی میں آپ ﷺ بھی اس میں شریک تھے۔",
+         en:"A trader from outside Makkah was cheated of his right. A group made a pact to stand with anyone wronged, whether one of their own or a stranger. He \uFDFA took part in it as a young man."},
+      l:{ur:"انصاف اپنے اور پرائے میں فرق نہیں کرتا۔ اگر آپ کے دوست نے زیادتی کی ہے تو دوست کا ساتھ دینا انصاف نہیں، کمزوری ہے۔",
+         en:"Justice does not divide people into ours and theirs. If your friend is the one in the wrong, siding with him is not loyalty; it is weakness."},
+      w:{ur:"بعد میں نبوت کے زمانے میں بھی آپ ﷺ نے اس عہد کو اچھا قرار دیا (مفہوم)۔ یعنی اچھی بات اچھی رہتی ہے، چاہے وہ کسی نے بھی شروع کی ہو۔",
+         en:"Later, in the time of prophethood, he \uFDFA spoke well of that pact (in meaning). A good thing stays good, whoever began it."} },
+
+    { ur:"طائف کا دن", en:"The day at Ta'if",
+      e:{ur:"آپ ﷺ طائف گئے کہ شاید وہاں لوگ بات سن لیں۔ انہوں نے نہ صرف انکار کیا بلکہ بچوں کو پیچھے لگا دیا۔ آپ ﷺ زخمی حالت میں واپس آئے — مگر ان کے لیے بددعا نہیں کی۔",
+         en:"He \uFDFA went to Ta'if hoping the people there might listen. They refused, and set children after him. He returned wounded \u2014 and did not call down any curse on them."},
+      l:{ur:"جب آپ کے ساتھ برا ہو تو بدلہ لینا آسان ہوتا ہے۔ نہ لینا مشکل ہوتا ہے۔ اور مشکل کام ہی اصل امتحان ہوتا ہے۔",
+         en:"When you are wronged, striking back is easy. Not striking back is hard. And the hard thing is where the real test lies."},
+      w:{ur:"یہ زندگی کا سب سے بھاری دن کہا جاتا ہے۔ جس دن سب سے زیادہ تکلیف ہوئی، اسی دن سب سے زیادہ صبر بھی دکھایا گیا۔",
+         en:"This is remembered as one of the hardest days of his life. The day of greatest pain was also the day of greatest patience."} },
+
+    { ur:"فتحِ مکہ — عام معافی", en:"The conquest of Makkah \u2014 a general pardon",
+      e:{ur:"جن لوگوں نے سالوں تک ستایا تھا اور شہر سے نکالا تھا، آخرکار وہی شہر آپ ﷺ کے قدموں میں تھا۔ آپ ﷺ نے ان سے حساب نہیں لیا — سب کو معاف کر دیا۔",
+         en:"The people who had persecuted him for years and driven him from the city now stood before him as that city came under his authority. He \uFDFA did not settle accounts \u2014 he pardoned them."},
+      l:{ur:"معاف کرنا اُس وقت قیمتی ہوتا ہے جب بدلہ لینے کی طاقت موجود ہو۔ کمزوری میں معاف کرنا مجبوری ہے، طاقت میں معاف کرنا اخلاق ہے۔",
+         en:"Pardon counts when you have the power to punish. Forgiving from weakness is compulsion; forgiving from strength is character."},
+      w:{ur:"سوچیں: اُس دن اگر بدلہ لیا جاتا تو کوئی اعتراض بھی نہ کرتا۔ سب سے بڑا اخلاق وہی ہوتا ہے جس کی کسی کو توقع نہ ہو۔",
+         en:"Think about it: had he taken revenge that day, nobody would have objected. The greatest character is the kind nobody was expecting."} },
+
+    { ur:"بچوں اور جانوروں پر شفقت", en:"Gentleness with children and animals",
+      e:{ur:"آپ ﷺ بچوں کو سلام کرتے، ان سے مذاق کرتے، اور نماز میں کسی بچے کے رونے کی آواز سن کر نماز مختصر کر دیتے تھے (مفہوم)۔ جانوروں پر بوجھ ڈالنے اور انہیں بھوکا رکھنے سے منع فرمایا۔",
+         en:"He \uFDFA greeted children, joked with them, and would shorten the prayer on hearing a child cry (in meaning). He forbade overloading animals or leaving them hungry."},
+      l:{ur:"بڑا آدمی وہ ہے جو اپنے سے چھوٹے اور کمزور کے ساتھ نرم ہو۔ جو آپ سے کچھ واپس نہیں دے سکتا، اس کے ساتھ آپ کا سلوک ہی آپ کی اصل پہچان ہے۔",
+         en:"A great person is gentle with those smaller and weaker than himself. How you treat someone who can give you nothing back is your real measure."},
+      w:{ur:"غور کریں کہ نماز جیسی اہم چیز میں بھی ایک بچے کے رونے کا خیال رکھا گیا۔ دین سختی کا نام نہیں، توازن کا نام ہے۔",
+         en:"Notice that even in something as weighty as the prayer, a crying child was taken into account. The deen is not about harshness; it is about balance."} }
+  ];
+
+  /* ---------- how the Quran and the Sunnah work together ---------- */
+  var SRC=[
+    { ur:"نماز", en:"Salah",
+      q:{ur:"قرآن نے حکم دیا کہ نماز قائم کرو۔", en:"The Quran commanded: establish the prayer."},
+      h:{ur:"نبی ﷺ نے کر کے دکھایا: کتنی رکعتیں، کون سا وقت، کیا پڑھنا، کیسے جھکنا۔",
+         en:"The Prophet \uFDFA showed it: how many rakats, at what time, what to recite, how to bow."},
+      w:{ur:"قرآن میں رکعتوں کی تعداد نہیں لکھی۔ اگر صرف قرآن ہوتا اور نبی ﷺ کا عمل نہ ہوتا، تو کسی کو معلوم ہی نہ ہوتا کہ نماز پڑھنی کیسے ہے۔ اسی لیے دونوں ساتھ چلتے ہیں۔",
+         en:"The Quran does not give the number of rakats. With the Quran alone and no example from the Prophet \uFDFA, nobody would know how the prayer is actually performed. That is why the two go together."} },
+    { ur:"زکوٰۃ", en:"Zakat",
+      q:{ur:"قرآن نے حکم دیا کہ مال میں سے حصہ نکالو۔", en:"The Quran commanded: give a share of your wealth."},
+      h:{ur:"نبی ﷺ نے بتایا کہ کتنا، کس مال پر، اور کن لوگوں کو دیا جائے۔",
+         en:"The Prophet \uFDFA explained how much, on which wealth, and to whom it is given."},
+      w:{ur:"حکم اور طریقہ دو الگ چیزیں ہیں۔ \u201cمدد کرو\u201d کہنا آسان ہے؛ \u201cکتنی، کب، کس کو\u201d بتانا اصل رہنمائی ہے۔",
+         en:"A command and a method are two different things. Saying \u201chelp others\u201d is easy; saying how much, when, and to whom is the actual guidance."} },
+    { ur:"روزہ", en:"Fasting",
+      q:{ur:"قرآن نے رمضان کے روزے فرض کیے، اور بیمار و مسافر کے لیے آسانی رکھی۔",
+         en:"The Quran made the fasts of Ramadan obligatory, and gave ease to the ill and the traveller."},
+      h:{ur:"نبی ﷺ نے سحری اور افطار کا وقت اور طریقہ سکھایا، اور جلدی افطار کرنے کی تاکید فرمائی (مفہوم)۔",
+         en:"The Prophet \uFDFA taught the timing and manner of sehri and iftar, and urged hastening the iftar (in meaning)."},
+      w:{ur:"غور کریں کہ آسانی کا ذکر خود حکم کے ساتھ ہی آیا ہے، بعد میں کسی نے جوڑا نہیں۔ نرمی دین کا حصہ ہے، رعایت نہیں۔",
+         en:"Notice the ease came with the command itself; nobody added it afterwards. Gentleness is part of the deen, not a concession to it."} },
+    { ur:"وضو", en:"Wudu",
+      q:{ur:"قرآن نے بتایا کہ نماز سے پہلے منہ اور ہاتھ کہنیوں تک دھوؤ، سر کا مسح کرو، اور پاؤں ٹخنوں تک دھوؤ (مفہوم)۔",
+         en:"The Quran set out washing the face and the hands to the elbows, wiping the head, and washing the feet to the ankles before prayer (in meaning)."},
+      h:{ur:"نبی ﷺ نے کر کے دکھایا: ترتیب کیا ہے، کلی اور ناک میں پانی، اور ہر عضو تین بار۔",
+         en:"The Prophet \uFDFA showed it in practice: the order, rinsing the mouth and nose, and each part three times."},
+      w:{ur:"یہاں قرآن نے اعضا بھی گنوا دیے ہیں، پھر بھی ترتیب اور تعداد عمل سے ملی۔ یہی وہ چیز ہے جو آپ روز کرتے ہیں — اور روز دونوں سرچشمے ساتھ استعمال کرتے ہیں، بغیر سوچے۔",
+         en:"Here the Quran even names the parts, yet the order and the number came from the practice. This is something you do every day — using both sources together without ever noticing."} },
+    { ur:"حج", en:"Hajj",
+      q:{ur:"قرآن نے بیت اللہ کا حج اُن لوگوں پر فرض کیا جو اس کی استطاعت رکھتے ہوں (مفہوم)۔",
+         en:"The Quran made pilgrimage to the House a duty upon those who have the means for it (in meaning)."},
+      h:{ur:"نبی ﷺ نے فرمایا کہ حج کے طریقے مجھ سے سیکھ لو (مفہوم) — اور پورا حج کر کے دکھایا۔",
+         en:"The Prophet \uFDFA said: take your rites of Hajj from me (in meaning) — and performed the whole of it before them."},
+      w:{ur:"غور کریں کہ حکم کے ساتھ ہی شرط لگی ہے: “جو استطاعت رکھتا ہو”۔ دین کسی پر وہ بوجھ نہیں ڈالتا جو وہ اٹھا نہ سکے۔",
+         en:"Notice the condition sits inside the command itself: whoever has the means. The deen does not place on anyone a load they cannot carry."} },
+    { ur:"سلام", en:"The greeting",
+      q:{ur:"قرآن نے کہا کہ جب تمہیں سلام کیا جائے تو اس سے بہتر جواب دو، یا کم از کم ویسا ہی لوٹا دو (مفہوم)۔",
+         en:"The Quran said: when you are greeted, respond with something better, or at least return the like of it (in meaning)."},
+      h:{ur:"نبی ﷺ نے الفاظ بھی سکھائے اور یہ بھی کہ پہل کون کرے — سوار پیدل چلنے والے کو، اور چھوٹی جماعت بڑی کو (مفہوم)۔",
+         en:"The Prophet \uFDFA taught the words, and also who greets first — the rider greets the one walking, and the smaller group the larger (in meaning)."},
+      w:{ur:"سلام کا جواب “بہتر” دینے کا حکم ہے۔ یعنی جتنا ملے اس سے کچھ زیادہ لوٹانا — یہ اصول صرف سلام میں نہیں، ہر معاملے میں کام آتا ہے۔",
+         en:"The command is to respond with something better — to give back a little more than you were given. That principle is not only for greetings; it works in every dealing."} },
+    { ur:"سچ اور امانت", en:"Truth and trust",
+      q:{ur:"قرآن نے حکم دیا کہ امانتیں ان کے حقداروں کو لوٹا دو، اور سچ بولو۔",
+         en:"The Quran commanded: return trusts to those they belong to, and speak truthfully."},
+      h:{ur:"نبی ﷺ کی پوری زندگی اس کی مثال ہے — یہاں تک کہ ہجرت کے وقت بھی لوگوں کی امانتیں واپس کرنے کا انتظام کیا۔",
+         en:"His \uFDFA whole life is the example \u2014 even at the time of the migration, arrangements were made to return people's trusts."},
+      w:{ur:"جو لوگ آپ ﷺ کو نکال رہے تھے، ان کی امانتیں بھی واپس کی گئیں۔ حق ادا کرنا اس بات پر منحصر نہیں کہ سامنے والا کیسا ہے۔",
+         en:"The trusts belonged to the very people driving him out, and they were still returned. Giving someone their right does not depend on how they treat you."} }
+  ];
+
+  /* ---------- Muslims who served knowledge ---------- */
+  var ILM=[
+    { ur:"محمد بن موسیٰ الخوارزمی", en:"Muhammad ibn Musa al-Khwarizmi",
+      d:{ur:"نویں صدی کے بغداد کے ریاضی دان۔ ان کی کتاب سے \u201cالجبرا\u201d کا نام نکلا، اور ان کے اپنے نام سے \u201cالگورتھم\u201d کا لفظ بنا۔",
+         en:"A ninth-century mathematician in Baghdad. His book gave us the word algebra, and his own name gave us the word algorithm."},
+      l:{ur:"آج جو کمپیوٹر اور اے آئی چلتے ہیں، وہ الگورتھم پر چلتے ہیں — اور یہ لفظ ایک مسلمان ریاضی دان کے نام سے آیا ہے۔",
+         en:"Every computer and AI today runs on algorithms \u2014 and the word comes from the name of a Muslim mathematician."} },
+    { ur:"ابنِ الہیثم", en:"Ibn al-Haytham",
+      d:{ur:"روشنی اور دیکھنے پر کام کیا۔ اُس زمانے میں لوگ سمجھتے تھے کہ آنکھ سے کرنیں نکل کر چیزوں پر پڑتی ہیں۔ انہوں نے تجربے کر کے دکھایا کہ روشنی چیزوں سے آنکھ میں آتی ہے۔",
+         en:"He worked on light and vision. People then believed rays went out from the eye onto objects. Through experiments he showed that light travels from objects into the eye."},
+      l:{ur:"انہوں نے مانی ہوئی بات کو جانچا، اور غلط نکلی۔ سیکھنے کا یہی طریقہ ہے: پوچھو، آزماؤ، پھر مانو۔",
+         en:"He tested what everyone assumed, and it turned out wrong. That is how learning works: ask, test, then accept."} },
+    { ur:"ابو ریحان البیرونی", en:"Abu Rayhan al-Biruni",
+      d:{ur:"ایک پہاڑ کی اونچائی اور افق کا زاویہ ناپ کر زمین کے حجم کا اندازہ لگایا — اور وہ حیرت انگیز حد تک درست تھا۔ انہوں نے ہندوستان کے بارے میں بھی تفصیل سے لکھا۔",
+         en:"He estimated the size of the Earth by measuring a mountain's height and the angle to the horizon \u2014 and came remarkably close. He also wrote in detail about India."},
+      l:{ur:"انہوں نے دوسروں کے عقائد کے بارے میں لکھتے ہوئے بھی دیانت داری سے لکھا۔ سچ لکھنا اُس وقت بھی ضروری ہے جب بات آپ سے اختلاف رکھنے والوں کی ہو۔",
+         en:"He wrote about other people's beliefs honestly. Truthful writing matters most when the subject is people who differ from you."} },
+    { ur:"ابنِ سینا", en:"Ibn Sina",
+      d:{ur:"طب پر ان کی کتاب صدیوں تک یورپ کی یونیورسٹیوں میں پڑھائی جاتی رہی۔ انہوں نے بیماریوں کو ترتیب سے لکھا اور علاج کا طریقہ بیان کیا۔",
+         en:"His book on medicine was taught in European universities for centuries. He set out illnesses in order and described how to treat them."},
+      l:{ur:"علم کسی ایک ملک یا قوم کی ملکیت نہیں ہوتا۔ اچھی کتاب جہاں بھی لکھی جائے، پوری دنیا اس سے فائدہ اٹھاتی ہے۔",
+         en:"Knowledge belongs to no one country. A good book, written anywhere, ends up serving the whole world."} },
+    { ur:"فاطمہ الفہری", en:"Fatima al-Fihri",
+      d:{ur:"نویں صدی میں فاس (مراکش) میں ایک مسجد اور درسگاہ بنوائی، جسے اکثر دنیا کی سب سے پرانی مسلسل چلنے والی یونیورسٹی کہا جاتا ہے۔ انہوں نے اپنی وراثت اس پر لگا دی۔",
+         en:"In ninth-century Fez she founded a mosque and place of learning, often called the oldest continuously running university in the world. She spent her inheritance on it."},
+      l:{ur:"انہوں نے اپنے لیے کچھ نہیں بنایا، دوسروں کے سیکھنے کے لیے بنایا۔ اور وہ عمارت آج تک کھڑی ہے۔",
+         en:"She built nothing for herself; she built it for others to learn in. And it is still standing today."} }
+  ];
+
+  var T={
+    tabSeer:{ur:"سیرت کے واقعات", en:"From the seerah"},
+    tabSrc:{ur:"قرآن اور حدیث", en:"Quran and Hadith"},
+    tabIlm:{ur:"علم کے خادم", en:"Servants of knowledge"},
+    titleSeer:{ur:"سیرت صرف تاریخ نہیں — یہ سیکھنے کے لیے ہے۔",
+               en:"The seerah is not only history \u2014 it is there to be learned from."},
+    subSeer:{ur:"ہر واقعہ پڑھیں، اور دیکھیں اس میں آپ کے لیے کیا ہے۔",
+             en:"Read each episode and see what is in it for you."},
+    titleSrc:{ur:"قرآن حکم دیتا ہے۔ نبی ﷺ کا عمل بتاتا ہے کہ کیسے۔",
+              en:"The Quran gives the command. The Prophet's \uFDFA practice shows how."},
+    subSrc:{ur:"کوئی موضوع چنیں اور دونوں کو ساتھ ساتھ دیکھیں۔",
+            en:"Pick a topic and see the two side by side."},
+    titleIlm:{ur:"علم حاصل کرنا بھی عبادت ہے۔", en:"Seeking knowledge is itself an act of worship."},
+    subIlm:{ur:"یہ وہ لوگ ہیں جنہوں نے پوچھا، ناپا، اور جانچا۔",
+            en:"These are people who asked, measured, and checked."},
+    headSeer:{ur:"کوئی واقعہ چنیں", en:"Pick an episode"},
+    headSrc:{ur:"کوئی موضوع چنیں", en:"Pick a topic"},
+    headIlm:{ur:"کوئی شخصیت چنیں", en:"Pick a person"},
+    seerChip:{ur:"سیرتِ طیبہ ﷺ", en:"From the life of the Prophet \uFDFA"},
+    srcChip:{ur:"حکم اور طریقہ", en:"Command and method"},
+    ilmChip:{ur:"علم کی خدمت", en:"In the service of knowledge"},
+    qLbl:{ur:"قرآن", en:"The Quran"},
+    hLbl:{ur:"نبی ﷺ کا عمل", en:"The Prophet's \uFDFA practice"},
+    lessonLbl:{ur:"اس میں آپ کے لیے کیا ہے", en:"What is in it for you"},
+    whyLbl:{ur:"غور کریں:", en:"Notice:"},
+    quiz:{ur:"اپنا امتحان لیں", en:"Check yourself"},
+    review:{ur:"یہ ایپ سیکھنے میں مدد کے لیے ہے، استاد کی جگہ لینے کے لیے نہیں۔ واقعات آسان الفاظ میں اور مفہوم کے ساتھ لکھے گئے ہیں۔ تفصیل، تاریخیں اور حوالے اپنے استاد سے پوچھیں۔",
+            en:"This app is a help for learning, not a replacement for a teacher. The episodes are given in simple words and in meaning. For details, dates and references, ask your teacher."}
+  };
+
+  var QUIZ=[
+    { q:{ur:"حجرِ اسود کے جھگڑے کا حل کیا نکالا گیا؟", en:"How was the dispute over the Black Stone settled?"},
+      o:[{ur:"سب سے بڑے قبیلے کو حق دیا گیا", en:"The largest tribe was given the right"},
+         {ur:"چادر پر پتھر رکھ کر ہر قبیلے سے ایک کنارہ پکڑوایا گیا",
+          en:"The stone was placed on a cloth and each tribe held an edge"},
+         {ur:"قرعہ ڈالا گیا", en:"Lots were drawn"},
+         {ur:"جھگڑا ختم ہی نہ ہوا", en:"The quarrel was never settled"}],
+      a:1,
+      f:{ur:"کسی کو ہارنا نہ پڑا۔ اچھا حل وہی ہے جس میں سب کی عزت رہ جائے۔",
+         en:"Nobody had to lose. The best solution is the one that leaves everyone's dignity intact."} },
+    { q:{ur:"قرآن اور نبی ﷺ کے عمل کا آپس میں کیا تعلق ہے؟",
+         en:"How do the Quran and the Prophet's \uFDFA practice relate?"},
+      o:[{ur:"قرآن حکم دیتا ہے، نبی ﷺ کا عمل طریقہ بتاتا ہے",
+          en:"The Quran gives the command; his practice shows the method"},
+         {ur:"دونوں ایک ہی چیز ہیں", en:"They are the same thing"},
+         {ur:"ان کا آپس میں کوئی تعلق نہیں", en:"They have no relation to each other"},
+         {ur:"صرف ایک کی ضرورت ہے", en:"Only one of them is needed"}],
+      a:0,
+      f:{ur:"قرآن میں نماز کا حکم ہے، مگر رکعتوں کی تعداد نہیں۔ وہ ہمیں نبی ﷺ کے عمل سے ملی۔",
+         en:"The Quran commands the prayer but does not give the number of rakats. That came from his practice."} },
+    { q:{ur:"طائف سے واپسی پر آپ ﷺ نے کیا کیا؟", en:"What did he \uFDFA do on returning from Ta'if?"},
+      o:[{ur:"ان کے لیے بددعا کی", en:"He called down a curse on them"},
+         {ur:"بددعا نہیں کی", en:"He did not call down any curse"},
+         {ur:"لشکر بھیجا", en:"He sent an army"},
+         {ur:"دوبارہ کبھی بات نہیں کی", en:"He never spoke to anyone again"}],
+      a:1,
+      f:{ur:"جب آپ کے ساتھ برا ہو تو بدلہ لینا آسان ہوتا ہے۔ نہ لینا مشکل ہوتا ہے — اور یہی اصل امتحان ہے۔",
+         en:"When you are wronged, striking back is easy. Not striking back is hard \u2014 and that is the real test."} },
+    { q:{ur:"\u201cالگورتھم\u201d کا لفظ کہاں سے آیا؟", en:"Where does the word algorithm come from?"},
+      o:[{ur:"ایک یونانی شہر سے", en:"From a Greek city"},
+         {ur:"الخوارزمی کے نام سے", en:"From the name al-Khwarizmi"},
+         {ur:"ایک انگریزی لفظ سے", en:"From an English word"},
+         {ur:"کسی کو معلوم نہیں", en:"Nobody knows"}],
+      a:1,
+      f:{ur:"آج کے کمپیوٹر اور اے آئی الگورتھم پر چلتے ہیں، اور یہ لفظ نویں صدی کے ایک مسلمان ریاضی دان کے نام سے بنا۔",
+         en:"Today's computers and AI run on algorithms, and the word was formed from the name of a ninth-century Muslim mathematician."} },
+    { q:{ur:"ابنِ الہیثم نے دیکھنے کے بارے میں کیا ثابت کیا؟",
+         en:"What did Ibn al-Haytham establish about seeing?"},
+      o:[{ur:"آنکھ سے کرنیں نکلتی ہیں", en:"Rays come out of the eye"},
+         {ur:"روشنی چیزوں سے آنکھ میں آتی ہے", en:"Light travels from objects into the eye"},
+         {ur:"دیکھنا صرف دن میں ممکن ہے", en:"Seeing is only possible in daylight"},
+         {ur:"اس پر کوئی کام نہیں ہوا", en:"No work was done on this"}],
+      a:1,
+      f:{ur:"سب لوگ پہلی بات مانتے تھے۔ انہوں نے تجربہ کر کے جانچا اور مانی ہوئی بات غلط نکلی۔ پوچھو، آزماؤ، پھر مانو۔",
+         en:"Everyone believed the first. He tested it, and the accepted view turned out wrong. Ask, test, then accept."} },
+    { q:{ur:"فتحِ مکہ کے دن آپ ﷺ نے کیا کیا؟", en:"What did he \uFDFA do on the day Makkah was taken?"},
+      o:[{ur:"سب کو معاف کر دیا", en:"He pardoned everyone"},
+         {ur:"سب سے حساب لیا", en:"He settled accounts with everyone"},
+         {ur:"شہر خالی کروا دیا", en:"He had the city emptied"},
+         {ur:"کچھ نہیں کہا", en:"He said nothing at all"}],
+      a:0,
+      f:{ur:"اُس دن بدلہ لیا جاتا تو کوئی اعتراض بھی نہ کرتا۔ معاف کرنا اُس وقت قیمتی ہوتا ہے جب طاقت موجود ہو۔",
+         en:"Had he taken revenge that day, nobody would have objected. Pardon counts when the power to punish is in your hand."} }
+  ];
+
+  function $(id){ return document.getElementById(id); }
+  function t(o){ return o[lang]; }
+  var LRI="\u2066", PDI="\u2069";
+  var LATIN_RUN=/[A-Za-z0-9][A-Za-z0-9 .,'\u2019+()\/@_-]*[A-Za-z0-9.]|[A-Za-z0-9]/g;
+  function isolate(s){ return s.replace(LATIN_RUN, function(m){ return LRI+m+PDI; }); }
+  function setText(el,str){
+    el.textContent=(lang==="ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang==="ur");
+    el.setAttribute("dir", lang==="ur" ? "rtl":"ltr");
+  }
+  function box(parent, cls, label, text){
+    var d=document.createElement("div"); d.className="flowbox "+cls;
+    var em=document.createElement("em"); em.textContent=label;
+    em.setAttribute("dir", lang==="ur"?"rtl":"ltr");
+    var p=document.createElement("div");
+    p.textContent=(lang==="ur") ? isolate(text) : text;
+    p.setAttribute("dir", lang==="ur"?"rtl":"ltr");
+    d.appendChild(em); d.appendChild(p); parent.appendChild(d);
+  }
+
+  function render(){
+    ["Seer","Src","Ilm"].forEach(function(x){
+      $("tab"+x).setAttribute("aria-pressed", tab===x.toLowerCase() ? "true":"false");
+    });
+    setText($("tabSeer"), t(T.tabSeer));
+    setText($("tabSrc"), t(T.tabSrc));
+    setText($("tabIlm"), t(T.tabIlm));
+    $("whyLbl").textContent=t(T.whyLbl);
+    setText($("quizHead"), t(T.quiz));
+    setText($("review"), t(T.review));
+    var flow=$("flow"), chips=$("chips"), lesson=$("lesson");
+    flow.innerHTML=""; chips.innerHTML="";
+    var tag=$("tagline"); tag.className="tagline";
+    var chip=$("statechip"); chip.className="statechip";
+
+    var list, i, setI;
+    if (tab==="seer"){ list=SEER; i=seerI; setI=function(v){seerI=v;}; }
+    else if (tab==="src"){ list=SRC; i=srcI; setI=function(v){srcI=v;}; tag.className="tagline q"; }
+    else { list=ILM; i=ilmI; setI=function(v){ilmI=v;}; tag.className="tagline i"; }
+    var c=list[i];
+
+    setText($("title"), tab==="seer" ? t(T.titleSeer) : tab==="src" ? t(T.titleSrc) : t(T.titleIlm));
+    setText($("subtitle"), tab==="seer" ? t(T.subSeer) : tab==="src" ? t(T.subSrc) : t(T.subIlm));
+    setText($("panelHead"), tab==="seer" ? t(T.headSeer) : tab==="src" ? t(T.headSrc) : t(T.headIlm));
+    setText(tag, tab==="seer" ? t(T.seerChip) : tab==="src" ? t(T.srcChip) : t(T.ilmChip));
+    setText(chip, t(c));
+    setText($("name"), t(c));
+
+    if (tab==="src"){
+      setText($("event"), t(c));
+      box(flow, "q", t(T.qLbl), t(c.q));
+      box(flow, "h", t(T.hLbl), t(c.h));
+      setText($("detail"), "");
+      lesson.style.display="none";
+      setText($("whyText"), t(c.w));
+    } else {
+      setText($("event"), t(c.e ? c.e : c.d));
+      setText($("detail"), "");
+      lesson.style.display=""; lesson.innerHTML="";
+      var em=document.createElement("em"); em.textContent=t(T.lessonLbl);
+      em.setAttribute("dir", lang==="ur"?"rtl":"ltr");
+      var b=document.createElement("b");
+      b.textContent=(lang==="ur") ? isolate(t(c.l)) : t(c.l);
+      b.setAttribute("dir", lang==="ur"?"rtl":"ltr");
+      if (lang==="ur") b.className="ur";
+      lesson.appendChild(em); lesson.appendChild(b);
+      setText($("whyText"), tab==="seer" ? t(c.w) : t(c.l));
+    }
+
+    list.forEach(function(x,j){
+      var bt=document.createElement("button"); bt.type="button"; bt.className="schip";
+      setText(bt, t(x));
+      bt.setAttribute("aria-pressed", j===i ? "true":"false");
+      bt.addEventListener("click", function(){ setI(j); render(); });
+      chips.appendChild(bt);
+    });
+    lastSpoken=t(c);
+  }
+
+  var lastSpoken="";
+
+  ["Seer","Src","Ilm"].forEach(function(x){
+    $("tab"+x).addEventListener("click", function(){
+      var m=x.toLowerCase();
+      if (tab===m) return;
+      tab=m; render();
+    });
+  });
+
+  function buildQuiz(){
+    var box2=$("quizBox"); box2.innerHTML="";
+    QUIZ.forEach(function(item){
+      var wrap=document.createElement("div"); wrap.className="q";
+      var q=document.createElement("p"); setText(q,t(item.q)); wrap.appendChild(q);
+      var fb=document.createElement("p"); fb.className="fb";
+      item.o.forEach(function(opt,oi){
+        var b=document.createElement("button"); b.type="button";
+        b.className="opt" + (lang==="ur" ? " ur":"");
+        b.setAttribute("dir", lang==="ur" ? "rtl":"ltr");
+        b.textContent=t(opt);
+        b.addEventListener("click", function(){
+          if (wrap.getAttribute("data-done")==="1") return;
+          wrap.setAttribute("data-done","1");
+          Array.prototype.forEach.call(wrap.querySelectorAll(".opt"), function(x,xi){
+            if (xi===item.a) x.classList.add("right");
+            else if (xi===oi) x.classList.add("wrong");
+          });
+          setText(fb,t(item.f)); fb.classList.add("show","fb");
+        });
+        wrap.appendChild(b);
+      });
+      wrap.appendChild(fb); box2.appendChild(wrap);
+    });
+  }
+
+  function applyLang(){
+    document.body.classList.toggle("urdu", lang==="ur");
+    var lb=$("langBtn");
+    lb.textContent=(lang==="ur") ? "English" : "اردو";
+    lb.setAttribute("aria-pressed", lang==="ur" ? "true":"false");
+    Array.prototype.forEach.call(document.querySelectorAll("[data-ur]"), function(el){
+      setText(el, el.getAttribute(lang==="ur" ? "data-ur":"data-en"));
+    });
+    buildQuiz(); render();
+  }
+  $("langBtn").addEventListener("click", function(){
+    lang=(lang==="ur") ? "en":"ur"; applyLang();
+  });
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      window.speechSynthesis.cancel();
+      var u=new SpeechSynthesisUtterance(lastSpoken);
+      u.lang=(lang==="ur") ? "ur-PK":"en-US"; u.rate=0.9;
+      window.speechSynthesis.speak(u);
+    }catch(e){ /* no voice available — stay quiet */ }
+  });
+
+  applyLang();
+})();
+</script>
+</body>
+</html>

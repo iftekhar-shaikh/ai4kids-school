@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Iman aur Ibadat — ایمان اور عبادت | AI4Kids Grade 4 Islamiyat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#eef2ee;
+    --board-deep:#dfe6df;
+    --sky:#bcd8ee;
+    --night:#22304a;
+    --sun:#e0a32c;
+    --moon:#dfe6f2;
+    --green:#2e7d55;
+    --green-deep:#1d5a3c;
+    --sign:#6b4a8f;
+    --fast:#a0632c;
+    --ink:#241f18;
+    --ink-soft:#554c41;
+    --paper:#fdfaf3;
+    --line:#ded5c4;
+    --accent:#1d5a3c;
+    --ok:#2e7d4f;
+    --no:#c4453a;
+
+    --fs-cap:clamp(15px, 3.9vw, 16px);
+    --fs-xs:clamp(16px, 4.2vw, 18px);
+    --fs-sm:clamp(18px, 4.7vw, 19px);
+    --fs-md:clamp(19px, 5.1vw, 21px);
+    --fs-lg:clamp(22px, 5.9vw, 25px);
+    --fs-xl:clamp(28px, 7.6vw, 34px);
+    --lh:1.5;
+  }
+  /* Urdu is set larger than Latin — Nastaliq reads smaller at the same size. */
+  body.urdu{
+    --fs-cap:clamp(17px, 4.4vw, 18px);
+    --fs-xs:clamp(18px, 4.7vw, 20px);
+    --fs-sm:clamp(20px, 5.2vw, 22px);
+    --fs-md:clamp(21px, 5.6vw, 23px);
+    --fs-lg:clamp(24px, 6.4vw, 27px);
+    --fs-xl:clamp(27px, 7.2vw, 32px);
+    --lh:2.1;
+  }
+
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:44px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+
+  .tabs{display:flex;gap:7px;margin:0 0 14px}
+  .tabs button{
+    flex:1;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:9px 6px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:56px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:linear-gradient(180deg,var(--board) 0%,var(--board-deep) 100%);
+  }
+  .scene svg{display:block;width:100%;height:auto}
+  #sunmark{transition:transform .5s ease}
+
+  .readout{
+    margin-top:14px;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-cap);font-weight:700;margin-bottom:10px}
+  .statechip.ur{padding:2px 14px 7px}
+  .statechip.ok{background:var(--ok)} .statechip.no{background:var(--no)}
+  .name{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.4}
+  .name.ur{line-height:1.95}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+
+  .two{display:flex;gap:10px;margin-top:14px}
+  .card{flex:1;border:2px solid var(--line);border-radius:14px;padding:11px 9px;text-align:center}
+  .card em{display:block;font-style:normal;font-size:var(--fs-cap);color:var(--ink-soft);
+           font-weight:700;margin-bottom:5px}
+  .card b{display:block;font-size:var(--fs-lg);font-weight:800;line-height:1.2;color:var(--green-deep)}
+  .card.when b{font-size:var(--fs-sm);color:var(--ink)}
+
+  .steps{margin-top:14px;display:flex;flex-wrap:wrap;gap:6px}
+  .stepchip{
+    border:2px solid var(--line);background:var(--paper);border-radius:11px;padding:8px 12px;
+    font-size:var(--fs-cap);font-weight:800;color:var(--ink-soft);
+  }
+  .stepchip.on{border-color:var(--green);background:#e8f2ec;color:var(--green-deep)}
+
+  .teach{
+    margin-top:14px;border:2px solid var(--accent);background:#eaf2ed;border-radius:14px;
+    padding:13px 15px;
+  }
+  .teach em{display:block;font-style:normal;font-size:var(--fs-cap);color:var(--ink-soft);
+            font-weight:700;margin-bottom:6px}
+  .teach b{display:block;font-size:var(--fs-sm);font-weight:800;color:var(--accent);line-height:2}
+
+  .why-note{
+    margin:12px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.55;
+    border-left:3px solid var(--accent);padding-left:11px;
+  }
+  .why-note b{color:var(--accent);font-weight:800}
+  body.urdu .why-note{
+    border-left:0;border-right:3px solid var(--accent);padding-left:0;padding-right:11px;
+    line-height:var(--lh);
+  }
+  .review{
+    margin-top:16px;border:2px dashed var(--fast);border-radius:14px;padding:11px 13px;
+    font-size:var(--fs-cap);color:var(--fast);font-weight:700;line-height:1.6;
+  }
+  body.urdu .review{line-height:var(--lh)}
+
+  .panel{margin-top:22px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .schip{
+    border:2px solid var(--line);background:var(--paper);border-radius:999px;padding:9px 15px;
+    font:inherit;font-size:var(--fs-cap);font-weight:800;color:var(--ink);cursor:pointer;min-height:46px;
+  }
+  .schip[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+  .schip.done{border-color:var(--ok)}
+  .judge{display:flex;gap:8px;margin-top:12px}
+  .judge button{
+    flex:1;border:3px solid var(--line);background:var(--paper);border-radius:16px;
+    padding:12px 7px;font:inherit;font-weight:800;font-size:var(--fs-cap);color:var(--ink-soft);
+    cursor:pointer;min-height:66px;line-height:1.3;
+  }
+  .judge button.y[aria-pressed="true"]{border-color:var(--no);background:#fbeae8;color:var(--no)}
+  .judge button.n[aria-pressed="true"]{border-color:var(--ok);background:#e8f2ec;color:var(--ok)}
+
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:52px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+  .opt.wrong{border-color:var(--no);background:#fbeae8}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+  .fb.show{display:block}
+
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
+      grid-template-areas:"bar bar" "head head" "tabs tabs" "left right" "quiz quiz" "foot foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+    .left{grid-area:left} .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+    .panel{margin-top:0}
+  }
+  @media (prefers-reduced-motion:reduce){ *{transition-duration:.01ms !important} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Grade 4 · Islamiyat</span>
+    <button class="chip" id="langBtn" aria-pressed="true">English</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 id="title"></h1>
+  <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group">
+    <button type="button" id="tabIman" aria-pressed="true"></button>
+    <button type="button" id="tabNamaz" aria-pressed="false"></button>
+    <button type="button" id="tabRoza" aria-pressed="false"></button>
+  </div>
+
+  <div class="left">
+  <div class="scene">
+    <svg viewBox="0 0 320 210" role="img" id="svg" aria-label="The picture for this lesson"></svg>
+  </div>
+
+  <div class="readout">
+    <span class="statechip" id="statechip"></span>
+    <p class="name" id="name"></p>
+    <p class="detail" id="detail"></p>
+    <div class="two" id="two"></div>
+    <div class="steps" id="steps"></div>
+    <div class="judge" id="judge"></div>
+    <div class="teach" id="teach"></div>
+    <p class="why-note"><b id="whyLbl"></b> <span id="whyText"></span></p>
+    <p class="review" id="review"></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="panel">
+    <h2 id="panelHead"></h2>
+    <div class="chips" id="chips" role="group"></div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <h2 id="quizHead" style="font-size:var(--fs-lg);font-weight:800;margin:0 0 18px"></h2>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p data-ur="اے آئی فور کڈز — اسلام آباد کا دو زبانوں والا اے آئی اور کوڈنگ سکول۔ واٹس ایپ 0337 1468899" data-en="AI4Kids — Islamabad's bilingual AI and coding school. WhatsApp 0337 1468899"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var lang="ur", tab="iman";
+  var signI=0, prayI=0, rozaI=0, rozaPick=null, rozaDone={};
+
+  /* ---------- signs in the world around you ---------- */
+  var SIGNS=[
+    { ur:"بارش", en:"Rain", icon:"rain",
+      d:{ur:"پانی سمندر سے بھاپ بن کر اوپر جاتا ہے، بادل بنتا ہے، اور واپس اُسی زمین پر برستا ہے جہاں سے اٹھا تھا۔",
+         en:"Water rises from the sea as vapour, becomes cloud, and falls back on the very land it came from."},
+      t:{ur:"قرآن بار بار کہتا ہے: غور کرو کہ مُردہ زمین بارش کے بعد کیسے زندہ ہو جاتی ہے (مفہوم)۔",
+         en:"The Quran repeatedly says: consider how dead earth comes alive after rain (in meaning)."},
+      w:{ur:"یہی چکر آپ نے سائنس میں بھی پڑھا ہوگا۔ دین آپ سے یہ نہیں کہتا کہ سائنس چھوڑ دو — بلکہ یہ کہتا ہے کہ اِسے دیکھ کر سوچو کہ یہ سب چل کیسے رہا ہے۔",
+         en:"You will have met this same cycle in science. The deen does not ask you to set science aside \u2014 it asks you to look at it and wonder how all of it keeps running."} },
+    { ur:"ایک بیج", en:"A seed", icon:"seed",
+      d:{ur:"ایک چھوٹے سے سخت بیج کے اندر پورا درخت چھپا ہوتا ہے — پتے، پھل، اور اگلے بیج بھی۔",
+         en:"Inside one small hard seed there is a whole tree \u2014 leaves, fruit, and the next seeds as well."},
+      t:{ur:"قرآن میں دانے اور گٹھلی کے پھٹنے کا ذکر ہے، اور یہ کہ اُگانے والا کون ہے (مفہوم)۔",
+         en:"The Quran speaks of the grain and the date-stone splitting open, and of Who it is that brings it forth (in meaning)."},
+      w:{ur:"بیج کو آپ ہاتھ میں پکڑ سکتے ہیں۔ درخت اُس وقت نظر نہیں آتا، مگر ہوتا وہیں ہے۔ کچھ چیزیں موجود ہوتی ہیں چاہے نظر نہ آئیں۔",
+         en:"You can hold the seed in your hand. The tree is not visible, yet it is in there. Some things are real even when they cannot be seen."} },
+    { ur:"آپ کا اپنا دل", en:"Your own heart", icon:"heart",
+      d:{ur:"آپ کا دل رات کو بھی دھڑکتا ہے جب آپ سو رہے ہوتے ہیں۔ آپ نے اسے کبھی چلانے کا حکم نہیں دیا۔",
+         en:"Your heart beats at night while you sleep. You have never once told it to."},
+      t:{ur:"قرآن کہتا ہے کہ نشانیاں خود تمہارے اپنے اندر بھی ہیں؛ کیا تم دیکھتے نہیں؟ (مفہوم)",
+         en:"The Quran says the signs are within your own selves; will you not then see? (in meaning)"},
+      w:{ur:"دن میں تقریباً ایک لاکھ بار۔ اور آپ کو یاد رکھنے کی ضرورت بھی نہیں پڑتی۔ جو چیز آپ کے بغیر چل رہی ہے، وہ کس کے حکم سے چل رہی ہے؟",
+         en:"About a hundred thousand times a day, and you never have to remember. Something is running without you \u2014 by whose command is it running?"} },
+    { ur:"رات اور دن", en:"Night and day", icon:"daynight",
+      d:{ur:"اندھیرا آہستہ آہستہ آتا ہے اور آہستہ آہستہ جاتا ہے۔ کبھی ایک دن بھی آگے پیچھے نہیں ہوتا۔",
+         en:"Darkness comes slowly and leaves slowly. Not one day has ever come out of turn."},
+      t:{ur:"قرآن رات اور دن کے بدلنے کو عقل والوں کے لیے نشانی کہتا ہے (مفہوم)۔",
+         en:"The Quran calls the alternation of night and day a sign for people of understanding (in meaning)."},
+      w:{ur:"اگر یہ ایک بار بھی بے ترتیب ہو جائے تو ساری زندگی رک جائے۔ جو چیز اتنی باقاعدہ ہو، وہ اتفاق سے نہیں ہوتی۔",
+         en:"If it went out of order even once, life would stop. Something this regular does not happen by accident."} },
+    { ur:"شہد کی مکھی", en:"The honey bee", icon:"bee",
+      d:{ur:"ایک چھوٹی سی مکھی پھولوں سے رس لے کر ایسی چیز بناتی ہے جو انسان کے لیے شفا ہے۔",
+         en:"A tiny bee takes nectar from flowers and makes something that is healing for people."},
+      t:{ur:"قرآن کی ایک پوری سورت کا نام ہی \u201cالنحل\u201d یعنی شہد کی مکھی ہے (مفہوم)۔",
+         en:"A whole chapter of the Quran is named An-Nahl \u2014 the Bee (in meaning)."},
+      w:{ur:"مکھی کو یہ کسی نے سکھایا نہیں۔ وہ پیدا ہوتے ہی جانتی ہے۔ سیکھے بغیر جاننا خود ایک سوال ہے۔",
+         en:"Nobody taught the bee. It knows from the moment it exists. Knowing without learning is itself a question."} },
+    { ur:"پہاڑ", en:"The mountains", icon:"mtn",
+      d:{ur:"پہاڑ زمین میں گڑے ہوتے ہیں — جتنا اوپر نظر آتا ہے، اس سے کہیں زیادہ نیچے ہوتا ہے۔",
+         en:"Mountains are set into the earth \u2014 far more of them lies below than the part you can see."},
+      t:{ur:"قرآن پہاڑوں کو زمین کے لیے میخوں کی طرح بیان کرتا ہے (مفہوم)۔",
+         en:"The Quran describes the mountains as pegs for the earth (in meaning)."},
+      w:{ur:"مارگلہ کو دیکھیں تو صرف چوٹی نظر آتی ہے۔ جو نظر آتا ہے وہ پوری کہانی نہیں ہوتا — نہ پہاڑ میں، نہ لوگوں میں۔",
+         en:"Look at the Margallas and you see only the top. What is visible is never the whole story \u2014 not in mountains, and not in people."} }
+  ];
+
+  /* ---------- the five prayers, placed by where the sun is ---------- */
+  var PRAYERS=[
+    { ur:"فجر", en:"Fajr", ang:196, rak:2, night:true,
+      when:{ur:"صبح صادق سے سورج نکلنے تک", en:"From first light until sunrise"},
+      d:{ur:"سب سے پہلی نماز، جب اندھیرے میں روشنی کی پہلی لکیر آتی ہے اور سورج ابھی نکلا نہیں ہوتا۔",
+         en:"The first prayer, when the first thread of light appears and the sun has not yet risen."},
+      w:{ur:"یہی سب سے مشکل ہے، اور اسی لیے سب سے قیمتی۔ اٹھنا کسی کو نظر نہیں آتا — یہ آپ اور اللہ کے درمیان ہوتا ہے۔",
+         en:"This is the hardest one, and that is exactly why it counts for so much. Nobody sees you get up \u2014 it is between you and Allah."} },
+    { ur:"ظہر", en:"Zuhr", ang:82, rak:4, night:false,
+      when:{ur:"سورج ڈھلنے کے بعد", en:"After the sun passes its highest point"},
+      d:{ur:"دن کے بیچ میں، جب سورج سب سے اوپر پہنچ کر ڈھلنا شروع ہوتا ہے۔ اسکول اور کام کے بیچ میں ایک وقفہ۔",
+         en:"In the middle of the day, once the sun has passed its highest point and started down. A pause in the middle of school and work."},
+      w:{ur:"غور کریں کہ یہ دن کے سب سے مصروف حصے میں رکھی گئی ہے۔ عبادت زندگی سے الگ نہیں، اسی کے بیچ میں ہے۔",
+         en:"Notice it sits in the busiest part of the day. Worship is not separate from life; it is placed in the middle of it."} },
+    { ur:"عصر", en:"Asr", ang:38, rak:4, night:false,
+      when:{ur:"دوپہر ڈھلنے کے بعد، غروب سے پہلے", en:"Late afternoon, before sunset"},
+      d:{ur:"جب سائے لمبے ہونے لگتے ہیں اور دن ختم ہونے کو آتا ہے۔",
+         en:"When shadows start to stretch and the day is drawing to a close."},
+      w:{ur:"سایہ گھڑی کے بغیر بھی وقت بتا دیتا ہے۔ اسی لیے یہ نمازیں صدیوں سے ہر جگہ، بغیر گھڑی کے پڑھی جاتی رہی ہیں۔",
+         en:"A shadow tells the time without a clock. That is how these prayers were kept everywhere for centuries, with no clocks at all."} },
+    { ur:"مغرب", en:"Maghrib", ang:-4, rak:3, night:false,
+      when:{ur:"سورج غروب ہوتے ہی", en:"Just after the sun sets"},
+      d:{ur:"سورج ڈوبتے ہی، دن اور رات کے بالکل بیچ والے لمحے میں۔ رمضان میں یہی افطار کا وقت ہے۔",
+         en:"The moment the sun goes down, right between day and night. In Ramadan this is the time of iftar."},
+      w:{ur:"یہ سب سے مختصر وقت والی نماز ہے۔ اسی لیے اذان سنتے ہی لوگ جلدی کرتے ہیں۔",
+         en:"This one has the shortest window. That is why people hurry the moment they hear the azan."} },
+    { ur:"عشاء", en:"Isha", ang:-34, rak:4, night:true,
+      when:{ur:"اندھیرا پھیلنے کے بعد", en:"Once darkness has spread"},
+      d:{ur:"رات کی نماز، جب شفق ختم ہو جاتی ہے اور پورا اندھیرا ہو جاتا ہے۔",
+         en:"The night prayer, once the last glow has gone and darkness is complete."},
+      w:{ur:"دن کی آخری نماز۔ اور دن کا آخری کام وہی ہوتا ہے جو ذہن میں سب سے دیر تک رہتا ہے۔",
+         en:"The last prayer of the day. And the last thing you do in a day is the thing that stays longest in the mind."} }
+  ];
+  var RAKA={ur:"رکعت", en:"rakats"};
+  var STEPS=[
+    {ur:"نیت", en:"Intention"}, {ur:"قیام", en:"Standing"}, {ur:"قرأت", en:"Reciting"},
+    {ur:"رکوع", en:"Bowing"}, {ur:"قومہ", en:"Standing up"}, {ur:"سجدہ", en:"Prostration"},
+    {ur:"جلسہ", en:"Sitting"}, {ur:"سجدہ", en:"Prostration"}
+  ];
+
+  /* ---------- fasting: does this break the fast? ---------- */
+  var ROZA=[
+    { ur:"بھول کر پانی پی لیا", en:"Drank water having forgotten", breaks:false,
+      r:{ur:"بھول کر کھا یا پی لینے سے روزہ نہیں ٹوٹتا۔ یاد آتے ہی رک جائیں اور روزہ پورا کریں۔",
+         en:"Eating or drinking having genuinely forgotten does not break the fast. Stop as soon as you remember and complete the fast."} },
+    { ur:"جان بوجھ کر کھانا کھا لیا", en:"Ate food on purpose", breaks:true,
+      r:{ur:"یہ روزہ توڑ دیتا ہے۔ روزے کا مطلب ہی صبح صادق سے غروب تک کھانے پینے سے رکنا ہے۔",
+         en:"This breaks the fast. Fasting means holding back from food and drink from first light until sunset."} },
+    { ur:"کھانے کی خوشبو سونگھ لی", en:"Smelled food cooking", breaks:false,
+      r:{ur:"خوشبو سے روزہ نہیں ٹوٹتا۔ بھوک لگنا اور روزہ ٹوٹنا دو الگ باتیں ہیں۔",
+         en:"A smell does not break the fast. Feeling hungry and breaking a fast are two different things."} },
+    { ur:"نہا لیا یا ٹھنڈا پانی سر پر ڈالا", en:"Took a bath or poured cool water over the head", breaks:false,
+      r:{ur:"نہانے سے روزہ نہیں ٹوٹتا۔ گرمی میں یہ جائز بھی ہے اور آرام بھی دیتا ہے۔",
+         en:"Bathing does not break the fast. In the heat it is allowed, and it helps."} },
+    { ur:"جھوٹ بولا اور لڑائی کی", en:"Told lies and quarrelled", breaks:false,
+      r:{ur:"اس سے روزہ ٹوٹتا تو نہیں، مگر روزے کا فائدہ ختم ہو جاتا ہے۔ نبی ﷺ نے فرمایا کہ جو جھوٹ اور بُرے کام نہ چھوڑے، اللہ کو اس کے بھوکا رہنے کی ضرورت نہیں (مفہوم)۔",
+         en:"It does not break the fast, but it empties it of its purpose. The Prophet \uFDFA taught that if someone does not leave false speech and bad conduct, Allah has no need of him leaving food and drink (in meaning)."} },
+    { ur:"بیمار ہیں اور دوا لینی ضروری ہے", en:"Is ill and must take medicine", breaks:true,
+      r:{ur:"دوا لینے سے روزہ ٹوٹ جاتا ہے — اور بیماری میں روزہ نہ رکھنے کی اجازت ہے۔ بعد میں رکھ لیا جائے۔ یہ سختی نہیں، آسانی ہے۔",
+         en:"Taking medicine breaks the fast \u2014 and someone who is ill is permitted not to fast, making it up later. This is not strictness; it is ease."} }
+  ];
+
+  var T={
+    tabIman:{ur:"نشانیاں", en:"Signs"},
+    tabNamaz:{ur:"نماز", en:"Salah"},
+    tabRoza:{ur:"روزہ", en:"Fasting"},
+    titleIman:{ur:"اللہ کو جاننے کا ایک راستہ یہ ہے کہ اُس کے بنائے ہوئے کو غور سے دیکھا جائے۔",
+               en:"One road to knowing Allah is to look carefully at what He has made."},
+    subIman:{ur:"کوئی چیز دبائیں اور سوچیں: یہ خود سے ایسی ہو گئی، یا کسی نے بنائی؟",
+             en:"Tap something and think: did this happen by itself, or did someone make it?"},
+    titleNamaz:{ur:"نماز کے اوقات گھڑی سے نہیں، سورج سے طے ہوتے ہیں۔",
+                en:"The times of salah are set by the sun, not by a clock."},
+    subNamaz:{ur:"ہر نماز دبائیں اور دیکھیں اُس وقت سورج کہاں ہوتا ہے۔",
+              en:"Tap each prayer and see where the sun is at that moment."},
+    titleRoza:{ur:"روزہ صرف بھوکا رہنے کا نام نہیں۔",
+               en:"Fasting is not only about staying hungry."},
+    subRoza:{ur:"ہر صورت پڑھیں اور بتائیں: کیا اس سے روزہ ٹوٹ جاتا ہے؟",
+             en:"Read each case and say: does this break the fast?"},
+    headIman:{ur:"کوئی نشانی چنیں", en:"Pick a sign"},
+    headNamaz:{ur:"کوئی نماز چنیں", en:"Pick a prayer"},
+    headRoza:{ur:"کوئی صورت چنیں", en:"Pick a case"},
+    signChip:{ur:"نشانی", en:"A sign"},
+    rakLbl:{ur:"فرض رکعتیں", en:"Farz rakats"},
+    whenLbl:{ur:"وقت", en:"Time"},
+    stepsLbl:{ur:"ایک رکعت میں یہ ترتیب ہوتی ہے", en:"One rakat follows this order"},
+    total:{ur:"پانچوں نمازوں کی فرض رکعتیں: 17", en:"Farz rakats across all five prayers: 17"},
+    ask:{ur:"کیا روزہ ٹوٹ جائے گا؟", en:"Does the fast break?"},
+    yes:{ur:"ہاں، ٹوٹ جائے گا", en:"Yes, it breaks"},
+    no:{ur:"نہیں، نہیں ٹوٹے گا", en:"No, it does not"},
+    right:{ur:"درست", en:"Correct"},
+    wrong:{ur:"دوبارہ دیکھیں", en:"Have another look"},
+    teachLbl:{ur:"قرآن اور حدیث سے", en:"From the Quran and Hadith"},
+    whyLbl:{ur:"غور کریں:", en:"Notice:"},
+    quiz:{ur:"اپنا امتحان لیں", en:"Check yourself"},
+    whyNamaz:{ur:"یہاں گھڑی کا وقت جان بوجھ کر نہیں لکھا گیا، کیونکہ وہ ہر شہر اور ہر دن بدلتا ہے۔ اسلام آباد اور کراچی کا مغرب ایک وقت پر نہیں ہوتا، اور آج کا فجر کل کے فجر سے مختلف ہے۔ اپنے شہر کا نقشۂ اوقات دیکھیں یا اذان سنیں۔",
+              en:"Clock times are deliberately not given here, because they change with every city and every day. Maghrib in Islamabad and in Karachi are not at the same moment, and today's Fajr differs from tomorrow's. Use your city's timetable, or listen for the azan."},
+    whySteps:{ur:"سنت اور نفل رکعتیں اس کے علاوہ ہیں، اور اُن کی تفصیل آپ کے استاد بہتر بتائیں گے۔ یہاں صرف فرض لکھے گئے ہیں، جن پر سب کا اتفاق ہے۔",
+              en:"Sunnah and nafl rakats are additional, and your teacher will explain those better. Only the farz are given here, on which all agree."},
+    whyRoza:{ur:"بچوں پر روزہ فرض نہیں ہوتا۔ بچے مشق کے لیے آدھا دن یا چند روزے رکھتے ہیں تاکہ عادت بن جائے۔ زبردستی یا بیماری میں روزہ رکھنا دین کا تقاضا نہیں۔",
+             en:"Fasting is not obligatory on children. Children practise with half days or a few fasts so the habit forms. Forcing it, or fasting while ill, is not what the deen asks for."},
+    review:{ur:"یہ ایپ سیکھنے میں مدد کے لیے ہے، استاد کی جگہ لینے کے لیے نہیں۔ مسائل کی تفصیل، اوقات، اور جو باتیں یہاں نہیں لکھی گئیں — اُن کے لیے اپنے استاد یا والدین سے رجوع کریں۔",
+            en:"This app is a help for learning, not a replacement for a teacher. For details of rulings, exact times, and anything not written here, go to your teacher or parents."}
+  };
+
+  var QUIZ=[
+    { q:{ur:"نماز کے اوقات کس چیز سے طے ہوتے ہیں؟", en:"What sets the times of salah?"},
+      o:[{ur:"سورج کی جگہ سے", en:"The position of the sun"},
+         {ur:"گھڑی کے مقررہ اعداد سے", en:"Fixed numbers on a clock"},
+         {ur:"موسم سے", en:"The weather"},{ur:"ہر شخص کی مرضی سے", en:"Each person's own choice"}],
+      a:0,
+      f:{ur:"اسی لیے ہر شہر اور ہر دن کا وقت مختلف ہوتا ہے۔ اور اسی لیے گھڑی ایجاد ہونے سے پہلے بھی نماز کا وقت معلوم ہو جاتا تھا۔",
+         en:"That is why the time differs by city and by day \u2014 and why prayer times were known long before clocks existed."} },
+    { q:{ur:"پانچوں نمازوں کی فرض رکعتیں کل کتنی ہیں؟", en:"How many farz rakats are there across the five prayers?"},
+      o:[{ur:"12", en:"12"},{ur:"17", en:"17"},{ur:"20", en:"20"},{ur:"5", en:"5"}],
+      a:1,
+      f:{ur:"فجر 2، ظہر 4، عصر 4، مغرب 3، عشاء 4 — کل 17۔ سنت اور نفل ان کے علاوہ ہیں۔",
+         en:"Fajr 2, Zuhr 4, Asr 4, Maghrib 3, Isha 4 \u2014 seventeen in all. Sunnah and nafl are additional."} },
+    { q:{ur:"کسی نے بھول کر پانی پی لیا۔ روزے کا کیا ہوا؟", en:"Someone drank water having genuinely forgotten. What happens to the fast?"},
+      o:[{ur:"ٹوٹ گیا، دوبارہ رکھنا ہوگا", en:"It breaks and must be repeated"},
+         {ur:"نہیں ٹوٹا — یاد آتے ہی رک جائیں اور روزہ پورا کریں",
+          en:"It does not break \u2014 stop as soon as you remember and complete it"},
+         {ur:"آدھا روزہ رہ گیا", en:"Half a fast remains"},
+         {ur:"اب سارا دن کھا سکتے ہیں", en:"You may now eat all day"}],
+      a:1,
+      f:{ur:"یہ دین کی آسانی ہے۔ جو بات ارادے کے بغیر ہو، اس کا بوجھ نہیں ڈالا گیا۔",
+         en:"This is the ease in the deen. What happens without intention is not laid on you as a burden."} },
+    { q:{ur:"روزے میں کسی نے جھوٹ بولا اور لڑائی کی۔ اس کا کیا اثر ہے؟",
+         en:"Someone lied and quarrelled while fasting. What is the effect?"},
+      o:[{ur:"کوئی فرق نہیں پڑتا", en:"It makes no difference"},
+         {ur:"روزہ تو نہیں ٹوٹتا، مگر اس کا اصل فائدہ ختم ہو جاتا ہے",
+          en:"The fast does not break, but its real benefit is lost"},
+         {ur:"روزہ فوراً ٹوٹ جاتا ہے", en:"The fast breaks immediately"},
+         {ur:"اگلے دن دو روزے رکھنے پڑتے ہیں", en:"Two fasts must be kept the next day"}],
+      a:1,
+      f:{ur:"نبی ﷺ نے فرمایا کہ جو جھوٹ اور بُرے کام نہ چھوڑے، اللہ کو اس کے بھوکا پیاسا رہنے کی ضرورت نہیں (مفہوم)۔ روزہ صرف پیٹ کا نہیں، زبان کا بھی ہے۔",
+         en:"The Prophet \uFDFA taught that if someone does not leave false speech and bad conduct, Allah has no need of his hunger and thirst (in meaning). The fast is of the tongue as much as the stomach."} },
+    { q:{ur:"کیا بچوں پر روزہ فرض ہے؟", en:"Is fasting obligatory on children?"},
+      o:[{ur:"ہاں، سات سال کی عمر سے", en:"Yes, from the age of seven"},
+         {ur:"نہیں — بچے مشق کے لیے رکھتے ہیں تاکہ عادت بنے",
+          en:"No \u2014 children practise so that the habit forms"},
+         {ur:"ہاں، سب پر برابر", en:"Yes, equally on everyone"},
+         {ur:"صرف لڑکوں پر", en:"Only on boys"}],
+      a:1,
+      f:{ur:"بچے آدھا دن یا چند روزے رکھ کر مشق کرتے ہیں۔ بیماری یا کمزوری میں روزہ نہ رکھنا دین کے خلاف نہیں — یہ خود دین نے آسانی دی ہے۔",
+         en:"Children practise with half days or a few fasts. Not fasting when ill or weak is not against the deen \u2014 the ease was given by the deen itself."} },
+    { q:{ur:"قرآن نشانیوں کے بارے میں کیا کہتا ہے؟", en:"What does the Quran say about signs?"},
+      o:[{ur:"وہ صرف آسمان میں ہیں", en:"They are only in the sky"},
+         {ur:"وہ آس پاس بھی ہیں اور خود تمہارے اندر بھی", en:"They are around you and within your own selves"},
+         {ur:"وہ صرف پرانے زمانے میں تھیں", en:"They were only in ancient times"},
+         {ur:"ان کے بارے میں کچھ نہیں کہا گیا", en:"Nothing is said about them"}],
+      a:1,
+      f:{ur:"بارش، بیج، پہاڑ — اور آپ کا اپنا دل، جو آپ کے سوئے ہوئے بھی چلتا رہتا ہے۔",
+         en:"Rain, a seed, mountains \u2014 and your own heart, which keeps going even while you sleep."} }
+  ];
+
+  function $(id){ return document.getElementById(id); }
+  function t(o){ return o[lang]; }
+  var LRI="\u2066", PDI="\u2069";
+  var LATIN_RUN=/[A-Za-z0-9][A-Za-z0-9 .,'\u2019+()\/@_-]*[A-Za-z0-9.]|[A-Za-z0-9]/g;
+  function isolate(s){ return s.replace(LATIN_RUN, function(m){ return LRI+m+PDI; }); }
+  function setText(el,str){
+    el.textContent=(lang==="ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang==="ur");
+    el.setAttribute("dir", lang==="ur" ? "rtl":"ltr");
+  }
+  var NS="http://www.w3.org/2000/svg";
+  function mk(tag,a){ var e=document.createElementNS(NS,tag);
+    for (var k in a) e.setAttribute(k,a[k]); return e; }
+
+  /* ---------- pictures ---------- */
+  function drawSign(kind){
+    var svg=$("svg"); svg.innerHTML=""; svg.setAttribute("viewBox","0 0 320 210");
+    var g=mk("g",{}); svg.appendChild(g);
+    if (kind==="rain"){
+      g.appendChild(mk("ellipse",{cx:130,cy:56,rx:44,ry:24,fill:"#c6cfd8"}));
+      g.appendChild(mk("ellipse",{cx:176,cy:48,rx:38,ry:26,fill:"#d8dfe6"}));
+      for (var i=0;i<7;i++)
+        g.appendChild(mk("line",{x1:106+i*22,y1:86,x2:100+i*22,y2:140,
+                                 stroke:"#3a6ea8","stroke-width":4,"stroke-linecap":"round"}));
+      g.appendChild(mk("rect",{x:0,y:150,width:320,height:60,fill:"#5e8a4e"}));
+      for (var j=0;j<6;j++)
+        g.appendChild(mk("path",{d:"M"+(40+j*48)+" 150 q6 -22 12 0",fill:"none",
+                                 stroke:"#3f6a34","stroke-width":3}));
+    } else if (kind==="seed"){
+      g.appendChild(mk("rect",{x:0,y:150,width:320,height:60,fill:"#8a6a4a"}));
+      g.appendChild(mk("ellipse",{cx:76,cy:168,rx:15,ry:11,fill:"#5e4630"}));
+      g.appendChild(mk("path",{d:"M212 150 L212 66",stroke:"#5e4630","stroke-width":8}));
+      [[212,72,34],[212,96,28],[212,120,22]].forEach(function(p){
+        g.appendChild(mk("ellipse",{cx:p[0]-p[2],cy:p[1],rx:p[2],ry:11,fill:"#4e8b3f"}));
+        g.appendChild(mk("ellipse",{cx:p[0]+p[2],cy:p[1],rx:p[2],ry:11,fill:"#5e9b4f"}));
+      });
+      g.appendChild(mk("path",{d:"M100 168 L190 152",stroke:"#a89474","stroke-width":3,
+                               "stroke-dasharray":"7 6"}));
+    } else if (kind==="heart"){
+      g.appendChild(mk("path",{d:"M160 172 C96 128 104 74 138 74 C152 74 160 86 160 94 "+
+                                 "C160 86 168 74 182 74 C216 74 224 128 160 172 Z",
+                               fill:"#c4453a"}));
+      g.appendChild(mk("path",{d:"M18 120 L74 120 L88 96 L104 148 L120 120 L302 120",
+                               fill:"none",stroke:"#1d5a3c","stroke-width":4,
+                               "stroke-linecap":"round","stroke-linejoin":"round"}));
+    } else if (kind==="daynight"){
+      g.appendChild(mk("rect",{x:0,y:0,width:160,height:210,fill:"var(--sky)"}));
+      g.appendChild(mk("rect",{x:160,y:0,width:160,height:210,fill:"var(--night)"}));
+      g.appendChild(mk("circle",{cx:76,cy:62,r:26,fill:"var(--sun)"}));
+      g.appendChild(mk("path",{d:"M256 40 a26 26 0 1 0 22 44 a30 30 0 1 1 -22 -44 Z",fill:"var(--moon)"}));
+      [[196,50],[230,104],[290,124],[210,150]].forEach(function(p){
+        g.appendChild(mk("circle",{cx:p[0],cy:p[1],r:2.6,fill:"#fff",opacity:.85}));
+      });
+      g.appendChild(mk("rect",{x:0,y:168,width:320,height:42,fill:"#4e5a45"}));
+    } else if (kind==="bee"){
+      g.appendChild(mk("circle",{cx:96,cy:150,r:30,fill:"#e0a32c"}));
+      g.appendChild(mk("circle",{cx:96,cy:150,r:30,fill:"none",stroke:"#8a6a1e","stroke-width":2}));
+      [[82,124],[110,124]].forEach(function(p){
+        g.appendChild(mk("ellipse",{cx:p[0],cy:p[1],rx:7,ry:13,fill:"#fff8dc",opacity:.9}));
+      });
+      g.appendChild(mk("ellipse",{cx:196,cy:96,rx:20,ry:26,fill:"#f0e28c"}));
+      g.appendChild(mk("ellipse",{cx:224,cy:120,rx:20,ry:26,fill:"#e8d271"}));
+      g.appendChild(mk("circle",{cx:210,cy:110,r:13,fill:"#c9702e"}));
+      g.appendChild(mk("path",{d:"M128 140 Q166 108 192 108",fill:"none",stroke:"#8a6a1e",
+                               "stroke-width":3,"stroke-dasharray":"6 5"}));
+    } else {
+      g.appendChild(mk("rect",{x:0,y:0,width:320,height:210,fill:"var(--sky)"}));
+      g.appendChild(mk("path",{d:"M0 150 L70 74 L124 150 Z",fill:"#7b8a72"}));
+      g.appendChild(mk("path",{d:"M92 150 L172 56 L252 150 Z",fill:"#67765f"}));
+      g.appendChild(mk("path",{d:"M150 78 L172 56 L194 78 Z",fill:"#f2f5f7"}));
+      g.appendChild(mk("path",{d:"M218 150 L272 92 L320 150 Z",fill:"#7b8a72"}));
+      g.appendChild(mk("rect",{x:0,y:148,width:320,height:62,fill:"#5b4f3c"}));
+      g.appendChild(mk("path",{d:"M92 150 L150 205 M172 150 L172 205 M252 150 L206 205",
+                               stroke:"#4a4030","stroke-width":3,"stroke-dasharray":"6 6"}));
+    }
+  }
+
+  function drawSky(i){
+    var svg=$("svg"); svg.innerHTML=""; svg.setAttribute("viewBox","0 0 320 210");
+    var g=mk("g",{}); svg.appendChild(g);
+    var p=PRAYERS[i];
+    g.appendChild(mk("rect",{x:0,y:0,width:320,height:210,
+                             fill: p.night ? "var(--night)" : "var(--sky)"}));
+    if (p.night) [[42,36],[104,26],[250,30],[286,66],[150,20]].forEach(function(s2){
+      g.appendChild(mk("circle",{cx:s2[0],cy:s2[1],r:2.6,fill:"#fff",opacity:.85}));
+    });
+
+    // A wide, shallow ellipse for the sun's path. The ground is drawn FIRST, so the
+    // prayers whose sun is below the horizon still show on top of it instead of
+    // being buried under it.
+    var CX=160, CY=126, RX=124, RY=88;
+    function pos(a){
+      var r=a*Math.PI/180;
+      return [CX+Math.cos(r)*RX, CY-Math.sin(r)*RY];
+    }
+    g.appendChild(mk("rect",{x:0,y:CY,width:320,height:210-CY,
+                             fill: p.night ? "#1a2436":"#6b7f5e"}));
+    var arc="";
+    for (var a2=200; a2>=-40; a2-=4){
+      var q2=pos(a2);
+      arc += (arc ? " L":"M") + q2[0].toFixed(1) + " " + q2[1].toFixed(1);
+    }
+    g.appendChild(mk("path",{d:arc, fill:"none", stroke: p.night ? "#5d6d86":"#8fb4d4",
+                             "stroke-width":3, "stroke-dasharray":"6 6", opacity:.85}));
+    g.appendChild(mk("line",{x1:0,y1:CY,x2:320,y2:CY,
+                             stroke: p.night ? "#44506a":"#7f9bb5","stroke-width":3}));
+
+    PRAYERS.forEach(function(q,j){
+      var xy=pos(q.ang), x=xy[0], y=xy[1];
+      var on = j===i;
+      g.appendChild(mk("circle",{cx:x,cy:y,r: on ? 14 : 7,
+                                 fill: on ? "var(--sun)" : (p.night ? "#6d7c96":"#a9c4dc"),
+                                 stroke: on ? "var(--ink)" : "none","stroke-width":2.5}));
+      if (on){
+        for (var k=0;k<8;k++){
+          var b=k*Math.PI/4;
+          g.appendChild(mk("line",{x1:x+Math.cos(b)*19,y1:y+Math.sin(b)*19,
+                                   x2:x+Math.cos(b)*26,y2:y+Math.sin(b)*26,
+                                   stroke:"var(--sun)","stroke-width":3,"stroke-linecap":"round"}));
+        }
+      }
+      // label above the marker when it is low down, below it when it is high up,
+      // so nothing ever falls off the top or the bottom of the canvas
+      var ly = (y > CY) ? y + 28 : y - 22;
+      if (ly > 202) ly = y - 22;
+      if (ly < 14)  ly = y + 28;
+      var lab=mk("text",{x: Math.max(26, Math.min(294, x)), y: ly, "text-anchor":"middle",
+                         "font-size": on ? "15":"12", "font-weight":"800",
+                         fill: on ? "var(--sun)" : (p.night ? "#9fb0c8":"#5b7590"),
+                         "font-family": lang==="ur" ? "Noto Nastaliq Urdu, serif"
+                                                    : "Baloo Bhaijaan 2, sans-serif"});
+      lab.textContent=t(q); g.appendChild(lab);
+    });
+  }
+
+  function drawFast(){
+    var svg=$("svg"); svg.innerHTML=""; svg.setAttribute("viewBox","0 0 320 210");
+    var g=mk("g",{}); svg.appendChild(g);
+    g.appendChild(mk("rect",{x:0,y:0,width:320,height:106,fill:"var(--night)"}));
+    g.appendChild(mk("rect",{x:0,y:106,width:320,height:104,fill:"var(--sky)"}));
+    g.appendChild(mk("line",{x1:22,y1:106,x2:298,y2:106,stroke:"#55708c","stroke-width":4}));
+    [[52,"\u0633\u062d\u0631\u06CC","Sehri",true],[268,"\u0627\u0641\u0637\u0627\u0631","Iftar",false]]
+      .forEach(function(m){
+        g.appendChild(mk("circle",{cx:m[0],cy:106,r:13,fill:"var(--sun)",
+                                   stroke:"var(--ink)","stroke-width":2.5}));
+        var tx=mk("text",{x:m[0],y:m[3]?86:86,"text-anchor":"middle","font-size":"14",
+                          "font-weight":"800",fill:"#fff",
+                          "font-family": lang==="ur" ? "Noto Nastaliq Urdu, serif"
+                                                     : "Baloo Bhaijaan 2, sans-serif"});
+        tx.textContent = lang==="ur" ? m[1] : m[2];
+        g.appendChild(tx);
+      });
+    var band=mk("rect",{x:52,y:126,width:216,height:34,rx:16,fill:"var(--fast)",opacity:.85});
+    g.appendChild(band);
+    var bt=mk("text",{x:160,y:149,"text-anchor":"middle","font-size":"15","font-weight":"800",
+                      fill:"#fff","font-family": lang==="ur" ? "Noto Nastaliq Urdu, serif"
+                                                             : "Baloo Bhaijaan 2, sans-serif"});
+    bt.textContent = lang==="ur" ? "\u0631\u0648\u0632\u06C1" : "the fast";
+    g.appendChild(bt);
+    var sub=mk("text",{x:160,y:186,"text-anchor":"middle","font-size":"12","font-weight":"700",
+                       fill:"#4a5661","font-family": lang==="ur" ? "Noto Nastaliq Urdu, serif"
+                                                                 : "Baloo Bhaijaan 2, sans-serif"});
+    sub.textContent = lang==="ur" ? "\u0635\u0628\u062D \u0635\u0627\u062F\u0642 \u0633\u06D2 \u063A\u0631\u0648\u0628 \u062A\u06A9"
+                                  : "from first light until sunset";
+    g.appendChild(sub);
+  }
+
+  /* ---------- render ---------- */
+  function render(){
+    ["Iman","Namaz","Roza"].forEach(function(x){
+      $("tab"+x).setAttribute("aria-pressed", tab===x.toLowerCase() ? "true":"false");
+    });
+    setText($("tabIman"), t(T.tabIman));
+    setText($("tabNamaz"), t(T.tabNamaz));
+    setText($("tabRoza"), t(T.tabRoza));
+    $("whyLbl").textContent=t(T.whyLbl);
+    setText($("quizHead"), t(T.quiz));
+    setText($("review"), t(T.review));
+    var two=$("two"), steps=$("steps"), judge=$("judge"), chips=$("chips"), teach=$("teach");
+    two.innerHTML=""; steps.innerHTML=""; judge.innerHTML=""; chips.innerHTML="";
+    var chip=$("statechip"); chip.className="statechip";
+    teach.style.display="none";
+
+    if (tab==="iman"){
+      var s=SIGNS[signI];
+      drawSign(s.icon);
+      setText($("title"), t(T.titleIman));
+      setText($("subtitle"), t(T.subIman));
+      setText($("panelHead"), t(T.headIman));
+      setText(chip, t(T.signChip));
+      setText($("name"), t(s));
+      setText($("detail"), t(s.d));
+      teach.style.display=""; teach.innerHTML="";
+      var em=document.createElement("em"); em.textContent=t(T.teachLbl);
+      em.setAttribute("dir", lang==="ur"?"rtl":"ltr");
+      var b=document.createElement("b");
+      b.textContent=(lang==="ur") ? isolate(t(s.t)) : t(s.t);
+      b.setAttribute("dir", lang==="ur"?"rtl":"ltr");
+      if (lang==="ur") b.className="ur";
+      teach.appendChild(em); teach.appendChild(b);
+      setText($("whyText"), t(s.w));
+      SIGNS.forEach(function(x,i){
+        var bt=document.createElement("button"); bt.type="button"; bt.className="schip";
+        setText(bt, t(x));
+        bt.setAttribute("aria-pressed", i===signI ? "true":"false");
+        bt.addEventListener("click", function(){ signI=i; render(); });
+        chips.appendChild(bt);
+      });
+      lastSpoken=t(s);
+      return;
+    }
+
+    if (tab==="namaz"){
+      var p=PRAYERS[prayI];
+      drawSky(prayI);
+      setText($("title"), t(T.titleNamaz));
+      setText($("subtitle"), t(T.subNamaz));
+      setText($("panelHead"), t(T.headNamaz));
+      setText(chip, t(T.total));
+      setText($("name"), t(p));
+      setText($("detail"), t(p.d));
+      [[t(T.rakLbl), String(p.rak) + " " + t(RAKA), ""],
+       [t(T.whenLbl), t(p.when), "when"]].forEach(function(c){
+        var d=document.createElement("div"); d.className="card "+c[2];
+        var em2=document.createElement("em"); em2.textContent=c[0];
+        em2.setAttribute("dir", lang==="ur"?"rtl":"ltr");
+        var b2=document.createElement("b");
+        b2.textContent=(lang==="ur") ? isolate(c[1]) : c[1];
+        b2.setAttribute("dir", lang==="ur"?"rtl":"ltr");
+        d.appendChild(em2); d.appendChild(b2); two.appendChild(d);
+      });
+      var lbl=document.createElement("div");
+      lbl.style.cssText="width:100%;font-size:var(--fs-cap);font-weight:700;color:var(--ink-soft);margin-bottom:2px";
+      lbl.textContent=t(T.stepsLbl);
+      lbl.setAttribute("dir", lang==="ur"?"rtl":"ltr");
+      steps.appendChild(lbl);
+      STEPS.forEach(function(st){
+        var d=document.createElement("span"); d.className="stepchip on";
+        d.textContent=t(st);
+        d.setAttribute("dir", lang==="ur"?"rtl":"ltr");
+        steps.appendChild(d);
+      });
+      setText($("whyText"), t(p.w) + " " + t(T.whyNamaz));
+      teach.style.display=""; teach.innerHTML="";
+      var em3=document.createElement("em"); em3.textContent=t(T.stepsLbl);
+      em3.setAttribute("dir", lang==="ur"?"rtl":"ltr");
+      var b3=document.createElement("b");
+      b3.textContent=(lang==="ur") ? isolate(t(T.whySteps)) : t(T.whySteps);
+      b3.setAttribute("dir", lang==="ur"?"rtl":"ltr");
+      if (lang==="ur") b3.className="ur";
+      teach.appendChild(em3); teach.appendChild(b3);
+      PRAYERS.forEach(function(x,i){
+        var bt=document.createElement("button"); bt.type="button"; bt.className="schip";
+        setText(bt, t(x));
+        bt.setAttribute("aria-pressed", i===prayI ? "true":"false");
+        bt.addEventListener("click", function(){ prayI=i; render(); });
+        chips.appendChild(bt);
+      });
+      lastSpoken=t(p);
+      return;
+    }
+
+    var r=ROZA[rozaI];
+    drawFast();
+    setText($("title"), t(T.titleRoza));
+    setText($("subtitle"), t(T.subRoza));
+    setText($("panelHead"), t(T.headRoza));
+    setText($("name"), t(r));
+    if (rozaPick===null){
+      setText(chip, t(T.ask)); setText($("detail"), "");
+    } else {
+      var good = (rozaPick===1)===r.breaks;
+      chip.className="statechip " + (good ? "ok":"no");
+      setText(chip, good ? t(T.right) : t(T.wrong));
+      setText($("detail"), t(r.r));
+    }
+    setText($("whyText"), t(T.whyRoza));
+    [[0,t(T.no),"n"],[1,t(T.yes),"y"]].forEach(function(b4){
+      var bt=document.createElement("button"); bt.type="button"; bt.className=b4[2];
+      setText(bt, b4[1]);
+      bt.setAttribute("aria-pressed", rozaPick===b4[0] ? "true":"false");
+      bt.addEventListener("click", function(){
+        if (rozaPick!==null) return;
+        rozaPick=b4[0]; rozaDone[rozaI]=true; render();
+      });
+      judge.appendChild(bt);
+    });
+    ROZA.forEach(function(x,i){
+      var bt=document.createElement("button"); bt.type="button";
+      bt.className="schip" + (rozaDone[i] ? " done":"");
+      bt.textContent=String(i+1)+(rozaDone[i]?" \u2605":"");
+      bt.setAttribute("aria-pressed", i===rozaI ? "true":"false");
+      bt.addEventListener("click", function(){ rozaI=i; rozaPick=null; render(); });
+      chips.appendChild(bt);
+    });
+    lastSpoken=t(r);
+  }
+
+  var lastSpoken="";
+
+  ["Iman","Namaz","Roza"].forEach(function(x){
+    $("tab"+x).addEventListener("click", function(){
+      var m=x.toLowerCase();
+      if (tab===m) return;
+      tab=m; rozaPick=null; render();
+    });
+  });
+
+  function buildQuiz(){
+    var box=$("quizBox"); box.innerHTML="";
+    QUIZ.forEach(function(item){
+      var wrap=document.createElement("div"); wrap.className="q";
+      var q=document.createElement("p"); setText(q,t(item.q)); wrap.appendChild(q);
+      var fb=document.createElement("p"); fb.className="fb";
+      item.o.forEach(function(opt,oi){
+        var b=document.createElement("button"); b.type="button";
+        b.className="opt" + (lang==="ur" ? " ur":"");
+        b.setAttribute("dir", lang==="ur" ? "rtl":"ltr");
+        b.textContent=t(opt);
+        b.addEventListener("click", function(){
+          if (wrap.getAttribute("data-done")==="1") return;
+          wrap.setAttribute("data-done","1");
+          Array.prototype.forEach.call(wrap.querySelectorAll(".opt"), function(x,xi){
+            if (xi===item.a) x.classList.add("right");
+            else if (xi===oi) x.classList.add("wrong");
+          });
+          setText(fb,t(item.f)); fb.classList.add("show","fb");
+        });
+        wrap.appendChild(b);
+      });
+      wrap.appendChild(fb); box.appendChild(wrap);
+    });
+  }
+
+  function applyLang(){
+    document.body.classList.toggle("urdu", lang==="ur");
+    var lb=$("langBtn");
+    lb.textContent=(lang==="ur") ? "English" : "اردو";
+    lb.setAttribute("aria-pressed", lang==="ur" ? "true":"false");
+    Array.prototype.forEach.call(document.querySelectorAll("[data-ur]"), function(el){
+      setText(el, el.getAttribute(lang==="ur" ? "data-ur":"data-en"));
+    });
+    buildQuiz(); render();
+  }
+  $("langBtn").addEventListener("click", function(){
+    lang=(lang==="ur") ? "en":"ur"; applyLang();
+  });
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      window.speechSynthesis.cancel();
+      var u=new SpeechSynthesisUtterance(lastSpoken);
+      u.lang=(lang==="ur") ? "ur-PK":"en-US"; u.rate=0.9;
+      window.speechSynthesis.speak(u);
+    }catch(e){ /* no voice available — stay quiet */ }
+  });
+
+  applyLang();
+})();
+</script>
+</body>
+</html>

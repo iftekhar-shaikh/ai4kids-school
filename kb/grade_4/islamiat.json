@@ -1,0 +1,92 @@
+{
+  "subject": "islamiat",
+  "name": "Islamiat",
+  "teacher": "Islamiat Teacher",
+  "grade": 4,
+  "topics": [
+    {
+      "title": "Iman aur Ibadat",
+      "description": "Grade 4 Islamiat - Iman aur Ibadat",
+      "lesson": "## HOOK\nIman aur Ibadat seekho adab se.\n\n## SAMJHAO\nChhote Class 4 concepts.\n\n## MISAAL\nRozmarra amal.\n\n## KARO\nInteractive khelo.\n\n## SAWAAL\n1. Ek baat yaad ki?\n2. Ek amal?",
+      "quiz": {
+        "title": "Iman aur Ibadat Quiz",
+        "questions": [
+          {
+            "q": "Iman aur Ibadat seekhne ka tareeqa?",
+            "a": "Adab se",
+            "b": "Shor",
+            "c": "Ignore",
+            "d": "Cheat",
+            "correct": "a"
+          },
+          {
+            "q": "Interactive se seekhte hain?",
+            "a": "Practice",
+            "b": "Sleep only",
+            "c": "Litter",
+            "d": "Anger",
+            "correct": "a"
+          }
+        ]
+      },
+      "interactive_file": "interactives/g4-iman-ibadat.html",
+      "interactive_label": "Khelo - Iman aur Ibadat"
+    },
+    {
+      "title": "Akhlaq aur Muamalat",
+      "description": "Grade 4 Islamiat - Akhlaq aur Muamalat",
+      "lesson": "## HOOK\nAkhlaq aur Muamalat seekho adab se.\n\n## SAMJHAO\nChhote Class 4 concepts.\n\n## MISAAL\nRozmarra amal.\n\n## KARO\nInteractive khelo.\n\n## SAWAAL\n1. Ek baat yaad ki?\n2. Ek amal?",
+      "quiz": {
+        "title": "Akhlaq aur Muamalat Quiz",
+        "questions": [
+          {
+            "q": "Akhlaq aur Muamalat seekhne ka tareeqa?",
+            "a": "Adab se",
+            "b": "Shor",
+            "c": "Ignore",
+            "d": "Cheat",
+            "correct": "a"
+          },
+          {
+            "q": "Interactive se seekhte hain?",
+            "a": "Practice",
+            "b": "Sleep only",
+            "c": "Litter",
+            "d": "Anger",
+            "correct": "a"
+          }
+        ]
+      },
+      "interactive_file": "interactives/g4-akhlaq-muamalat.html",
+      "interactive_label": "Khelo - Akhlaq aur Muamalat"
+    },
+    {
+      "title": "Seerat aur Hidayat",
+      "description": "Grade 4 Islamiat - Seerat aur Hidayat",
+      "lesson": "## HOOK\nSeerat aur Hidayat seekho adab se.\n\n## SAMJHAO\nChhote Class 4 concepts.\n\n## MISAAL\nRozmarra amal.\n\n## KARO\nInteractive khelo.\n\n## SAWAAL\n1. Ek baat yaad ki?\n2. Ek amal?",
+      "quiz": {
+        "title": "Seerat aur Hidayat Quiz",
+        "questions": [
+          {
+            "q": "Seerat aur Hidayat seekhne ka tareeqa?",
+            "a": "Adab se",
+            "b": "Shor",
+            "c": "Ignore",
+            "d": "Cheat",
+            "correct": "a"
+          },
+          {
+            "q": "Interactive se seekhte hain?",
+            "a": "Practice",
+            "b": "Sleep only",
+            "c": "Litter",
+            "d": "Anger",
+            "correct": "a"
+          }
+        ]
+      },
+      "interactive_file": "interactives/g4-seerat-hidayat.html",
+      "interactive_label": "Khelo - Seerat aur Hidayat"
+    }
+  ]
+}
