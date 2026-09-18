@@ -5,331 +5,501 @@
   "grade": 4,
   "topics": [
     {
-      "title": "Numbers 1 lakh tak",
-      "description": "100,000 tak, place value 6-digit",
-      "lesson": "## HOOK\nAik baar, ek bazaar mein aik bechne wala tha, uske paas 50,000 saaman tha. Phir usne aur 25,000 saaman kharida. Ab uske paas total kitna saaman tha? Chalo dosto, is sawal ko hal karte hain!\n\n## SAMJHAO\nAaj hum 1 lakh tak ke numbers aur unki place value seekhenge. Aakhir, 1 lakh ka matlab kya hai? 1 lakh ka matlab hai 100,000. Yeh number bohat bara hai aur ismein 6 digits hain.\n\nChalo, 6-digit numbers ko samjhte hain. Har digit ki apni jagah hoti hai, jo uski value tay karte hai. Pehli digit right se units (1s), phir tens (10s), phir hundreds (100s), phir thousands (1,000s), phir ten thousands (10,000s), aur aakhri digit hundred thousands (100,000s) hoti hai. \n\nAgar hum ek number 52,314 ka example lein, toh dekho kaise digits ko place value di gayi hai: \n- 4 units hai\n- 1 ten hai\n- 3 hundreds hain\n- 2 thousands hain\n- 5 ten-thousands hain\n\nAb, agar hum 1 lakh tak ka koi number banate hain, toh hamesha yaad rakhein ke sabse pehle hundred thousands ki place ko bharein. Jaise 100,000 ya 200,000. Par yaad rahe, hum aaj sirf 1 lakh tak ka hi dekh rahe hain.\n\n## MISAAL\nChalo sochte hain ke agar Lahore ki population ginti karte hain. Lahore ki population 11 million hai, lekin agar hum sirf 1 lakh tak dekhein, toh hum kaise ginte hain? Socho, agar humare paas sheher mein 50,000 log hain aur un mein se 20,000 log aur aate hain, toh total population kitni hui? Acha, 50,000 + 20,000 = 70,000. Yeh ek bohat bada number hai!\n\n## KARO\nGhar ya school mein ek mazaydar activity karo. Ek khali paper lo aur apne doston ke sath milkar 6-digit numbers banayein. Har banday ko ek number dena hai aur unki place value likhni hai. Jaise agar tumhara number 45,678 hai, toh tum likhoge: \n- 8 units\n- 7 tens\n- 6 hundreds\n- 5 thousands\n- 4 ten-thousands\n\nYeh activity tumhein numbers samajhne mein bohot madad karegi!\n\n## SAWAAL\n1. 1 lakh ka matlab kya hai?\n2. Agar kisi number mein 3 ten thousands hain, toh wo number kya hoga?\n3. Kya tum 67,543 ki place value bata sakte ho?\n\nHisaab Sir.",
+      "title": "Numbers 99,999 tak",
+      "description": "5-digit place value, compare, order, round off, Roman numbers to 100",
+      "lesson": "## HOOK\nSab se bara 5-digit number kaun sa hai? 99,999. Grade 4 yahin tak hai — 1 lakh (100,000) Grade 5 ka hissa hai.\n\n## SAMJHAO\n5-digit number: ten-thousands, thousands, hundreds, tens, ones.\nExample 74,001: 7 ten-thousands, 4 thousands, 0 hundreds, 0 tens, 1 one.\nCompare with >, <, =. Order chhote se bara. Round off nearest 10, 100, 1,000, 10,000.\nRoman numbers 100 tak: I V X L C.\n\n## MISAAL\nIslamabad school: 12,480 students. Is number ko words mein likho aur 12,500 par round karo (nearest hundred).\n\n## KARO\nApna roll-number style 5-digit number banao, expanded form likho, phir nearest ten par round karo.\n\n## SAWAAL\n1. Sab se chhota 5-digit number?\n2. 99,999 kitne digits?\n3. Roman C kis number ke barabar?\n",
       "quiz": {
-        "title": "Numbers 1 lakh tak Quiz",
+        "title": "Numbers 99,999 tak Quiz",
         "questions": [
           {
-            "q": "Agar ek number hai 54321, to is ka 'thousands' place ka number kya hai?",
-            "a": "4",
-            "b": "5",
-            "c": "3",
-            "d": "2",
-            "correct": "a",
-            "explanation": "'Thousands' place 4 hai jo ki 54321 mein chouthi position par hai."
+            "q": "Grade 4 numbers kis had tak?",
+            "a": "99,999 (5 digit)",
+            "b": "1 lakh (6 digit)",
+            "c": "10 lakh",
+            "d": "Sirf 999",
+            "correct": "a"
           },
           {
-            "q": "60000 ko kis tarah likha jata hai?",
-            "a": "60 hazaar",
-            "b": "6000",
-            "c": "600000",
-            "d": "6 hazaar",
-            "correct": "a",
-            "explanation": "60 hazaar ka matlab 60000 hai."
-          },
-          {
-            "q": "Agar koi number hai 987654, to is mein 'lakhs' ka number kya hai?",
-            "a": "9",
-            "b": "8",
-            "c": "7",
-            "d": "6",
-            "correct": "a",
-            "explanation": "'Lakhs' place ka number 9 hai jo ki 987654 mein pehli position par hai."
-          },
-          {
-            "q": "Is number 374820 ka 'tens' place ka number kya hai?",
-            "a": "2",
-            "b": "8",
+            "q": "99,999 mein kitne digits?",
+            "a": "5",
+            "b": "6",
             "c": "4",
             "d": "7",
-            "correct": "b",
-            "explanation": "'Tens' place ka number 2 hai jo ki 374820 mein dusri position par hai."
+            "correct": "a"
           },
           {
-            "q": "154320 ko kis tarah read kiya jata hai?",
-            "a": "1 lakh 54 hazaar 320",
-            "b": "15 hazaar 4320",
-            "c": "154 hazaar 320",
-            "d": "1 lakh 543 hazaar 20",
-            "correct": "a",
-            "explanation": "154320 ko 1 lakh 54 hazaar 320 kehte hain."
+            "q": "Sab se chhota 5-digit number?",
+            "a": "10,000",
+            "b": "99,999",
+            "c": "1,000",
+            "d": "100,000",
+            "correct": "a"
+          },
+          {
+            "q": "Roman C barabar hai?",
+            "a": "100",
+            "b": "50",
+            "c": "10",
+            "d": "500",
+            "correct": "a"
+          },
+          {
+            "q": "74,001 mein 7 ki place?",
+            "a": "Ten thousands",
+            "b": "Hundreds",
+            "c": "Ones",
+            "d": "Lakhs",
+            "correct": "a"
+          }
+        ]
+      }
+    },
+    {
+      "title": "Number operations",
+      "description": "Add and subtract up to 5 digits; multiply and divide 4-digit by 1 or 2 digits",
+      "lesson": "## HOOK\nBazaar bill: 12,450 + 8,375. Phir 4,200 ko 12 se multiply. Yeh Grade 4 operations hain.\n\n## SAMJHAO\nAdd aur subtract 5-digit numbers, regrouping ke sath. Estimate pehle, phir exact.\nMultiply 4-digit × 1-digit ya 2-digit. Divide 4-digit ÷ 1-digit ya 2-digit. Word problems mein sahi operation chuno.\n\n## MISAAL\nStationery: 2,450 copies × 12. Pehle estimate ~2,500 × 10 = 25,000, phir exact.\n\n## KARO\nTeen 5-digit numbers likho, do add karo, teesre se subtract karo. Check: answer reasonable hai?\n\n## SAWAAL\n1. 5-digit add kis grade mein?\n2. 4-digit × 2-digit allowed?\n3. Estimate kyun?\n",
+      "quiz": {
+        "title": "Number operations Quiz",
+        "questions": [
+          {
+            "q": "Add/subtract Grade 4 kis had tak?",
+            "a": "5-digit numbers",
+            "b": "Only 2-digit",
+            "c": "1 lakh only",
+            "d": "Decimals only",
+            "correct": "a"
+          },
+          {
+            "q": "4-digit × 12 sahi scope?",
+            "a": "Haan, 2-digit multiplier",
+            "b": "Nahi, sirf ×1",
+            "c": "Sirf Grade 6",
+            "d": "Sirf fractions",
+            "correct": "a"
+          },
+          {
+            "q": "Estimate ka kaam?",
+            "a": "Answer reasonable hai ya nahi",
+            "b": "Copy karna",
+            "c": "Roman likhna",
+            "d": "Graph banana",
+            "correct": "a"
+          },
+          {
+            "q": "Division Grade 4?",
+            "a": "4-digit ÷ 1 ya 2 digit",
+            "b": "Sirf ÷ 10",
+            "c": "Koi divide nahi",
+            "d": "Fractions only",
+            "correct": "a"
+          },
+          {
+            "q": "Word problem pe pehle?",
+            "a": "Sahi operation chuno",
+            "b": "Calculator chhupao",
+            "c": "Roman likho",
+            "d": "Graph banao",
+            "correct": "a"
           }
         ]
       }
     },
     {
       "title": "Factors aur multiples",
-      "description": "Prime/composite, divisibility rules",
-      "lesson": "## HOOK\nKya aap ne kabhi socha hai ke aapki pasandida biryani mein kitne ingredients hain? Aur kya aap yeh jaante hain ke un ingredients ko kaise divide kiya ja sakta hai? Aaj hum Factors aur Multiples ke bare mein seekhne ja rahe hain, jo is masale ko samajhne mein madad karega!\n\n## SAMJHAO\nFactors woh numbers hain jo kisi number ko bina remainder ke divide karte hain. Misaal ke tor par, agar hum 12 ko dekhein, toh uske factors hain 1, 2, 3, 4, 6, aur 12. Matlab, yeh sab numbers 12 ko divide karte hain.\n\nAb baat karte hain Multiples ki. Multiple woh numbers hain jo kisi number ka product hote hain. Jaise agar hum 4 ka multiple dekhein, toh woh hote hain 4, 8, 12, 16, aur aise hi chalte hain. Har number ke infinite multiples hote hain.\n\nAb hum Prime aur Composite numbers ko samajhte hain. Prime number woh hota hai jis ke sirf do factors hote hain - 1 aur khud woh number. Misaal ke tor par 2, 3, 5, aur 7 prime numbers hain. Lekin composite number ke multiple factors hote hain. Jaise 4, 6, aur 8 composite numbers hain kyunki inke alawa bhi inke factors hain.\n\nDivisibility rules bhi zaroori hain! Agar kisi number ko 2 se divide karte hain aur woh even hai, toh woh 2 se divide hota hai. Agar last digit 0 ya 5 hai, toh woh 5 se bhi divide hota hai. Yeh rules humain bhaut help dete hain numbers ko jaldi samajhne mein.\n\n## MISAAL\nChalo bayazaar ki misaal lete hain. Aapne dekha hoga ke biryani ke liye chawal, maas, masalay, aur sabziyon ki zaroorat hoti hai. Agar aapko 4 logon ke liye biryani banani hai, toh aapko seedha sochna hoga ke har ingredient ko kitni quantity mein lena hai. Is tarah aap factors ka istemal karke har cheez ko balance kar sakte hain. \n\n## KARO\nGhar ya school mein aap ek simple game khel sakte hain jismein aap ke dost aur aap number likhenge. Har banda ek number choose karega aur doosron ko yeh batana hoga ke uska factors kya hain. Yeh game aapko factors aur multiples samajhne mein madad karega. Jo sabse zyada sari factors bata sake, woh jeet jayega!\n\n## SAWAAL\n1. Kya aap 24 ke factors batayenge?\n2. Kya 11 prime number hai? Aur kyun?\n3. 10 ke 3 multiples kya hain? \n\nAap sabka shukriya! Seekhne ka maza aaya? Milte hain agle lesson mein. \nHisaab Sir.",
+      "description": "Divisibility by 2, 3, 5 and 10; factor pairs; prime and composite up to 50",
+      "lesson": "## HOOK\n24 kin numbers se poora divide hota hai? 1, 2, 3, 4, 6, 8, 12, 24 — yeh factors hain.\n\n## SAMJHAO\nFactor = wo number jo poora divide kare. Multiple = table. Divisibility: 2 (even), 5 (0 ya 5), 10 (0), 3 (digits ka sum 3 se). Prime = sirf 1 aur khud (2,3,5,7… 50 tak). Composite = zyada factors. Common factors aur common multiples bhi.\n\n## MISAAL\n30 divisible by 2, 3, 5 aur 10. 30 prime nahi, composite hai.\n\n## KARO\n1 se 30 tak primes circle karo. 36 ke factor pairs likho.\n\n## SAWAAL\n1. 2 ka rule?\n2. 1 prime hai?\n3. 50 tak prime ya composite kaun seekhte hain?\n",
       "quiz": {
         "title": "Factors aur multiples Quiz",
         "questions": [
           {
-            "q": "2, 3, 5, 7 in mein se kaunsa number Prime number hai?",
-            "a": "2",
-            "b": "6",
-            "c": "4",
-            "d": "8",
-            "correct": "a",
-            "explanation": "2 ek prime number hai kyunki isko sirf 1 aur 2 se divide kiya ja sakta hai."
+            "q": "2 se divisible?",
+            "a": "Even numbers",
+            "b": "Sirf 5 par khatam",
+            "c": "Sirf primes",
+            "d": "Odds only",
+            "correct": "a"
           },
           {
-            "q": "4 ka factor kya hai?",
-            "a": "1",
-            "b": "7",
-            "c": "9",
-            "d": "11",
-            "correct": "a",
-            "explanation": "1, 2, aur 4, ye sab 4 ke factors hain."
+            "q": "Prime ka matlab?",
+            "a": "Factors sirf 1 aur khud",
+            "b": "Bahut factors",
+            "c": "Hamesha even",
+            "d": "Multiple of 10",
+            "correct": "a"
           },
           {
-            "q": "15 ka composite number kaun sa hai?",
-            "a": "21",
-            "b": "5",
-            "c": "3",
-            "d": "1",
-            "correct": "a",
-            "explanation": "21 ek composite number hai jo 15 se bada hai aur iske do ya zyada factors hain."
+            "q": "Grade 4 primes kis had tak?",
+            "a": "Up to 50",
+            "b": "Up to 1000",
+            "c": "Koi prime nahi",
+            "d": "Sirf 2",
+            "correct": "a"
           },
           {
-            "q": "8 ko 2 se divide karne per kya milega?",
-            "a": "4",
-            "b": "2",
-            "c": "1",
-            "d": "8",
-            "correct": "a",
-            "explanation": "8 ko 2 se divide karne per 4 milta hai."
+            "q": "3 ka rule?",
+            "a": "Digits ka sum 3 se divisble",
+            "b": "Last digit 3",
+            "c": "Even hona",
+            "d": "Zero par khatam",
+            "correct": "a"
           },
           {
-            "q": "6 ka divisible rule kya hai?",
-            "a": "Agar number 2 aur 3 se divide hota hai",
-            "b": "Agar number sirf 2 se hoga",
-            "c": "Agar number sirf 3 se hoga",
-            "d": "Koi nahi",
-            "correct": "a",
-            "explanation": "6 sirf 2 aur 3 se nahi balki in dono se divide hota hai."
+            "q": "10 se divisible?",
+            "a": "Last digit 0",
+            "b": "Last digit 2",
+            "c": "Odd",
+            "d": "Prime",
+            "correct": "a"
           }
         ]
       }
     },
     {
       "title": "Fractions operations",
-      "description": "Like/unlike, multiply, divide fractions",
-      "lesson": "## HOOK\nAik din Student bazaar gaya aur usay dosto ke liye mithai kharidni thi. Usne dekha ke ek mithai ka dabba 3/4 kilogram hai aur doosra 2/3 kilogram. Ab sochiye, agar vo dono dabbay ko milaye, to usay kitna mithai milegi?\n\n## SAMJHAO\nFractions, yaani ghataen, aisi hain jo humein maloom karte hain ke kisi cheez ka kitna hissa hai. Jaise agar humare paas ek pizza hai aur humne usay 4 hissoon mein kaat diya, to har hissa 1/4 pizza hoga.\n\nAgar fractions same hain, jaise 1/3 aur 2/3, to hum unhe asani se add ya subtract kar sakte hain. Lekin agar fractions alag hain, jaise 1/4 aur 1/2, to humein unka LCM nikaalna padta hai, taake unhe behtar samajh sakein.\n\nMultiplication ka matlab hai ke hum do fractions ko milate hain. Agar hum 1/2 ko 3/4 se multiply karte hain, to humein naya fraction milta hai. Is process ko samajhne ke liye hum sirf numerator (upar wala hissa) aur denominator (neeche wala hissa) ko multiply karte hain.\n\nDivision ka matlab hai ke hum ek fraction ko doosre se divide karte hain. Jaise agar hum 3/4 ko 1/2 se divide karte hain, to humein pehle 3/4 ka reciprocal nikaalna hoga. Reciprocal ka matlab hai ke fraction ka denominator aur numerator ko swap karna.\n\n## MISAAL\nSochiye aapke paas ek cricket match hai. Aapne dekha ke aapka favorite player 3/5 runs bana raha hai aur doosra player 2/3 runs. Agar aap do players ke runs ko add karte hain, to aapko un dono ka total run nikalne mein madad milti hai. Ab aap jaan payenge ke un dono ne milkar kitne runs banaye.\n\n## KARO\nGhar par aap apne dost ya bhai behan ke sath ek khana bana sakte hain. Aapko yeh dekhna hoga ke agar aapke paas 1/2 cup daal hai aur 1/3 cup taazi sabzi hai, to in dono ko milakar aap kitna khana bana sakte hain. Is tarah se aap fractions ka asan sabak seekh sakte hain!\n\n## SAWAAL\n1. Agar Student ke paas 2/5 kilogram aam hain aur 1/2 kilogram oranges hain, to dono onhe mila kar kitne fruits milenge?\n2. Kya aap 3/4 ko 1/8 se multiply kar sakte hain? Mujhe aapka jawabi dekhna hai!\n3. Agar aap 5/6 ko 1/3 se divide karte hain, to aapko kya milta hai? Iska reciprocal kya hoga?\n\nAap sab ko fractions ka padhai karna maza aya? Hamesha khush rahiye aur seekte rahiye!\n\nHisaab Sir.",
+      "description": "Like and unlike add/subtract; multiply fractions; divide a fraction by a whole number only",
+      "lesson": "## HOOK\nPizza 3/4 minus 1/4. Phir 1/2 × 1/3. Grade 4 yahan tak — do fractions ko ek doosre se divide nahi (wo Grade 5).\n\n## SAMJHAO\nProper, improper, mixed. Unlike fractions ko equivalent bana kar add/subtract. Multiply fraction × whole number, aur do fractions multiply. Divide: fraction ÷ whole number (jaise 1/2 ÷ 2). Do fractions ka division is grade ka hissa nahi.\n\n## MISAAL\nLibrary 2/3 km, phir ghar 1/6 km. Total = 4/6 + 1/6 = 5/6 km.\n\n## KARO\nDo unlike fractions add karo. Ek fraction ko 3 se divide karo (matlab ÷ 3).\n\n## SAWAAL\n1. Unlike add kaise?\n2. Fraction ÷ fraction Grade 4?\n3. Mixed number kya?\n",
       "quiz": {
         "title": "Fractions operations Quiz",
         "questions": [
           {
-            "q": "Agar 1/4 aur 1/4 ko jodain, to result kya hoga?",
-            "a": "1/2",
-            "b": "1/4",
-            "c": "2/4",
-            "d": "3/4",
-            "correct": "a",
-            "explanation": "1/4 + 1/4 = 2/4 jo ke simplify karne par 1/2 hota hai."
+            "q": "Grade 4 fraction divide?",
+            "a": "Fraction ÷ whole number",
+            "b": "Fraction ÷ fraction",
+            "c": "Sirf multiply",
+            "d": "Koi divide nahi",
+            "correct": "a"
           },
           {
-            "q": "Agar 2/5 aur 3/5 ko jodain, to kya milega?",
-            "a": "1",
-            "b": "5/5",
-            "c": "1/10",
-            "d": "4/5",
-            "correct": "d",
-            "explanation": "2/5 + 3/5 = 5/5 jo ke 1 hai."
+            "q": "Unlike fractions add?",
+            "a": "Pehle like/equivalent banao",
+            "b": "Denominators add",
+            "c": "Ignore",
+            "d": "Decimals only",
+            "correct": "a"
           },
           {
-            "q": "Agar 3/4 ko 2 se divide karein, to kya milega?",
-            "a": "3/8",
-            "b": "3/2",
-            "c": "3/4",
-            "d": "1/4",
-            "correct": "a",
-            "explanation": "Divide karne ka matlab hai 3/4 ko 2 se multiply karna, yani 3/4 × 1/2 = 3/8."
+            "q": "1/2 × 1/4?",
+            "a": "1/8",
+            "b": "2/6",
+            "c": "1/2",
+            "d": "4",
+            "correct": "a"
           },
           {
-            "q": "Agar 1/3 ko 3 se multiply karein, to result kya hoga?",
-            "a": "1",
-            "b": "1/9",
-            "c": "3/3",
-            "d": "1/6",
-            "correct": "a",
-            "explanation": "1/3 × 3 = 3/3 jo ke 1 hai."
+            "q": "3/4 ÷ 3 barabar?",
+            "a": "1/4",
+            "b": "9/4",
+            "c": "3/12 only wrong",
+            "d": "1",
+            "correct": "a"
           },
           {
-            "q": "Agar 5/6 ko 2/3 se divide karein, to kya milega?",
-            "a": "15/12",
-            "b": "5/4",
-            "c": "1/4",
-            "d": "10/18",
-            "correct": "b",
-            "explanation": "5/6 ÷ 2/3 ko multiply karne par get karega: 5/6 × 3/2 = 15/12 jo ke simplify karne par 5/4 banta hai."
+            "q": "Improper fraction?",
+            "a": "Numerator denominator se bara",
+            "b": "Hamesha 1 se chhota",
+            "c": "Decimal",
+            "d": "Whole only",
+            "correct": "a"
           }
         ]
       }
     },
     {
       "title": "Decimals",
-      "description": "Decimal place value, fraction to decimal",
-      "lesson": "## HOOK\nAap soch rahe hain ke agar kisi bazar mein aapka favourite khana hai biryani, aur aapko uska price hamesha yaad rah jana chahiye, toh aap kya karenge? Agar yeh price 150.75 rupay ho, toh kya aap samajhte hain ke is mein decimals ka kya role hai?\n\n## SAMJHAO\nAaj hum decimals ke baare mein seekhenge. Decimals woh numbers hain jo poore numbers ko chhote hisson mein baantne mein madad karte hain. Jab hum 1 se lekar 10 tak ki baat karte hain, toh hum poore numbers ka istemal karte hain. Lekin jab humein chhote hisson ki zaroorat padti hai, toh hum decimals ka istemal karte hain.\n\nDecimal numbers mein do part hote hain: whole number aur decimal part. Jaise 2.5 mein 2 whole number hai aur 5 decimal part hai. Yahan \"5\" ka matlab hai ke ye 10 ka ek chhota hissa hai, yaani 5/10. Isko aise samajh sakte hain ke 5/10 ka matlab hai 5 dhang se banayi gayi cheezein jo milke 1 complete item banati hain.\n\nAb hum fractions ko decimals mein convert karte hain. Agar humare paas fraction hai 1/2, toh isko decimal mein badalne ke liye hum bus divide karte hain: 1 ÷ 2 = 0.5. Yeh bahut asaan hai! Yani 0.5 ka matlab hai ke hum ek poora ka aadha hissa le rahe hain.\n\nJab hum fractions aur decimals ko samjhte hain, toh humein yeh bhi samajhna chahiye ke kis tarah se inhe use karke hum calculating kar sakte hain, jaise market mein ya school mein. Yeh ek very important skill hai jo aapko aagey chal kar zaroor madad karegi.\n\n## MISAAL\nChalo, ek example lete hain. Suppose aap ek bazar mein jakar rickshaw ka fare dekhte hain. Rickshaw ka fare 80.25 rupay hai. Yahan 80 whole number hai aur 25 ka matlab hai ke yeh 25% ya qareeb 1/4 ka hissa hai ride ka. Aapne dekha, bina decimal ke aap yeh poora nahi samajh sakte!\n\n## KARO\nAapke liye ek asan activity hai! Ghar par aap apne family ke saath kuch samosy ya pakoray banke unka price note karein. Har item ka price likhein aur dekhein ke kya yeh decimals mein hai ya nahi. Phir un prices ko fractions mein badalkar dekhein. Yeh aapko decimals aur fractions ko samajhne mein madad karega!\n\n## SAWAAL\n1. Agar aapka dost aapko 3/4 ka cake deta hai, toh uska decimal kya hoga?\n2. 5.25 ko whole number aur decimal part mein kaise alag kareinge?\n3. Agar biryani ka price 295.50 rupay hai, toh uska whole number kya hai aur kya decimal?\n\nHisaab Sir",
+      "description": "Up to 3 decimal places, operations, fraction to decimal, percent as per hundred",
+      "lesson": "## HOOK\n0.5 aur 1/2 ek hi baat. 25% matlab 25/100.\n\n## SAMJHAO\nTenths, hundredths, thousandths. Place value 3 decimal places tak. Fraction jiska denominator 10, 100, 1000 ho usay decimal. Compare, round. Add, subtract, multiply, divide decimals (1-digit / 2-digit, aur ×÷ 10 ya 100). % = parts per hundred.\n\n## MISAAL\nRs 12.50 + Rs 3.25 = Rs 15.75. 1/4 = 0.25 = 25%.\n\n## KARO\nTeen prices likho, add karo, phir 10 se multiply karke shift dekho.\n\n## SAWAAL\n1. 0.1 kis place?\n2. 50% fraction?\n3. 3 decimal places allowed?\n",
       "quiz": {
         "title": "Decimals Quiz",
         "questions": [
           {
-            "q": "0.75 ko kis tarah se likha jata hai as a fraction?",
-            "a": "3/4",
-            "b": "1/2",
-            "c": "2/3",
-            "d": "1/4",
-            "correct": "a",
-            "explanation": "0.75 ko 3/4 kehlaya jata hai."
-          },
-          {
-            "q": "Decimal ka pehla sthan kya hai?",
-            "a": "Doh",
-            "b": "Ek",
-            "c": "Tees",
-            "d": "Chaar",
-            "correct": "b",
-            "explanation": "Decimal ka pehla sthan ek hai, jo tenths ko darshata hai."
-          },
-          {
-            "q": "0.2 ko kis fraction mein badla ja sakta hai?",
+            "q": "0.25 fraction?",
             "a": "1/4",
-            "b": "1/5",
-            "c": "1/2",
-            "d": "2/5",
-            "correct": "b",
-            "explanation": "0.2 ko 1/5 mein badla ja sakta hai."
+            "b": "1/2",
+            "c": "2/5",
+            "d": "25/10",
+            "correct": "a"
           },
           {
-            "q": "Decimal 0.9 ka ma'na kya hai?",
-            "a": "9/10",
-            "b": "1/10",
-            "c": "1/9",
-            "d": "9/100",
-            "correct": "a",
-            "explanation": "Decimal 0.9 ko 9/10 mein darshaya ja sakta hai."
+            "q": "Percent matlab?",
+            "a": "Per hundred",
+            "b": "Per ten",
+            "c": "Per thousand only",
+            "d": "Whole number",
+            "correct": "a"
           },
           {
-            "q": "2.35 ka sahi decimal place value kya hai?",
-            "a": "2 ek hai, 3 dasa hai, 5 sau hai",
-            "b": "2 dasa hai, 3 ek hai, 5 sau hai",
-            "c": "2 sau hai, 3 ek hai, 5 dasa hai",
-            "d": "2 ek hai, 3 sau hai, 5 dasa hai",
-            "correct": "a",
-            "explanation": "2.35 mein 2 ek, 3 dasa, aur 5 sau darshata hai."
+            "q": "Grade 4 decimals?",
+            "a": "Up to 3 decimal places",
+            "b": "Only tenths",
+            "c": "No decimals",
+            "d": "6 digit only",
+            "correct": "a"
+          },
+          {
+            "q": "1.2 + 0.3?",
+            "a": "1.5",
+            "b": "1.23",
+            "c": "0.15",
+            "d": "4.2",
+            "correct": "a"
+          },
+          {
+            "q": "÷ 10 se decimal?",
+            "a": "Point left shift",
+            "b": "Point gayab",
+            "c": "Sirf fraction",
+            "d": "Roman",
+            "correct": "a"
           }
         ]
       }
     },
     {
       "title": "Naap conversions",
-      "description": "km-m, kg-g, L-mL, 24-hour time",
-      "lesson": "## HOOK\nAik din Student bazaar gaya aur usne dekha ke rickshaw driver keh raha tha, \"Yaar, mujhe 5 km chalana hai!\" Student sochta hai, \"Yeh km kya hai?\" Phir usne suna ke kisi ne kaha, \"Mujhe biryani mein 500 g masalay chahiye!\" Ab yeh sab conversions kaise karte hain?\n\n## SAMJHAO\nNaap mein conversions samajhna bohot zaroori hai, taake hum cheezon ki lambai, wazan, aur volume ko sahi tarah se samajh saken. Aaj hum kuch basic conversions seekhenge:\n\nSab se pehle, kilometers se meters (km-m) ki conversion hai. 1 kilometer mein 1000 meters hote hain. Agar aap kehte hain ke mujhe 3 km chalna hai, toh aap ise is tarah se likh sakte hain: 3 km = 3 x 1000 m = 3000 m.\n\nAb chalte hain kilograms se grams (kg-g) ki taraf. 1 kilogram mein 1000 grams hote hain. Agar aap kehtay hain ke aapke paas 2 kg aata hai, toh aap ise likh sakte hain: 2 kg = 2 x 1000 g = 2000 g.\n\nAb hum litron aur millilitron ki baat karte hain. 1 liter mein 1000 milliliters hote hain. Jaise agar aap keh rahe hain, \"Mujhe 1.5 L paani chahiye,\" toh isay aap kar sakte hain: 1.5 L = 1.5 x 1000 mL = 1500 mL.\n\nAur finally, baat karte hain 24-hour time ki. 24-hour time format ka matlab hai ke jise hum din mein dekhte hain, usay hum raat ke waqt bhi dekhte hain. Agar aapko kehna hai ke aapka waqt 3:00 PM hai, toh yeh 15:00 hoga is format mein.\n\n## MISAAL\nChalo hum bazaar ka maamla lete hain. Aapko bazaar se 2 kg seb lana hai. Aap sochte hain \"Yeh kitna hota hai grams mein?\" Toh, aap sochenge: 2 kg = 2000 g. Jab aap 2000 g seb laate hain, toh aapko pata hota hai ke aapne bilkul sahi quantity laayi.\n\nAgar aapne rickshaw par jana hai 5 km doori par, toh aap jaan lete hain ke yeh hota hai 5000 m. Aap yeh hamesha yaad rakhein ke jab bhi aap distances ko samajhte hain, toh ye conversions karna mein madadgar hoga.\n\n## KARO\nGhar ya school mein ek activity karein! Apne saath ek paiman (measuring tape) aur kuch samaan le aayein. Jaise ek kaghaz, ek kitab, ya koi packaging ka samaan. Inka lambe (length) aur wazan (weight) ka naap karein. Phir inka conversion karke dekhein:\n\n1. Kitne meters mein aayein ye cheezen?\n2. Wazan ko kilograms se grams mein kaise tabdeel karna hai?\n\nIs activity se aapko conversions mein maharat milegi!\n\n## SAWAAL\n1. Agar aapke paas 3 km hai, toh ye kitne meters hote hain?\n2. Agar aapke paas 0.5 kg aata hai, toh ye kitne grams hote hain?\n3. 13:30 ko 12-hour time mein kya kahenge?\n\nHisaab Sir",
+      "description": "km m cm mm, kg g, L ml, and 12-hour / 24-hour time",
+      "lesson": "## HOOK\nSchool 2 km door hai — metres mein kitna? 2 × 1000 = 2000 m.\n\n## SAMJHAO\nLength: km, m, cm, mm. Mass: kg, g, mg. Capacity: L, ml. Bara unit se chhote mein convert (×). Add/subtract same unit. Time: analog + digital, 12-hour aur 24-hour, hours minutes seconds, start/end se duration.\n\n## MISAAL\n1 km 250 m = 1250 m. 3:00 p.m. = 15:00 (24-hour).\n\n## KARO\nGhar se school ka andaaza km mein likho, metres mein badlo. Subah 7:30 ko 24-hour mein likho.\n\n## SAWAAL\n1. 1 km = ? m\n2. 15:00 kaun sa time?\n3. ml kis cheez ka unit?\n",
       "quiz": {
         "title": "Naap conversions Quiz",
         "questions": [
           {
-            "q": "1 kilometer kitne meters ke barabar hota hai?",
-            "a": "1000 meters",
-            "b": "100 meters",
-            "c": "10,000 meters",
-            "d": "1 meter",
-            "correct": "a",
-            "explanation": "1 kilometer barabar hota hai 1000 meters ke."
+            "q": "1 km = ?",
+            "a": "1000 m",
+            "b": "100 m",
+            "c": "10 m",
+            "d": "1000 cm only",
+            "correct": "a"
           },
           {
-            "q": "1 kilogram kitne grams ke barabar hota hai?",
-            "a": "10 grams",
-            "b": "1000 grams",
-            "c": "100 grams",
-            "d": "1,000,000 grams",
-            "correct": "b",
-            "explanation": "1 kilogram barabar hota hai 1000 grams ke."
+            "q": "1 L = ?",
+            "a": "1000 ml",
+            "b": "100 ml",
+            "c": "10 g",
+            "d": "60 min",
+            "correct": "a"
           },
           {
-            "q": "1 liter kitne milliliters ke barabar hota hai?",
-            "a": "10 milliliters",
-            "b": "100 milliliters",
-            "c": "1000 milliliters",
-            "d": "1,000,000 milliliters",
-            "correct": "c",
-            "explanation": "1 liter barabar hota hai 1000 milliliters ke."
+            "q": "15:00 12-hour mein?",
+            "a": "3:00 p.m.",
+            "b": "3:00 a.m.",
+            "c": "15 p.m.",
+            "d": "Noon",
+            "correct": "a"
           },
           {
-            "q": "12:30 pm ko 24-hour format mein kya likhenge?",
-            "a": "12:30",
-            "b": "00:30",
-            "c": "23:30",
-            "d": "12:00",
-            "correct": "a",
-            "explanation": "12:30 pm ko 24-hour format mein 12:30 hi likhte hain."
+            "q": "Bara se chhota convert?",
+            "a": "Multiply",
+            "b": "Always divide",
+            "c": "Roman",
+            "d": "Ignore unit",
+            "correct": "a"
           },
           {
-            "q": "18:45 ko 12-hour format mein kya likhenge?",
-            "a": "6:45 pm",
-            "b": "6:45 am",
-            "c": "5:45 pm",
-            "d": "7:45 pm",
-            "correct": "a",
-            "explanation": "18:45 ko 12-hour format mein 6:45 pm likhte hain."
+            "q": "Duration matlab?",
+            "a": "End time minus start",
+            "b": "Only km",
+            "c": "Prime",
+            "d": "Percent",
+            "correct": "a"
+          }
+        ]
+      }
+    },
+    {
+      "title": "Area aur perimeter",
+      "description": "Perimeter and area of square, rectangle, and simple rectilinear shapes",
+      "lesson": "## HOOK\nMaidan ke gird wire = perimeter. Andar jitni zameen = area.\n\n## SAMJHAO\nPerimeter: boundary length (square 4×side, rectangle 2×(l+b)). Area: square side×side, rectangle length×breadth. Units alag: perimeter m/cm, area square units. Grid par irregular shape ka area bhi count ho sakta hai.\n\n## MISAAL\nKamra 6 m × 4 m. Perimeter 20 m, area 24 square m.\n\n## KARO\nApni copy ka length/breadth measure karo, perimeter aur area nikaalo.\n\n## SAWAAL\n1. Perimeter kya napta hai?\n2. Rectangle area formula?\n3. Area ki unit?\n",
+      "quiz": {
+        "title": "Area aur perimeter Quiz",
+        "questions": [
+          {
+            "q": "Perimeter matlab?",
+            "a": "Boundary ki lambai",
+            "b": "Andar ka area",
+            "c": "Volume",
+            "d": "Time",
+            "correct": "a"
+          },
+          {
+            "q": "Rectangle area?",
+            "a": "length × breadth",
+            "b": "length + breadth",
+            "c": "4 × side always",
+            "d": "ml",
+            "correct": "a"
+          },
+          {
+            "q": "Square perimeter?",
+            "a": "4 × side",
+            "b": "side × side",
+            "c": "2 × side",
+            "d": "km only",
+            "correct": "a"
+          },
+          {
+            "q": "Area ki unit?",
+            "a": "Square units",
+            "b": "Sirf km",
+            "c": "Hours",
+            "d": "Percent",
+            "correct": "a"
+          },
+          {
+            "q": "6m × 4m area?",
+            "a": "24 square m",
+            "b": "20 m",
+            "c": "10 m",
+            "d": "48 m",
+            "correct": "a"
           }
         ]
       }
     },
     {
       "title": "Geometry angles",
-      "description": "Protractor, acute/obtuse/right angles",
-      "lesson": "## HOOK\nBachon, kabhi aapne socha hai ke jab aap apne dost ke sath cricket kheltay hain to kuch angles kaise banate hain? Aur kabhi aapne dekha hai ke har cheez ka apna ek angle hota hai? Chalo, aaj hum Geometry ke angles ke bare mein sikhte hain!\n\n## SAMJHAO\nGeometry mein angle woh jagah hai jahan do lines milti hain. Jab hum angles ki baat karte hain, to humein protractor ki zaroorat hoti hai. Protractor aik circular ya semi-circular tool hai jo humein angles napne mein madad deta hai. Isse hum kisi bhi angle ko measure kar sakte hain.\n\nAb baat karte hain acute, obtuse, aur right angles ki.  \n- Acute angle woh hota hai jo 0 se 90 degrees ke darmiyan hota hai. Iska matlab hai ke yeh bohat chhota aur teekha hota hai.  \n- Right angle 90 degrees ka hota hai. Jab do lines ek dosre ko seedha milti hain, wahan right angle hota hai.  \n- Aur obtuse angle 90 se le kar 180 degrees tak hota hai. Yeh angle zyada khula hota hai aur thoda sa ulta lagta hai.\n\nYe teenon angles har jagah hain - ghar, school, aur bazaar mein bhi. Inhe samajhna bohot zaroori hai kyun ke inke bina hum design aur construction nahi kar sakte.\n\n## MISAAL\nAgar aap bazaar jaate hain aur rickshaw ka kaam karte hain, to check karen ke rickshaw ka roof kaisa bana hai. Kabhi kabhi yeh right angles mein hota hai, kyunki jab driver aage badta hai to seedha jata hai. Aur jab woh turn leta hai to woh obtuse angle bana sakta hai. Is tareeqe se aap apne aas paas ke objects se angles ko identify kar sakte hain.\n\n## KARO\nApne ghar mein ek simple activity karo!  \n- Ek protractor lo aur ek paper par ek straight line draw karo.  \n- Phir, is line se kuch angles banao:  \n  1. Aik acute angle (0 se 90 degrees).  \n  2. Aik right angle (90 degrees).  \n  3. Aik obtuse angle (90 se 180 degrees).  \n- Har angle ko protractor se measure karo aur likh lo ke wo kaunsa angle hai. \n\nIs tarah aap angles ko khud samajh sakte hain aur practice bhi kar sakte hain!\n\n## SAWAAL\n1. Acute angle kitne degrees tak hota hai?  \n2. Right angle aur obtuse angle mein kya fark hai?  \n3. Protractor ka kya istemal hota hai?  \n\nHisaab Sir",
+      "description": "Acute, right and obtuse angles; measure and draw with a protractor up to 180°",
+      "lesson": "## HOOK\nKitab ka kona right angle hai. Kholti hui kitab obtuse ban sakti hai.\n\n## SAMJHAO\nAcute < 90°, right = 90°, obtuse > 90° aur < 180°. Protractor se measure aur draw, 180° tak. Angles ko size se compare/order karo. Parallel aur non-parallel lines pehchano.\n\n## MISAAL\nClock 3:00 = right angle. Thori si khuli darwaza = acute.\n\n## KARO\nClass mein 3 angles dhoondo: acute, right, obtuse. Protractor se ek 60° banao.\n\n## SAWAAL\n1. Right angle kitne degrees?\n2. Obtuse kis se bara?\n3. Protractor kis had tak?\n",
       "quiz": {
         "title": "Geometry angles Quiz",
         "questions": [
           {
-            "q": "Protractor ka istamal kis liye hota hai?",
-            "a": "Koji bhi angle napne ke liye",
-            "b": "Sirf 90 degree ke liye",
-            "c": "Sirf chhote angles ke liye",
-            "d": "Kisi bhi line ko khinchne ke liye",
-            "correct": "a",
-            "explanation": "Protractor ka istamal har tarah ke angles napne ke liye hota hai."
+            "q": "Right angle?",
+            "a": "90°",
+            "b": "45°",
+            "c": "180°",
+            "d": "360°",
+            "correct": "a"
           },
           {
-            "q": "Acute angle ki value kya hoti hai?",
-            "a": "90 degree se kam",
-            "b": "90 degree se zyada",
-            "c": "180 degree",
-            "d": "360 degree",
-            "correct": "a",
-            "explanation": "Acute angle wo hota hai jo 90 degree se kam hota hai."
+            "q": "Acute angle?",
+            "a": "90° se chhota",
+            "b": "90° se bara",
+            "c": "Hamesha 180°",
+            "d": "Circle",
+            "correct": "a"
           },
           {
-            "q": "Obtuse angle ki pehchan kya hai?",
-            "a": "Wo angle jo 90 degree se kam ho",
-            "b": "Wo angle jo 90 degree se zyada ho aur 180 degree se kam ho",
-            "c": "Wo angle jo 180 degree ho",
-            "d": "Wo angle jo 360 degree ho",
-            "correct": "b",
-            "explanation": "Obtuse angle 90 degree se zyada aur 180 degree se kam hota hai."
+            "q": "Obtuse?",
+            "a": "90° aur 180° ke darmiyan",
+            "b": "0°",
+            "c": "Sirf 90°",
+            "d": "360°",
+            "correct": "a"
           },
           {
-            "q": "Right angle ko hum kitne degree ka kahte hain?",
-            "a": "90 degree",
-            "b": "45 degree",
-            "c": "180 degree",
-            "d": "360 degree",
-            "correct": "a",
-            "explanation": "Right angle ki value 90 degree hoti hai."
+            "q": "Protractor Grade 4?",
+            "a": "Up to 180°",
+            "b": "Only 90°",
+            "c": "Only circles",
+            "d": "No tool",
+            "correct": "a"
           },
           {
-            "q": "Kisi straight line ka angle kitna hoga?",
-            "a": "90 degree",
-            "b": "45 degree",
-            "c": "180 degree",
-            "d": "360 degree",
-            "correct": "c",
-            "explanation": "Straight line ka angle 180 degree hota hai."
+            "q": "Parallel lines?",
+            "a": "Kabhi nahi milti",
+            "b": "Hamesha cross",
+            "c": "Sirf curves",
+            "d": "Roman",
+            "correct": "a"
+          }
+        ]
+      }
+    },
+    {
+      "title": "Circle aur symmetry",
+      "description": "Radius, diameter, circumference; line of symmetry in 2-D shapes",
+      "lesson": "## HOOK\nCoin circle hai. Beech se line — dono halves same? Woh line of symmetry.\n\n## SAMJHAO\nRadius = centre se boundary. Diameter = 2 × radius. Circumference = circle ka perimeter. Line of symmetry shape ko identical halves mein kaat-ti hai. 2-D shapes par symmetry dhoondo aur complete karo.\n\n## MISAAL\nPlate ka diameter 20 cm, radius 10 cm. Butterfly aksar ek line of symmetry.\n\n## KARO\nPaper fold karke ek symmetrical shape banao. Circle ke centre se radius mark karo.\n\n## SAWAAL\n1. Diameter radius se kitna?\n2. Circumference kya hai?\n3. Symmetry line kya karti hai?\n",
+      "quiz": {
+        "title": "Circle aur symmetry Quiz",
+        "questions": [
+          {
+            "q": "Diameter = ?",
+            "a": "2 × radius",
+            "b": "radius ÷ 2",
+            "c": "perimeter of square",
+            "d": "90°",
+            "correct": "a"
+          },
+          {
+            "q": "Radius?",
+            "a": "Centre se boundary",
+            "b": "Poora circle",
+            "c": "Square side",
+            "d": "Time",
+            "correct": "a"
+          },
+          {
+            "q": "Circumference?",
+            "a": "Circle ka perimeter",
+            "b": "Area",
+            "c": "Right angle",
+            "d": "Prime",
+            "correct": "a"
+          },
+          {
+            "q": "Line of symmetry?",
+            "a": "Identical halves",
+            "b": "Koi bhi line",
+            "c": "Only diameter of square",
+            "d": "Bar graph",
+            "correct": "a"
+          },
+          {
+            "q": "Butterfly example?",
+            "a": "Symmetry",
+            "b": "Prime number",
+            "c": "Decimal",
+            "d": "Mass",
+            "correct": "a"
+          }
+        ]
+      }
+    },
+    {
+      "title": "Data handling",
+      "description": "Single and double bar graphs; simple chance words (certain, likely, impossible)",
+      "lesson": "## HOOK\nClass mein favourite fruit: bar graph se foran pata chalta hai kaun sab se zyada.\n\n## SAMJHAO\nHorizontal aur vertical bar graphs, single aur double. Read aur draw. Simple probability: impossible, unlikely, equally likely, likely, certain — dice ya spinner par.\n\n## MISAAL\nMonday 12 students present, Tuesday 15. Double bar se do weeks compare.\n\n## KARO\n5 doston ka favourite colour count karo, bar graph banao.\n\n## SAWAAL\n1. Bar graph kya dikhata hai?\n2. Certain matlab?\n3. Double bar kyun?\n",
+      "quiz": {
+        "title": "Data handling Quiz",
+        "questions": [
+          {
+            "q": "Bar graph?",
+            "a": "Data ko bars se compare",
+            "b": "Sirf Roman",
+            "c": "Angles only",
+            "d": "Time table",
+            "correct": "a"
+          },
+          {
+            "q": "Certain matlab?",
+            "a": "Hamesha hoga",
+            "b": "Kabhi nahi",
+            "c": "50-50 only",
+            "d": "Prime",
+            "correct": "a"
+          },
+          {
+            "q": "Impossible?",
+            "a": "Kabhi nahi hoga",
+            "b": "Hamesha",
+            "c": "Likely",
+            "d": "Area",
+            "correct": "a"
+          },
+          {
+            "q": "Double bar?",
+            "a": "Do sets compare",
+            "b": "Sirf ek number",
+            "c": "Circle draw",
+            "d": "Factors",
+            "correct": "a"
+          },
+          {
+            "q": "Dice par 7?",
+            "a": "Impossible (1-6)",
+            "b": "Certain",
+            "c": "Always 7",
+            "d": "Right angle",
+            "correct": "a"
           }
         ]
       }
