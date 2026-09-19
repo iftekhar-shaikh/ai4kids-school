@@ -81,7 +81,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g1-alphabets.html",
+      "interactive_label": "Khelo - Alphabets"
     },
     {
       "title": "Sight words",
@@ -160,7 +162,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g1-sight-words.html",
+      "interactive_label": "Khelo - Sight words"
     },
     {
       "title": "Mera ghar meri family",
@@ -239,7 +243,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g1-family.html",
+      "interactive_label": "Khelo - Family"
     },
     {
       "title": "Animals aur colors",
@@ -318,7 +324,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g1-animals-colors.html",
+      "interactive_label": "Khelo - Animals colors"
     },
     {
       "title": "Story time",
@@ -397,7 +405,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g1-story-time.html",
+      "interactive_label": "Khelo - Story time"
     },
     {
       "title": "Writing practice",
@@ -476,7 +486,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g1-writing.html",
+      "interactive_label": "Khelo - Writing"
     }
   ]
 }

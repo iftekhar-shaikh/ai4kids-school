@@ -81,7 +81,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g1-mera-jism.html",
+      "interactive_label": "Khelo - Mera jism"
     },
     {
       "title": "Paanch hasiyaat",
@@ -160,7 +162,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g1-hasiyaat.html",
+      "interactive_label": "Khelo - Hasiyaat"
     },
     {
       "title": "Janwar",
@@ -239,7 +243,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g1-janwar.html",
+      "interactive_label": "Khelo - Janwar"
     },
     {
       "title": "Podhe",
@@ -318,7 +324,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g1-podhe.html",
+      "interactive_label": "Khelo - Podhe"
     },
     {
       "title": "Sehat aur safai",
@@ -397,7 +405,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g1-sehat.html",
+      "interactive_label": "Khelo - Sehat"
     },
     {
       "title": "Mausam",
@@ -476,7 +486,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g1-mausam.html",
+      "interactive_label": "Khelo - Mausam"
     }
   ]
 }

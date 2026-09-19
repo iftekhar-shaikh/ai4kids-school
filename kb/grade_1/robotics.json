@@ -81,7 +81,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g1-machine-kya.html",
+      "interactive_label": "Khelo - Machine"
     },
     {
       "title": "Robot kya karta?",
@@ -160,7 +162,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g1-robot-karta.html",
+      "interactive_label": "Khelo - Robot karta"
     },
     {
       "title": "Sensor dost",
@@ -239,7 +243,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g1-sensor-dost.html",
+      "interactive_label": "Khelo - Sensor"
     },
     {
       "title": "Motor chalo!",
@@ -318,7 +324,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g1-motor-chalo.html",
+      "interactive_label": "Khelo - Motor"
     },
     {
       "title": "Traffic light",
@@ -397,7 +405,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g1-traffic-light.html",
+      "interactive_label": "Khelo - Traffic light"
     },
     {
       "title": "Toy robot",
@@ -476,7 +486,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g1-toy-robot.html",
+      "interactive_label": "Khelo - Toy robot"
     }
   ]
 }

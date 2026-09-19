@@ -1183,5 +1183,261 @@
       "interactive_file": "interactives/g2-seasons.html",
       "interactive_label": "Khelo - Seasons"
     }
+  },
+  {
+    "file": "kb/grade_1/ai.json",
+    "match_title": "AI kya hai?",
+    "add": {
+      "interactive_file": "interactives/g1-ai-kya-hai.html",
+      "interactive_label": "Khelo - AI kya hai"
+    }
+  },
+  {
+    "file": "kb/grade_1/ai.json",
+    "match_title": "Robot dost",
+    "add": {
+      "interactive_file": "interactives/g1-robot-dost.html",
+      "interactive_label": "Khelo - Robot dost"
+    }
+  },
+  {
+    "file": "kb/grade_1/ai.json",
+    "match_title": "Smart vs Silly machine",
+    "add": {
+      "interactive_file": "interactives/g1-smart-silly.html",
+      "interactive_label": "Khelo - Smart Silly"
+    }
+  },
+  {
+    "file": "kb/grade_1/ai.json",
+    "match_title": "Computer pehchano",
+    "add": {
+      "interactive_file": "interactives/g1-computer-pehchano.html",
+      "interactive_label": "Khelo - Computer"
+    }
+  },
+  {
+    "file": "kb/grade_1/ai.json",
+    "match_title": "Bolta computer",
+    "add": {
+      "interactive_file": "interactives/g1-bolta-computer.html",
+      "interactive_label": "Khelo - Bolta computer"
+    }
+  },
+  {
+    "file": "kb/grade_1/ai.json",
+    "match_title": "AI games mein",
+    "add": {
+      "interactive_file": "interactives/g1-ai-games.html",
+      "interactive_label": "Khelo - AI games"
+    }
+  },
+  {
+    "file": "kb/grade_1/english.json",
+    "match_title": "Alphabets aur Phonics",
+    "add": {
+      "interactive_file": "interactives/g1-alphabets.html",
+      "interactive_label": "Khelo - Alphabets"
+    }
+  },
+  {
+    "file": "kb/grade_1/english.json",
+    "match_title": "Sight words",
+    "add": {
+      "interactive_file": "interactives/g1-sight-words.html",
+      "interactive_label": "Khelo - Sight words"
+    }
+  },
+  {
+    "file": "kb/grade_1/english.json",
+    "match_title": "Mera ghar meri family",
+    "add": {
+      "interactive_file": "interactives/g1-family.html",
+      "interactive_label": "Khelo - Family"
+    }
+  },
+  {
+    "file": "kb/grade_1/english.json",
+    "match_title": "Animals aur colors",
+    "add": {
+      "interactive_file": "interactives/g1-animals-colors.html",
+      "interactive_label": "Khelo - Animals colors"
+    }
+  },
+  {
+    "file": "kb/grade_1/english.json",
+    "match_title": "Story time",
+    "add": {
+      "interactive_file": "interactives/g1-story-time.html",
+      "interactive_label": "Khelo - Story time"
+    }
+  },
+  {
+    "file": "kb/grade_1/english.json",
+    "match_title": "Writing practice",
+    "add": {
+      "interactive_file": "interactives/g1-writing.html",
+      "interactive_label": "Khelo - Writing"
+    }
+  },
+  {
+    "file": "kb/grade_1/math.json",
+    "match_title": "Ginti 0-100",
+    "add": {
+      "interactive_file": "interactives/g1-ginti.html",
+      "interactive_label": "Khelo - Ginti"
+    }
+  },
+  {
+    "file": "kb/grade_1/math.json",
+    "match_title": "Jama (+)",
+    "add": {
+      "interactive_file": "interactives/g1-jama.html",
+      "interactive_label": "Khelo - Jama"
+    }
+  },
+  {
+    "file": "kb/grade_1/math.json",
+    "match_title": "Minus (-)",
+    "add": {
+      "interactive_file": "interactives/g1-minus.html",
+      "interactive_label": "Khelo - Minus"
+    }
+  },
+  {
+    "file": "kb/grade_1/math.json",
+    "match_title": "Pakistani Paisa",
+    "add": {
+      "interactive_file": "interactives/g1-paisa.html",
+      "interactive_label": "Khelo - Paisa"
+    }
+  },
+  {
+    "file": "kb/grade_1/math.json",
+    "match_title": "Ghadi Parhna",
+    "add": {
+      "interactive_file": "interactives/g1-ghadi.html",
+      "interactive_label": "Khelo - Ghadi"
+    }
+  },
+  {
+    "file": "kb/grade_1/math.json",
+    "match_title": "Ashkaal",
+    "add": {
+      "interactive_file": "interactives/g1-ashkaal.html",
+      "interactive_label": "Khelo - Ashkaal"
+    }
+  },
+  {
+    "file": "kb/grade_1/robotics.json",
+    "match_title": "Machine kya hai?",
+    "add": {
+      "interactive_file": "interactives/g1-machine-kya.html",
+      "interactive_label": "Khelo - Machine"
+    }
+  },
+  {
+    "file": "kb/grade_1/robotics.json",
+    "match_title": "Robot kya karta?",
+    "add": {
+      "interactive_file": "interactives/g1-robot-karta.html",
+      "interactive_label": "Khelo - Robot karta"
+    }
+  },
+  {
+    "file": "kb/grade_1/robotics.json",
+    "match_title": "Sensor dost",
+    "add": {
+      "interactive_file": "interactives/g1-sensor-dost.html",
+      "interactive_label": "Khelo - Sensor"
+    }
+  },
+  {
+    "file": "kb/grade_1/robotics.json",
+    "match_title": "Motor chalo!",
+    "add": {
+      "interactive_file": "interactives/g1-motor-chalo.html",
+      "interactive_label": "Khelo - Motor"
+    }
+  },
+  {
+    "file": "kb/grade_1/robotics.json",
+    "match_title": "Traffic light",
+    "add": {
+      "interactive_file": "interactives/g1-traffic-light.html",
+      "interactive_label": "Khelo - Traffic light"
+    }
+  },
+  {
+    "file": "kb/grade_1/robotics.json",
+    "match_title": "Toy robot",
+    "add": {
+      "interactive_file": "interactives/g1-toy-robot.html",
+      "interactive_label": "Khelo - Toy robot"
+    }
+  },
+  {
+    "file": "kb/grade_1/science.json",
+    "match_title": "Mera jism",
+    "add": {
+      "interactive_file": "interactives/g1-mera-jism.html",
+      "interactive_label": "Khelo - Mera jism"
+    }
+  },
+  {
+    "file": "kb/grade_1/science.json",
+    "match_title": "Paanch hasiyaat",
+    "add": {
+      "interactive_file": "interactives/g1-hasiyaat.html",
+      "interactive_label": "Khelo - Hasiyaat"
+    }
+  },
+  {
+    "file": "kb/grade_1/science.json",
+    "match_title": "Janwar",
+    "add": {
+      "interactive_file": "interactives/g1-janwar.html",
+      "interactive_label": "Khelo - Janwar"
+    }
+  },
+  {
+    "file": "kb/grade_1/science.json",
+    "match_title": "Podhe",
+    "add": {
+      "interactive_file": "interactives/g1-podhe.html",
+      "interactive_label": "Khelo - Podhe"
+    }
+  },
+  {
+    "file": "kb/grade_1/science.json",
+    "match_title": "Sehat aur safai",
+    "add": {
+      "interactive_file": "interactives/g1-sehat.html",
+      "interactive_label": "Khelo - Sehat"
+    }
+  },
+  {
+    "file": "kb/grade_1/science.json",
+    "match_title": "Mausam",
+    "add": {
+      "interactive_file": "interactives/g1-mausam.html",
+      "interactive_label": "Khelo - Mausam"
+    }
+  },
+  {
+    "file": "kb/grade_4/urdu.json",
+    "match_title": "Grammar aur imla",
+    "add": {
+      "interactive_file": "interactives/g4-grammar-imla.html",
+      "interactive_label": "Khelo - Grammar imla"
+    }
+  },
+  {
+    "file": "kb/grade_4/urdu.json",
+    "match_title": "Tahrir",
+    "add": {
+      "interactive_file": "interactives/g4-tahrir.html",
+      "interactive_label": "Khelo - Tahrir"
+    }
   }
 ]

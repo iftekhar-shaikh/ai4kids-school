@@ -284,7 +284,9 @@
             "explanation": "Complete thought."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g4-grammar-imla.html",
+      "interactive_label": "Khelo - Grammar imla"
     },
     {
       "title": "Tahrir",
@@ -339,7 +341,9 @@
             "explanation": "Clear and simple."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g4-tahrir.html",
+      "interactive_label": "Khelo - Tahrir"
     }
   ]
 }

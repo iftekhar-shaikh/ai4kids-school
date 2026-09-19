@@ -81,7 +81,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g1-ginti.html",
+      "interactive_label": "Khelo - Ginti"
     },
     {
       "title": "Jama (+)",
@@ -160,7 +162,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g1-jama.html",
+      "interactive_label": "Khelo - Jama"
     },
     {
       "title": "Minus (-)",
@@ -239,7 +243,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g1-minus.html",
+      "interactive_label": "Khelo - Minus"
     },
     {
       "title": "Pakistani Paisa",
@@ -318,7 +324,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g1-paisa.html",
+      "interactive_label": "Khelo - Paisa"
     },
     {
       "title": "Ghadi Parhna",
@@ -397,7 +405,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g1-ghadi.html",
+      "interactive_label": "Khelo - Ghadi"
     },
     {
       "title": "Ashkaal",
@@ -476,7 +486,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g1-ashkaal.html",
+      "interactive_label": "Khelo - Ashkaal"
     }
   ]
 }

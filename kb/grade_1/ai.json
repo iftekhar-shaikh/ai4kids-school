@@ -81,7 +81,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g1-ai-kya-hai.html",
+      "interactive_label": "Khelo - AI kya hai"
     },
     {
       "title": "Robot dost",
@@ -160,7 +162,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g1-robot-dost.html",
+      "interactive_label": "Khelo - Robot dost"
     },
     {
       "title": "Smart vs Silly machine",
@@ -239,7 +243,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g1-smart-silly.html",
+      "interactive_label": "Khelo - Smart Silly"
     },
     {
       "title": "Computer pehchano",
@@ -318,7 +324,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g1-computer-pehchano.html",
+      "interactive_label": "Khelo - Computer"
     },
     {
       "title": "Bolta computer",
@@ -397,7 +405,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g1-bolta-computer.html",
+      "interactive_label": "Khelo - Bolta computer"
     },
     {
       "title": "AI games mein",
@@ -476,7 +486,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g1-ai-games.html",
+      "interactive_label": "Khelo - AI games"
     }
   ]
 }
