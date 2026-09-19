@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Data handling | AI4Kids Class 4</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--board:#e5f3ea;--board-deep:#c9e4d2;--sky:#c5e7f6;--sky2:#6eb0d4;--accent:#1d6b52;--ok:#2e7d4f;--ink:#1e2a1a;--ink-soft:#4a5744;--paper:#fdfaf3;--line:#d5dec8;--gold:#e8b23d;--left:#c4453a;--bar1:#2f6fb5;--bar2:#d4701f;--bar3:#2e7d4f;--bar4:#7a4fb5;--bar5:#c4453a;--fs-cap:clamp(12px,3.2vw,13px);--fs-xs:clamp(14px,3.7vw,15px);--fs-sm:clamp(16px,4.2vw,17px);--fs-md:clamp(17px,4.6vw,19px);--fs-lg:clamp(20px,5.4vw,23px);--fs-xl:clamp(27px,7.4vw,33px);--lh:1.5}
+body.urdu{--fs-cap:clamp(13px,3.5vw,15px);--fs-xs:clamp(15px,4.1vw,17px);--fs-sm:clamp(17px,4.7vw,19px);--fs-md:clamp(19px,5.2vw,21px);--fs-lg:clamp(22px,6vw,25px);--fs-xl:clamp(26px,7vw,31px);--lh:2.1}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px}
+.wrap{max-width:560px;margin:0 auto;padding:0 14px}
+.bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+.brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+.chip{border:2px solid var(--ink);background:var(--paper);color:var(--ink);border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;font-size:var(--fs-xs);cursor:pointer;min-height:42px;touch-action:manipulation}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.chip:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.stars{display:flex;align-items:center;gap:6px;font-weight:800;font-size:var(--fs-xs);background:#fff6e2;border:2px solid var(--gold);border-radius:999px;padding:7px 13px}
+h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+.sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+.ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+h1.ur{line-height:1.9}
+.tabs{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
+.tabs button{flex:1 1 28%;min-width:90px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);border-radius:14px;padding:10px 6px;font:inherit;font-weight:800;font-size:var(--fs-cap);cursor:pointer;min-height:54px;line-height:1.2;touch-action:manipulation}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.tabs button .badge{color:var(--gold)}
+.story{background:#fff8ea;border:2px dashed var(--gold);border-radius:16px;padding:13px 15px;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;margin-bottom:14px}
+body.urdu .story{line-height:var(--lh)}
+.story b{color:var(--ink)}
+.scene{position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);background:linear-gradient(180deg,var(--sky) 0%,var(--sky2) 36%,var(--board) 36%,var(--board-deep) 100%);min-height:280px}
+.scene-pad{padding:10px 12px 18px;min-height:260px;position:relative}
+.sky-layer{position:absolute;inset:0 0 58% 0;pointer-events:none;overflow:hidden}
+.sun-ball{position:absolute;top:12px;right:18px;width:36px;height:36px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#ffe9a0,#f5c542 60%,#e0a020);box-shadow:0 0 18px rgba(245,197,66,.45);z-index:1}
+body.urdu .sun-ball{right:auto;left:18px}
+.cloud{position:absolute;background:rgba(255,255,255,.85);border-radius:40px;opacity:.9}
+.cloud:before,.cloud:after{content:"";position:absolute;background:inherit;border-radius:50%}
+.c1{width:48px;height:15px;top:18px;left:12%}
+.c1:before{width:22px;height:22px;top:-12px;left:6px}
+.c1:after{width:18px;height:18px;top:-8px;left:24px}
+.c2{width:34px;height:12px;top:34px;left:55%;opacity:.7}
+.c2:before{width:16px;height:16px;top:-9px;left:4px}
+.c2:after{width:12px;height:12px;top:-5px;left:16px}
+.num-stage{position:relative;z-index:5;padding:62px 8px 8px;text-align:center}
+.hero-em{font-size:34px;line-height:1;margin:0}
+.capline{font-size:var(--fs-cap);font-weight:800;color:var(--accent);margin:6px 8px 0;line-height:1.45}
+body.urdu .capline,body.urdu .hintbox,body.urdu .card-box{line-height:var(--lh)}
+.card-box{background:rgba(253,250,243,.95);border:2.5px solid var(--ink);border-radius:14px;padding:10px 12px;font-weight:800;font-size:var(--fs-xs);max-width:360px;margin:8px auto 0;line-height:1.4}
+.chart-wrap{background:rgba(253,250,243,.96);border:2.5px solid var(--ink);border-radius:14px;padding:10px 10px 8px;margin:10px auto 0;max-width:360px;direction:ltr}
+.chart-title{font-weight:800;font-size:13px;margin:0 0 8px;color:var(--ink);text-align:center;line-height:1.3}
+.vchart{display:flex;align-items:flex-end;justify-content:space-around;gap:6px;height:140px;border-bottom:3px solid var(--ink);padding:0 4px 0;position:relative}
+.vcol{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;flex:1;min-width:0;height:100%}
+.vbar{width:100%;max-width:42px;border-radius:8px 8px 2px 2px;border:2px solid var(--ink);min-height:4px;position:relative}
+.vbar .vval{position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-size:11px;font-weight:800;white-space:nowrap}
+.vlab{font-size:10px;font-weight:800;margin-top:4px;line-height:1.15;text-align:center;max-width:100%;word-break:break-word}
+.hchart{display:flex;flex-direction:column;gap:8px;padding:4px 0}
+.hrow{display:flex;align-items:center;gap:8px}
+.hlab{width:72px;font-size:11px;font-weight:800;text-align:right;flex-shrink:0;line-height:1.2}
+.htrack{flex:1;height:22px;background:#eef2e8;border-radius:6px;border:1.5px solid var(--line);overflow:hidden}
+.hbar{height:100%;border-radius:4px;border:2px solid var(--ink);min-width:4px;display:flex;align-items:center;justify-content:flex-end;padding-right:4px}
+.hbar .hval{font-size:11px;font-weight:800;color:#fff;text-shadow:0 1px 1px rgba(0,0,0,.35)}
+.dchart{display:flex;align-items:flex-end;justify-content:space-around;gap:10px;height:140px;border-bottom:3px solid var(--ink);padding:0 4px}
+.dgroup{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;flex:1;height:100%;min-width:0}
+.dpair{display:flex;align-items:flex-end;gap:3px;height:100%;width:100%;justify-content:center}
+.dbar{width:18px;border-radius:6px 6px 2px 2px;border:2px solid var(--ink);min-height:4px;position:relative}
+.dbar .dval{position:absolute;top:-16px;left:50%;transform:translateX(-50%);font-size:10px;font-weight:800}
+.dlab{font-size:10px;font-weight:800;margin-top:4px;text-align:center;line-height:1.15}
+.legend{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:8px;font-size:11px;font-weight:800}
+.leg{display:flex;align-items:center;gap:4px}
+.swatch{width:12px;height:12px;border-radius:3px;border:1.5px solid var(--ink);display:inline-block}
+.chance-card{background:rgba(253,250,243,.95);border:2.5px solid var(--ink);border-radius:14px;padding:14px 12px;margin:10px auto 0;max-width:320px;font-weight:800;font-size:var(--fs-xs);line-height:1.4}
+.chance-em{font-size:42px;line-height:1;margin:0 0 6px}
+.word-pills{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;margin:8px 0 0}
+.wpill{border:2px solid var(--ink);border-radius:999px;padding:4px 10px;font-size:11px;font-weight:800;background:#fff}
+.wpill.on{background:var(--ink);color:var(--paper)}
+.save-choices{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+.save-choices button{border:2.5px solid var(--ink);background:var(--paper);border-radius:14px;padding:12px 14px;font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;text-align:left;min-height:52px;display:flex;align-items:center;gap:10px;touch-action:manipulation}
+body.urdu .save-choices button{text-align:right}
+.save-choices button.numc{justify-content:center;text-align:center;direction:ltr;font-size:20px}
+.save-choices button.right,.opt.right{border-color:var(--ok);background:#e8f2ed}
+.save-choices button.wrong,.opt.wrong{border-color:var(--left);background:#fbeae8}
+.readout{margin-top:-18px;position:relative;z-index:2;background:var(--paper);border:3px solid var(--ink);border-radius:18px;padding:16px 18px}
+.statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+.statechip.ur{padding:2px 14px 7px}
+.statechip.win{background:var(--ok)}
+.statechip.miss{background:var(--left)}
+.headline{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+.headline.ur{line-height:1.95}
+.detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+.hintbox{margin-top:14px;border:2px solid var(--accent);background:#e7f6ef;border-radius:14px;padding:11px 14px;font-size:var(--fs-xs);color:var(--accent);font-weight:700;line-height:1.55;display:none}
+.hintbox.show{display:block}
+.panel{margin-top:22px}
+.panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+.prog{margin:0 0 10px;font-size:var(--fs-xs);font-weight:700;color:var(--ink-soft)}
+.btns{display:flex;gap:9px;margin-top:8px;flex-wrap:wrap}
+.btns button{border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:50px;padding:8px 14px;flex:1;touch-action:manipulation}
+.btns .go{background:var(--ink);color:var(--paper)}
+.btns button:active{transform:scale(.97)}
+.btns button:disabled{opacity:.4;cursor:default}
+.quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+.qhead{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+.qhead h2{font-size:var(--fs-lg);font-weight:800;margin:0;flex:1}
+.q{margin-bottom:26px}
+.q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+.q p.ur{font-weight:400}
+.gloss{margin:-6px 0 12px;font-size:var(--fs-xs);color:var(--ink-soft);font-weight:600;line-height:1.45}
+.opt{display:block;width:100%;text-align:left;margin-bottom:10px;border:2px solid var(--line);background:var(--paper);border-radius:12px;padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);min-height:50px;touch-action:manipulation}
+.opt.ur{text-align:right;line-height:var(--lh)}
+.opt:disabled{cursor:default}
+.fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+.fb.show{display:block}
+footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);font-size:var(--fs-xs);color:var(--ink-soft)}
+@media (min-width:820px){
+.wrap{max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;grid-template-areas:"bar bar" "head head" "tabs tabs" "story story" "left right" "quiz quiz" "foot foot";align-items:start}
+.bar{grid-area:bar}.head{grid-area:head}.tabs{grid-area:tabs}.story{grid-area:story}.left{grid-area:left}.right{grid-area:right}.quiz{grid-area:quiz;margin-top:34px}footer{grid-area:foot}.panel{margin-top:0}
+}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01ms !important;animation:none !important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 4 · Hisaab</span>
+    <span class="stars">⭐ <span id="starCount">0</span></span>
+    <button class="chip" id="langBtn" aria-pressed="false" type="button">اردو</button>
+    <button class="chip" id="speakBtn" type="button" aria-label="Sunlo">🔊</button>
+  </div>
+  <div class="head"><h1 id="title"></h1><p class="sub" id="subtitle"></p></div>
+  <div class="tabs" role="group">
+    <button type="button" id="tabRead" aria-pressed="true"></button>
+    <button type="button" id="tabComp" aria-pressed="false"></button>
+    <button type="button" id="tabChance" aria-pressed="false"></button>
+  </div>
+  <p class="story" id="story"></p>
+  <div class="left">
+    <div class="scene"><div class="scene-pad" id="scenePad"></div></div>
+    <div class="readout">
+      <span class="statechip" id="statechip"></span>
+      <p class="headline" id="headline"></p>
+      <p class="detail" id="detail"></p>
+      <p class="hintbox" id="hintbox"></p>
+    </div>
+  </div>
+  <div class="right">
+    <div class="panel">
+      <h2 id="ctlHead"></h2>
+      <p class="prog" id="prog"></p>
+      <div id="actionBox"></div>
+      <div class="btns"><button type="button" class="go" id="nextBtn"></button></div>
+      <div class="btns"><button type="button" id="hintBtn"></button><button type="button" id="resetBtn"></button></div>
+    </div>
+  </div>
+  <div class="quiz">
+    <div class="qhead"><h2 id="quizHead"></h2><button type="button" class="chip" id="newQuiz"></button></div>
+    <div id="quizBox"></div>
+  </div>
+  <footer>
+    <p data-en="AI4Kids — Islamabad bilingual school. Offline. WhatsApp 0337 1468899 · Data handling" data-ur="اے آئی فور کڈز — اسلام آباد دو لسانی اسکول۔ آف لائن۔ واٹس ایپ 0337 1468899 · ڈیٹا ہینڈلنگ"></p>
+  </footer>
+</div>
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id)}
+function isolate(s){return "\u2066"+s+"\u2069"}
+function setText(el,str){if(!el)return;el.textContent=(lang==="ur")?isolate(str):str;el.classList.toggle("ur",lang==="ur");el.setAttribute("dir",lang==="ur"?"rtl":"ltr")}
+function t(o){return (o&&o[lang])||(o&&o.en)||""}
+function shuffle(arr){var a=arr.slice(),i,j,tmp;for(i=a.length-1;i>0;i--){j=Math.floor(Math.random()*(i+1));tmp=a[i];a[i]=a[j];a[j]=tmp}return a}
+var COLORS=["var(--bar1)","var(--bar2)","var(--bar3)","var(--bar4)","var(--bar5)"];
+var lang="en",mode="read",stars=0,awarded={},doneModes={read:false,compare:false,chance:false},speakTimer=null;
+var T={
+title:{en:"Data handling",ur:"ڈیٹا ہینڈلنگ"},
+sub:{en:"Read bar graphs, compare bars, and use chance words. Class 4 hisaab.",ur:"بار گراف پڑھو، باروں کا موازنہ کرو، اور موقع کے الفاظ۔ کلاس 4 حساب۔"},
+tabRead:{en:"Read the bar",ur:"بار پڑھو"},
+tabComp:{en:"Compare",ur:"موازنہ"},
+tabChance:{en:"Chance words",ur:"موقع کے الفاظ"},
+storyRead:{en:"A <b>bar graph</b> shows numbers with bars. Taller (or longer) means more. Read the scale, then answer: how many? which most? which least?",ur:"<b>بار گراف</b> نمبروں کو باروں سے دکھاتا ہے۔ لمبی یا اونچی بار زیادہ ہے۔ اسکیل پڑھو، پھر بتاؤ: کتنے؟ سب سے زیادہ؟ سب سے کم؟"},
+storyCompare:{en:"Compare bars: which is <b>taller</b>? A <b>double bar</b> shows two groups side by side (e.g. boys and girls, Class 4A and 4B).",ur:"باروں کا موازنہ: کون سی <b>اونچی</b> ہے؟ <b>ڈبل بار</b> دو گروہ ساتھ دکھاتی ہے (جیسے لڑکے اور لڑکیاں، کلاس 4A اور 4B)۔"},
+storyChance:{en:"Chance words tell how sure we are: <b>impossible</b>, <b>unlikely</b>, <b>equally likely</b>, <b>likely</b>, <b>certain</b>. Think of a fair dice or spinner.",ur:"موقع کے الفاظ بتاتے ہیں کتنا یقین: <b>ناممکن</b>، <b>کم امکان</b>، <b>برابر امکان</b>، <b>زیادہ امکان</b>، <b>یقینی</b>۔ منصفانہ ڈائس یا سپنر سوچو۔"},
+ctl:{en:"Your turn — hisaab lab",ur:"تمہاری باری — حساب لیب"},
+next:{en:"Next challenge",ur:"اگلا چیلنج"},
+hint:{en:"Hint",ur:"اشارہ"},
+reset:{en:"Reset",ur:"ری سیٹ"},
+quiz:{en:"Check yourself",ur:"اپنا چیک"},
+newQuiz:{en:"New quiz",ur:"نیا کوئز"},
+nice:{en:"Shabash!",ur:"شاباش!"},
+oops:{en:"Almost — try again",ur:"قریب — دوبارہ آزماؤ"},
+tipRead:{en:"Look at the height or length of each bar. Match the top of the bar to the number on the scale. The tallest bar is the most; the shortest is the least.",ur:"ہر بار کی اونچائی یا لمبائی دیکھو۔ بار کے سرے کو اسکیل کے نمبر سے ملاؤ۔ سب سے اونچی سب سے زیادہ، سب سے چھوٹی سب سے کم۔"},
+tipCompare:{en:"Taller bar means more. On a double bar graph, check the legend: one colour for each group. Compare the two bars in the same category.",ur:"اونچی بار زیادہ ہے۔ ڈبل بار پر لیجنڈ دیکھو: ہر گروہ کا رنگ۔ ایک ہی زمرے کی دونوں باروں کا موازنہ کرو۔"},
+tipChance:{en:"Impossible = can never happen. Certain = must happen. Equally likely = same chance. Likely = more chance than not. Unlikely = little chance.",ur:"ناممکن = کبھی نہیں ہو سکتا۔ یقینی = ضرور ہوگا۔ برابر امکان = ایک جیسا موقع۔ زیادہ امکان = زیادہ موقع۔ کم امکان = تھوڑا موقع۔"},
+progRead:{en:"Read rounds",ur:"پڑھنے کے راؤنڈ"},
+progCompare:{en:"Compare rounds",ur:"موازنہ راؤنڈ"},
+progChance:{en:"Chance rounds",ur:"موقع راؤنڈ"}
+};
+var WORDS={
+impossible:{en:"Impossible",ur:"ناممکن"},
+unlikely:{en:"Unlikely",ur:"کم امکان"},
+equal:{en:"Equally likely",ur:"برابر امکان"},
+likely:{en:"Likely",ur:"زیادہ امکان"},
+certain:{en:"Certain",ur:"یقینی"}
+};
+var READ=[
+{id:"r1",em:"🥪",orient:"v",title:{en:"Canteen favourites",ur:"کینٹین کے پسندیدہ"},blurb:{en:"Class 4 voted for snack favourites at the school canteen.",ur:"کلاس 4 نے اسکول کینٹین کے پسندیدہ ناشتے پر ووٹ دیا۔"},chartTitle:{en:"Favourite snacks (votes)",ur:"پسندیدہ ناشتے (ووٹ)"},items:[{en:"Samosa",ur:"سموسہ",v:12},{en:"Pakora",ur:"پکوڑا",v:8},{en:"Fruit",ur:"پھل",v:15},{en:"Juice",ur:"جوس",v:5}],ask:{en:"How many votes did Fruit get?",ur:"پھل کو کتنے ووٹ ملے؟"},opts:[{id:"a",en:"8",ur:"8"},{id:"b",en:"12",ur:"12"},{id:"c",en:"15",ur:"15"},{id:"d",en:"5",ur:"5"}],correct:"c",hint:{en:"Find the Fruit bar. Its height reaches 15 on the scale.",ur:"پھل والی بار دیکھو۔ اس کی اونچائی اسکیل پر 15 تک ہے۔"},done:{en:"Fruit got 15 votes — the tallest bar.",ur:"پھل کو 15 ووٹ ملے — سب سے اونچی بار۔"},why:{en:"We read the number at the top of the Fruit bar: 15.",ur:"ہم پھل والی بار کے سرے پر نمبر پڑھتے ہیں: 15۔"}},
+{id:"r2",em:"📚",orient:"h",title:{en:"Library books",ur:"لائبریری کی کتابیں"},blurb:{en:"Islamabad school library counted books borrowed this week.",ur:"اسلام آباد اسکول لائبریری نے اس ہفتے ادھار لی گئی کتابیں گنی۔"},chartTitle:{en:"Books borrowed",ur:"ادھار کتابیں"},items:[{en:"Stories",ur:"کہانیاں",v:20},{en:"Science",ur:"سائنس",v:9},{en:"Maths",ur:"ریاضی",v:14},{en:"Urdu",ur:"اردو",v:11}],ask:{en:"Which subject had the most books borrowed?",ur:"کس مضمون کی سب سے زیادہ کتابیں ادھار لی گئیں؟"},opts:[{id:"a",en:"Science",ur:"سائنس"},{id:"b",en:"Stories",ur:"کہانیاں"},{id:"c",en:"Maths",ur:"ریاضی"},{id:"d",en:"Urdu",ur:"اردو"}],correct:"b",hint:{en:"On a horizontal bar graph, the longest bar is the most. Stories stretches to 20.",ur:"افقی بار گراف میں سب سے لمبی بار سب سے زیادہ ہے۔ کہانیاں 20 تک ہے۔"},done:{en:"Stories had the most — 20 books.",ur:"کہانیاں سب سے زیادہ — 20 کتابیں۔"},why:{en:"Compare lengths: Stories 20 > Maths 14 > Urdu 11 > Science 9.",ur:"لمبائی موازنہ: کہانیاں 20 > ریاضی 14 > اردو 11 > سائنس 9۔"}},
+{id:"r3",em:"🌧️",orient:"v",title:{en:"Rainy days",ur:"بارش والے دن"},blurb:{en:"Ayesha recorded rainy days in four months at her Islamabad school.",ur:"عائشہ نے اسلام آباد اسکول میں چار مہینوں کے بارش والے دن لکھے۔"},chartTitle:{en:"Rainy days",ur:"بارش والے دن"},items:[{en:"Mar",ur:"مارچ",v:4},{en:"Apr",ur:"اپریل",v:7},{en:"May",ur:"مئی",v:2},{en:"Jun",ur:"جون",v:6}],ask:{en:"Which month had the fewest rainy days?",ur:"کس مہینے میں سب سے کم بارش والے دن تھے؟"},opts:[{id:"a",en:"March",ur:"مارچ"},{id:"b",en:"April",ur:"اپریل"},{id:"c",en:"May",ur:"مئی"},{id:"d",en:"June",ur:"جون"}],correct:"c",hint:{en:"The shortest bar is the fewest. May is only 2.",ur:"سب سے چھوٹی بار سب سے کم ہے۔ مئی صرف 2 ہے۔"},done:{en:"May had the fewest — 2 rainy days.",ur:"مئی میں سب سے کم — 2 بارش والے دن۔"},why:{en:"May's bar is shortest: 2. April was highest at 7.",ur:"مئی کی بار سب سے چھوٹی: 2۔ اپریل سب سے اونچی 7۔"}},
+{id:"r4",em:"⚽",orient:"v",title:{en:"Sports day medals",ur:"کھیلوں کے دن کے تمغے"},blurb:{en:"Sports day medals for four houses at school.",ur:"اسکول کے چار ہاؤسز کے کھیلوں کے دن کے تمغے۔"},chartTitle:{en:"Medals won",ur:"جیتے تمغے"},items:[{en:"Green",ur:"سبز",v:10},{en:"Blue",ur:"نیلا",v:16},{en:"Yellow",ur:"پیلا",v:8},{en:"Red",ur:"لال",v:12}],ask:{en:"How many more medals did Blue win than Yellow?",ur:"نیلے ہاؤس نے پیلے سے کتنے زیادہ تمغے جیتے؟"},opts:[{id:"a",en:"4",ur:"4"},{id:"b",en:"6",ur:"6"},{id:"c",en:"8",ur:"8"},{id:"d",en:"16",ur:"16"}],correct:"c",hint:{en:"Blue is 16, Yellow is 8. Difference: 16 − 8 = 8.",ur:"نیلا 16 ہے، پیلا 8۔ فرق: 16 − 8 = 8۔"},done:{en:"Blue won 8 more medals than Yellow.",ur:"نیلے نے پیلے سے 8 زیادہ تمغے جیتے۔"},why:{en:"Subtract the shorter from the taller: 16 − 8 = 8.",ur:"چھوٹی کو اونچی سے منفی کرو: 16 − 8 = 8۔"}},
+{id:"r5",em:"🥭",orient:"h",title:{en:"Bazaar fruit stall",ur:"بازار کا پھل سٹال"},blurb:{en:"Ali's Friday bazaar stall sold fruit boxes.",ur:"علی کے جمعہ بازار سٹال نے پھلوں کے ڈبے بیچے۔"},chartTitle:{en:"Boxes sold",ur:"بیچے ڈبے"},items:[{en:"Mango",ur:"آم",v:18},{en:"Banana",ur:"کیلا",v:12},{en:"Apple",ur:"سیب",v:9},{en:"Orange",ur:"مالٹا",v:15}],ask:{en:"How many fruit boxes were sold in total?",ur:"کل کتنے پھلوں کے ڈبے بکے؟"},opts:[{id:"a",en:"45",ur:"45"},{id:"b",en:"54",ur:"54"},{id:"c",en:"48",ur:"48"},{id:"d",en:"36",ur:"36"}],correct:"b",hint:{en:"Add all bars: 18 + 12 + 9 + 15 = 54.",ur:"سب بار جمع کرو: 18 + 12 + 9 + 15 = 54۔"},done:{en:"Total sold = 54 boxes.",ur:"کل فروخت = 54 ڈبے۔"},why:{en:"Sum every bar value to find the total.",ur:"کل معلوم کرنے کے لیے ہر بار کی قیمت جمع کرو۔"}}
+];
+var COMP=[
+{id:"c1",em:"🏆",kind:"taller",title:{en:"Which bar is taller?",ur:"کون سی بار اونچی ہے؟"},blurb:{en:"Cricket club points after inter-school match day.",ur:"انٹر اسکول میچ کے بعد کرکٹ کلب پوائنٹس۔"},chartTitle:{en:"Club points",ur:"کلب پوائنٹس"},items:[{en:"Lions",ur:"شیر",v:14},{en:"Eagles",ur:"عقاب",v:19},{en:"Tigers",ur:"چییتے",v:11}],ask:{en:"Which club has the tallest bar?",ur:"کس کلب کی بار سب سے اونچی ہے؟"},opts:[{id:"a",en:"Lions",ur:"شیر"},{id:"b",en:"Eagles",ur:"عقاب"},{id:"c",en:"Tigers",ur:"چییتے"}],correct:"b",hint:{en:"Look for the highest bar. Eagles reach 19.",ur:"سب سے اونچی بار دیکھو۔ عقاب 19 تک پہنچتے۔"},done:{en:"Eagles are tallest with 19 points.",ur:"عقاب سب سے اونچے ہیں — 19 پوائنٹس۔"},why:{en:"Taller bar means more points. 19 > 14 > 11.",ur:"اونچی بار زیادہ پوائنٹس۔ 19 > 14 > 11۔"}},
+{id:"c2",em:"👥",kind:"double",title:{en:"Double bar — Class vote",ur:"ڈبل بار — کلاس ووٹ"},blurb:{en:"Class 4A and 4B voted for club activities.",ur:"کلاس 4A اور 4B نے کلب سرگرمیوں پر ووٹ دیا۔"},chartTitle:{en:"Votes by class",ur:"کلاس کے ووٹ"},cats:[{en:"Art",ur:"آرٹ"},{en:"Sports",ur:"کھیل"},{en:"Reading",ur:"مطالعہ"}],g1:{en:"4A",ur:"4A",vals:[8,14,6]},g2:{en:"4B",ur:"4B",vals:[10,11,9]},ask:{en:"In Sports, which class got more votes?",ur:"کھیل میں کس کلاس نے زیادہ ووٹ لیے؟"},opts:[{id:"a",en:"4A (14)",ur:"4A (14)"},{id:"b",en:"4B (11)",ur:"4B (11)"},{id:"c",en:"Same votes",ur:"ایک جیسے ووٹ"}],correct:"a",hint:{en:"Find Sports. Compare the two bars: 4A is 14, 4B is 11.",ur:"کھیل تلاش کرو۔ دونوں بار: 4A ہے 14، 4B ہے 11۔"},done:{en:"4A got more Sports votes (14 > 11).",ur:"4A نے کھیل میں زیادہ ووٹ لیے (14 > 11)۔"},why:{en:"On a double bar, use the legend colours and compare within one category.",ur:"ڈبل بار پر لیجنڈ کے رنگ استعمال کرو اور ایک زمرے میں موازنہ کرو۔"}},
+{id:"c3",em:"🚌",kind:"taller",title:{en:"Bus riders",ur:"بس سوار"},blurb:{en:"Children who ride the school bus each weekday.",ur:"ہر ہفتے کے دن اسکول بس پر سوار بچے۔"},chartTitle:{en:"Bus riders",ur:"بس سوار"},items:[{en:"Mon",ur:"پیر",v:22},{en:"Tue",ur:"منگل",v:18},{en:"Wed",ur:"بدھ",v:25},{en:"Thu",ur:"جمعرات",v:20}],ask:{en:"On which day were there the most bus riders?",ur:"کس دن سب سے زیادہ بس سوار تھے؟"},opts:[{id:"a",en:"Monday",ur:"پیر"},{id:"b",en:"Tuesday",ur:"منگل"},{id:"c",en:"Wednesday",ur:"بدھ"},{id:"d",en:"Thursday",ur:"جمعرات"}],correct:"c",hint:{en:"Tallest bar = most riders. Wednesday is 25.",ur:"سب سے اونچی بار = سب سے زیادہ۔ بدھ 25 ہے۔"},done:{en:"Wednesday had the most — 25 riders.",ur:"بدھ میں سب سے زیادہ — 25 سوار۔"},why:{en:"Compare heights: Wed 25 > Mon 22 > Thu 20 > Tue 18.",ur:"اونچائی موازنہ: بدھ 25 > پیر 22 > جمعرات 20 > منگل 18۔"}},
+{id:"c4",em:"🧒👧",kind:"double",title:{en:"Double bar — Sports day",ur:"ڈبل بار — کھیلوں کا دن"},blurb:{en:"Boys and girls who joined three events on sports day.",ur:"کھیلوں کے دن تین مقابلوں میں شامل لڑکے اور لڑکیاں۔"},chartTitle:{en:"Event joiners",ur:"مقابلہ شرکاء"},cats:[{en:"Race",ur:"دوڑ"},{en:"Throw",ur:"پھینک"},{en:"Jump",ur:"چھلانگ"}],g1:{en:"Boys",ur:"لڑکے",vals:[12,7,9]},g2:{en:"Girls",ur:"لڑکیاں",vals:[10,11,8]},ask:{en:"In Throw, who had more joiners?",ur:"پھینک میں کس کے زیادہ شرکاء تھے؟"},opts:[{id:"a",en:"Boys (7)",ur:"لڑکے (7)"},{id:"b",en:"Girls (11)",ur:"لڑکیاں (11)"},{id:"c",en:"Equal",ur:"برابر"}],correct:"b",hint:{en:"Look at Throw only. Girls bar is 11, boys is 7.",ur:"صرف پھینک دیکھو۔ لڑکیاں 11، لڑکے 7۔"},done:{en:"Girls had more in Throw (11 > 7).",ur:"پھینک میں لڑکیاں زیادہ (11 > 7)۔"},why:{en:"Double bars let us compare two groups in the same event.",ur:"ڈبل بار ایک ہی مقابلے میں دو گروہوں کا موازنہ کرنے دیتی ہے۔"}}
+];
+var CHANCE=[
+{id:"ch1",em:"🎲",title:{en:"Dice — seven?",ur:"ڈائس — سات؟"},blurb:{en:"Fair six-sided dice: faces 1 to 6.",ur:"منصفانہ چھ پہلو والی ڈائس: چہرے 1 سے 6۔"},scene:{en:"Rolling a fair dice once. Chance of getting 7?",ur:"ایک بار منصفانہ ڈائس۔ 7 آنے کا موقع؟"},ask:{en:"Pick the chance word.",ur:"موقع کا لفظ چنو۔"},correct:"impossible",hint:{en:"A normal dice only shows 1–6. Seven can never appear.",ur:"عام ڈائس صرف 1–6 دکھاتی ہے۔ سات کبھی نہیں آ سکتا۔"},done:{en:"Impossible — no face has 7.",ur:"ناممکن — کسی چہرے پر 7 نہیں۔"},why:{en:"Impossible means it cannot happen on a fair 1–6 dice.",ur:"ناممکن مطلب منصفانہ 1–6 ڈائس پر نہیں ہو سکتا۔"}},
+{id:"ch2",em:"🪙",title:{en:"Fair coin",ur:"منصفانہ سکہ"},blurb:{en:"A fair coin has two sides: heads and tails.",ur:"منصفانہ سکے کے دو رخ: سر اور دُم۔"},scene:{en:"Tossing a fair coin. Chance of heads?",ur:"منصفانہ سکہ اچھالنا۔ سر آنے کا موقع؟"},ask:{en:"Pick the chance word.",ur:"موقع کا لفظ چنو۔"},correct:"equal",hint:{en:"Heads and tails each have one face out of two — same chance.",ur:"سر اور دُم دونوں کے دو میں سے ایک رخ — یکساں موقع۔"},done:{en:"Equally likely — same chance for heads or tails.",ur:"برابر موقع — سر یا دُم ایک جیسے۔"},why:{en:"Equally likely means both outcomes have the same chance.",ur:"برابر موقع مطلب دونوں نتائج کا موقع ایک جیسا۔"}},
+{id:"ch3",em:"🎲",title:{en:"Dice — a six",ur:"ڈائس — ایک چھ"},blurb:{en:"Fair dice with faces 1 to 6.",ur:"منصفانہ ڈائس، چہرے 1 سے 6۔"},scene:{en:"One roll. Chance of getting exactly 6?",ur:"ایک بار۔ بالکل 6 آنے کا موقع؟"},ask:{en:"Pick the chance word.",ur:"موقع کا لفظ چنو۔"},correct:"unlikely",hint:{en:"Only 1 face out of 6 is six — a small chance, so unlikely.",ur:"چھ میں سے صرف 1 چہرہ چھ ہے — چھوٹا موقع، ناممکن قریب۔"},done:{en:"Unlikely — only one face out of six.",ur:"ناممکن قریب — چھ میں سے صرف ایک۔"},why:{en:"Unlikely means little chance, but it can still happen.",ur:"ناممکن قریب مطلب تھوڑا موقع، مگر ہو سکتا ہے۔"}},
+{id:"ch4",em:"🎒",title:{en:"School bag day",ur:"اسکول بیگ کا دن"},blurb:{en:"Hamza packs his bag almost every school morning.",ur:"حمزہ تقریباً ہر اسکول کی صبح اپنا بیگ پیک کرتا ہے۔"},scene:{en:"On a school day, chance Hamza brings his bag?",ur:"اسکول کے دن، حمزہ کے بیگ لانے کا موقع؟"},ask:{en:"Pick the chance word.",ur:"موقع کا لفظ چنو۔"},correct:"likely",hint:{en:"He almost always packs it. More chance than not — likely.",ur:"وہ تقریباً ہمیشہ پیک کرتا ہے۔ نہ لانے سے زیادہ موقع — ممکن قریب۔"},done:{en:"Likely — he usually brings his bag.",ur:"ممکن قریب — وہ عموماً بیگ لاتا ہے۔"},why:{en:"Likely means it will probably happen.",ur:"ممکن قریب مطلب غالباً ہوگا۔"}}
+];
+var QUIZ=[
+{id:"qbar",pin:true,q:{en:"On a bar graph, what does a taller bar usually mean?",ur:"بار گراف پر اونچی بار عموماً کیا بتاتی ہے؟"},ru:"Bar graph par oonchi bar aam tor par kya batati hai?",opts:[{en:"Fewer items",ur:"کم چیزیں"},{en:"More items",ur:"زیادہ چیزیں"},{en:"Same as all bars",ur:"سب باروں جیسا"},{en:"The colour only",ur:"صرف رنگ"}],correct:1,why:{en:"A taller (or longer) bar shows a greater number.",ur:"اونچی (یا لمبی) بار بڑا نمبر دکھاتی ہے۔"}},
+{id:"qchance",pin:true,q:{en:"A fair coin is tossed. Chance of heads?",ur:"منصفانہ سکہ اچھالا۔ سر آنے کا موقع؟"},ru:"Fair coin toss. Heads ka chance?",opts:[{en:"Impossible",ur:"ناممکن"},{en:"Certain",ur:"یقینی"},{en:"Equally likely",ur:"برابر امکان"},{en:"No chance word fits",ur:"کوئی لفظ نہیں"}],correct:2,why:{en:"Heads and tails have the same chance — equally likely.",ur:"سر اور دُم کا موقع ایک جیسا — برابر موقع۔"}},
+{id:"qread",q:{en:"A vertical bar for Mango is 18 and Banana is 12. How many more mango boxes?",ur:"آم کی عمودی بار 18 اور کیلا 12۔ آم کے کتنے زیادہ ڈبے؟"},ru:"Mango bar 18, banana 12. Kitne zyada mango boxes?",opts:[{en:"6",ur:"6"},{en:"30",ur:"30"},{en:"18",ur:"18"},{en:"12",ur:"12"}],correct:0,why:{en:"Difference: 18 − 12 = 6.",ur:"فرق: 18 − 12 = 6۔"}},
+{id:"qdouble",q:{en:"On a double bar graph, why do we use two colours?",ur:"ڈبل بار گراف پر دو رنگ کیوں؟"},ru:"Double bar graph par do rang kyun?",opts:[{en:"For decoration only",ur:"صرف سجاوٹ"},{en:"To show two groups to compare",ur:"دو گروہ موازنہ کے لیے"},{en:"Because one colour is wrong",ur:"کیونکہ ایک رنگ غلط ہے"},{en:"To hide the scale",ur:"اسکیل چھپانے کے لیے"}],correct:1,why:{en:"Each colour stands for one group (e.g. 4A and 4B).",ur:"ہر رنگ ایک گروہ ہے (جیسے 4A اور 4B)۔"}},
+{id:"qimp",q:{en:"Rolling a fair 1–6 dice, getting 8 is…",ur:"منصفانہ 1–6 ڈائس پر 8 آنا…"},ru:"Fair 1–6 dice par 8 aana…",opts:[{en:"Certain",ur:"یقینی"},{en:"Likely",ur:"زیادہ امکان"},{en:"Impossible",ur:"ناممکن"},{en:"Equally likely",ur:"برابر امکان"}],correct:2,why:{en:"No face shows 8 — impossible.",ur:"کسی چہرے پر 8 نہیں — ناممکن۔"}},
+{id:"qcert",q:{en:"The sun will rise tomorrow morning. This is…",ur:"کل صبح سورج نکلے گا۔ یہ…"},ru:"Kal subah suraj niklega. Yeh…",opts:[{en:"Impossible",ur:"ناممکن"},{en:"Unlikely",ur:"کم امکان"},{en:"Equally likely",ur:"برابر امکان"},{en:"Certain",ur:"یقینی"}],correct:3,why:{en:"It must happen — certain.",ur:"ضرور ہوگا — یقیناً۔"}},
+{id:"qleast",q:{en:"Bars show: Red 5, Blue 12, Green 8. Which is least?",ur:"باریں: لال 5، نیلا 12، سبز 8۔ سب سے کم؟"},ru:"Bars: Red 5, Blue 12, Green 8. Sab se kam?",opts:[{en:"Blue",ur:"نیلا"},{en:"Green",ur:"سبز"},{en:"Red",ur:"لال"},{en:"All equal",ur:"سب برابر"}],correct:2,why:{en:"The shortest bar is Red at 5.",ur:"سب سے چھوٹی بار لال ہے — 5۔"}}
+];
+var readIdx=0,readDone={};
+var compIdx=0,compDone={};
+var chanceIdx=0,chanceDone={};
+var optKey="",optOrder=[],quizSet=[],quizState={};
+
+function award(key,n){if(awarded[key])return;awarded[key]=true;stars+=(n||1);$("starCount").textContent=String(stars)}
+function recountStars(){stars=0;Object.keys(awarded).forEach(function(k){stars+=(k.indexOf("mode-")===0)?2:1});$("starCount").textContent=String(stars)}
+function markWin(prefix,id,doneMap,modeKey,total){if(doneMap[id])return;doneMap[id]=true;award(prefix+"-"+id,1);if(Object.keys(doneMap).length>=total){doneModes[modeKey]=true;award("mode-"+modeKey,2)}tabBadges()}
+function skyHTML(){return '<div class="sky-layer"><div class="sun-ball"></div><div class="cloud c1"></div><div class="cloud c2"></div></div>'}
+function prepScene(){var pad=$("scenePad");pad.innerHTML=skyHTML();var stage=document.createElement("div");stage.className="num-stage";pad.appendChild(stage);return stage}
+function addBlurb(stage,ch){var em=document.createElement("div");em.className="hero-em";em.textContent=ch.em||"📊";stage.appendChild(em);var box=document.createElement("div");box.className="card-box";setText(box,t(ch.blurb));stage.appendChild(box)}
+function addCap(stage,msg){var c=document.createElement("div");c.className="capline";setText(c,msg);stage.appendChild(c)}
+function showStep(i,n){setText($("statechip"),(i+1)+" / "+n);$("statechip").className="statechip"+(lang==="ur"?" ur":"")}
+function showWin(msg){setText($("headline"),msg);$("statechip").className="statechip win"+(lang==="ur"?" ur":"");setText($("statechip"),t(T.nice))}
+function showMiss(){setText($("headline"),t(T.oops));$("statechip").className="statechip miss"+(lang==="ur"?" ur":"");setText($("statechip"),t(T.oops))}
+function stableOrder(key,arr){if(optKey!==key){optKey=key;optOrder=shuffle(arr)}return optOrder}
+function clearHint(){$("hintbox").classList.remove("show")}
+function maxVal(items){var m=1,i;for(i=0;i<items.length;i++)if(items[i].v>m)m=items[i].v;return m}
+function buildVChart(title,items){
+  var wrap=document.createElement("div");wrap.className="chart-wrap";
+  var ti=document.createElement("div");ti.className="chart-title";setText(ti,t(title));wrap.appendChild(ti);
+  var chart=document.createElement("div");chart.className="vchart";
+  var mx=maxVal(items),i;
+  for(i=0;i<items.length;i++){
+    var col=document.createElement("div");col.className="vcol";
+    var bar=document.createElement("div");bar.className="vbar";
+    bar.style.height=Math.max(8,Math.round((items[i].v/mx)*120))+"px";
+    bar.style.background=COLORS[i%COLORS.length];
+    var vv=document.createElement("span");vv.className="vval";vv.textContent=String(items[i].v);bar.appendChild(vv);
+    col.appendChild(bar);
+    var lab=document.createElement("div");lab.className="vlab";lab.textContent=t(items[i]);col.appendChild(lab);
+    chart.appendChild(col);
+  }
+  wrap.appendChild(chart);return wrap;
+}
+function buildHChart(title,items){
+  var wrap=document.createElement("div");wrap.className="chart-wrap";
+  var ti=document.createElement("div");ti.className="chart-title";setText(ti,t(title));wrap.appendChild(ti);
+  var chart=document.createElement("div");chart.className="hchart";
+  var mx=maxVal(items),i;
+  for(i=0;i<items.length;i++){
+    var row=document.createElement("div");row.className="hrow";
+    var lab=document.createElement("div");lab.className="hlab";lab.textContent=t(items[i]);row.appendChild(lab);
+    var track=document.createElement("div");track.className="htrack";
+    var bar=document.createElement("div");bar.className="hbar";
+    bar.style.width=Math.max(8,Math.round((items[i].v/mx)*100))+"%";
+    bar.style.background=COLORS[i%COLORS.length];
+    var hv=document.createElement("span");hv.className="hval";hv.textContent=String(items[i].v);bar.appendChild(hv);
+    track.appendChild(bar);row.appendChild(track);chart.appendChild(row);
+  }
+  wrap.appendChild(chart);return wrap;
+}
+function buildDouble(ch){
+  var wrap=document.createElement("div");wrap.className="chart-wrap";
+  var ti=document.createElement("div");ti.className="chart-title";setText(ti,t(ch.chartTitle));wrap.appendChild(ti);
+  var chart=document.createElement("div");chart.className="dchart";
+  var mx=1,i,j;for(i=0;i<ch.g1.vals.length;i++){if(ch.g1.vals[i]>mx)mx=ch.g1.vals[i];if(ch.g2.vals[i]>mx)mx=ch.g2.vals[i]}
+  for(i=0;i<ch.cats.length;i++){
+    var g=document.createElement("div");g.className="dgroup";
+    var pair=document.createElement("div");pair.className="dpair";
+    var b1=document.createElement("div");b1.className="dbar";b1.style.height=Math.max(8,Math.round((ch.g1.vals[i]/mx)*120))+"px";b1.style.background="var(--bar1)";
+    var v1=document.createElement("span");v1.className="dval";v1.textContent=String(ch.g1.vals[i]);b1.appendChild(v1);pair.appendChild(b1);
+    var b2=document.createElement("div");b2.className="dbar";b2.style.height=Math.max(8,Math.round((ch.g2.vals[i]/mx)*120))+"px";b2.style.background="var(--bar2)";
+    var v2=document.createElement("span");v2.className="dval";v2.textContent=String(ch.g2.vals[i]);b2.appendChild(v2);pair.appendChild(b2);
+    g.appendChild(pair);
+    var lab=document.createElement("div");lab.className="dlab";lab.textContent=t(ch.cats[i]);g.appendChild(lab);
+    chart.appendChild(g);
+  }
+  wrap.appendChild(chart);
+  var leg=document.createElement("div");leg.className="legend";
+  var l1=document.createElement("span");l1.className="leg";l1.innerHTML='<span class="swatch" style="background:var(--bar1)"></span> ';
+  var s1=document.createElement("span");s1.textContent=t(ch.g1);l1.appendChild(s1);
+  var l2=document.createElement("span");l2.className="leg";l2.innerHTML='<span class="swatch" style="background:var(--bar2)"></span> ';
+  var s2=document.createElement("span");s2.textContent=t(ch.g2);l2.appendChild(s2);
+  leg.appendChild(l1);leg.appendChild(l2);wrap.appendChild(leg);
+  return wrap;
+}
+function renderChoices(box,ch,doneMap,prefix,modeKey,total,rerender){
+  box.innerHTML="";
+  var choices=document.createElement("div");choices.className="save-choices";
+  stableOrder(prefix+"-"+ch.id,ch.opts.slice()).forEach(function(opt){
+    var b=document.createElement("button");b.type="button";setText(b,t(opt));
+    if(doneMap[ch.id]&&opt.id===ch.correct)b.classList.add("right");b.disabled=!!doneMap[ch.id];
+    b.addEventListener("click",function(){if(doneMap[ch.id])return;if(opt.id===ch.correct){markWin(prefix,ch.id,doneMap,modeKey,total);rerender()}else{b.classList.add("wrong");showMiss()}});
+    choices.appendChild(b);
+  });
+  box.appendChild(choices);
+}
+function renderRead(){
+  var ch=READ[readIdx],stage=prepScene();addBlurb(stage,ch);
+  stage.appendChild(ch.orient==="h"?buildHChart(ch.chartTitle,ch.items):buildVChart(ch.chartTitle,ch.items));
+  addCap(stage,lang==="en"?"Read the scale. Tall or long = more.":"اسکیل پڑھو۔ اونچی یا لمبی = زیادہ۔");
+  showStep(readIdx,READ.length);setText($("headline"),t(ch.title));
+  setText($("detail"),readDone[ch.id]?t(ch.why):t(ch.ask));clearHint();
+  if(readDone[ch.id])showWin(t(ch.done));
+  renderChoices($("actionBox"),ch,readDone,"read","read",READ.length,renderRead);
+  setText($("prog"),t(T.progRead)+": "+Object.keys(readDone).length+"/"+READ.length);
+}
+function renderCompare(){
+  var ch=COMP[compIdx],stage=prepScene();addBlurb(stage,ch);
+  if(ch.kind==="double")stage.appendChild(buildDouble(ch));
+  else stage.appendChild(buildVChart(ch.chartTitle,ch.items));
+  addCap(stage,lang==="en"?"Compare heights. Double bar = two groups.":"اونچائی موازنہ۔ ڈبل بار = دو گروہ۔");
+  showStep(compIdx,COMP.length);setText($("headline"),t(ch.title));
+  setText($("detail"),compDone[ch.id]?t(ch.why):t(ch.ask));clearHint();
+  if(compDone[ch.id])showWin(t(ch.done));
+  renderChoices($("actionBox"),ch,compDone,"comp","compare",COMP.length,renderCompare);
+  setText($("prog"),t(T.progCompare)+": "+Object.keys(compDone).length+"/"+COMP.length);
+}
+function wordKeys(){return ["impossible","unlikely","equal","likely","certain"]}
+function renderChance(){
+  var ch=CHANCE[chanceIdx],stage=prepScene();addBlurb(stage,ch);
+  var card=document.createElement("div");card.className="chance-card";
+  var em=document.createElement("div");em.className="chance-em";em.textContent=ch.em;card.appendChild(em);
+  var sc=document.createElement("div");setText(sc,t(ch.scene));card.appendChild(sc);
+  stage.appendChild(card);
+  var pills=document.createElement("div");pills.className="word-pills";
+  wordKeys().forEach(function(k){
+    var p=document.createElement("span");p.className="wpill"+(chanceDone[ch.id]&&k===ch.correct?" on":"");
+    p.textContent=t(WORDS[k]);pills.appendChild(p);
+  });
+  stage.appendChild(pills);
+  addCap(stage,lang==="en"?"Match the scene to a chance word.":" منظر کو موقع کے لفظ سے ملاؤ۔");
+  showStep(chanceIdx,CHANCE.length);setText($("headline"),t(ch.title));
+  setText($("detail"),chanceDone[ch.id]?t(ch.why):t(ch.ask));clearHint();
+  if(chanceDone[ch.id])showWin(t(ch.done));
+  var box=$("actionBox");box.innerHTML="";
+  var choices=document.createElement("div");choices.className="save-choices";
+  var opts=wordKeys().map(function(k){return{id:k,en:WORDS[k].en,ur:WORDS[k].ur}});
+  stableOrder("chance-"+ch.id,opts).forEach(function(opt){
+    var b=document.createElement("button");b.type="button";setText(b,t(opt));
+    if(chanceDone[ch.id]&&opt.id===ch.correct)b.classList.add("right");b.disabled=!!chanceDone[ch.id];
+    b.addEventListener("click",function(){if(chanceDone[ch.id])return;if(opt.id===ch.correct){markWin("chance",ch.id,chanceDone,"chance",CHANCE.length);renderChance()}else{b.classList.add("wrong");showMiss()}});
+    choices.appendChild(b);
+  });
+  box.appendChild(choices);
+  setText($("prog"),t(T.progChance)+": "+Object.keys(chanceDone).length+"/"+CHANCE.length);
+}
+function pickQuiz(){
+  var pin=[],rest=[],i;quizState={};
+  for(i=0;i<QUIZ.length;i++){if(QUIZ[i].pin)pin.push(QUIZ[i]);else rest.push(QUIZ[i])}
+  rest=shuffle(rest);quizSet=shuffle(pin.concat(rest.slice(0,5-pin.length)));
+}
+function renderQuiz(){
+  var box=$("quizBox");box.innerHTML="";
+  quizSet.forEach(function(item,qi){
+    var wrap=document.createElement("div");wrap.className="q";
+    var p=document.createElement("p");setText(p,(qi+1)+". "+t(item.q));wrap.appendChild(p);
+    if(lang==="en"&&item.ru){var g=document.createElement("p");g.className="gloss";g.textContent=item.ru;wrap.appendChild(g)}
+    var st=quizState[item.id];
+    item.opts.forEach(function(opt,oi){
+      var b=document.createElement("button");b.type="button";b.className="opt"+(lang==="ur"?" ur":"");setText(b,t(opt));
+      if(st&&oi===item.correct)b.classList.add("right");
+      if(st==="no"&&quizState[item.id+"-pick"]===oi&&oi!==item.correct)b.classList.add("wrong");
+      if(st)b.disabled=true;
+      b.addEventListener("click",function(){
+        if(quizState[item.id])return;
+        quizState[item.id+"-pick"]=oi;
+        if(oi===item.correct){quizState[item.id]="ok";b.classList.add("right");award("quiz-"+item.id,1)}
+        else{quizState[item.id]="no";b.classList.add("wrong");var kids=wrap.querySelectorAll(".opt");if(kids[item.correct])kids[item.correct].classList.add("right")}
+        fb.classList.add("show");
+        var all=wrap.querySelectorAll(".opt"),k;for(k=0;k<all.length;k++)all[k].disabled=true;
+      });
+      wrap.appendChild(b);
+    });
+    var fb=document.createElement("p");fb.className="fb"+(st?" show":"");setText(fb,t(item.why));wrap.appendChild(fb);
+    box.appendChild(wrap);
+  });
+}
+function storyHtml(){if(mode==="read")return t(T.storyRead);if(mode==="compare")return t(T.storyCompare);return t(T.storyChance)}
+function currentTip(){if(mode==="read")return T.tipRead;if(mode==="compare")return T.tipCompare;return T.tipChance}
+function tabBadges(){
+  function lab(btn,label,key){btn.innerHTML="";var span=document.createElement("span");setText(span,t(label));btn.appendChild(span);if(doneModes[key]){var b=document.createElement("span");b.className="badge";b.textContent=" ★";btn.appendChild(b)}}
+  lab($("tabRead"),T.tabRead,"read");lab($("tabComp"),T.tabComp,"compare");lab($("tabChance"),T.tabChance,"chance");
+  $("tabRead").setAttribute("aria-pressed",mode==="read"?"true":"false");
+  $("tabComp").setAttribute("aria-pressed",mode==="compare"?"true":"false");
+  $("tabChance").setAttribute("aria-pressed",mode==="chance"?"true":"false");
+}
+function renderCurrent(){if(mode==="read")renderRead();else if(mode==="compare")renderCompare();else renderChance()}
+function setMode(m){mode=m;renderCurrent();applyChrome()}
+function applyChrome(){
+  setText($("title"),t(T.title));setText($("subtitle"),t(T.sub));
+  $("story").innerHTML=storyHtml();$("story").classList.toggle("ur",lang==="ur");$("story").setAttribute("dir",lang==="ur"?"rtl":"ltr");
+  setText($("ctlHead"),t(T.ctl));setText($("nextBtn"),t(T.next));setText($("hintBtn"),t(T.hint));setText($("resetBtn"),t(T.reset));
+  setText($("quizHead"),t(T.quiz));setText($("newQuiz"),t(T.newQuiz));
+  $("langBtn").textContent=(lang==="en")?"اردو":"EN";$("langBtn").setAttribute("aria-pressed",lang==="ur"?"true":"false");
+  document.body.classList.toggle("urdu",lang==="ur");
+  document.documentElement.lang=(lang==="ur")?"ur":"en";
+  document.documentElement.dir=(lang==="ur")?"rtl":"ltr";
+  document.title=t(T.title)+" | AI4Kids Class 4";
+  tabBadges();
+  var foot=document.querySelector("footer p");
+  if(foot)setText(foot,foot.getAttribute(lang==="ur"?"data-ur":"data-en"));
+}
+function applyLang(){applyChrome();renderCurrent();renderQuiz()}
+function next(){
+  optKey="";
+  if(mode==="read"){readIdx=(readIdx+1)%READ.length;renderRead()}
+  else if(mode==="compare"){compIdx=(compIdx+1)%COMP.length;renderCompare()}
+  else{chanceIdx=(chanceIdx+1)%CHANCE.length;renderChance()}
+}
+function showHint(){
+  var h=mode==="read"?READ[readIdx].hint:(mode==="compare"?COMP[compIdx].hint:CHANCE[chanceIdx].hint);
+  var hb=$("hintbox");setText(hb,t(h));hb.classList.add("show");
+}
+function resetMode(){
+  if(mode==="read"){Object.keys(awarded).forEach(function(k){if(k.indexOf("read-")===0||k==="mode-read")delete awarded[k]});readDone={};readIdx=0;doneModes.read=false;recountStars();renderRead()}
+  else if(mode==="compare"){Object.keys(awarded).forEach(function(k){if(k.indexOf("comp-")===0||k==="mode-compare")delete awarded[k]});compDone={};compIdx=0;doneModes.compare=false;recountStars();renderCompare()}
+  else{Object.keys(awarded).forEach(function(k){if(k.indexOf("chance-")===0||k==="mode-chance")delete awarded[k]});chanceDone={};chanceIdx=0;doneModes.chance=false;recountStars();renderChance()}
+  optKey="";tabBadges();applyChrome();
+}
+function cleanSpeakText(s){return String(s||"").replace(/<[^>]+>/g," ").replace(/&gt;/g,">").replace(/&lt;/g,"<").replace(/&amp;/g,"&").replace(/\s+/g," ").trim()}
+function buildSpeakText(){
+  var bits=[];bits.push(t(T.title));bits.push(cleanSpeakText(storyHtml()));
+  bits.push(cleanSpeakText(($("headline")&&$("headline").textContent)||""));
+  bits.push(cleanSpeakText(($("detail")&&$("detail").textContent)||""));
+  bits.push(t(currentTip()));return bits.filter(Boolean).join(". ");
+}
+function pickVoice(voices,want){
+  var i,v,L;for(i=0;i<voices.length;i++){v=voices[i];L=(v.lang||"").toLowerCase().replace("_","-");if(L.indexOf(want)===0)return v}
+  for(i=0;i<voices.length;i++){v=voices[i];L=(v.lang||"").toLowerCase().replace("_","-");if(L.indexOf("en")===0)return v}
+  return voices[0]||null;
+}
+function setSpeaking(on){var btn=$("speakBtn");if(!btn)return;btn.setAttribute("aria-pressed",on?"true":"false");btn.style.opacity=on?"0.65":""}
+function doSpeak(text,asLang){
+  var u=new SpeechSynthesisUtterance(text);u.rate=0.92;u.lang=(asLang==="ur")?"ur-PK":"en-US";
+  var voices=window.speechSynthesis.getVoices()||[];var voice=pickVoice(voices,asLang==="ur"?"ur":"en");if(voice)u.voice=voice;
+  u.onstart=function(){setSpeaking(true)};u.onend=function(){setSpeaking(false)};
+  u.onerror=function(){setSpeaking(false);if(asLang==="ur"){var fallback=cleanSpeakText(T.title.en+". "+T.storyRead.en+". "+T.tipRead.en);var u2=new SpeechSynthesisUtterance(fallback);u2.lang="en-US";u2.rate=0.92;var v2=pickVoice(window.speechSynthesis.getVoices()||[],"en");if(v2)u2.voice=v2;u2.onstart=function(){setSpeaking(true)};u2.onend=u2.onerror=function(){setSpeaking(false)};window.speechSynthesis.speak(u2)}};
+  window.speechSynthesis.speak(u);
+}
+if("speechSynthesis" in window){
+  try{window.speechSynthesis.getVoices()}catch(e0){}
+  if(typeof window.speechSynthesis.addEventListener==="function"){window.speechSynthesis.addEventListener("voiceschanged",function(){try{window.speechSynthesis.getVoices()}catch(e1){}})}
+}else{var noBtn=$("speakBtn");if(noBtn){noBtn.disabled=true;noBtn.title="Voice not available on this device"}}
+$("langBtn").addEventListener("click",function(){lang=(lang==="en")?"ur":"en";applyLang()});
+$("tabRead").addEventListener("click",function(){setMode("read")});
+$("tabComp").addEventListener("click",function(){setMode("compare")});
+$("tabChance").addEventListener("click",function(){setMode("chance")});
+$("nextBtn").addEventListener("click",next);
+$("hintBtn").addEventListener("click",showHint);
+$("resetBtn").addEventListener("click",resetMode);
+$("newQuiz").addEventListener("click",function(){pickQuiz();renderQuiz()});
+$("speakBtn").addEventListener("click",function(){
+  try{
+    if(!("speechSynthesis" in window))return;
+    var text=buildSpeakText();if(!text)return;
+    if(speakTimer){clearTimeout(speakTimer);speakTimer=null}
+    window.speechSynthesis.cancel();setSpeaking(false);
+    var speakLang=lang;
+    speakTimer=setTimeout(function(){speakTimer=null;doSpeak(text,speakLang)},80);
+  }catch(e){setSpeaking(false)}
+});
+pickQuiz();applyLang();
+})();
+</script>
+</body>
+</html>

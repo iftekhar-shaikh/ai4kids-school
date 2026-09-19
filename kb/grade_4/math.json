@@ -520,7 +520,9 @@
             "correct": "a"
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g4-data-handling.html",
+      "interactive_label": "Khelo - Data handling"
     }
   ]
 }
