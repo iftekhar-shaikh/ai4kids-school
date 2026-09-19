@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Robotic Arm — روبوٹک بازو | AI4Kids Grade 4 Automation & Robotics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --board:#eef0f5; --board-deep:#dde1ea;
+  --accent:#1d4c85; --accent2:#c9702e; --ok:#2e7d4f; --no:#c4453a;
+  --ink:#1f2933; --ink-soft:#4a5661; --paper:#fdfaf3; --line:#ded5c4;
+  --fs-cap:clamp(14px, 3.8vw, 16px); --fs-xs:clamp(16px, 4.2vw, 18px);
+  --fs-sm:clamp(18px, 4.8vw, 20px); --fs-md:clamp(19px, 5.2vw, 22px);
+  --fs-lg:clamp(22px, 6vw, 26px); --fs-xl:clamp(30px, 8vw, 38px); --lh:1.55;
+}
+body.urdu{
+  --fs-cap:clamp(17px, 4.4vw, 18px); --fs-xs:clamp(18px, 4.7vw, 20px);
+  --fs-sm:clamp(20px, 5.2vw, 22px); --fs-md:clamp(21px, 5.6vw, 24px);
+  --fs-lg:clamp(24px, 6.4vw, 28px); --fs-xl:clamp(28px, 7.4vw, 34px); --lh:2.05;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+  font-size:var(--fs-sm);line-height:1.55;padding:0 0 40px;
+}
+body.urdu{font-family:"Noto Nastaliq Urdu","Baloo Bhaijaan 2",serif;line-height:var(--lh)}
+.wrap{max-width:560px;margin:0 auto;padding:0 14px}
+.bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px;flex-wrap:wrap}
+.brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+.chip{
+  border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;
+  font-size:var(--fs-xs);cursor:pointer;min-height:44px;
+}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.chip:focus-visible,button:focus-visible{outline:3px solid var(--accent2);outline-offset:2px}
+h1{font-size:var(--fs-xl);line-height:1.25;font-weight:800;margin:8px 0 4px}
+body.urdu h1{line-height:1.9}
+.sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+.tabs{display:flex;gap:7px;margin:0 0 14px;flex-wrap:wrap}
+.tabs button{
+  flex:1;min-width:88px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+  border-radius:14px;padding:9px 6px;font:inherit;font-weight:800;
+  font-size:var(--fs-cap);cursor:pointer;min-height:54px;
+}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.scene{
+  position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+  background:linear-gradient(180deg,var(--board) 0%,var(--board-deep) 100%);
+  min-height:200px;
+}
+.scene svg,.scene canvas{display:block;width:100%;height:auto}
+.play{
+  width:100%;margin-top:12px;border:3px solid var(--ink);border-radius:18px;
+  background:var(--ink);color:var(--paper);font:inherit;font-weight:800;
+  font-size:var(--fs-md);cursor:pointer;min-height:60px;
+}
+.play:active{transform:scale(.98)}
+.play.alt{background:var(--paper);color:var(--ink)}
+.play.go{background:var(--ok);border-color:var(--ok)}
+.play.stop{background:var(--no);border-color:var(--no)}
+.play.hidden,.hidden{display:none !important}
+.two{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.card{flex:1;min-width:110px;border:3px solid var(--line);border-radius:16px;padding:12px 9px;text-align:center;cursor:pointer}
+.card em{display:block;font-style:normal;font-size:var(--fs-cap);color:var(--ink-soft);font-weight:700;margin-bottom:5px}
+.card b{display:block;font-size:var(--fs-lg);font-weight:800;line-height:1.2}
+.card span{display:block;font-size:var(--fs-cap);font-weight:700;color:var(--ink-soft);margin-top:3px}
+.card.on{border-color:var(--accent);background:#e8eef8}
+.card.hot{border-color:var(--accent2);background:#fbf1e8}
+.readout{
+  margin-top:12px;background:var(--paper);
+  border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+}
+.statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+           padding:4px 14px;font-size:var(--fs-cap);font-weight:700;margin-bottom:10px}
+.statechip.ok{background:var(--ok)} .statechip.no{background:var(--no)}
+.lead{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.4}
+body.urdu .lead{line-height:1.95}
+.detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+.trade{
+  margin-top:14px;border:2px dashed var(--accent2);background:#fbf1e8;border-radius:14px;
+  padding:12px 14px;font-size:var(--fs-xs);font-weight:700;color:#8a4a12;line-height:1.6;
+}
+.why-note{
+  margin:12px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;
+  border-left:3px solid var(--accent);padding-left:11px;
+}
+body.urdu .why-note{border-left:0;border-right:3px solid var(--accent);padding-left:0;padding-right:11px;line-height:var(--lh)}
+.why-note b{color:var(--accent);font-weight:800}
+.panel{margin-top:18px}
+.panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+.row{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+.row .name{flex:none;width:34%;max-width:140px;font-size:var(--fs-xs);font-weight:700}
+.row input[type=range]{flex:1;min-width:120px;height:36px;accent-color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.schip{
+  border:2px solid var(--line);background:var(--paper);border-radius:999px;padding:9px 15px;
+  font:inherit;font-size:var(--fs-cap);font-weight:800;color:var(--ink);cursor:pointer;min-height:46px;
+}
+.schip[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+.lesson{margin-top:8px}
+.lcard{
+  border:3px solid var(--line);border-radius:18px;padding:14px 16px;margin-bottom:12px;background:#fffdf8;
+}
+.lcard .tag{
+  display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+  padding:3px 12px;font-size:var(--fs-cap);font-weight:800;margin-bottom:8px;
+}
+.lcard.hook .tag{background:var(--accent2)}
+.lcard.misaal .tag{background:var(--ok)}
+.lcard.karo .tag{background:#6b4a8f}
+.lcard p{margin:0;font-size:var(--fs-sm);line-height:1.6}
+body.urdu .lcard p{line-height:var(--lh)}
+.quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+.q{margin-bottom:26px}
+.q > p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+.opt{
+  display:block;width:100%;text-align:left;margin-bottom:10px;
+  border:2px solid var(--line);background:var(--paper);border-radius:12px;
+  padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+  min-height:52px;
+}
+body.urdu .opt{text-align:right}
+.opt:hover{border-color:var(--ink)}
+.opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+.opt.wrong{border-color:var(--no);background:#fbeae8}
+.fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none;line-height:1.6}
+.fb.show{display:block}
+.score{
+  margin-top:14px;padding:14px;border:3px solid var(--ink);border-radius:16px;
+  font-weight:800;font-size:var(--fs-md);text-align:center;display:none;
+}
+.score.show{display:block}
+footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+       font-size:var(--fs-xs);color:var(--ink-soft)}
+@media (min-width:820px){
+  .wrap{
+    max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
+    grid-template-areas:"bar bar" "head head" "tabs tabs" "left right" "lesson lesson" "quiz quiz" "foot foot";
+    align-items:start;
+  }
+  .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+  .left{grid-area:left} .right{grid-area:right}
+  .lesson{grid-area:lesson}
+  .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important;transition-duration:.01ms !important}
+}
+
+
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar">
+    <span class="brand">AI4Kids · Grade 4 · Robotics</span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+  <div class="head">
+    <h1 id="title"></h1>
+    <p class="sub" id="subtitle"></p>
+  </div>
+  <div class="tabs" role="group" id="tabs"></div>
+  <div class="left">
+    <div class="scene" id="scene"><svg viewBox="0 0 320 240" id="svg" role="img"></svg></div>
+    <div class="two" id="two"></div>
+    <div class="readout">
+      <span class="statechip" id="statechip"></span>
+      <p class="lead" id="lead"></p>
+      <p class="detail" id="detail"></p>
+      <p class="trade" id="trade"></p>
+      <p class="why-note"><b id="whyLbl"></b> <span id="whyText"></span></p>
+    </div>
+  </div>
+  <div class="right">
+    <div class="panel">
+      <h2 id="panelHead"></h2>
+      <div class="chips" id="chips" role="group"></div>
+      <div id="controls"></div>
+      <button type="button" class="play" id="playBtn"></button>
+      <button type="button" class="play alt" id="playBtn2" style="margin-top:8px"></button>
+    </div>
+  </div>
+
+  <div class="lesson" id="lessonBox"></div>
+  <div class="quiz">
+    <h2 id="quizHead" style="font-size:var(--fs-lg);font-weight:800;margin:0 0 18px"></h2>
+    <div id="quizBox"></div>
+    <div class="score" id="scoreBox"></div>
+  </div>
+  <footer>
+    <p id="foot"></p>
+  </footer>
+</div>
+<script>
+(function(){
+"use strict";
+var lang="en", tab="main";
+
+function $(id){ return document.getElementById(id); }
+function t(o){ return (o && typeof o==="object") ? (o[lang]||o.en||"") : (o||""); }
+function setText(el, s){
+  if(!el) return;
+  el.textContent = s;
+  if(lang==="ur"){ el.setAttribute("dir","rtl"); }
+  else { el.setAttribute("dir","ltr"); }
+}
+function buildTabs(list){
+  var tabs=$("tabs"); tabs.innerHTML="";
+  list.forEach(function(x){
+    var b=document.createElement("button"); b.type="button";
+    b.setAttribute("aria-pressed", tab===x[0]?"true":"false");
+    setText(b, t(x[1]));
+    b.addEventListener("click", function(){ if(tab===x[0]) return; tab=x[0]; if(typeof onTab==="function") onTab(); render(); });
+    tabs.appendChild(b);
+  });
+}
+function buildLesson(){
+  var box=$("lessonBox"); if(!box) return; box.innerHTML="";
+  var cards=[{cls:"hook", tag:{en:"HOOK",ur:"ہک"}, body:LESSON.hook},
+   {cls:"samjhao", tag:{en:"SAMJHAO",ur:"سمجھاؤ"}, body:LESSON.samjhao},
+   {cls:"misaal", tag:{en:"MISAAL",ur:"مثال"}, body:LESSON.misaal}];
+  if(LESSON.karo) cards.push({cls:"karo", tag:{en:"KARO",ur:"کرو"}, body:LESSON.karo});
+  cards.forEach(function(c){
+    var d=document.createElement("div"); d.className="lcard "+c.cls;
+    var tag=document.createElement("span"); tag.className="tag"; setText(tag,t(c.tag));
+    var p=document.createElement("p"); setText(p,t(c.body));
+    d.appendChild(tag); d.appendChild(p); box.appendChild(d);
+  });
+}
+var quizScore=0, quizDone=0;
+function buildQuiz(){
+  var box=$("quizBox"); box.innerHTML=""; quizScore=0; quizDone=0;
+  var sb=$("scoreBox"); sb.classList.remove("show"); sb.textContent="";
+  setText($("quizHead"), t({en:"Check yourself", ur:"اپنا امتحان لیں"}));
+  QUIZ.forEach(function(item){
+    var wrap=document.createElement("div"); wrap.className="q";
+    var q=document.createElement("p"); setText(q, t(item.q)); wrap.appendChild(q);
+    var fb=document.createElement("p"); fb.className="fb";
+    ["a","b","c","d"].forEach(function(k, oi){
+      var b=document.createElement("button"); b.type="button"; b.className="opt";
+      b.setAttribute("dir", lang==="ur"?"rtl":"ltr");
+      b.textContent = String.fromCharCode(65+oi)+". "+t(item[k]);
+      b.addEventListener("click", function(){
+        if(wrap.getAttribute("data-done")==="1") return;
+        wrap.setAttribute("data-done","1"); quizDone++;
+        if(item.correct===k) quizScore++;
+        ["a","b","c","d"].forEach(function(kk, xi){
+          var btn=wrap.querySelectorAll(".opt")[xi];
+          if(kk===item.correct) btn.classList.add("right");
+          else if(kk===k) btn.classList.add("wrong");
+        });
+        setText(fb, t(item.explanation)); fb.classList.add("show");
+        if(quizDone===QUIZ.length){
+          sb.classList.add("show");
+          setText(sb, t({en:"Score: "+quizScore+" / "+QUIZ.length, ur:"سکور: "+quizScore+" / "+QUIZ.length}));
+        }
+      });
+      wrap.appendChild(b);
+    });
+    wrap.appendChild(fb); box.appendChild(wrap);
+  });
+}
+function applyLang(){
+  document.body.classList.toggle("urdu", lang==="ur");
+  document.documentElement.lang = (lang==="ur") ? "ur" : "en";
+  var lb=$("langBtn");
+  lb.textContent = (lang==="en") ? "اردو" : "English";
+  lb.setAttribute("aria-pressed", lang==="ur" ? "true":"false");
+  setText($("foot"), t({en:"AI4Kids — Islamabad's bilingual AI and coding school. WhatsApp 0337 1468899",
+    ur:"اے آئی فور کڈز — اسلام آباد کا دو زبانوں والا اے آئی اور کوڈنگ سکول۔ واٹس ایپ 0337 1468899"}));
+  buildLesson(); buildQuiz(); render();
+}
+$("langBtn").addEventListener("click", function(){ lang=(lang==="en")?"ur":"en"; applyLang(); });
+$("speakBtn").addEventListener("click", function(){
+  try{
+    if(!("speechSynthesis" in window)) return;
+    window.speechSynthesis.cancel();
+    var lead=$("lead"); var text = (lead && lead.textContent) || ($("title")&&$("title").textContent) || "";
+    var u=new SpeechSynthesisUtterance(text);
+    u.lang=(lang==="ur")?"ur-PK":"en-US"; u.rate=0.92;
+    window.speechSynthesis.speak(u);
+  }catch(e){}
+});
+
+var base=30, elbow=50, grip=40, holding=false, challenge=false, won=false;
+var obj={x:240,y:190, grabbed:false};
+var NS="http://www.w3.org/2000/svg";
+function mk(tag,a){ var e=document.createElementNS(NS,tag); for(var k in a) e.setAttribute(k,a[k]); return e; }
+
+var LESSON={
+  hook:{en:"Imagine picking something up with just one button — controlling a robot hand like the one in your mind!",
+        ur:"سوچو صرف ایک بٹن سے چیز اٹھا لو — ذہن والے روبوٹ ہاتھ کو کنٹرول!"},
+  samjhao:{en:"A robotic arm is a machine that works like a human hand. Joints and a gripper give it flexibility to lift and move things. Factories use them on production lines because they are fast and accurate. Hospitals use precise arms too. You control them with programming or a remote — at home or in complex machines.",
+           ur:"روبوٹک بازو مشین ہے جو انسانی ہاتھ کی طرح کام کرتی ہے۔ جوڑ اور گرپر لچک دیتے ہیں تاکہ چیزیں اٹھیں اور ہلیں۔ فیکٹری پروڈکشن لائن پر تیز اور درست۔ ہسپتال میں بھی۔ پروگرام یا ریموٹ سے کنٹرول — گھر یا پیچیدہ مشین میں۔"},
+  misaal:{en:"Picture a tandoor worker with a robotic arm lifting flour and kneading dough — less effort, same tasty work!",
+          ur:"تصور کرو تندور والے کے پاس روبوٹک بازو آٹا اٹھائے اور گوندھے — کم محنت، وہی مزے کا کام!"},
+  karo:{en:"Make a cardboard arm with straws and rubber bands. Try picking up a rubber eraser!",
+        ur:"کارڈ بورڈ، اسٹرا اور ربر بینڈ سے بازو بناؤ۔ ربر اٹھا کر دیکھو!"}
+};
+var QUIZ=[
+  {q:{en:"What is a robotic arm?",ur:"Robotic arm kya hai?"},a:{en:"A robot that works like a hand",ur:"Ek aisa robot jo haath ki tarah kaam karta hai"},b:{en:"A computer program",ur:"Ek computer program"},c:{en:"A mobile phone",ur:"Ek mobile phone"},d:{en:"A car",ur:"Ek gaadi"},correct:"a",explanation:{en:"It is a device that can pick things up like a hand.",ur:"Robotic arm ek aisa device hai jo haath ki tarah cheezein utha sakta hai."}},
+  {q:{en:"In Pakistan, robotic arms are used in…",ur:"Pakistan mein robotic arm kis field mein istemal hota hai?"},a:{en:"Manufacturing",ur:"Manufacturing"},b:{en:"Farming",ur:"Kheti"},c:{en:"Education only",ur:"Taleem"},d:{en:"Fashion",ur:"Fashion"},correct:"a",explanation:{en:"Manufacturing industries use them for fast, careful work.",ur:"Pakistan mein manufacturing industries mein robotic arms ka istemal hota hai taake kaam tez aur achi tarah se kiya ja sake."}},
+  {q:{en:"What is often used to control a robotic arm?",ur:"Robotic arm ko control karne ke liye kya istemal hota hai?"},a:{en:"Remote control",ur:"Remote control"},b:{en:"Only by hand pushing",ur:"Sirf manual"},c:{en:"Nothing",ur:"Koi nahi"},d:{en:"Everything",ur:"Sab kuch"},correct:"a",explanation:{en:"Usually remote control or software.",ur:"Robotic arm ko zyada tar remote control ya software ke zariye control kiya jata hai."}},
+  {q:{en:"What is the biggest strength of robotic arms?",ur:"Robotic arms ki sabse badi khubi kya hai?"},a:{en:"Precision and accuracy",ur:"Precision aur accuracy"},b:{en:"They are cheap",ur:"Sasti hoti hain"},c:{en:"They move slowly",ur:"Dheere chalta hai"},d:{en:"Only lift tiny things",ur:"Sirf chhoti cheezein utha sakta hai"},correct:"a",explanation:{en:"They are known for precise, accurate movements.",ur:"Robotic arms precise aur accurate movements ke liye jane jate hain."}},
+  {q:{en:"Robotic arms are part of which technology?",ur:"Robotic arm kis tarah ka technology ka hissa hai?"},a:{en:"Automation and robotics",ur:"Automation aur robotics"},b:{en:"Cooking",ur:"Cooking"},c:{en:"Transport",ur:"Transport"},d:{en:"Health only",ur:"Health"},correct:"a",explanation:{en:"They are a key part of automation and robotics.",ur:"Robotic arms automation aur robotics ka ek aham hissa hain jo kaam ko asaan banate hain."}}
+];
+
+function armPoints(){
+  var bx=80, by=200;
+  var a1=(base-90)*Math.PI/180;
+  var a2=a1+(elbow-90)*Math.PI/180;
+  var l1=70, l2=60;
+  var e1x=bx+Math.cos(a1)*l1, e1y=by+Math.sin(a1)*l1;
+  var e2x=e1x+Math.cos(a2)*l2, e2y=e1y+Math.sin(a2)*l2;
+  var gOpen=4+(100-grip)/100*18;
+  return {bx:bx,by:by,e1x:e1x,e1y:e1y,e2x:e2x,e2y:e2y,gOpen:gOpen,a2:a2};
+}
+function drawArm(){
+  var svg=$("svg"); svg.innerHTML="";
+  svg.appendChild(mk("rect",{x:0,y:0,width:320,height:240,fill:"#e8eef2"}));
+  svg.appendChild(mk("rect",{x:0,y:200,width:320,height:40,fill:"#94a3b8"}));
+  var p=armPoints();
+  // base
+  svg.appendChild(mk("rect",{x:p.bx-24,y:p.by-8,width:48,height:16,rx:4,fill:"#334155"}));
+  svg.appendChild(mk("line",{x1:p.bx,y1:p.by,x2:p.e1x,y2:p.e1y,stroke:"#1d4c85","stroke-width":14,"stroke-linecap":"round"}));
+  svg.appendChild(mk("circle",{cx:p.e1x,cy:p.e1y,r:8,fill:"#f59e0b"}));
+  svg.appendChild(mk("line",{x1:p.e1x,y1:p.e1y,x2:p.e2x,y2:p.e2y,stroke:"#2563eb","stroke-width":12,"stroke-linecap":"round"}));
+  // gripper
+  var gx=p.e2x, gy=p.e2y;
+  var ca=Math.cos(p.a2), sa=Math.sin(p.a2);
+  var px=-sa*p.gOpen, py=ca*p.gOpen;
+  svg.appendChild(mk("line",{x1:gx+px,y1:gy+py,x2:gx+ca*16+px,y2:gy+sa*16+py,stroke:"#1f2933","stroke-width":5,"stroke-linecap":"round"}));
+  svg.appendChild(mk("line",{x1:gx-px,y1:gy-py,x2:gx+ca*16-px,y2:gy+sa*16-py,stroke:"#1f2933","stroke-width":5,"stroke-linecap":"round"}));
+  // object
+  if(obj.grabbed){
+    obj.x=gx+ca*10; obj.y=gy+sa*10;
+  }
+  svg.appendChild(mk("rect",{x:obj.x-12,y:obj.y-12,width:24,height:24,rx:4,fill:won?"#22c55e":"#c9702e",stroke:"#1f2933","stroke-width":2}));
+  // drop zone
+  svg.appendChild(mk("rect",{x:250,y:175,width:50,height:25,rx:4,fill:"none",stroke:"#2e7d4f","stroke-width":3,"stroke-dasharray":"6 4"}));
+  var lab=mk("text",{x:275,y:168,"text-anchor":"middle","font-size":"11","font-weight":"800",fill:"#2e7d4f"});
+  lab.textContent="GOAL"; svg.appendChild(lab);
+}
+function tryGrab(){
+  var p=armPoints();
+  var dx=p.e2x-obj.x, dy=p.e2y-obj.y;
+  var near=Math.sqrt(dx*dx+dy*dy)<28;
+  if(near && grip>55){ obj.grabbed=true; holding=true; }
+  if(obj.grabbed && grip<35){ obj.grabbed=false; holding=false; }
+  // win check
+  if(obj.grabbed===false && obj.x>250 && obj.x<300 && obj.y>170 && obj.y<210){ won=true; }
+}
+function slider(parent,label,val,setFn){
+  var row=document.createElement("div"); row.className="row";
+  var nm=document.createElement("span"); nm.className="name"; setText(nm, label+" "+val);
+  var rng=document.createElement("input"); rng.type="range"; rng.min=0; rng.max=100; rng.value=val;
+  rng.oninput=function(){ setFn(+rng.value); setText(nm, label+" "+rng.value); drawArm(); tryGrab(); drawArm();
+    if(won){ setText($("lead"), t({en:"Well done! Object in the goal!",ur:"شاباش! چیز منزل پر!"})); $("statechip").className="statechip ok"; setText($("statechip"), t({en:"SUCCESS",ur:"کامیابی"})); }
+  };
+  row.appendChild(nm); row.appendChild(rng); parent.appendChild(row);
+}
+function onTab(){}
+function render(){
+  buildTabs([["move",{en:"Move joints",ur:"جوڑ ہلاؤ"}],["pick",{en:"Pick challenge",ur:"چیلنج"}]]);
+  if(!tab||tab==="main") tab="move";
+  setText($("whyLbl"), t({en:"Notice:",ur:"غور کریں:"}));
+  $("chips").innerHTML=""; var ctl=$("controls"); ctl.innerHTML="";
+  var play=$("playBtn"), play2=$("playBtn2");
+  play.className="play"; play2.className="play alt hidden";
+
+  if(tab==="move"){
+    setText($("title"), t({en:"Robotic arm joints",ur:"روبوٹک بازو کے جوڑ"}));
+    setText($("subtitle"), t({en:"Base, elbow, gripper — slide to move the arm.",ur:"بیس، کہنی، گرپر — سرکا کر بازو ہلائیں۔"}));
+    setText($("panelHead"), t({en:"Joint sliders",ur:"جوڑ سلائیڈر"}));
+    play.classList.add("hidden");
+    slider(ctl, t({en:"Base",ur:"بیس"}), base, function(v){ base=v; });
+    slider(ctl, t({en:"Elbow",ur:"کہنی"}), elbow, function(v){ elbow=v; });
+    slider(ctl, t({en:"Gripper",ur:"گرپر"}), grip, function(v){ grip=v; tryGrab(); });
+    drawArm();
+    setText($("statechip"), holding?t({en:"Holding",ur:"پکڑا"}):t({en:"Empty hand",ur:"خالی ہاتھ"}));
+    setText($("lead"), t({en:"Each joint adds one kind of movement",ur:"ہر جوڑ ایک قسم کی حرکت دیتا ہے"}));
+    setText($("detail"), t({en:"Base turns, elbow bends, gripper opens and closes — like your arm!",ur:"بیس گھومے، کہنی مڑے، گرپر کھلے بند — جیسے آپ کا ہاتھ!"}));
+    setText($("trade"),""); setText($("whyText"), t({en:"More joints = more ways to reach a spot. That is flexibility.",ur:"زیادہ جوڑ = زیادہ پہنچ۔ یہی لچک ہے۔"}));
+    return;
+  }
+  setText($("title"), t({en:"Pick the block!",ur:"بلاک اٹھاؤ!"}));
+  setText($("subtitle"), t({en:"Move the arm, close gripper on the orange block, drop it in GOAL.",ur:"بازو ہلائیں، نارنجی بلاک پکڑیں، GOAL میں رکھیں۔"}));
+  setText($("panelHead"), t({en:"Challenge",ur:"چیلنج"}));
+  setText(play, t({en:"Reset challenge",ur:"ری سیٹ"}));
+  play.classList.remove("hidden"); play.classList.add("alt");
+  play.onclick=function(){ obj={x:240,y:190,grabbed:false}; holding=false; won=false; base=20; elbow=40; grip=20; render(); };
+  slider(ctl, t({en:"Base",ur:"بیس"}), base, function(v){ base=v; });
+  slider(ctl, t({en:"Elbow",ur:"کہنی"}), elbow, function(v){ elbow=v; });
+  slider(ctl, t({en:"Grip",ur:"گرپر"}), grip, function(v){ grip=v; tryGrab(); });
+  drawArm();
+  $("statechip").className="statechip"+(won?" ok":"");
+  setText($("statechip"), won?t({en:"SUCCESS",ur:"کامیابی"}):holding?t({en:"Holding block",ur:"بلاک پکڑا"}):t({en:"Reach & grab",ur:"پہنچو اور پکڑو"}));
+  setText($("lead"), won?t({en:"You did it — precise pick and place!",ur:"کر دیا — درست پکڑو رکھو!"}):t({en:"Close gripper (high %) near the block to grab",ur:"بلاک کے پاس گرپر بند کرو (زیادہ %)"}));
+  setText($("detail"), t({en:"Open gripper (low %) over GOAL to drop.",ur:"GOAL پر گرپر کھولو (کم %) تاکہ گرے۔"}));
+  setText($("trade"), t({en:"Tip: get the tip near the block first, then squeeze.",ur:"مشورہ: پہلے نوک بلاک کے پاس، پھر دباؤ۔"}));
+  setText($("whyText"), t({en:"Factory arms do this thousands of times a day — same idea!",ur:"فیکٹری بازو یہ دن میں ہزاروں بار کرتے ہیں — وہی خیال!"}));
+}
+
+applyLang();
+})();
+</script>
+</body>
+</html>

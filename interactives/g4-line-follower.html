@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Line Follower — لائن فالوور | AI4Kids Grade 4 Automation & Robotics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --board:#eef0f5; --board-deep:#dde1ea;
+  --accent:#1d4c85; --accent2:#c9702e; --ok:#2e7d4f; --no:#c4453a;
+  --ink:#1f2933; --ink-soft:#4a5661; --paper:#fdfaf3; --line:#ded5c4;
+  --fs-cap:clamp(14px, 3.8vw, 16px); --fs-xs:clamp(16px, 4.2vw, 18px);
+  --fs-sm:clamp(18px, 4.8vw, 20px); --fs-md:clamp(19px, 5.2vw, 22px);
+  --fs-lg:clamp(22px, 6vw, 26px); --fs-xl:clamp(30px, 8vw, 38px); --lh:1.55;
+}
+body.urdu{
+  --fs-cap:clamp(17px, 4.4vw, 18px); --fs-xs:clamp(18px, 4.7vw, 20px);
+  --fs-sm:clamp(20px, 5.2vw, 22px); --fs-md:clamp(21px, 5.6vw, 24px);
+  --fs-lg:clamp(24px, 6.4vw, 28px); --fs-xl:clamp(28px, 7.4vw, 34px); --lh:2.05;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+  font-size:var(--fs-sm);line-height:1.55;padding:0 0 40px;
+}
+body.urdu{font-family:"Noto Nastaliq Urdu","Baloo Bhaijaan 2",serif;line-height:var(--lh)}
+.wrap{max-width:560px;margin:0 auto;padding:0 14px}
+.bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px;flex-wrap:wrap}
+.brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+.chip{
+  border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;
+  font-size:var(--fs-xs);cursor:pointer;min-height:44px;
+}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.chip:focus-visible,button:focus-visible{outline:3px solid var(--accent2);outline-offset:2px}
+h1{font-size:var(--fs-xl);line-height:1.25;font-weight:800;margin:8px 0 4px}
+body.urdu h1{line-height:1.9}
+.sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+.tabs{display:flex;gap:7px;margin:0 0 14px;flex-wrap:wrap}
+.tabs button{
+  flex:1;min-width:88px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+  border-radius:14px;padding:9px 6px;font:inherit;font-weight:800;
+  font-size:var(--fs-cap);cursor:pointer;min-height:54px;
+}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.scene{
+  position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+  background:linear-gradient(180deg,var(--board) 0%,var(--board-deep) 100%);
+  min-height:200px;
+}
+.scene svg,.scene canvas{display:block;width:100%;height:auto}
+.play{
+  width:100%;margin-top:12px;border:3px solid var(--ink);border-radius:18px;
+  background:var(--ink);color:var(--paper);font:inherit;font-weight:800;
+  font-size:var(--fs-md);cursor:pointer;min-height:60px;
+}
+.play:active{transform:scale(.98)}
+.play.alt{background:var(--paper);color:var(--ink)}
+.play.go{background:var(--ok);border-color:var(--ok)}
+.play.stop{background:var(--no);border-color:var(--no)}
+.play.hidden,.hidden{display:none !important}
+.two{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.card{flex:1;min-width:110px;border:3px solid var(--line);border-radius:16px;padding:12px 9px;text-align:center;cursor:pointer}
+.card em{display:block;font-style:normal;font-size:var(--fs-cap);color:var(--ink-soft);font-weight:700;margin-bottom:5px}
+.card b{display:block;font-size:var(--fs-lg);font-weight:800;line-height:1.2}
+.card span{display:block;font-size:var(--fs-cap);font-weight:700;color:var(--ink-soft);margin-top:3px}
+.card.on{border-color:var(--accent);background:#e8eef8}
+.card.hot{border-color:var(--accent2);background:#fbf1e8}
+.readout{
+  margin-top:12px;background:var(--paper);
+  border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+}
+.statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+           padding:4px 14px;font-size:var(--fs-cap);font-weight:700;margin-bottom:10px}
+.statechip.ok{background:var(--ok)} .statechip.no{background:var(--no)}
+.lead{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.4}
+body.urdu .lead{line-height:1.95}
+.detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+.trade{
+  margin-top:14px;border:2px dashed var(--accent2);background:#fbf1e8;border-radius:14px;
+  padding:12px 14px;font-size:var(--fs-xs);font-weight:700;color:#8a4a12;line-height:1.6;
+}
+.why-note{
+  margin:12px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;
+  border-left:3px solid var(--accent);padding-left:11px;
+}
+body.urdu .why-note{border-left:0;border-right:3px solid var(--accent);padding-left:0;padding-right:11px;line-height:var(--lh)}
+.why-note b{color:var(--accent);font-weight:800}
+.panel{margin-top:18px}
+.panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+.row{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+.row .name{flex:none;width:34%;max-width:140px;font-size:var(--fs-xs);font-weight:700}
+.row input[type=range]{flex:1;min-width:120px;height:36px;accent-color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.schip{
+  border:2px solid var(--line);background:var(--paper);border-radius:999px;padding:9px 15px;
+  font:inherit;font-size:var(--fs-cap);font-weight:800;color:var(--ink);cursor:pointer;min-height:46px;
+}
+.schip[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+.lesson{margin-top:8px}
+.lcard{
+  border:3px solid var(--line);border-radius:18px;padding:14px 16px;margin-bottom:12px;background:#fffdf8;
+}
+.lcard .tag{
+  display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+  padding:3px 12px;font-size:var(--fs-cap);font-weight:800;margin-bottom:8px;
+}
+.lcard.hook .tag{background:var(--accent2)}
+.lcard.misaal .tag{background:var(--ok)}
+.lcard.karo .tag{background:#6b4a8f}
+.lcard p{margin:0;font-size:var(--fs-sm);line-height:1.6}
+body.urdu .lcard p{line-height:var(--lh)}
+.quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+.q{margin-bottom:26px}
+.q > p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+.opt{
+  display:block;width:100%;text-align:left;margin-bottom:10px;
+  border:2px solid var(--line);background:var(--paper);border-radius:12px;
+  padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+  min-height:52px;
+}
+body.urdu .opt{text-align:right}
+.opt:hover{border-color:var(--ink)}
+.opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+.opt.wrong{border-color:var(--no);background:#fbeae8}
+.fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none;line-height:1.6}
+.fb.show{display:block}
+.score{
+  margin-top:14px;padding:14px;border:3px solid var(--ink);border-radius:16px;
+  font-weight:800;font-size:var(--fs-md);text-align:center;display:none;
+}
+.score.show{display:block}
+footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+       font-size:var(--fs-xs);color:var(--ink-soft)}
+@media (min-width:820px){
+  .wrap{
+    max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
+    grid-template-areas:"bar bar" "head head" "tabs tabs" "left right" "lesson lesson" "quiz quiz" "foot foot";
+    align-items:start;
+  }
+  .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+  .left{grid-area:left} .right{grid-area:right}
+  .lesson{grid-area:lesson}
+  .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important;transition-duration:.01ms !important}
+}
+
+.track-canvas{display:block;width:100%;height:auto;background:#c4b59a}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar">
+    <span class="brand">AI4Kids · Grade 4 · Robotics</span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+  <div class="head">
+    <h1 id="title"></h1>
+    <p class="sub" id="subtitle"></p>
+  </div>
+  <div class="tabs" role="group" id="tabs"></div>
+  <div class="left">
+    <div class="scene" id="scene"><svg viewBox="0 0 320 240" id="svg" role="img"></svg></div>
+    <div class="two" id="two"></div>
+    <div class="readout">
+      <span class="statechip" id="statechip"></span>
+      <p class="lead" id="lead"></p>
+      <p class="detail" id="detail"></p>
+      <p class="trade" id="trade"></p>
+      <p class="why-note"><b id="whyLbl"></b> <span id="whyText"></span></p>
+    </div>
+  </div>
+  <div class="right">
+    <div class="panel">
+      <h2 id="panelHead"></h2>
+      <div class="chips" id="chips" role="group"></div>
+      <div id="controls"></div>
+      <button type="button" class="play" id="playBtn"></button>
+      <button type="button" class="play alt" id="playBtn2" style="margin-top:8px"></button>
+    </div>
+  </div>
+
+  <div class="lesson" id="lessonBox"></div>
+  <div class="quiz">
+    <h2 id="quizHead" style="font-size:var(--fs-lg);font-weight:800;margin:0 0 18px"></h2>
+    <div id="quizBox"></div>
+    <div class="score" id="scoreBox"></div>
+  </div>
+  <footer>
+    <p id="foot"></p>
+  </footer>
+</div>
+<script>
+(function(){
+"use strict";
+var lang="en", tab="main";
+
+function $(id){ return document.getElementById(id); }
+function t(o){ return (o && typeof o==="object") ? (o[lang]||o.en||"") : (o||""); }
+function setText(el, s){
+  if(!el) return;
+  el.textContent = s;
+  if(lang==="ur"){ el.setAttribute("dir","rtl"); }
+  else { el.setAttribute("dir","ltr"); }
+}
+function buildTabs(list){
+  var tabs=$("tabs"); tabs.innerHTML="";
+  list.forEach(function(x){
+    var b=document.createElement("button"); b.type="button";
+    b.setAttribute("aria-pressed", tab===x[0]?"true":"false");
+    setText(b, t(x[1]));
+    b.addEventListener("click", function(){ if(tab===x[0]) return; tab=x[0]; if(typeof onTab==="function") onTab(); render(); });
+    tabs.appendChild(b);
+  });
+}
+function buildLesson(){
+  var box=$("lessonBox"); if(!box) return; box.innerHTML="";
+  var cards=[{cls:"hook", tag:{en:"HOOK",ur:"ہک"}, body:LESSON.hook},
+   {cls:"samjhao", tag:{en:"SAMJHAO",ur:"سمجھاؤ"}, body:LESSON.samjhao},
+   {cls:"misaal", tag:{en:"MISAAL",ur:"مثال"}, body:LESSON.misaal}];
+  if(LESSON.karo) cards.push({cls:"karo", tag:{en:"KARO",ur:"کرو"}, body:LESSON.karo});
+  cards.forEach(function(c){
+    var d=document.createElement("div"); d.className="lcard "+c.cls;
+    var tag=document.createElement("span"); tag.className="tag"; setText(tag,t(c.tag));
+    var p=document.createElement("p"); setText(p,t(c.body));
+    d.appendChild(tag); d.appendChild(p); box.appendChild(d);
+  });
+}
+var quizScore=0, quizDone=0;
+function buildQuiz(){
+  var box=$("quizBox"); box.innerHTML=""; quizScore=0; quizDone=0;
+  var sb=$("scoreBox"); sb.classList.remove("show"); sb.textContent="";
+  setText($("quizHead"), t({en:"Check yourself", ur:"اپنا امتحان لیں"}));
+  QUIZ.forEach(function(item){
+    var wrap=document.createElement("div"); wrap.className="q";
+    var q=document.createElement("p"); setText(q, t(item.q)); wrap.appendChild(q);
+    var fb=document.createElement("p"); fb.className="fb";
+    ["a","b","c","d"].forEach(function(k, oi){
+      var b=document.createElement("button"); b.type="button"; b.className="opt";
+      b.setAttribute("dir", lang==="ur"?"rtl":"ltr");
+      b.textContent = String.fromCharCode(65+oi)+". "+t(item[k]);
+      b.addEventListener("click", function(){
+        if(wrap.getAttribute("data-done")==="1") return;
+        wrap.setAttribute("data-done","1"); quizDone++;
+        if(item.correct===k) quizScore++;
+        ["a","b","c","d"].forEach(function(kk, xi){
+          var btn=wrap.querySelectorAll(".opt")[xi];
+          if(kk===item.correct) btn.classList.add("right");
+          else if(kk===k) btn.classList.add("wrong");
+        });
+        setText(fb, t(item.explanation)); fb.classList.add("show");
+        if(quizDone===QUIZ.length){
+          sb.classList.add("show");
+          setText(sb, t({en:"Score: "+quizScore+" / "+QUIZ.length, ur:"سکور: "+quizScore+" / "+QUIZ.length}));
+        }
+      });
+      wrap.appendChild(b);
+    });
+    wrap.appendChild(fb); box.appendChild(wrap);
+  });
+}
+function applyLang(){
+  document.body.classList.toggle("urdu", lang==="ur");
+  document.documentElement.lang = (lang==="ur") ? "ur" : "en";
+  var lb=$("langBtn");
+  lb.textContent = (lang==="en") ? "اردو" : "English";
+  lb.setAttribute("aria-pressed", lang==="ur" ? "true":"false");
+  setText($("foot"), t({en:"AI4Kids — Islamabad's bilingual AI and coding school. WhatsApp 0337 1468899",
+    ur:"اے آئی فور کڈز — اسلام آباد کا دو زبانوں والا اے آئی اور کوڈنگ سکول۔ واٹس ایپ 0337 1468899"}));
+  buildLesson(); buildQuiz(); render();
+}
+$("langBtn").addEventListener("click", function(){ lang=(lang==="en")?"ur":"en"; applyLang(); });
+$("speakBtn").addEventListener("click", function(){
+  try{
+    if(!("speechSynthesis" in window)) return;
+    window.speechSynthesis.cancel();
+    var lead=$("lead"); var text = (lead && lead.textContent) || ($("title")&&$("title").textContent) || "";
+    var u=new SpeechSynthesisUtterance(text);
+    u.lang=(lang==="ur")?"ur-PK":"en-US"; u.rate=0.92;
+    window.speechSynthesis.speak(u);
+  }catch(e){}
+});
+
+var running=false, raf=null;
+var robot={x:40,y:120,angle:0};
+var sensL=0, sensR=0;
+
+var LESSON={
+  hook:{en:"How can a robot walk a straight path with no one helping — like you following your gali in the bazaar?",
+        ur:"روبوٹ بغیر مدد کے سیدھی لائن پر کیسے چلتا ہے — جیسے آپ بازار میں اپنی گلی؟"},
+  samjhao:{en:"A line follower robot uses infrared (IR) sensors to spot a black line on the floor. When it drifts off, sensors tell the processor to change direction — so fast it barely wobbles. Factories and warehouses use them to go from point A to B alone. Programming teaches the robot how to react to each sensor reading.",
+           ur:"لائن فالوور روبوٹ infrared (IR) سینسر سے فرش کی کالی لائن پہچانتا ہے۔ بھٹکے تو سینسر پروسیسر کو رخ بدلنے کو کہتے ہیں — اتنی تیزی کہ مشکل سے لرزے۔ فیکٹری اور گودام میں نقطہ اے سے بی تک خود چلتے ہیں۔ پروگرامنگ سکھاتی ہے ہر سینسر ریڈنگ پر کیا کرنا ہے۔"},
+  misaal:{en:"Like a rickshaw following road markings in the bazaar — the line follower does the same job electronically with black tape.",
+          ur:"جیسے رکشہ بازار میں سڑک کی لائن دیکھتا ہے — لائن فالوور وہی کام کالے ٹیپ سے الیکٹرانک طریقے سے کرتا ہے۔"},
+  karo:{en:"Stick black tape as a path at home. Blindfold a friend and guide them only by saying left/right — like sensors!",
+        ur:"گھر پر کالا ٹیپ لگاؤ۔ دوست کی آنکھ بند کر کے صرف بائیں/دائیں کہہ کر چلاؤ — جیسے سینسر!"}
+};
+var QUIZ=[
+  {q:{en:"What does a line follower robot do?",ur:"Line follower robot ka kaam kya hai?"},a:{en:"Follow along a line",ur:"Khaali line ke sath chalna"},b:{en:"Fly up",ur:"Upar udaan bharna"},c:{en:"Lift objects",ur:"Cheezon ko uthana"},d:{en:"Think by itself",ur:"Khud se sochna"},correct:"a",explanation:{en:"It is designed to follow a line.",ur:"Yeh robot khaas tor par line ke sath sath chalne ke liye design kiya gaya hai."}},
+  {q:{en:"Which sensors does it need?",ur:"Line follower robot ko kaunse sensors ki zaroorat hoti hai?"},a:{en:"Infrared sensors",ur:"Infrared sensors"},b:{en:"Water sensors",ur:"Water sensors"},c:{en:"Temperature sensors",ur:"Temperature sensors"},d:{en:"Sound sensors",ur:"Sound sensors"},correct:"a",explanation:{en:"IR sensors detect the line so the robot can follow it.",ur:"Infrared sensors line ko detect karte hain taake robot us par chale."}},
+  {q:{en:"In Pakistan, line followers are used for…",ur:"Humare mulk Pakistan mein line follower robot ka istemal kis cheez ke liye hota hai?"},a:{en:"Counting receipts",ur:"Raseedon ki ginti ke liye"},b:{en:"Farming work",ur:"Zamindari ka kaam karne ke liye"},c:{en:"Monitoring goods in a warehouse",ur:"Warehouse mein samaan ka monitor karne ke liye"},d:{en:"Watching sports",ur:"Khiladiyan dekhne ke liye"},correct:"c",explanation:{en:"In warehouses they help track and manage goods.",ur:"Warehouse mein ye robots samaan ko track karne aur manage karne mein madadgar hain."}},
+  {q:{en:"Can it only follow one line?",ur:"Kya line follower robot sirf ek hi line par chal sakta hai?"},a:{en:"Yes, only one line",ur:"Haan, sirf ek line par"},b:{en:"No, some can follow two or more",ur:"Nahi, wo do lines par bhi chal sakta hai"},c:{en:"It cannot move without a line",ur:"Wo line ke bagair nahi chal sakta"},d:{en:"It can do everything",ur:"Wo sab kuch kar sakta hai"},correct:"b",explanation:{en:"Some advanced robots can follow two or more lines.",ur:"Kuch advanced line follower robots do ya zyada lines ko follow kar sakte hain."}},
+  {q:{en:"Does it need programming?",ur:"Kya line follower robots ko programming ki zaroorat hoti hai?"},a:{en:"Yes, they must be programmed",ur:"Haan, inhe program karna padta hai"},b:{en:"No, they learn alone",ur:"Nahi, ye khud se seekhte hain"},c:{en:"No need",ur:"Inki zaroorat nahi hoti"},d:{en:"Only on/off",ur:"Inhe sirf on/off karna hota hai"},correct:"a",explanation:{en:"They need programming for their job.",ur:"Line follower robots ko unke kaam ke liye programming ki zaroorat hoti hai."}}
+];
+
+// Track: black line as polyline in canvas coords 320x240
+function lineY(x){
+  // gentle S curve
+  return 120 + Math.sin(x/45)*35 + Math.sin(x/90)*15;
+}
+function isOnBlack(x,y){
+  var ly=lineY(x);
+  return Math.abs(y-ly)<12;
+}
+function draw(){
+  var svg=$("svg"); svg.innerHTML="";
+  var NS="http://www.w3.org/2000/svg";
+  function mk(tag,a){ var e=document.createElementNS(NS,tag); for(var k in a) e.setAttribute(k,a[k]); return e; }
+  svg.appendChild(mk("rect",{x:0,y:0,width:320,height:240,fill:"#d4c4a8"}));
+  // draw line path
+  var d="M0 "+lineY(0);
+  for(var x=4;x<=320;x+=4) d+=" L"+x+" "+lineY(x);
+  svg.appendChild(mk("path",{d:d,fill:"none",stroke:"#1a1a1a","stroke-width":18,"stroke-linecap":"round"}));
+  // robot body
+  var g=mk("g",{transform:"translate("+robot.x+","+robot.y+") rotate("+(robot.angle*180/Math.PI)+")"});
+  g.appendChild(mk("rect",{x:-14,y:-12,width:28,height:24,rx:4,fill:"#1d4c85",stroke:"#0f172a","stroke-width":2}));
+  // sensors L/R at front
+  var sl=sensL>0.5?"#22c55e":"#ef4444";
+  var sr=sensR>0.5?"#22c55e":"#ef4444";
+  g.appendChild(mk("circle",{cx:12,cy:-8,r:4,fill:sl}));
+  g.appendChild(mk("circle",{cx:12,cy:8,r:4,fill:sr}));
+  g.appendChild(mk("rect",{x:10,y:-3,width:8,height:6,fill:"#fbbf24"}));
+  svg.appendChild(g);
+}
+function readSensors(){
+  var c=Math.cos(robot.angle), s=Math.sin(robot.angle);
+  var lx=robot.x+12*c-8*s, ly=robot.y+12*s+8*c;
+  var rx=robot.x+12*c+8*s, ry=robot.y+12*s-8*c;
+  sensL=isOnBlack(lx,ly)?1:0;
+  sensR=isOnBlack(rx,ry)?1:0;
+}
+function tick(){
+  if(!running) return;
+  readSensors();
+  // simple line follow logic
+  if(sensL && sensR){ /* straight */ }
+  else if(sensL && !sensR) robot.angle -= 0.08;
+  else if(!sensL && sensR) robot.angle += 0.08;
+  else robot.angle += 0.05; // search
+  robot.x += Math.cos(robot.angle)*2.2;
+  robot.y += Math.sin(robot.angle)*2.2;
+  if(robot.x>310||robot.x<10||robot.y<20||robot.y>220){ robot.x=40; robot.y=lineY(40); robot.angle=0; }
+  draw();
+  setText($("statechip"), t({en:"L:"+(sensL?"■":"□")+"  R:"+(sensR?"■":"□"), ur:"بائیں:"+(sensL?"■":"□")+" دائیں:"+(sensR?"■":"□")}));
+  raf=requestAnimationFrame(tick);
+}
+function onTab(){ running=false; if(raf) cancelAnimationFrame(raf); }
+function render(){
+  buildTabs([["demo",{en:"Follow the line",ur:"لائن فالو"}],["sense",{en:"Sensors",ur:"سینسر"}]]);
+  if(!tab||tab==="main") tab="demo";
+  setText($("whyLbl"), t({en:"Notice:",ur:"غور کریں:"}));
+  $("chips").innerHTML=""; $("controls").innerHTML="";
+  var play=$("playBtn"), play2=$("playBtn2");
+  play.className="play go"; play2.className="play alt";
+
+  if(tab==="demo"){
+    setText($("title"), t({en:"Line follower robot",ur:"لائن فالوور روبوٹ"}));
+    setText($("subtitle"), t({en:"Start — watch left/right sensors keep it on the black line.",ur:"شروع کریں — بائیں/دائیں سینسر لائن پر رکھتے ہیں۔"}));
+    setText($("panelHead"), t({en:"Controls",ur:"کنٹرول"}));
+    setText(play, running?t({en:"Pause",ur:"روکیں"}):t({en:"Start",ur:"شروع"}));
+    if(running){ play.classList.remove("go"); play.classList.add("stop"); }
+    setText(play2, t({en:"Reset",ur:"ری سیٹ"}));
+    play2.classList.remove("hidden");
+    play.onclick=function(){
+      if(running){ running=false; render(); return; }
+      running=true; render(); tick();
+    };
+    play2.onclick=function(){ running=false; robot={x:40,y:lineY(40),angle:0}; sensL=sensR=0; draw(); render(); };
+    readSensors(); draw();
+    setText($("statechip"), t({en:"Ready",ur:"تیار"}));
+    setText($("lead"), t({en:"Black line = less reflected IR light",ur:"کالی لائن = کم منعکس IR"}));
+    setText($("detail"), t({en:"If left sensor loses the line, turn left. If right loses it, turn right.",ur:"بایاں سینسر لائن کھوئے تو بائیں مڑو۔ دایاں کھوئے تو دائیں۔"}));
+    setText($("trade"), t({en:"Green sensor dots = on black line. Red = off the line.",ur:"سبز نقطہ = لائن پر۔ سرخ = لائن سے باہر۔"}));
+    setText($("whyText"), t({en:"The brain is just rules you programmed — sensors + if/then.",ur:"دماغ بس آپ کے لکھے اصول ہیں — سینسر + اگر/تو۔"}));
+    return;
+  }
+  setText($("title"), t({en:"Left and right sensors",ur:"بائیں اور دائیں سینسر"}));
+  setText($("subtitle"), t({en:"Two IR eyes under the robot watch the floor.",ur:"روبوٹ کے نیچے دو IR آنکھیں فرش دیکھتی ہیں۔"}));
+  setText($("panelHead"), t({en:"Learn",ur:"سیکھیں"}));
+  play.classList.add("hidden"); play2.classList.add("hidden");
+  running=false;
+  [{en:"Both on line → go straight",ur:"دونوں لائن پر → سیدھے"},
+   {en:"Only left on → turn left",ur:"صرف بایاں → بائیں مڑو"},
+   {en:"Only right on → turn right",ur:"صرف دایاں → دائیں مڑو"}
+  ].forEach(function(txt,i){
+    var b=document.createElement("button"); b.type="button"; b.className="schip";
+    setText(b, t(txt));
+    b.onclick=function(){
+      if(i===0){sensL=1;sensR=1;} else if(i===1){sensL=1;sensR=0;} else {sensL=0;sensR=1;}
+      draw();
+      setText($("lead"), t(txt));
+    };
+    $("chips").appendChild(b);
+  });
+  draw();
+  setText($("statechip"), t({en:"IR sensors",ur:"IR سینسر"}));
+  setText($("lead"), t({en:"Two eyes, one rule book",ur:"دو آنکھیں، ایک اصول"}));
+  setText($("detail"), t({en:"Infrared light bounces less from black tape than from light floor.",ur:"کالے ٹیپ سے IR روشنی ہلکے فرش سے کم واپس آتی ہے۔"}));
+  setText($("trade"),""); setText($("whyText"), t({en:"Warehouse robots use the same idea to follow floor paths.",ur:"گودام کے روبوٹ بھی فرش کی راہ اسی طرح فالو کرتے ہیں۔"}));
+}
+
+applyLang();
+})();
+</script>
+</body>
+</html>

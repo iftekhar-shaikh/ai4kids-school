@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Arduino Intro — چھوٹا کمپیوٹر | AI4Kids Grade 4 Automation & Robotics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --board:#eef0f5; --board-deep:#dde1ea;
+  --accent:#1d4c85; --accent2:#c9702e; --ok:#2e7d4f; --no:#c4453a;
+  --ink:#1f2933; --ink-soft:#4a5661; --paper:#fdfaf3; --line:#ded5c4;
+  --fs-cap:clamp(14px, 3.8vw, 16px); --fs-xs:clamp(16px, 4.2vw, 18px);
+  --fs-sm:clamp(18px, 4.8vw, 20px); --fs-md:clamp(19px, 5.2vw, 22px);
+  --fs-lg:clamp(22px, 6vw, 26px); --fs-xl:clamp(30px, 8vw, 38px); --lh:1.55;
+}
+body.urdu{
+  --fs-cap:clamp(17px, 4.4vw, 18px); --fs-xs:clamp(18px, 4.7vw, 20px);
+  --fs-sm:clamp(20px, 5.2vw, 22px); --fs-md:clamp(21px, 5.6vw, 24px);
+  --fs-lg:clamp(24px, 6.4vw, 28px); --fs-xl:clamp(28px, 7.4vw, 34px); --lh:2.05;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+  font-size:var(--fs-sm);line-height:1.55;padding:0 0 40px;
+}
+body.urdu{font-family:"Noto Nastaliq Urdu","Baloo Bhaijaan 2",serif;line-height:var(--lh)}
+.wrap{max-width:560px;margin:0 auto;padding:0 14px}
+.bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px;flex-wrap:wrap}
+.brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+.chip{
+  border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;
+  font-size:var(--fs-xs);cursor:pointer;min-height:44px;
+}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.chip:focus-visible,button:focus-visible{outline:3px solid var(--accent2);outline-offset:2px}
+h1{font-size:var(--fs-xl);line-height:1.25;font-weight:800;margin:8px 0 4px}
+body.urdu h1{line-height:1.9}
+.sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+.tabs{display:flex;gap:7px;margin:0 0 14px;flex-wrap:wrap}
+.tabs button{
+  flex:1;min-width:88px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+  border-radius:14px;padding:9px 6px;font:inherit;font-weight:800;
+  font-size:var(--fs-cap);cursor:pointer;min-height:54px;
+}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.scene{
+  position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+  background:linear-gradient(180deg,var(--board) 0%,var(--board-deep) 100%);
+  min-height:200px;
+}
+.scene svg,.scene canvas{display:block;width:100%;height:auto}
+.play{
+  width:100%;margin-top:12px;border:3px solid var(--ink);border-radius:18px;
+  background:var(--ink);color:var(--paper);font:inherit;font-weight:800;
+  font-size:var(--fs-md);cursor:pointer;min-height:60px;
+}
+.play:active{transform:scale(.98)}
+.play.alt{background:var(--paper);color:var(--ink)}
+.play.go{background:var(--ok);border-color:var(--ok)}
+.play.stop{background:var(--no);border-color:var(--no)}
+.play.hidden,.hidden{display:none !important}
+.two{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.card{flex:1;min-width:110px;border:3px solid var(--line);border-radius:16px;padding:12px 9px;text-align:center;cursor:pointer}
+.card em{display:block;font-style:normal;font-size:var(--fs-cap);color:var(--ink-soft);font-weight:700;margin-bottom:5px}
+.card b{display:block;font-size:var(--fs-lg);font-weight:800;line-height:1.2}
+.card span{display:block;font-size:var(--fs-cap);font-weight:700;color:var(--ink-soft);margin-top:3px}
+.card.on{border-color:var(--accent);background:#e8eef8}
+.card.hot{border-color:var(--accent2);background:#fbf1e8}
+.readout{
+  margin-top:12px;background:var(--paper);
+  border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+}
+.statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+           padding:4px 14px;font-size:var(--fs-cap);font-weight:700;margin-bottom:10px}
+.statechip.ok{background:var(--ok)} .statechip.no{background:var(--no)}
+.lead{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.4}
+body.urdu .lead{line-height:1.95}
+.detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+.trade{
+  margin-top:14px;border:2px dashed var(--accent2);background:#fbf1e8;border-radius:14px;
+  padding:12px 14px;font-size:var(--fs-xs);font-weight:700;color:#8a4a12;line-height:1.6;
+}
+.why-note{
+  margin:12px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;
+  border-left:3px solid var(--accent);padding-left:11px;
+}
+body.urdu .why-note{border-left:0;border-right:3px solid var(--accent);padding-left:0;padding-right:11px;line-height:var(--lh)}
+.why-note b{color:var(--accent);font-weight:800}
+.panel{margin-top:18px}
+.panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+.row{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+.row .name{flex:none;width:34%;max-width:140px;font-size:var(--fs-xs);font-weight:700}
+.row input[type=range]{flex:1;min-width:120px;height:36px;accent-color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.schip{
+  border:2px solid var(--line);background:var(--paper);border-radius:999px;padding:9px 15px;
+  font:inherit;font-size:var(--fs-cap);font-weight:800;color:var(--ink);cursor:pointer;min-height:46px;
+}
+.schip[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+.lesson{margin-top:8px}
+.lcard{
+  border:3px solid var(--line);border-radius:18px;padding:14px 16px;margin-bottom:12px;background:#fffdf8;
+}
+.lcard .tag{
+  display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+  padding:3px 12px;font-size:var(--fs-cap);font-weight:800;margin-bottom:8px;
+}
+.lcard.hook .tag{background:var(--accent2)}
+.lcard.misaal .tag{background:var(--ok)}
+.lcard.karo .tag{background:#6b4a8f}
+.lcard p{margin:0;font-size:var(--fs-sm);line-height:1.6}
+body.urdu .lcard p{line-height:var(--lh)}
+.quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+.q{margin-bottom:26px}
+.q > p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+.opt{
+  display:block;width:100%;text-align:left;margin-bottom:10px;
+  border:2px solid var(--line);background:var(--paper);border-radius:12px;
+  padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+  min-height:52px;
+}
+body.urdu .opt{text-align:right}
+.opt:hover{border-color:var(--ink)}
+.opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+.opt.wrong{border-color:var(--no);background:#fbeae8}
+.fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none;line-height:1.6}
+.fb.show{display:block}
+.score{
+  margin-top:14px;padding:14px;border:3px solid var(--ink);border-radius:16px;
+  font-weight:800;font-size:var(--fs-md);text-align:center;display:none;
+}
+.score.show{display:block}
+footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+       font-size:var(--fs-xs);color:var(--ink-soft)}
+@media (min-width:820px){
+  .wrap{
+    max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
+    grid-template-areas:"bar bar" "head head" "tabs tabs" "left right" "lesson lesson" "quiz quiz" "foot foot";
+    align-items:start;
+  }
+  .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+  .left{grid-area:left} .right{grid-area:right}
+  .lesson{grid-area:lesson}
+  .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important;transition-duration:.01ms !important}
+}
+
+
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar">
+    <span class="brand">AI4Kids · Grade 4 · Robotics</span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+  <div class="head">
+    <h1 id="title"></h1>
+    <p class="sub" id="subtitle"></p>
+  </div>
+  <div class="tabs" role="group" id="tabs"></div>
+  <div class="left">
+    <div class="scene" id="scene"><svg viewBox="0 0 320 240" id="svg" role="img"></svg></div>
+    <div class="two" id="two"></div>
+    <div class="readout">
+      <span class="statechip" id="statechip"></span>
+      <p class="lead" id="lead"></p>
+      <p class="detail" id="detail"></p>
+      <p class="trade" id="trade"></p>
+      <p class="why-note"><b id="whyLbl"></b> <span id="whyText"></span></p>
+    </div>
+  </div>
+  <div class="right">
+    <div class="panel">
+      <h2 id="panelHead"></h2>
+      <div class="chips" id="chips" role="group"></div>
+      <div id="controls"></div>
+      <button type="button" class="play" id="playBtn"></button>
+      <button type="button" class="play alt" id="playBtn2" style="margin-top:8px"></button>
+    </div>
+  </div>
+
+  <div class="lesson" id="lessonBox"></div>
+  <div class="quiz">
+    <h2 id="quizHead" style="font-size:var(--fs-lg);font-weight:800;margin:0 0 18px"></h2>
+    <div id="quizBox"></div>
+    <div class="score" id="scoreBox"></div>
+  </div>
+  <footer>
+    <p id="foot"></p>
+  </footer>
+</div>
+<script>
+(function(){
+"use strict";
+var lang="en", tab="main";
+
+function $(id){ return document.getElementById(id); }
+function t(o){ return (o && typeof o==="object") ? (o[lang]||o.en||"") : (o||""); }
+function setText(el, s){
+  if(!el) return;
+  el.textContent = s;
+  if(lang==="ur"){ el.setAttribute("dir","rtl"); }
+  else { el.setAttribute("dir","ltr"); }
+}
+function buildTabs(list){
+  var tabs=$("tabs"); tabs.innerHTML="";
+  list.forEach(function(x){
+    var b=document.createElement("button"); b.type="button";
+    b.setAttribute("aria-pressed", tab===x[0]?"true":"false");
+    setText(b, t(x[1]));
+    b.addEventListener("click", function(){ if(tab===x[0]) return; tab=x[0]; if(typeof onTab==="function") onTab(); render(); });
+    tabs.appendChild(b);
+  });
+}
+function buildLesson(){
+  var box=$("lessonBox"); if(!box) return; box.innerHTML="";
+  var cards=[{cls:"hook", tag:{en:"HOOK",ur:"ہک"}, body:LESSON.hook},
+   {cls:"samjhao", tag:{en:"SAMJHAO",ur:"سمجھاؤ"}, body:LESSON.samjhao},
+   {cls:"misaal", tag:{en:"MISAAL",ur:"مثال"}, body:LESSON.misaal}];
+  if(LESSON.karo) cards.push({cls:"karo", tag:{en:"KARO",ur:"کرو"}, body:LESSON.karo});
+  cards.forEach(function(c){
+    var d=document.createElement("div"); d.className="lcard "+c.cls;
+    var tag=document.createElement("span"); tag.className="tag"; setText(tag,t(c.tag));
+    var p=document.createElement("p"); setText(p,t(c.body));
+    d.appendChild(tag); d.appendChild(p); box.appendChild(d);
+  });
+}
+var quizScore=0, quizDone=0;
+function buildQuiz(){
+  var box=$("quizBox"); box.innerHTML=""; quizScore=0; quizDone=0;
+  var sb=$("scoreBox"); sb.classList.remove("show"); sb.textContent="";
+  setText($("quizHead"), t({en:"Check yourself", ur:"اپنا امتحان لیں"}));
+  QUIZ.forEach(function(item){
+    var wrap=document.createElement("div"); wrap.className="q";
+    var q=document.createElement("p"); setText(q, t(item.q)); wrap.appendChild(q);
+    var fb=document.createElement("p"); fb.className="fb";
+    ["a","b","c","d"].forEach(function(k, oi){
+      var b=document.createElement("button"); b.type="button"; b.className="opt";
+      b.setAttribute("dir", lang==="ur"?"rtl":"ltr");
+      b.textContent = String.fromCharCode(65+oi)+". "+t(item[k]);
+      b.addEventListener("click", function(){
+        if(wrap.getAttribute("data-done")==="1") return;
+        wrap.setAttribute("data-done","1"); quizDone++;
+        if(item.correct===k) quizScore++;
+        ["a","b","c","d"].forEach(function(kk, xi){
+          var btn=wrap.querySelectorAll(".opt")[xi];
+          if(kk===item.correct) btn.classList.add("right");
+          else if(kk===k) btn.classList.add("wrong");
+        });
+        setText(fb, t(item.explanation)); fb.classList.add("show");
+        if(quizDone===QUIZ.length){
+          sb.classList.add("show");
+          setText(sb, t({en:"Score: "+quizScore+" / "+QUIZ.length, ur:"سکور: "+quizScore+" / "+QUIZ.length}));
+        }
+      });
+      wrap.appendChild(b);
+    });
+    wrap.appendChild(fb); box.appendChild(wrap);
+  });
+}
+function applyLang(){
+  document.body.classList.toggle("urdu", lang==="ur");
+  document.documentElement.lang = (lang==="ur") ? "ur" : "en";
+  var lb=$("langBtn");
+  lb.textContent = (lang==="en") ? "اردو" : "English";
+  lb.setAttribute("aria-pressed", lang==="ur" ? "true":"false");
+  setText($("foot"), t({en:"AI4Kids — Islamabad's bilingual AI and coding school. WhatsApp 0337 1468899",
+    ur:"اے آئی فور کڈز — اسلام آباد کا دو زبانوں والا اے آئی اور کوڈنگ سکول۔ واٹس ایپ 0337 1468899"}));
+  buildLesson(); buildQuiz(); render();
+}
+$("langBtn").addEventListener("click", function(){ lang=(lang==="en")?"ur":"en"; applyLang(); });
+$("speakBtn").addEventListener("click", function(){
+  try{
+    if(!("speechSynthesis" in window)) return;
+    window.speechSynthesis.cancel();
+    var lead=$("lead"); var text = (lead && lead.textContent) || ($("title")&&$("title").textContent) || "";
+    var u=new SpeechSynthesisUtterance(text);
+    u.lang=(lang==="ur")?"ur-PK":"en-US"; u.rate=0.92;
+    window.speechSynthesis.speak(u);
+  }catch(e){}
+});
+
+var blinkOn=false, blinkTimer=null, digPick="d", partHi="usb";
+var NS="http://www.w3.org/2000/svg";
+function mk(tag,a){ var e=document.createElementNS(NS,tag); for(var k in a) e.setAttribute(k,a[k]); return e; }
+
+var LESSON={
+  hook:{en:"Come kids — imagine a tiny computer that helps you do many jobs! Technology colours our lives; Arduino can make things easier for us too.",
+        ur:"آؤ بچو، سوچو اگر آپ کا ایک چھوٹا کمپیوٹر ہو جو ہر کام میں مدد کرے! جیسے ٹیکنالوجی نے زندگی میں رنگ بھرے، ویسے ہی آرڈوینو بہت کچھ آسان کر سکتا ہے۔"},
+  samjhao:{en:"Arduino is a small board that works like a computer for electronics and robotics. You program it with the Arduino IDE in C++. It is open source — sensors and motors connect to its pins so you can build smart lights or watering systems.",
+           ur:"آرڈوینو ایک چھوٹا بورڈ ہے جو الیکٹرانکس اور روبوٹکس کے لیے کمپیوٹر کی طرح کام کرتا ہے۔ آپ اسے Arduino IDE میں C++ سے پروگرام کرتے ہیں۔ یہ اوپن سورس ہے — سینسر اور موٹر اس کے پنز سے جڑتے ہیں تاکہ سمارٹ لائٹس یا پانی کے سسٹم بن سکیں۔"},
+  misaal:{en:"With Arduino you could program a toy rickshaw to stop or turn when a sensor sees an object — making daily life smarter.",
+          ur:"آرڈوینو سے آپ کھلونا رکشہ پروگرام کر سکتے ہیں کہ سینسر چیز دیکھے تو رک جائے یا موڑ لے — روزمرہ زندگی کو سمارٹ بنانا!"},
+  karo:{en:"Try at home: connect an LED to an Arduino pin, open the IDE, upload a Blink sketch, and watch it flash!",
+        ur:"گھر پر: ایل ای ڈی پن سے جوڑو، IDE کھولو، Blink کوڈ بھیجو، اور چمک دیکھ!"}
+};
+var QUIZ=[
+  {q:{en:"What is Arduino?",ur:"Arduino kya hota hai?"},a:{en:"A small computer",ur:"Chhota computer"},b:{en:"A big computer",ur:"Bara computer"},c:{en:"A mobile phone",ur:"Koi mobile phone"},d:{en:"A TV",ur:"Koi TV"},correct:"a",explanation:{en:"Arduino is a small computer used for automation and robotics.",ur:"Arduino ek chhota computer hai jo automation aur robotics ke liye use hota hai."}},
+  {q:{en:"Arduino was designed for…",ur:"Arduino ko kis cheez ke liye design kiya gaya?"},a:{en:"Playing games",ur:"Games khelne ke liye"},b:{en:"Making projects",ur:"Projects banane ke liye"},c:{en:"Browsing the internet",ur:"Internet chalane ke liye"},d:{en:"House chores",ur:"Ghar ka kaam karne ke liye"},correct:"b",explanation:{en:"Arduino is designed for making projects.",ur:"Arduino projects banane ke liye design kiya gaya hai."}},
+  {q:{en:"What was the first popular Arduino model?",ur:"Arduino ka sab se pehla model kaunsa tha?"},a:{en:"Arduino Uno",ur:"Arduino Uno"},b:{en:"Arduino Mega",ur:"Arduino Mega"},c:{en:"Arduino Nano",ur:"Arduino Nano"},d:{en:"Arduino Leonardo",ur:"Arduino Leonardo"},correct:"a",explanation:{en:"Arduino Uno is the first and most famous model.",ur:"Arduino Uno pehla aur sab se mashhoor model hai."}},
+  {q:{en:"Which language is Arduino programmed in?",ur:"Arduino ko kis language mein program kiya jaata hai?"},a:{en:"C++",ur:"C++"},b:{en:"Python",ur:"Python"},c:{en:"Java",ur:"Java"},d:{en:"JavaScript",ur:"JavaScript"},correct:"a",explanation:{en:"Arduino is programmed in C++.",ur:"Arduino ko C++ language mein program kiya jaata hai."}},
+  {q:{en:"What do you need to make Arduino useful?",ur:"Arduino istemal karne ke liye kis cheez ki zarurat hoti hai?"},a:{en:"Sensors and actuators",ur:"Sensors aur actuators"},b:{en:"Only a computer",ur:"Sirf ek computer"},c:{en:"A mobile app",ur:"Mobile app"},d:{en:"A big server",ur:"Bara server"},correct:"a",explanation:{en:"Arduino needs sensors and actuators to do real work.",ur:"Arduino ko kaam karne ke liye sensors aur actuators ki zarurat hoti hai."}}
+];
+var PARTS={
+  usb:{en:"USB port",ur:"یو ایس بی پورٹ",tip:{en:"Connect to your computer to upload code and give power.",ur:"کمپیوٹر سے جوڑ کر کوڈ بھیجیں اور پاور دیں۔"}},
+  pins:{en:"Pins",ur:"پنز",tip:{en:"Holes for wires — digital and analog — to LEDs, sensors, motors.",ur:"وائر کے سوراخ — ڈیجیٹل اور اینالاگ — ایل ای ڈی، سینسر، موٹر کے لیے۔"}},
+  led:{en:"Built-in LED",ur:"بیلٹ اِن ایل ای ڈی",tip:{en:"Tiny light on the board (often pin 13). Perfect for Blink!",ur:"بورڈ پر چھوٹی لائٹ (اکثر پن 13)۔ Blink کے لیے بہترین!"}}
+};
+
+function drawBoard(hi){
+  var svg=$("svg"); svg.innerHTML="";
+  svg.appendChild(mk("rect",{x:40,y:30,width:240,height:170,rx:8,fill:"#00979d",stroke:"#1f2933","stroke-width":3}));
+  svg.appendChild(mk("rect",{x:20,y:95,width:28,height:40,rx:3,fill:hi==="usb"?"#fbbf24":"#334155",stroke:"#1f2933","stroke-width":2}));
+  svg.appendChild(mk("rect",{x:130,y:90,width:60,height:50,rx:4,fill:"#1e293b"}));
+  for(var i=0;i<8;i++) svg.appendChild(mk("rect",{x:48,y:45+i*18,width:14,height:10,rx:2,fill:hi==="pins"?"#fbbf24":"#e2e8f0",stroke:"#1f2933"}));
+  for(var j=0;j<6;j++) svg.appendChild(mk("rect",{x:258,y:55+j*20,width:14,height:10,rx:2,fill:hi==="pins"?"#fbbf24":"#e2e8f0",stroke:"#1f2933"}));
+  var ledC=(tab==="blink"&&blinkOn)?"#facc15":(hi==="led"?"#fbbf24":"#94a3b8");
+  svg.appendChild(mk("circle",{cx:200,cy:55,r:10,fill:ledC,stroke:"#1f2933","stroke-width":2}));
+  var lab=mk("text",{x:160,y:220,"text-anchor":"middle","font-size":"13","font-weight":"800",fill:"#1f2933"});
+  lab.textContent="Arduino Uno"; svg.appendChild(lab);
+}
+function onTab(){ if(blinkTimer){clearInterval(blinkTimer);blinkTimer=null;blinkOn=false;} }
+function render(){
+  buildTabs([["parts",{en:"Board parts",ur:"بورڈ حصے"}],["blink",{en:"Blink LED",ur:"ایل ای ڈی"}],["da",{en:"Digital / Analog",ur:"ڈیجیٹل / اینالاگ"}]]);
+  if(!tab||tab==="main") tab="parts";
+  setText($("whyLbl"), t({en:"Notice:",ur:"غور کریں:"}));
+  var chips=$("chips"); chips.innerHTML=""; $("controls").innerHTML="";
+  var play=$("playBtn"), play2=$("playBtn2");
+  play.className="play"; play2.className="play alt hidden";
+
+  if(tab==="parts"){
+    setText($("title"), t({en:"Meet the Arduino board",ur:"آرڈوینو بورڈ سے ملیں"}));
+    setText($("subtitle"), t({en:"Tap USB, pins, and the built-in LED.",ur:"یو ایس بی، پنز اور بیلٹ اِن ایل ای ڈی دبائیں۔"}));
+    setText($("panelHead"), t({en:"Tap a part",ur:"حصہ چنیں"}));
+    play.classList.add("hidden");
+    ["usb","pins","led"].forEach(function(id){
+      var p=PARTS[id]; var b=document.createElement("button"); b.type="button"; b.className="schip";
+      b.setAttribute("aria-pressed", partHi===id?"true":"false");
+      setText(b, t({en:p.en,ur:p.ur}));
+      b.onclick=function(){ partHi=id; render(); };
+      chips.appendChild(b);
+    });
+    drawBoard(partHi);
+    var p=PARTS[partHi];
+    setText($("statechip"), t({en:p.en,ur:p.ur}));
+    setText($("lead"), t({en:p.en,ur:p.ur}));
+    setText($("detail"), t(p.tip));
+    setText($("trade"), t({en:"Try at home: connect one LED to a pin with a wire — that is how projects start!",ur:"گھر پر آزماؤ: ایک ایل ای ڈی تار سے پن سے جوڑو — پروجیکٹ ایسے ہی شروع ہوتا ہے!"}));
+    setText($("whyText"), t({en:"Three parts — USB, pins, LED — are enough for your first Blink project.",ur:"تین حصے — یو ایس بی، پنز، ایل ای ڈی — پہلے Blink کے لیے کافی ہیں۔"}));
+    return;
+  }
+  if(tab==="blink"){
+    setText($("title"), t({en:"Blink — hello world of Arduino",ur:"Blink — آرڈوینو کا سلام"}));
+    setText($("subtitle"), t({en:"Code turns the LED on and off again and again.",ur:"کوڈ ایل ای ڈی کو بار بار آن آف کرتا ہے۔"}));
+    setText($("panelHead"), t({en:"Simulator",ur:"شبیہ ساز"}));
+    play.classList.remove("hidden");
+    setText(play, blinkTimer?t({en:"Stop Blink",ur:"روکیں"}):t({en:"Start Blink",ur:"Blink شروع"}));
+    if(blinkTimer) play.classList.add("stop");
+    play.onclick=function(){
+      if(blinkTimer){ clearInterval(blinkTimer); blinkTimer=null; blinkOn=false; render(); return; }
+      blinkTimer=setInterval(function(){
+        blinkOn=!blinkOn; drawBoard("led");
+        $("statechip").className="statechip "+(blinkOn?"ok":"no");
+        setText($("statechip"), blinkOn?t({en:"LED ON",ur:"ایل ای ڈی آن"}):t({en:"LED OFF",ur:"ایل ای ڈی آف"}));
+      },450);
+      render();
+    };
+    drawBoard("led");
+    setText($("statechip"), t({en:"Ready",ur:"تیار"}));
+    setText($("lead"), t({en:"digitalWrite(13, HIGH) then LOW",ur:"پہلے HIGH پھر LOW"}));
+    setText($("detail"), t({en:"Pin 13 often links to the built-in LED. HIGH = on, LOW = off.",ur:"پن 13 اکثر بیلٹ اِن ایل ای ڈی سے جڑا ہوتا ہے۔ HIGH = آن، LOW = آف۔"}));
+    setText($("trade"), "");
+    setText($("whyText"), t({en:"If you can blink an LED, you can drive motors and buzzers the same way!",ur:"ایل ای ڈی چمکا سکو تو موٹر اور بیزر بھی اسی طرح چلا سکتے ہو!"}));
+    return;
+  }
+  setText($("title"), t({en:"Digital vs Analog",ur:"ڈیجیٹل اور اینالاگ"}));
+  setText($("subtitle"), t({en:"Digital is ON/OFF. Analog has many steps in between.",ur:"ڈیجیٹل آن/آف ہے۔ اینالاگ درمیان کے کئی درجے ہیں۔"}));
+  setText($("panelHead"), t({en:"Pick a signal",ur:"سگنل چنیں"}));
+  play.classList.add("hidden"); drawBoard(null);
+  [{id:"d",en:"Digital",ur:"ڈیجیٹل",lead:{en:"Only two values: 0 or 1 (LOW / HIGH).",ur:"صرف دو قدریں: 0 یا 1۔"},det:{en:"Like a light switch. Buttons and many LEDs use digital pins.",ur:"جیسے لائٹ سوئچ۔ بٹن اور بہت سی ایل ای ڈی۔"}},
+   {id:"a",en:"Analog",ur:"اینالاگ",lead:{en:"Many values from 0 to 1023 on Uno.",ur:"Uno پر 0 سے 1023 تک۔"},det:{en:"Like a dimmer. A light sensor reads how bright the room is.",ur:"جیسے ڈمر۔ لائٹ سینسر روشنی ناپتا ہے۔"}}
+  ].forEach(function(o){
+    var b=document.createElement("button"); b.type="button"; b.className="schip";
+    b.setAttribute("aria-pressed", digPick===o.id?"true":"false");
+    setText(b,t({en:o.en,ur:o.ur}));
+    b.onclick=function(){ digPick=o.id; render(); };
+    chips.appendChild(b);
+  });
+  var cur=digPick==="a"?{en:"Analog",ur:"اینالاگ",lead:{en:"Many values from 0 to 1023 on Uno.",ur:"Uno پر 0 سے 1023 تک۔"},det:{en:"Like a dimmer. A light sensor reads how bright the room is.",ur:"جیسے ڈمر۔ لائٹ سینسر روشنی ناپتا ہے۔"}}:{en:"Digital",ur:"ڈیجیٹل",lead:{en:"Only two values: 0 or 1 (LOW / HIGH).",ur:"صرف دو قدریں: 0 یا 1۔"},det:{en:"Like a light switch. Buttons and many LEDs use digital pins.",ur:"جیسے لائٹ سوئچ۔ بٹن اور بہت سی ایل ای ڈی۔"}};
+  setText($("statechip"), t({en:cur.en,ur:cur.ur}));
+  setText($("lead"), t(cur.lead)); setText($("detail"), t(cur.det)); setText($("trade"),"");
+  setText($("whyText"), t({en:"Sensors often use analog; decisions (if dark → light on) use digital ideas.",ur:"سینسر اکثر اینالاگ؛ فیصلے ڈیجیٹل سوچ سے۔"}));
+}
+
+applyLang();
+})();
+</script>
+</body>
+</html>

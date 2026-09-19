@@ -57,7 +57,9 @@
             "explanation": "Arduino ko kaam karne ke liye sensors aur actuators ki zarurat hoti hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g4-arduino-intro.html",
+      "interactive_label": "Khelo - Arduino intro"
     },
     {
       "title": "Drone udaan",
@@ -112,7 +114,9 @@
             "explanation": "Drone ka aakhri destination manually remote control se set kiya jata hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g4-drone-udaan.html",
+      "interactive_label": "Khelo - Drone udaan"
     },
     {
       "title": "Factory robot",
@@ -167,7 +171,9 @@
             "explanation": "Robot ki sabse badi khubi yeh hai ke yeh waqt par kaam khatam kar sakta hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g4-factory-robot.html",
+      "interactive_label": "Khelo - Factory robot"
     },
     {
       "title": "Line follower",
@@ -222,7 +228,9 @@
             "explanation": "Line follower robots ko unke kaam ke liye programming ki zaroorat hoti hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g4-line-follower.html",
+      "interactive_label": "Khelo - Line follower"
     },
     {
       "title": "Automatic gate",
@@ -277,7 +285,9 @@
             "explanation": "Shopping malls mein automatic darwaze aam tor par dekhe jate hain."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g4-automatic-gate.html",
+      "interactive_label": "Khelo - Automatic gate"
     },
     {
       "title": "Robotic arm",
@@ -332,7 +342,9 @@
             "explanation": "Robotic arms automation aur robotics ka ek aham hissa hain jo kaam ko asaan banate hain."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g4-robotic-arm.html",
+      "interactive_label": "Khelo - Robotic arm"
     }
   ]
 }

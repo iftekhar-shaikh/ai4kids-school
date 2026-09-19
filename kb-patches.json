@@ -543,5 +543,53 @@
       "interactive_file": "interactives/g4-awaaz.html",
       "interactive_label": "Khelo - Awaaz"
     }
+  },
+  {
+    "file": "kb/grade_4/robotics.json",
+    "match_title": "Arduino intro",
+    "add": {
+      "interactive_file": "interactives/g4-arduino-intro.html",
+      "interactive_label": "Khelo - Arduino intro"
+    }
+  },
+  {
+    "file": "kb/grade_4/robotics.json",
+    "match_title": "Drone udaan",
+    "add": {
+      "interactive_file": "interactives/g4-drone-udaan.html",
+      "interactive_label": "Khelo - Drone udaan"
+    }
+  },
+  {
+    "file": "kb/grade_4/robotics.json",
+    "match_title": "Factory robot",
+    "add": {
+      "interactive_file": "interactives/g4-factory-robot.html",
+      "interactive_label": "Khelo - Factory robot"
+    }
+  },
+  {
+    "file": "kb/grade_4/robotics.json",
+    "match_title": "Line follower",
+    "add": {
+      "interactive_file": "interactives/g4-line-follower.html",
+      "interactive_label": "Khelo - Line follower"
+    }
+  },
+  {
+    "file": "kb/grade_4/robotics.json",
+    "match_title": "Automatic gate",
+    "add": {
+      "interactive_file": "interactives/g4-automatic-gate.html",
+      "interactive_label": "Khelo - Automatic gate"
+    }
+  },
+  {
+    "file": "kb/grade_4/robotics.json",
+    "match_title": "Robotic arm",
+    "add": {
+      "interactive_file": "interactives/g4-robotic-arm.html",
+      "interactive_label": "Khelo - Robotic arm"
+    }
   }
 ]
