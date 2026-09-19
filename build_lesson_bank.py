@@ -298,13 +298,9 @@ lines.append('<div id="modal-content"></div>')
 lines.append('</div></div>')
 
 # JS data + logic
+# Do NOT base64-embed interactives into lesson_bank.html (keeps file small; Khelo opens in Streamlit panel)
 for t in all_topics:
     t["interactive_b64"] = ""
-    rel = t.get("interactive_file") or ""
-    if rel:
-        ip = Path(os.path.dirname(os.path.abspath(__file__))) / rel
-        if ip.exists():
-            t["interactive_b64"] = base64.b64encode(ip.read_bytes()).decode("ascii")
 
 topics_json = json.dumps([{
     "grade": t["grade"],
@@ -483,7 +479,6 @@ function openModal(i) {{
   let html = `<h2>${{t.emoji}} ${{t.title}}</h2>
   <p class="meta">${{t.subj}} • Grade ${{t.grade}} • ${{t.desc}}</p>`;
 
-  // LESSON first (Khelo goes underneath)
   if (t.lesson) {{
     window.__lessonRaw = t.lesson;
     html += `<div class="read-bar">
@@ -495,18 +490,13 @@ function openModal(i) {{
     html += '<p style="color:#999;padding:10px;font-size:1.1rem">Lesson abhi available nahi hai.</p>';
   }}
 
-  // Khelo UNDER lesson
-  if (t.interactive_file || t.interactive_b64) {{
+  if (t.interactive_file) {{
     const label = t.interactive_label || 'Khelo — interactive';
-    window.__kheloB64 = t.interactive_b64 || '';
     html += `<div class="khelo-top" style="margin-top:14px">
-      <button type="button" class="khelo-go" id="kheloBelowBtn" style="background:#8e44ad">🎮 ${{label}} — neeche panel</button>
-      <button type="button" class="khelo-go" id="kheloOpenBtn" style="background:#16a085">Nayi window</button>
-      <span class="hint">Khelo lesson ke neeche panel mein khulta hai.</span>
+      <button type="button" class="khelo-go" id="kheloBelowBtn" style="background:#8e44ad;width:100%">🎮 ${{label}}</button>
+      <span class="hint">App lesson ke neeche panel mein khulegi — button dabao, phir thoda neeche scroll.</span>
       <div id="kheloStatus" style="margin-top:8px;font-size:1rem;color:#6c3483"></div>
     </div>`;
-  }} else {{
-    window.__kheloB64 = '';
   }}
 
   if (t.questions && t.questions.length) {{
@@ -537,14 +527,35 @@ function openModal(i) {{
   }}
   document.getElementById('modal-content').innerHTML = html;
 
-  if (t.interactive_file || t.interactive_b64) {{
+  if (t.interactive_file) {{
     const bBelow = document.getElementById('kheloBelowBtn');
-    const bOpen = document.getElementById('kheloOpenBtn');
     if (bBelow) bBelow.onclick = function() {{ openKheloBelow(t); }};
-    if (bOpen) bOpen.onclick = function() {{ openKheloWindow(); }};
   }}
 
   document.getElementById('modal').classList.add('open');
+}}
+
+
+function openKheloBelow(t) {{
+  try {{
+    localStorage.setItem('ai4kids_lb_khelo', JSON.stringify({{
+      grade: t.grade, sk: t.sk, title: t.title, ts: Date.now()
+    }}));
+  }} catch (e) {{}}
+  try {{
+    var url = new URL(window.top.location.href);
+    url.searchParams.set('view_lb', '1');
+    url.searchParams.set('lb_khelo', String(t.grade) + '|' + String(t.sk) + '|' + String(t.title));
+    var a = document.createElement('a');
+    a.href = url.toString();
+    a.target = '_top';
+    a.rel = 'noopener';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  }} catch (e) {{}}
+  var s = document.getElementById('kheloStatus');
+  if (s) s.textContent = 'Upar Khelo panel mein topic set ho jayega — sabaq ke neeche app dekho.';
 }}
 
 function closeModal() {{
