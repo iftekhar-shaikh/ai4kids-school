@@ -655,5 +655,13 @@
       "interactive_file": "interactives/g4-articles.html",
       "interactive_label": "Khelo - Articles"
     }
+  },
+  {
+    "file": "kb/grade_4/english.json",
+    "match_title": "Tenses: Present Past Future",
+    "add": {
+      "interactive_file": "interactives/g4-tenses.html",
+      "interactive_label": "Khelo - Tenses"
+    }
   }
 ]
