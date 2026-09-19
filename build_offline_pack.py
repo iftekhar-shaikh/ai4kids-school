@@ -1,5 +1,5 @@
 ﻿# -*- coding: utf-8 -*-
-"""Build AI4Kids Class 1 offline zip pack."""
+"""Build AI4Kids offline zip packs per class (Grade 1-5)."""
 from __future__ import annotations
 import json
 import zipfile
@@ -7,7 +7,6 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 PACK_DIR = ROOT / "packs"
-OUT_ZIP = PACK_DIR / "ai4kids-grade1-offline.zip"
 
 META = {
     "ai": ("AI & Technology", "🤖"),
@@ -21,9 +20,11 @@ META = {
 }
 
 
-def load_grade1_topics():
+def load_topics(grade: int):
     rows = []
-    gdir = ROOT / "kb" / "grade_1"
+    gdir = ROOT / "kb" / f"grade_{grade}"
+    if not gdir.exists():
+        return rows
     for sk, (name, emoji) in META.items():
         p = gdir / f"{sk}.json"
         if not p.exists():
@@ -45,7 +46,7 @@ def load_grade1_topics():
     return rows
 
 
-def build_index(topics) -> str:
+def build_index(grade: int, topics) -> str:
     by = {}
     for t in topics:
         by.setdefault(t["sk"], []).append(t)
@@ -74,7 +75,7 @@ def build_index(topics) -> str:
 <html lang="ur"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>AI4Kids — Class 1 Offline Pack</title>
+<title>AI4Kids — Class {grade} Offline Pack</title>
 <style>
 :root{{--ink:#17252f;--muted:#526672;--paper:#fffdf7;--green:#27ae60;--green-deep:#1e8449;--teal:#1abc9c;--font:'Segoe UI','Trebuchet MS',Tahoma,sans-serif}}
 *{{box-sizing:border-box}}
@@ -92,7 +93,7 @@ body{{margin:0;font-family:var(--font);background:var(--paper);color:var(--ink);
 .card .d{{font-size:.9rem;color:var(--muted);font-weight:600}}
 .note{{margin:12px 16px;padding:12px;background:#fff0b8;border:2px solid var(--ink);border-radius:12px;font-weight:700}}
 </style></head><body>
-<div class="header"><h1>📚 AI4Kids — Class 1 Offline</h1>
+<div class="header"><h1>📚 AI4Kids — Class {grade} Offline</h1>
 <p>Unzip → index.html → topic → Khelo app</p></div>
 <div class="trust" role="note"><b style="color:#1e8449">Parents ke liye</b>
 <span class="pill">🛡️ Safe for kids</span>
@@ -104,26 +105,36 @@ body{{margin:0;font-family:var(--font);background:var(--paper);color:var(--ink);
 """
 
 
-def build_zip():
+def zip_path(grade: int) -> Path:
+    return PACK_DIR / f"ai4kids-grade{grade}-offline.zip"
+
+
+def build_zip(grade: int = 1):
+    grade = int(grade)
+    if grade < 1 or grade > 5:
+        raise ValueError("grade must be 1-5")
     PACK_DIR.mkdir(exist_ok=True)
-    topics = load_grade1_topics()
+    topics = load_topics(grade)
     missing = []
     files_added = 0
-    if OUT_ZIP.exists():
-        OUT_ZIP.unlink()
-    with zipfile.ZipFile(OUT_ZIP, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=6) as z:
-        z.writestr("index.html", build_index(topics))
+    out = zip_path(grade)
+    if out.exists():
+        out.unlink()
+    with zipfile.ZipFile(out, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=6) as z:
+        z.writestr("index.html", build_index(grade, topics))
         z.writestr(
             "README-UR.txt",
-            "AI4Kids Class 1 Offline Pack\\n"
-            "1) Zip extract karo\\n"
-            "2) index.html Chrome/Edge mein kholo\\n"
-            "3) Subject → topic dabao → app\\n"
-            "Login nahi chahiye. WhatsApp: 0337 1468899\\n",
+            f"AI4Kids Class {grade} Offline Pack\n"
+            "1) Zip extract karo\n"
+            "2) index.html Chrome/Edge mein kholo\n"
+            "3) Subject → topic dabao → app\n"
+            "Login nahi chahiye. WhatsApp: 0337 1468899\n",
         )
-        for p in (ROOT / "kb" / "grade_1").glob("*.json"):
-            z.write(p, arcname=f"kb/grade_1/{p.name}")
-            files_added += 1
+        gdir = ROOT / "kb" / f"grade_{grade}"
+        if gdir.exists():
+            for p in gdir.glob("*.json"):
+                z.write(p, arcname=f"kb/grade_{grade}/{p.name}")
+                files_added += 1
         for t in topics:
             rel = t["file"]
             if not rel:
@@ -136,15 +147,20 @@ def build_zip():
             z.write(src, arcname=rel)
             files_added += 1
     return {
-        "zip": str(OUT_ZIP),
-        "bytes": OUT_ZIP.stat().st_size,
-        "mb": round(OUT_ZIP.stat().st_size / 1e6, 2),
+        "grade": grade,
+        "zip": str(out),
+        "bytes": out.stat().st_size,
+        "mb": round(out.stat().st_size / 1e6, 2),
         "topics": len(topics),
         "files": files_added,
         "missing": missing,
     }
 
 
+def build_all():
+    return [build_zip(g) for g in range(1, 6)]
+
+
 if __name__ == "__main__":
-    info = build_zip()
-    print(info)
+    for info in build_all():
+        print(info)
