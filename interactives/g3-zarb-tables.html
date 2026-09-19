@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Zarb tables 6–9 | AI4Kids Grade 3 Math</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --accent:#1a5b8f; --accent2:#c9702e; --ok:#2e7d4f; --no:#c4453a;
+  --ink:#1f2933; --ink-soft:#4a5661; --paper:#fdfaf3; --line:#ded5c4;
+  --board:#eef3f7; --board-deep:#d9e5ee; --good-bg:#e8f2ed; --bad-bg:#fbeae8;
+  --fs-cap:clamp(14px, 3.8vw, 16px); --fs-xs:clamp(16px, 4.2vw, 18px);
+  --fs-sm:clamp(18px, 4.8vw, 20px); --fs-md:clamp(19px, 5.2vw, 22px);
+  --fs-lg:clamp(22px, 6vw, 26px); --fs-xl:clamp(30px, 8vw, 38px); --lh:1.5;
+}
+body.urdu{
+  --fs-cap:clamp(15px, 4vw, 17px); --fs-xs:clamp(17px, 4.5vw, 19px);
+  --fs-sm:clamp(19px, 5.2vw, 22px); --fs-md:clamp(21px, 5.6vw, 24px);
+  --fs-lg:clamp(24px, 6.5vw, 28px); --fs-xl:clamp(28px, 7.5vw, 36px); --lh:2.1;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+  font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+}
+body.urdu{font-family:"Noto Nastaliq Urdu","Baloo Bhaijaan 2",serif;line-height:var(--lh)}
+.wrap{max-width:560px;margin:0 auto;padding:0 14px}
+.bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px;flex-wrap:wrap}
+.brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+.chip{
+  border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;
+  font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.chip:focus-visible,button:focus-visible{outline:3px solid var(--accent2);outline-offset:2px}
+h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+body.urdu h1{line-height:1.9}
+.sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+.tabs{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 14px}
+.tabs button{
+  flex:1 1 18%;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+  border-radius:14px;padding:9px 6px;font:inherit;font-weight:800;
+  font-size:var(--fs-cap);cursor:pointer;min-height:52px;
+}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.scene{
+  position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+  background:linear-gradient(180deg,var(--board) 0%,var(--board-deep) 100%);
+  padding:14px;min-height:180px;
+}
+.readout{
+  margin-top:12px;background:var(--paper);
+  border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+}
+.statechip{display:inline-block;color:#fff;border-radius:999px;
+           padding:4px 14px;font-size:var(--fs-cap);font-weight:700;margin-bottom:10px;
+           background:var(--accent)}
+.statechip.ok{background:var(--ok)} .statechip.no{background:var(--no)}
+.lead{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+body.urdu .lead{line-height:1.95}
+.detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+.why-note{
+  margin:12px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.55;
+  border-left:3px solid var(--accent);padding-left:11px;
+}
+body.urdu .why-note{border-left:0;border-right:3px solid var(--accent);padding-left:0;padding-right:11px;line-height:var(--lh)}
+.why-note b{color:var(--accent);font-weight:800}
+.play{
+  width:100%;margin-top:12px;border:3px solid var(--ink);border-radius:18px;
+  background:var(--ink);color:var(--paper);font:inherit;font-weight:800;
+  font-size:var(--fs-md);cursor:pointer;min-height:60px;
+}
+.play:active{transform:scale(.98)}
+.play.alt{background:var(--paper);color:var(--ink)}
+.play.go{background:var(--ok);border-color:var(--ok)}
+.play.stop{background:var(--no);border-color:var(--no)}
+.play:disabled{opacity:.45;cursor:not-allowed}
+.two{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.two .play{flex:1;min-width:120px;margin-top:0}
+.panel{margin-top:14px}
+.panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+.lesson{margin-top:8px}
+.lcard{
+  border:3px solid var(--line);border-radius:18px;padding:14px 16px;margin-bottom:12px;background:#fffdf8;
+}
+.lcard .tag{
+  display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+  padding:3px 12px;font-size:var(--fs-cap);font-weight:800;margin-bottom:8px;
+}
+.lcard.hook .tag{background:var(--accent2)}
+.lcard.misaal .tag{background:var(--ok)}
+.lcard.karo .tag{background:#6b4a8f}
+.lcard p{margin:0;font-size:var(--fs-sm);line-height:1.55}
+body.urdu .lcard p{line-height:var(--lh)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.grid4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px}
+.card{
+  border:3px solid var(--line);background:var(--paper);border-radius:16px;
+  padding:14px 10px;font:inherit;cursor:pointer;min-height:88px;color:var(--ink);text-align:center;
+}
+.card .emoji{font-size:32px;display:block;margin-bottom:4px}
+.card .lbl{font-size:var(--fs-sm);font-weight:800;display:block;line-height:1.3}
+.card .subl{font-size:var(--fs-cap);font-weight:700;color:var(--ink-soft);display:block;margin-top:2px}
+.card.on{border-color:var(--accent);background:#e8eef8;box-shadow:0 0 0 3px rgba(26,91,143,.2)}
+.card.ok{border-color:var(--ok);background:var(--good-bg)}
+.card.no{border-color:var(--no);background:var(--bad-bg)}
+.card:disabled{opacity:.9;cursor:default}
+.schip{
+  border:2px solid var(--line);background:var(--paper);border-radius:999px;padding:9px 15px;
+  font:inherit;font-size:var(--fs-cap);font-weight:800;color:var(--ink);cursor:pointer;min-height:46px;
+}
+.schip[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.big-num{
+  font-size:clamp(42px,12vw,64px);font-weight:800;text-align:center;line-height:1.1;
+  font-family:"Baloo Bhaijaan 2",sans-serif;letter-spacing:.02em;
+}
+.eq-line{font-size:var(--fs-lg);font-weight:800;text-align:center;margin:8px 0;font-family:"Baloo Bhaijaan 2",sans-serif}
+.digit-row{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;margin:8px 0}
+.digit-box{
+  min-width:52px;padding:10px 8px;border:3px solid var(--ink);border-radius:12px;
+  background:#fff;font-weight:800;font-size:var(--fs-lg);text-align:center;
+}
+.digit-box.place{font-size:var(--fs-cap);color:var(--ink-soft);border-color:var(--line);background:transparent;border-style:dashed}
+.frac-vis{display:flex;gap:4px;justify-content:center;flex-wrap:wrap;margin:10px 0;min-height:56px}
+.frac-piece{
+  width:40px;height:48px;border:2px solid var(--ink);border-radius:8px;
+  background:#93c5fd;
+}
+.frac-piece.off{background:#e5e7eb;opacity:.55}
+.pizza{
+  width:160px;height:160px;border-radius:50%;border:4px solid var(--ink);
+  margin:8px auto;position:relative;overflow:hidden;background:#fde68a;
+}
+.tally-mark{font-size:28px;font-weight:800;letter-spacing:2px;font-family:monospace}
+.pict-row{display:flex;flex-wrap:wrap;gap:4px;align-items:center;margin:6px 0;min-height:36px}
+.carroll{
+  display:grid;grid-template-columns:80px 1fr 1fr;gap:4px;font-size:var(--fs-cap);font-weight:700;
+}
+.carroll > div{border:2px solid var(--ink);border-radius:10px;padding:10px 8px;background:#fff;text-align:center;min-height:48px}
+.carroll .head{background:var(--accent);color:#fff}
+.carroll .side{background:#e8eef8}
+.bar-row{display:flex;align-items:flex-end;gap:8px;height:140px;padding:8px 4px}
+.bar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;height:100%;justify-content:flex-end}
+.bar-col .barf{width:100%;border-radius:10px 10px 4px 4px;background:var(--accent);min-height:8px;border:2px solid var(--ink)}
+.bar-col .bl{font-size:var(--fs-cap);font-weight:800;text-align:center}
+.quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+.q{margin-bottom:26px}
+.q>p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+.opt{
+  display:block;width:100%;text-align:left;margin-bottom:10px;
+  border:2px solid var(--line);background:var(--paper);border-radius:12px;
+  padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);min-height:52px;
+}
+body.urdu .opt{text-align:right}
+.opt:hover{border-color:var(--ink)}
+.opt.right{border-color:var(--ok);background:var(--good-bg);font-weight:600}
+.opt.wrong{border-color:var(--no);background:var(--bad-bg)}
+.fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none;line-height:1.55}
+.fb.show{display:block}
+.score{
+  margin-top:14px;padding:14px;border:3px solid var(--ink);border-radius:16px;
+  font-weight:800;font-size:var(--fs-md);text-align:center;display:none;
+}
+.score.show{display:block}
+footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);font-size:var(--fs-xs);color:var(--ink-soft)}
+.hidden{display:none !important}
+@media (min-width:820px){
+  .wrap{
+    max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
+    grid-template-areas:"bar bar" "head head" "tabs tabs" "left right" "lesson lesson" "quiz quiz" "foot foot";
+    align-items:start;
+  }
+  .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+  .left{grid-area:left} .right{grid-area:right}
+  .lesson{grid-area:lesson}
+  .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition-duration:.01ms !important;animation:none !important}
+}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar">
+    <span class="brand" id="brand">AI4Kids · Grade 3 · Math</span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunein">🔊</button>
+  </div>
+  <div class="head">
+    <h1 id="title"></h1>
+    <p class="sub" id="subtitle"></p>
+  </div>
+  <div class="tabs" role="group" id="tabs"></div>
+  <div class="left" id="leftPane"></div>
+  <div class="right" id="rightPane"></div>
+  <div class="lesson" id="lessonBox"></div>
+  <div class="quiz">
+    <h2 id="quizHead" style="font-size:var(--fs-lg);font-weight:800;margin:0 0 16px"></h2>
+    <div id="quizBox"></div>
+    <div class="score" id="scoreBox"></div>
+  </div>
+  <footer id="foot"></footer>
+</div>
+<script>
+(function(){
+"use strict";
+var lang="en", tab="play", lastSpoken="";
+function $(id){ return document.getElementById(id); }
+function t(o){ return (o && typeof o==="object") ? (o[lang]||o.en||"") : (o||""); }
+function setText(el, s){
+  if(!el) return;
+  el.textContent = s;
+  if(lang==="ur"){ el.setAttribute("dir","rtl"); }
+  else { el.setAttribute("dir","ltr"); }
+}
+function isolate(s){ return "\u2068"+s+"\u2069"; }
+
+var META = {"title": {"en": "Zarb tables 6–9", "ur": "ضرب ٹیبل ۶–۹"}, "sub": {"en": "Master multiplication tables for 6, 7, 8 and 9 with a quick tap game!", "ur": "۶، ۷، ۸ اور ۹ کے ضرب ٹیبل — جلدی چھو کر کھیلو!"}, "tip": {"en": "Zarb means multiply. 6×7=42, 7×8=56, 8×9=72, 9×6=54 — practise daily!", "ur": "ضرب یعنی گنا۔ ۶×۷=۴۲، ۷×۸=۵۶، ۸×۹=۷۲، ۹×۶=۵۴ — روز پریکٹس!"}, "footEn": "Zarb tables 6–9", "footUr": "ضرب ٹیبل ۶–۹"};
+var LESSON = {"hook": {"en": "If you have 6 pakoras and friends ask 7 times, how many do you need? Let's learn zarb tables!", "ur": "اگر ۶ پکوڑے ہوں اور دوست ۷ بار مانگیں تو کتنے چاہییں؟ چلو ضرب ٹیبل سیکھیں!"}, "samjhao": {"en": "Zarb tables are multiplication facts. Table of 6: 6×1=6 … 6×9=54. Table of 7 up to 7×9=63. Table of 8 up to 8×9=72. Table of 9 up to 9×9=81. Practice makes them easy!", "ur": "ضرب ٹیبل حاصل ضرب کے حقائق ہیں۔ ۶ کا ٹیبل: ۶×۱=۶ … ۶×۹=۵۴۔ ۷ کا ۷×۹=۶۳ تک۔ ۸ کا ۸×۹=۷۲ تک۔ ۹ کا ۹×۹=۸۱ تک۔ پریکٹس سے آسان!"}, "misaal": {"en": "Shop gives 6 oranges, friend wants 4 packs: 6×4=24 oranges. Tables help in the bazaar!", "ur": "دکان ۶ سنگترے دے، دوست ۴ پیکٹ چاہے: ۶×۴=۲۴۔ بازار میں ٹیبل کام آتے ہیں!"}, "karo": {"en": "Quiz a sibling on 6–9 tables. Each correct answer earns a point or sticker — highest score wins!", "ur": "بہن/بھائی سے ۶–۹ کے ٹیبل پوچھو۔ صحیح جواب پر پوائنٹ یا اسٹیکر — سب سے زیادہ جیتے!"}};
+var QUIZ = [{"q": {"en": "6 ka 7 se multiplication kitna hai?", "ur": "6 ka 7 se multiplication kitna hai?"}, "a": {"en": "42", "ur": "42"}, "b": {"en": "36", "ur": "36"}, "c": {"en": "48", "ur": "48"}, "d": {"en": "54", "ur": "54"}, "correct": "a", "explanation": {"en": "6 aur 7 ka multiplication 42 hota hai.", "ur": "6 aur 7 ka multiplication 42 hota hai."}}, {"q": {"en": "7 ka 8 se multiplication kitna hai?", "ur": "7 ka 8 se multiplication kitna hai?"}, "a": {"en": "56", "ur": "56"}, "b": {"en": "49", "ur": "49"}, "c": {"en": "54", "ur": "54"}, "d": {"en": "64", "ur": "64"}, "correct": "a", "explanation": {"en": "7 aur 8 ka multiplication 56 hota hai.", "ur": "7 aur 8 ka multiplication 56 hota hai."}}, {"q": {"en": "8 ka 9 se multiplication kitna hai?", "ur": "8 ka 9 se multiplication kitna hai?"}, "a": {"en": "72", "ur": "72"}, "b": {"en": "64", "ur": "64"}, "c": {"en": "74", "ur": "74"}, "d": {"en": "81", "ur": "81"}, "correct": "a", "explanation": {"en": "8 aur 9 ka multiplication 72 hota hai.", "ur": "8 aur 9 ka multiplication 72 hota hai."}}, {"q": {"en": "9 ka 6 se multiplication kitna hai?", "ur": "9 ka 6 se multiplication kitna hai?"}, "a": {"en": "54", "ur": "54"}, "b": {"en": "63", "ur": "63"}, "c": {"en": "72", "ur": "72"}, "d": {"en": "81", "ur": "81"}, "correct": "a", "explanation": {"en": "9 aur 6 ka multiplication 54 hota hai.", "ur": "9 aur 6 ka multiplication 54 hota hai."}}, {"q": {"en": "6 ka 8 se multiplication kitna hai?", "ur": "6 ka 8 se multiplication kitna hai?"}, "a": {"en": "48", "ur": "48"}, "b": {"en": "42", "ur": "42"}, "c": {"en": "54", "ur": "54"}, "d": {"en": "36", "ur": "36"}, "correct": "a", "explanation": {"en": "6 aur 8 ka multiplication 48 hota hai.", "ur": "6 aur 8 ka multiplication 48 hota hai."}}];
+
+function buildTabs(){
+  var tabs=$("tabs"); tabs.innerHTML="";
+  var list=[
+    ["play", {en:"Play", ur:"کھیلو"}],
+    ["hook", {en:"Hook", ur:"ہُک"}],
+    ["samjhao", {en:"Samjhao", ur:"سمجھاؤ"}],
+    ["misaal", {en:"Misaal", ur:"مثال"}],
+    ["karo", {en:"Karo", ur:"کرو"}]
+  ];
+  list.forEach(function(x){
+    var b=document.createElement("button"); b.type="button";
+    b.setAttribute("data-tab", x[0]);
+    b.setAttribute("aria-pressed", tab===x[0]?"true":"false");
+    setText(b, t(x[1]));
+    b.addEventListener("click", function(){
+      tab=x[0];
+      Array.prototype.forEach.call(tabs.querySelectorAll("button"), function(btn){
+        btn.setAttribute("aria-pressed", btn.getAttribute("data-tab")===tab?"true":"false");
+      });
+      renderMain();
+    });
+    tabs.appendChild(b);
+  });
+}
+
+function buildLessonCards(){
+  var box=$("lessonBox"); box.innerHTML="";
+  [{cls:"hook",tag:{en:"HOOK",ur:"ہُک"},body:LESSON.hook},
+   {cls:"samjhao",tag:{en:"SAMJHAO",ur:"سمجھاؤ"},body:LESSON.samjhao},
+   {cls:"misaal",tag:{en:"MISAAL",ur:"مثال"},body:LESSON.misaal},
+   {cls:"karo",tag:{en:"KARO",ur:"کرو"},body:LESSON.karo}
+  ].forEach(function(c){
+    var d=document.createElement("div"); d.className="lcard "+c.cls;
+    var tag=document.createElement("span"); tag.className="tag"; setText(tag,t(c.tag));
+    var p=document.createElement("p"); setText(p,t(c.body));
+    d.appendChild(tag); d.appendChild(p); box.appendChild(d);
+  });
+}
+
+var quizScore=0, quizDone=0;
+function buildQuiz(){
+  var box=$("quizBox"); box.innerHTML=""; quizScore=0; quizDone=0;
+  var sb=$("scoreBox"); sb.classList.remove("show"); sb.textContent="";
+  setText($("quizHead"), t({en:"Quiz — 5 sawaal", ur:"کوئز — ۵ سوال"}));
+  QUIZ.forEach(function(item, qi){
+    var wrap=document.createElement("div"); wrap.className="q";
+    var q=document.createElement("p");
+    setText(q, (qi+1)+". "+t(item.q));
+    wrap.appendChild(q);
+    var fb=document.createElement("p"); fb.className="fb";
+    ["a","b","c","d"].forEach(function(k, oi){
+      var b=document.createElement("button"); b.type="button"; b.className="opt";
+      b.setAttribute("dir", lang==="ur"?"rtl":"ltr");
+      var label = String.fromCharCode(65+oi)+". "+t(item[k]);
+      b.textContent = (lang==="ur") ? isolate(label) : label;
+      b.addEventListener("click", function(){
+        if(wrap.getAttribute("data-done")==="1") return;
+        wrap.setAttribute("data-done","1"); quizDone++;
+        if(item.correct===k) quizScore++;
+        ["a","b","c","d"].forEach(function(kk, xi){
+          var btn=wrap.querySelectorAll(".opt")[xi];
+          if(kk===item.correct) btn.classList.add("right");
+          else if(kk===k) btn.classList.add("wrong");
+        });
+        setText(fb, t(item.explanation)); fb.classList.add("show");
+        if(quizDone===QUIZ.length){
+          sb.classList.add("show");
+          setText(sb, t({en:"Your score",ur:"آپ کا اسکور"})+": "+quizScore+" "+t({en:"out of",ur:"میں سے"})+" "+QUIZ.length);
+        }
+      });
+      wrap.appendChild(b);
+    });
+    wrap.appendChild(fb); box.appendChild(wrap);
+  });
+}
+
+function showLessonTab(key){
+  var left=$("leftPane"), right=$("rightPane");
+  left.innerHTML=""; right.innerHTML="";
+  var map={hook:LESSON.hook, samjhao:LESSON.samjhao, misaal:LESSON.misaal, karo:LESSON.karo};
+  var tags={hook:{en:"HOOK",ur:"ہُک"},samjhao:{en:"SAMJHAO",ur:"سمجھاؤ"},misaal:{en:"MISAAL",ur:"مثال"},karo:{en:"KARO",ur:"کرو"}};
+  left.innerHTML='<div class="lesson" style="margin:0"><div class="lcard '+key+'"><span class="tag" id="ltag"></span><p id="lbody"></p></div></div>';
+  setText($("ltag"), t(tags[key]));
+  setText($("lbody"), t(map[key]));
+  lastSpoken = t(map[key]);
+  right.innerHTML='<div class="readout"><span class="statechip" id="sc"></span><p class="lead" id="ld"></p><p class="detail" id="dt"></p><p class="why-note"><b id="wl"></b> <span id="wt"></span></p></div>';
+  setText($("sc"), t(tags[key]));
+  setText($("ld"), t(META.title));
+  setText($("dt"), t(META.sub));
+  setText($("wl"), t({en:"Ghaur karein:",ur:"غور کریں:"}));
+  setText($("wt"), t(META.tip));
+}
+
+function renderMain(){
+  if(tab==="play"){ renderPlay(); }
+  else { showLessonTab(tab); }
+}
+
+function applyLang(){
+  document.body.classList.toggle("urdu", lang==="ur");
+  document.documentElement.lang = (lang==="ur")?"ur":"en";
+  document.documentElement.dir = (lang==="ur")?"rtl":"ltr";
+  var lb=$("langBtn");
+  lb.textContent = (lang==="en")?"اردو":"English";
+  lb.setAttribute("aria-pressed", lang==="ur"?"true":"false");
+  setText($("brand"), t({en:"AI4Kids · Grade 3 · Math", ur:"AI4Kids · جماعت ۳ · ریاضی"}));
+  setText($("title"), t(META.title));
+  setText($("subtitle"), t(META.sub));
+  setText($("foot"), t({en:"AI4Kids Islamabad · Grade 3 Math · "+META.footEn,
+    ur:"AI4Kids اسلام آباد · جماعت ۳ ریاضی · "+META.footUr}));
+  buildTabs(); buildLessonCards(); buildQuiz(); renderMain();
+}
+
+$("langBtn").addEventListener("click", function(){ lang=(lang==="en")?"ur":"en"; applyLang(); });
+$("speakBtn").addEventListener("click", function(){
+  try{
+    if(!("speechSynthesis" in window)) return;
+    window.speechSynthesis.cancel();
+    var u=new SpeechSynthesisUtterance(lastSpoken || t(META.title));
+    u.lang=(lang==="ur")?"ur-PK":"en-US"; u.rate=0.92;
+    var voices=window.speechSynthesis.getVoices()||[];
+    for(var i=0;i<voices.length;i++){
+      if(voices[i].lang && voices[i].lang.toLowerCase().indexOf(lang==="ur"?"ur":"en")===0){ u.voice=voices[i]; break; }
+    }
+    window.speechSynthesis.speak(u);
+  }catch(e){}
+});
+
+/* ===== TOPIC DEMO ===== */
+
+var table=6, times=1, score=0, asked=0, pick=null;
+function renderPlay(){
+  var left=$("leftPane"), right=$("rightPane");
+  var product=table*times;
+  left.innerHTML='<div class="scene"><div class="eq-line" id="expr"></div><div class="big-num" id="ans" style="color:var(--accent)"></div><div class="frac-vis" id="dots"></div></div><div class="readout"><span class="statechip" id="sc"></span><p class="lead" id="ld"></p><p class="detail" id="dt"></p><p class="why-note"><b id="wl"></b> <span id="wt"></span></p></div>';
+  right.innerHTML='<div class="panel"><h2 id="ph"></h2><div class="chips" id="tbl"></div><div class="chips" id="tm" style="margin-top:8px"></div><h2 id="ph2" style="margin-top:14px"></h2><div class="grid2" id="opts"></div><p class="detail" id="scoreL" style="margin-top:10px"></p></div>';
+  $("expr").textContent=table+" × "+times+" = ?";
+  $("ans").textContent = (pick===null) ? "?" : String(product);
+  var dots=$("dots");
+  for(var i=0;i<Math.min(product,36);i++){
+    var d=document.createElement("div"); d.className="frac-piece"; d.style.width="22px"; d.style.height="22px"; d.style.borderRadius="50%"; d.style.background="#fbbf24";
+    dots.appendChild(d);
+  }
+  setText($("sc"), t({en:"Table of "+table, ur:table+" کا ٹیبل"}));
+  setText($("ld"), table+" × "+times+(pick===null?" = ?":" = "+product));
+  setText($("dt"), t({en:"Zarb means multiply. Groups of the same size!",ur:"ضرب کا مطلب ایک جیسے گروپ جوڑنا!"}));
+  setText($("wl"), t({en:"Ghaur karein:",ur:"غور کریں:"}));
+  setText($("wt"), t({en:"6×7=42 · 7×8=56 · 8×9=72 · 9×6=54",ur:"۶×۷=۴۲ · ۷×۸=۵۶ · ۸×۹=۷۲ · ۹×۶=۵۴"}));
+  lastSpoken=t({en:table+" times "+times+" is "+product, ur:table+" گنا "+times+" برابر "+product});
+  setText($("ph"), t({en:"Choose table 6–9",ur:"ٹیبل ۶–۹ چنو"}));
+  var tbl=$("tbl"); tbl.innerHTML="";
+  [6,7,8,9].forEach(function(v){
+    var b=document.createElement("button"); b.type="button"; b.className="schip";
+    b.setAttribute("aria-pressed", table===v?"true":"false");
+    b.textContent=v+"×";
+    b.onclick=function(){ table=v; times=1; pick=null; renderPlay(); };
+    tbl.appendChild(b);
+  });
+  var tm=$("tm"); tm.innerHTML="";
+  for(var k=1;k<=10;k++){
+    (function(kk){
+      var b=document.createElement("button"); b.type="button"; b.className="schip";
+      b.setAttribute("aria-pressed", times===kk?"true":"false");
+      b.textContent="×"+kk;
+      b.onclick=function(){ times=kk; pick=null; renderPlay(); };
+      tm.appendChild(b);
+    })(k);
+  }
+  setText($("ph2"), t({en:"Tap the correct product",ur:"صحیح حاصل ضرب چھوئیں"}));
+  var opts=[product];
+  while(opts.length<4){
+    var fake=table*(1+Math.floor(Math.random()*10));
+    if(opts.indexOf(fake)<0) opts.push(fake);
+  }
+  opts.sort(function(){ return Math.random()-0.5; });
+  // stable options keyed by table*times so re-render after pick keeps same set
+  if(!window._zOpts || window._zKey!==(table+"x"+times)){
+    window._zOpts=opts; window._zKey=table+"x"+times;
+  }
+  var box=$("opts"); box.innerHTML="";
+  window._zOpts.forEach(function(o){
+    var b=document.createElement("button"); b.type="button"; b.className="card";
+    if(pick!==null){ if(o===product) b.classList.add("ok"); else if(o===pick) b.classList.add("no"); b.disabled=true; }
+    b.innerHTML='<span class="lbl">'+o+'</span>';
+    b.onclick=function(){
+      if(pick!==null) return;
+      pick=o; asked++; if(o===product) score++;
+      renderPlay();
+    };
+    box.appendChild(b);
+  });
+  setText($("scoreL"), t({en:"Score: "+score+" / "+asked, ur:"سکور: "+score+" / "+asked}));
+  if(pick!==null){
+    var ok=pick===product;
+    $("sc").className="statechip "+(ok?"ok":"no");
+    setText($("sc"), ok?t({en:"Shabash!",ur:"شاباش!"}):t({en:"Almost!",ur:"قریب!"}));
+  }
+}
+
+
+applyLang();
+})();
+</script>
+</body>
+</html>

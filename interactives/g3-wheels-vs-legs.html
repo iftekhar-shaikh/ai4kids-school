@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Wheels vs legs — پہیے اور ٹانگیں | AI4Kids Grade 3 Automation & Robotics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --board:#eef0f5; --board-deep:#dde1ea;
+  --accent:#1d4c85; --accent2:#c9702e; --ok:#2e7d4f; --no:#c4453a;
+  --ink:#1f2933; --ink-soft:#4a5661; --paper:#fdfaf3; --line:#ded5c4;
+  --fs-cap:clamp(14px, 3.8vw, 16px); --fs-xs:clamp(16px, 4.2vw, 18px);
+  --fs-sm:clamp(18px, 4.8vw, 20px); --fs-md:clamp(19px, 5.2vw, 22px);
+  --fs-lg:clamp(22px, 6vw, 26px); --fs-xl:clamp(30px, 8vw, 38px); --lh:1.55;
+}
+body.urdu{
+  --fs-cap:clamp(17px, 4.4vw, 18px); --fs-xs:clamp(18px, 4.7vw, 20px);
+  --fs-sm:clamp(20px, 5.2vw, 22px); --fs-md:clamp(21px, 5.6vw, 24px);
+  --fs-lg:clamp(24px, 6.4vw, 28px); --fs-xl:clamp(28px, 7.4vw, 34px); --lh:2.05;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+  font-size:var(--fs-sm);line-height:1.55;padding:0 0 40px;
+}
+body.urdu{font-family:"Noto Nastaliq Urdu","Baloo Bhaijaan 2",serif;line-height:var(--lh)}
+.wrap{max-width:560px;margin:0 auto;padding:0 14px}
+.bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px;flex-wrap:wrap}
+.brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+.chip{
+  border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;
+  font-size:var(--fs-xs);cursor:pointer;min-height:44px;
+}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.chip:focus-visible,button:focus-visible{outline:3px solid var(--accent2);outline-offset:2px}
+h1{font-size:var(--fs-xl);line-height:1.25;font-weight:800;margin:8px 0 4px}
+body.urdu h1{line-height:1.9}
+.sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+.tabs{display:flex;gap:7px;margin:0 0 14px;flex-wrap:wrap}
+.tabs button{
+  flex:1;min-width:88px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+  border-radius:14px;padding:9px 6px;font:inherit;font-weight:800;
+  font-size:var(--fs-cap);cursor:pointer;min-height:54px;
+}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.scene{
+  position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+  background:linear-gradient(180deg,var(--board) 0%,var(--board-deep) 100%);
+  min-height:200px;
+}
+.scene svg,.scene canvas{display:block;width:100%;height:auto}
+.play{
+  width:100%;margin-top:12px;border:3px solid var(--ink);border-radius:18px;
+  background:var(--ink);color:var(--paper);font:inherit;font-weight:800;
+  font-size:var(--fs-md);cursor:pointer;min-height:60px;
+}
+.play:active{transform:scale(.98)}
+.play.alt{background:var(--paper);color:var(--ink)}
+.play.go{background:var(--ok);border-color:var(--ok)}
+.play.stop{background:var(--no);border-color:var(--no)}
+.play.hidden,.hidden{display:none !important}
+.two{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.card{flex:1;min-width:110px;border:3px solid var(--line);border-radius:16px;padding:12px 9px;text-align:center;cursor:pointer}
+.card em{display:block;font-style:normal;font-size:var(--fs-cap);color:var(--ink-soft);font-weight:700;margin-bottom:5px}
+.card b{display:block;font-size:var(--fs-lg);font-weight:800;line-height:1.2}
+.card span{display:block;font-size:var(--fs-cap);font-weight:700;color:var(--ink-soft);margin-top:3px}
+.card.on{border-color:var(--accent);background:#e8eef8}
+.card.hot{border-color:var(--accent2);background:#fbf1e8}
+.readout{
+  margin-top:12px;background:var(--paper);
+  border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+}
+.statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+           padding:4px 14px;font-size:var(--fs-cap);font-weight:700;margin-bottom:10px}
+.statechip.ok{background:var(--ok)} .statechip.no{background:var(--no)}
+.lead{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.4}
+body.urdu .lead{line-height:1.95}
+.detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+.trade{
+  margin-top:14px;border:2px dashed var(--accent2);background:#fbf1e8;border-radius:14px;
+  padding:12px 14px;font-size:var(--fs-xs);font-weight:700;color:#8a4a12;line-height:1.6;
+}
+.why-note{
+  margin:12px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;
+  border-left:3px solid var(--accent);padding-left:11px;
+}
+body.urdu .why-note{border-left:0;border-right:3px solid var(--accent);padding-left:0;padding-right:11px;line-height:var(--lh)}
+.why-note b{color:var(--accent);font-weight:800}
+.panel{margin-top:18px}
+.panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+.row{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+.row .name{flex:none;width:34%;max-width:140px;font-size:var(--fs-xs);font-weight:700}
+.row input[type=range]{flex:1;min-width:120px;height:36px;accent-color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.schip{
+  border:2px solid var(--line);background:var(--paper);border-radius:999px;padding:9px 15px;
+  font:inherit;font-size:var(--fs-cap);font-weight:800;color:var(--ink);cursor:pointer;min-height:46px;
+}
+.schip[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+.lesson{margin-top:8px}
+.lcard{
+  border:3px solid var(--line);border-radius:18px;padding:14px 16px;margin-bottom:12px;background:#fffdf8;
+}
+.lcard .tag{
+  display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+  padding:3px 12px;font-size:var(--fs-cap);font-weight:800;margin-bottom:8px;
+}
+.lcard.hook .tag{background:var(--accent2)}
+.lcard.misaal .tag{background:var(--ok)}
+.lcard.karo .tag{background:#6b4a8f}
+.lcard p{margin:0;font-size:var(--fs-sm);line-height:1.6}
+body.urdu .lcard p{line-height:var(--lh)}
+.quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+.q{margin-bottom:26px}
+.q > p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+.opt{
+  display:block;width:100%;text-align:left;margin-bottom:10px;
+  border:2px solid var(--line);background:var(--paper);border-radius:12px;
+  padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+  min-height:52px;
+}
+body.urdu .opt{text-align:right}
+.opt:hover{border-color:var(--ink)}
+.opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+.opt.wrong{border-color:var(--no);background:#fbeae8}
+.fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none;line-height:1.6}
+.fb.show{display:block}
+.score{
+  margin-top:14px;padding:14px;border:3px solid var(--ink);border-radius:16px;
+  font-weight:800;font-size:var(--fs-md);text-align:center;display:none;
+}
+.score.show{display:block}
+footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+       font-size:var(--fs-xs);color:var(--ink-soft)}
+@media (min-width:820px){
+  .wrap{
+    max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
+    grid-template-areas:"bar bar" "head head" "tabs tabs" "left right" "lesson lesson" "quiz quiz" "foot foot";
+    align-items:start;
+  }
+  .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+  .left{grid-area:left} .right{grid-area:right}
+  .lesson{grid-area:lesson}
+  .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important;transition-duration:.01ms !important}
+}
+
+
+
+.block-tray{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;min-height:48px}
+.block-chip{
+  border:3px solid var(--ink);border-radius:12px;padding:10px 14px;font:inherit;font-weight:800;
+  font-size:var(--fs-cap);cursor:pointer;background:#fef08a;min-height:48px;user-select:none;
+}
+.block-chip.move{background:#93c5fd}.block-chip.turn{background:#f9a8d4}.block-chip.wait{background:#bbf7d0}
+.program-slot{
+  margin-top:10px;min-height:70px;border:3px dashed var(--ink);border-radius:14px;
+  padding:10px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;background:#fff;
+}
+.prog-item{border:2px solid var(--ink);border-radius:10px;padding:8px 12px;font-weight:800;font-size:var(--fs-cap);background:#fef08a}
+.prog-item.move{background:#93c5fd}.prog-item.turn{background:#f9a8d4}.prog-item.wait{background:#bbf7d0}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar">
+    <span class="brand">AI4Kids · Grade 3 · Robotics</span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+  <div class="head">
+    <h1 id="title"></h1>
+    <p class="sub" id="subtitle"></p>
+  </div>
+  <div class="tabs" role="group" id="tabs"></div>
+  <div class="left">
+    <div class="scene" id="scene"><svg viewBox="0 0 320 240" id="svg" role="img"></svg></div>
+    <div class="two" id="two"></div>
+    <div class="readout">
+      <span class="statechip" id="statechip"></span>
+      <p class="lead" id="lead"></p>
+      <p class="detail" id="detail"></p>
+      <p class="trade" id="trade"></p>
+      <p class="why-note"><b id="whyLbl"></b> <span id="whyText"></span></p>
+    </div>
+  </div>
+  <div class="right">
+    <div class="panel">
+      <h2 id="panelHead"></h2>
+      <div class="chips" id="chips" role="group"></div>
+      <div id="controls"></div>
+      <button type="button" class="play" id="playBtn"></button>
+      <button type="button" class="play alt" id="playBtn2" style="margin-top:8px"></button>
+    </div>
+  </div>
+
+  <div class="lesson" id="lessonBox"></div>
+  <div class="quiz">
+    <h2 id="quizHead" style="font-size:var(--fs-lg);font-weight:800;margin:0 0 18px"></h2>
+    <div id="quizBox"></div>
+    <div class="score" id="scoreBox"></div>
+  </div>
+  <footer>
+    <p id="foot"></p>
+  </footer>
+</div>
+<script>
+(function(){
+"use strict";
+var lang="en", tab="main";
+
+function $(id){ return document.getElementById(id); }
+function t(o){ return (o && typeof o==="object") ? (o[lang]||o.en||"") : (o||""); }
+function setText(el, s){
+  if(!el) return;
+  el.textContent = s;
+  if(lang==="ur"){ el.setAttribute("dir","rtl"); }
+  else { el.setAttribute("dir","ltr"); }
+}
+function buildTabs(list){
+  var tabs=$("tabs"); tabs.innerHTML="";
+  list.forEach(function(x){
+    var b=document.createElement("button"); b.type="button";
+    b.setAttribute("aria-pressed", tab===x[0]?"true":"false");
+    setText(b, t(x[1]));
+    b.addEventListener("click", function(){ if(tab===x[0]) return; tab=x[0]; if(typeof onTab==="function") onTab(); render(); });
+    tabs.appendChild(b);
+  });
+}
+function buildLesson(){
+  var box=$("lessonBox"); if(!box) return; box.innerHTML="";
+  var cards=[{cls:"hook", tag:{en:"HOOK",ur:"ہک"}, body:LESSON.hook},
+   {cls:"samjhao", tag:{en:"SAMJHAO",ur:"سمجھاؤ"}, body:LESSON.samjhao},
+   {cls:"misaal", tag:{en:"MISAAL",ur:"مثال"}, body:LESSON.misaal}];
+  if(LESSON.karo) cards.push({cls:"karo", tag:{en:"KARO",ur:"کرو"}, body:LESSON.karo});
+  cards.forEach(function(c){
+    var d=document.createElement("div"); d.className="lcard "+c.cls;
+    var tag=document.createElement("span"); tag.className="tag"; setText(tag,t(c.tag));
+    var p=document.createElement("p"); setText(p,t(c.body));
+    d.appendChild(tag); d.appendChild(p); box.appendChild(d);
+  });
+}
+var quizScore=0, quizDone=0;
+function buildQuiz(){
+  var box=$("quizBox"); box.innerHTML=""; quizScore=0; quizDone=0;
+  var sb=$("scoreBox"); sb.classList.remove("show"); sb.textContent="";
+  setText($("quizHead"), t({en:"Check yourself", ur:"اپنا امتحان لیں"}));
+  QUIZ.forEach(function(item){
+    var wrap=document.createElement("div"); wrap.className="q";
+    var q=document.createElement("p"); setText(q, t(item.q)); wrap.appendChild(q);
+    var fb=document.createElement("p"); fb.className="fb";
+    ["a","b","c","d"].forEach(function(k, oi){
+      var b=document.createElement("button"); b.type="button"; b.className="opt";
+      b.setAttribute("dir", lang==="ur"?"rtl":"ltr");
+      b.textContent = String.fromCharCode(65+oi)+". "+t(item[k]);
+      b.addEventListener("click", function(){
+        if(wrap.getAttribute("data-done")==="1") return;
+        wrap.setAttribute("data-done","1"); quizDone++;
+        if(item.correct===k) quizScore++;
+        ["a","b","c","d"].forEach(function(kk, xi){
+          var btn=wrap.querySelectorAll(".opt")[xi];
+          if(kk===item.correct) btn.classList.add("right");
+          else if(kk===k) btn.classList.add("wrong");
+        });
+        setText(fb, t(item.explanation)); fb.classList.add("show");
+        if(quizDone===QUIZ.length){
+          sb.classList.add("show");
+          setText(sb, t({en:"Score: "+quizScore+" / "+QUIZ.length, ur:"سکور: "+quizScore+" / "+QUIZ.length}));
+        }
+      });
+      wrap.appendChild(b);
+    });
+    wrap.appendChild(fb); box.appendChild(wrap);
+  });
+}
+function applyLang(){
+  document.body.classList.toggle("urdu", lang==="ur");
+  document.documentElement.lang = (lang==="ur") ? "ur" : "en";
+  var lb=$("langBtn");
+  lb.textContent = (lang==="en") ? "اردو" : "English";
+  lb.setAttribute("aria-pressed", lang==="ur" ? "true":"false");
+  setText($("foot"), t({en:"AI4Kids — Islamabad's bilingual AI and coding school. WhatsApp 0337 1468899",
+    ur:"اے آئی فور کڈز — اسلام آباد کا دو زبانوں والا اے آئی اور کوڈنگ سکول۔ واٹس ایپ 0337 1468899"}));
+  buildLesson(); buildQuiz(); render();
+}
+$("langBtn").addEventListener("click", function(){ lang=(lang==="en")?"ur":"en"; applyLang(); });
+$("speakBtn").addEventListener("click", function(){
+  try{
+    if(!("speechSynthesis" in window)) return;
+    window.speechSynthesis.cancel();
+    var lead=$("lead"); var text = (lead && lead.textContent) || ($("title")&&$("title").textContent) || "";
+    var u=new SpeechSynthesisUtterance(text);
+    u.lang=(lang==="ur")?"ur-PK":"en-US"; u.rate=0.92;
+    window.speechSynthesis.speak(u);
+  }catch(e){}
+});
+
+var NS="http://www.w3.org/2000/svg";
+function mk(tag,a){ var e=document.createElementNS(NS,tag); for(var k in a) e.setAttribute(k,a[k]); return e; }
+
+var mode="wheels", rocky=false, anim=0, animT=null;
+var LESSON={
+  hook:{en:"Have you wondered how robots move everywhere? Some roll on wheels, some walk on legs!",
+        ur:"کبھی سوچا روبوٹ ہر جگہ کیسے چلتے ہیں؟ کچھ پہیوں پر، کچھ ٹانگوں پر!"},
+  samjhao:{en:"Wheeled robots move easily on flat ground — fast like cars and rickshaws. Legged robots walk like people or animals — better on rocks and uneven ground. Each kind has its own job!",
+           ur:"پہیہ والے روبوٹ ہموار زمین پر آسان چلتے ہیں — گاڑی اور رکشہ جیسے تیز۔ ٹانگ والے انسان یا جانور جیسے چلتے ہیں — پتھروں اور اونچی نیچی زمین پر بہتر۔ ہر قسم کا اپنا کام!"},
+  misaal:{en:"In the bazaar you see rickshaws on wheels. In cricket, players use legs on bumpy ground. Same idea for robots!",
+          ur:"بازار میں رکشے پہیوں پر۔ کرکٹ میں کھلاڑی اونچی نیچی زمین پر ٹانگوں سے۔ روبوٹ بھی ایسے!"},
+  karo:{en:"Make a cardboard robot: cut circles for wheels, sticks for legs. Try both on floor and on a book-bump. Which is faster? Which balances better?",
+        ur:"کارڈ بورڈ روبوٹ: پہیوں کے لیے دائرے، ٹانگوں کے لیے لکڑیاں۔ فرش اور کتاب کی اونچائی پر آزماؤ۔ کون تیز؟ کون زیادہ متوازن؟"}
+};
+var QUIZ=[
+  {q:{en:"How can a robot move?",ur:"Robot kis tarah se chal sakta hai?"},a:{en:"With wheels",ur:"Wheels se"},b:{en:"Only with legs",ur:"Sirf legs se"},c:{en:"With neither",ur:"Donon se nahi"},d:{en:"Some other way only",ur:"Koi aur tareeqa"},correct:"a",explanation:{en:"Wheels let a robot move fast and easily on paths.",ur:"Wheels se robot tez chalta hai aur aasani se raste par chalta hai."}},
+  {q:{en:"Do legged robots give better control on ground?",ur:"Kya legs wale robots zameen par behtar control dete hain?"},a:{en:"Yes",ur:"Haan"},b:{en:"No",ur:"Nahi"},c:{en:"Only for looking",ur:"Sirf dekhnay mein"},d:{en:"None",ur:"Koi nahi"},correct:"a",explanation:{en:"Legged robots give better control and stability on ground.",ur:"Legs wale robots zameen par behtar control aur stability dete hain."}},
+  {q:{en:"Which robot handles rough places better?",ur:"Kaunsa robot zyada mushkil jagahon par chal sakta hai?"},a:{en:"Wheeled robot",ur:"Wheeled robot"},b:{en:"Legged robot",ur:"Legged robot"},c:{en:"Neither",ur:"Koi bhi nahi"},d:{en:"Both the same",ur:"Dono"},correct:"b",explanation:{en:"Legged robots handle rocks and fields better.",ur:"Legged robots mushkil jagahon jaise rocks aur kheton par behtar tarah se chal sakte hain."}},
+  {q:{en:"How do wheeled robots move?",ur:"Wheels wale robots kaise banti hain?"},a:{en:"By rolling",ur:"Ghoom kar"},b:{en:"By jumping",ur:"Kood kar"},c:{en:"By shaking",ur:"Jhatey maar kar"},d:{en:"By changing paths only",ur:"Raste change kar ke"},correct:"a",explanation:{en:"Wheeled robots roll to move easily on paths.",ur:"Wheels wale robots ghoom kar aasani se raste par chal sakte hain."}},
+  {q:{en:"Have you ever seen a legged robot?",ur:"Kya aap ne kabhi legs wale robot dekha hai?"},a:{en:"Yes",ur:"Haan"},b:{en:"No",ur:"Nahi"},c:{en:"No need to see",ur:"Dekhne ki zaroorat nahi"},d:{en:"All are the same",ur:"Saare kuch same hain"},correct:"a",explanation:{en:"Yes — robots like Spot walk on legs.",ur:"Haan, robots jaise Boston Dynamics ka Spot legs wale robot hai."}}
+];
+function stopAnim(){ if(animT){clearInterval(animT);animT=null;} }
+function drawCompare(){
+  var svg=$("svg"); svg.innerHTML="";
+  svg.appendChild(mk("rect",{x:0,y:0,width:320,height:240,fill:"#ecfdf5"}));
+  // ground
+  if(rocky){
+    svg.appendChild(mk("path",{d:"M0 180 Q40 160 80 185 T160 170 T240 190 T320 175 L320 240 L0 240 Z",fill:"#a8a29e"}));
+    for(var i=0;i<5;i++) svg.appendChild(mk("ellipse",{cx:30+i*60,cy:185+((i%2)*8),rx:18,ry:10,fill:"#78716c"}));
+  } else {
+    svg.appendChild(mk("rect",{x:0,y:180,width:320,height:60,fill:"#86efac"}));
+    svg.appendChild(mk("rect",{x:0,y:180,width:320,height:6,fill:"#22c55e"}));
+  }
+  var x = 40 + (anim%200);
+  if(mode==="wheels"){
+    svg.appendChild(mk("rect",{x:x,y:140,width:70,height:35,rx:8,fill:"#3b82f6",stroke:"#1e3a8a","stroke-width":2}));
+    svg.appendChild(mk("circle",{cx:x+18,cy:180,r:14,fill:"#1f2933"}));
+    svg.appendChild(mk("circle",{cx:x+52,cy:180,r:14,fill:"#1f2933"}));
+    svg.appendChild(mk("circle",{cx:x+18,cy:180,r:5,fill:"#94a3b8"}));
+    svg.appendChild(mk("circle",{cx:x+52,cy:180,r:5,fill:"#94a3b8"}));
+    var eye=mk("circle",{cx:x+55,cy:152,r:5,fill:"#fde047"}); svg.appendChild(eye);
+  } else {
+    var bob = Math.sin(anim/10)*6;
+    svg.appendChild(mk("rect",{x:x+15,y:110+bob,width:40,height:50,rx:8,fill:"#a78bfa",stroke:"#5b21b6","stroke-width":2}));
+    svg.appendChild(mk("circle",{cx:x+35,cy:100+bob,r:16,fill:"#c4b5fd",stroke:"#5b21b6","stroke-width":2}));
+    svg.appendChild(mk("circle",{cx:x+28,cy:98+bob,r:3,fill:"#1f2933"}));
+    svg.appendChild(mk("circle",{cx:x+42,cy:98+bob,r:3,fill:"#1f2933"}));
+    // legs
+    var swing=Math.sin(anim/8)*12;
+    svg.appendChild(mk("line",{x1:x+22,y1:160+bob,x2:x+10+swing,y2:185,stroke:"#5b21b6","stroke-width":5,"stroke-linecap":"round"}));
+    svg.appendChild(mk("line",{x1:x+48,y1:160+bob,x2:x+60-swing,y2:185,stroke:"#5b21b6","stroke-width":5,"stroke-linecap":"round"}));
+  }
+  var lab=mk("text",{x:160,y:30,"text-anchor":"middle","font-size":"14","font-weight":"800",fill:"#1f2933"});
+  lab.textContent = (mode==="wheels"?"🛞 ":"🦿 ")+(rocky?"ROCKY":"FLAT");
+  svg.appendChild(lab);
+}
+function onTab(){ stopAnim(); }
+function render(){
+  buildTabs([["compare",{en:"Wheels vs legs",ur:"پہیے بمقابلہ ٹانگیں"}],["terrain",{en:"Terrain test",ur:"زمین آزمائش"}],["choose",{en:"Which to pick?",ur:"کون سا چنیں؟"}]]);
+  if(!tab||tab==="main") tab="compare";
+  setText($("whyLbl"), t({en:"Notice:",ur:"غور کریں:"}));
+  $("chips").innerHTML=""; $("controls").innerHTML=""; $("two").innerHTML="";
+  var play=$("playBtn"), play2=$("playBtn2");
+  play.className="play"; play2.className="play alt hidden";
+
+  if(tab==="compare"){
+    setText($("title"), t({en:"Two ways to move",ur:"چلنے کے دو طریقے"}));
+    setText($("subtitle"), t({en:"Tap wheels or legs — watch how the robot moves.",ur:"پہیے یا ٹانگیں دباؤ — روبوٹ کیسے چلتا ہے دیکھو۔"}));
+    setText($("panelHead"), t({en:"Choose mover",ur:"چلنے والا چنو"}));
+    play.classList.add("hidden");
+    [["wheels",{en:"Wheels",ur:"پہیے"}],["legs",{en:"Legs",ur:"ٹانگیں"}]].forEach(function(x){
+      var b=document.createElement("button"); b.type="button"; b.className="schip";
+      b.setAttribute("aria-pressed", mode===x[0]?"true":"false");
+      setText(b,t(x[1]));
+      b.onclick=function(){ mode=x[0]; rocky=false; render(); };
+      $("chips").appendChild(b);
+    });
+    setText(play, t({en:"Move!",ur:"چلو!"}));
+    play.classList.remove("hidden"); play.classList.add("go");
+    play.onclick=function(){
+      stopAnim(); anim=0;
+      animT=setInterval(function(){ anim+=4; if(anim>220) anim=0; drawCompare(); },40);
+    };
+    drawCompare();
+    setText($("statechip"), mode==="wheels"?t({en:"Wheeled",ur:"پہیہ والا"}):t({en:"Legged",ur:"ٹانگ والا"}));
+    setText($("lead"), mode==="wheels"?t({en:"Fast on flat roads",ur:"ہموار سڑک پر تیز"}):t({en:"Steady on uneven ground",ur:"اونچی نیچی زمین پر مستحکم"}));
+    setText($("detail"), mode==="wheels"?t({en:"Rolls smoothly — great for halls and streets.",ur:"آسانی سے گہومتا — ہال اور سڑک کے لیے بہترین۔"}):t({en:"Steps over bumps — great for outdoors.",ur:"اونچائی پار کرتا — باہر کے لیے بہترین۔"}));
+    setText($("trade"), t({en:"Some research robots use BOTH wheels and legs!",ur:"کچھ ریسرچ روبوٹ پہیے اور ٹانگیں دونوں استعمال کرتے ہیں!"}));
+    setText($("whyText"), t({en:"Right mover = right job.",ur:"صحیح چلنے والا = صحیح کام۔"}));
+    return;
+  }
+  if(tab==="terrain"){
+    setText($("title"), t({en:"Flat vs rocky test",ur:"ہموار بمقابلہ پتھریلی"}));
+    setText($("subtitle"), t({en:"Change the ground. See which robot struggles.",ur:"زمین بدلو۔ کون سا روبوٹ مشکل میں پڑتا ہے دیکھو۔"}));
+    setText($("panelHead"), t({en:"Ground",ur:"زمین"}));
+    play.classList.add("hidden");
+    [["flat",{en:"Flat floor",ur:"ہموار فرش"}],["rocky",{en:"Rocky path",ur:"پتھریلا راستہ"}]].forEach(function(x){
+      var b=document.createElement("button"); b.type="button"; b.className="schip";
+      var isR=x[0]==="rocky";
+      b.setAttribute("aria-pressed", rocky===isR?"true":"false");
+      setText(b,t(x[1]));
+      b.onclick=function(){ rocky=isR; render(); };
+      $("chips").appendChild(b);
+    });
+    [["wheels",{en:"Try wheels",ur:"پہیے آزماؤ"}],["legs",{en:"Try legs",ur:"ٹانگیں آزماؤ"}]].forEach(function(x){
+      var b=document.createElement("button"); b.type="button"; b.className="schip";
+      b.setAttribute("aria-pressed", mode===x[0]?"true":"false");
+      setText(b,t(x[1]));
+      b.onclick=function(){
+        mode=x[0]; anim=0; stopAnim();
+        animT=setInterval(function(){ anim+= rocky && mode==="wheels" ? 1.5 : 4; if(anim>220) anim=0; drawCompare(); },40);
+        render();
+      };
+      $("chips").appendChild(b);
+    });
+    drawCompare();
+    var hard = rocky && mode==="wheels";
+    $("statechip").className="statechip "+(hard?"no":"ok");
+    setText($("statechip"), hard?t({en:"Struggling",ur:"مشکل"}):t({en:"Doing well",ur:"اچھا چل رہا"}));
+    setText($("lead"), hard?t({en:"Wheels slip on rocks!",ur:"پتھروں پر پہیے پھسلتے ہیں!"}):t({en:"Good match for this ground",ur:"اس زمین کے لیے اچھا میچ"}));
+    setText($("detail"), t({en:"Legs climb bumps. Wheels love smooth floors.",ur:"ٹانگیں اونچائی چڑھتی ہیں۔ پہیے ہموار فرش پسند کرتے ہیں۔"}));
+    setText($("trade"),""); setText($("whyText"), t({en:"Engineers pick wheels or legs based on the place.",ur:"انجینئر جگہ دیکھ کر پہیے یا ٹانگیں چنتے ہیں۔"}));
+    return;
+  }
+  stopAnim(); rocky=false; drawCompare();
+  setText($("title"), t({en:"Pick for the job",ur:"کام کے لیے چنو"}));
+  setText($("subtitle"), t({en:"Which robot for which place?",ur:"کس جگہ کون سا روبوٹ؟"}));
+  setText($("panelHead"), t({en:"Jobs",ur:"کام"}));
+  play.classList.add("hidden");
+  [
+    {id:"hall",en:"School hall",ur:"سکول ہال",pick:"wheels"},
+    {id:"field",en:"Rocky field",ur:"پتھریلا میدان",pick:"legs"},
+    {id:"factory",en:"Factory floor",ur:"فیکٹری فرش",pick:"wheels"}
+  ].forEach(function(x){
+    var b=document.createElement("button"); b.type="button"; b.className="schip";
+    setText(b,t({en:x.en,ur:x.ur}));
+    b.onclick=function(){
+      mode=x.pick; drawCompare();
+      setText($("statechip"), x.pick==="wheels"?t({en:"Wheels win",ur:"پہیے جیت"}):t({en:"Legs win",ur:"ٹانگیں جیت"}));
+      setText($("lead"), t({en:x.en+" → "+(x.pick==="wheels"?"wheels":"legs"), ur:x.ur+" → "+(x.pick==="wheels"?"پہیے":"ٹانگیں")}));
+      $("statechip").className="statechip ok";
+    };
+    $("chips").appendChild(b);
+  });
+  setText($("statechip"), t({en:"Your turn",ur:"تمہاری باری"}));
+  setText($("lead"), t({en:"Tap a place to choose",ur:"جگہ دبا کر چنو"}));
+  setText($("detail"), t({en:"Matching the mover to the place is smart engineering!",ur:"چلنے والے کو جگہ سے ملانا ہوشیار انجینئرنگ!"}));
+  setText($("trade"), t({en:"Pakistan factories often use wheeled robots on smooth floors.",ur:"پاکستان کی فیکٹریوں میں ہموار فرش پر اکثر پہیہ والے روبوٹ۔"}));
+  setText($("whyText"), t({en:"No single best robot — only the best fit!",ur:"کوئی ایک بہترین روبوٹ نہیں — صرف بہترین میچ!"}));
+}
+
+
+applyLang();
+})();
+</script>
+</body>
+</html>

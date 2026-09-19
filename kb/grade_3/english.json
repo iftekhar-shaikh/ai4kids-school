@@ -57,7 +57,9 @@
             "explanation": "Shayari mein mohabbat ka tema aksar samne aata hai aur log isay pasand karte hain."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g3-stories-poems.html",
+      "interactive_label": "Khelo - Stories aur poems"
     },
     {
       "title": "Grammar: Nouns types",
@@ -66,7 +68,9 @@
       "quiz": {
         "title": "Grammar: Nouns types",
         "questions": []
-      }
+      },
+      "interactive_file": "interactives/g3-nouns-types.html",
+      "interactive_label": "Khelo - Nouns types"
     },
     {
       "title": "Tenses intro",
@@ -121,7 +125,9 @@
             "explanation": "Yeh Simple Present Tense hai kyunki yeh aaj ki baat ko dikhata hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g3-tenses-intro.html",
+      "interactive_label": "Khelo - Tenses intro"
     },
     {
       "title": "Punctuation",
@@ -176,7 +182,9 @@
             "explanation": "Exclamation mark ka istemal jazbat dikhane ke liye hota hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g3-punctuation.html",
+      "interactive_label": "Khelo - Punctuation"
     },
     {
       "title": "Paragraph likhna",
@@ -231,7 +239,9 @@
             "explanation": "Paragraph ka akhir mein conclusion hona chahiye jo sab kuch summarize kare."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g3-paragraph.html",
+      "interactive_label": "Khelo - Paragraph"
     },
     {
       "title": "Letter writing",
@@ -286,7 +296,9 @@
             "explanation": "Khat ki shuruaat 'Jaanu' ya 'Kya haal hain?' se hona chahiye."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g3-letter-writing.html",
+      "interactive_label": "Khelo - Letter writing"
     }
   ]
 }

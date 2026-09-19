@@ -57,7 +57,9 @@
             "explanation": "AI photos ka pattern dhundhne ke liye machine learning ka istemal karti hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g3-patterns.html",
+      "interactive_label": "Khelo - Patterns"
     },
     {
       "title": "Data kya hai?",
@@ -112,7 +114,9 @@
             "explanation": "Data ko graphs aur charts ke zariye asaani se dikhaya ja sakta hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g3-data-kya-hai.html",
+      "interactive_label": "Khelo - Data"
     },
     {
       "title": "Algorithm",
@@ -167,7 +171,9 @@
             "explanation": "Masale is liye bhare jate hain taake biryani ka taste zyada acha ho jaye."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g3-algorithm.html",
+      "interactive_label": "Khelo - Algorithm"
     },
     {
       "title": "AI aur cricket",
@@ -222,7 +228,9 @@
             "explanation": "Hawk-Eye ball ki gati aur trajectory ko track karta hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g3-ai-cricket.html",
+      "interactive_label": "Khelo - AI aur cricket"
     },
     {
       "title": "Coding intro",
@@ -277,7 +285,9 @@
             "explanation": "Coding seekhna hume computers ko behtar samajhne mein madad karta hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g3-coding-intro.html",
+      "interactive_label": "Khelo - Coding intro"
     },
     {
       "title": "AI safe istemal",
@@ -332,7 +342,9 @@
             "explanation": "Yeh sahi hai kyunki online dosti mein aapko hamesha doosre ki suraksha ka khayal rakhna chahiye."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g3-ai-safe.html",
+      "interactive_label": "Khelo - AI safe"
     }
   ]
 }

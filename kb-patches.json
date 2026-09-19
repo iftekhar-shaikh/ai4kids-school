@@ -751,5 +751,197 @@
       "interactive_file": "interactives/g4-kahani-afsana.html",
       "interactive_label": "Khelo - Kahani aur afsana"
     }
+  },
+  {
+    "file": "kb/grade_3/ai.json",
+    "match_title": "Patterns dhundho",
+    "add": {
+      "interactive_file": "interactives/g3-patterns.html",
+      "interactive_label": "Khelo - Patterns"
+    }
+  },
+  {
+    "file": "kb/grade_3/ai.json",
+    "match_title": "Data kya hai?",
+    "add": {
+      "interactive_file": "interactives/g3-data-kya-hai.html",
+      "interactive_label": "Khelo - Data"
+    }
+  },
+  {
+    "file": "kb/grade_3/ai.json",
+    "match_title": "Algorithm",
+    "add": {
+      "interactive_file": "interactives/g3-algorithm.html",
+      "interactive_label": "Khelo - Algorithm"
+    }
+  },
+  {
+    "file": "kb/grade_3/ai.json",
+    "match_title": "AI aur cricket",
+    "add": {
+      "interactive_file": "interactives/g3-ai-cricket.html",
+      "interactive_label": "Khelo - AI aur cricket"
+    }
+  },
+  {
+    "file": "kb/grade_3/ai.json",
+    "match_title": "Coding intro",
+    "add": {
+      "interactive_file": "interactives/g3-coding-intro.html",
+      "interactive_label": "Khelo - Coding intro"
+    }
+  },
+  {
+    "file": "kb/grade_3/ai.json",
+    "match_title": "AI safe istemal",
+    "add": {
+      "interactive_file": "interactives/g3-ai-safe.html",
+      "interactive_label": "Khelo - AI safe"
+    }
+  },
+  {
+    "file": "kb/grade_3/english.json",
+    "match_title": "Stories aur poems",
+    "add": {
+      "interactive_file": "interactives/g3-stories-poems.html",
+      "interactive_label": "Khelo - Stories aur poems"
+    }
+  },
+  {
+    "file": "kb/grade_3/english.json",
+    "match_title": "Grammar: Nouns types",
+    "add": {
+      "interactive_file": "interactives/g3-nouns-types.html",
+      "interactive_label": "Khelo - Nouns types"
+    }
+  },
+  {
+    "file": "kb/grade_3/english.json",
+    "match_title": "Tenses intro",
+    "add": {
+      "interactive_file": "interactives/g3-tenses-intro.html",
+      "interactive_label": "Khelo - Tenses intro"
+    }
+  },
+  {
+    "file": "kb/grade_3/english.json",
+    "match_title": "Punctuation",
+    "add": {
+      "interactive_file": "interactives/g3-punctuation.html",
+      "interactive_label": "Khelo - Punctuation"
+    }
+  },
+  {
+    "file": "kb/grade_3/english.json",
+    "match_title": "Paragraph likhna",
+    "add": {
+      "interactive_file": "interactives/g3-paragraph.html",
+      "interactive_label": "Khelo - Paragraph"
+    }
+  },
+  {
+    "file": "kb/grade_3/english.json",
+    "match_title": "Letter writing",
+    "add": {
+      "interactive_file": "interactives/g3-letter-writing.html",
+      "interactive_label": "Khelo - Letter writing"
+    }
+  },
+  {
+    "file": "kb/grade_3/math.json",
+    "match_title": "Roman numbers",
+    "add": {
+      "interactive_file": "interactives/g3-roman-numbers.html",
+      "interactive_label": "Khelo - Roman numbers"
+    }
+  },
+  {
+    "file": "kb/grade_3/math.json",
+    "match_title": "4-digit operations",
+    "add": {
+      "interactive_file": "interactives/g3-4digit-ops.html",
+      "interactive_label": "Khelo - 4-digit ops"
+    }
+  },
+  {
+    "file": "kb/grade_3/math.json",
+    "match_title": "Zarb tables 6-9",
+    "add": {
+      "interactive_file": "interactives/g3-zarb-tables.html",
+      "interactive_label": "Khelo - Zarb tables"
+    }
+  },
+  {
+    "file": "kb/grade_3/math.json",
+    "match_title": "Fractions",
+    "add": {
+      "interactive_file": "interactives/g3-fractions.html",
+      "interactive_label": "Khelo - Fractions"
+    }
+  },
+  {
+    "file": "kb/grade_3/math.json",
+    "match_title": "Naap taul",
+    "add": {
+      "interactive_file": "interactives/g3-naap-taul.html",
+      "interactive_label": "Khelo - Naap taul"
+    }
+  },
+  {
+    "file": "kb/grade_3/math.json",
+    "match_title": "Data handling",
+    "add": {
+      "interactive_file": "interactives/g3-data-handling.html",
+      "interactive_label": "Khelo - Data handling"
+    }
+  },
+  {
+    "file": "kb/grade_3/robotics.json",
+    "match_title": "Simple circuits",
+    "add": {
+      "interactive_file": "interactives/g3-simple-circuits.html",
+      "interactive_label": "Khelo - Simple circuits"
+    }
+  },
+  {
+    "file": "kb/grade_3/robotics.json",
+    "match_title": "Automatic machines",
+    "add": {
+      "interactive_file": "interactives/g3-automatic-machines.html",
+      "interactive_label": "Khelo - Automatic machines"
+    }
+  },
+  {
+    "file": "kb/grade_3/robotics.json",
+    "match_title": "Robot ki aankhein",
+    "add": {
+      "interactive_file": "interactives/g3-robot-aankhein.html",
+      "interactive_label": "Khelo - Robot aankhein"
+    }
+  },
+  {
+    "file": "kb/grade_3/robotics.json",
+    "match_title": "Wheels vs legs",
+    "add": {
+      "interactive_file": "interactives/g3-wheels-vs-legs.html",
+      "interactive_label": "Khelo - Wheels vs legs"
+    }
+  },
+  {
+    "file": "kb/grade_3/robotics.json",
+    "match_title": "Factory mein machines",
+    "add": {
+      "interactive_file": "interactives/g3-factory-machines.html",
+      "interactive_label": "Khelo - Factory machines"
+    }
+  },
+  {
+    "file": "kb/grade_3/robotics.json",
+    "match_title": "Block robots",
+    "add": {
+      "interactive_file": "interactives/g3-block-robots.html",
+      "interactive_label": "Khelo - Block robots"
+    }
   }
 ]

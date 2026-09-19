@@ -57,7 +57,9 @@
             "explanation": "'XX' ki value 20 hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g3-roman-numbers.html",
+      "interactive_label": "Khelo - Roman numbers"
     },
     {
       "title": "4-digit operations",
@@ -112,7 +114,9 @@
             "explanation": "5000 - 2367 = 2633. Is liye sahi jawab 2633 rupay hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g3-4digit-ops.html",
+      "interactive_label": "Khelo - 4-digit ops"
     },
     {
       "title": "Zarb tables 6-9",
@@ -167,7 +171,9 @@
             "explanation": "6 aur 8 ka multiplication 48 hota hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g3-zarb-tables.html",
+      "interactive_label": "Khelo - Zarb tables"
     },
     {
       "title": "Fractions",
@@ -222,7 +228,9 @@
             "explanation": "7/5 mein numerator denominator se zyada hai, isliye yeh improper fraction hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g3-fractions.html",
+      "interactive_label": "Khelo - Fractions"
     },
     {
       "title": "Naap taul",
@@ -277,7 +285,9 @@
             "explanation": "4 kitaabon ka wazan 4 x 250 gram = 1000 gram hoga."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g3-naap-taul.html",
+      "interactive_label": "Khelo - Naap taul"
     },
     {
       "title": "Data handling",
@@ -332,7 +342,9 @@
             "explanation": "Kyun sahi hai: Carroll diagram ka istemal cheezon ke comparison ke liye hota hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g3-data-handling.html",
+      "interactive_label": "Khelo - Data handling"
     }
   ]
 }

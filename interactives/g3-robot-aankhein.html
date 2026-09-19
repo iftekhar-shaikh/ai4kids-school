@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Robot ki aankhein — روبوٹ کی آنکھیں | AI4Kids Grade 3 Automation & Robotics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --board:#eef0f5; --board-deep:#dde1ea;
+  --accent:#1d4c85; --accent2:#c9702e; --ok:#2e7d4f; --no:#c4453a;
+  --ink:#1f2933; --ink-soft:#4a5661; --paper:#fdfaf3; --line:#ded5c4;
+  --fs-cap:clamp(14px, 3.8vw, 16px); --fs-xs:clamp(16px, 4.2vw, 18px);
+  --fs-sm:clamp(18px, 4.8vw, 20px); --fs-md:clamp(19px, 5.2vw, 22px);
+  --fs-lg:clamp(22px, 6vw, 26px); --fs-xl:clamp(30px, 8vw, 38px); --lh:1.55;
+}
+body.urdu{
+  --fs-cap:clamp(17px, 4.4vw, 18px); --fs-xs:clamp(18px, 4.7vw, 20px);
+  --fs-sm:clamp(20px, 5.2vw, 22px); --fs-md:clamp(21px, 5.6vw, 24px);
+  --fs-lg:clamp(24px, 6.4vw, 28px); --fs-xl:clamp(28px, 7.4vw, 34px); --lh:2.05;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+  font-size:var(--fs-sm);line-height:1.55;padding:0 0 40px;
+}
+body.urdu{font-family:"Noto Nastaliq Urdu","Baloo Bhaijaan 2",serif;line-height:var(--lh)}
+.wrap{max-width:560px;margin:0 auto;padding:0 14px}
+.bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px;flex-wrap:wrap}
+.brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+.chip{
+  border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;
+  font-size:var(--fs-xs);cursor:pointer;min-height:44px;
+}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.chip:focus-visible,button:focus-visible{outline:3px solid var(--accent2);outline-offset:2px}
+h1{font-size:var(--fs-xl);line-height:1.25;font-weight:800;margin:8px 0 4px}
+body.urdu h1{line-height:1.9}
+.sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+.tabs{display:flex;gap:7px;margin:0 0 14px;flex-wrap:wrap}
+.tabs button{
+  flex:1;min-width:88px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+  border-radius:14px;padding:9px 6px;font:inherit;font-weight:800;
+  font-size:var(--fs-cap);cursor:pointer;min-height:54px;
+}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.scene{
+  position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+  background:linear-gradient(180deg,var(--board) 0%,var(--board-deep) 100%);
+  min-height:200px;
+}
+.scene svg,.scene canvas{display:block;width:100%;height:auto}
+.play{
+  width:100%;margin-top:12px;border:3px solid var(--ink);border-radius:18px;
+  background:var(--ink);color:var(--paper);font:inherit;font-weight:800;
+  font-size:var(--fs-md);cursor:pointer;min-height:60px;
+}
+.play:active{transform:scale(.98)}
+.play.alt{background:var(--paper);color:var(--ink)}
+.play.go{background:var(--ok);border-color:var(--ok)}
+.play.stop{background:var(--no);border-color:var(--no)}
+.play.hidden,.hidden{display:none !important}
+.two{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.card{flex:1;min-width:110px;border:3px solid var(--line);border-radius:16px;padding:12px 9px;text-align:center;cursor:pointer}
+.card em{display:block;font-style:normal;font-size:var(--fs-cap);color:var(--ink-soft);font-weight:700;margin-bottom:5px}
+.card b{display:block;font-size:var(--fs-lg);font-weight:800;line-height:1.2}
+.card span{display:block;font-size:var(--fs-cap);font-weight:700;color:var(--ink-soft);margin-top:3px}
+.card.on{border-color:var(--accent);background:#e8eef8}
+.card.hot{border-color:var(--accent2);background:#fbf1e8}
+.readout{
+  margin-top:12px;background:var(--paper);
+  border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+}
+.statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+           padding:4px 14px;font-size:var(--fs-cap);font-weight:700;margin-bottom:10px}
+.statechip.ok{background:var(--ok)} .statechip.no{background:var(--no)}
+.lead{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.4}
+body.urdu .lead{line-height:1.95}
+.detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+.trade{
+  margin-top:14px;border:2px dashed var(--accent2);background:#fbf1e8;border-radius:14px;
+  padding:12px 14px;font-size:var(--fs-xs);font-weight:700;color:#8a4a12;line-height:1.6;
+}
+.why-note{
+  margin:12px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;
+  border-left:3px solid var(--accent);padding-left:11px;
+}
+body.urdu .why-note{border-left:0;border-right:3px solid var(--accent);padding-left:0;padding-right:11px;line-height:var(--lh)}
+.why-note b{color:var(--accent);font-weight:800}
+.panel{margin-top:18px}
+.panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+.row{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+.row .name{flex:none;width:34%;max-width:140px;font-size:var(--fs-xs);font-weight:700}
+.row input[type=range]{flex:1;min-width:120px;height:36px;accent-color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.schip{
+  border:2px solid var(--line);background:var(--paper);border-radius:999px;padding:9px 15px;
+  font:inherit;font-size:var(--fs-cap);font-weight:800;color:var(--ink);cursor:pointer;min-height:46px;
+}
+.schip[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+.lesson{margin-top:8px}
+.lcard{
+  border:3px solid var(--line);border-radius:18px;padding:14px 16px;margin-bottom:12px;background:#fffdf8;
+}
+.lcard .tag{
+  display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+  padding:3px 12px;font-size:var(--fs-cap);font-weight:800;margin-bottom:8px;
+}
+.lcard.hook .tag{background:var(--accent2)}
+.lcard.misaal .tag{background:var(--ok)}
+.lcard.karo .tag{background:#6b4a8f}
+.lcard p{margin:0;font-size:var(--fs-sm);line-height:1.6}
+body.urdu .lcard p{line-height:var(--lh)}
+.quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+.q{margin-bottom:26px}
+.q > p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+.opt{
+  display:block;width:100%;text-align:left;margin-bottom:10px;
+  border:2px solid var(--line);background:var(--paper);border-radius:12px;
+  padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+  min-height:52px;
+}
+body.urdu .opt{text-align:right}
+.opt:hover{border-color:var(--ink)}
+.opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+.opt.wrong{border-color:var(--no);background:#fbeae8}
+.fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none;line-height:1.6}
+.fb.show{display:block}
+.score{
+  margin-top:14px;padding:14px;border:3px solid var(--ink);border-radius:16px;
+  font-weight:800;font-size:var(--fs-md);text-align:center;display:none;
+}
+.score.show{display:block}
+footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+       font-size:var(--fs-xs);color:var(--ink-soft)}
+@media (min-width:820px){
+  .wrap{
+    max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
+    grid-template-areas:"bar bar" "head head" "tabs tabs" "left right" "lesson lesson" "quiz quiz" "foot foot";
+    align-items:start;
+  }
+  .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+  .left{grid-area:left} .right{grid-area:right}
+  .lesson{grid-area:lesson}
+  .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important;transition-duration:.01ms !important}
+}
+
+
+
+.block-tray{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;min-height:48px}
+.block-chip{
+  border:3px solid var(--ink);border-radius:12px;padding:10px 14px;font:inherit;font-weight:800;
+  font-size:var(--fs-cap);cursor:pointer;background:#fef08a;min-height:48px;user-select:none;
+}
+.block-chip.move{background:#93c5fd}.block-chip.turn{background:#f9a8d4}.block-chip.wait{background:#bbf7d0}
+.program-slot{
+  margin-top:10px;min-height:70px;border:3px dashed var(--ink);border-radius:14px;
+  padding:10px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;background:#fff;
+}
+.prog-item{border:2px solid var(--ink);border-radius:10px;padding:8px 12px;font-weight:800;font-size:var(--fs-cap);background:#fef08a}
+.prog-item.move{background:#93c5fd}.prog-item.turn{background:#f9a8d4}.prog-item.wait{background:#bbf7d0}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar">
+    <span class="brand">AI4Kids · Grade 3 · Robotics</span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+  <div class="head">
+    <h1 id="title"></h1>
+    <p class="sub" id="subtitle"></p>
+  </div>
+  <div class="tabs" role="group" id="tabs"></div>
+  <div class="left">
+    <div class="scene" id="scene"><svg viewBox="0 0 320 240" id="svg" role="img"></svg></div>
+    <div class="two" id="two"></div>
+    <div class="readout">
+      <span class="statechip" id="statechip"></span>
+      <p class="lead" id="lead"></p>
+      <p class="detail" id="detail"></p>
+      <p class="trade" id="trade"></p>
+      <p class="why-note"><b id="whyLbl"></b> <span id="whyText"></span></p>
+    </div>
+  </div>
+  <div class="right">
+    <div class="panel">
+      <h2 id="panelHead"></h2>
+      <div class="chips" id="chips" role="group"></div>
+      <div id="controls"></div>
+      <button type="button" class="play" id="playBtn"></button>
+      <button type="button" class="play alt" id="playBtn2" style="margin-top:8px"></button>
+    </div>
+  </div>
+
+  <div class="lesson" id="lessonBox"></div>
+  <div class="quiz">
+    <h2 id="quizHead" style="font-size:var(--fs-lg);font-weight:800;margin:0 0 18px"></h2>
+    <div id="quizBox"></div>
+    <div class="score" id="scoreBox"></div>
+  </div>
+  <footer>
+    <p id="foot"></p>
+  </footer>
+</div>
+<script>
+(function(){
+"use strict";
+var lang="en", tab="main";
+
+function $(id){ return document.getElementById(id); }
+function t(o){ return (o && typeof o==="object") ? (o[lang]||o.en||"") : (o||""); }
+function setText(el, s){
+  if(!el) return;
+  el.textContent = s;
+  if(lang==="ur"){ el.setAttribute("dir","rtl"); }
+  else { el.setAttribute("dir","ltr"); }
+}
+function buildTabs(list){
+  var tabs=$("tabs"); tabs.innerHTML="";
+  list.forEach(function(x){
+    var b=document.createElement("button"); b.type="button";
+    b.setAttribute("aria-pressed", tab===x[0]?"true":"false");
+    setText(b, t(x[1]));
+    b.addEventListener("click", function(){ if(tab===x[0]) return; tab=x[0]; if(typeof onTab==="function") onTab(); render(); });
+    tabs.appendChild(b);
+  });
+}
+function buildLesson(){
+  var box=$("lessonBox"); if(!box) return; box.innerHTML="";
+  var cards=[{cls:"hook", tag:{en:"HOOK",ur:"ہک"}, body:LESSON.hook},
+   {cls:"samjhao", tag:{en:"SAMJHAO",ur:"سمجھاؤ"}, body:LESSON.samjhao},
+   {cls:"misaal", tag:{en:"MISAAL",ur:"مثال"}, body:LESSON.misaal}];
+  if(LESSON.karo) cards.push({cls:"karo", tag:{en:"KARO",ur:"کرو"}, body:LESSON.karo});
+  cards.forEach(function(c){
+    var d=document.createElement("div"); d.className="lcard "+c.cls;
+    var tag=document.createElement("span"); tag.className="tag"; setText(tag,t(c.tag));
+    var p=document.createElement("p"); setText(p,t(c.body));
+    d.appendChild(tag); d.appendChild(p); box.appendChild(d);
+  });
+}
+var quizScore=0, quizDone=0;
+function buildQuiz(){
+  var box=$("quizBox"); box.innerHTML=""; quizScore=0; quizDone=0;
+  var sb=$("scoreBox"); sb.classList.remove("show"); sb.textContent="";
+  setText($("quizHead"), t({en:"Check yourself", ur:"اپنا امتحان لیں"}));
+  QUIZ.forEach(function(item){
+    var wrap=document.createElement("div"); wrap.className="q";
+    var q=document.createElement("p"); setText(q, t(item.q)); wrap.appendChild(q);
+    var fb=document.createElement("p"); fb.className="fb";
+    ["a","b","c","d"].forEach(function(k, oi){
+      var b=document.createElement("button"); b.type="button"; b.className="opt";
+      b.setAttribute("dir", lang==="ur"?"rtl":"ltr");
+      b.textContent = String.fromCharCode(65+oi)+". "+t(item[k]);
+      b.addEventListener("click", function(){
+        if(wrap.getAttribute("data-done")==="1") return;
+        wrap.setAttribute("data-done","1"); quizDone++;
+        if(item.correct===k) quizScore++;
+        ["a","b","c","d"].forEach(function(kk, xi){
+          var btn=wrap.querySelectorAll(".opt")[xi];
+          if(kk===item.correct) btn.classList.add("right");
+          else if(kk===k) btn.classList.add("wrong");
+        });
+        setText(fb, t(item.explanation)); fb.classList.add("show");
+        if(quizDone===QUIZ.length){
+          sb.classList.add("show");
+          setText(sb, t({en:"Score: "+quizScore+" / "+QUIZ.length, ur:"سکور: "+quizScore+" / "+QUIZ.length}));
+        }
+      });
+      wrap.appendChild(b);
+    });
+    wrap.appendChild(fb); box.appendChild(wrap);
+  });
+}
+function applyLang(){
+  document.body.classList.toggle("urdu", lang==="ur");
+  document.documentElement.lang = (lang==="ur") ? "ur" : "en";
+  var lb=$("langBtn");
+  lb.textContent = (lang==="en") ? "اردو" : "English";
+  lb.setAttribute("aria-pressed", lang==="ur" ? "true":"false");
+  setText($("foot"), t({en:"AI4Kids — Islamabad's bilingual AI and coding school. WhatsApp 0337 1468899",
+    ur:"اے آئی فور کڈز — اسلام آباد کا دو زبانوں والا اے آئی اور کوڈنگ سکول۔ واٹس ایپ 0337 1468899"}));
+  buildLesson(); buildQuiz(); render();
+}
+$("langBtn").addEventListener("click", function(){ lang=(lang==="en")?"ur":"en"; applyLang(); });
+$("speakBtn").addEventListener("click", function(){
+  try{
+    if(!("speechSynthesis" in window)) return;
+    window.speechSynthesis.cancel();
+    var lead=$("lead"); var text = (lead && lead.textContent) || ($("title")&&$("title").textContent) || "";
+    var u=new SpeechSynthesisUtterance(text);
+    u.lang=(lang==="ur")?"ur-PK":"en-US"; u.rate=0.92;
+    window.speechSynthesis.speak(u);
+  }catch(e){}
+});
+
+var NS="http://www.w3.org/2000/svg";
+function mk(tag,a){ var e=document.createElementNS(NS,tag); for(var k in a) e.setAttribute(k,a[k]); return e; }
+
+var sensor="touch", touchOn=false, lightLvl=60, soundOn=false, animT=null;
+var LESSON={
+  hook:{en:"How do robot eyes work? If a robot meets friends, how does it know who is who?",
+        ur:"روبوٹ کی آنکھیں کیسے کام کرتی ہیں؟ دوستوں سے ملے تو کیسے پہچانے؟"},
+  samjhao:{en:"Sensors are a robot's eyes. Touch feels contact. Light measures brightness. Sound hears loud noises. Together they help the robot understand the world — like your skin, eyes, and ears!",
+           ur:"سینسر روبوٹ کی آنکھیں ہیں۔ ٹچ چھونا محسوس کرتا ہے۔ لائٹ روشنی ناپتی ہے۔ ساؤنڈ زور کی آواز سنتا ہے۔ مل کر دنیا سمجھاتے ہیں — جیسے تمہاری جلد، آنکھیں، کان!"},
+  misaal:{en:"In a bazaar robot: touch if it bumps a stall, light if a shop is bright, sound if a customer calls — sensors help it react!",
+          ur:"بازار کے روبوٹ میں: اسٹال سے ٹکرائے تو ٹچ، دکان روشن ہو تو لائٹ، گاہک پکارے تو ساؤنڈ — سینسر ردعمل دیتے ہیں!"},
+  karo:{en:"Cardboard box + stickers. Shine a phone flashlight (light). Tap a sticker (touch). Clap (sound). Pretend you are the robot!",
+        ur:"کارڈ بورڈ باکس + اسٹیکر۔ فون کی روشنی (لائٹ)۔ اسٹیکر چھوؤ (ٹچ)۔ تالی (ساؤنڈ)۔ روبوٹ بنو!"}
+};
+var QUIZ=[
+  {q:{en:"What do robot eyes do?",ur:"Robot ki aankhein ka kaam kya hota hai?"},a:{en:"See and feel",ur:"Deekhna aur mehsoos karna"},b:{en:"Only see",ur:"Sirf deekhna"},c:{en:"Only feel",ur:"Sirf mehsoos karna"},d:{en:"Nothing",ur:"Kuch nahi"},correct:"a",explanation:{en:"They help see and sense the world.",ur:"Robot ki aankhein deekhne aur mehsoos karne ka kaam karti hain."}},
+  {q:{en:"What is a touch sensor for?",ur:"Touch sensor ka istemal kis liye hota hai?"},a:{en:"To see things",ur:"Chizoon ko deekhne ke liye"},b:{en:"To feel things",ur:"Chizoon ko mehsoos karne ke liye"},c:{en:"To hear things",ur:"Chizoon ko sunne ke liye"},d:{en:"To move things",ur:"Chizoon ko hilane ke liye"},correct:"b",explanation:{en:"Touch sensors feel contact.",ur:"Touch sensor chizoon ko mehsoos karne ke liye istemal hota hai."}},
+  {q:{en:"What does a light sensor do?",ur:"Light sensor ka kaam kya hota hai?"},a:{en:"Sense light",ur:"Roshni ko mehsoos karna"},b:{en:"Sense sound",ur:"Awaaz ko mehsoos karna"},c:{en:"Sense speed",ur:"Taizi se mehsoos karna"},d:{en:"Sense heat",ur:"Garmi ko mehsoos karna"},correct:"a",explanation:{en:"It senses brightness.",ur:"Light sensor roshni ko mehsoos karta hai."}},
+  {q:{en:"What is a sound sensor for?",ur:"Sound sensor kis liye istemal hota hai?"},a:{en:"To hear sounds",ur:"Awaaz ko sunne ke liye"},b:{en:"To see light",ur:"Roshni ko deekhne ke liye"},c:{en:"Just to feel",ur:"Mehsoos karne ke liye"},d:{en:"To drive itself",ur:"Khud ko chalane ke liye"},correct:"a",explanation:{en:"It listens for sounds.",ur:"Sound sensor awaaz ko sunne ke liye istemal hota hai."}},
+  {q:{en:"Which sensor works because of light?",ur:"Kon sa sensor roshni ki wajah se kaam karta hai?"},a:{en:"Touch sensor",ur:"Touch sensor"},b:{en:"Sound sensor",ur:"Sound sensor"},c:{en:"Temperature sensor",ur:"Temperature sensor"},d:{en:"Light sensor",ur:"Light sensor"},correct:"d",explanation:{en:"The light sensor reacts to light.",ur:"Light sensor roshni ki wajah se kaam karta hai."}}
+];
+function drawRobotEyes(){
+  var svg=$("svg"); svg.innerHTML="";
+  var bg = sensor==="light" ? (lightLvl>50?"#fef9c3":"#1e293b") : "#e2e8f0";
+  svg.appendChild(mk("rect",{x:0,y:0,width:320,height:240,fill:bg}));
+  svg.appendChild(mk("rect",{x:110,y:70,width:100,height:110,rx:18,fill:"#94a3b8",stroke:"#1f2933","stroke-width":3}));
+  svg.appendChild(mk("rect",{x:125,y:40,width:70,height:45,rx:12,fill:"#64748b",stroke:"#1f2933","stroke-width":3}));
+  var eyeC = sensor==="touch" && touchOn ? "#f97316" : (sensor==="light"?(lightLvl>50?"#facc15":"#38bdf8"):(sensor==="sound"&&soundOn?"#a78bfa":"#e2e8f0"));
+  svg.appendChild(mk("circle",{cx:145,cy:58,r:12,fill:eyeC,stroke:"#1f2933","stroke-width":2}));
+  svg.appendChild(mk("circle",{cx:175,cy:58,r:12,fill:eyeC,stroke:"#1f2933","stroke-width":2}));
+  svg.appendChild(mk("rect",{x:140,y:145,width:40,height:8,rx:4,fill:"#1f2933"}));
+  svg.appendChild(mk("line",{x1:160,y1:40,x2:160,y2:22,stroke:"#1f2933","stroke-width":3}));
+  svg.appendChild(mk("circle",{cx:160,cy:18,r:6,fill:soundOn?"#ef4444":"#22c55e"}));
+  if(sensor==="touch"){
+    svg.appendChild(mk("circle",{cx:240,cy:120,r:touchOn?28:18,fill:touchOn?"#fdba74":"#fed7aa",stroke:"#ea580c","stroke-width":2,opacity:"0.9"}));
+    var tx=mk("text",{x:240,y:125,"text-anchor":"middle","font-size":"11","font-weight":"800",fill:"#9a3412"});
+    tx.textContent="TAP"; svg.appendChild(tx);
+  }
+  if(sensor==="light"){
+    var sun=mk("text",{x:50,y:50,"font-size":"36"}); sun.textContent=lightLvl>50?"☀":"☾"; svg.appendChild(sun);
+  }
+  if(sensor==="sound"){
+    var waves=soundOn?3:1;
+    for(var i=0;i<waves;i++){
+      svg.appendChild(mk("path",{d:"M40 "+(100+i*8)+" Q60 "+(80-i*10)+" 80 "+(100+i*8),fill:"none",stroke:"#7c3aed","stroke-width":3,opacity:String(0.4+i*0.2)}));
+    }
+    var cl=mk("text",{x:40,y:140,"font-size":"20"}); cl.textContent="♪"; svg.appendChild(cl);
+  }
+  var lab=mk("text",{x:160,y:220,"text-anchor":"middle","font-size":"13","font-weight":"800",fill:sensor==="light"&&lightLvl<=50?"#e2e8f0":"#1f2933"});
+  lab.textContent = sensor.toUpperCase()+" SENSOR"; svg.appendChild(lab);
+}
+function onTab(){ if(animT){clearInterval(animT);animT=null;} soundOn=false; touchOn=false; }
+function render(){
+  buildTabs([["touch",{en:"Touch",ur:"ٹچ"}],["light",{en:"Light",ur:"روشنی"}],["sound",{en:"Sound",ur:"آواز"}]]);
+  if(!tab||tab==="main") tab="touch";
+  sensor = tab;
+  setText($("whyLbl"), t({en:"Notice:",ur:"غور کریں:"}));
+  $("chips").innerHTML=""; $("controls").innerHTML=""; $("two").innerHTML="";
+  var play=$("playBtn"), play2=$("playBtn2");
+  play.className="play"; play2.className="play alt hidden";
+
+  if(tab==="touch"){
+    setText($("title"), t({en:"Touch sensor — feel",ur:"ٹچ سینسر — محسوس"}));
+    setText($("subtitle"), t({en:"Tap the button — robot eyes flash when it feels a bump!",ur:"بٹن دباؤ — ٹکر محسوس ہو تو آنکھیں چمکیں!"}));
+    setText($("panelHead"), t({en:"Try touch",ur:"ٹچ آزماؤ"}));
+    setText(play, t({en:"Bump / Touch!",ur:"ٹکراؤ / چھوؤ!"}));
+    play.classList.add("go");
+    play.onclick=function(){
+      touchOn=true; drawRobotEyes();
+      $("statechip").className="statechip ok";
+      setText($("statechip"), t({en:"TOUCHED!",ur:"چھوا گیا!"}));
+      setText($("lead"), t({en:"Robot felt something — turn or stop!",ur:"روبوٹ نے محسوس کیا — مڑو یا رکو!"}));
+      setTimeout(function(){ touchOn=false; drawRobotEyes(); render(); },700);
+    };
+    drawRobotEyes();
+    setText($("statechip"), touchOn?t({en:"TOUCHED!",ur:"چھوا گیا!"}):t({en:"Waiting",ur:"انتظار"}));
+    setText($("lead"), t({en:"Like your hand pulling away from heat",ur:"جیسے گرم چیز سے ہاتھ ہٹانا"}));
+    setText($("detail"), t({en:"Bump a wall → touch sensor says 'I felt it!'",ur:"دیوار سے ٹکراؤ → ٹچ کہے 'میں نے محسوس کیا!'"}));
+    setText($("trade"), t({en:"Toy robots often have a bumper in front.",ur:"کھلونوں میں اکثر سامنے بمپر ہوتا ہے۔"}));
+    setText($("whyText"), t({en:"Touch = contact sensor = robot skin.",ur:"ٹچ = رابطہ سینسر = روبوٹ کی جلد۔"}));
+    return;
+  }
+  if(tab==="light"){
+    setText($("title"), t({en:"Light sensor — brightness",ur:"لائٹ سینسر — روشنی"}));
+    setText($("subtitle"), t({en:"Slide brightness — robot eyes change with the room!",ur:"روشنی سرکائیں — کمرے سے آنکھیں بدلیں!"}));
+    setText($("panelHead"), t({en:"Brightness",ur:"چمک"}));
+    play.classList.add("hidden");
+    var row=document.createElement("div"); row.className="row";
+    var nm=document.createElement("span"); nm.className="name"; setText(nm, lightLvl+"%");
+    var rng=document.createElement("input"); rng.type="range"; rng.min="0"; rng.max="100"; rng.value=String(lightLvl);
+    rng.oninput=function(){
+      lightLvl=+rng.value; setText(nm, lightLvl+"%"); drawRobotEyes();
+      setText($("lead"), lightLvl>50?t({en:"Bright — maybe go to shade",ur:"روشن — شاید سایہ ڈھونڈو"}):t({en:"Dark — maybe turn a lamp on",ur:"اندھیرا — شاید لیمپ جلاؤ"}));
+      setText($("detail"), t({en:"Reading: "+lightLvl, ur:"ریڈنگ: "+lightLvl}));
+      $("statechip").className="statechip "+(lightLvl>50?"ok":"");
+      setText($("statechip"), lightLvl>50?t({en:"BRIGHT",ur:"روشن"}):t({en:"DARK",ur:"اندھیرا"}));
+    };
+    row.appendChild(nm); row.appendChild(rng); $("controls").appendChild(row);
+    drawRobotEyes();
+    setText($("statechip"), lightLvl>50?t({en:"BRIGHT",ur:"روشن"}):t({en:"DARK",ur:"اندھیرا"}));
+    setText($("lead"), t({en:"Measures how much light hits it",ur:"کتنی روشنی پڑ رہی ہے ناپتا ہے"}));
+    setText($("detail"), t({en:"Line-follower robots use light sensors on the floor!",ur:"لائن فالوور فرش پر لائٹ سینسر استعمال کرتے ہیں!"}));
+    setText($("trade"),""); setText($("whyText"), t({en:"Light sensor = robot's brightness meter.",ur:"لائٹ سینسر = روبوٹ کا روشنی میٹر۔"}));
+    return;
+  }
+  setText($("title"), t({en:"Sound sensor — listen",ur:"ساؤنڈ سینسر — سنو"}));
+  setText($("subtitle"), t({en:"Clap! The robot hears and its antenna blinks.",ur:"تالی! روبوٹ سنتا ہے اور اینٹینا جھپکتا ہے۔"}));
+  setText($("panelHead"), t({en:"Make a sound",ur:"آواز کرو"}));
+  setText(play, t({en:"Clap / Shout!",ur:"تالی / پکارو!"}));
+  play.classList.add("go");
+  play.onclick=function(){
+    soundOn=true; drawRobotEyes();
+    $("statechip").className="statechip ok";
+    setText($("statechip"), t({en:"HEARD IT!",ur:"سن لیا!"}));
+    setText($("lead"), t({en:"Loud sound detected — maybe turn that way",ur:"زور کی آواز — شاید اُس طرف مڑو"}));
+    setTimeout(function(){ soundOn=false; drawRobotEyes(); render(); },800);
+  };
+  drawRobotEyes();
+  setText($("statechip"), t({en:"Listening…",ur:"سن رہا…"}));
+  setText($("lead"), t({en:"Hears loud sounds like a clap or call",ur:"تالی یا پکار جیسی زور کی آواز سنتا ہے"}));
+  setText($("detail"), t({en:"Some toys start dancing when you clap!",ur:"کچھ کھلونے تالی پر ناچتے ہیں!"}));
+  setText($("trade"), t({en:"Quiet rooms need a louder clap for the sensor.",ur:"خاموش کمرے میں زور کی تالی چاہیے۔"}));
+  setText($("whyText"), t({en:"Sound sensor = robot ears.",ur:"ساؤنڈ سینسر = روبوٹ کے کان۔"}));
+}
+
+
+applyLang();
+})();
+</script>
+</body>
+</html>

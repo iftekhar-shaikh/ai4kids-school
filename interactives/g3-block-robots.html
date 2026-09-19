@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Block robots — بلاک روبوٹ | AI4Kids Grade 3 Automation & Robotics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --board:#eef0f5; --board-deep:#dde1ea;
+  --accent:#1d4c85; --accent2:#c9702e; --ok:#2e7d4f; --no:#c4453a;
+  --ink:#1f2933; --ink-soft:#4a5661; --paper:#fdfaf3; --line:#ded5c4;
+  --fs-cap:clamp(14px, 3.8vw, 16px); --fs-xs:clamp(16px, 4.2vw, 18px);
+  --fs-sm:clamp(18px, 4.8vw, 20px); --fs-md:clamp(19px, 5.2vw, 22px);
+  --fs-lg:clamp(22px, 6vw, 26px); --fs-xl:clamp(30px, 8vw, 38px); --lh:1.55;
+}
+body.urdu{
+  --fs-cap:clamp(17px, 4.4vw, 18px); --fs-xs:clamp(18px, 4.7vw, 20px);
+  --fs-sm:clamp(20px, 5.2vw, 22px); --fs-md:clamp(21px, 5.6vw, 24px);
+  --fs-lg:clamp(24px, 6.4vw, 28px); --fs-xl:clamp(28px, 7.4vw, 34px); --lh:2.05;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+  font-size:var(--fs-sm);line-height:1.55;padding:0 0 40px;
+}
+body.urdu{font-family:"Noto Nastaliq Urdu","Baloo Bhaijaan 2",serif;line-height:var(--lh)}
+.wrap{max-width:560px;margin:0 auto;padding:0 14px}
+.bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px;flex-wrap:wrap}
+.brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+.chip{
+  border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;
+  font-size:var(--fs-xs);cursor:pointer;min-height:44px;
+}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.chip:focus-visible,button:focus-visible{outline:3px solid var(--accent2);outline-offset:2px}
+h1{font-size:var(--fs-xl);line-height:1.25;font-weight:800;margin:8px 0 4px}
+body.urdu h1{line-height:1.9}
+.sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+.tabs{display:flex;gap:7px;margin:0 0 14px;flex-wrap:wrap}
+.tabs button{
+  flex:1;min-width:88px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+  border-radius:14px;padding:9px 6px;font:inherit;font-weight:800;
+  font-size:var(--fs-cap);cursor:pointer;min-height:54px;
+}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.scene{
+  position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+  background:linear-gradient(180deg,var(--board) 0%,var(--board-deep) 100%);
+  min-height:200px;
+}
+.scene svg,.scene canvas{display:block;width:100%;height:auto}
+.play{
+  width:100%;margin-top:12px;border:3px solid var(--ink);border-radius:18px;
+  background:var(--ink);color:var(--paper);font:inherit;font-weight:800;
+  font-size:var(--fs-md);cursor:pointer;min-height:60px;
+}
+.play:active{transform:scale(.98)}
+.play.alt{background:var(--paper);color:var(--ink)}
+.play.go{background:var(--ok);border-color:var(--ok)}
+.play.stop{background:var(--no);border-color:var(--no)}
+.play.hidden,.hidden{display:none !important}
+.two{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.card{flex:1;min-width:110px;border:3px solid var(--line);border-radius:16px;padding:12px 9px;text-align:center;cursor:pointer}
+.card em{display:block;font-style:normal;font-size:var(--fs-cap);color:var(--ink-soft);font-weight:700;margin-bottom:5px}
+.card b{display:block;font-size:var(--fs-lg);font-weight:800;line-height:1.2}
+.card span{display:block;font-size:var(--fs-cap);font-weight:700;color:var(--ink-soft);margin-top:3px}
+.card.on{border-color:var(--accent);background:#e8eef8}
+.card.hot{border-color:var(--accent2);background:#fbf1e8}
+.readout{
+  margin-top:12px;background:var(--paper);
+  border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+}
+.statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+           padding:4px 14px;font-size:var(--fs-cap);font-weight:700;margin-bottom:10px}
+.statechip.ok{background:var(--ok)} .statechip.no{background:var(--no)}
+.lead{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.4}
+body.urdu .lead{line-height:1.95}
+.detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+.trade{
+  margin-top:14px;border:2px dashed var(--accent2);background:#fbf1e8;border-radius:14px;
+  padding:12px 14px;font-size:var(--fs-xs);font-weight:700;color:#8a4a12;line-height:1.6;
+}
+.why-note{
+  margin:12px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;
+  border-left:3px solid var(--accent);padding-left:11px;
+}
+body.urdu .why-note{border-left:0;border-right:3px solid var(--accent);padding-left:0;padding-right:11px;line-height:var(--lh)}
+.why-note b{color:var(--accent);font-weight:800}
+.panel{margin-top:18px}
+.panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+.row{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+.row .name{flex:none;width:34%;max-width:140px;font-size:var(--fs-xs);font-weight:700}
+.row input[type=range]{flex:1;min-width:120px;height:36px;accent-color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.schip{
+  border:2px solid var(--line);background:var(--paper);border-radius:999px;padding:9px 15px;
+  font:inherit;font-size:var(--fs-cap);font-weight:800;color:var(--ink);cursor:pointer;min-height:46px;
+}
+.schip[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+.lesson{margin-top:8px}
+.lcard{
+  border:3px solid var(--line);border-radius:18px;padding:14px 16px;margin-bottom:12px;background:#fffdf8;
+}
+.lcard .tag{
+  display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+  padding:3px 12px;font-size:var(--fs-cap);font-weight:800;margin-bottom:8px;
+}
+.lcard.hook .tag{background:var(--accent2)}
+.lcard.misaal .tag{background:var(--ok)}
+.lcard.karo .tag{background:#6b4a8f}
+.lcard p{margin:0;font-size:var(--fs-sm);line-height:1.6}
+body.urdu .lcard p{line-height:var(--lh)}
+.quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+.q{margin-bottom:26px}
+.q > p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+.opt{
+  display:block;width:100%;text-align:left;margin-bottom:10px;
+  border:2px solid var(--line);background:var(--paper);border-radius:12px;
+  padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+  min-height:52px;
+}
+body.urdu .opt{text-align:right}
+.opt:hover{border-color:var(--ink)}
+.opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+.opt.wrong{border-color:var(--no);background:#fbeae8}
+.fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none;line-height:1.6}
+.fb.show{display:block}
+.score{
+  margin-top:14px;padding:14px;border:3px solid var(--ink);border-radius:16px;
+  font-weight:800;font-size:var(--fs-md);text-align:center;display:none;
+}
+.score.show{display:block}
+footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+       font-size:var(--fs-xs);color:var(--ink-soft)}
+@media (min-width:820px){
+  .wrap{
+    max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
+    grid-template-areas:"bar bar" "head head" "tabs tabs" "left right" "lesson lesson" "quiz quiz" "foot foot";
+    align-items:start;
+  }
+  .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+  .left{grid-area:left} .right{grid-area:right}
+  .lesson{grid-area:lesson}
+  .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important;transition-duration:.01ms !important}
+}
+
+
+
+.block-tray{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;min-height:48px}
+.block-chip{
+  border:3px solid var(--ink);border-radius:12px;padding:10px 14px;font:inherit;font-weight:800;
+  font-size:var(--fs-cap);cursor:pointer;background:#fef08a;min-height:48px;user-select:none;
+}
+.block-chip.move{background:#93c5fd}.block-chip.turn{background:#f9a8d4}.block-chip.wait{background:#bbf7d0}
+.program-slot{
+  margin-top:10px;min-height:70px;border:3px dashed var(--ink);border-radius:14px;
+  padding:10px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;background:#fff;
+}
+.prog-item{border:2px solid var(--ink);border-radius:10px;padding:8px 12px;font-weight:800;font-size:var(--fs-cap);background:#fef08a}
+.prog-item.move{background:#93c5fd}.prog-item.turn{background:#f9a8d4}.prog-item.wait{background:#bbf7d0}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar">
+    <span class="brand">AI4Kids · Grade 3 · Robotics</span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+  <div class="head">
+    <h1 id="title"></h1>
+    <p class="sub" id="subtitle"></p>
+  </div>
+  <div class="tabs" role="group" id="tabs"></div>
+  <div class="left">
+    <div class="scene" id="scene"><svg viewBox="0 0 320 240" id="svg" role="img"></svg></div>
+    <div class="two" id="two"></div>
+    <div class="readout">
+      <span class="statechip" id="statechip"></span>
+      <p class="lead" id="lead"></p>
+      <p class="detail" id="detail"></p>
+      <p class="trade" id="trade"></p>
+      <p class="why-note"><b id="whyLbl"></b> <span id="whyText"></span></p>
+    </div>
+  </div>
+  <div class="right">
+    <div class="panel">
+      <h2 id="panelHead"></h2>
+      <div class="chips" id="chips" role="group"></div>
+      <div id="controls"></div>
+      <button type="button" class="play" id="playBtn"></button>
+      <button type="button" class="play alt" id="playBtn2" style="margin-top:8px"></button>
+    </div>
+  </div>
+
+  <div class="lesson" id="lessonBox"></div>
+  <div class="quiz">
+    <h2 id="quizHead" style="font-size:var(--fs-lg);font-weight:800;margin:0 0 18px"></h2>
+    <div id="quizBox"></div>
+    <div class="score" id="scoreBox"></div>
+  </div>
+  <footer>
+    <p id="foot"></p>
+  </footer>
+</div>
+<script>
+(function(){
+"use strict";
+var lang="en", tab="main";
+
+function $(id){ return document.getElementById(id); }
+function t(o){ return (o && typeof o==="object") ? (o[lang]||o.en||"") : (o||""); }
+function setText(el, s){
+  if(!el) return;
+  el.textContent = s;
+  if(lang==="ur"){ el.setAttribute("dir","rtl"); }
+  else { el.setAttribute("dir","ltr"); }
+}
+function buildTabs(list){
+  var tabs=$("tabs"); tabs.innerHTML="";
+  list.forEach(function(x){
+    var b=document.createElement("button"); b.type="button";
+    b.setAttribute("aria-pressed", tab===x[0]?"true":"false");
+    setText(b, t(x[1]));
+    b.addEventListener("click", function(){ if(tab===x[0]) return; tab=x[0]; if(typeof onTab==="function") onTab(); render(); });
+    tabs.appendChild(b);
+  });
+}
+function buildLesson(){
+  var box=$("lessonBox"); if(!box) return; box.innerHTML="";
+  var cards=[{cls:"hook", tag:{en:"HOOK",ur:"ہک"}, body:LESSON.hook},
+   {cls:"samjhao", tag:{en:"SAMJHAO",ur:"سمجھاؤ"}, body:LESSON.samjhao},
+   {cls:"misaal", tag:{en:"MISAAL",ur:"مثال"}, body:LESSON.misaal}];
+  if(LESSON.karo) cards.push({cls:"karo", tag:{en:"KARO",ur:"کرو"}, body:LESSON.karo});
+  cards.forEach(function(c){
+    var d=document.createElement("div"); d.className="lcard "+c.cls;
+    var tag=document.createElement("span"); tag.className="tag"; setText(tag,t(c.tag));
+    var p=document.createElement("p"); setText(p,t(c.body));
+    d.appendChild(tag); d.appendChild(p); box.appendChild(d);
+  });
+}
+var quizScore=0, quizDone=0;
+function buildQuiz(){
+  var box=$("quizBox"); box.innerHTML=""; quizScore=0; quizDone=0;
+  var sb=$("scoreBox"); sb.classList.remove("show"); sb.textContent="";
+  setText($("quizHead"), t({en:"Check yourself", ur:"اپنا امتحان لیں"}));
+  QUIZ.forEach(function(item){
+    var wrap=document.createElement("div"); wrap.className="q";
+    var q=document.createElement("p"); setText(q, t(item.q)); wrap.appendChild(q);
+    var fb=document.createElement("p"); fb.className="fb";
+    ["a","b","c","d"].forEach(function(k, oi){
+      var b=document.createElement("button"); b.type="button"; b.className="opt";
+      b.setAttribute("dir", lang==="ur"?"rtl":"ltr");
+      b.textContent = String.fromCharCode(65+oi)+". "+t(item[k]);
+      b.addEventListener("click", function(){
+        if(wrap.getAttribute("data-done")==="1") return;
+        wrap.setAttribute("data-done","1"); quizDone++;
+        if(item.correct===k) quizScore++;
+        ["a","b","c","d"].forEach(function(kk, xi){
+          var btn=wrap.querySelectorAll(".opt")[xi];
+          if(kk===item.correct) btn.classList.add("right");
+          else if(kk===k) btn.classList.add("wrong");
+        });
+        setText(fb, t(item.explanation)); fb.classList.add("show");
+        if(quizDone===QUIZ.length){
+          sb.classList.add("show");
+          setText(sb, t({en:"Score: "+quizScore+" / "+QUIZ.length, ur:"سکور: "+quizScore+" / "+QUIZ.length}));
+        }
+      });
+      wrap.appendChild(b);
+    });
+    wrap.appendChild(fb); box.appendChild(wrap);
+  });
+}
+function applyLang(){
+  document.body.classList.toggle("urdu", lang==="ur");
+  document.documentElement.lang = (lang==="ur") ? "ur" : "en";
+  var lb=$("langBtn");
+  lb.textContent = (lang==="en") ? "اردو" : "English";
+  lb.setAttribute("aria-pressed", lang==="ur" ? "true":"false");
+  setText($("foot"), t({en:"AI4Kids — Islamabad's bilingual AI and coding school. WhatsApp 0337 1468899",
+    ur:"اے آئی فور کڈز — اسلام آباد کا دو زبانوں والا اے آئی اور کوڈنگ سکول۔ واٹس ایپ 0337 1468899"}));
+  buildLesson(); buildQuiz(); render();
+}
+$("langBtn").addEventListener("click", function(){ lang=(lang==="en")?"ur":"en"; applyLang(); });
+$("speakBtn").addEventListener("click", function(){
+  try{
+    if(!("speechSynthesis" in window)) return;
+    window.speechSynthesis.cancel();
+    var lead=$("lead"); var text = (lead && lead.textContent) || ($("title")&&$("title").textContent) || "";
+    var u=new SpeechSynthesisUtterance(text);
+    u.lang=(lang==="ur")?"ur-PK":"en-US"; u.rate=0.92;
+    window.speechSynthesis.speak(u);
+  }catch(e){}
+});
+
+var NS="http://www.w3.org/2000/svg";
+function mk(tag,a){ var e=document.createElementNS(NS,tag); for(var k in a) e.setAttribute(k,a[k]); return e; }
+
+var program=[], robotX=40, robotY=160, facing=1, running=false, timer=null, stepI=0;
+var BLOCKS=[
+  {id:"move", cls:"move", en:"Move forward", ur:"آگے چلو"},
+  {id:"left", cls:"turn", en:"Turn left", ur:"بائیں مڑو"},
+  {id:"right", cls:"turn", en:"Turn right", ur:"دائیں مڑو"},
+  {id:"wait", cls:"wait", en:"Wait", ur:"انتظار"}
+];
+var LESSON={
+  hook:{en:"Your friend built a fun robot from LEGO blocks. Can you build one too? Let's learn about block robots!",
+        ur:"دوست نے لیگو بلاکس سے مزے دار روبوٹ بنایا۔ تم بھی بنا سکتے ہو؟ آؤ بلاک روبوٹ سیکھیں!"},
+  samjhao:{en:"Block robots are machines built from blocks or LEGO-like pieces. You join shapes to make a body, then program movements. Be creative and build strong!",
+           ur:"بلاک روبوٹ بلاکس یا لیگو جیسے ٹکڑوں سے بنتے ہیں۔ شکلیں جوڑ کر جسم بناتے ہو، پھر حرکت پروگرام کرتے۔ تخلیقی بنو اور مضبوط جوڑو!"},
+  misaal:{en:"Imagine a Biryani Maker Robot that pours rice and mixes spices — you design it from blocks for the market!",
+          ur:"بریانی میکر روبوٹ سوچو جو چاول ڈالے اور مصالحہ ملائے — بلاکس سے ڈیزائن کر کے بازار کے لیے!"},
+  karo:{en:"At home: take old LEGO or small pieces. Assemble any design. Name it — Biryani Robot or Rickshaw Robot — and show your family!",
+        ur:"گھر پر: پرانے لیگو یا چھوٹے ٹکڑے۔ کوئی ڈیزائن جوڑو۔ نام رکھو — بریانی روبوٹ یا رکشہ روبوٹ — اور خاندان کو دکھاؤ!"}
+};
+var QUIZ=[
+  {q:{en:"What do we need first to build a robot?",ur:"Robot banane ke liye sab se pehle hume kya chahiye?"},a:{en:"Blocks",ur:"Blocks"},b:{en:"Paper",ur:"Kagaz"},c:{en:"Toys",ur:"Khilone"},d:{en:"Nothing",ur:"Kuch nahi"},correct:"a",explanation:{en:"We need blocks to build a robot.",ur:"Robot banane ke liye hume blocks ki zaroorat hoti hai."}},
+  {q:{en:"What are LEGO blocks used for?",ur:"LEGO blocks kis cheez ke liye istemal hote hain?"},a:{en:"Building houses",ur:"Ghar bnane ke liye"},b:{en:"Building robots",ur:"Robot banane ke liye"},c:{en:"Making toys only",ur:"Khilaune bnane ke liye"},d:{en:"Making friends",ur:"Dost bnane ke liye"},correct:"b",explanation:{en:"LEGO blocks are often used to build robots and machines.",ur:"LEGO blocks ka sab se zyada istemal robots aur machino ko bnane mein hota hai."}},
+  {q:{en:"How do small robots work?",ur:"Chhote robots kis tarah se kaam karte hain?"},a:{en:"They go outside",ur:"Bahar jaate hain"},b:{en:"They stay quiet",ur:"Chup rehne lagte hain"},c:{en:"They are programmed",ur:"Program kiye jaate hain"},d:{en:"Like plain toys",ur:"Khilone ki tarah"},correct:"c",explanation:{en:"Small robots are programmed to do specific tasks.",ur:"Chhote robots ko program kiya jata hai taake wo specific tasks perform kar sakein."}},
+  {q:{en:"What is hardest about building a block robot?",ur:"Block robot banane mein sab se mushkil kya hota hai?"},a:{en:"Making the design",ur:"Design banana"},b:{en:"Buying blocks",ur:"Blocks kharidna"},c:{en:"Picking colors",ur:"Sahi rang chunna"},d:{en:"Going somewhere",ur:"Kahin jaana"},correct:"a",explanation:{en:"Design needs creativity and planning.",ur:"Design banana sab se mushkil kaam hota hai kyun ke is mein creativity aur planning ki zaroorat hoti hai."}},
+  {q:{en:"What do we need to power a robot?",ur:"Robot ko chalane ke liye hume kya chahiye?"},a:{en:"Battery",ur:"Battery"},b:{en:"Cooking",ur:"Pakwan"},c:{en:"A toy",ur:"Khilona"},d:{en:"A friend",ur:"Dost"},correct:"a",explanation:{en:"A robot needs power from a battery.",ur:"Robot ko chalane ke liye power ki zarurat hoti hai jo battery se milti hai."}}
+];
+function stopRun(){ if(timer){clearInterval(timer);timer=null;} running=false; stepI=0; }
+function drawRobot(){
+  var svg=$("svg"); svg.innerHTML="";
+  svg.appendChild(mk("rect",{x:0,y:0,width:320,height:240,fill:"#fef3c7"}));
+  // grid floor
+  for(var g=0;g<8;g++) svg.appendChild(mk("line",{x1:0,y1:40+g*25,x2:320,y2:40+g*25,stroke:"#fde68a","stroke-width":1}));
+  for(var h=0;h<13;h++) svg.appendChild(mk("line",{x1:h*25,y1:40,x2:h*25,y2:240,stroke:"#fde68a","stroke-width":1}));
+  // goal star
+  svg.appendChild(mk("circle",{cx:280,cy:60,r:16,fill:"#fbbf24",stroke:"#b45309","stroke-width":2}));
+  var star=mk("text",{x:280,y:66,"text-anchor":"middle","font-size":"14"}); star.textContent="★"; svg.appendChild(star);
+  // robot body from blocks look
+  var rx=robotX, ry=robotY;
+  svg.appendChild(mk("rect",{x:rx,y:ry-30,width:40,height:30,rx:4,fill:"#ef4444",stroke:"#1f2933","stroke-width":2}));
+  svg.appendChild(mk("rect",{x:rx+5,y:ry-50,width:30,height:22,rx:4,fill:"#3b82f6",stroke:"#1f2933","stroke-width":2}));
+  svg.appendChild(mk("circle",{cx:rx+12,cy:ry-40,r:4,fill:"#fde047"}));
+  svg.appendChild(mk("circle",{cx:rx+28,cy:ry-40,r:4,fill:"#fde047"}));
+  // wheels
+  svg.appendChild(mk("circle",{cx:rx+8,cy:ry,r:8,fill:"#1f2933"}));
+  svg.appendChild(mk("circle",{cx:rx+32,cy:ry,r:8,fill:"#1f2933"}));
+  // facing arrow
+  var ax = facing===1 ? rx+45 : rx-5;
+  svg.appendChild(mk("polygon",{points: facing===1 ? (ax+","+(ry-20)+" "+(ax+12)+","+(ry-15)+" "+ax+","+(ry-10)) : (ax+","+(ry-20)+" "+(ax-12)+","+(ry-15)+" "+ax+","+(ry-10)), fill:"#16a34a"}));
+  var lab=mk("text",{x:160,y:28,"text-anchor":"middle","font-size":"13","font-weight":"800",fill:"#1f2933"});
+  lab.textContent = t({en:"Block robot · "+program.length+" blocks", ur:"بلاک روبوٹ · "+program.length+" بلاکس"});
+  svg.appendChild(lab);
+}
+function refreshProgramUI(){
+  var slot=$("controls").querySelector(".program-slot");
+  if(!slot) return;
+  slot.innerHTML="";
+  if(program.length===0){
+    var ph=document.createElement("span"); ph.style.color="#94a3b8"; ph.style.fontWeight="700";
+    setText(ph, t({en:"Tap blocks below to add…",ur:"نیچے بلاکس دبا کر شامل کرو…"}));
+    slot.appendChild(ph); return;
+  }
+  program.forEach(function(id, idx){
+    var blk=BLOCKS.filter(function(b){return b.id===id;})[0];
+    var el=document.createElement("span"); el.className="prog-item "+blk.cls;
+    setText(el, t({en:blk.en,ur:blk.ur}));
+    el.title="Remove";
+    el.onclick=function(){ if(running) return; program.splice(idx,1); render(); };
+    slot.appendChild(el);
+  });
+}
+function runProgram(){
+  if(running||program.length===0) return;
+  running=true; stepI=0; robotX=40; robotY=160; facing=1; drawRobot();
+  timer=setInterval(function(){
+    if(stepI>=program.length){
+      stopRun();
+      var win = robotX>240 && robotY<90;
+      $("statechip").className="statechip "+(win?"ok":"");
+      setText($("statechip"), win?t({en:"Goal!",ur:"منزل!"}):t({en:"Finished",ur:"مکمل"}));
+      setText($("lead"), win?t({en:"You reached the star!",ur:"ستارے تک پہنچ گئے!"}):t({en:"Try more Move blocks toward the star",ur:"ستارے کی طرف مزید آگے چلو بلاکس آزماؤ"}));
+      render(); return;
+    }
+    var cmd=program[stepI];
+    if(cmd==="move"){ robotX += facing*35; robotY -= 15; }
+    else if(cmd==="left"){ facing=-1; }
+    else if(cmd==="right"){ facing=1; }
+    else if(cmd==="wait"){ /* pause visual */ }
+    robotX=Math.max(10,Math.min(270,robotX));
+    robotY=Math.max(50,Math.min(180,robotY));
+    drawRobot();
+    setText($("lead"), t({en:"Step "+(stepI+1)+": "+cmd, ur:"قدم "+(stepI+1)+": "+cmd}));
+    stepI++;
+  },550);
+}
+function onTab(){ stopRun(); }
+function render(){
+  buildTabs([["build",{en:"Build program",ur:"پروگرام بناؤ"}],["run",{en:"Run robot",ur:"روبوٹ چلاؤ"}],["ideas",{en:"Design ideas",ur:"ڈیزائن خیالات"}]]);
+  if(!tab||tab==="main") tab="build";
+  setText($("whyLbl"), t({en:"Notice:",ur:"غور کریں:"}));
+  $("chips").innerHTML=""; $("controls").innerHTML=""; $("two").innerHTML="";
+  var play=$("playBtn"), play2=$("playBtn2");
+  play.className="play"; play2.className="play alt hidden";
+
+  if(tab==="build" || tab==="run"){
+    setText($("title"), t({en:"Block coding — drag simple",ur:"بلاک کوڈنگ — آسان"}));
+    setText($("subtitle"), t({en:"Tap blocks to fill your program. Then run!",ur:"بلاکس دبا کر پروگرام بھرو۔ پھر چلاؤ!"}));
+    setText($("panelHead"), t({en:"Your program",ur:"تمہارا پروگرام"}));
+
+    var slot=document.createElement("div"); slot.className="program-slot";
+    $("controls").appendChild(slot);
+
+    var tray=document.createElement("div"); tray.className="block-tray";
+    BLOCKS.forEach(function(blk){
+      var b=document.createElement("button"); b.type="button"; b.className="block-chip "+blk.cls;
+      setText(b, t({en:blk.en,ur:blk.ur}));
+      b.onclick=function(){ if(running) return; if(program.length<8) program.push(blk.id); render(); };
+      tray.appendChild(b);
+    });
+    $("controls").appendChild(tray);
+
+    refreshProgramUI();
+    drawRobot();
+
+    setText(play, t({en:"Run program",ur:"پروگرام چلاؤ"}));
+    play.classList.add("go");
+    play2.classList.remove("hidden");
+    setText(play2, t({en:"Clear all",ur:"سب مٹاؤ"}));
+    play.onclick=function(){ tab="run"; runProgram(); render(); };
+    play2.onclick=function(){ stopRun(); program=[]; robotX=40; robotY=160; facing=1; render(); };
+
+    setText($("statechip"), running?t({en:"Running…",ur:"چل رہا…"}):t({en:"Ready",ur:"تیار"}));
+    setText($("lead"), t({en:"Program length: "+program.length, ur:"پروگرام لمبائی: "+program.length}));
+    setText($("detail"), t({en:"Tip: Move + Move + Move toward the yellow star!",ur:"ٹپ: ستارے کی طرف آگے + آگے + آگے!"}));
+    setText($("trade"), t({en:"Tap a block in the program to remove it.",ur:"پروگرام میں بلاک دبا کر ہٹاؤ۔"}));
+    setText($("whyText"), t({en:"Blocks in order = program. That is coding!",ur:"ترتیب میں بلاکس = پروگرام۔ یہی کوڈنگ!"}));
+    return;
+  }
+  stopRun(); drawRobot();
+  setText($("title"), t({en:"Design your robot",ur:"اپنا روبوٹ ڈیزائن کرو"}));
+  setText($("subtitle"), t({en:"Strong build + clear job = great block robot.",ur:"مضبوط جوڑ + واضح کام = زبردست بلاک روبوٹ۔"}));
+  setText($("panelHead"), t({en:"Ideas",ur:"خیالات"}));
+  play.classList.add("hidden");
+  [
+    {en:"Rickshaw Robot",ur:"رکشہ روبوٹ"},
+    {en:"Biryani Robot",ur:"بریانی روبوٹ"},
+    {en:"Helper Robot",ur:"مددگار روبوٹ"}
+  ].forEach(function(x){
+    var b=document.createElement("button"); b.type="button"; b.className="schip";
+    setText(b,t(x));
+    b.onclick=function(){
+      setText($("statechip"), t(x));
+      setText($("lead"), t({en:"Nice name! Now build the body from blocks.",ur:"اچھا نام! اب بلاکس سے جسم جوڑو۔"}));
+      $("statechip").className="statechip ok";
+    };
+    $("chips").appendChild(b);
+  });
+  setText($("statechip"), t({en:"Be creative",ur:"تخلیقی بنو"}));
+  setText($("lead"), t({en:"Think: what will your robot do?",ur:"سوچو: تمہارا روبوٹ کیا کرے گا؟"}));
+  setText($("detail"), t({en:"Strong joints matter — a wobbly robot falls!",ur:"مضبوط جوڑ ضروری — ڈھیلا روبوٹ گرتا ہے!"}));
+  setText($("trade"), t({en:"Programming gives your block robot movements.",ur:"پروگرامنگ بلاک روبوٹ کو حرکت دیتی ہے۔"}));
+  setText($("whyText"), t({en:"Building + coding = young engineer!",ur:"بنانا + کوڈنگ = چھوٹا انجینئر!"}));
+}
+
+
+applyLang();
+})();
+</script>
+</body>
+</html>

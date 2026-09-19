@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Automatic machines — خودکار مشینیں | AI4Kids Grade 3 Automation & Robotics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --board:#eef0f5; --board-deep:#dde1ea;
+  --accent:#1d4c85; --accent2:#c9702e; --ok:#2e7d4f; --no:#c4453a;
+  --ink:#1f2933; --ink-soft:#4a5661; --paper:#fdfaf3; --line:#ded5c4;
+  --fs-cap:clamp(14px, 3.8vw, 16px); --fs-xs:clamp(16px, 4.2vw, 18px);
+  --fs-sm:clamp(18px, 4.8vw, 20px); --fs-md:clamp(19px, 5.2vw, 22px);
+  --fs-lg:clamp(22px, 6vw, 26px); --fs-xl:clamp(30px, 8vw, 38px); --lh:1.55;
+}
+body.urdu{
+  --fs-cap:clamp(17px, 4.4vw, 18px); --fs-xs:clamp(18px, 4.7vw, 20px);
+  --fs-sm:clamp(20px, 5.2vw, 22px); --fs-md:clamp(21px, 5.6vw, 24px);
+  --fs-lg:clamp(24px, 6.4vw, 28px); --fs-xl:clamp(28px, 7.4vw, 34px); --lh:2.05;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+  font-size:var(--fs-sm);line-height:1.55;padding:0 0 40px;
+}
+body.urdu{font-family:"Noto Nastaliq Urdu","Baloo Bhaijaan 2",serif;line-height:var(--lh)}
+.wrap{max-width:560px;margin:0 auto;padding:0 14px}
+.bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px;flex-wrap:wrap}
+.brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+.chip{
+  border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;
+  font-size:var(--fs-xs);cursor:pointer;min-height:44px;
+}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.chip:focus-visible,button:focus-visible{outline:3px solid var(--accent2);outline-offset:2px}
+h1{font-size:var(--fs-xl);line-height:1.25;font-weight:800;margin:8px 0 4px}
+body.urdu h1{line-height:1.9}
+.sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+.tabs{display:flex;gap:7px;margin:0 0 14px;flex-wrap:wrap}
+.tabs button{
+  flex:1;min-width:88px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+  border-radius:14px;padding:9px 6px;font:inherit;font-weight:800;
+  font-size:var(--fs-cap);cursor:pointer;min-height:54px;
+}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.scene{
+  position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+  background:linear-gradient(180deg,var(--board) 0%,var(--board-deep) 100%);
+  min-height:200px;
+}
+.scene svg,.scene canvas{display:block;width:100%;height:auto}
+.play{
+  width:100%;margin-top:12px;border:3px solid var(--ink);border-radius:18px;
+  background:var(--ink);color:var(--paper);font:inherit;font-weight:800;
+  font-size:var(--fs-md);cursor:pointer;min-height:60px;
+}
+.play:active{transform:scale(.98)}
+.play.alt{background:var(--paper);color:var(--ink)}
+.play.go{background:var(--ok);border-color:var(--ok)}
+.play.stop{background:var(--no);border-color:var(--no)}
+.play.hidden,.hidden{display:none !important}
+.two{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.card{flex:1;min-width:110px;border:3px solid var(--line);border-radius:16px;padding:12px 9px;text-align:center;cursor:pointer}
+.card em{display:block;font-style:normal;font-size:var(--fs-cap);color:var(--ink-soft);font-weight:700;margin-bottom:5px}
+.card b{display:block;font-size:var(--fs-lg);font-weight:800;line-height:1.2}
+.card span{display:block;font-size:var(--fs-cap);font-weight:700;color:var(--ink-soft);margin-top:3px}
+.card.on{border-color:var(--accent);background:#e8eef8}
+.card.hot{border-color:var(--accent2);background:#fbf1e8}
+.readout{
+  margin-top:12px;background:var(--paper);
+  border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+}
+.statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+           padding:4px 14px;font-size:var(--fs-cap);font-weight:700;margin-bottom:10px}
+.statechip.ok{background:var(--ok)} .statechip.no{background:var(--no)}
+.lead{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.4}
+body.urdu .lead{line-height:1.95}
+.detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+.trade{
+  margin-top:14px;border:2px dashed var(--accent2);background:#fbf1e8;border-radius:14px;
+  padding:12px 14px;font-size:var(--fs-xs);font-weight:700;color:#8a4a12;line-height:1.6;
+}
+.why-note{
+  margin:12px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;
+  border-left:3px solid var(--accent);padding-left:11px;
+}
+body.urdu .why-note{border-left:0;border-right:3px solid var(--accent);padding-left:0;padding-right:11px;line-height:var(--lh)}
+.why-note b{color:var(--accent);font-weight:800}
+.panel{margin-top:18px}
+.panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+.row{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+.row .name{flex:none;width:34%;max-width:140px;font-size:var(--fs-xs);font-weight:700}
+.row input[type=range]{flex:1;min-width:120px;height:36px;accent-color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.schip{
+  border:2px solid var(--line);background:var(--paper);border-radius:999px;padding:9px 15px;
+  font:inherit;font-size:var(--fs-cap);font-weight:800;color:var(--ink);cursor:pointer;min-height:46px;
+}
+.schip[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+.lesson{margin-top:8px}
+.lcard{
+  border:3px solid var(--line);border-radius:18px;padding:14px 16px;margin-bottom:12px;background:#fffdf8;
+}
+.lcard .tag{
+  display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+  padding:3px 12px;font-size:var(--fs-cap);font-weight:800;margin-bottom:8px;
+}
+.lcard.hook .tag{background:var(--accent2)}
+.lcard.misaal .tag{background:var(--ok)}
+.lcard.karo .tag{background:#6b4a8f}
+.lcard p{margin:0;font-size:var(--fs-sm);line-height:1.6}
+body.urdu .lcard p{line-height:var(--lh)}
+.quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+.q{margin-bottom:26px}
+.q > p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+.opt{
+  display:block;width:100%;text-align:left;margin-bottom:10px;
+  border:2px solid var(--line);background:var(--paper);border-radius:12px;
+  padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+  min-height:52px;
+}
+body.urdu .opt{text-align:right}
+.opt:hover{border-color:var(--ink)}
+.opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+.opt.wrong{border-color:var(--no);background:#fbeae8}
+.fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none;line-height:1.6}
+.fb.show{display:block}
+.score{
+  margin-top:14px;padding:14px;border:3px solid var(--ink);border-radius:16px;
+  font-weight:800;font-size:var(--fs-md);text-align:center;display:none;
+}
+.score.show{display:block}
+footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+       font-size:var(--fs-xs);color:var(--ink-soft)}
+@media (min-width:820px){
+  .wrap{
+    max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
+    grid-template-areas:"bar bar" "head head" "tabs tabs" "left right" "lesson lesson" "quiz quiz" "foot foot";
+    align-items:start;
+  }
+  .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+  .left{grid-area:left} .right{grid-area:right}
+  .lesson{grid-area:lesson}
+  .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important;transition-duration:.01ms !important}
+}
+
+
+
+.block-tray{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;min-height:48px}
+.block-chip{
+  border:3px solid var(--ink);border-radius:12px;padding:10px 14px;font:inherit;font-weight:800;
+  font-size:var(--fs-cap);cursor:pointer;background:#fef08a;min-height:48px;user-select:none;
+}
+.block-chip.move{background:#93c5fd}.block-chip.turn{background:#f9a8d4}.block-chip.wait{background:#bbf7d0}
+.program-slot{
+  margin-top:10px;min-height:70px;border:3px dashed var(--ink);border-radius:14px;
+  padding:10px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;background:#fff;
+}
+.prog-item{border:2px solid var(--ink);border-radius:10px;padding:8px 12px;font-weight:800;font-size:var(--fs-cap);background:#fef08a}
+.prog-item.move{background:#93c5fd}.prog-item.turn{background:#f9a8d4}.prog-item.wait{background:#bbf7d0}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar">
+    <span class="brand">AI4Kids · Grade 3 · Robotics</span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+  <div class="head">
+    <h1 id="title"></h1>
+    <p class="sub" id="subtitle"></p>
+  </div>
+  <div class="tabs" role="group" id="tabs"></div>
+  <div class="left">
+    <div class="scene" id="scene"><svg viewBox="0 0 320 240" id="svg" role="img"></svg></div>
+    <div class="two" id="two"></div>
+    <div class="readout">
+      <span class="statechip" id="statechip"></span>
+      <p class="lead" id="lead"></p>
+      <p class="detail" id="detail"></p>
+      <p class="trade" id="trade"></p>
+      <p class="why-note"><b id="whyLbl"></b> <span id="whyText"></span></p>
+    </div>
+  </div>
+  <div class="right">
+    <div class="panel">
+      <h2 id="panelHead"></h2>
+      <div class="chips" id="chips" role="group"></div>
+      <div id="controls"></div>
+      <button type="button" class="play" id="playBtn"></button>
+      <button type="button" class="play alt" id="playBtn2" style="margin-top:8px"></button>
+    </div>
+  </div>
+
+  <div class="lesson" id="lessonBox"></div>
+  <div class="quiz">
+    <h2 id="quizHead" style="font-size:var(--fs-lg);font-weight:800;margin:0 0 18px"></h2>
+    <div id="quizBox"></div>
+    <div class="score" id="scoreBox"></div>
+  </div>
+  <footer>
+    <p id="foot"></p>
+  </footer>
+</div>
+<script>
+(function(){
+"use strict";
+var lang="en", tab="main";
+
+function $(id){ return document.getElementById(id); }
+function t(o){ return (o && typeof o==="object") ? (o[lang]||o.en||"") : (o||""); }
+function setText(el, s){
+  if(!el) return;
+  el.textContent = s;
+  if(lang==="ur"){ el.setAttribute("dir","rtl"); }
+  else { el.setAttribute("dir","ltr"); }
+}
+function buildTabs(list){
+  var tabs=$("tabs"); tabs.innerHTML="";
+  list.forEach(function(x){
+    var b=document.createElement("button"); b.type="button";
+    b.setAttribute("aria-pressed", tab===x[0]?"true":"false");
+    setText(b, t(x[1]));
+    b.addEventListener("click", function(){ if(tab===x[0]) return; tab=x[0]; if(typeof onTab==="function") onTab(); render(); });
+    tabs.appendChild(b);
+  });
+}
+function buildLesson(){
+  var box=$("lessonBox"); if(!box) return; box.innerHTML="";
+  var cards=[{cls:"hook", tag:{en:"HOOK",ur:"ہک"}, body:LESSON.hook},
+   {cls:"samjhao", tag:{en:"SAMJHAO",ur:"سمجھاؤ"}, body:LESSON.samjhao},
+   {cls:"misaal", tag:{en:"MISAAL",ur:"مثال"}, body:LESSON.misaal}];
+  if(LESSON.karo) cards.push({cls:"karo", tag:{en:"KARO",ur:"کرو"}, body:LESSON.karo});
+  cards.forEach(function(c){
+    var d=document.createElement("div"); d.className="lcard "+c.cls;
+    var tag=document.createElement("span"); tag.className="tag"; setText(tag,t(c.tag));
+    var p=document.createElement("p"); setText(p,t(c.body));
+    d.appendChild(tag); d.appendChild(p); box.appendChild(d);
+  });
+}
+var quizScore=0, quizDone=0;
+function buildQuiz(){
+  var box=$("quizBox"); box.innerHTML=""; quizScore=0; quizDone=0;
+  var sb=$("scoreBox"); sb.classList.remove("show"); sb.textContent="";
+  setText($("quizHead"), t({en:"Check yourself", ur:"اپنا امتحان لیں"}));
+  QUIZ.forEach(function(item){
+    var wrap=document.createElement("div"); wrap.className="q";
+    var q=document.createElement("p"); setText(q, t(item.q)); wrap.appendChild(q);
+    var fb=document.createElement("p"); fb.className="fb";
+    ["a","b","c","d"].forEach(function(k, oi){
+      var b=document.createElement("button"); b.type="button"; b.className="opt";
+      b.setAttribute("dir", lang==="ur"?"rtl":"ltr");
+      b.textContent = String.fromCharCode(65+oi)+". "+t(item[k]);
+      b.addEventListener("click", function(){
+        if(wrap.getAttribute("data-done")==="1") return;
+        wrap.setAttribute("data-done","1"); quizDone++;
+        if(item.correct===k) quizScore++;
+        ["a","b","c","d"].forEach(function(kk, xi){
+          var btn=wrap.querySelectorAll(".opt")[xi];
+          if(kk===item.correct) btn.classList.add("right");
+          else if(kk===k) btn.classList.add("wrong");
+        });
+        setText(fb, t(item.explanation)); fb.classList.add("show");
+        if(quizDone===QUIZ.length){
+          sb.classList.add("show");
+          setText(sb, t({en:"Score: "+quizScore+" / "+QUIZ.length, ur:"سکور: "+quizScore+" / "+QUIZ.length}));
+        }
+      });
+      wrap.appendChild(b);
+    });
+    wrap.appendChild(fb); box.appendChild(wrap);
+  });
+}
+function applyLang(){
+  document.body.classList.toggle("urdu", lang==="ur");
+  document.documentElement.lang = (lang==="ur") ? "ur" : "en";
+  var lb=$("langBtn");
+  lb.textContent = (lang==="en") ? "اردو" : "English";
+  lb.setAttribute("aria-pressed", lang==="ur" ? "true":"false");
+  setText($("foot"), t({en:"AI4Kids — Islamabad's bilingual AI and coding school. WhatsApp 0337 1468899",
+    ur:"اے آئی فور کڈز — اسلام آباد کا دو زبانوں والا اے آئی اور کوڈنگ سکول۔ واٹس ایپ 0337 1468899"}));
+  buildLesson(); buildQuiz(); render();
+}
+$("langBtn").addEventListener("click", function(){ lang=(lang==="en")?"ur":"en"; applyLang(); });
+$("speakBtn").addEventListener("click", function(){
+  try{
+    if(!("speechSynthesis" in window)) return;
+    window.speechSynthesis.cancel();
+    var lead=$("lead"); var text = (lead && lead.textContent) || ($("title")&&$("title").textContent) || "";
+    var u=new SpeechSynthesisUtterance(text);
+    u.lang=(lang==="ur")?"ur-PK":"en-US"; u.rate=0.92;
+    window.speechSynthesis.speak(u);
+  }catch(e){}
+});
+
+var NS="http://www.w3.org/2000/svg";
+function mk(tag,a){ var e=document.createElementNS(NS,tag); for(var k in a) e.setAttribute(k,a[k]); return e; }
+
+var step=0, running=false, timer=null;
+var STEPS=[
+  {en:"Fill water",ur:"پانی بھرو",emoji:"💧"},
+  {en:"Wash spin",ur:"دھونا گھماؤ",emoji:"🌀"},
+  {en:"Add detergent",ur:"صابن ڈالو",emoji:"🧴"},
+  {en:"Rinse",ur:"کللا کرو",emoji:"🚿"},
+  {en:"Done!",ur:"مکمل!",emoji:"✨"}
+];
+var LESSON={
+  hook:{en:"Kids, how does a washing machine know what to do? Today we watch it think step by step!",
+        ur:"بچو، واشنگ مشین کیسے جانتی ہے کیا کرنا ہے؟ آج قدم بہ قدم دیکھیں!"},
+  samjhao:{en:"An automatic machine works by itself after you start it. Sensors are like eyes — they check water and dirt. Then a motor spins clothes, detergent cleans, water drains, and it stops alone.",
+           ur:"آٹومیٹک مشین شروع کرنے کے بعد خود کام کرتی ہے۔ سینسر آنکھوں جیسے — پانی اور گندگی چیک کرتے ہیں۔ موٹر کپڑے گھوماتی ہے، صابن صاف کرتا ہے، پانی نکلتا ہے، اور خود رک جاتی ہے۔"},
+  misaal:{en:"Like shopping in a bazaar — you decide step by step. The washing machine also follows a plan: fill → wash → rinse → done.",
+          ur:"بازار کی خریداری جیسے — قدم بہ قدم فیصلہ۔ واشنگ مشین بھی منصوبہ چلاتی ہے: بھرو → دھوؤ → کللا → مکمل۔"},
+  karo:{en:"At home: put a small cloth in a bowl with water and a drop of soap. Swirl like the drum. Feel how automatic washing copies your hands!",
+        ur:"گھر پر: چھوٹا کپڑا پیالے میں پانی اور صابن سے گھماؤ۔ محسوس کرو مشین ہاتھوں کی نقل کرتی ہے!"}
+};
+var QUIZ=[
+  {q:{en:"What is a washing machine's job?",ur:"Washing machine ka kaam kya hai?"},a:{en:"Wash clothes",ur:"Kapray dhoona"},b:{en:"Press clothes",ur:"Kapray press karna"},c:{en:"Sell clothes",ur:"Kapray bechna"},d:{en:"Sew clothes",ur:"Kapray silai karna"},correct:"a",explanation:{en:"Its job is to wash clothes.",ur:"Washing machine ka kaam kapray dhoona hai."}},
+  {q:{en:"How does its 'brain' help wash?",ur:"Washing machine ka dimaag kaise kaam karta hai?"},a:{en:"It can heat water",ur:"Pani ko garm karta hai"},b:{en:"It tears clothes",ur:"Kapray toadta hai"},c:{en:"It only spins",ur:"Sirf ghoomta hai"},d:{en:"It cannot heat or spin",ur:"Na garm kar sakta hai na ghoom sakta hai"},correct:"a",explanation:{en:"It heats water to wash better.",ur:"Washing machine pani ko garm kar ke dhoota hai."}},
+  {q:{en:"What powers a washing machine?",ur:"Washing machine kis cheez se chalti hai?"},a:{en:"Electricity",ur:"Bijli se"},b:{en:"Water only",ur:"Pani se"},c:{en:"Air",ur:"Hawa se"},d:{en:"By hand",ur:"Dast se"},correct:"a",explanation:{en:"It runs on electricity.",ur:"Washing machine bijli se chalti hai."}},
+  {q:{en:"When do you put clothes in?",ur:"Washing machine mein kapray kab daale jate hain?"},a:{en:"Prepared before starting",ur:"Pehle se tayyar karke"},b:{en:"Whenever you feel like",ur:"Jab bhi man kare"},c:{en:"Without opening",ur:"Bina khol kar"},d:{en:"Never",ur:"Kabhi nahi"},correct:"a",explanation:{en:"Clothes go in ready before the cycle.",ur:"Washing machine mein kapray pehle se tayyar karke daale jate hain."}},
+  {q:{en:"What is its most special part?",ur:"Washing machine ka sabse khaas hissa kya hai?"},a:{en:"Motor",ur:"Motor"},b:{en:"Water",ur:"Pani"},c:{en:"Glove",ur:"Dastana"},d:{en:"Soap",ur:"Soap"},correct:"a",explanation:{en:"The motor drives the machine.",ur:"Washing machine ka sabse khaas hissa motor hai jo usay chalata hai."}}
+];
+function stopRun(){ if(timer){clearInterval(timer);timer=null;} running=false; }
+function drawWasher(){
+  var svg=$("svg"); svg.innerHTML="";
+  svg.appendChild(mk("rect",{x:0,y:0,width:320,height:240,fill:"#e0f2fe"}));
+  svg.appendChild(mk("rect",{x:70,y:30,width:180,height:190,rx:16,fill:"#e2e8f0",stroke:"#1f2933","stroke-width":3}));
+  svg.appendChild(mk("rect",{x:90,y:48,width:140,height:20,rx:6,fill:"#1e293b"}));
+  for(var i=0;i<5;i++){
+    svg.appendChild(mk("circle",{cx:105+i*28,cy:58,r:6,fill:i<=step?"#4ade80":"#475569"}));
+  }
+  var ang = running ? ((Date.now()/20)%360) : step*20;
+  var g=mk("g",{transform:"translate(160,140) rotate("+ang+")"});
+  g.appendChild(mk("circle",{cx:0,cy:0,r:55,fill:step>=1?"#7dd3fc":"#cbd5e1",stroke:"#1f2933","stroke-width":3}));
+  for(var j=0;j<6;j++){
+    var a=j*60*Math.PI/180;
+    g.appendChild(mk("circle",{cx:Math.cos(a)*28,cy:Math.sin(a)*28,r:8,fill:"#64748b"}));
+  }
+  if(step>=1) g.appendChild(mk("ellipse",{cx:10,cy:-5,rx:18,ry:10,fill:"#f472b6",transform:"rotate(20)"}));
+  svg.appendChild(g);
+  if(step===0 || step===3){
+    svg.appendChild(mk("rect",{x:105,y:155,width:110,height:30,rx:4,fill:"#38bdf8",opacity:"0.5"}));
+  }
+  var s=STEPS[Math.min(step,STEPS.length-1)];
+  var lab=mk("text",{x:160,y:228,"text-anchor":"middle","font-size":"12","font-weight":"800",fill:"#1f2933"});
+  lab.textContent=s.emoji+" "+t({en:s.en,ur:s.ur});
+  svg.appendChild(lab);
+}
+function onTab(){ stopRun(); }
+function render(){
+  buildTabs([["cycle",{en:"Wash cycle",ur:"دھلائی چکر"}],["sensor",{en:"Sensors",ur:"سینسر"}],["auto",{en:"Why automatic?",ur:"خودکار کیوں؟"}]]);
+  if(!tab||tab==="main") tab="cycle";
+  setText($("whyLbl"), t({en:"Notice:",ur:"غور کریں:"}));
+  $("chips").innerHTML=""; $("controls").innerHTML=""; $("two").innerHTML="";
+  var play=$("playBtn"), play2=$("playBtn2");
+  play.className="play"; play2.className="play alt hidden";
+
+  if(tab==="cycle"){
+    setText($("title"), t({en:"Watch the machine think",ur:"مشین کی سوچ دیکھو"}));
+    setText($("subtitle"), t({en:"Press Start — fill, wash, soap, rinse, done!",ur:"اسٹارٹ دباؤ — بھرو، دھوؤ، صابن، کللا، مکمل!"}));
+    setText($("panelHead"), t({en:"Controls",ur:"کنٹرول"}));
+    setText(play, running?t({en:"Pause",ur:"روکو"}):t({en:"Start wash",ur:"دھلائی شروع"}));
+    if(running) play.classList.add("stop"); else play.classList.add("go");
+    play2.classList.remove("hidden");
+    setText(play2, t({en:"Reset",ur:"ری سیٹ"}));
+    play.onclick=function(){
+      if(running){ stopRun(); render(); return; }
+      if(step>=STEPS.length-1) step=0;
+      running=true;
+      timer=setInterval(function(){
+        step++;
+        if(step>=STEPS.length-1){ step=STEPS.length-1; stopRun(); }
+        drawWasher();
+        var s=STEPS[step];
+        setText($("statechip"), t({en:s.en,ur:s.ur}));
+        setText($("lead"), t({en:"Step "+(step+1)+" of "+STEPS.length, ur:"قدم "+(step+1)+" / "+STEPS.length}));
+        if(!running) render();
+      },900);
+      render();
+    };
+    play2.onclick=function(){ stopRun(); step=0; render(); };
+    drawWasher();
+    var s=STEPS[Math.min(step,STEPS.length-1)];
+    $("statechip").className="statechip "+(step>=STEPS.length-1?"ok":"");
+    setText($("statechip"), t({en:s.en,ur:s.ur}));
+    setText($("lead"), t({en:"Automatic = follows a plan",ur:"خودکار = منصوبہ چلاتی ہے"}));
+    setText($("detail"), t({en:"Each light on the panel is one step the brain remembers.",ur:"پینل کی ہر بتی ایک قدم ہے جو دماغ یاد رکھتا ہے۔"}));
+    setText($("trade"), t({en:"You only press Start — the machine does the rest!",ur:"صرف اسٹارٹ دباؤ — باقی مشین کرے گی!"}));
+    setText($("whyText"), t({en:"Sensors + motor + plan = automatic machine.",ur:"سینسر + موٹر + منصوبہ = خودکار مشین۔"}));
+    return;
+  }
+  if(tab==="sensor"){
+    stopRun();
+    setText($("title"), t({en:"Machine eyes — sensors",ur:"مشین کی آنکھیں — سینسر"}));
+    setText($("subtitle"), t({en:"Sensors check water level and when washing is enough.",ur:"سینسر پانی کی سطح اور دھلائی کافی ہے چیک کرتے ہیں۔"}));
+    setText($("panelHead"), t({en:"Sensor types",ur:"سینسر اقسام"}));
+    play.classList.add("hidden");
+    [["water",{en:"Water level",ur:"پانی سطح"}],["dirty",{en:"Dirt check",ur:"گندگی"}],["done",{en:"Time / done",ur:"وقت / مکمل"}]].forEach(function(x,i){
+      var b=document.createElement("button"); b.type="button"; b.className="schip";
+      b.setAttribute("aria-pressed", String(step===i));
+      setText(b,t(x[1]));
+      b.onclick=function(){ step=i; render(); };
+      $("chips").appendChild(b);
+    });
+    drawWasher();
+    var tips=[
+      {en:"Water sensor",ur:"پانی سینسر",d:{en:"Tells when the drum has enough water.",ur:"بتاتا ہے ڈرم میں کافی پانی آ گیا۔"}},
+      {en:"Dirt / load sense",ur:"گندگی / بوجھ",d:{en:"Helps choose how long to spin.",ur:"کتنا گھومنا ہے فیصلہ کرنے میں مدد۔"}},
+      {en:"Timer",ur:"ٹائمر",d:{en:"Knows when the plan is finished and beeps done!",ur:"جانتا ہے منصوبہ ختم — بیپ مکمل!"}}
+    ];
+    var tip=tips[Math.min(step,2)];
+    setText($("statechip"), t({en:tip.en,ur:tip.ur}));
+    setText($("lead"), t({en:tip.en,ur:tip.ur}));
+    setText($("detail"), t(tip.d));
+    setText($("trade"),""); setText($("whyText"), t({en:"Without sensors, the machine would be blind.",ur:"بغیر سینسر مشین اندھی ہوتی۔"}));
+    return;
+  }
+  stopRun(); step=4; drawWasher();
+  setText($("title"), t({en:"Why we love automatic",ur:"خودکار کیوں پسند؟"}));
+  setText($("subtitle"), t({en:"Saves time, uses a motor, runs on electricity.",ur:"وقت بچاتی ہے، موٹر استعمال، بجلی سے چلتی۔"}));
+  setText($("panelHead"), t({en:"Big ideas",ur:"بڑے خیالات"}));
+  play.classList.add("hidden");
+  setText($("statechip"), t({en:"Automatic",ur:"خودکار"}));
+  setText($("lead"), t({en:"You start — it finishes",ur:"تم شروع — یہ مکمل"}));
+  setText($("detail"), t({en:"Motor spins. Electricity powers it. Sensors decide next steps.",ur:"موٹر گھومتی۔ بجلی طاقت دیتی۔ سینسر اگلا قدم بتاتے ہیں۔"}));
+  setText($("trade"), t({en:"Other automatic friends: rice cooker, fridge light, traffic signals!",ur:"دیگر خودکار دوست: چاول کا ککر، فریج کی بتی، ٹریفک سگنل!"}));
+  setText($("whyText"), t({en:"Automation = machines that follow a plan without constant help.",ur:"آٹومیشن = مشینیں جو بغیر مسلسل مدد منصوبہ چلائیں۔"}));
+}
+
+
+applyLang();
+})();
+</script>
+</body>
+</html>

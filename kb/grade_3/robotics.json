@@ -57,7 +57,9 @@
             "explanation": "Agar bulb nahi jal raha to yeh signal hai ke battery khatam ho gayi hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g3-simple-circuits.html",
+      "interactive_label": "Khelo - Simple circuits"
     },
     {
       "title": "Automatic machines",
@@ -112,7 +114,9 @@
             "explanation": "Washing machine ka sabse khaas hissa motor hai jo usay chalata hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g3-automatic-machines.html",
+      "interactive_label": "Khelo - Automatic machines"
     },
     {
       "title": "Robot ki aankhein",
@@ -167,7 +171,9 @@
             "explanation": "Light sensor roshni ki wajah se kaam karta hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g3-robot-aankhein.html",
+      "interactive_label": "Khelo - Robot aankhein"
     },
     {
       "title": "Wheels vs legs",
@@ -222,7 +228,9 @@
             "explanation": "Haan, robots jaise Boston Dynamics ka Spot legs wale robot hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g3-wheels-vs-legs.html",
+      "interactive_label": "Khelo - Wheels vs legs"
     },
     {
       "title": "Factory mein machines",
@@ -277,7 +285,9 @@
             "explanation": "Zyada machines istemal karne se factory ki productivity barhti hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g3-factory-machines.html",
+      "interactive_label": "Khelo - Factory machines"
     },
     {
       "title": "Block robots",
@@ -332,7 +342,9 @@
             "explanation": "Robot ko chalane ke liye power ki zaroorat hoti hai jo battery se milti hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g3-block-robots.html",
+      "interactive_label": "Khelo - Block robots"
     }
   ]
 }

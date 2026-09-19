@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Simple circuits — سادہ سرکٹ | AI4Kids Grade 3 Automation & Robotics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --board:#eef0f5; --board-deep:#dde1ea;
+  --accent:#1d4c85; --accent2:#c9702e; --ok:#2e7d4f; --no:#c4453a;
+  --ink:#1f2933; --ink-soft:#4a5661; --paper:#fdfaf3; --line:#ded5c4;
+  --fs-cap:clamp(14px, 3.8vw, 16px); --fs-xs:clamp(16px, 4.2vw, 18px);
+  --fs-sm:clamp(18px, 4.8vw, 20px); --fs-md:clamp(19px, 5.2vw, 22px);
+  --fs-lg:clamp(22px, 6vw, 26px); --fs-xl:clamp(30px, 8vw, 38px); --lh:1.55;
+}
+body.urdu{
+  --fs-cap:clamp(17px, 4.4vw, 18px); --fs-xs:clamp(18px, 4.7vw, 20px);
+  --fs-sm:clamp(20px, 5.2vw, 22px); --fs-md:clamp(21px, 5.6vw, 24px);
+  --fs-lg:clamp(24px, 6.4vw, 28px); --fs-xl:clamp(28px, 7.4vw, 34px); --lh:2.05;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+  font-size:var(--fs-sm);line-height:1.55;padding:0 0 40px;
+}
+body.urdu{font-family:"Noto Nastaliq Urdu","Baloo Bhaijaan 2",serif;line-height:var(--lh)}
+.wrap{max-width:560px;margin:0 auto;padding:0 14px}
+.bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px;flex-wrap:wrap}
+.brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+.chip{
+  border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;
+  font-size:var(--fs-xs);cursor:pointer;min-height:44px;
+}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.chip:focus-visible,button:focus-visible{outline:3px solid var(--accent2);outline-offset:2px}
+h1{font-size:var(--fs-xl);line-height:1.25;font-weight:800;margin:8px 0 4px}
+body.urdu h1{line-height:1.9}
+.sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+.tabs{display:flex;gap:7px;margin:0 0 14px;flex-wrap:wrap}
+.tabs button{
+  flex:1;min-width:88px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+  border-radius:14px;padding:9px 6px;font:inherit;font-weight:800;
+  font-size:var(--fs-cap);cursor:pointer;min-height:54px;
+}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.scene{
+  position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+  background:linear-gradient(180deg,var(--board) 0%,var(--board-deep) 100%);
+  min-height:200px;
+}
+.scene svg,.scene canvas{display:block;width:100%;height:auto}
+.play{
+  width:100%;margin-top:12px;border:3px solid var(--ink);border-radius:18px;
+  background:var(--ink);color:var(--paper);font:inherit;font-weight:800;
+  font-size:var(--fs-md);cursor:pointer;min-height:60px;
+}
+.play:active{transform:scale(.98)}
+.play.alt{background:var(--paper);color:var(--ink)}
+.play.go{background:var(--ok);border-color:var(--ok)}
+.play.stop{background:var(--no);border-color:var(--no)}
+.play.hidden,.hidden{display:none !important}
+.two{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.card{flex:1;min-width:110px;border:3px solid var(--line);border-radius:16px;padding:12px 9px;text-align:center;cursor:pointer}
+.card em{display:block;font-style:normal;font-size:var(--fs-cap);color:var(--ink-soft);font-weight:700;margin-bottom:5px}
+.card b{display:block;font-size:var(--fs-lg);font-weight:800;line-height:1.2}
+.card span{display:block;font-size:var(--fs-cap);font-weight:700;color:var(--ink-soft);margin-top:3px}
+.card.on{border-color:var(--accent);background:#e8eef8}
+.card.hot{border-color:var(--accent2);background:#fbf1e8}
+.readout{
+  margin-top:12px;background:var(--paper);
+  border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+}
+.statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+           padding:4px 14px;font-size:var(--fs-cap);font-weight:700;margin-bottom:10px}
+.statechip.ok{background:var(--ok)} .statechip.no{background:var(--no)}
+.lead{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.4}
+body.urdu .lead{line-height:1.95}
+.detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+.trade{
+  margin-top:14px;border:2px dashed var(--accent2);background:#fbf1e8;border-radius:14px;
+  padding:12px 14px;font-size:var(--fs-xs);font-weight:700;color:#8a4a12;line-height:1.6;
+}
+.why-note{
+  margin:12px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;
+  border-left:3px solid var(--accent);padding-left:11px;
+}
+body.urdu .why-note{border-left:0;border-right:3px solid var(--accent);padding-left:0;padding-right:11px;line-height:var(--lh)}
+.why-note b{color:var(--accent);font-weight:800}
+.panel{margin-top:18px}
+.panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+.row{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+.row .name{flex:none;width:34%;max-width:140px;font-size:var(--fs-xs);font-weight:700}
+.row input[type=range]{flex:1;min-width:120px;height:36px;accent-color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.schip{
+  border:2px solid var(--line);background:var(--paper);border-radius:999px;padding:9px 15px;
+  font:inherit;font-size:var(--fs-cap);font-weight:800;color:var(--ink);cursor:pointer;min-height:46px;
+}
+.schip[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+.lesson{margin-top:8px}
+.lcard{
+  border:3px solid var(--line);border-radius:18px;padding:14px 16px;margin-bottom:12px;background:#fffdf8;
+}
+.lcard .tag{
+  display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+  padding:3px 12px;font-size:var(--fs-cap);font-weight:800;margin-bottom:8px;
+}
+.lcard.hook .tag{background:var(--accent2)}
+.lcard.misaal .tag{background:var(--ok)}
+.lcard.karo .tag{background:#6b4a8f}
+.lcard p{margin:0;font-size:var(--fs-sm);line-height:1.6}
+body.urdu .lcard p{line-height:var(--lh)}
+.quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+.q{margin-bottom:26px}
+.q > p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+.opt{
+  display:block;width:100%;text-align:left;margin-bottom:10px;
+  border:2px solid var(--line);background:var(--paper);border-radius:12px;
+  padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+  min-height:52px;
+}
+body.urdu .opt{text-align:right}
+.opt:hover{border-color:var(--ink)}
+.opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+.opt.wrong{border-color:var(--no);background:#fbeae8}
+.fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none;line-height:1.6}
+.fb.show{display:block}
+.score{
+  margin-top:14px;padding:14px;border:3px solid var(--ink);border-radius:16px;
+  font-weight:800;font-size:var(--fs-md);text-align:center;display:none;
+}
+.score.show{display:block}
+footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+       font-size:var(--fs-xs);color:var(--ink-soft)}
+@media (min-width:820px){
+  .wrap{
+    max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
+    grid-template-areas:"bar bar" "head head" "tabs tabs" "left right" "lesson lesson" "quiz quiz" "foot foot";
+    align-items:start;
+  }
+  .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+  .left{grid-area:left} .right{grid-area:right}
+  .lesson{grid-area:lesson}
+  .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important;transition-duration:.01ms !important}
+}
+
+
+
+.block-tray{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;min-height:48px}
+.block-chip{
+  border:3px solid var(--ink);border-radius:12px;padding:10px 14px;font:inherit;font-weight:800;
+  font-size:var(--fs-cap);cursor:pointer;background:#fef08a;min-height:48px;user-select:none;
+}
+.block-chip.move{background:#93c5fd}.block-chip.turn{background:#f9a8d4}.block-chip.wait{background:#bbf7d0}
+.program-slot{
+  margin-top:10px;min-height:70px;border:3px dashed var(--ink);border-radius:14px;
+  padding:10px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;background:#fff;
+}
+.prog-item{border:2px solid var(--ink);border-radius:10px;padding:8px 12px;font-weight:800;font-size:var(--fs-cap);background:#fef08a}
+.prog-item.move{background:#93c5fd}.prog-item.turn{background:#f9a8d4}.prog-item.wait{background:#bbf7d0}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar">
+    <span class="brand">AI4Kids · Grade 3 · Robotics</span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+  <div class="head">
+    <h1 id="title"></h1>
+    <p class="sub" id="subtitle"></p>
+  </div>
+  <div class="tabs" role="group" id="tabs"></div>
+  <div class="left">
+    <div class="scene" id="scene"><svg viewBox="0 0 320 240" id="svg" role="img"></svg></div>
+    <div class="two" id="two"></div>
+    <div class="readout">
+      <span class="statechip" id="statechip"></span>
+      <p class="lead" id="lead"></p>
+      <p class="detail" id="detail"></p>
+      <p class="trade" id="trade"></p>
+      <p class="why-note"><b id="whyLbl"></b> <span id="whyText"></span></p>
+    </div>
+  </div>
+  <div class="right">
+    <div class="panel">
+      <h2 id="panelHead"></h2>
+      <div class="chips" id="chips" role="group"></div>
+      <div id="controls"></div>
+      <button type="button" class="play" id="playBtn"></button>
+      <button type="button" class="play alt" id="playBtn2" style="margin-top:8px"></button>
+    </div>
+  </div>
+
+  <div class="lesson" id="lessonBox"></div>
+  <div class="quiz">
+    <h2 id="quizHead" style="font-size:var(--fs-lg);font-weight:800;margin:0 0 18px"></h2>
+    <div id="quizBox"></div>
+    <div class="score" id="scoreBox"></div>
+  </div>
+  <footer>
+    <p id="foot"></p>
+  </footer>
+</div>
+<script>
+(function(){
+"use strict";
+var lang="en", tab="main";
+
+function $(id){ return document.getElementById(id); }
+function t(o){ return (o && typeof o==="object") ? (o[lang]||o.en||"") : (o||""); }
+function setText(el, s){
+  if(!el) return;
+  el.textContent = s;
+  if(lang==="ur"){ el.setAttribute("dir","rtl"); }
+  else { el.setAttribute("dir","ltr"); }
+}
+function buildTabs(list){
+  var tabs=$("tabs"); tabs.innerHTML="";
+  list.forEach(function(x){
+    var b=document.createElement("button"); b.type="button";
+    b.setAttribute("aria-pressed", tab===x[0]?"true":"false");
+    setText(b, t(x[1]));
+    b.addEventListener("click", function(){ if(tab===x[0]) return; tab=x[0]; if(typeof onTab==="function") onTab(); render(); });
+    tabs.appendChild(b);
+  });
+}
+function buildLesson(){
+  var box=$("lessonBox"); if(!box) return; box.innerHTML="";
+  var cards=[{cls:"hook", tag:{en:"HOOK",ur:"ہک"}, body:LESSON.hook},
+   {cls:"samjhao", tag:{en:"SAMJHAO",ur:"سمجھاؤ"}, body:LESSON.samjhao},
+   {cls:"misaal", tag:{en:"MISAAL",ur:"مثال"}, body:LESSON.misaal}];
+  if(LESSON.karo) cards.push({cls:"karo", tag:{en:"KARO",ur:"کرو"}, body:LESSON.karo});
+  cards.forEach(function(c){
+    var d=document.createElement("div"); d.className="lcard "+c.cls;
+    var tag=document.createElement("span"); tag.className="tag"; setText(tag,t(c.tag));
+    var p=document.createElement("p"); setText(p,t(c.body));
+    d.appendChild(tag); d.appendChild(p); box.appendChild(d);
+  });
+}
+var quizScore=0, quizDone=0;
+function buildQuiz(){
+  var box=$("quizBox"); box.innerHTML=""; quizScore=0; quizDone=0;
+  var sb=$("scoreBox"); sb.classList.remove("show"); sb.textContent="";
+  setText($("quizHead"), t({en:"Check yourself", ur:"اپنا امتحان لیں"}));
+  QUIZ.forEach(function(item){
+    var wrap=document.createElement("div"); wrap.className="q";
+    var q=document.createElement("p"); setText(q, t(item.q)); wrap.appendChild(q);
+    var fb=document.createElement("p"); fb.className="fb";
+    ["a","b","c","d"].forEach(function(k, oi){
+      var b=document.createElement("button"); b.type="button"; b.className="opt";
+      b.setAttribute("dir", lang==="ur"?"rtl":"ltr");
+      b.textContent = String.fromCharCode(65+oi)+". "+t(item[k]);
+      b.addEventListener("click", function(){
+        if(wrap.getAttribute("data-done")==="1") return;
+        wrap.setAttribute("data-done","1"); quizDone++;
+        if(item.correct===k) quizScore++;
+        ["a","b","c","d"].forEach(function(kk, xi){
+          var btn=wrap.querySelectorAll(".opt")[xi];
+          if(kk===item.correct) btn.classList.add("right");
+          else if(kk===k) btn.classList.add("wrong");
+        });
+        setText(fb, t(item.explanation)); fb.classList.add("show");
+        if(quizDone===QUIZ.length){
+          sb.classList.add("show");
+          setText(sb, t({en:"Score: "+quizScore+" / "+QUIZ.length, ur:"سکور: "+quizScore+" / "+QUIZ.length}));
+        }
+      });
+      wrap.appendChild(b);
+    });
+    wrap.appendChild(fb); box.appendChild(wrap);
+  });
+}
+function applyLang(){
+  document.body.classList.toggle("urdu", lang==="ur");
+  document.documentElement.lang = (lang==="ur") ? "ur" : "en";
+  var lb=$("langBtn");
+  lb.textContent = (lang==="en") ? "اردو" : "English";
+  lb.setAttribute("aria-pressed", lang==="ur" ? "true":"false");
+  setText($("foot"), t({en:"AI4Kids — Islamabad's bilingual AI and coding school. WhatsApp 0337 1468899",
+    ur:"اے آئی فور کڈز — اسلام آباد کا دو زبانوں والا اے آئی اور کوڈنگ سکول۔ واٹس ایپ 0337 1468899"}));
+  buildLesson(); buildQuiz(); render();
+}
+$("langBtn").addEventListener("click", function(){ lang=(lang==="en")?"ur":"en"; applyLang(); });
+$("speakBtn").addEventListener("click", function(){
+  try{
+    if(!("speechSynthesis" in window)) return;
+    window.speechSynthesis.cancel();
+    var lead=$("lead"); var text = (lead && lead.textContent) || ($("title")&&$("title").textContent) || "";
+    var u=new SpeechSynthesisUtterance(text);
+    u.lang=(lang==="ur")?"ur-PK":"en-US"; u.rate=0.92;
+    window.speechSynthesis.speak(u);
+  }catch(e){}
+});
+
+var NS="http://www.w3.org/2000/svg";
+function mk(tag,a){ var e=document.createElementNS(NS,tag); for(var k in a) e.setAttribute(k,a[k]); return e; }
+
+var closed=true, battOk=true, wireOk=true, partHi="batt";
+var LESSON={
+  hook:{en:"Imagine your dark room — one button and light fills everything! How does that light travel?",
+        ur:"سوچو گھر اندھیرا ہو اور بٹن دباتے ہی روشنی بھر جائے! یہ روشنی کیسے آتی ہے؟"},
+  samjhao:{en:"A simple circuit needs three friends: Battery (stores energy), Wire (carries electricity), and Bulb (makes light). When they join in a closed loop, current flows and the bulb glows.",
+           ur:"سادہ سرکٹ میں تین دوست: بیٹری (توانائی رکھتی ہے)، تار (بجلی لے جاتی ہے)، اور بلب (روشنی دیتا ہے)۔ بند لوپ میں کرنٹ بہتا ہے اور بلب جلتا ہے۔"},
+  misaal:{en:"At an electrical shop, battery + wires + bulb make a torch circuit — press and it shines!",
+          ur:"الیکٹریکل دکان پر بیٹری + تاریں + بلب سے ٹارچ سرکٹ بنتا ہے — دباؤ تو چمکے!"},
+  karo:{en:"At home with an adult: 1 battery, 2 wires, 1 bulb. Join + and − through the bulb. Watch it light!",
+        ur:"بڑوں کے ساتھ: ۱ بیٹری، ۲ تاریں، ۱ بلب۔ جمع اور منفی کو بلب سے جوڑو۔ روشنی دیکھو!"}
+};
+var QUIZ=[
+  {q:{en:"What makes a tiny circuit?",ur:"Ek choti si circuit kis cheez se banta hai?"},a:{en:"Battery, wire and bulb",ur:"Battery, wire aur bulb"},b:{en:"Battery, switch and fan",ur:"Battery, switch aur fan"},c:{en:"Wire, motor and bulb",ur:"Wire, motor aur bulb"},d:{en:"Battery and resistor",ur:"Battery aur resistor"},correct:"a",explanation:{en:"The basic parts are battery, wire and bulb.",ur:"Circuit ka asal buniyadi hissa battery, wire aur bulb hote hain."}},
+  {q:{en:"If the bulb lights, what does that mean?",ur:"Jab bulb jalta hai to iska matlab kya hai?"},a:{en:"Circuit is open",ur:"Circuit khula hai"},b:{en:"Circuit is closed",ur:"Circuit band hai"},c:{en:"Battery is dead",ur:"Battery khatam ho gayi hai"},d:{en:"Wire is broken",ur:"Wire tooti hai"},correct:"b",explanation:{en:"A glowing bulb means a closed circuit with flowing current.",ur:"Jab bulb jalta hai to iska matlab hai ke circuit band hai aur electric current flow kar raha hai."}},
+  {q:{en:"If the wire is damaged, what happens?",ur:"Agar wire mein koi kharabi ho jaye to kya hoga?"},a:{en:"Bulb keeps glowing",ur:"Bulb jalta rahega"},b:{en:"Bulb will not glow",ur:"Bulb nahi jalega"},c:{en:"Battery finishes fast",ur:"Battery khatam ho jayegi"},d:{en:"Circuit opens by itself",ur:"Circuit khul jayega"},correct:"b",explanation:{en:"A bad wire stops the path, so the bulb stays off.",ur:"Wire mein kharabi hone par circuit band ho jata hai, isliye bulb nahi jalega."}},
+  {q:{en:"Which part matters in a circuit?",ur:"Kaun si cheez circuit ko tawajjo deti hai?"},a:{en:"Bulb",ur:"Bulb"},b:{en:"Battery",ur:"Battery"},c:{en:"Wire",ur:"Wire"},d:{en:"All of them",ur:"Sab"},correct:"d",explanation:{en:"Every part — bulb, battery and wire — is needed.",ur:"Circuit ka har hissa, yani bulb, battery aur wire, kaam karne ke liye zaruri hai."}},
+  {q:{en:"How do you know the battery is finished?",ur:"Kaise jaan sakte hain ke battery khatam ho gayi hai?"},a:{en:"Bulb will glow",ur:"Bulb jalega"},b:{en:"Bulb will not glow",ur:"Bulb nahi jalega"},c:{en:"Wire is broken",ur:"Wire tooti hai"},d:{en:"Circuit is closed",ur:"Circuit band hai"},correct:"b",explanation:{en:"No glow often means a dead battery (if wires are fine).",ur:"Agar bulb nahi jal raha to yeh signal hai ke battery khatam ho gayi hai."}}
+];
+function circuitLit(){ return closed && battOk && wireOk; }
+function drawCircuit(){
+  var svg=$("svg"); svg.innerHTML="";
+  var lit=circuitLit();
+  svg.appendChild(mk("rect",{x:0,y:0,width:320,height:240,fill:lit?"#fff8dc":"#dbe3ee"}));
+  var bx=40,by=90;
+  svg.appendChild(mk("rect",{x:bx,y:by,width:50,height:70,rx:6,fill:battOk?"#22c55e":"#94a3b8",stroke:"#1f2933","stroke-width":3}));
+  svg.appendChild(mk("rect",{x:bx+18,y:by-10,width:14,height:12,fill:"#1f2933"}));
+  var bt=mk("text",{x:bx+25,y:by+42,"text-anchor":"middle","font-size":"14","font-weight":"800",fill:"#fff"});
+  bt.textContent="+ −"; svg.appendChild(bt);
+  var cx=220,cy=100;
+  svg.appendChild(mk("circle",{cx:cx,cy:cy,r:32,fill:lit?"#facc15":"#cbd5e1",stroke:"#1f2933","stroke-width":3}));
+  if(lit){
+    for(var i=0;i<8;i++){
+      var a=i*Math.PI/4;
+      svg.appendChild(mk("line",{x1:cx+Math.cos(a)*38,y1:cy+Math.sin(a)*38,x2:cx+Math.cos(a)*52,y2:cy+Math.sin(a)*52,stroke:"#f59e0b","stroke-width":3,"stroke-linecap":"round"}));
+    }
+  }
+  svg.appendChild(mk("rect",{x:cx-10,y:cy+30,width:20,height:18,fill:"#64748b",stroke:"#1f2933","stroke-width":2}));
+  var wcol = wireOk ? (closed?"#ef4444":"#94a3b8") : "#94a3b8";
+  var dash = (!wireOk || !closed) ? "6 6" : "0";
+  svg.appendChild(mk("path",{d:"M90 100 H160 V70 H220",fill:"none",stroke:wcol,"stroke-width":4,"stroke-dasharray":dash,"stroke-linecap":"round"}));
+  var botCol = wireOk ? "#3b82f6" : "#94a3b8";
+  svg.appendChild(mk("path",{d:"M90 150 H160 V148 H210",fill:"none",stroke:botCol,"stroke-width":4,"stroke-dasharray":(!wireOk)?"6 6":"0","stroke-linecap":"round"}));
+  if(!closed){
+    svg.appendChild(mk("line",{x1:155,y1:70,x2:175,y2:55,stroke:"#1f2933","stroke-width":4,"stroke-linecap":"round"}));
+  } else {
+    svg.appendChild(mk("circle",{cx:160,cy:70,r:5,fill:"#1f2933"}));
+  }
+  var lab=mk("text",{x:160,y:220,"text-anchor":"middle","font-size":"13","font-weight":"800",fill:"#1f2933"});
+  lab.textContent = lit ? "ON" : "OFF"; svg.appendChild(lab);
+}
+function onTab(){}
+function render(){
+  buildTabs([["build",{en:"Build circuit",ur:"سرکٹ بناؤ"}],["break",{en:"Open / Close",ur:"کھلا / بند"}],["fix",{en:"Fix it",ur:"درست کرو"}]]);
+  if(!tab||tab==="main") tab="build";
+  setText($("whyLbl"), t({en:"Notice:",ur:"غور کریں:"}));
+  $("chips").innerHTML=""; $("controls").innerHTML=""; $("two").innerHTML="";
+  var play=$("playBtn"), play2=$("playBtn2");
+  play.className="play"; play2.className="play alt hidden";
+
+  if(tab==="build"){
+    setText($("title"), t({en:"Battery + Wire + Bulb",ur:"بیٹری + تار + بلب"}));
+    setText($("subtitle"), t({en:"Tap parts. Join them in a loop to light the bulb.",ur:"حصے دباؤ۔ لوپ جوڑو تاکہ بلب جلے۔"}));
+    setText($("panelHead"), t({en:"Parts",ur:"حصے"}));
+    play.classList.add("hidden");
+    [["batt",{en:"Battery",ur:"بیٹری"}],["wire",{en:"Wire",ur:"تار"}],["bulb",{en:"Bulb",ur:"بلب"}]].forEach(function(x){
+      var b=document.createElement("button"); b.type="button"; b.className="schip";
+      b.setAttribute("aria-pressed", partHi===x[0]?"true":"false");
+      setText(b,t(x[1]));
+      b.onclick=function(){ partHi=x[0]; render(); };
+      $("chips").appendChild(b);
+    });
+    drawCircuit();
+    var tips={
+      batt:{en:"Battery",ur:"بیٹری",d:{en:"Stores energy. Needs charge to push current.",ur:"توانائی رکھتی ہے۔ کرنٹ دھکیلنے کے لیے چارج چاہیے۔"}},
+      wire:{en:"Wire",ur:"تار",d:{en:"Metal path that carries electricity from battery to bulb.",ur:"دھاتی راستہ جو بجلی بیٹری سے بلب تک لے جاتا ہے۔"}},
+      bulb:{en:"Bulb",ur:"بلب",d:{en:"Turns electricity into light when current flows through.",ur:"کرنٹ گزرے تو بجلی کو روشنی بناتا ہے۔"}}
+    };
+    var p=tips[partHi]||tips.batt;
+    setText($("statechip"), t({en:p.en,ur:p.ur}));
+    setText($("lead"), t({en:p.en,ur:p.ur}));
+    setText($("detail"), t(p.d));
+    setText($("trade"), t({en:"Kid tip: Never touch real wires without an adult.",ur:"بچوں کی بات: بغیر بڑوں کے حقیقی تاریں نہ چھوؤ۔"}));
+    setText($("whyText"), t({en:"Three parts in a closed loop = light!",ur:"بند لوپ میں تین حصے = روشنی!"}));
+    return;
+  }
+  if(tab==="break"){
+    setText($("title"), t({en:"Closed vs open circuit",ur:"بند اور کھلا سرکٹ"}));
+    setText($("subtitle"), t({en:"Open the path — light goes out. Close it — light returns!",ur:"راستہ کھولو — روشنی گئی۔ بند کرو — واپس!"}));
+    setText($("panelHead"), t({en:"Switch",ur:"سوئچ"}));
+    setText(play, closed?t({en:"Open the circuit",ur:"سرکٹ کھولو"}):t({en:"Close the circuit",ur:"سرکٹ بند کرو"}));
+    play.classList.toggle("stop", closed); play.classList.toggle("go", !closed);
+    play.onclick=function(){ closed=!closed; render(); };
+    drawCircuit();
+    $("statechip").className="statechip "+(circuitLit()?"ok":"no");
+    setText($("statechip"), circuitLit()?t({en:"LIT",ur:"جل رہا"}):t({en:"DARK",ur:"اندھیرا"}));
+    setText($("lead"), closed?t({en:"Closed loop — current can flow",ur:"بند لوپ — کرنٹ بہہ سکتا ہے"}):t({en:"Open gap — current stops",ur:"کھلا گیپ — کرنٹ رک گیا"}));
+    setText($("detail"), t({en:"A switch is just a gap you can open or close.",ur:"سوئچ صرف ایک گیپ ہے جو کھل یا بند ہو سکتا ہے۔"}));
+    setText($("trade"),""); setText($("whyText"), t({en:"Closed = ON. Open = OFF. That is the secret!",ur:"بند = آن۔ کھلا = آف۔ یہی راز!"}));
+    return;
+  }
+  setText($("title"), t({en:"What went wrong?",ur:"کیا خراب ہوا؟"}));
+  setText($("subtitle"), t({en:"Toggle battery or wire health and watch the bulb.",ur:"بیٹری یا تار ٹھیک/خراب کرو اور بلب دیکھو۔"}));
+  setText($("panelHead"), t({en:"Troubleshoot",ur:"خرابی ڈھونڈو"}));
+  setText(play, battOk?t({en:"Kill battery",ur:"بیٹری خراب"}):t({en:"Fix battery",ur:"بیٹری ٹھیک"}));
+  play.classList.remove("hidden");
+  play2.classList.remove("hidden");
+  setText(play2, wireOk?t({en:"Break wire",ur:"تار توڑو"}):t({en:"Fix wire",ur:"تار جوڑو"}));
+  play.onclick=function(){ battOk=!battOk; render(); };
+  play2.onclick=function(){ wireOk=!wireOk; render(); };
+  closed=true; drawCircuit();
+  $("statechip").className="statechip "+(circuitLit()?"ok":"no");
+  setText($("statechip"), circuitLit()?t({en:"Working",ur:"چل رہا"}):t({en:"Not working",ur:"نہیں چل رہا"}));
+  setText($("lead"), circuitLit()?t({en:"All good — path is complete",ur:"سب ٹھیک — راستہ مکمل"}):t({en:"Find the broken part!",ur:"خراب حصہ ڈھونڈو!"}));
+  var battLabel = battOk ? (lang==="ur"?"ہاں":"yes") : (lang==="ur"?"نہیں":"no");
+  var wireLabel = wireOk ? (lang==="ur"?"ہاں":"yes") : (lang==="ur"?"نہیں":"no");
+  setText($("detail"), t({en:"Battery OK: "+battLabel+" · Wire OK: "+wireLabel, ur:"بیٹری ٹھیک: "+battLabel+" · تار ٹھیک: "+wireLabel}));
+  setText($("trade"), t({en:"Robot tip: Circuits inside robots use the same idea!",ur:"روبوٹ ٹپ: روبوٹ کے اندر بھی یہی سرکٹ خیال!"}));
+  setText($("whyText"), t({en:"If one part fails, the whole loop fails.",ur:"ایک حصہ خراب ہو تو پورا لوپ رک جاتا ہے۔"}));
+}
+
+
+applyLang();
+})();
+</script>
+</body>
+</html>
