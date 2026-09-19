@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Formal letter | AI4Kids Grade 4 English</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#f1f0ea;--board-deep:#e3e1d6;
+    --formal:#2f6fb5;--formal-deep:#1d4c85;
+    --informal:#6b4a8f;--informal-deep:#4a3266;
+    --ink:#241f18;--ink-soft:#554c41;--paper:#fdfaf3;--line:#ded5c4;
+    --accent:#1d4c85;--ok:#2e7d4f;--no:#c4453a;--trap:#c9702e;
+    --p1:#2e7d55;--p2:#2f6fb5;--p3:#c9702e;--p4:#6b4a8f;--p5:#a8632e;--p6:#1d5a3c;
+    --fs-cap:clamp(14px, 3.8vw, 16px);--fs-xs:clamp(16px, 4.2vw, 18px);
+    --fs-sm:clamp(18px, 4.8vw, 20px);--fs-md:clamp(19px, 5.2vw, 22px);
+    --fs-lg:clamp(22px, 6vw, 26px);--fs-xl:clamp(30px, 8vw, 38px);--lh:1.55;
+  }
+  body.urdu{
+    --fs-cap:clamp(16px, 4.2vw, 18px);--fs-xs:clamp(18px, 4.7vw, 20px);
+    --fs-sm:clamp(20px, 5.3vw, 22px);--fs-md:clamp(21px, 5.7vw, 24px);
+    --fs-lg:clamp(24px, 6.5vw, 28px);--fs-xl:clamp(28px, 7.5vw, 34px);--lh:2.05;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.55;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:44px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--trap);outline-offset:2px}
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.85}
+  .tabs{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
+  .tabs button{
+    flex:1;min-width:62px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:9px 4px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:56px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .scene{
+    border-radius:22px;border:3px solid var(--ink);padding:16px 14px;min-height:120px;
+    background:linear-gradient(180deg,var(--board) 0%,var(--board-deep) 100%);
+  }
+  .lesson .block{
+    border:3px solid var(--line);border-radius:16px;padding:14px 16px;margin-bottom:12px;
+    background:var(--paper);
+  }
+  .lesson .tag{
+    display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+    padding:3px 12px;font-size:var(--fs-cap);font-weight:800;margin-bottom:8px;
+  }
+  .lesson .block p{margin:0;font-size:var(--fs-sm);line-height:1.65}
+  .cmp{display:flex;gap:10px;flex-wrap:wrap}
+  .ccard{
+    flex:1 1 200px;border:3px solid var(--line);border-radius:18px;padding:14px;
+    background:var(--paper);
+  }
+  .ccard.formal{border-color:var(--formal)}
+  .ccard.informal{border-color:var(--informal)}
+  .ccard h3{margin:0 0 10px;font-size:var(--fs-lg);font-weight:800}
+  .ccard.formal h3{color:var(--formal-deep)}
+  .ccard.informal h3{color:var(--informal-deep)}
+  .row{margin:0 0 10px;padding-bottom:10px;border-bottom:1px dashed var(--line)}
+  .row:last-child{border:none;margin:0;padding:0}
+  .row em{display:block;font-style:normal;font-size:var(--fs-cap);font-weight:800;
+          color:var(--ink-soft);margin-bottom:3px}
+  .row span{display:block;font-size:var(--fs-sm);font-weight:600;line-height:1.5}
+  .slots{display:flex;flex-direction:column;gap:8px;margin-top:4px}
+  .slot{
+    border:3px dashed var(--line);border-radius:14px;padding:10px 12px;min-height:56px;
+    background:rgba(255,255,255,.55);display:flex;align-items:center;gap:10px;
+  }
+  .slot.filled{border-style:solid;border-color:var(--ink);background:var(--paper)}
+  .slot.ok{border-color:var(--ok);background:#e8f2ec}
+  .slot.bad{border-color:var(--no);background:#fbeae8}
+  .slot .num{
+    flex-shrink:0;width:32px;height:32px;border-radius:50%;background:var(--ink);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:var(--fs-xs);
+  }
+  .slot .ph{color:var(--ink-soft);font-weight:700;font-size:var(--fs-xs)}
+  .bank{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .piece{
+    border:3px solid var(--ink);background:#fff;border-radius:14px;padding:10px 12px;
+    font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:48px;
+    color:var(--ink);touch-action:manipulation;
+  }
+  .piece.used{opacity:.35;pointer-events:none}
+  .piece.address{border-color:var(--p1);background:#e8f2ec;color:var(--p1)}
+  .piece.date{border-color:var(--p2);background:#e8eef8;color:var(--p2)}
+  .piece.salutation{border-color:var(--p3);background:#fef3e8;color:var(--p3)}
+  .piece.body{border-color:var(--p4);background:#efe8f6;color:var(--p4)}
+  .piece.closing{border-color:var(--p5);background:#f7ebe0;color:var(--p5)}
+  .piece.signature{border-color:var(--p6);background:#e4f0ea;color:var(--p6)}
+  .checkbtn,.savebtn,.resetbtn{
+    margin-top:12px;border:3px solid var(--ink);background:var(--ink);color:var(--paper);
+    border-radius:14px;padding:12px 18px;font:inherit;font-weight:800;font-size:var(--fs-sm);
+    cursor:pointer;min-height:52px;width:100%;
+  }
+  .resetbtn{background:var(--paper);color:var(--ink);margin-top:8px}
+  .fbbox{
+    margin-top:12px;padding:12px 14px;border-radius:14px;font-weight:700;font-size:var(--fs-sm);
+    display:none;line-height:1.55;
+  }
+  .fbbox.show{display:block}
+  .fbbox.ok{background:#e8f2ec;border:2px solid var(--ok);color:var(--ok)}
+  .fbbox.no{background:#fbeae8;border:2px solid var(--no);color:var(--no)}
+  .dform label{display:block;font-weight:800;font-size:var(--fs-xs);margin:10px 0 4px;color:var(--ink-soft)}
+  .dform input,.dform select,.dform textarea{
+    width:100%;border:2px solid var(--line);border-radius:12px;padding:12px 14px;
+    font:inherit;font-size:var(--fs-sm);background:#fff;color:var(--ink);min-height:48px;
+  }
+  .dform textarea{min-height:88px;resize:vertical;line-height:1.55}
+  .kind{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:4px}
+  .kind button{
+    flex:1;border:2px solid var(--line);background:var(--paper);border-radius:999px;
+    padding:10px 12px;font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:46px;
+  }
+  .kind button[aria-pressed="true"]{border-color:var(--formal);background:#e8eef8;color:var(--formal-deep)}
+  .letterbox{
+    background:var(--paper);border:3px solid var(--ink);border-radius:18px;padding:16px;
+    font-size:var(--fs-sm);line-height:1.7;white-space:pre-wrap;
+  }
+  .letterbox .meta{font-weight:800;margin-bottom:8px}
+  .letterbox .sal{font-weight:800;margin:12px 0 8px}
+  .letterbox .close{margin-top:14px;font-weight:800}
+  .sampair{display:flex;gap:10px;flex-wrap:wrap}
+  .samp{
+    flex:1 1 220px;border:3px solid var(--line);border-radius:18px;padding:14px;background:var(--paper);
+  }
+  .samp.formal{border-color:var(--formal)}
+  .samp.informal{border-color:var(--informal)}
+  .samp h3{margin:0 0 10px;font-size:var(--fs-md);font-weight:800}
+  .samp.formal h3{color:var(--formal-deep)}
+  .samp.informal h3{color:var(--informal-deep)}
+  .samp pre{
+    margin:0;white-space:pre-wrap;font:inherit;font-size:var(--fs-xs);line-height:1.65;
+    background:#faf7f0;border-radius:12px;padding:12px;border:1px solid var(--line);
+  }
+  .readout{
+    margin-top:12px;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-cap);font-weight:700;margin-bottom:10px}
+  .statechip.ok{background:var(--ok)} .statechip.no{background:var(--no)}
+  .lead{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.4}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:14px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:54px;
+  }
+  .opt.ur{text-align:right}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+  .opt.wrong{border-color:var(--no);background:#fbeae8}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none;line-height:1.6}
+  .fb.show{display:block}
+  .score{
+    margin-top:8px;padding:14px 16px;border:3px solid var(--ink);border-radius:16px;
+    font-weight:800;font-size:var(--fs-md);text-align:center;display:none;
+  }
+  .score.show{display:block}
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
+      grid-template-areas:"bar bar" "head head" "tabs tabs" "left right" "quiz quiz" "foot foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+    .left{grid-area:left} .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+  }
+  @media (prefers-reduced-motion:reduce){ *{transition-duration:.01ms !important} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar">
+    <span class="brand">AI4Kids · Grade 4 · English</span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+  <div class="head">
+    <h1 id="title"></h1>
+    <p class="sub" id="subtitle"></p>
+  </div>
+  <div class="tabs" role="group">
+    <button type="button" id="tabLearn" aria-pressed="true"></button>
+    <button type="button" id="tabCompare" aria-pressed="false"></button>
+    <button type="button" id="tabParts" aria-pressed="false"></button>
+    <button type="button" id="tabWriter" aria-pressed="false"></button>
+    <button type="button" id="tabSample" aria-pressed="false"></button>
+  </div>
+  <div class="left" id="leftPane"></div>
+  <div class="right" id="rightPane"></div>
+  <div class="quiz">
+    <h2 id="quizHead" style="font-size:var(--fs-lg);font-weight:800;margin:0 0 18px"></h2>
+    <div id="quizBox"></div>
+    <div class="score" id="scoreBox"></div>
+  </div>
+  <footer>
+    <p data-en="AI4Kids — Islamabad's bilingual AI and coding school. WhatsApp 0337 1468899"
+       data-ur="اے آئی فور کڈز — اسلام آباد کا دو زبانوں والا اے آئی اور کوڈنگ سکول۔ واٹس ایپ 0337 1468899"></p>
+  </footer>
+</div>
+<script>
+(function(){
+  "use strict";
+  var lang = "en";
+  var tab = "learn";
+  var quizScore = 0, quizAnswered = 0;
+  var lastSpoken = "";
+  var partOrder = [null,null,null,null,null,null];
+  var partChecked = false;
+  var letterKind = "leave";
+  var LS = "ai4kids_g4_formal_letter_v1";
+
+  var LESSON = {
+    hook:{
+      tag:{en:"HOOK", ur:"ہک"},
+      en:"Do you ever think of sending a special invitation to a friend? Or need a letter for a school function? Today we learn how to write formal and informal letters!",
+      ur:"کیا آپ کبھی کسی دوست کو special invitation بھیجنے کا سوچتے ہیں؟ یا پھر کسی school function کے لیے letter لکھنے کی ضرورت محسوس کی ہے؟ آج ہم سیکھیں گے کہ formal اور informal letters کیسے لکھتے ہیں!"
+    },
+    samjhao:{
+      tag:{en:"SAMJHAO — Explain", ur:"سمجھاؤ"},
+      en:"Letters come in two kinds: informal and formal. Informal letters go to friends or family — relaxed, like chatting: \"How are you? What's up?\" Formal letters go to a school, office, or business. You show respect and use polite, careful words. A formal letter has a format: your address (top left), then date, then the receiver's name and address, then greeting like \"Dear Sir/Madam,\", then the body, then \"Yours sincerely\" or \"Yours faithfully\", and your signature. Informal letters often start with \"Dear Ali,\" and end with \"Take care\" or \"Love\" — no full address block needed.",
+      ur:"خطوط دو قسم کے ہوتے ہیں: informal اور formal۔ Informal دوستوں یا گھر والوں کے لیے — آرام دہ، جیسے بات چیت: «کیسے ہو؟ آج کل کیا چل رہا ہے؟» Formal اسکول، دفتر یا business کو بھیجتے ہیں۔ احترام دکھانا اور شائستہ الفاظ استعمال کرنا ہوتا ہے۔ Formal letter کا فارمیٹ: اپنا address (اوپر بائیں)، پھر date، پھر وصول کنندہ کا نام اور پتہ، پھر «Dear Sir/Madam,»، پھر body، پھر «Yours sincerely» یا «Yours faithfully»، اور دستخط۔ Informal اکثر «Dear Ali,» سے شروع اور «Take care» یا «Love» پر ختم — پورا address بلاک ضروری نہیں۔"
+    },
+    misaal:{
+      tag:{en:"MISAAL — Example", ur:"مثال"},
+      en:"Your friend invites you to a birthday party — write informal: \"Dear Ahmed, I heard your party will be so fun! I will come. We can play cricket and eat biryani!\" If you ask your Islamabad school principal for trip permission — write formal: \"Dear Principal, I request permission to join the school trip. I am ready for this journey. Thank you.\"",
+      ur:"دوست نے birthday party بلائی — informal لکھو: «Dear Ahmed، سنا ہے تمہاری پارٹی بہت مزے دار ہوگی! میں ضرور آؤں گا۔ آ کر cricket کھیلیں گے اور biryani کھائیں گے!» اگر اسلام آباد اسکول کے principal سے trip کی اجازت مانگو — formal لکھو: «Dear Principal، مجھے درخواست ہے کہ مجھے school trip میں جانے کی اجازت دی جائے۔ میں اس سفر کے لیے تیار ہوں۔ Thank you.»"
+    },
+    karo:{
+      tag:{en:"KARO — Try it", ur:"کرو"},
+      en:"At home or school: write an informal letter asking a friend about summer vacation. Then write a formal letter asking the principal if you may go on the school trip. Practice both!",
+      ur:"گھر یا اسکول میں: دوست کو summer vacation کے بارے میں پوچھتے ہوئے informal letter لکھیں۔ پھر principal سے school trip کی اجازت مانگتے ہوئے formal letter لکھیں۔ دونوں practice کرو!"
+    }
+  };
+
+  var COMPARE = {
+    formal:{
+      title:{en:"Formal letter", ur:"رسمی خط / Formal"},
+      who:{en:"Principal, teacher, office, bank", ur:"پرنسپل، استاد، دفتر، بینک"},
+      tone:{en:"Polite, respectful, careful words", ur:"شائستہ، احترام والا، احتیاط سے"},
+      greet:{en:"Dear Sir/Madam, / Dear Principal,", ur:"Dear Sir/Madam، / Dear Principal،"},
+      close:{en:"Yours sincerely / Yours faithfully", ur:"Yours sincerely / Yours faithfully"}
+    },
+    informal:{
+      title:{en:"Informal letter", ur:"غیر رسمی خط / Informal"},
+      who:{en:"Friend, cousin, family", ur:"دوست، کزن، خاندان"},
+      tone:{en:"Friendly, relaxed, like talking", ur:"دوستانہ، آرام دہ، جیسے بات چیت"},
+      greet:{en:"Dear Ali, / Hello Sara,", ur:"Dear Ali، / Hello Sara،"},
+      close:{en:"Take care / Love / Best wishes", ur:"Take care / Love / Best wishes"}
+    },
+    labels:{
+      who:{en:"Who?", ur:"کس کو؟"},
+      tone:{en:"Tone", ur:"لہجہ"},
+      greet:{en:"Greeting", ur:"سلام / Greeting"},
+      close:{en:"Closing", ur:"اختتام / Closing"}
+    }
+  };
+
+  var PARTS = [
+    {id:"address", cls:"address",
+     label:{en:"Address — your home address", ur:"Address — اپنا گھر کا پتہ"},
+     tip:{en:"Top-left: where you live.", ur:"اوپر بائیں: آپ کہاں رہتے ہیں۔"}},
+    {id:"date", cls:"date",
+     label:{en:"Date — today's date", ur:"Date — آج کی تاریخ"},
+     tip:{en:"Write the day under the address.", ur:"پتہ کے نیچے تاریخ لکھیں۔"}},
+    {id:"salutation", cls:"salutation",
+     label:{en:"Salutation — Dear Sir/Madam,", ur:"Salutation — Dear Sir/Madam،"},
+     tip:{en:"Polite greeting to open.", ur:"شائستہ سلام سے شروع۔"}},
+    {id:"body", cls:"body",
+     label:{en:"Body — your main message", ur:"Body — اصل بات"},
+     tip:{en:"Say why you are writing.", ur:"بتائیں کیوں لکھ رہے ہیں۔"}},
+    {id:"closing", cls:"closing",
+     label:{en:"Closing — Yours sincerely", ur:"Closing — Yours sincerely"},
+     tip:{en:"Polite end before your name.", ur:"نام سے پہلے شائستہ اختتام۔"}},
+    {id:"signature", cls:"signature",
+     label:{en:"Signature — your name", ur:"Signature — اپنا نام"},
+     tip:{en:"Sign or write your full name.", ur:"دستخط یا پورا نام لکھیں۔"}}
+  ];
+  var CORRECT = ["address","date","salutation","body","closing","signature"];
+
+  var SAMPLE = {
+    informal:{
+      title:{en:"Informal note to a friend", ur:"دوست کو informal نوٹ"},
+      text:{
+        en:"Dear Ahmed,\n\nHow are you? Summer break was great! I went to Faisal Mosque with Ammi. Did you play cricket in your street?\n\nWrite soon!\nTake care,\nZain",
+        ur:"Dear Ahmed،\n\nتم کیسے ہو؟ Summer break بہت اچھا گزرا! میں امی کے ساتھ فیصل مسجد گیا۔ کیا تم نے اپنی گلی میں cricket کھیلا؟\n\nجلد لکھنا!\nTake care،\nزین"
+      }
+    },
+    formal:{
+      title:{en:"Formal request to Principal", ur:"پرنسپل کو formal درخواست"},
+      text:{
+        en:"House No. 12, Street 7\nG-10/2, Islamabad\n19 September 2026\n\nThe Principal\nIslamabad Model School\nIslamabad\n\nDear Principal,\n\nI request permission to join the class trip to Lok Virsa Museum. I will follow all school rules.\n\nYours sincerely,\nAyesha Khan\nClass 4-B",
+        ur:"گھر نمبر ۱۲، سٹریٹ ۷\nجی-۱۰/۲، اسلام آباد\n۱۹ ستمبر ۲۰۲۶\n\nThe Principal\nIslamabad Model School\nاسلام آباد\n\nDear Principal،\n\nمیں لوک ورثہ میوزیم کی کلاس trip میں جانے کی اجازت کی درخواست کرتا/کرتی ہوں۔ میں تمام اسکول قواعد پر عمل کروں گا۔\n\nYours sincerely،\nعائشہ خان\nکلاس ۴-ب"
+      }
+    }
+  };
+
+  var T = {
+    tabLearn:{en:"Seekho", ur:"سیکھو"},
+    tabCompare:{en:"Farq", ur:"فرق"},
+    tabParts:{en:"Parts", ur:"حصے"},
+    tabWriter:{en:"Likho", ur:"لکھو"},
+    tabSample:{en:"Samples", ur:"نمونے"},
+    titleLearn:{en:"Formal letter", ur:"Formal letter"},
+    subLearn:{en:"Formal aur informal letter writing — Grade 4, Islamabad kids.", ur:"Formal اور informal خط نویسی — گریڈ ۴، اسلام آباد کے بچے۔"},
+    titleCompare:{en:"Formal vs Informal — spot the farq", ur:"Formal بمقابلہ Informal — فرق دیکھو"},
+    subCompare:{en:"Who, tone, greeting, and closing side by side.", ur:"کس کو، لہجہ، greeting اور closing ساتھ ساتھ۔"},
+    titleParts:{en:"Letter parts puzzle", ur:"خط کے حصوں کا پہیلی"},
+    subParts:{en:"Tap parts into order: Address → Date → Salutation → Body → Closing → Signature.", ur:"حصے ترتیب دو: Address → Date → Salutation → Body → Closing → Signature۔"},
+    titleWriter:{en:"Mini letter writer", ur:"Mini letter writer"},
+    subWriter:{en:"Leave application OR request to principal (Islamabad school). Preview + save here.", ur:"چھٹی کی درخواست یا پرنسپل سے request (اسلام آباد اسکول)۔ پیش نظارہ + یہاں محفوظ۔"},
+    titleSample:{en:"Informal note vs formal sample", ur:"Informal نوٹ بمقابلہ formal نمونہ"},
+    subSample:{en:"Friend note and principal letter — same city, two voices.", ur:"دوست کا نوٹ اور پرنسپل کا خط — ایک شہر، دو آوازیں۔"},
+    check:{en:"Check my order", ur:"ترتیب چیک کرو"},
+    reset:{en:"Reset", ur:"ری سیٹ"},
+    planOk:{en:"Shabash! Address → Date → Salutation → Body → Closing → Signature.", ur:"شاباش! Address → Date → Salutation → Body → Closing → Signature۔"},
+    planNo:{en:"Almost — remember the formal letter order from top to bottom.", ur:"قریب — اوپر سے نیچے formal letter کی ترتیب یاد رکھو۔"},
+    slotPh:{en:"Tap a piece below", ur:"نیچے سے حصہ چنو"},
+    kindLeave:{en:"Leave application", ur:"چھٹی کی درخواست"},
+    kindReq:{en:"Trip / request", ur:"Trip / درخواست"},
+    yourName:{en:"Your name", ur:"تمہارا نام"},
+    yourAddr:{en:"Your address (Islamabad)", ur:"تمہارا پتہ (اسلام آباد)"},
+    school:{en:"School name", ur:"اسکول کا نام"},
+    date:{en:"Date", ur:"تاریخ"},
+    reason:{en:"Reason / message", ur:"وجہ / پیغام"},
+    days:{en:"Leave days (if leave)", ur:"چھٹی کے دن (اگر leave)"},
+    preview:{en:"Preview letter", ur:"خط دیکھیں"},
+    save:{en:"Save on this device", ur:"اس ڈیوائس پر محفوظ"},
+    saved:{en:"Saved on this device!", ur:"اس ڈیوائس پر محفوظ ہو گیا!"},
+    clear:{en:"Clear form", ur:"فارم صاف کرو"},
+    quiz:{en:"Formal letter Quiz", ur:"Formal letter Quiz"},
+    score:{en:"Your score", ur:"تمہارا اسکور"},
+    of:{en:"out of", ur:"میں سے"},
+    tipParts:{en:"Tip", ur:"ٹپ"},
+    tipPartsLead:{en:"Formal letter order", ur:"Formal letter کی ترتیب"},
+    tipPartsDet:{en:"1 Address 2 Date 3 Salutation 4 Body 5 Closing 6 Signature. Tap pieces into empty slots.", ur:"۱ Address ۲ Date ۳ Salutation ۴ Body ۵ Closing ۶ Signature۔ خالی سلاٹ میں ٹیپ کرو۔"},
+    tipWrite:{en:"Preview", ur:"پیش نظارہ"},
+    tipWriteLead:{en:"Your formal letter", ur:"تمہارا formal letter"},
+    tipWriteDet:{en:"Fill the fields, then tap Preview. Switch Leave or Trip above.", ur:"خانے بھرو، پھر Preview دباؤ۔ اوپر Leave یا Trip بدلو۔"}
+  };
+
+  /* Quiz — exact from brief; corrects a,a,a,a,a → 0,0,0,0,0 */
+  var QUIZ = [
+    {q:{en:"Formal letter ka maqsad kya hota hai?",
+        ur:"Formal letter کا مقصد کیا ہوتا ہے؟"},
+     o:[{en:"Kisi formal maamle par rabta karna", ur:"کسی formal معاملے پر رابطہ کرنا"},
+        {en:"Dosti ka izhar karna", ur:"دوستی کا اظہار کرنا"},
+        {en:"Kisi ki khabar lena", ur:"کسی کی خبر لینا"},
+        {en:"Chhutti ke liye darkhwast dena", ur:"چھٹی کے لیے درخواست دینا"}],
+     a:0,
+     f:{en:"Kyun sahi hai: Formal letter ka maqsad rasmi maamlat par rabta karna hota hai.",
+        ur:"کیوں صحیح ہے: Formal letter کا مقصد رسمی معاملات پر رابطہ کرنا ہوتا ہے۔"}},
+    {q:{en:"Informal letter kis tarah ka hota hai?",
+        ur:"Informal letter کس طرح کا ہوتا ہے؟"},
+     o:[{en:"Dosti ya family ke liye likha jata hai", ur:"دوستی یا family کے لیے لکھا جاتا ہے"},
+        {en:"Kisi school ko likhta hai", ur:"کسی school کو لکھتا ہے"},
+        {en:"Kisi bank ko request karna", ur:"کسی bank کو request کرنا"},
+        {en:"Government ko likhna", ur:"Government کو لکھنا"}],
+     a:0,
+     f:{en:"Kyun sahi hai: Informal letter doston aur family members ke liye hota hai.",
+        ur:"کیوں صحیح ہے: Informal letter دوستوں اور family members کے لیے ہوتا ہے۔"}},
+    {q:{en:"Formal letter ki shuruaat kaise ki jati hai?",
+        ur:"Formal letter کی شروعات کیسے کی جاتی ہے؟"},
+     o:[{en:"Dear Sir/Madam se", ur:"Dear Sir/Madam سے"},
+        {en:"Hello dosto se", ur:"Hello دوستو سے"},
+        {en:"Assalam-o-Alaikum se", ur:"السلام علیکم سے"},
+        {en:"Hey yaar se", ur:"Hey یار سے"}],
+     a:0,
+     f:{en:"Kyun sahi hai: Formal letter ki shuruaat hamesha 'Dear Sir/Madam' se hoti hai.",
+        ur:"کیوں صحیح ہے: Formal letter کی شروعات ہمیشہ 'Dear Sir/Madam' سے ہوتی ہے۔"}},
+    {q:{en:"Formal letter ka ending kaisa hota hai?",
+        ur:"Formal letter کا ending کیسا ہوتا ہے؟"},
+     o:[{en:"Yours sincerely", ur:"Yours sincerely"},
+        {en:"Take care", ur:"Take care"},
+        {en:"Best wishes", ur:"Best wishes"},
+        {en:"See you soon", ur:"See you soon"}],
+     a:0,
+     f:{en:"Kyun sahi hai: Formal letters ki ending 'Yours sincerely' se ki jati hai.",
+        ur:"کیوں صحیح ہے: Formal letters کی ending 'Yours sincerely' سے کی جاتی ہے۔"}},
+    {q:{en:"Informal letter likhte waqt kis cheez ka khayal rakhna chahiye?",
+        ur:"Informal letter لکھتے وقت کس چیز کا خیال رکھنا چاہیے؟"},
+     o:[{en:"Personal tone ka istemal", ur:"Personal tone کا استعمال"},
+        {en:"Formal language ka istemal", ur:"Formal language کا استعمال"},
+        {en:"Koi specific format nahi chahta", ur:"کوئی specific format نہیں چاہتا"},
+        {en:"Bahut zyada information dena", ur:"بہت زیادہ information دینا"}],
+     a:0,
+     f:{en:"Kyun sahi hai: Informal letters mein personal tone ka istemal karna chahiye.",
+        ur:"کیوں صحیح ہے: Informal letters میں personal tone کا استعمال کرنا چاہیے۔"}}
+  ];
+
+  function $(id){ return document.getElementById(id); }
+  function t(o){ return o[lang]; }
+  var LRI = "\u2066", PDI = "\u2069";
+  var LATIN_RUN = /[A-Za-z0-9][A-Za-z0-9 .,'\u2019+\-()\/@_-]*[A-Za-z0-9.]|[A-Za-z0-9]/g;
+  function isolate(s){ return String(s).replace(LATIN_RUN, function(m){ return LRI + m + PDI; }); }
+  function setText(el, str){
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+  function partById(id){
+    for (var i=0;i<PARTS.length;i++) if (PARTS[i].id===id) return PARTS[i];
+    return null;
+  }
+
+  function renderLearn(){
+    var left = $("leftPane"); left.innerHTML = "";
+    var box = document.createElement("div"); box.className = "lesson";
+    ["hook","samjhao","misaal","karo"].forEach(function(k){
+      var L = LESSON[k];
+      var d = document.createElement("div"); d.className = "block";
+      var tag = document.createElement("span"); tag.className = "tag";
+      setText(tag, t(L.tag));
+      var p = document.createElement("p"); setText(p, t(L));
+      d.appendChild(tag); d.appendChild(p); box.appendChild(d);
+    });
+    left.appendChild(box);
+    $("rightPane").innerHTML = "";
+    lastSpoken = LESSON.hook.en;
+  }
+
+  function renderCompare(){
+    var left = $("leftPane"); left.innerHTML = "";
+    var wrap = document.createElement("div"); wrap.className = "cmp";
+    ["formal","informal"].forEach(function(kind){
+      var C = COMPARE[kind];
+      var card = document.createElement("div");
+      card.className = "ccard " + kind;
+      var h = document.createElement("h3"); setText(h, t(C.title)); card.appendChild(h);
+      ["who","tone","greet","close"].forEach(function(k){
+        var row = document.createElement("div"); row.className = "row";
+        var em = document.createElement("em"); setText(em, t(COMPARE.labels[k]));
+        var sp = document.createElement("span"); setText(sp, t(C[k]));
+        row.appendChild(em); row.appendChild(sp); card.appendChild(row);
+      });
+      wrap.appendChild(card);
+    });
+    left.appendChild(wrap);
+    $("rightPane").innerHTML = "";
+    lastSpoken = "Formal letters use Dear Sir or Madam and Yours sincerely. Informal letters use Dear friend and Take care.";
+  }
+
+  function placePart(slotI, partId){
+    if (partChecked) return;
+    for (var i=0;i<6;i++) if (partOrder[i]===partId) partOrder[i]=null;
+    partOrder[slotI] = partId;
+    renderParts();
+  }
+
+  function renderParts(){
+    var left = $("leftPane"); left.innerHTML = "";
+    var scene = document.createElement("div"); scene.className = "scene";
+    var slots = document.createElement("div"); slots.className = "slots";
+    for (var i=0;i<6;i++){
+      (function(si){
+        var sl = document.createElement("div");
+        sl.className = "slot" + (partOrder[si] ? " filled" : "");
+        if (partChecked){
+          sl.className += (partOrder[si] === CORRECT[si]) ? " ok" : " bad";
+        }
+        var num = document.createElement("span"); num.className = "num"; num.textContent = String(si+1);
+        sl.appendChild(num);
+        if (partOrder[si]){
+          var p = partById(partOrder[si]);
+          var lab = document.createElement("button");
+          lab.type = "button";
+          lab.className = "piece " + p.cls;
+          lab.style.cssText = "border-width:2px;padding:6px 10px;margin:0;flex:1;text-align:inherit;cursor:pointer";
+          setText(lab, t(p.label));
+          lab.addEventListener("click", function(){
+            if (partChecked) return;
+            partOrder[si] = null;
+            renderParts();
+          });
+          sl.appendChild(lab);
+        } else {
+          var ph = document.createElement("span"); ph.className = "ph";
+          setText(ph, t(T.slotPh));
+          sl.appendChild(ph);
+        }
+        slots.appendChild(sl);
+      })(i);
+    }
+    scene.appendChild(slots);
+
+    var bank = document.createElement("div"); bank.className = "bank";
+    PARTS.forEach(function(p){
+      var used = partOrder.indexOf(p.id) !== -1;
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "piece " + p.cls + (used ? " used" : "");
+      setText(b, t(p.label));
+      b.addEventListener("click", function(){
+        if (used || partChecked) return;
+        for (var j=0;j<6;j++){
+          if (partOrder[j] === null){ placePart(j, p.id); return; }
+        }
+      });
+      bank.appendChild(b);
+    });
+    scene.appendChild(bank);
+
+    var chk = document.createElement("button");
+    chk.type = "button"; chk.className = "checkbtn";
+    setText(chk, t(T.check));
+    chk.addEventListener("click", function(){
+      if (partOrder.indexOf(null) !== -1) return;
+      partChecked = true;
+      var good = true;
+      for (var i=0;i<6;i++) if (partOrder[i] !== CORRECT[i]) good = false;
+      lastSpoken = good
+        ? "Shabash! Address, date, salutation, body, closing, signature."
+        : "Try again. Remember the formal letter order.";
+      renderParts();
+    });
+    scene.appendChild(chk);
+
+    var rst = document.createElement("button");
+    rst.type = "button"; rst.className = "resetbtn";
+    setText(rst, t(T.reset));
+    rst.addEventListener("click", function(){
+      partOrder = [null,null,null,null,null,null]; partChecked = false; renderParts();
+    });
+    scene.appendChild(rst);
+
+    if (partChecked){
+      var good = true;
+      for (var g=0;g<6;g++) if (partOrder[g] !== CORRECT[g]) good = false;
+      var fb = document.createElement("div");
+      fb.className = "fbbox show " + (good ? "ok" : "no");
+      setText(fb, good ? t(T.planOk) : t(T.planNo));
+      scene.appendChild(fb);
+    }
+    left.appendChild(scene);
+
+    var right = $("rightPane"); right.innerHTML = "";
+    var ro = document.createElement("div"); ro.className = "readout";
+    var chip = document.createElement("span"); chip.className = "statechip";
+    setText(chip, t(T.tipParts));
+    var lead = document.createElement("p"); lead.className = "lead";
+    setText(lead, t(T.tipPartsLead));
+    var detail = document.createElement("p"); detail.className = "detail";
+    setText(detail, t(T.tipPartsDet));
+    ro.appendChild(chip); ro.appendChild(lead); ro.appendChild(detail);
+    right.appendChild(ro);
+    lastSpoken = "Put address, date, salutation, body, closing, and signature in order.";
+  }
+
+  function loadLetter(){
+    try{
+      var raw = localStorage.getItem(LS);
+      return raw ? JSON.parse(raw) : null;
+    }catch(e){ return null; }
+  }
+  function saveLetter(data){
+    try{ localStorage.setItem(LS, JSON.stringify(data)); }catch(e){}
+  }
+
+  function buildLetterText(data){
+    var name = data.name || (lang==="en"?"Ayesha Khan":"عائشہ خان");
+    var addr = data.addr || (lang==="en"?"House 12, Street 7, G-10/2, Islamabad":"گھر ۱۲، سٹریٹ ۷، جی-۱۰/۲، اسلام آباد");
+    var school = data.school || "Islamabad Model School";
+    var date = data.date || "";
+    var reason = data.reason || "";
+    var days = data.days || "";
+    var body;
+    if (data.kind === "leave"){
+      body = lang==="en"
+        ? ("I am a student of Class 4. I request leave for " + (days || "___") + " day(s).\n\nReason: " + (reason || "___") + "\n\nI will complete my missed work when I return.")
+        : ("میں کلاس ۴ کا/کی طالب علم ہوں۔ مجھے " + (days || "___") + " دن کی چھٹی درکار ہے۔\n\nوجہ: " + (reason || "___") + "\n\nواپس آ کر چھوٹا ہوا کام مکمل کروں گا۔");
+    } else {
+      body = lang==="en"
+        ? ("I request permission for the following:\n\n" + (reason || "___") + "\n\nI will follow all school rules and stay with my class.")
+        : ("میں درج ذیل کے لیے اجازت کی درخواست کرتا/کرتی ہوں:\n\n" + (reason || "___") + "\n\nمیں تمام قواعد پر عمل کروں گا اور کلاس کے ساتھ رہوں گا۔");
+    }
+    return addr + "\n" + date + "\n\nThe Principal\n" + school + "\nIslamabad\n\nDear Principal,\n\n" + body + "\n\nYours sincerely,\n" + name + "\nClass 4";
+  }
+
+  function renderWriter(){
+    var saved = loadLetter() || {};
+    if (saved.kind) letterKind = saved.kind;
+    var left = $("leftPane"); left.innerHTML = "";
+    var form = document.createElement("div"); form.className = "dform scene";
+
+    var kindRow = document.createElement("div"); kindRow.className = "kind";
+    [["leave",T.kindLeave],["request",T.kindReq]].forEach(function(pair){
+      var b = document.createElement("button");
+      b.type = "button";
+      setText(b, t(pair[1]));
+      b.setAttribute("aria-pressed", letterKind === pair[0] ? "true" : "false");
+      b.addEventListener("click", function(){
+        letterKind = pair[0];
+        renderWriter();
+      });
+      kindRow.appendChild(b);
+    });
+    form.appendChild(kindRow);
+
+    function field(labKey, id, type, val, ph){
+      var lab = document.createElement("label"); setText(lab, t(T[labKey]));
+      var inp = type === "ta" ? document.createElement("textarea") : document.createElement("input");
+      if (type !== "ta") inp.type = type || "text";
+      inp.id = id;
+      inp.value = val || "";
+      if (ph) inp.placeholder = ph;
+      if (type === "ta") inp.rows = 3;
+      form.appendChild(lab); form.appendChild(inp);
+      return inp;
+    }
+
+    var inpName = field("yourName","wName","text", saved.name, "Ayesha Khan");
+    var inpAddr = field("yourAddr","wAddr","text", saved.addr, "House 12, Street 7, G-10/2, Islamabad");
+    var inpSchool = field("school","wSchool","text", saved.school, "Islamabad Model School");
+    var inpDate = field("date","wDate","date", saved.date || new Date().toISOString().slice(0,10));
+    var inpDays = null;
+    if (letterKind === "leave"){
+      inpDays = field("days","wDays","text", saved.days, "2");
+    }
+    var inpReason = field("reason","wReason","ta", saved.reason,
+      letterKind==="leave" ? "Fever / family visit" : "Join Lok Virsa Museum trip");
+
+    var msg = document.createElement("div"); msg.className = "fbbox"; msg.id = "wMsg";
+
+    function gather(){
+      return {
+        kind: letterKind,
+        name: inpName.value,
+        addr: inpAddr.value,
+        school: inpSchool.value,
+        date: inpDate.value,
+        days: inpDays ? inpDays.value : "",
+        reason: inpReason.value
+      };
+    }
+
+    function showPreview(data){
+      var right = $("rightPane"); right.innerHTML = "";
+      var ro = document.createElement("div"); ro.className = "readout";
+      var chip = document.createElement("span"); chip.className = "statechip ok";
+      setText(chip, t(T.tipWrite));
+      var lead = document.createElement("p"); lead.className = "lead";
+      setText(lead, t(T.tipWriteLead));
+      ro.appendChild(chip); ro.appendChild(lead);
+      var box = document.createElement("div"); box.className = "letterbox";
+      box.style.marginTop = "10px";
+      box.textContent = buildLetterText(data);
+      if (lang==="ur"){ box.classList.add("ur"); box.setAttribute("dir","rtl"); }
+      else { box.setAttribute("dir","ltr"); }
+      ro.appendChild(box);
+      right.appendChild(ro);
+      lastSpoken = buildLetterText(data).replace(/\n/g, ". ");
+    }
+
+    var prev = document.createElement("button");
+    prev.type = "button"; prev.className = "checkbtn";
+    setText(prev, t(T.preview));
+    prev.addEventListener("click", function(){ showPreview(gather()); });
+    form.appendChild(prev);
+
+    var save = document.createElement("button");
+    save.type = "button"; save.className = "savebtn";
+    setText(save, t(T.save));
+    save.addEventListener("click", function(){
+      var data = gather();
+      saveLetter(data);
+      msg.className = "fbbox show ok";
+      setText(msg, t(T.saved));
+      showPreview(data);
+      lastSpoken = "Letter saved.";
+    });
+    form.appendChild(save);
+
+    var clr = document.createElement("button");
+    clr.type = "button"; clr.className = "resetbtn";
+    setText(clr, t(T.clear));
+    clr.addEventListener("click", function(){
+      try{ localStorage.removeItem(LS); }catch(e){}
+      letterKind = "leave";
+      renderWriter();
+    });
+    form.appendChild(clr);
+    form.appendChild(msg);
+    left.appendChild(form);
+
+    if (saved.name || saved.reason){
+      showPreview(Object.assign({kind:letterKind}, saved));
+    } else {
+      var right = $("rightPane"); right.innerHTML = "";
+      var ro = document.createElement("div"); ro.className = "readout";
+      var chip = document.createElement("span"); chip.className = "statechip";
+      setText(chip, t(T.tipWrite));
+      var lead = document.createElement("p"); lead.className = "lead";
+      setText(lead, t(T.tipWriteLead));
+      var detail = document.createElement("p"); detail.className = "detail";
+      setText(detail, t(T.tipWriteDet));
+      ro.appendChild(chip); ro.appendChild(lead); ro.appendChild(detail);
+      right.appendChild(ro);
+    }
+    lastSpoken = "Write a formal leave application or request to your principal.";
+  }
+
+  function renderSample(){
+    var left = $("leftPane"); left.innerHTML = "";
+    var wrap = document.createElement("div"); wrap.className = "sampair";
+    ["informal","formal"].forEach(function(kind){
+      var S = SAMPLE[kind];
+      var card = document.createElement("div");
+      card.className = "samp " + kind;
+      var h = document.createElement("h3"); setText(h, t(S.title));
+      var pre = document.createElement("pre");
+      setText(pre, t(S.text));
+      card.appendChild(h); card.appendChild(pre);
+      wrap.appendChild(card);
+    });
+    left.appendChild(wrap);
+    $("rightPane").innerHTML = "";
+    lastSpoken = SAMPLE.informal.text.en + " " + SAMPLE.formal.text.en;
+  }
+
+  function render(){
+    ["Learn","Compare","Parts","Writer","Sample"].forEach(function(x){
+      var id = "tab"+x;
+      var key = x.toLowerCase();
+      $(id).setAttribute("aria-pressed", tab === key ? "true" : "false");
+    });
+    setText($("tabLearn"), t(T.tabLearn));
+    setText($("tabCompare"), t(T.tabCompare));
+    setText($("tabParts"), t(T.tabParts));
+    setText($("tabWriter"), t(T.tabWriter));
+    setText($("tabSample"), t(T.tabSample));
+    setText($("quizHead"), t(T.quiz));
+
+    if (tab === "learn"){
+      setText($("title"), t(T.titleLearn));
+      setText($("subtitle"), t(T.subLearn));
+      renderLearn(); return;
+    }
+    if (tab === "compare"){
+      setText($("title"), t(T.titleCompare));
+      setText($("subtitle"), t(T.subCompare));
+      renderCompare(); return;
+    }
+    if (tab === "parts"){
+      setText($("title"), t(T.titleParts));
+      setText($("subtitle"), t(T.subParts));
+      renderParts(); return;
+    }
+    if (tab === "writer"){
+      setText($("title"), t(T.titleWriter));
+      setText($("subtitle"), t(T.subWriter));
+      renderWriter(); return;
+    }
+    setText($("title"), t(T.titleSample));
+    setText($("subtitle"), t(T.subSample));
+    renderSample();
+  }
+
+  ["Learn","Compare","Parts","Writer","Sample"].forEach(function(x){
+    $("tab"+x).addEventListener("click", function(){
+      var m = x.toLowerCase();
+      if (tab === m) return;
+      try{ window.speechSynthesis.cancel(); }catch(e){}
+      tab = m;
+      render();
+    });
+  });
+
+  function buildQuiz(){
+    var box = $("quizBox"); box.innerHTML = "";
+    quizScore = 0; quizAnswered = 0;
+    $("scoreBox").classList.remove("show");
+    QUIZ.forEach(function(item){
+      var wrap = document.createElement("div"); wrap.className = "q";
+      var q = document.createElement("p"); setText(q, t(item.q)); wrap.appendChild(q);
+      var fb = document.createElement("p"); fb.className = "fb";
+      item.o.forEach(function(opt, oi){
+        var bt = document.createElement("button");
+        bt.type = "button"; bt.className = "opt" + (lang === "ur" ? " ur" : "");
+        setText(bt, t(opt));
+        bt.addEventListener("click", function(){
+          if (wrap.getAttribute("data-done") === "1") return;
+          wrap.setAttribute("data-done","1");
+          quizAnswered++;
+          if (oi === item.a) quizScore++;
+          Array.prototype.forEach.call(wrap.querySelectorAll(".opt"), function(x, xi){
+            if (xi === item.a) x.classList.add("right");
+            else if (xi === oi) x.classList.add("wrong");
+          });
+          setText(fb, t(item.f));
+          fb.classList.add("show");
+          if (quizAnswered === QUIZ.length){
+            var sb = $("scoreBox");
+            sb.classList.add("show");
+            setText(sb, t(T.score) + ": " + quizScore + " " + t(T.of) + " " + QUIZ.length);
+          }
+        });
+        wrap.appendChild(bt);
+      });
+      wrap.appendChild(fb); box.appendChild(wrap);
+    });
+  }
+
+  function applyLang(){
+    document.body.classList.toggle("urdu", lang === "ur");
+    var lb = $("langBtn");
+    lb.textContent = (lang === "en") ? "اردو" : "English";
+    lb.setAttribute("aria-pressed", lang === "ur" ? "true" : "false");
+    Array.prototype.forEach.call(document.querySelectorAll("[data-en]"), function(el){
+      setText(el, el.getAttribute(lang === "en" ? "data-en" : "data-ur"));
+    });
+    buildQuiz(); render();
+  }
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en"; applyLang();
+  });
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      window.speechSynthesis.cancel();
+      var u2 = new SpeechSynthesisUtterance(lastSpoken);
+      u2.lang = "en-US"; u2.rate = 0.85;
+      window.speechSynthesis.speak(u2);
+    }catch(e){}
+  });
+
+  applyLang();
+})();
+</script>
+</body>
+</html>

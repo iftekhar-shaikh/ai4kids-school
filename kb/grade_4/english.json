@@ -399,7 +399,9 @@
             "explanation": "Kyun sahi hai: Informal letters mein personal tone ka istemal karna chahiye."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g4-formal-letter.html",
+      "interactive_label": "Khelo - Formal letter"
     }
   ]
 }

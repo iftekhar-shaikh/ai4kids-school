@@ -679,5 +679,13 @@
       "interactive_file": "interactives/g4-essay-diary.html",
       "interactive_label": "Khelo - Essay aur diary"
     }
+  },
+  {
+    "file": "kb/grade_4/english.json",
+    "match_title": "Formal letter",
+    "add": {
+      "interactive_file": "interactives/g4-formal-letter.html",
+      "interactive_label": "Khelo - Formal letter"
+    }
   }
 ]
