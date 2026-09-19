@@ -227,7 +227,9 @@
             "explanation": "Clear ending + moral."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g4-kahani-afsana.html",
+      "interactive_label": "Khelo - Kahani aur afsana"
     },
     {
       "title": "Grammar aur imla",

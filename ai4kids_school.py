@@ -1122,6 +1122,7 @@ def render_topic_interactive(subject_key, grade, topic_title):
     (4, "urdu", "Hamd aur Naat"): "interactives/g4-hamd-naat.html",
     (4, "urdu", "Rahmat-e-Aalam aur seerat stories"): "interactives/g4-rahmat-seerat.html",
     (4, "urdu", "Qomi tehwar aur watan"): "interactives/g4-qomi-tehwar.html",
+    (4, "urdu", "Kahani aur afsana"): "interactives/g4-kahani-afsana.html",
     (4, "math", "Numbers 99,999 tak"): "interactives/g4-numbers-99999.html",
     (4, "math", "Number operations"): "interactives/g4-number-operations.html",
     (4, "math", "Factors aur multiples"): "interactives/g4-factors-multiples.html",
