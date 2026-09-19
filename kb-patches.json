@@ -695,5 +695,13 @@
       "interactive_file": "interactives/g4-hamd-naat.html",
       "interactive_label": "Khelo - Hamd aur Naat"
     }
+  },
+  {
+    "file": "kb/grade_4/urdu.json",
+    "match_title": "Rahmat-e-Aalam aur seerat stories",
+    "add": {
+      "interactive_file": "interactives/g4-rahmat-seerat.html",
+      "interactive_label": "Khelo - Seerat stories"
+    }
   }
 ]
