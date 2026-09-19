@@ -2641,18 +2641,62 @@ def render_html_viewers():
                             height=650, scrolling=True)
         except Exception as e:
             st.error(f"Curriculum nahi khul saki: {e}")
+    # Restore Lesson Bank + Khelo panel from URL (iframe → parent navigation)
+    try:
+        _qp = st.query_params
+        if _qp.get("view_lb") == "1" or _qp.get("lb_khelo"):
+            st.session_state.view_lessonbank = True
+        _lk = _qp.get("lb_khelo")
+        if _lk:
+            st.session_state.lb_topic_key = _lk
+    except Exception:
+        pass
+
     if st.session_state.get("view_lessonbank"):
         st.markdown("#### 📚 Lesson Bank")
-        st.caption("Agar Streamlit Fork page dikhe to in-app close / refresh use karein.")
+        st.caption("Grid same. Khelo dabao → app neeche panel mein khulti hai.")
         if st.button("✖️ Lesson Bank band karo", key="lb_close_top"):
             st.session_state.view_lessonbank = False
             st.session_state.pop("lb_topic_key", None)
+            try:
+                st.query_params.clear()
+            except Exception:
+                pass
             st.rerun()
         try:
             components.html(open(LESSON_BANK_PATH, encoding="utf-8").read(),
                             height=_embed_height(900), scrolling=True)
         except Exception as e:
             st.error(f"Lesson Bank nahi khul saki: {e}")
+
+        # Khelo panel BELOW the grid (Streamlit direct embed — no nested iframe)
+        sel = st.session_state.get("lb_topic_key")
+        if sel:
+            parts = str(sel).split("|", 2)
+            if len(parts) == 3:
+                try:
+                    g = int(parts[0])
+                    sk = parts[1]
+                    title = parts[2]
+                except Exception:
+                    g = sk = title = None
+                if g and sk and title:
+                    st.markdown("---")
+                    st.markdown(f"### 🎮 Khelo — {title}")
+                    st.caption(f"Grade {g} · {sk}")
+                    if st.button("✖️ Panel band karo", key="lb_khelo_close"):
+                        st.session_state.pop("lb_topic_key", None)
+                        try:
+                            keep = {k: v for k, v in st.query_params.items() if k != "lb_khelo"}
+                            st.query_params.clear()
+                            for k, v in keep.items():
+                                st.query_params[k] = v
+                        except Exception:
+                            pass
+                        st.rerun()
+                    ok = render_topic_interactive(sk, g, title)
+                    if not ok:
+                        st.warning("Interactive file nahi mila — KB / interactives/ check karein.")
 
 
 

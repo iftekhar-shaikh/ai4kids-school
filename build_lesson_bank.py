@@ -308,6 +308,7 @@ for t in all_topics:
 
 topics_json = json.dumps([{
     "grade": t["grade"],
+    "sk": t["subj_key"],
     "subj": t["subj_name"],
     "emoji": t["subj_emoji"],
     "color": t["subj_color"],
@@ -481,21 +482,14 @@ function openModal(i) {{
   }} catch (e) {{}}
   let html = `<h2>${{t.emoji}} ${{t.title}}</h2>
   <p class="meta">${{t.subj}} • Grade ${{t.grade}} • ${{t.desc}}</p>`;
-  if (t.interactive_b64) {{
+  if (t.interactive_file || t.interactive_b64) {{
     const label = t.interactive_label || 'Khelo — interactive';
-    window.__kheloB64 = t.interactive_b64;
+    window.__kheloB64 = t.interactive_b64 || '';
     html += `<div class="khelo-top">
-      <button type="button" class="khelo-go" id="kheloOpenBtn">🎮 ${{label}} — nayi window</button>
-      <button type="button" class="khelo-go" id="kheloEmbedBtn" style="background:#16a085">Yahan dikhao</button>
-      <span class="hint">Agar box khali ho to pehla button dabayein (nayi window).</span>
-    </div>`;
-    html += `<div class="khelo-frame-wrap" id="kheloFrameWrap">
-      <div style="padding:10px 12px;background:#f5eef8;border-left:4px solid #8e44ad;border-radius:0 10px 10px 0;margin-bottom:8px">
-        <b>🎮 ${{label}}</b>
-        <div id="kheloStatus" style="margin-top:6px;font-size:1rem;color:#6c3483">Load ho raha hai…</div>
-      </div>
-      <iframe id="kheloFrame" title="Interactive" sandbox="allow-scripts allow-same-origin allow-forms"
-        style="width:100%;height:min(75vh,640px);border:2px solid #eee;border-radius:12px;background:#fff"></iframe>
+      <button type="button" class="khelo-go" id="kheloBelowBtn" style="background:#8e44ad">🎮 ${{label}} — neeche panel</button>
+      <button type="button" class="khelo-go" id="kheloOpenBtn" style="background:#16a085">Nayi window</button>
+      <span class="hint">Grid same rahega. Khelo dabao → app page ke neeche panel mein khulti hai.</span>
+      <div id="kheloStatus" style="margin-top:8px;font-size:1rem;color:#6c3483"></div>
     </div>`;
   }} else {{
     window.__kheloB64 = '';
@@ -538,19 +532,27 @@ function openModal(i) {{
   }}
   document.getElementById('modal-content').innerHTML = html;
   
-  if (t.interactive_b64) {{
-    mountKhelo(t.interactive_b64);
+  if (t.interactive_file || t.interactive_b64) {{
+    const bBelow = document.getElementById('kheloBelowBtn');
     const bOpen = document.getElementById('kheloOpenBtn');
-    const bEmb = document.getElementById('kheloEmbedBtn');
+    if (bBelow) bBelow.onclick = function() {{ openKheloBelow(t); }};
     if (bOpen) bOpen.onclick = function() {{ openKheloWindow(); }};
-    if (bEmb) bEmb.onclick = function() {{
-      mountKhelo(t.interactive_b64);
-      const w = document.getElementById('kheloFrameWrap');
-      if (w) w.scrollIntoView({{behavior:'smooth', block:'start'}});
-    }};
   }}
   
   document.getElementById('modal').classList.add('open');
+}}
+
+
+function openKheloBelow(t) {{
+  try {{
+    var url = new URL(window.top.location.href);
+    url.searchParams.set('view_lb', '1');
+    url.searchParams.set('lb_khelo', String(t.grade) + '|' + String(t.sk) + '|' + String(t.title));
+    window.top.location.href = url.toString();
+  }} catch (e) {{
+    var s = document.getElementById('kheloStatus');
+    if (s) s.textContent = 'Panel open nahi hua. Page refresh karke dubara try karein.';
+  }}
 }}
 
 function closeModal() {{
