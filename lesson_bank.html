@@ -48,8 +48,7 @@ body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f5f5f0;color:#2c3e50}
 .modal-close:hover{color:#333}
 .modal h2{font-size:clamp(1.55rem,5vw,2rem);margin-bottom:4px}
 .modal .meta{font-size:clamp(1rem,3.2vw,1.15rem);color:#555;margin-bottom:16px}
-.lesson-text{white-space:pre-wrap;font-size:clamp(1.4rem,4.8vw,1.7rem);line-height:1.85;
-  background:#fafafa;border-radius:10px;padding:16px;border:1px solid #eee}
+.lesson-text{font-size:clamp(1.25rem,4.2vw,1.55rem);line-height:1.85;padding:22px 18px;background:#111;color:#f5f5f5;border-radius:14px;border:2px solid #333;min-height:160px;white-space:pre-wrap;margin:10px 0}
 .read-bar{display:flex;align-items:center;gap:12px;margin-bottom:10px}
 .read-btn{padding:12px 22px;border:none;border-radius:22px;background:#8e44ad;
   color:#fff;font-size:clamp(1.1rem,3.5vw,1.25rem);font-weight:700;cursor:pointer;min-height:48px}
@@ -4700,17 +4699,29 @@ function openModal(i) {
   let html = `<h2>${t.emoji} ${t.title}</h2>
   <p class="meta">${t.subj} • Grade ${t.grade} • ${t.desc}</p>`;
 
-  // 1) Khelo / app first
+  // 1) Lesson + Sunlo
+  if (t.lesson) {
+    window.__lessonRaw = t.lesson;
+    html += `<div class="read-bar">
+      <button class="read-btn" id="readBtn" onclick="toggleRead()">🔊 Sunlo</button>
+      <span class="read-status" id="readStatus"></span>
+    </div>`;
+    html += `<div class="lesson-text" id="lessonText">${t.lesson.replace(/</g,'&lt;').replace(/>/g,'&gt;')}</div>`;
+  } else {
+    html += '<p style="color:#999;padding:10px;font-size:1.1rem">Lesson abhi available nahi hai.</p>';
+  }
+
+  // 2) Khelo (opens under-grid Streamlit panel — cannot run inside this iframe)
   if (t.interactive_file) {
     const label = t.interactive_label || 'Khelo — interactive';
     html += `<div class="khelo-top" style="margin-top:14px">
       <button type="button" class="khelo-go" id="kheloBelowBtn" style="background:#8e44ad;width:100%">🎮 ${label}</button>
-      <span class="hint">Pehle app (neeche panel), us ke neeche quiz.</span>
+      <span class="hint">App grid ke NEACHE list se topic dabao (Sabaq+Sunlo → App → Quiz). Iframe ke andar app block hoti hai.</span>
       <div id="kheloStatus" style="margin-top:8px;font-size:1rem;color:#6c3483"></div>
     </div>`;
   }
 
-  // 2) Quiz under app
+  // 3) Quiz
   if (t.questions && t.questions.length) {
     window.__curQuestions = t.questions;
     __score = 0; __answered = 0; __keyShown = false;
@@ -4738,23 +4749,11 @@ function openModal(i) {
     html += '</div>';
   }
 
-  // Lesson optional at end (Sunlo) — does not sit between app and quiz
-  if (t.lesson) {
-    window.__lessonRaw = t.lesson;
-    html += `<div class="read-bar" style="margin-top:16px">
-      <button class="read-btn" id="readBtn" onclick="toggleRead()">🔊 Sunlo</button>
-      <span class="read-status" id="readStatus"></span>
-    </div>`;
-    html += `<div class="lesson-text" id="lessonText">${t.lesson.replace(/</g,'&lt;').replace(/>/g,'&gt;')}</div>`;
-  }
-
   document.getElementById('modal-content').innerHTML = html;
-
   if (t.interactive_file) {
     const bBelow = document.getElementById('kheloBelowBtn');
     if (bBelow) bBelow.onclick = function() { openKheloBelow(t); };
   }
-
   document.getElementById('modal').classList.add('open');
 }
 

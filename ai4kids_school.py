@@ -2654,7 +2654,7 @@ def render_html_viewers():
 
     if st.session_state.get("view_lessonbank"):
         st.markdown("#### 📚 Lesson Bank")
-        st.caption("Grid same. Topic chuno → neeche pehle app, us ke neeche quiz.")
+        st.caption("Grid browse. App: neeche topic dabao — Sabaq + Sunlo → App → Quiz.")
         if st.button("✖️ Lesson Bank band karo", key="lb_close_top"):
             st.session_state.view_lessonbank = False
             st.session_state.pop("lb_topic_key", None)
@@ -2671,83 +2671,88 @@ def render_html_viewers():
         except Exception as e:
             st.error(f"Lesson Bank nahi khul saki: {e}")
 
-        # Under grid: sabaq then Khelo (apps open here — nested iframe inside grid cannot)
+        # Under grid: WORKING opener (same pattern as when apps ran). Nested iframe inside grid cannot run apps.
         st.markdown("---")
-        st.markdown("### 🎮 Neeche panel — app phir quiz")
-        st.caption("Grid ke baad: topic select → pehle app, us ke neeche quiz.")
+        st.markdown("### Open topic — yahan app chalti hai")
+        st.info(
+            "Grid browse ke liye hai. **App kholne ke liye neeche topic dabao.** "
+            "Order: Sabaq + Sunlo → App → Quiz."
+        )
         topics = _lb_load_all_topics()
-        playable = [t for t in topics if t.get("interactive_file")]
-        if not playable:
-            st.warning("Koi interactive file wired nahi mili.")
-        else:
-            sel = st.session_state.get("lb_topic_key")
-            default_g = default_sk = default_title = None
-            if sel:
-                parts = str(sel).split("|", 2)
-                if len(parts) == 3:
+        c1, c2, c3 = st.columns([1, 1, 2])
+        with c1:
+            grades = ["All"] + [f"Grade {g}" for g in range(1, 6)]
+            gsel = st.selectbox("Grade", grades, key="lb_ug_grade")
+        with c2:
+            subj_opts = ["All"] + sorted({t["subj"] for t in topics})
+            ssel = st.selectbox("Subject", subj_opts, key="lb_ug_subj")
+        with c3:
+            q = st.text_input("Search", key="lb_ug_search", placeholder="e.g. 3D, fractions, robot")
+
+        filtered = []
+        for t in topics:
+            if gsel != "All" and f"Grade {t['grade']}" != gsel:
+                continue
+            if ssel != "All" and t["subj"] != ssel:
+                continue
+            blob = f"{t['title']} {t['desc']} {t['subj']}".lower()
+            if q and q.lower() not in blob:
+                continue
+            filtered.append(t)
+
+        sel_key = st.session_state.get("lb_topic_key")
+        if sel_key:
+            cur = next((t for t in topics if f"{t['grade']}|{t['sk']}|{t['title']}" == sel_key), None)
+            if cur:
+                if st.button("Wapas list", key="lb_ug_back"):
+                    st.session_state.pop("lb_topic_key", None)
                     try:
-                        default_g = int(parts[0]); default_sk = parts[1]; default_title = parts[2]
+                        keep = {k: v for k, v in st.query_params.items() if k not in ("lb_khelo", "view_lb")}
+                        st.query_params.clear()
+                        for k, v in keep.items():
+                            st.query_params[k] = v
                     except Exception:
                         pass
+                    st.rerun()
+                st.markdown(
+                    f"<h2 style='font-size:clamp(1.75rem,5.5vw,2.25rem);margin:0.2rem 0'>{cur['emoji']} {cur['title']}</h2>"
+                    f"<p style='font-size:clamp(1.25rem,4vw,1.45rem);color:#333'>{cur['subj']} · Grade {cur['grade']} · {cur['desc']}</p>",
+                    unsafe_allow_html=True,
+                )
+                # 1) Lesson + Sunlo — big dark lesson block
+                st.markdown("### Sabaq")
+                lesson = cur.get("lesson") or ""
+                if lesson:
+                    try:
+                        tts_button(lesson)
+                    except Exception as e:
+                        st.caption(f"Sunlo issue: {e}")
+                    st.markdown(
+                        f"<div style='font-size:clamp(1.4rem,4.8vw,1.7rem);line-height:1.85;padding:22px 20px;"
+                        f"background:#111;color:#f5f5f5;border-radius:14px;border:2px solid #333;"
+                        f"min-height:180px;white-space:pre-wrap'>{lesson.replace('<','&lt;')}</div>",
+                        unsafe_allow_html=True,
+                    )
+                else:
+                    st.caption("Lesson text abhi nahi.")
 
-            grades = sorted({t["grade"] for t in playable})
-            g_idx = grades.index(default_g) if default_g in grades else 0
-            g = st.selectbox("Grade", grades, index=g_idx, key="lb_panel_grade")
-            sub_opts = sorted({(t["sk"], t["subj"]) for t in playable if t["grade"] == g}, key=lambda x: x[1])
-            sub_labels = [f"{pair[1]} ({pair[0]})" for pair in sub_opts]
-            sk_idx = 0
-            if default_sk and default_g == g:
-                for i, (sk0, _) in enumerate(sub_opts):
-                    if sk0 == default_sk:
-                        sk_idx = i
-                        break
-            sub_pick = st.selectbox(
-                "Subject",
-                sub_labels,
-                index=min(sk_idx, max(len(sub_labels) - 1, 0)) if sub_labels else 0,
-                key="lb_panel_subj",
-            )
-            sk = sub_opts[sub_labels.index(sub_pick)][0] if sub_labels else None
-            titles = sorted(t["title"] for t in playable if t["grade"] == g and t["sk"] == sk)
-            t_idx = titles.index(default_title) if default_title in titles else 0
-            title = st.selectbox(
-                "Topic",
-                titles,
-                index=min(t_idx, max(len(titles) - 1, 0)) if titles else 0,
-                key="lb_panel_topic",
-            )
-
-            if sk and title:
-                st.session_state.lb_topic_key = f"{g}|{sk}|{title}"
-
-            if st.button("✖️ Panel clear", key="lb_khelo_close"):
-                st.session_state.pop("lb_topic_key", None)
-                try:
-                    keep = {k: v for k, v in st.query_params.items() if k not in ("lb_khelo", "view_lb")}
-                    st.query_params.clear()
-                    for k, v in keep.items():
-                        st.query_params[k] = v
-                except Exception:
-                    pass
-                st.rerun()
-
-            gg, ssk, ttl = g, sk, title
-            if gg and ssk and ttl:
-                st.markdown("---")
-                cur = next((t for t in topics if t["grade"] == gg and t["sk"] == ssk and t["title"] == ttl), None)
-                # 1) APP first
-                st.markdown(f"### 🎮 Khelo — {ttl}")
-                ok = render_topic_interactive(ssk, gg, ttl)
+                # 2) App under lesson
+                st.markdown("### Khelo — app")
+                ok = render_topic_interactive(cur["sk"], cur["grade"], cur["title"])
                 if not ok:
-                    st.warning("Interactive file nahi mili — KB / interactives/ check karein.")
-                # 2) Quiz under the app
-                qs = (cur or {}).get("questions") or []
+                    if cur.get("interactive_file"):
+                        st.warning(f"Interactive file missing: `{cur['interactive_file']}`")
+                    else:
+                        st.info("Is topic par abhi Khelo interactive nahi hai.")
+
+                # 3) Quiz
+                qs = cur.get("questions") or []
                 if qs:
-                    st.markdown(f"### 📝 Quiz — {len(qs)} sawaal")
+                    st.markdown(f"### Quiz — {len(qs)} sawaal (app ke baad)")
                     for i, qq in enumerate(qs):
                         stem = qq.get("q") or qq.get("question") or f"Q{i+1}"
                         st.markdown(
-                            f"<p style='font-size:clamp(1.25rem,4vw,1.45rem);font-weight:700'>Q{i+1}. {stem}</p>",
+                            f"<p style='font-size:clamp(1.3rem,4.2vw,1.5rem);font-weight:700'>Q{i+1}. {stem}</p>",
                             unsafe_allow_html=True,
                         )
                         opts = []
@@ -2756,18 +2761,34 @@ def render_html_viewers():
                                 if qq.get(letter):
                                     opts.append(f"{letter}) {qq[letter]}")
                         elif isinstance(qq.get("options"), list):
-                            opts = [f"{chr(97+j)}) {o}" for j, o in enumerate(qq["options"])]
-                        if opts:
-                            st.markdown(
-                                "<div style='font-size:clamp(1.1rem,3.5vw,1.3rem);line-height:1.6;margin:0 0 12px 8px'>"
-                                + "<br>".join(o.replace("<", "&lt;") for o in opts)
-                                + "</div>",
-                                unsafe_allow_html=True,
-                            )
-                        ans = qq.get("correct") or qq.get("answer")
-                        if ans:
-                            st.caption(f"Answer key (teacher): {ans}")
-
+                            opts = [f"{chr(97+j)}) {o}" for j, o in enumerate(qq["options"][:4])]
+                        if not opts:
+                            continue
+                        choice = st.radio("Jawab", opts, key=f"lb_ug_q_{sel_key}_{i}", label_visibility="collapsed")
+                        correct = qq.get("correct")
+                        if correct is None and "answer" in qq:
+                            ai = qq.get("answer")
+                            if isinstance(ai, int):
+                                correct = "abcd"[ai] if 0 <= ai < 4 else None
+                        if choice:
+                            picked = choice[0]
+                            if correct and picked == str(correct).lower()[:1]:
+                                st.success("Sahi!")
+                            elif correct:
+                                st.error(f"Ghalat — sahi: {correct}")
+            else:
+                st.warning("Topic nahi mila — list se dubara chuno.")
+                st.session_state.pop("lb_topic_key", None)
+        else:
+            st.write(f"**{len(filtered)}** topics — dabao: Sabaq + Sunlo → App → Quiz")
+            for t in filtered:
+                key = f"{t['grade']}|{t['sk']}|{t['title']}"
+                label = f"{t['emoji']} {t['title']}  ·  Grade {t['grade']}  ·  {t['subj']}"
+                if t.get("interactive_file"):
+                    label += "  ·  Khelo"
+                if st.button(label, key=f"lb_ug_open_{key}", width="stretch"):
+                    st.session_state.lb_topic_key = key
+                    st.rerun()
 
 
 # ---------- Curriculum link + topic progress helpers ----------
