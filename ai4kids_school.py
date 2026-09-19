@@ -2548,6 +2548,19 @@ def _lb_load_all_topics():
 
 
 
+
+def parent_trust_strip():
+    """On-screen parent trust: safe, offline-friendly, no login."""
+    st.markdown(
+        r"""<div class="ai4kids-trust" role="note" aria-label="Parent trust">
+  <span class="ai4kids-trust-title">Parents ke liye</span>
+  <span class="ai4kids-trust-pill">🛡️ Safe for kids</span>
+  <span class="ai4kids-trust-pill">📶 Offline-friendly</span>
+  <span class="ai4kids-trust-pill">🔓 Bina login</span>
+</div>""",
+        unsafe_allow_html=True,
+    )
+
 def inject_big_text_css():
     """Brand chrome + mobile-first type (see BRAND.md)."""
     st.markdown(
@@ -2590,6 +2603,22 @@ def inject_big_text_css():
           color: #fff; padding: 12px 16px; border-radius: 14px; margin: 0 0 12px;
           font-weight: 800; font-size: 1.15rem;
         }
+        
+        .ai4kids-trust {
+          display:flex; flex-wrap:wrap; gap:8px; align-items:center; justify-content:center;
+          padding:10px 12px; margin:8px 0 14px;
+          background: #eafaf1; border:2px solid #27ae60; border-radius:14px;
+          font-family: 'Segoe UI','Trebuchet MS',Tahoma,sans-serif;
+        }
+        .ai4kids-trust-title {
+          font-weight:900; color:#1e8449; font-size:1.05rem; margin-right:4px;
+        }
+        .ai4kids-trust-pill {
+          display:inline-block; font-weight:800; font-size:0.95rem;
+          background:#fff; color:#17252f; border:2px solid #17252f;
+          border-radius:999px; padding:6px 12px; min-height:36px;
+        }
+
         </style>""",
         unsafe_allow_html=True,
     )
@@ -2746,7 +2775,10 @@ def render_html_viewers():
         pass
 
     if st.session_state.get("view_lessonbank"):
+        inject_big_text_css()
         st.markdown("#### 📚 Lesson Bank")
+        parent_trust_strip()
+
         st.caption("Purana card grid. Topic kholo → Sabaq/Sunlo → KHELO → App + Quiz.")
         if st.button("✖️ Lesson Bank band karo", key="lb_close_top"):
             st.session_state.view_lessonbank = False
@@ -3093,11 +3125,13 @@ Urdu nahi mila? **Hindi — Google हिन्दी** chunein — Roman Urdu k
 #  MAIN DOOR
 # =====================================================================
 if st.session_state.mode == "door":
+    inject_big_text_css()  # brand + trust strip styles
     st.markdown("---")
     if os.path.exists(_app("school_door.jpeg")):
         c1, c2, c3 = st.columns([2, 1, 2])
         c2.image(_app("school_door.jpeg"), width=150)
     st.markdown('<h2 style="text-align:center">🚪 School ka darwaza — andar aayein!</h2>', unsafe_allow_html=True)
+    parent_trust_strip()
 
     # KB MODE ka notice — sirf jab API key set na ho (demo school)
     if not AI_ENABLED:
