@@ -703,5 +703,13 @@
       "interactive_file": "interactives/g4-rahmat-seerat.html",
       "interactive_label": "Khelo - Seerat stories"
     }
+  },
+  {
+    "file": "kb/grade_4/urdu.json",
+    "match_title": "Qomi tehwar aur watan",
+    "add": {
+      "interactive_file": "interactives/g4-qomi-tehwar.html",
+      "interactive_label": "Khelo - Qomi tehwar"
+    }
   }
 ]

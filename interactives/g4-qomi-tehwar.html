@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Qomi tehwar aur watan | AI4Kids Grade 4 Urdu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#e8f0ea;--board-deep:#c5d8c8;--sky:#7eb8d4;--sky2:#4a8fb8;
+    --accent:#0d5c3d;--ok:#2e7d4f;--ink:#1a2e22;--ink-soft:#4a5a4e;
+    --paper:#fdfaf3;--line:#d0dcc8;--gold:#d4a017;--no:#c4453a;
+    --flag-g:#01411C;--aug:#0d5c3d;--mar:#2f6fb5;--yaad:#8b5a2b;
+    --fs-cap:clamp(14px, 3.8vw, 16px);--fs-xs:clamp(16px, 4.2vw, 18px);
+    --fs-sm:clamp(18px, 4.8vw, 20px);--fs-md:clamp(19px, 5.2vw, 22px);
+    --fs-lg:clamp(22px, 6vw, 26px);--fs-xl:clamp(30px, 8vw, 38px);--lh:1.5;
+  }
+  body.urdu{
+    --fs-cap:clamp(15px, 4vw, 17px);--fs-xs:clamp(17px, 4.5vw, 19px);
+    --fs-sm:clamp(19px, 5.2vw, 22px);--fs-md:clamp(21px, 5.6vw, 24px);
+    --fs-lg:clamp(24px, 6.5vw, 28px);--fs-xl:clamp(28px, 7.5vw, 36px);--lh:2.1;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.55;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px;flex-wrap:wrap}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:44px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+  .sec{margin-top:22px}
+  .sec h2{
+    font-size:var(--fs-lg);font-weight:800;margin:0 0 10px;color:var(--accent);
+    display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+  }
+  .tag{
+    display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+    padding:3px 12px;font-size:var(--fs-cap);font-weight:700;letter-spacing:.02em;
+  }
+  .story{
+    background:#fff8ea;border:2px dashed var(--gold);border-radius:16px;padding:14px 16px;
+    font-size:var(--fs-sm);color:var(--ink-soft);line-height:1.65;margin-bottom:4px;
+  }
+  body.urdu .story{line-height:var(--lh)}
+  .story b{color:var(--ink)}
+
+  /* Flag colors interactive */
+  .flag-box{
+    margin-top:10px;border:3px solid var(--ink);border-radius:18px;overflow:hidden;
+    background:#fff;
+  }
+  .flag-visual{
+    display:flex;height:110px;border-bottom:3px solid var(--ink);position:relative;
+  }
+  .flag-white{
+    width:38%;background:#fff;border-right:2px solid rgba(0,0,0,.08);
+    display:flex;align-items:center;justify-content:center;cursor:pointer;
+    transition:box-shadow .12s ease;
+  }
+  .flag-green{
+    width:62%;background:var(--flag-g);display:flex;align-items:center;justify-content:center;
+    cursor:pointer;position:relative;transition:box-shadow .12s ease;
+  }
+  .flag-white:hover,.flag-green:hover{box-shadow:inset 0 0 0 4px rgba(212,160,23,.55)}
+  .flag-white.on,.flag-green.on{box-shadow:inset 0 0 0 5px var(--gold)}
+  .crescent-star{
+    width:48px;height:48px;position:relative;
+  }
+  .crescent-star:before{
+    content:"";position:absolute;left:6px;top:6px;width:32px;height:32px;border-radius:50%;
+    box-shadow:8px 0 0 -2px #fff;background:transparent;
+  }
+  .crescent-star:after{
+    content:"★";position:absolute;right:2px;top:12px;color:#fff;font-size:16px;line-height:1;
+  }
+  .flag-btns{display:flex;gap:8px;padding:12px;flex-wrap:wrap}
+  .fbtn{
+    flex:1;min-width:120px;border:2.5px solid var(--line);background:var(--paper);
+    border-radius:14px;padding:12px 14px;font:inherit;font-weight:800;font-size:var(--fs-sm);
+    cursor:pointer;color:var(--ink);min-height:56px;text-align:left;
+  }
+  body.urdu .fbtn{text-align:right}
+  .fbtn.green{border-color:var(--flag-g)}
+  .fbtn.white{border-color:#aaa}
+  .fbtn[aria-pressed="true"].green{background:#e8f5ec;border-color:var(--accent)}
+  .fbtn[aria-pressed="true"].white{background:#f5f5f5;border-color:var(--ink)}
+  .flag-mean{
+    margin:0 12px 12px;padding:12px 14px;border-radius:12px;background:#e8f5ec;
+    font-size:var(--fs-sm);font-weight:700;color:var(--accent);line-height:1.55;display:none;
+  }
+  .flag-mean.show{display:block}
+  body.urdu .flag-mean{line-height:var(--lh)}
+
+  /* Tehwar cards */
+  .tcards{display:flex;flex-direction:column;gap:12px;margin-top:10px}
+  .tcard{
+    border:3px solid var(--ink);border-radius:18px;padding:14px 14px 12px;
+    background:linear-gradient(180deg,#e8f5ec,#fdfaf3);cursor:pointer;
+    text-align:left;transition:box-shadow .12s ease, transform .12s ease;
+  }
+  body.urdu .tcard{text-align:right}
+  .tcard:active{transform:scale(.99)}
+  .tcard.open{box-shadow:0 0 0 3px rgba(13,92,61,.28)}
+  .tcard.aug{border-color:var(--aug)}
+  .tcard.mar{border-color:var(--mar);background:linear-gradient(180deg,#e8f0f8,#fdfaf3)}
+  .tcard.yaad{border-color:var(--yaad);background:linear-gradient(180deg,#f5efe6,#fdfaf3)}
+  .tcard .em{font-size:36px;line-height:1;display:block;margin-bottom:4px}
+  .tcard h3{margin:0 0 6px;font-size:var(--fs-md);font-weight:800;color:var(--ink)}
+  .tcard .body{margin:0;font-size:var(--fs-sm);color:var(--ink-soft);line-height:1.55;display:none}
+  .tcard.open .body{display:block}
+  body.urdu .tcard .body{line-height:var(--lh)}
+  .tcard .tap-hint{margin:8px 0 0;font-size:var(--fs-cap);font-weight:700;color:var(--accent)}
+  .tcard.open .tap-hint{display:none}
+
+  /* Vocab */
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+  .vchip{
+    border:2.5px solid var(--line);background:var(--paper);border-radius:999px;
+    padding:10px 16px;font:inherit;font-size:var(--fs-sm);font-weight:800;
+    color:var(--ink);cursor:pointer;min-height:48px;
+  }
+  .vchip[aria-pressed="true"]{border-color:var(--accent);background:#e8f5ec;color:var(--accent)}
+  .vmean{
+    margin-top:12px;border:3px solid var(--ink);border-radius:16px;padding:14px 16px;
+    background:linear-gradient(180deg,#fff8ea,#fdfaf3);display:none;
+  }
+  .vmean.show{display:block}
+  .vmean .vem{font-size:36px;display:block;margin-bottom:4px}
+  .vmean .vw{font-weight:800;font-size:var(--fs-lg);margin:0 0 4px}
+  .vmean .vm{margin:0;color:var(--ink-soft);font-size:var(--fs-sm);line-height:1.5}
+  body.urdu .vmean .vm{line-height:var(--lh)}
+
+  /* Paragraph builder */
+  .builder{margin-top:10px}
+  .builder-intro{font-size:var(--fs-sm);color:var(--ink-soft);font-weight:700;margin:0 0 10px}
+  body.urdu .builder-intro{line-height:var(--lh)}
+  .schips{display:flex;flex-direction:column;gap:8px}
+  .schip{
+    border:2.5px solid var(--line);background:var(--paper);border-radius:14px;
+    padding:12px 14px;font:inherit;font-size:var(--fs-sm);font-weight:700;
+    color:var(--ink);cursor:pointer;min-height:52px;text-align:left;
+  }
+  body.urdu .schip{text-align:right;line-height:var(--lh)}
+  .schip[aria-pressed="true"]{border-color:var(--accent);background:#e8f5ec}
+  .schip.full{opacity:.45;pointer-events:none}
+  .preview{
+    margin-top:12px;border:3px solid var(--accent);border-radius:16px;padding:14px 16px;
+    background:#e8f5ec;min-height:100px;
+  }
+  .preview h4{
+    margin:0 0 8px;font-size:var(--fs-md);font-weight:800;color:var(--accent);
+  }
+  .preview .para{
+    margin:0;font-size:var(--fs-sm);font-weight:700;color:var(--ink);line-height:1.65;
+    white-space:pre-wrap;
+  }
+  body.urdu .preview .para{line-height:var(--lh)}
+  .preview .empty{color:var(--ink-soft);font-weight:600;font-style:italic}
+  .prev-btns{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+  .prev-btns button{
+    flex:1;border:2px solid var(--ink);border-radius:14px;background:var(--paper);
+    color:var(--ink);font:inherit;font-weight:800;font-size:var(--fs-xs);
+    cursor:pointer;min-height:48px;padding:8px 12px;
+  }
+  .prev-btns .go{background:var(--ink);color:var(--paper)}
+  .countpill{
+    display:inline-block;background:#fff6e2;border:2px solid var(--gold);
+    border-radius:999px;padding:4px 12px;font-weight:800;font-size:var(--fs-cap);
+    margin-bottom:8px;
+  }
+
+  .karo{
+    margin-top:10px;border:3px solid var(--accent);background:#e8f5ec;border-radius:16px;
+    padding:14px 16px;font-size:var(--fs-sm);font-weight:700;color:var(--accent);line-height:1.6;
+  }
+  body.urdu .karo{line-height:var(--lh)}
+  .karo ol{margin:8px 0 0;padding-inline-start:1.4em}
+  .karo li{margin-bottom:6px}
+  .misaal{
+    margin-top:10px;background:#eef2f8;border:2px solid var(--mar);border-radius:14px;
+    padding:12px 14px;font-size:var(--fs-xs);font-weight:700;color:var(--mar);line-height:1.6;
+  }
+  body.urdu .misaal{line-height:var(--lh)}
+
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .qhead{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+  .qhead h2{font-size:var(--fs-lg);font-weight:800;margin:0;flex:1}
+  .scorepill{
+    background:#fff6e2;border:2px solid var(--gold);border-radius:999px;
+    padding:7px 14px;font-weight:800;font-size:var(--fs-xs);
+  }
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2.5px solid var(--line);background:var(--paper);border-radius:14px;
+    padding:14px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:56px;font-weight:700;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e8f2ed}
+  .opt.wrong{border-color:var(--no);background:#fbeae8}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none;line-height:1.6}
+  .fb.show{display:block}
+  .donebox{
+    margin-top:14px;border:3px solid var(--ok);background:#e8f2ed;border-radius:16px;
+    padding:16px;text-align:center;display:none;
+  }
+  .donebox.show{display:block}
+  .donebox b{font-size:var(--fs-lg);display:block;margin-bottom:4px}
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+  @media (min-width:820px){
+    .wrap{max-width:920px;display:grid;gap:0 28px;grid-template-columns:1fr 1fr;
+      grid-template-areas:"bar bar" "head head" "hook hook" "left right" "builder builder" "karo karo" "quiz quiz" "foot foot";
+      align-items:start}
+    .bar{grid-area:bar}.head{grid-area:head}.hook{grid-area:hook}
+    .left{grid-area:left}.right{grid-area:right}
+    .builder-sec{grid-area:builder}.karo-sec{grid-area:karo}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition-duration:.01ms !important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Grade 4 · Urdu</span>
+    <button class="chip" id="langBtn" aria-pressed="false" type="button">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo" type="button">🔊</button>
+  </div>
+
+  <div class="head">
+    <h1 id="title"></h1>
+    <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="hook sec">
+    <h2><span class="tag" id="hookTag">HOOK</span> <span id="hookHead"></span></h2>
+    <p class="story" id="hookText"></p>
+  </div>
+
+  <div class="left">
+    <div class="sec">
+      <h2><span class="tag" id="samTag">SAMJHAO</span> <span id="samHead"></span></h2>
+      <p class="story" id="samText"></p>
+    </div>
+
+    <div class="sec">
+      <h2 id="flagHead"></h2>
+      <p class="story" id="flagIntro"></p>
+      <div class="flag-box">
+        <div class="flag-visual" aria-hidden="true">
+          <div class="flag-white" id="flagWhitePart" title="White"></div>
+          <div class="flag-green" id="flagGreenPart">
+            <div class="crescent-star"></div>
+          </div>
+        </div>
+        <div class="flag-btns">
+          <button type="button" class="fbtn green" id="btnGreen" aria-pressed="false"></button>
+          <button type="button" class="fbtn white" id="btnWhite" aria-pressed="false"></button>
+        </div>
+        <p class="flag-mean" id="flagMean"></p>
+      </div>
+    </div>
+
+    <div class="sec">
+      <h2 id="tehwarHead"></h2>
+      <p class="story" id="tehwarIntro"></p>
+      <div class="tcards" id="tehwarCards"></div>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="sec">
+      <h2 id="vocabHead"></h2>
+      <p class="story" id="vocabIntro"></p>
+      <div class="chips" id="vocabChips"></div>
+      <div class="vmean" id="vmean">
+        <span class="vem" id="vEm"></span>
+        <p class="vw" id="vWord"></p>
+        <p class="vm" id="vMean"></p>
+      </div>
+    </div>
+
+    <div class="sec">
+      <h2><span class="tag" id="misTag">MISAAL</span> <span id="misHead"></span></h2>
+      <p class="misaal" id="misaalText"></p>
+    </div>
+  </div>
+
+  <div class="builder-sec sec">
+    <h2 id="builderHead"></h2>
+    <div class="builder">
+      <p class="builder-intro" id="builderIntro"></p>
+      <span class="countpill" id="pickCount">0 / 4</span>
+      <div class="schips" id="sentChips"></div>
+      <div class="preview">
+        <h4 id="previewTitle"></h4>
+        <p class="para" id="previewPara"></p>
+      </div>
+      <div class="prev-btns">
+        <button type="button" id="clearPara"></button>
+        <button type="button" class="go" id="speakPara"></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="karo-sec sec">
+    <h2><span class="tag" id="karoTag">KARO</span> <span id="karoHead"></span></h2>
+    <div class="karo" id="karoBox"></div>
+  </div>
+
+  <div class="quiz">
+    <div class="qhead">
+      <h2 id="quizHead"></h2>
+      <span class="scorepill" id="scorePill">0 / 5</span>
+      <button type="button" class="chip" id="newQuiz"></button>
+    </div>
+    <div id="quizBox"></div>
+    <div class="donebox" id="doneBox">
+      <b id="doneTitle"></b>
+      <span id="doneDetail"></span>
+    </div>
+  </div>
+
+  <footer>
+    <p id="foot"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  function $(id){ return document.getElementById(id); }
+  function isolate(s){ return "\u2066" + s + "\u2069"; }
+  function setText(el, str){
+    if (!el) return;
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+  function setHTML(el, html){
+    if (!el) return;
+    el.innerHTML = html;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+  function t(o){ return (o && o[lang]) || (o && o.en) || ""; }
+
+  var lang = "en";
+  var vocabSel = null;
+  var flagSel = null;
+  var openCards = {};
+  var pickedSents = [];
+  var quizAnswered = {};
+  var quizScore = 0;
+
+  var T = {
+    title:{en:"Qomi tehwar aur watan", ur:"قومی تہوار اور وطن"},
+    sub:{en:"Pakistan tehwar, watan se mohabbat — Class 4",
+         ur:"پاکستان کے تہوار، وطن سے محبت — جماعت ۴"},
+    hookHead:{en:"Dil mein watan!", ur:"دل میں وطن!"},
+    hook:{en:"14 August par jhanda, tarana, aur green-white — dil mein watan!",
+          ur:"۱۴ اگست پر جھنڈا، ترانہ، اور سبز و سفید — دل میں وطن!"},
+    samHead:{en:"Qomi tehwar kya hain?", ur:"قومی تہوار کیا ہیں؟"},
+    sam:{en:"Qomi tehwar: Pakistan Day, Independence Day, Quaid / Iqbal yaad. Alfaaz: watan, azadi, jhanda, tarana, qaum. Hum vocabulary seekhte hain aur chhote jumle banate hain: \"Main Pakistani hoon.\"",
+         ur:"قومی تہوار: یومِ پاکستان، یوم آزادی، قائد / اقبال یاد۔ الفاظ: وطن، آزادی، جھنڈا، ترانہ، قوم۔ ہم الفاظ سیکھتے ہیں اور چھوٹے جملے بناتے ہیں: \"میں پاکستانی ہوں۔\""},
+    flagHead:{en:"🏳️ Flag colours — tap green / white", ur:"🏳️ پرچم کے رنگ — سبز / سفید ٹیپ کرو"},
+    flagIntro:{en:"Pakistan ka jhanda green aur white. Tap a colour for a simple meaning!",
+               ur:"پاکستان کا جھنڈا سبز اور سفید۔ معنی کے لیے رنگ ٹیپ کرو!"},
+    btnGreen:{en:"💚 Green (hara)", ur:"💚 سبز (ہرا)"},
+    btnWhite:{en:"⬜ White (safed)", ur:"⬜ سفید"},
+    greenMean:{en:"Green = Islam aur ummeed — prospering land and faith.",
+               ur:"سبز = اسلام اور امید — خوشحال زمین اور ایمان۔"},
+    whiteMean:{en:"White = peace aur minorities — sab ke liye jagah.",
+               ur:"سفید = امن اور اقلیتیں — سب کے لیے جگہ۔"},
+    tehwarHead:{en:"🎉 Tehwar cards — tap for facts", ur:"🎉 تہوار کارڈز — حقائق کے لیے ٹیپ"},
+    tehwarIntro:{en:"14 Aug, 23 March, Quaid / Iqbal yaad — tap each card!",
+                 ur:"۱۴ اگست، ۲۳ مارچ، قائد / اقبال یاد — ہر کارڈ ٹیپ کرو!"},
+    tapHint:{en:"Tap for facts ▸", ur:"حقائق کے لیے ٹیپ ▸"},
+    vocabHead:{en:"📚 Word chips — tap for meaning", ur:"📚 الفاظ — معنی کے لیے ٹیپ کرو"},
+    vocabIntro:{en:"Class 4 ke aasan alfaaz: watan, azadi, jhanda, tarana, qaum.",
+                ur:"جماعت ۴ کے آسان الفاظ: وطن، آزادی، جھنڈا، ترانہ، قوم۔"},
+    builderHead:{en:"✏️ Mini paragraph — \"Mera watan\"", ur:"✏️ چھوٹا پیراگراف — \"میرا وطن\""},
+    builderIntro:{en:"Pick 4 sentence chips. Preview your paragraph below!",
+                  ur:"۴ جملے چنو۔ نیچے اپنا پیراگراف دیکھو!"},
+    previewTitle:{en:"Mera watan", ur:"میرا وطن"},
+    previewEmpty:{en:"Pick 4 sentences to build your paragraph…",
+                  ur:"پیراگراف بنانے کے لیے ۴ جملے چنو…"},
+    clearPara:{en:"Clear", ur:"صاف کرو"},
+    speakPara:{en:"🔊 Hear my para", ur:"🔊 میرا پیرا سنو"},
+    pickCount:{en:"picked", ur:"چنے"},
+    misHead:{en:"In real life", ur:"حقیقی زندگی میں"},
+    misaal:{en:"Islamabad mein school parade — bacche jhanda salami dete hain.",
+            ur:"اسلام آباد میں اسکول پریڈ — بچے جھنڈے کو سلامی دیتے ہیں۔"},
+    karoHead:{en:"Your turn", ur:"تمہاری باری"},
+    karo:{en:"<ol><li><b>5 watan alfaaz</b> likho (watan, azadi, jhanda, tarana, qaum).</li><li>Ek chhota paragraph (<b>4 jumle</b>) \"Mera watan\" — upar builder use karo!</li></ol>",
+          ur:"<ol><li><b>۵ وطن الفاظ</b> لکھو (وطن، آزادی، جھنڈا، ترانہ، قوم)۔</li><li>ایک چھوٹا پیراگراف (<b>۴ جملے</b>) \"میرا وطن\" — اوپر بلڈر استعمال کرو!</li></ol>"},
+    quiz:{en:"Watan Quiz", ur:"وطن کوئز"},
+    newQuiz:{en:"New quiz", ur:"نیا کوئز"},
+    score:{en:"Score", ur:"اسکور"},
+    doneTitle:{en:"Shabash!", ur:"شاباش!"},
+    doneAll:{en:"You finished all 5 — proud of your watan!", ur:"۵وں سوال ہو گئے — وطن پر فخر!"},
+    doneSome:{en:"Keep practising — love the watan!", ur:"مشق جاری رکھو — وطن سے محبت!"},
+    foot:{en:"AI4Kids — Islamabad bilingual school. Offline · Grade 4 Urdu · WhatsApp 0337 1468899",
+          ur:"اے آئی فور کڈز — اسلام آباد۔ آف لائن · جماعت ۴ اردو · واٹس ایپ 0337 1468899"}
+  };
+
+  var TEHWAR = [
+    {id:"aug", cls:"aug", em:"🎉",
+     title:{en:"14 August — Azadi Day", ur:"۱۴ اگست — یوم آزادی"},
+     fact:{en:"Independence Day! We raise the jhanda, sing the tarana, and thank Allah for azadi. Green and white everywhere.",
+           ur:"یوم آزادی! ہم جھنڈا لہراتے، ترانہ گاتے، اور آزادی پر اللہ کا شکر ادا کرتے ہیں۔ ہر جگہ سبز و سفید۔"}},
+    {id:"mar", cls:"mar", em:"📜",
+     title:{en:"23 March — Pakistan Day", ur:"۲۳ مارچ — یومِ پاکستان"},
+     fact:{en:"Pakistan Day! We remember our watan's story with pride, unity (ittehad), and hope for the qaum.",
+           ur:"یومِ پاکستان! ہم فخر، اتحاد اور قوم کی امید کے ساتھ وطن کی کہانی یاد کرتے ہیں۔"}},
+    {id:"yaad", cls:"yaad", em:"⭐",
+     title:{en:"Quaid / Iqbal yaad", ur:"قائد / اقبال یاد"},
+     fact:{en:"We remember Quaid-e-Azam (ittehad, mehnat) and Allama Iqbal (dream of a free watan). Their message: work hard, stay united.",
+           ur:"ہم قائد اعظم (اتحاد، محنت) اور علامہ اقبال (آزاد وطن کا خواب) کو یاد کرتے ہیں۔ پیغام: محنت کرو، متحد رہو۔"}}
+  ];
+
+  var VOCAB = [
+    {id:"watan", em:"🏠", en:"Watan", ur:"وطن",
+     mean:{en:"Apna mulk — the homeland we love.", ur:"اپنا ملک — پیارا وطن۔"}},
+    {id:"azadi", em:"🕊️", en:"Azadi", ur:"آزادی",
+     mean:{en:"Freedom / independence — 14 August!", ur:"آزادی — ۱۴ اگست!"}},
+    {id:"jhanda", em:"🏳️", en:"Jhanda", ur:"جھنڈا",
+     mean:{en:"Flag — our green and white colours.", ur:"پرچم — ہمارے سبز و سفید رنگ۔"}},
+    {id:"tarana", em:"🎵", en:"Tarana", ur:"ترانہ",
+     mean:{en:"Qomi geet — the national song we stand for.", ur:"قومی گیت — جس کے لیے ہم کھڑے ہوتے ہیں۔"}},
+    {id:"qaum", em:"🤝", en:"Qaum", ur:"قوم",
+     mean:{en:"Nation / people — we are one qaum.", ur:"قوم / لوگ — ہم ایک قوم ہیں۔"}}
+  ];
+
+  var SENTS = [
+    {id:"s1", en:"Main Pakistani hoon.", ur:"میں پاکستانی ہوں۔"},
+    {id:"s2", en:"Mera watan Pakistan hai.", ur:"میرا وطن پاکستان ہے۔"},
+    {id:"s3", en:"Hum jhande ka ehtiram karte hain.", ur:"ہم جھنڈے کا احترام کرتے ہیں۔"},
+    {id:"s4", en:"14 August par hum azadi manate hain.", ur:"۱۴ اگست پر ہم آزادی مناتے ہیں۔"},
+    {id:"s5", en:"Tarana sunkar dil khush hota hai.", ur:"ترانہ سن کر دل خوش ہوتا ہے۔"},
+    {id:"s6", en:"Quaid ne ittehad sikhaya.", ur:"قائد نے اتحاد سکھایا۔"}
+  ];
+
+  /* Quiz exact from brief */
+  var QUIZ = [
+    {
+      q:{en:"14 August kya kehlata hai?", ur:"۱۴ اگست کیا کہلاتا ہے؟"},
+      opts:[
+        {k:"a", en:"Independence Day / Azadi", ur:"یوم آزادی / آزادی"},
+        {k:"b", en:"Sirf cricket final", ur:"صرف کرکٹ فائنل"},
+        {k:"c", en:"Sirf picnic", ur:"صرف پکنک"},
+        {k:"d", en:"Sirf rain day", ur:"صرف بارش کا دن"}
+      ],
+      correct:"a",
+      exp:{en:"Azadi ka din.", ur:"آزادی کا دن۔"}
+    },
+    {
+      q:{en:"Pakistan ke jhande mein kaun se rang?", ur:"پاکستان کے جھنڈے میں کون سے رنگ؟"},
+      opts:[
+        {k:"a", en:"Hara aur safed", ur:"ہرا اور سفید"},
+        {k:"b", en:"Sirf laal", ur:"صرف لال"},
+        {k:"c", en:"Sirf neela", ur:"صرف نیلا"},
+        {k:"d", en:"Sirf black", ur:"صرف کالا"}
+      ],
+      correct:"a",
+      exp:{en:"Green and white.", ur:"سبز اور سفید۔"}
+    },
+    {
+      q:{en:"Tarana kya hai?", ur:"ترانہ کیا ہے؟"},
+      opts:[
+        {k:"a", en:"Qomi geet", ur:"قومی گیت"},
+        {k:"b", en:"Sirf joke", ur:"صرف مذاق"},
+        {k:"c", en:"Sirf ad", ur:"صرف اشتہار"},
+        {k:"d", en:"Sirf alarm", ur:"صرف الارم"}
+      ],
+      correct:"a",
+      exp:{en:"National song.", ur:"قومی گیت۔"}
+    },
+    {
+      q:{en:"Watan ka matlab?", ur:"وطن کا مطلب؟"},
+      opts:[
+        {k:"a", en:"Apna mulk", ur:"اپنا ملک"},
+        {k:"b", en:"Sirf school bag", ur:"صرف اسکول بیگ"},
+        {k:"c", en:"Sirf WiFi", ur:"صرف وائی فائی"},
+        {k:"d", en:"Sirf toy", ur:"صرف کھلونا"}
+      ],
+      correct:"a",
+      exp:{en:"Apna country.", ur:"اپنا ملک۔"}
+    },
+    {
+      q:{en:"Quaid-e-Azam se kya seekhein?", ur:"قائد اعظم سے کیا سیکھیں؟"},
+      opts:[
+        {k:"a", en:"Ittihad / mehnat", ur:"اتحاد / محنت"},
+        {k:"b", en:"Sirf laziness", ur:"صرف سستی"},
+        {k:"c", en:"Sirf anger", ur:"صرف غصہ"},
+        {k:"d", en:"Sirf litter", ur:"صرف کوڑا پھیلانا"}
+      ],
+      correct:"a",
+      exp:{en:"Unity aur hard work.", ur:"اتحاد اور محنت۔"}
+    }
+  ];
+
+  function paintStatic(){
+    document.title = "Qomi tehwar aur watan | AI4Kids Grade 4 Urdu";
+    setText($("title"), t(T.title));
+    setText($("subtitle"), t(T.sub));
+    setText($("hookTag"), "HOOK");
+    setText($("hookHead"), t(T.hookHead));
+    setText($("hookText"), t(T.hook));
+    setText($("samTag"), "SAMJHAO");
+    setText($("samHead"), t(T.samHead));
+    setText($("samText"), t(T.sam));
+    setText($("flagHead"), t(T.flagHead));
+    setText($("flagIntro"), t(T.flagIntro));
+    setText($("btnGreen"), t(T.btnGreen));
+    setText($("btnWhite"), t(T.btnWhite));
+    setText($("tehwarHead"), t(T.tehwarHead));
+    setText($("tehwarIntro"), t(T.tehwarIntro));
+    setText($("vocabHead"), t(T.vocabHead));
+    setText($("vocabIntro"), t(T.vocabIntro));
+    setText($("builderHead"), t(T.builderHead));
+    setText($("builderIntro"), t(T.builderIntro));
+    setText($("previewTitle"), t(T.previewTitle));
+    setText($("clearPara"), t(T.clearPara));
+    setText($("speakPara"), t(T.speakPara));
+    setText($("misTag"), "MISAAL");
+    setText($("misHead"), t(T.misHead));
+    setText($("misaalText"), t(T.misaal));
+    setText($("karoTag"), "KARO");
+    setText($("karoHead"), t(T.karoHead));
+    setHTML($("karoBox"), t(T.karo));
+    setText($("quizHead"), t(T.quiz));
+    setText($("newQuiz"), t(T.newQuiz));
+    setText($("foot"), t(T.foot));
+    $("langBtn").textContent = lang === "en" ? "اردو" : "EN";
+    $("langBtn").setAttribute("aria-pressed", lang === "ur" ? "true" : "false");
+    document.body.classList.toggle("urdu", lang === "ur");
+    document.body.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+    document.documentElement.lang = lang === "ur" ? "ur" : "en";
+    paintFlag();
+    paintTehwar();
+    paintVocab();
+    paintBuilder();
+    updateScore();
+    if (vocabSel) showVocab(vocabSel);
+    else $("vmean").classList.remove("show");
+  }
+
+  function paintFlag(){
+    $("btnGreen").setAttribute("aria-pressed", flagSel === "green" ? "true" : "false");
+    $("btnWhite").setAttribute("aria-pressed", flagSel === "white" ? "true" : "false");
+    $("flagGreenPart").classList.toggle("on", flagSel === "green");
+    $("flagWhitePart").classList.toggle("on", flagSel === "white");
+    if (flagSel === "green"){
+      setText($("flagMean"), t(T.greenMean));
+      $("flagMean").classList.add("show");
+    } else if (flagSel === "white"){
+      setText($("flagMean"), t(T.whiteMean));
+      $("flagMean").classList.add("show");
+    } else {
+      $("flagMean").classList.remove("show");
+    }
+  }
+
+  function selectFlag(which){
+    flagSel = (flagSel === which) ? null : which;
+    paintFlag();
+    if (flagSel === "green") doSpeak(t(T.greenMean), lang);
+    else if (flagSel === "white") doSpeak(t(T.whiteMean), lang);
+  }
+
+  function paintTehwar(){
+    var box = $("tehwarCards");
+    box.innerHTML = "";
+    TEHWAR.forEach(function(c){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "tcard " + c.cls + (openCards[c.id] ? " open" : "");
+      b.innerHTML = '<span class="em">' + c.em + '</span><h3></h3><p class="body"></p><p class="tap-hint"></p>';
+      setText(b.querySelector("h3"), t(c.title));
+      setText(b.querySelector(".body"), t(c.fact));
+      setText(b.querySelector(".tap-hint"), t(T.tapHint));
+      b.addEventListener("click", function(){
+        openCards[c.id] = !openCards[c.id];
+        paintTehwar();
+        if (openCards[c.id]) doSpeak(t(c.title) + ". " + t(c.fact), lang);
+      });
+      box.appendChild(b);
+    });
+  }
+
+  function paintVocab(){
+    var box = $("vocabChips");
+    box.innerHTML = "";
+    VOCAB.forEach(function(v){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "vchip";
+      b.setAttribute("aria-pressed", vocabSel === v.id ? "true" : "false");
+      setText(b, t({en:v.en, ur:v.ur}));
+      b.addEventListener("click", function(){
+        vocabSel = (vocabSel === v.id) ? null : v.id;
+        paintVocab();
+        if (vocabSel) showVocab(vocabSel);
+        else $("vmean").classList.remove("show");
+      });
+      box.appendChild(b);
+    });
+  }
+
+  function showVocab(id){
+    var v = VOCAB.filter(function(x){ return x.id === id; })[0];
+    if (!v) return;
+    $("vEm").textContent = v.em;
+    setText($("vWord"), t({en:v.en, ur:v.ur}));
+    setText($("vMean"), t(v.mean));
+    $("vmean").classList.add("show");
+    doSpeak(t({en:v.en, ur:v.ur}) + ". " + t(v.mean), lang);
+  }
+
+  function paintBuilder(){
+    var full = pickedSents.length >= 4;
+    setText($("pickCount"), pickedSents.length + " / 4 " + t(T.pickCount));
+    var box = $("sentChips");
+    box.innerHTML = "";
+    SENTS.forEach(function(s){
+      var on = pickedSents.indexOf(s.id) >= 0;
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "schip" + (full && !on ? " full" : "");
+      b.setAttribute("aria-pressed", on ? "true" : "false");
+      setText(b, t({en:s.en, ur:s.ur}));
+      b.addEventListener("click", function(){
+        var i = pickedSents.indexOf(s.id);
+        if (i >= 0) pickedSents.splice(i, 1);
+        else if (pickedSents.length < 4) pickedSents.push(s.id);
+        paintBuilder();
+      });
+      box.appendChild(b);
+    });
+    var para = $("previewPara");
+    if (pickedSents.length === 0){
+      para.classList.add("empty");
+      setText(para, t(T.previewEmpty));
+    } else {
+      para.classList.remove("empty");
+      var lines = pickedSents.map(function(id){
+        var s = SENTS.filter(function(x){ return x.id === id; })[0];
+        return s ? t({en:s.en, ur:s.ur}) : "";
+      });
+      setText(para, lines.join(" "));
+    }
+  }
+
+  function updateScore(){
+    var n = Object.keys(quizAnswered).length;
+    var s = quizScore;
+    setText($("scorePill"), (lang === "en" ? "Score " : "اسکور ") + s + " / 5");
+    if (n >= 5){
+      $("doneBox").classList.add("show");
+      setText($("doneTitle"), t(T.doneTitle));
+      setText($("doneDetail"), s >= 4 ? t(T.doneAll) : t(T.doneSome) + " (" + s + "/5)");
+    } else {
+      $("doneBox").classList.remove("show");
+    }
+  }
+
+  function paintQuiz(){
+    var box = $("quizBox");
+    box.innerHTML = "";
+    quizAnswered = {};
+    quizScore = 0;
+    QUIZ.forEach(function(item, qi){
+      var div = document.createElement("div");
+      div.className = "q";
+      var p = document.createElement("p");
+      setText(p, (qi + 1) + ". " + t(item.q));
+      div.appendChild(p);
+      item.opts.forEach(function(o){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt";
+        setText(b, o.k.toUpperCase() + ") " + t(o));
+        b.addEventListener("click", function(){
+          if (quizAnswered[qi]) return;
+          quizAnswered[qi] = true;
+          var ok = o.k === item.correct;
+          if (ok) quizScore++;
+          var opts = div.querySelectorAll(".opt");
+          opts.forEach(function(ob, oi){
+            ob.disabled = true;
+            if (item.opts[oi].k === item.correct) ob.classList.add("right");
+            else if (ob === b && !ok) ob.classList.add("wrong");
+          });
+          var fb = document.createElement("p");
+          fb.className = "fb show";
+          setText(fb, (ok ? "✓ " : "→ ") + t(item.exp));
+          div.appendChild(fb);
+          updateScore();
+        });
+        div.appendChild(b);
+      });
+      box.appendChild(div);
+    });
+    updateScore();
+  }
+
+  function rebuildQuizLabels(){
+    var answered = quizAnswered;
+    var score = quizScore;
+    var keys = Object.keys(answered);
+    if (keys.length === 0){ paintQuiz(); return; }
+    var box = $("quizBox");
+    box.innerHTML = "";
+    QUIZ.forEach(function(item, qi){
+      var div = document.createElement("div");
+      div.className = "q";
+      var p = document.createElement("p");
+      setText(p, (qi + 1) + ". " + t(item.q));
+      div.appendChild(p);
+      var locked = !!answered[qi];
+      item.opts.forEach(function(o){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt";
+        setText(b, o.k.toUpperCase() + ") " + t(o));
+        if (locked){
+          b.disabled = true;
+          if (o.k === item.correct) b.classList.add("right");
+        } else {
+          b.addEventListener("click", function(){
+            if (quizAnswered[qi]) return;
+            quizAnswered[qi] = true;
+            var ok = o.k === item.correct;
+            if (ok) quizScore++;
+            var opts = div.querySelectorAll(".opt");
+            opts.forEach(function(ob, oi){
+              ob.disabled = true;
+              if (item.opts[oi].k === item.correct) ob.classList.add("right");
+              else if (ob === b && !ok) ob.classList.add("wrong");
+            });
+            var fb = document.createElement("p");
+            fb.className = "fb show";
+            setText(fb, (ok ? "✓ " : "→ ") + t(item.exp));
+            div.appendChild(fb);
+            updateScore();
+          });
+        }
+        div.appendChild(b);
+      });
+      if (locked){
+        var fb = document.createElement("p");
+        fb.className = "fb show";
+        setText(fb, "→ " + t(item.exp));
+        div.appendChild(fb);
+      }
+      box.appendChild(div);
+    });
+    quizScore = score;
+    quizAnswered = answered;
+    updateScore();
+  }
+
+  var speakTimer = null;
+  function doSpeak(text, speakLang){
+    if (!window.speechSynthesis) return;
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = speakLang === "ur" ? "ur-PK" : "en-US";
+    u.rate = 0.92;
+    try {
+      var voices = window.speechSynthesis.getVoices() || [];
+      var prefer = speakLang === "ur"
+        ? voices.filter(function(v){ return /ur|hi-IN|hi_IN/i.test(v.lang); })
+        : voices.filter(function(v){ return /^en/i.test(v.lang); });
+      if (prefer[0]) u.voice = prefer[0];
+    } catch (e) {}
+    window.speechSynthesis.speak(u);
+  }
+
+  function speakPage(){
+    var bits = [t(T.title), t(T.hook), t(T.sam), t(T.misaal)];
+    doSpeak(bits.join(". "), lang);
+  }
+
+  $("langBtn").addEventListener("click", function(){
+    lang = lang === "en" ? "ur" : "en";
+    if (window.speechSynthesis) window.speechSynthesis.cancel();
+    paintStatic();
+    rebuildQuizLabels();
+  });
+
+  $("speakBtn").addEventListener("click", function(){
+    if (speakTimer){ clearTimeout(speakTimer); speakTimer = null; }
+    if (window.speechSynthesis && window.speechSynthesis.speaking){
+      window.speechSynthesis.cancel();
+      return;
+    }
+    speakTimer = setTimeout(function(){ speakTimer = null; speakPage(); }, 80);
+  });
+
+  $("btnGreen").addEventListener("click", function(){ selectFlag("green"); });
+  $("btnWhite").addEventListener("click", function(){ selectFlag("white"); });
+  $("flagGreenPart").addEventListener("click", function(){ selectFlag("green"); });
+  $("flagWhitePart").addEventListener("click", function(){ selectFlag("white"); });
+
+  $("clearPara").addEventListener("click", function(){
+    pickedSents = [];
+    paintBuilder();
+  });
+  $("speakPara").addEventListener("click", function(){
+    if (pickedSents.length === 0) return;
+    var lines = pickedSents.map(function(id){
+      var s = SENTS.filter(function(x){ return x.id === id; })[0];
+      return s ? t({en:s.en, ur:s.ur}) : "";
+    });
+    doSpeak(t(T.previewTitle) + ". " + lines.join(" "), lang);
+  });
+
+  $("newQuiz").addEventListener("click", function(){ paintQuiz(); });
+
+  paintStatic();
+  paintQuiz();
+})();
+</script>
+</body>
+</html>
