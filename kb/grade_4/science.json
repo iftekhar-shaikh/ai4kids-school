@@ -285,7 +285,9 @@
             "explanation": "Baraawaaz ek low frequency sound hai jo zyada ghanay aawaz hoti hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g4-awaaz.html",
+      "interactive_label": "Khelo - Awaaz"
     },
     {
       "title": "Solar system",

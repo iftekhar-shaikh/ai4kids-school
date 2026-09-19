@@ -535,5 +535,13 @@
       "interactive_file": "interactives/g4-roshni-aur-saya.html",
       "interactive_label": "Khelo - Roshni aur saya"
     }
+  },
+  {
+    "file": "kb/grade_4/science.json",
+    "match_title": "Awaaz",
+    "add": {
+      "interactive_file": "interactives/g4-awaaz.html",
+      "interactive_label": "Khelo - Awaaz"
+    }
   }
 ]

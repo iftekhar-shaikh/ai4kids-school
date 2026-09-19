@@ -1089,6 +1089,7 @@ def render_topic_interactive(subject_key, grade, topic_title):
             (4, "science", "Taqat aur harkat"): "interactives/g4-taqat-aur-harkat.html",
     (4, "science", "Simple machines"): "interactives/g4-simple-machines.html",
     (4, "science", "Roshni aur saya"): "interactives/g4-roshni-aur-saya.html",
+    (4, "science", "Awaaz"): "interactives/g4-awaaz.html",
     (4, "ai", "Machine learning"): "interactives/g4-machine-learning.html",
     (4, "ai", "Chatbot kya hai"): "interactives/g4-chatbot-kya-hai.html",
     (4, "ai", "Data types"): "interactives/g4-data-types.html",

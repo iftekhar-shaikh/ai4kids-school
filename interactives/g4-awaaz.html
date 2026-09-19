@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Awaaz — Kampan, Zor aur Sur | AI4Kids Grade 4 General Science</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#eef0f5;
+    --board-deep:#dde1ea;
+    --wave:#2f6fb5;
+    --wave-deep:#1d4c85;
+    --loud:#c9702e;
+    --loud-deep:#96500f;
+    --pitch:#6b4a8f;
+    --pitch-deep:#4a3266;
+    --drum:#a8632e;
+    --ok:#2e7d4f;
+    --ink:#1f2933;
+    --ink-soft:#4a5661;
+    --paper:#fdfaf3;
+    --line:#ded5c4;
+    --accent:#1d4c85;
+    --no:#c4453a;
+
+    --fs-cap:clamp(14px, 3.8vw, 16px); --fs-xs:clamp(16px, 4.2vw, 18px); --fs-sm:clamp(18px, 4.8vw, 20px); --fs-md:clamp(19px, 5.2vw, 22px); --fs-lg:clamp(22px, 6vw, 26px); --fs-xl:clamp(30px, 8vw, 38px);
+  }
+
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.55;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:44px;
+  }
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--loud);outline-offset:2px}
+
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+
+  .tabs{display:flex;gap:7px;margin:0 0 14px}
+  .tabs button{
+    flex:1;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:9px 6px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:54px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:linear-gradient(180deg,var(--board) 0%,var(--board-deep) 100%);
+  }
+  .scene svg{display:block;width:100%;height:auto}
+  .shake{animation:shk .12s linear infinite}
+  @keyframes shk{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+  .ring{opacity:0}
+  .live .ring{animation:rg 1.1s ease-out infinite}
+  .ring:nth-of-type(2){animation-delay:.36s}
+  .ring:nth-of-type(3){animation-delay:.72s}
+  @keyframes rg{0%{opacity:.8;transform:scale(.3)}100%{opacity:0;transform:scale(1)}}
+
+  .play{
+    width:100%;margin-top:12px;border:3px solid var(--ink);border-radius:18px;
+    background:var(--ink);color:var(--paper);font:inherit;font-weight:800;
+    font-size:var(--fs-md);cursor:pointer;min-height:66px;
+  }
+  .play:active{transform:scale(.98)}
+  .play.stop{background:var(--no);border-color:var(--no)}
+
+  .two{display:flex;gap:10px;margin-top:12px}
+  .card{flex:1;border:3px solid var(--line);border-radius:16px;padding:12px 9px;text-align:center}
+  .card em{display:block;font-style:normal;font-size:var(--fs-cap);color:var(--ink-soft);
+           font-weight:700;margin-bottom:5px}
+  .card b{display:block;font-size:var(--fs-lg);font-weight:800;line-height:1.15}
+  .card span{display:block;font-size:var(--fs-cap);font-weight:700;color:var(--ink-soft);margin-top:3px}
+  .card.a{border-color:var(--loud)}  .card.a b{color:var(--loud-deep)}
+  .card.p{border-color:var(--pitch)} .card.p b{color:var(--pitch-deep)}
+  .card.s{border-color:var(--wave)}  .card.s b{color:var(--wave-deep)}
+
+  .readout{
+    margin-top:12px;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-cap);font-weight:700;margin-bottom:10px}
+  .statechip.ok{background:var(--ok)} .statechip.no{background:var(--no)}
+  .lead{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.4}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+
+  .trade{
+    margin-top:14px;border:2px dashed var(--loud);background:#fbf1e8;border-radius:14px;
+    padding:12px 14px;font-size:var(--fs-xs);font-weight:700;color:#8a4a12;line-height:1.6;
+  }
+  .trade b{background:#fff;border-radius:5px;padding:1px 6px}
+
+  .why-note{
+    margin:12px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;
+    border-left:3px solid var(--accent);padding-left:11px;
+  }
+  .why-note b{color:var(--accent);font-weight:800}
+
+  .panel{margin-top:22px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .row{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .row .name{flex:none;width:36%;max-width:160px;font-size:var(--fs-xs);font-weight:700}
+  .stepper{display:flex;align-items:center;gap:9px;flex:1;justify-content:center}
+  .stepper button{
+    width:52px;height:52px;border-radius:14px;border:2px solid var(--ink);background:var(--paper);
+    font:inherit;font-size:var(--fs-lg);font-weight:800;cursor:pointer;color:var(--ink);
+  }
+  .stepper button:disabled{opacity:.3;cursor:default}
+  .stepper .val{min-width:80px;text-align:center;font-size:var(--fs-md);font-weight:800}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .schip{
+    border:2px solid var(--line);background:var(--paper);border-radius:999px;padding:9px 15px;
+    font:inherit;font-size:var(--fs-cap);font-weight:800;color:var(--ink);cursor:pointer;min-height:46px;
+  }
+  .schip[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:52px;
+  }
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+  .opt.wrong{border-color:var(--no);background:#fbeae8}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none;line-height:1.6}
+  .fb.show{display:block}
+
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
+      grid-template-areas:"bar bar" "head head" "tabs tabs" "left right" "quiz quiz" "foot foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+    .left{grid-area:left} .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+    .panel{margin-top:0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .shake,.live .ring{animation:none}
+    *{transition-duration:.01ms !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Grade 4 · General Science</span>
+  </div>
+
+  <div class="head">
+  <h1 id="title"></h1>
+  <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group">
+    <button type="button" id="tabKam" aria-pressed="true">Kampan</button>
+    <button type="button" id="tabWav" aria-pressed="false">Zor aur Sur</button>
+    <button type="button" id="tabMed" aria-pressed="false">Raasta</button>
+  </div>
+
+  <div class="left">
+  <div class="scene" id="scene">
+    <svg viewBox="0 0 320 200" role="img" id="svg" aria-label="Awaaz ki tasveer"></svg>
+  </div>
+
+  <button type="button" class="play" id="playBtn"></button>
+
+  <div class="two" id="two"></div>
+
+  <div class="readout">
+    <span class="statechip" id="statechip"></span>
+    <p class="lead" id="lead"></p>
+    <p class="detail" id="detail"></p>
+    <p class="trade" id="trade"></p>
+    <p class="why-note"><b>Ghaur karein:</b> <span id="whyText"></span></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="panel">
+    <h2 id="panelHead"></h2>
+    <div id="controls"></div>
+    <div class="chips" id="chips" role="group"></div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <h2 id="quizHead" style="font-size:var(--fs-lg);font-weight:800;margin:0 0 18px">Apna imtihan lein</h2>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p>AI4Kids — Islamabad ka do zabanon wala AI aur coding school. WhatsApp 0337 1468899</p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var tab="kam";
+  var ringing=false;           // kampan tab: dhol baj raha hai ya nahin
+  var zor=3, sur=3;            // 1..5
+  var medI=0;
+
+  /* zor -> kitni buland, aur sur -> kitni tez larzish */
+  var GAINS=[0.03,0.06,0.10,0.16,0.22];
+  var FREQS=[165,240,330,460,640];
+  var ZOR_NAMES=["bohot dheemi","dheemi","darmiyani","buland","bohot buland"];
+  var SUR_NAMES=["bohot moti","moti","darmiyani","patli","bohot patli"];
+
+  var MEDIA=[
+    { n:"Hawa", speed:340, gaps:"door door",
+      d:"Hawa ke zarre ek dusre se door hote hain. Larzish ek zarre se dusre tak pohanchne mein waqt leti hai.",
+      w:"Yahi wajah hai ke door se bijli ki chamak pehle dikhti hai aur garaj baad mein sunai deti hai. Roshni bohot tez hai; awaaz us ke muqable mein sust." },
+    { n:"Paani", speed:1500, gaps:"qareeb",
+      d:"Paani ke zarre hawa se kahin zyada qareeb hain. Larzish jaldi aage barh jati hai.",
+      w:"Machhliyan aur whale isi liye paani ke andar door tak baat kar leti hain. Paani mein awaaz hawa se takreeban chaar guna tez chalti hai." },
+    { n:"Lohe ki tar", speed:5000, gaps:"bohot qareeb",
+      d:"Thos cheez mein zarre bilkul jure hue hote hain. Larzish foran agle zarre tak pohanch jati hai.",
+      w:"Purane zamane mein log patri par kaan laga kar door se aati rail ka pata laga lete thay — kyunki lohe mein awaaz hawa se pandrah guna tez chalti hai." },
+    { n:"Khala (space)", speed:0, gaps:"kuch bhi nahin",
+      d:"Yahan zarre hain hi nahin. Larzish ko aage pohanchane wala koi nahin, is liye awaaz bilkul nahin chalti.",
+      w:"Chand par khare do log ek dusre ko chilla kar bhi nahin suna sakte. Filmon mein khala ke dhamake sunai dete hain — woh ghalat hai. Asal khala bilkul khamosh hai." }
+  ];
+
+  var NS="http://www.w3.org/2000/svg";
+  function mk(tag,a){ var e=document.createElementNS(NS,tag);
+    for (var k in a) e.setAttribute(k,a[k]); return e; }
+  function $(id){ return document.getElementById(id); }
+
+  /* ---------- asal awaaz, browser ke apne sound engine se ---------- */
+  var ctx=null, osc=null, gain=null;
+  function audio(){
+    if (!ctx){
+      try{
+        var AC = window.AudioContext || window.webkitAudioContext;
+        if (!AC) return null;
+        ctx = new AC();
+      }catch(e){ return null; }
+    }
+    if (ctx.state === "suspended") { try{ ctx.resume(); }catch(e){} }
+    return ctx;
+  }
+  function tone(freq, vol, seconds){
+    var c=audio(); if (!c) return false;
+    stopTone();
+    osc=c.createOscillator(); gain=c.createGain();
+    osc.type="sine"; osc.frequency.value=freq;
+    // halka sa fade, warna shuru aur aakhir mein "tik" ki awaaz aati hai
+    gain.gain.setValueAtTime(0.0001, c.currentTime);
+    gain.gain.exponentialRampToValueAtTime(vol, c.currentTime+0.04);
+    osc.connect(gain); gain.connect(c.destination);
+    osc.start();
+    if (seconds){
+      gain.gain.setValueAtTime(vol, c.currentTime+seconds-0.06);
+      gain.gain.exponentialRampToValueAtTime(0.0001, c.currentTime+seconds);
+      osc.stop(c.currentTime+seconds);
+      setTimeout(function(){ osc=null; gain=null; }, seconds*1000+60);
+    }
+    return true;
+  }
+  function stopTone(){
+    if (!osc) return;
+    try{
+      var c=audio();
+      gain.gain.cancelScheduledValues(c.currentTime);
+      gain.gain.setValueAtTime(gain.gain.value, c.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.0001, c.currentTime+0.05);
+      osc.stop(c.currentTime+0.06);
+    }catch(e){}
+    osc=null; gain=null;
+  }
+
+  /* ---------- tasveerain ---------- */
+  function drawDrum(){
+    var svg=$("svg"); svg.innerHTML=""; svg.setAttribute("viewBox","0 0 320 200");
+    $("scene").classList.toggle("live", ringing);
+    var g=mk("g",{}); svg.appendChild(g);
+    // dhol
+    g.appendChild(mk("path",{d:"M92 78 L100 168 L220 168 L228 78 Z",
+                             fill:"var(--drum)",stroke:"var(--ink)","stroke-width":3}));
+    var top=mk("g",{"class": ringing ? "shake":""});
+    top.appendChild(mk("ellipse",{cx:160,cy:78,rx:68,ry:17,
+                                  fill:"#f0e2cd",stroke:"var(--ink)","stroke-width":3}));
+    // chawal ka dana jo larzish se uchhalta hai
+    top.appendChild(mk("circle",{cx:160,cy: ringing ? 64 : 74, r:6, fill:"var(--no)"}));
+    g.appendChild(top);
+    // awaaz ki lehrain
+    if (ringing) [1,2,3].forEach(function(i){
+      g.appendChild(mk("circle",{cx:160,cy:78,r:30+i*26,fill:"none",
+                                 stroke:"var(--wave)","stroke-width":3,"class":"ring",
+                                 style:"transform-origin:160px 78px"}));
+    });
+    var lab=mk("text",{x:160,y:192,"text-anchor":"middle","font-size":"14","font-weight":"800",
+                       fill: ringing ? "var(--wave-deep)":"var(--ink-soft)",
+                       "font-family":"Baloo Bhaijaan 2, sans-serif"});
+    lab.textContent = ringing ? "larzish ho rahi hai \u2014 awaaz aa rahi hai"
+                              : "koi larzish nahin \u2014 koi awaaz nahin";
+    g.appendChild(lab);
+  }
+
+  function drawWave(){
+    var svg=$("svg"); svg.innerHTML=""; svg.setAttribute("viewBox","0 0 320 200");
+    $("scene").classList.remove("live");
+    var g=mk("g",{}); svg.appendChild(g);
+    var CY=100, W=300, X0=10;
+    g.appendChild(mk("line",{x1:X0,y1:CY,x2:X0+W,y2:CY,stroke:"#b7c0cc","stroke-width":2,
+                             "stroke-dasharray":"5 5"}));
+    var A = 12 + zor*13;            // lehar ki oonchai
+    var n = 1 + sur;                // kitni lehrain screen par
+    var d="";
+    for (var i=0;i<=W;i++){
+      var x=X0+i, y=CY - A*Math.sin(2*Math.PI*n*i/W);
+      d += (i===0 ? "M":"L") + x.toFixed(1) + " " + y.toFixed(1);
+    }
+    g.appendChild(mk("path",{d:d,fill:"none",stroke:"var(--wave)","stroke-width":4,
+                             "stroke-linecap":"round","stroke-linejoin":"round"}));
+    // oonchai ka teer
+    g.appendChild(mk("line",{x1:X0+6,y1:CY,x2:X0+6,y2:CY-A,stroke:"var(--loud)","stroke-width":3}));
+    g.appendChild(mk("path",{d:"M"+(X0+1)+" "+(CY-A+9)+" L"+(X0+6)+" "+(CY-A)+" L"+(X0+11)+" "+(CY-A+9),
+                             fill:"none",stroke:"var(--loud)","stroke-width":3,
+                             "stroke-linecap":"round","stroke-linejoin":"round"}));
+    var at=mk("text",{x:X0+16,y:CY-A+4,"font-size":"12","font-weight":"800",fill:"var(--loud-deep)",
+                      "font-family":"Baloo Bhaijaan 2, sans-serif"});
+    at.textContent="oonchai = zor"; g.appendChild(at);
+    // ek lehar ki chaurai
+    var one=W/n;
+    g.appendChild(mk("line",{x1:X0+one*0.25,y1:CY+A+16,x2:X0+one*1.25,y2:CY+A+16,
+                             stroke:"var(--pitch)","stroke-width":3}));
+    var pt=mk("text",{x:X0+one*0.75,y:CY+A+34,"text-anchor":"middle","font-size":"12",
+                      "font-weight":"800",fill:"var(--pitch-deep)",
+                      "font-family":"Baloo Bhaijaan 2, sans-serif"});
+    pt.textContent="ek lehar = sur"; g.appendChild(pt);
+  }
+
+  function drawMedium(){
+    var svg=$("svg"); svg.innerHTML=""; svg.setAttribute("viewBox","0 0 320 200");
+    $("scene").classList.remove("live");
+    var g=mk("g",{}); svg.appendChild(g);
+    var m=MEDIA[medI], empty = m.speed===0;
+    g.appendChild(mk("rect",{x:0,y:0,width:320,height:200,
+                             fill: empty ? "#1b2233" : (medI===1 ? "#cfe3f2" : (medI===2 ? "#d6d9de":"#e9f0f6"))}));
+    if (!empty){
+      var cols = [7,11,16][medI];
+      var rows = [4,6,8][medI];
+      for (var r=0;r<rows;r++) for (var c=0;c<cols;c++){
+        g.appendChild(mk("circle",{cx:22+c*(276/(cols-1)), cy:40+r*(120/(rows-1)),
+                                   r: medI===2 ? 6 : 5,
+                                   fill: medI===0 ? "#8fb0c8" : (medI===1 ? "#5d95c4":"#8d939c")}));
+      }
+    } else {
+      [[48,44],[254,60],[92,150],[268,146],[160,38]].forEach(function(p){
+        g.appendChild(mk("circle",{cx:p[0],cy:p[1],r:2.4,fill:"#fff",opacity:.85}));
+      });
+    }
+    // bolne wala aur sunne wala
+    g.appendChild(mk("circle",{cx:34,cy:172,r:14,fill:"var(--loud)",stroke:"var(--ink)","stroke-width":2.5}));
+    g.appendChild(mk("circle",{cx:286,cy:172,r:14,fill:"var(--ok)",stroke:"var(--ink)","stroke-width":2.5}));
+    if (!empty){
+      for (var i=1;i<=3;i++)
+        g.appendChild(mk("path",{d:"M"+(50+i*10)+" "+(160+i*2)+" Q"+(58+i*10)+" 172 "+(50+i*10)+" "+(184-i*2),
+                                 fill:"none",stroke:"var(--loud)","stroke-width":3,
+                                 "stroke-linecap":"round",opacity:1-i*0.18}));
+      var sp=mk("text",{x:160,y:178,"text-anchor":"middle","font-size":"15","font-weight":"800",
+                        fill:"var(--wave-deep)","font-family":"Baloo Bhaijaan 2, sans-serif"});
+      sp.textContent=m.speed+" meter har second";
+      g.appendChild(sp);
+    } else {
+      g.appendChild(mk("path",{d:"M140 160 L180 188 M180 160 L140 188",
+                               stroke:"var(--no)","stroke-width":5,"stroke-linecap":"round"}));
+      var xt=mk("text",{x:160,y:150,"text-anchor":"middle","font-size":"15","font-weight":"800",
+                        fill:"#ff8f84","font-family":"Baloo Bhaijaan 2, sans-serif"});
+      xt.textContent="awaaz bilkul nahin"; g.appendChild(xt);
+    }
+  }
+
+  function cards(list){
+    var box=$("two"); box.innerHTML="";
+    list.forEach(function(c){
+      var d=document.createElement("div"); d.className="card "+c[3];
+      var em=document.createElement("em"); em.textContent=c[0];
+      var b=document.createElement("b"); b.textContent=c[1];
+      var sp=document.createElement("span"); sp.textContent=c[2];
+      d.appendChild(em); d.appendChild(b); d.appendChild(sp); box.appendChild(d);
+    });
+  }
+  function stepperRow(parent,label,value,minus,plus,canMinus,canPlus){
+    var r=document.createElement("div"); r.className="row";
+    var n=document.createElement("span"); n.className="name"; n.textContent=label;
+    var s=document.createElement("div"); s.className="stepper";
+    var m=document.createElement("button"); m.type="button"; m.textContent="\u2212";
+    m.disabled=!canMinus; m.addEventListener("click", minus);
+    var v=document.createElement("span"); v.className="val"; v.textContent=value;
+    var p=document.createElement("button"); p.type="button"; p.textContent="+";
+    p.disabled=!canPlus; p.addEventListener("click", plus);
+    s.appendChild(m); s.appendChild(v); s.appendChild(p);
+    r.appendChild(n); r.appendChild(s); parent.appendChild(r);
+  }
+
+  /* ---------- render ---------- */
+  function render(){
+    ["Kam","Wav","Med"].forEach(function(x){
+      $("tab"+x).setAttribute("aria-pressed", tab===x.toLowerCase() ? "true":"false");
+    });
+    var ctl=$("controls"), chips=$("chips"), play=$("playBtn");
+    ctl.innerHTML=""; chips.innerHTML="";
+    var chip=$("statechip"); chip.className="statechip";
+    play.className="play";
+
+    if (tab==="kam"){
+      drawDrum();
+      $("title").textContent="Har awaaz ek larzish se shuru hoti hai.";
+      $("subtitle").textContent="Dhol bajayein, phir us par haath rakh dein. Dono baar ghaur se dekhein.";
+      $("panelHead").textContent="Dhol";
+      play.textContent = ringing ? "Haath rakh dein (larzish rokein)" : "Dhol bajayein";
+      if (ringing) play.classList.add("stop");
+      play.onclick=function(){
+        ringing=!ringing;
+        if (ringing) tone(220, 0.14, 0);
+        else stopTone();
+        render();
+      };
+      cards([["Larzish", ringing ? "ho rahi hai":"nahin ho rahi", ringing ? "jhilli hil rahi hai":"jhilli saakin hai", "a"],
+             ["Awaaz", ringing ? "aa rahi hai":"nahin aa rahi", ringing ? "kaan tak pohanch rahi hai":"kuch nahin", "s"]]);
+      chip.className="statechip" + (ringing ? " ok":" no");
+      chip.textContent = ringing ? "Awaaz aa rahi hai" : "Khamoshi";
+      $("lead").textContent = ringing
+        ? "Jhilli hil rahi hai \u2014 aur dana uchhal raha hai."
+        : "Jhilli ruk gayi \u2014 awaaz bhi ruk gayi.";
+      $("detail").textContent = ringing
+        ? "Dhol ki jhilli tezi se oopar neeche ho rahi hai. Yehi larzish (kampan) hawa ko dhakelti hai, aur hawa yeh dhakka aage aage pohanchati hai \u2014 yahan tak ke aap ke kaan tak."
+        : "Haath rakhte hi jhilli rukh gayi. Larzish ke baghair awaaz banti hi nahin.";
+      $("trade").innerHTML = "Ghar par aazma kar dekhein: apne <b>galay par ungliyan rakh kar</b> koi baat karein. Jo halki si jhunjhunahat mehsoos hogi \u2014 wohi larzish hai jo aap ki awaaz bana rahi hai.";
+      $("whyText").innerHTML = "Sitar ki taar, dhol ki jhilli, aur aap ka gala \u2014 teenon mein <b>ek hi cheez ho rahi hai</b>. Cheez alag hai, kaam wohi: kuch tezi se hil raha hai. Isi liye taar par ungli rakh dein to awaaz foran band ho jati hai.";
+      lastSpoken="";
+      return;
+    }
+
+    if (tab==="wav"){
+      drawWave();
+      $("title").textContent="Zor aur sur do alag cheezein hain.";
+      $("subtitle").textContent="Ek badlein, dusra wahin rehta hai. Dono ko sun kar aazmayein.";
+      $("panelHead").textContent="Lehar badlein";
+      play.textContent="Yeh awaaz sunein";
+      play.onclick=function(){
+        var ok = tone(FREQS[sur-1], GAINS[zor-1], 1.4);
+        if (!ok){
+          $("lead").textContent="Is device par awaaz nahin chal saki.";
+          $("detail").textContent="Tasveer phir bhi kaam karti hai \u2014 lehar dekh kar farq samjha ja sakta hai.";
+        }
+      };
+      cards([["Zor", ZOR_NAMES[zor-1], "lehar ki oonchai", "a"],
+             ["Sur", SUR_NAMES[sur-1], "lehrain kitni qareeb", "p"]]);
+      chip.textContent="Zor " + zor + " \u00b7 Sur " + sur;
+      $("lead").textContent = "Yeh awaaz " + ZOR_NAMES[zor-1] + " hai aur " + SUR_NAMES[sur-1] + " hai.";
+      $("detail").textContent = "Lehar jitni oonchi, awaaz utni buland. Aur lehrain jitni qareeb qareeb, sur utna patla. Neeche wale button se sun kar farq mehsoos karein.";
+      $("trade").innerHTML = "Yeh aazma kar dekhein: <b>sur wohi rakhein</b> aur sirf zor badlein \u2014 awaaz zor se aayegi magar <b>wohi sur</b> rahega. Phir ulta karein. Isi se sabit hota hai ke yeh do alag cheezein hain.";
+      $("whyText").innerHTML = "Bache aksar samajhte hain ke \u201cbuland\u201d aur \u201cpatla\u201d ek hi baat hai. Nahin. <b>Sher ki dahaad buland magar moti</b> hoti hai, aur <b>chirya ki choon halki magar patli</b>. Zor larzish ki <b>oonchai</b> se banta hai, aur sur larzish ki <b>raftar</b> se.";
+      stepperRow(ctl,"Zor", String(zor),
+        function(){ zor=Math.max(1,zor-1); render(); },
+        function(){ zor=Math.min(5,zor+1); render(); }, zor>1, zor<5);
+      stepperRow(ctl,"Sur", String(sur),
+        function(){ sur=Math.max(1,sur-1); render(); },
+        function(){ sur=Math.min(5,sur+1); render(); }, sur>1, sur<5);
+      lastSpoken="";
+      return;
+    }
+
+    drawMedium();
+    var m=MEDIA[medI];
+    $("title").textContent="Awaaz ko chalne ke liye raasta chahiye.";
+    $("subtitle").textContent="Zarre jitne qareeb, larzish utni jaldi aage pohanchti hai.";
+    $("panelHead").textContent="Kis mein se guzre";
+    play.textContent="Awaaz sunein";
+    play.onclick=function(){
+      if (m.speed===0){
+        $("lead").textContent="Khala mein kuch sunai nahin de sakta.";
+        $("detail").textContent=m.d;
+        return;
+      }
+      tone(330, 0.14, 1.0);
+    };
+    cards([["Zarre", m.gaps, "ek dusre se", "s"],
+           ["Raftar", m.speed===0 ? "\u2014" : m.speed+" m/s", m.speed===0 ? "awaaz chalti hi nahin":"har second", "p"]]);
+    chip.className="statechip" + (m.speed===0 ? " no":"");
+    chip.textContent=m.n;
+    $("lead").textContent = m.speed===0
+      ? "Khala mein awaaz bilkul nahin chalti."
+      : "Awaaz " + m.speed + " meter har second chalti hai.";
+    $("detail").textContent=m.d;
+    $("trade").innerHTML = m.speed===0
+      ? "Yehi wajah hai ke <b>khala ek khamosh jagah hai</b>. Wahan chillane se bhi koi nahin sun sakta, chahe bilkul paas khara ho."
+      : "Moqabla karein: hawa <b>340</b>, paani <b>1500</b>, loha <b>5000</b> meter har second. Yaani <b>thos cheez mein sab se tez</b>.";
+    $("whyText").innerHTML = m.w;
+    MEDIA.forEach(function(x,i){
+      var b=document.createElement("button"); b.type="button"; b.className="schip";
+      b.textContent=x.n;
+      b.setAttribute("aria-pressed", i===medI ? "true":"false");
+      b.addEventListener("click", function(){ medI=i; stopTone(); render(); });
+      chips.appendChild(b);
+    });
+    lastSpoken="";
+  }
+
+  var lastSpoken="";
+
+  ["Kam","Wav","Med"].forEach(function(x){
+    $("tab"+x).addEventListener("click", function(){
+      var m=x.toLowerCase();
+      if (tab===m) return;
+      stopTone(); ringing=false;
+      tab=m; render();
+    });
+  });
+
+  var QUIZ=[
+    { q:"Awaaz banti kaise hai?",
+      o:["Kisi cheez ke hilne (larzish) se","Roshni se","Garmi se","Hawa ke rang se"], a:0,
+      f:"Dhol ki jhilli, sitar ki taar, aap ka gala \u2014 sab mein ek hi cheez ho rahi hoti hai: kuch tezi se hil raha hai. Hilna rok dein, awaaz foran band." },
+    { q:"Awaaz ko buland (loud) kya cheez banati hai?",
+      o:["Lehar ki oonchai","Lehar ki raftar","Lehar ka rang","Lehar ki lambai"], a:0,
+      f:"Jitni oonchi lehar, utni buland awaaz. Sur is se bilkul alag cheez hai." },
+    { q:"Awaaz ka sur patla (high) kab hota hai?",
+      o:["Jab lehar oonchi ho","Jab larzish tez ho aur lehrain qareeb qareeb hon","Jab awaaz dheemi ho","Jab hawa thandi ho"],
+      a:1,
+      f:"Larzish jitni tez, lehrain utni qareeb, aur sur utna patla. Chirya ki awaaz patli hoti hai, sher ki moti." },
+    { q:"Sher ki dahaad buland bhi hai aur moti bhi. Is se kya sabit hota hai?",
+      o:["Zor aur sur ek hi cheez hain","Zor aur sur do alag cheezein hain","Sher ki awaaz ghalat hai","Moti awaaz hamesha buland hoti hai"],
+      a:1,
+      f:"Yahi is poori app ki asal baat hai. Koi bhi awaaz buland aur moti dono ho sakti hai, ya halki aur patli \u2014 har jor mumkin hai." },
+    { q:"Awaaz sab se tez kis mein chalti hai?",
+      o:["Hawa","Paani","Lohe jaisi thos cheez","Khala"], a:2,
+      f:"Thos mein zarre bilkul jure hue hote hain, is liye larzish foran agle zarre tak pohanch jati hai. Hawa 340, paani 1500, loha 5000 meter har second." },
+    { q:"Khala (space) mein do log ek dusre ko chilla kar kyun nahin suna sakte?",
+      o:["Kyunki wahan bohot sardi hai","Kyunki wahan zarre hi nahin jo larzish aage pohanchayein","Kyunki wahan andhera hai","Kyunki helmet mota hota hai"],
+      a:1,
+      f:"Awaaz ko raasta chahiye \u2014 koi cheez jis ke zarre larzish aage barha sakein. Khala mein kuch hai hi nahin, is liye wahan bilkul khamoshi hai." },
+    { q:"Bijli ki chamak pehle kyun dikhti hai aur garaj baad mein sunai deti hai?",
+      o:["Kyunki chamak pehle hoti hai","Kyunki roshni awaaz se bohot tez chalti hai","Kyunki garaj door hoti hai","Kyunki kaan aankh se sust hain"],
+      a:1,
+      f:"Dono ek hi waqt mein hote hain. Magar roshni ki raftar itni zyada hai ke woh foran pohanch jati hai, jabke awaaz sirf 340 meter har second chalti hai." }
+  ];
+
+  function buildQuiz(){
+    var box=$("quizBox"); box.innerHTML="";
+    QUIZ.forEach(function(item){
+      var wrap=document.createElement("div"); wrap.className="q";
+      var q=document.createElement("p"); q.textContent=item.q; wrap.appendChild(q);
+      var fb=document.createElement("p"); fb.className="fb";
+      item.o.forEach(function(opt,oi){
+        var b=document.createElement("button"); b.type="button"; b.className="opt";
+        b.textContent=opt;
+        b.addEventListener("click", function(){
+          if (wrap.getAttribute("data-done")==="1") return;
+          wrap.setAttribute("data-done","1");
+          Array.prototype.forEach.call(wrap.querySelectorAll(".opt"), function(x,xi){
+            if (xi===item.a) x.classList.add("right");
+            else if (xi===oi) x.classList.add("wrong");
+          });
+          fb.textContent=item.f; fb.classList.add("show");
+        });
+        wrap.appendChild(b);
+      });
+      wrap.appendChild(fb); box.appendChild(wrap);
+    });
+  }
+
+  buildQuiz();
+  render();
+})();
+</script>
+</body>
+</html>
