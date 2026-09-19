@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Community helpers | AI4Kids Grade 3 General Science</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --doc:#2a9bb8;
+    --doc-deep:#1a6f86;
+    --teach:#5b6fd9;
+    --teach-deep:#3a4aa8;
+    --farm:#2e9a5c;
+    --farm-deep:#1e6b3f;
+    --pol:#c9702e;
+    --pol-deep:#9a5320;
+    --fire:#c4453a;
+    --fire-deep:#8f2e26;
+    --clean:#3d8b6e;
+    --clean-deep:#2a5f4a;
+    --ok:#2e7d4f;
+    --no:#c4453a;
+    --ink:#1f2933;
+    --ink-soft:#4a5661;
+    --paper:#fdfaf3;
+    --line:#ded5c4;
+    --accent:#1a5b8f;
+    --warm:#c9702e;
+    --care:#3d8b6e;
+    --board:#eef3f7;
+    --board-deep:#d9e5ee;
+    --good-bg:#e8f2ed;
+    --bad-bg:#fbeae8;
+
+    --fs-cap:clamp(14px, 3.8vw, 16px);
+    --fs-xs:clamp(16px, 4.2vw, 18px);
+    --fs-sm:clamp(18px, 4.8vw, 20px);
+    --fs-md:clamp(19px, 5.2vw, 22px);
+    --fs-lg:clamp(22px, 6vw, 26px);
+    --fs-xl:clamp(30px, 8vw, 38px);
+    --lh:1.5;
+  }
+  body.urdu{
+    --fs-cap:clamp(15px, 4vw, 17px);
+    --fs-xs:clamp(17px, 4.5vw, 19px);
+    --fs-sm:clamp(19px, 5.2vw, 22px);
+    --fs-md:clamp(21px, 5.6vw, 24px);
+    --fs-lg:clamp(24px, 6.5vw, 28px);
+    --fs-xl:clamp(28px, 7.5vw, 36px);
+    --lh:2.1;
+  }
+
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px;flex-wrap:wrap}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--warm);outline-offset:2px}
+
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+
+  .tabs{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 14px}
+  .tabs button{
+    flex:1 1 28%;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:9px 6px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:52px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:linear-gradient(180deg,var(--board) 0%,var(--board-deep) 100%);
+    padding:14px;
+  }
+
+  .readout{
+    margin-top:12px;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-cap);font-weight:700;margin-bottom:10px;
+             background:var(--accent)}
+  .statechip.ur{padding:2px 14px 7px}
+  .lead{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+  .lead.ur{line-height:1.95}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+
+  .why-note{
+    margin:12px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.55;
+    border-left:3px solid var(--accent);padding-left:11px;
+  }
+  .why-note b{color:var(--accent);font-weight:800}
+  body.urdu .why-note{
+    border-left:0;border-right:3px solid var(--accent);padding-left:0;padding-right:11px;
+    line-height:var(--lh);
+  }
+
+  .play{
+    width:100%;margin-top:12px;border:3px solid var(--ink);border-radius:18px;
+    background:var(--ink);color:var(--paper);font:inherit;font-weight:800;
+    font-size:var(--fs-md);cursor:pointer;min-height:60px;
+  }
+  .play:active{transform:scale(.98)}
+  .play.alt{background:var(--farm);border-color:var(--farm-deep)}
+  .play:disabled{opacity:.45;cursor:not-allowed}
+
+  .two{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+  .two .play{flex:1;min-width:140px;margin-top:0}
+
+  .panel{margin-top:18px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+
+  .lesson{
+    margin-top:18px;border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+    background:var(--paper);
+  }
+  .lesson .tag{
+    display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+    padding:4px 12px;font-size:var(--fs-cap);font-weight:800;margin-bottom:10px;
+  }
+  .lesson p{margin:0 0 10px;font-size:var(--fs-sm);line-height:1.55}
+  .lesson p:last-child{margin-bottom:0}
+  body.urdu .lesson p{line-height:var(--lh)}
+
+  .helper-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .helper-btn{
+    border:3px solid var(--line);background:var(--paper);border-radius:18px;
+    padding:16px 10px;font:inherit;cursor:pointer;min-height:110px;color:var(--ink);
+    text-align:center;
+  }
+  .helper-btn .emoji{font-size:36px;display:block;margin-bottom:6px}
+  .helper-btn .lbl{font-size:var(--fs-sm);font-weight:800;display:block;line-height:1.3}
+  .helper-btn[aria-pressed="true"]{border-color:var(--ink);box-shadow:0 0 0 3px rgba(26,91,143,.2)}
+  .helper-btn.doc[aria-pressed="true"]{border-color:var(--doc);background:#e6f5f9}
+  .helper-btn.teach[aria-pressed="true"]{border-color:var(--teach);background:#eef0fb}
+  .helper-btn.farm[aria-pressed="true"]{border-color:var(--farm);background:#e8f5ee}
+  .helper-btn.pol[aria-pressed="true"]{border-color:var(--pol);background:#fbf1e8}
+  .helper-btn.fire[aria-pressed="true"]{border-color:var(--fire);background:#fbeae8}
+  .helper-btn.clean[aria-pressed="true"]{border-color:var(--clean);background:#eaf4ef}
+
+  .match-prompt{
+    margin-top:12px;padding:14px 16px;border:2px dashed var(--warm);border-radius:14px;
+    background:#fbf1e8;font-size:var(--fs-sm);font-weight:700;color:#8a4a12;line-height:1.55;
+  }
+  body.urdu .match-prompt{line-height:var(--lh)}
+
+  .tool-card{
+    margin-top:12px;border:3px solid var(--ink);border-radius:18px;padding:18px 14px;
+    background:var(--paper);text-align:center;
+  }
+  .tool-card .emoji{font-size:48px;display:block;margin-bottom:8px}
+  .tool-card .name{font-size:var(--fs-lg);font-weight:800;margin:0 0 4px}
+  .tool-card .hint{font-size:var(--fs-xs);color:var(--ink-soft);margin:0}
+
+  .choice-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+  .choice-btn{
+    border:3px solid var(--line);background:var(--paper);border-radius:14px;
+    padding:14px 10px;font:inherit;font-weight:800;font-size:var(--fs-sm);
+    cursor:pointer;min-height:72px;color:var(--ink);text-align:center;
+  }
+  .choice-btn .emoji{font-size:24px;display:block;margin-bottom:4px}
+  .choice-btn.ok{border-color:var(--ok);background:var(--good-bg)}
+  .choice-btn.no{border-color:var(--no);background:var(--bad-bg)}
+  .choice-btn:disabled{opacity:.85;cursor:default}
+
+  .scene-card{
+    margin-top:12px;border:3px solid var(--ink);border-radius:18px;padding:18px 16px;
+    background:linear-gradient(180deg,#fff8e8 0%,#f0e8d8 100%);text-align:center;
+  }
+  .scene-card .emoji{font-size:44px;display:block;margin-bottom:8px}
+  .scene-card .ask{font-size:var(--fs-md);font-weight:800;margin:0 0 6px;line-height:1.35}
+  .scene-card .ask.ur{line-height:1.95}
+  .scene-card .hint{font-size:var(--fs-xs);color:var(--ink-soft);margin:0}
+
+  .progress{
+    margin-top:12px;height:14px;border-radius:999px;background:var(--line);overflow:hidden;
+    border:2px solid var(--ink);
+  }
+  .progress > span{display:block;height:100%;background:var(--farm);width:0%;transition:width .3s}
+
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:52px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e6f4ec;font-weight:600}
+  .opt.wrong{border-color:var(--no);background:#fbeae4}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none;line-height:1.55}
+  .fb.show{display:block}
+  .score{
+    margin-top:8px;padding:14px 16px;border:3px solid var(--ok);border-radius:16px;
+    background:#eaf4ee;font-size:var(--fs-md);font-weight:800;text-align:center;
+    display:none;
+  }
+  .score.show{display:block}
+
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+
+  .hidden{display:none !important}
+
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;
+      grid-template-columns:1fr 1fr;
+      grid-template-areas:
+        "bar   bar"
+        "head  head"
+        "tabs  tabs"
+        "left  right"
+        "quiz  quiz"
+        "foot  foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar}
+    .head{grid-area:head}
+    .tabs{grid-area:tabs}
+    .left{grid-area:left}
+    .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px}
+    footer{grid-area:foot}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition-duration:.01ms !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Grade 3 · General Science</span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunein">🔊</button>
+  </div>
+
+  <div class="head">
+    <h1 id="title"></h1>
+    <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group" id="tabs">
+    <button type="button" data-tab="hook" aria-pressed="true">Hook</button>
+    <button type="button" data-tab="helpers" aria-pressed="false">Helpers</button>
+    <button type="button" data-tab="match" aria-pressed="false">Match</button>
+    <button type="button" data-tab="thank" aria-pressed="false">Thank</button>
+  </div>
+
+  <div class="left" id="leftPane"></div>
+  <div class="right" id="rightPane"></div>
+
+  <div class="quiz">
+    <h2 id="quizHead" style="font-size:var(--fs-lg);font-weight:800;margin:0 0 16px"></h2>
+    <div id="quizBox"></div>
+    <div class="score" id="scoreBox"></div>
+  </div>
+
+  <footer id="foot"></footer>
+</div>
+
+<script>
+(function(){
+  var lang = "en";
+  var tab = "hook";
+  var lastSpoken = "";
+  var selectedHelper = "doctor";
+  var matchIndex = 0;
+  var matchFeedback = "";
+  var matchPick = null;
+  var matchDone = 0;
+  var thankIndex = 0;
+  var thankFeedback = "";
+  var thankPick = null;
+  var thankDone = 0;
+  var quizScore = 0;
+  var quizAnswered = 0;
+
+  var T = {
+    brand: {en:"AI4Kids · Grade 3 · General Science", ur:"AI4Kids · جماعت ۳ · جنرل سائنس"},
+    title: {en:"Community helpers", ur:"کمیونٹی ہیلپرز"},
+    sub: {
+      en:"Doctor, teacher, farmer, police — tap helpers, match tools, and say shukriya for help!",
+      ur:"ڈاکٹر، استاد، کسان، پولیس — ہیلپرز چھوئیں، ٹولز ملائیں، اور مدد پر شکریہ کہو!"
+    },
+    tabs: {
+      hook:{en:"Hook", ur:"ہُک"},
+      helpers:{en:"Helpers", ur:"ہیلپرز"},
+      match:{en:"Match", ur:"میچ"},
+      thank:{en:"Thank", ur:"شکریہ"}
+    },
+    quiz: {en:"Quiz — 5 sawaal", ur:"کوئز — ۵ سوال"},
+    scoreLbl: {en:"Your score", ur:"آپ کا اسکور"},
+    of: {en:"out of", ur:"میں سے"},
+    foot: {
+      en:"AI4Kids Islamabad · Grade 3 General Science · Community helpers",
+      ur:"AI4Kids اسلام آباد · جماعت ۳ جنرل سائنس · کمیونٹی ہیلپرز"
+    },
+    ghaur: {en:"Ghaur karein:", ur:"غور کریں:"}
+  };
+
+  var HOOK = {
+    tag:{en:"HOOK", ur:"ہُک"},
+    p1:{
+      en:"Come kids — imagine if there was no doctor in our world. What would happen? When you get sick, who helps you? Today we meet people who make our community better!",
+      ur:"آؤ بچوں، سوچو اگر ہماری دنیا میں کوئی ڈاکٹر نہ ہوتا، تو کیا ہوتا؟ جب آپ بیمار ہو جاتے، تو کون آپ کی مدد کرتا؟ چلو، آج ہم کچھ ایسے لوگوں کے بارے میں سیکھتے ہیں جو ہماری کمیونٹی کو بہت بہتر بناتے ہیں!"
+    },
+    p2:{
+      en:"In Islamabad — from PIMS hospital to your school teacher, from Margalla farms to Blue Area police — helpers keep our city safe, healthy, and learning!",
+      ur:"اسلام آباد میں — پی آئی ایم ایس ہسپتال سے آپ کے اسکول کے استاد تک، مارگلہ کے کھیتوں سے بلیو ایریا پولیس تک — ہیلپرز ہمارے شہر کو محفوظ، صحت مند اور سیکھنے والا رکھتے ہیں!"
+    }
+  };
+  var SAMJHAO = {
+    tag:{en:"SAMJHAO", ur:"سمجھاؤ"},
+    p1:{
+      en:"Community helpers are people who help us and make life easier. Each person has a special role.",
+      ur:"کمیونٹی ہیلپرز وہ لوگ ہیں جو ہماری مدد کرتے ہیں اور ہماری زندگی کو آسان بناتے ہیں۔ ہر شخص کا اپنا ایک رول ہوتا ہے۔"
+    },
+    p2:{
+      en:"Doctor: treats sick people and gives medicine. Teacher: teaches new ideas and skills at school. Farmer: grows food like rice, wheat, and sabziyan. Police: protects life and property when there is danger.",
+      ur:"ڈاکٹر: بیمار لوگوں کا علاج کرتا ہے اور دوا دیتا ہے۔ استاد: اسکول میں نئے خیالات اور مہارتیں سکھاتا ہے۔ کسان: چاول، گیہوں اور سبزیاں اگاتا ہے۔ پولیس: خطرے میں جان اور مال کی حفاظت کرتی ہے۔"
+    },
+    p3:{
+      en:"Pakistan has hospitals, schools, farms, and police stations in every city — helpers work there for us every day.",
+      ur:"پاکستان کے ہر شہر میں ہسپتال، اسکول، کھیت اور پولیس اسٹیشن ہیں — ہیلپرز وہاں ہر روز ہمارے لیے کام کرتے ہیں۔"
+    }
+  };
+  var MISAAL = {
+    tag:{en:"MISAAL", ur:"مثال"},
+    p1:{
+      en:"When you go to the bazaar and see sabziyan, remember farmers grew them. The vendor sells what the farmer planted — the same veggies you use in biryani or salan at home in Islamabad!",
+      ur:"جب آپ بازار جائیں اور سبزیاں دیکھیں، یاد رکھیں کسان نے انہیں اگایا۔ دکاندار وہی بیچتا ہے جو کسان نے بوئا — وہی سبزیاں جو آپ اسلام آباد میں بریانی یا سالن میں استعمال کرتے ہیں!"
+    }
+  };
+  var KARO = {
+    tag:{en:"KARO", ur:"کرو"},
+    p1:{
+      en:"At home or school, do a small role-play! One child is doctor, one teacher, one farmer, one police. Each shows what they do and tells friends how they help. You will understand helpers better!",
+      ur:"گھر یا اسکول میں چھوٹی رول پلی کرو! ایک بچہ ڈاکٹر، ایک استاد، ایک کسان، ایک پولیس۔ ہر ایک دکھائے کہ وہ کیا کرتا ہے اور دوستوں کو بتائے کیسے مدد کرتا ہے۔ ہیلپرز کی سمجھ بہتر ہو گی!"
+    }
+  };
+
+  var HELPERS = {
+    head:{en:"Helper cards — tap a role", ur:"ہیلپر کارڈز — رول چھوئیں"},
+    items:{
+      doctor:{
+        emoji:"🩺",
+        cls:"doc",
+        chip:{en:"Doctor", ur:"ڈاکٹر"},
+        chipBg:"var(--doc)",
+        name:{en:"Doctor helps when you are sick", ur:"ڈاکٹر بیمار ہونے پر مدد کرتا ہے"},
+        desc:{
+          en:"A doctor checks your body, listens with a stethoscope, and gives medicine so you get well. Hospitals and clinics in Islamabad (like PIMS) have doctors ready to help.",
+          ur:"ڈاکٹر جسم چیک کرتا ہے، سٹیتھوسکوپ سے سنتا ہے، اور دوا دیتا ہے تاکہ آپ ٹھیک ہو جائیں۔ اسلام آباد کے ہسپتال اور کلینک (جیسے پی آئی ایم ایس) میں ڈاکٹر مدد کے لیے تیار ہیں۔"
+        },
+        tip:{
+          en:"Tool: stethoscope · Place: hospital / clinic",
+          ur:"ٹول: سٹیتھوسکوپ · جگہ: ہسپتال / کلینک"
+        }
+      },
+      teacher:{
+        emoji:"👩‍🏫",
+        cls:"teach",
+        chip:{en:"Teacher", ur:"استاد"},
+        chipBg:"var(--teach)",
+        name:{en:"Teacher helps you learn", ur:"استاد آپ کو سکھاتا ہے"},
+        desc:{
+          en:"A teacher shows new ideas and skills at school and prepares you for life. Good teachers across Pakistan help students think and grow — just like your class in Islamabad!",
+          ur:"استاد اسکول میں نئے خیالات اور مہارتیں دکھاتا ہے اور زندگی کے لیے تیار کرتا ہے۔ پاکستان بھر کے اچھے اساتذہ طلبہ کو سوچنے اور بڑھنے میں مدد دیتے ہیں — بالکل آپ کی اسلام آباد کلاس کی طرح!"
+        },
+        tip:{
+          en:"Tool: chalk / board · Place: school",
+          ur:"ٹول: چاک / بورڈ · جگہ: اسکول"
+        }
+      },
+      farmer:{
+        emoji:"🌾",
+        cls:"farm",
+        chip:{en:"Farmer", ur:"کسان"},
+        chipBg:"var(--farm)",
+        name:{en:"Farmer grows our food", ur:"کسان ہمارا کھانا اگاتا ہے"},
+        desc:{
+          en:"A farmer grows rice, wheat, and sabziyan so we have food. Many farmers in Pakistan feed the whole country — the veggies in your bazaar started in a field!",
+          ur:"کسان چاول، گیہوں اور سبزیاں اگاتا ہے تاکہ ہمیں کھانا ملے۔ پاکستان کے بہت سے کسان پورے ملک کو کھانا دیتے ہیں — آپ کے بازار کی سبزیاں کھیت سے آتی ہیں!"
+        },
+        tip:{
+          en:"Tool: tractor · Place: farm / field",
+          ur:"ٹول: ٹریکٹر · جگہ: کھیت / فارم"
+        }
+      },
+      police:{
+        emoji:"👮",
+        cls:"pol",
+        chip:{en:"Police", ur:"پولیس"},
+        chipBg:"var(--pol)",
+        name:{en:"Police keeps us safe", ur:"پولیس ہمیں محفوظ رکھتی ہے"},
+        desc:{
+          en:"Police protect life and property. When there is danger or trouble, they help. Every city in Pakistan has a police station — including Islamabad!",
+          ur:"پولیس جان اور مال کی حفاظت کرتی ہے۔ جب خطرہ یا مشکل ہو، وہ مدد کرتی ہے۔ پاکستان کے ہر شہر میں پولیس اسٹیشن ہے — اسلام آباد بھی!"
+        },
+        tip:{
+          en:"Tool: whistle · Place: police station",
+          ur:"ٹول: سیٹی · جگہ: پولیس اسٹیشن"
+        }
+      },
+      firefighter:{
+        emoji:"🚒",
+        cls:"fire",
+        chip:{en:"Firefighter", ur:"فائر فائٹر"},
+        chipBg:"var(--fire)",
+        name:{en:"Firefighter puts out fires", ur:"فائر فائٹر آگ بجھاتا ہے"},
+        desc:{
+          en:"Firefighters rush when there is fire or smoke. They keep people and homes safe — a brave extra helper in our community!",
+          ur:"آگ یا دھوئیں پر فائر فائٹر جلدی پہنچتے ہیں۔ وہ لوگوں اور گھروں کو محفوظ رکھتے ہیں — کمیونٹی کا بہادر اضافی ہیلپر!"
+        },
+        tip:{
+          en:"Tool: hose · Place: fire station",
+          ur:"ٹول: پائپ · جگہ: فائر اسٹیشن"
+        }
+      },
+      cleaner:{
+        emoji:"🧹",
+        cls:"clean",
+        chip:{en:"Cleaner", ur:"صفائی والا"},
+        chipBg:"var(--clean)",
+        name:{en:"Cleaner keeps streets tidy", ur:"صفائی والا گلیاں صاف رکھتا ہے"},
+        desc:{
+          en:"Cleaners sweep streets and collect trash so our parks and roads in Islamabad stay neat. Thank them — a clean city helps everyone!",
+          ur:"صفائی والے گلیاں جھاڑتے اور کوڑا اٹھاتے ہیں تاکہ اسلام آباد کے پارک اور سڑکیں صاف رہیں۔ ان کا شکریہ — صاف شہر سب کی مدد کرتا ہے!"
+        },
+        tip:{
+          en:"Tool: broom · Place: streets / parks",
+          ur:"ٹول: جھاڑو · جگہ: گلیاں / پارک"
+        }
+      }
+    }
+  };
+
+  var MATCH = {
+    head:{en:"Match game — tool or place → helper", ur:"میچ گیم — ٹول یا جگہ → ہیلپر"},
+    ask:{en:"Who uses this? Tap the right helper!", ur:"یہ کون استعمال کرتا ہے؟ درست ہیلپر چھوئیں!"},
+    next:{en:"Next match", ur:"اگلا میچ"},
+    done:{en:"Shabash! You matched all tools and places.", ur:"شاباش! آپ نے سب ٹولز اور جگہیں ملا لیں۔"},
+    prog:{en:"Matches done", ur:"میچ مکمل"},
+    items:[
+      {
+        id:"stethoscope",
+        emoji:"🩺",
+        name:{en:"Stethoscope", ur:"سٹیتھوسکوپ"},
+        hint:{en:"Listens to heart and lungs", ur:"دل اور پھیپھڑے سنتا ہے"},
+        ans:"doctor",
+        ok:{en:"Yes! Doctor uses a stethoscope to check patients.", ur:"ہاں! ڈاکٹر مریض چیک کرنے کے لیے سٹیتھوسکوپ استعمال کرتا ہے۔"},
+        no:{en:"Hint: the helper who treats sick people.", ur:"اشارہ: جو بیمار لوگوں کا علاج کرتا ہے۔"}
+      },
+      {
+        id:"chalk",
+        emoji:"✏️",
+        name:{en:"Chalk / board", ur:"چاک / بورڈ"},
+        hint:{en:"Writes lessons for the class", ur:"کلاس کے لیے سبق لکھتا ہے"},
+        ans:"teacher",
+        ok:{en:"Correct! Teacher uses chalk to teach at school.", ur:"درست! استاد اسکول میں پڑھانے کے لیے چاک استعمال کرتا ہے۔"},
+        no:{en:"Hint: the helper who teaches kids.", ur:"اشارہ: جو بچوں کو پڑھاتا ہے۔"}
+      },
+      {
+        id:"tractor",
+        emoji:"🚜",
+        name:{en:"Tractor", ur:"ٹریکٹر"},
+        hint:{en:"Works in the field", ur:"کھیت میں کام کرتا ہے"},
+        ans:"farmer",
+        ok:{en:"Right! Farmer uses a tractor to grow our food.", ur:"درست! کسان ہمارا کھانا اگانے کے لیے ٹریکٹر استعمال کرتا ہے۔"},
+        no:{en:"Hint: the helper who grows rice and sabziyan.", ur:"اشارہ: جو چاول اور سبزیاں اگاتا ہے۔"}
+      },
+      {
+        id:"whistle",
+        emoji:"📢",
+        name:{en:"Whistle", ur:"سیٹی"},
+        hint:{en:"Signals for safety and order", ur:"حفاظت اور نظم کے لیے اشارہ"},
+        ans:"police",
+        ok:{en:"Perfect! Police uses a whistle to keep people safe.", ur:"بہترین! پولیس لوگوں کو محفوظ رکھنے کے لیے سیٹی استعمال کرتی ہے۔"},
+        no:{en:"Hint: the helper who protects us.", ur:"اشارہ: جو ہماری حفاظت کرتا ہے۔"}
+      }
+    ],
+    choices:[
+      {id:"doctor", emoji:"🩺", lbl:{en:"Doctor", ur:"ڈاکٹر"}},
+      {id:"teacher", emoji:"👩‍🏫", lbl:{en:"Teacher", ur:"استاد"}},
+      {id:"farmer", emoji:"🌾", lbl:{en:"Farmer", ur:"کسان"}},
+      {id:"police", emoji:"👮", lbl:{en:"Police", ur:"پولیس"}}
+    ]
+  };
+
+  var THANK = {
+    head:{en:"Thank-you scenario — who can help?", ur:"شکریہ سیناریو — کون مدد کر سکتا ہے؟"},
+    ask:{en:"Pick the helper for this problem. Then say shukriya!", ur:"اس مسئلے کے لیے ہیلپر چنو۔ پھر شکریہ کہو!"},
+    next:{en:"Next problem", ur:"اگلا مسئلہ"},
+    done:{en:"Shabash! You thanked the right helpers for every problem.", ur:"شاباش! آپ نے ہر مسئلے پر درست ہیلپرز کا شکریہ ادا کیا۔"},
+    prog:{en:"Problems solved", ur:"مسائل حل"},
+    shukriya:{en:"Shukriya!", ur:"شکریہ!"},
+    items:[
+      {
+        id:"sick",
+        emoji:"🤒",
+        ask:{en:"You feel sick and have fever. Who helps?", ur:"آپ بیمار ہیں اور بخار ہے۔ کون مدد کرتا ہے؟"},
+        hint:{en:"Need medicine and a check-up", ur:"دوا اور چیک اپ چاہیے"},
+        ans:"doctor",
+        ok:{en:"Doctor! Shukriya, doctor — you help us get well.", ur:"ڈاکٹر! شکریہ ڈاکٹر — آپ ہمیں ٹھیک کرتے ہیں۔"},
+        no:{en:"Hint: who treats sick people?", ur:"اشارہ: بیمار لوگوں کا علاج کون کرتا ہے؟"}
+      },
+      {
+        id:"learn",
+        emoji:"📚",
+        ask:{en:"You want to learn reading and maths. Who helps?", ur:"آپ پڑھنا اور ریاضی سیکھنا چاہتے ہیں۔ کون مدد کرتا ہے؟"},
+        hint:{en:"Need someone at school", ur:"اسکول میں کسی کی ضرورت"},
+        ans:"teacher",
+        ok:{en:"Teacher! Shukriya, teacher — you help us learn.", ur:"استاد! شکریہ استاد — آپ ہمیں سکھاتے ہیں۔"},
+        no:{en:"Hint: who teaches kids at school?", ur:"اشارہ: اسکول میں بچوں کو کون پڑھاتا ہے؟"}
+      },
+      {
+        id:"food",
+        emoji:"🥗",
+        ask:{en:"Your family needs rice, wheat, and sabzi. Who helps?", ur:"آپ کے گھر کو چاول، گیہوں اور سبزی چاہیے۔ کون مدد کرتا ہے؟"},
+        hint:{en:"Someone grows food in fields", ur:"کوئی کھیت میں کھانا اگاتا ہے"},
+        ans:"farmer",
+        ok:{en:"Farmer! Shukriya, farmer — you grow our food.", ur:"کسان! شکریہ کسان — آپ ہمارا کھانا اگاتے ہیں۔"},
+        no:{en:"Hint: who grows food on the farm?", ur:"اشارہ: فارم پر کھانا کون اگاتا ہے؟"}
+      },
+      {
+        id:"safety",
+        emoji:"🛡️",
+        ask:{en:"There is trouble and you need safety. Who helps?", ur:"مشکل ہے اور آپ کو حفاظت چاہیے۔ کون مدد کرتا ہے؟"},
+        hint:{en:"Need protection and qanoon", ur:"حفاظت اور قانون چاہیے"},
+        ans:"police",
+        ok:{en:"Police! Shukriya, police — you keep us safe.", ur:"پولیس! شکریہ پولیس — آپ ہمیں محفوظ رکھتی ہیں۔"},
+        no:{en:"Hint: who protects life and property?", ur:"اشارہ: جان اور مال کی حفاظت کون کرتا ہے؟"}
+      }
+    ],
+    choices:[
+      {id:"doctor", emoji:"🩺", lbl:{en:"Doctor", ur:"ڈاکٹر"}},
+      {id:"teacher", emoji:"👩‍🏫", lbl:{en:"Teacher", ur:"استاد"}},
+      {id:"farmer", emoji:"🌾", lbl:{en:"Farmer", ur:"کسان"}},
+      {id:"police", emoji:"👮", lbl:{en:"Police", ur:"پولیس"}}
+    ]
+  };
+
+  /* Quiz exact from brief */
+  var QUIZ = [
+    {
+      q:{en:"Doctor kis kaam mein madad karta hai?", ur:"ڈاکٹر کس کام میں مدد کرتا ہے؟"},
+      o:[
+        {en:"Bimaar logon ka ilaaj", ur:"بیمار لوگوں کا علاج"},
+        {en:"Kisaanon ki madad", ur:"کسانوں کی مدد"},
+        {en:"School ka kaam", ur:"اسکول کا کام"},
+        {en:"Police ki madad", ur:"پولیس کی مدد"}
+      ],
+      a:0,
+      f:{
+        en:"Doctor bimaar logon ka ilaaj karte hain.",
+        ur:"ڈاکٹر بیمار لوگوں کا علاج کرتے ہیں۔"
+      }
+    },
+    {
+      q:{en:"Teacher ka asal kaam kya hai?", ur:"استاد کا اصل کام کیا ہے؟"},
+      o:[
+        {en:"Roti banana", ur:"روٹی بنانا"},
+        {en:"Bachon ko padhana", ur:"بچوں کو پڑھانا"},
+        {en:"Ghar saaf karna", ur:"گھر صاف کرنا"},
+        {en:"Police ki patrol karna", ur:"پولیس کی پٹرول کرنا"}
+      ],
+      a:1,
+      f:{
+        en:"Teacher ka kaam bachon ko padhana hota hai.",
+        ur:"استاد کا کام بچوں کو پڑھانا ہوتا ہے۔"
+      }
+    },
+    {
+      q:{en:"Kisaan kya kaam karta hai?", ur:"کسان کیا کام کرتا ہے؟"},
+      o:[
+        {en:"Ghar ka saaman bechta hai", ur:"گھر کا سامان بیچتا ہے"},
+        {en:"Farman aur sabziyan ugata hai", ur:"اناج اور سبزیاں اگاتا ہے"},
+        {en:"Taleem deta hai", ur:"تعلیم دیتا ہے"},
+        {en:"Bimaaron ka ilaaj karta hai", ur:"بیماروں کا علاج کرتا ہے"}
+      ],
+      a:1,
+      f:{
+        en:"Kisaan khet mein farman aur sabziyan ugata hai.",
+        ur:"کسان کھیت میں اناج اور سبزیاں اگاتا ہے۔"
+      }
+    },
+    {
+      q:{en:"Police kis liye hoti hai?", ur:"پولیس کس لیے ہوتی ہے؟"},
+      o:[
+        {en:"Taqreeban sab kuch", ur:"تقریباً سب کچھ"},
+        {en:"Ishq masalay", ur:"عشق مسائل"},
+        {en:"Ishtihar dekhna", ur:"اشتہار دیکھنا"},
+        {en:"Hifazat aur qanoon enforce karna", ur:"حفاظت اور قانون نافذ کرنا"}
+      ],
+      a:3,
+      f:{
+        en:"Police ki zimmedari hifazat aur qanoon ki enforcement hai.",
+        ur:"پولیس کی ذمہ داری حفاظت اور قانون کی نافذکاری ہے۔"
+      }
+    },
+    {
+      q:{en:"Doctor kaun se tools istemal karta hai?", ur:"ڈاکٹر کون سے ٹولز استعمال کرتا ہے؟"},
+      o:[
+        {en:"Khurak", ur:"خوراک"},
+        {en:"Stethoscope", ur:"سٹیتھوسکوپ"},
+        {en:"Khilona", ur:"کھلونا"},
+        {en:"Rang", ur:"رنگ"}
+      ],
+      a:1,
+      f:{
+        en:"Doctor stethoscope ka istemal bimariyan sunne ke liye karta hai.",
+        ur:"ڈاکٹر سٹیتھوسکوپ کا استعمال بیماریاں سننے کے لیے کرتا ہے۔"
+      }
+    }
+  ];
+
+  function $(id){ return document.getElementById(id); }
+  function t(o){ return o[lang]; }
+
+  var LRI = "\u2066", PDI = "\u2069";
+  var LATIN_RUN = /[A-Za-z0-9][A-Za-z0-9 .,+()\/@_°%-]*[A-Za-z0-9°%]|[A-Za-z0-9%]/g;
+  function isolate(s){ return String(s).replace(LATIN_RUN, function(m){ return LRI + m + PDI; }); }
+
+  function setText(el, str){
+    if (!el) return;
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+
+  function renderHook(){
+    var L = $("leftPane"), R = $("rightPane");
+    L.innerHTML =
+      '<div class="lesson"><span class="tag" id="tagHook"></span><p id="hook1"></p><p id="hook2"></p></div>' +
+      '<div class="lesson" style="margin-top:12px"><span class="tag" id="tagSam"></span><p id="sam1"></p><p id="sam2"></p><p id="sam3"></p></div>';
+    R.innerHTML =
+      '<div class="lesson"><span class="tag" id="tagMis"></span><p id="mis1"></p></div>' +
+      '<div class="lesson" style="margin-top:12px"><span class="tag" id="tagKar"></span><p id="kar1"></p></div>';
+
+    setText($("tagHook"), t(HOOK.tag));
+    setText($("hook1"), t(HOOK.p1));
+    setText($("hook2"), t(HOOK.p2));
+    setText($("tagSam"), t(SAMJHAO.tag));
+    setText($("sam1"), t(SAMJHAO.p1));
+    setText($("sam2"), t(SAMJHAO.p2));
+    setText($("sam3"), t(SAMJHAO.p3));
+    setText($("tagMis"), t(MISAAL.tag));
+    setText($("mis1"), t(MISAAL.p1));
+    setText($("tagKar"), t(KARO.tag));
+    setText($("kar1"), t(KARO.p1));
+    lastSpoken = t(HOOK.p1) + " " + t(SAMJHAO.p1);
+  }
+
+  function renderHelpers(){
+    var L = $("leftPane"), R = $("rightPane");
+    var keys = ["doctor","teacher","farmer","police","firefighter","cleaner"];
+    var grid = "";
+    keys.forEach(function(k){
+      var h = HELPERS.items[k];
+      grid += '<button type="button" class="helper-btn '+h.cls+'" data-helper="'+k+'" aria-pressed="'+(selectedHelper===k?"true":"false")+'">' +
+        '<span class="emoji">'+h.emoji+'</span><span class="lbl" id="hlbl_'+k+'"></span></button>';
+    });
+
+    L.innerHTML =
+      '<div class="panel"><h2 id="helpersHead"></h2>' +
+      '<div class="helper-grid">'+grid+'</div></div>';
+
+    R.innerHTML =
+      '<div class="scene">' +
+        '<div class="readout" style="margin-top:0">' +
+          '<span class="statechip" id="hChip"></span>' +
+          '<p class="lead" id="hLead"></p>' +
+          '<p class="detail" id="hDesc"></p>' +
+          '<p class="why-note"><b id="hGhaur"></b> <span id="hTip"></span></p>' +
+        '</div>' +
+      '</div>' +
+      '<div class="lesson" style="margin-top:12px"><span class="tag" id="hKarTag"></span><p id="hKar"></p></div>';
+
+    setText($("helpersHead"), t(HELPERS.head));
+    keys.forEach(function(k){
+      setText($("hlbl_"+k), t(HELPERS.items[k].chip));
+    });
+
+    Array.prototype.forEach.call(L.querySelectorAll(".helper-btn"), function(b){
+      b.addEventListener("click", function(){
+        selectedHelper = b.getAttribute("data-helper");
+        renderHelpers();
+      });
+    });
+
+    var h = HELPERS.items[selectedHelper];
+    setText($("hChip"), t(h.chip));
+    $("hChip").style.background = h.chipBg;
+    setText($("hLead"), t(h.name));
+    setText($("hDesc"), t(h.desc));
+    $("hGhaur").textContent = t(T.ghaur);
+    setText($("hTip"), t(h.tip));
+    setText($("hKarTag"), t(KARO.tag));
+    setText($("hKar"), t(KARO.p1));
+    lastSpoken = t(h.name) + " " + t(h.desc);
+  }
+
+  function renderMatch(){
+    var L = $("leftPane"), R = $("rightPane");
+    var item = MATCH.items[matchIndex];
+    var pct = Math.round((matchDone / MATCH.items.length) * 100);
+    var allDone = matchDone >= MATCH.items.length;
+
+    L.innerHTML =
+      '<div class="panel"><h2 id="matchHead"></h2>' +
+      '<div class="match-prompt" id="matchAsk"></div>' +
+      '<div class="tool-card">' +
+        '<span class="emoji">'+(allDone?"🎉":item.emoji)+'</span>' +
+        '<p class="name" id="toolName"></p>' +
+        '<p class="hint" id="toolHint"></p>' +
+      '</div>' +
+      '<div class="progress"><span id="matchBar" style="width:'+pct+'%"></span></div>' +
+      '<p style="margin:8px 0 0;font-size:var(--fs-cap);font-weight:700;color:var(--ink-soft)" id="matchProg"></p>' +
+      '</div>';
+
+    var choicesHtml = "";
+    MATCH.choices.forEach(function(c){
+      var cls = "choice-btn";
+      if (matchPick === c.id){
+        cls += (c.id === item.ans) ? " ok" : " no";
+      } else if (matchPick && c.id === item.ans){
+        cls += " ok";
+      }
+      choicesHtml += '<button type="button" class="'+cls+'" data-id="'+c.id+'"'+(matchPick||allDone?' disabled':'')+'>' +
+        '<span class="emoji">'+c.emoji+'</span><span id="mc_'+c.id+'"></span></button>';
+    });
+
+    R.innerHTML =
+      '<div class="scene">' +
+        '<div class="readout" style="margin-top:0">' +
+          '<span class="statechip" id="mChip"></span>' +
+          '<p class="lead" id="mLead"></p>' +
+          '<p class="detail" id="mDetail"></p>' +
+        '</div>' +
+        (allDone ? '' : '<div class="choice-row" id="matchChoices">'+choicesHtml+'</div>') +
+        '<div class="two">' +
+          '<button type="button" class="play alt" id="matchNext"'+(allDone||!matchPick?' disabled':'')+'></button>' +
+        '</div>' +
+        '<p class="why-note"><b id="mGhaur"></b> <span id="mTip"></span></p>' +
+      '</div>';
+
+    setText($("matchHead"), t(MATCH.head));
+    setText($("matchAsk"), t(MATCH.ask));
+    setText($("matchProg"), t(MATCH.prog) + ": " + matchDone + " / " + MATCH.items.length);
+
+    if (allDone){
+      setText($("toolName"), t(MATCH.done));
+      setText($("toolHint"), "");
+      setText($("mChip"), lang==="en"?"Complete!":"مکمل!");
+      $("mChip").style.background = "var(--ok)";
+      setText($("mLead"), t(MATCH.done));
+      setText($("mDetail"), t(KARO.p1));
+      lastSpoken = t(MATCH.done);
+    } else {
+      setText($("toolName"), t(item.name));
+      setText($("toolHint"), t(item.hint));
+      MATCH.choices.forEach(function(c){
+        setText($("mc_"+c.id), t(c.lbl));
+      });
+
+      if (matchPick){
+        var correct = matchPick === item.ans;
+        setText($("mChip"), correct ? (lang==="en"?"Correct!":"درست!") : (lang==="en"?"Try again":"دوبارہ"));
+        $("mChip").style.background = correct ? "var(--ok)" : "var(--no)";
+        setText($("mLead"), correct ? t(item.ok) : t(item.no));
+        setText($("mDetail"), matchFeedback || "");
+        lastSpoken = correct ? t(item.ok) : t(item.no);
+      } else {
+        setText($("mChip"), lang==="en"?"Your turn":"آپ کی باری");
+        $("mChip").style.background = "var(--accent)";
+        setText($("mLead"), t(MATCH.ask));
+        setText($("mDetail"), t(item.hint));
+        lastSpoken = t(item.name) + ". " + t(MATCH.ask);
+      }
+
+      Array.prototype.forEach.call(document.querySelectorAll("#matchChoices .choice-btn"), function(b){
+        b.addEventListener("click", function(){
+          if (matchPick) return;
+          matchPick = b.getAttribute("data-id");
+          var correct = matchPick === item.ans;
+          if (correct){
+            matchDone++;
+            matchFeedback = t(item.ok);
+          } else {
+            matchFeedback = t(item.no);
+          }
+          renderMatch();
+        });
+      });
+    }
+
+    setText($("matchNext"), allDone ? t(MATCH.done) : t(MATCH.next));
+    $("mGhaur").textContent = t(T.ghaur);
+    setText($("mTip"), allDone
+      ? (lang==="en"?"Role-play helpers at home — that is KARO!":"گھر پر ہیلپرز کی رول پلی کرو — یہی کرو ہے!")
+      : (lang==="en"?"Stethoscope→doctor, chalk→teacher, tractor→farmer, whistle→police.":"سٹیتھوسکوپ→ڈاکٹر، چاک→استاد، ٹریکٹر→کسان، سیٹی→پولیس۔"));
+
+    if ($("matchNext") && !allDone){
+      $("matchNext").addEventListener("click", function(){
+        if (!matchPick) return;
+        if (matchPick === item.ans){
+          if (matchIndex < MATCH.items.length - 1){
+            matchIndex++;
+            matchPick = null;
+            matchFeedback = "";
+          }
+        } else {
+          matchPick = null;
+          matchFeedback = "";
+        }
+        renderMatch();
+      });
+    }
+  }
+
+  function renderThank(){
+    var L = $("leftPane"), R = $("rightPane");
+    var item = THANK.items[thankIndex];
+    var pct = Math.round((thankDone / THANK.items.length) * 100);
+    var allDone = thankDone >= THANK.items.length;
+
+    L.innerHTML =
+      '<div class="panel"><h2 id="thankHead"></h2>' +
+      '<div class="match-prompt" id="thankAsk"></div>' +
+      '<div class="scene-card">' +
+        '<span class="emoji">'+(allDone?"🙏":item.emoji)+'</span>' +
+        '<p class="ask" id="sceneAsk"></p>' +
+        '<p class="hint" id="sceneHint"></p>' +
+      '</div>' +
+      '<div class="progress"><span id="thankBar" style="width:'+pct+'%"></span></div>' +
+      '<p style="margin:8px 0 0;font-size:var(--fs-cap);font-weight:700;color:var(--ink-soft)" id="thankProg"></p>' +
+      '</div>';
+
+    var choicesHtml = "";
+    THANK.choices.forEach(function(c){
+      var cls = "choice-btn";
+      if (!allDone && thankPick === c.id){
+        cls += (c.id === item.ans) ? " ok" : " no";
+      } else if (!allDone && thankPick && c.id === item.ans){
+        cls += " ok";
+      }
+      choicesHtml += '<button type="button" class="'+cls+'" data-id="'+c.id+'"'+(thankPick||allDone?' disabled':'')+'>' +
+        '<span class="emoji">'+c.emoji+'</span><span id="tc_'+c.id+'"></span></button>';
+    });
+
+    R.innerHTML =
+      '<div class="scene">' +
+        '<div class="readout" style="margin-top:0">' +
+          '<span class="statechip" id="tChip"></span>' +
+          '<p class="lead" id="tLead"></p>' +
+          '<p class="detail" id="tDetail"></p>' +
+        '</div>' +
+        (allDone ? '' : '<div class="choice-row" id="thankChoices">'+choicesHtml+'</div>') +
+        '<div class="two">' +
+          '<button type="button" class="play alt" id="thankNext"'+(allDone||!thankPick?' disabled':'')+'></button>' +
+        '</div>' +
+        '<p class="why-note"><b id="tGhaur"></b> <span id="tTip"></span></p>' +
+      '</div>' +
+      '<div class="lesson" style="margin-top:12px"><span class="tag" id="tMisTag"></span><p id="tMis"></p></div>';
+
+    setText($("thankHead"), t(THANK.head));
+    setText($("thankAsk"), t(THANK.ask));
+    setText($("thankProg"), t(THANK.prog) + ": " + thankDone + " / " + THANK.items.length);
+    setText($("tMisTag"), t(MISAAL.tag));
+    setText($("tMis"), t(MISAAL.p1));
+
+    if (allDone){
+      setText($("sceneAsk"), t(THANK.done));
+      setText($("sceneHint"), t(THANK.shukriya));
+      setText($("tChip"), t(THANK.shukriya));
+      $("tChip").style.background = "var(--ok)";
+      setText($("tLead"), t(THANK.done));
+      setText($("tDetail"), t(KARO.p1));
+      lastSpoken = t(THANK.done);
+    } else {
+      setText($("sceneAsk"), t(item.ask));
+      setText($("sceneHint"), t(item.hint));
+      THANK.choices.forEach(function(c){
+        setText($("tc_"+c.id), t(c.lbl));
+      });
+
+      if (thankPick){
+        var correct = thankPick === item.ans;
+        setText($("tChip"), correct ? t(THANK.shukriya) : (lang==="en"?"Try again":"دوبارہ"));
+        $("tChip").style.background = correct ? "var(--ok)" : "var(--no)";
+        setText($("tLead"), correct ? t(item.ok) : t(item.no));
+        setText($("tDetail"), thankFeedback || "");
+        lastSpoken = correct ? t(item.ok) : t(item.no);
+      } else {
+        setText($("tChip"), lang==="en"?"Who helps?":"کون مدد کرتا ہے؟");
+        $("tChip").style.background = "var(--warm)";
+        setText($("tLead"), t(THANK.ask));
+        setText($("tDetail"), t(item.hint));
+        lastSpoken = t(item.ask);
+      }
+
+      Array.prototype.forEach.call(document.querySelectorAll("#thankChoices .choice-btn"), function(b){
+        b.addEventListener("click", function(){
+          if (thankPick) return;
+          thankPick = b.getAttribute("data-id");
+          var correct = thankPick === item.ans;
+          if (correct){
+            thankDone++;
+            thankFeedback = t(item.ok);
+          } else {
+            thankFeedback = t(item.no);
+          }
+          renderThank();
+        });
+      });
+    }
+
+    setText($("thankNext"), allDone ? t(THANK.done) : t(THANK.next));
+    $("tGhaur").textContent = t(T.ghaur);
+    setText($("tTip"), allDone
+      ? (lang==="en"?"Sick→doctor, learn→teacher, food→farmer, safety→police.":"بیمار→ڈاکٹر، سیکھنا→استاد، کھانا→کسان، حفاظت→پولیس۔")
+      : (lang==="en"?"Say shukriya to every helper who makes Islamabad better!":"ہر ہیلپر کا شکریہ جو اسلام آباد بہتر بناتا ہے!"));
+
+    if ($("thankNext") && !allDone){
+      $("thankNext").addEventListener("click", function(){
+        if (!thankPick) return;
+        if (thankPick === item.ans){
+          if (thankIndex < THANK.items.length - 1){
+            thankIndex++;
+            thankPick = null;
+            thankFeedback = "";
+          }
+        } else {
+          thankPick = null;
+          thankFeedback = "";
+        }
+        renderThank();
+      });
+    }
+  }
+
+  function renderTab(){
+    if (tab === "hook") renderHook();
+    else if (tab === "helpers") renderHelpers();
+    else if (tab === "match") renderMatch();
+    else renderThank();
+  }
+
+  function buildQuiz(){
+    var box = $("quizBox");
+    box.innerHTML = "";
+    quizScore = 0;
+    quizAnswered = 0;
+    $("scoreBox").classList.remove("show");
+
+    QUIZ.forEach(function(item, qi){
+      var wrap = document.createElement("div");
+      wrap.className = "q";
+      var q = document.createElement("p");
+      setText(q, (qi+1) + ". " + t(item.q));
+      wrap.appendChild(q);
+      var fb = document.createElement("p");
+      fb.className = "fb";
+      item.o.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt" + (lang === "ur" ? " ur" : "");
+        b.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+        b.textContent = (lang === "ur") ? isolate(t(opt)) : t(opt);
+        b.addEventListener("click", function(){
+          if (wrap.getAttribute("data-done") === "1") return;
+          wrap.setAttribute("data-done","1");
+          quizAnswered++;
+          var correct = (oi === item.a);
+          if (correct) quizScore++;
+          Array.prototype.forEach.call(wrap.querySelectorAll(".opt"), function(x, xi){
+            if (xi === item.a) x.classList.add("right");
+            else if (xi === oi && !correct) x.classList.add("wrong");
+          });
+          setText(fb, t(item.f));
+          fb.classList.add("show");
+          if (quizAnswered === QUIZ.length){
+            var sb = $("scoreBox");
+            setText(sb, t(T.scoreLbl) + ": " + quizScore + " " + t(T.of) + " " + QUIZ.length);
+            sb.classList.add("show");
+          }
+        });
+        wrap.appendChild(b);
+      });
+      wrap.appendChild(fb);
+      box.appendChild(wrap);
+    });
+  }
+
+  function applyLang(){
+    document.body.classList.toggle("urdu", lang === "ur");
+    document.documentElement.lang = (lang === "ur") ? "ur" : "en";
+    document.documentElement.dir = (lang === "ur") ? "rtl" : "ltr";
+
+    var lb = $("langBtn");
+    lb.textContent = (lang === "en") ? "اردو" : "English";
+    lb.setAttribute("aria-pressed", lang === "ur" ? "true" : "false");
+
+    setText($("title"), t(T.title));
+    setText($("subtitle"), t(T.sub));
+    setText($("quizHead"), t(T.quiz));
+    setText($("foot"), t(T.foot));
+
+    Array.prototype.forEach.call(document.querySelectorAll("#tabs button"), function(b){
+      var key = b.getAttribute("data-tab");
+      setText(b, t(T.tabs[key]));
+      b.setAttribute("aria-pressed", key === tab ? "true" : "false");
+    });
+
+    buildQuiz();
+    renderTab();
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll("#tabs button"), function(b){
+    b.addEventListener("click", function(){
+      tab = b.getAttribute("data-tab");
+      Array.prototype.forEach.call(document.querySelectorAll("#tabs button"), function(x){
+        x.setAttribute("aria-pressed", x === b ? "true" : "false");
+      });
+      renderTab();
+    });
+  });
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en";
+    applyLang();
+  });
+
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      window.speechSynthesis.cancel();
+      var u = new SpeechSynthesisUtterance(lastSpoken);
+      u.lang = (lang === "ur") ? "ur-PK" : "en-US";
+      u.rate = 0.92;
+      var voices = window.speechSynthesis.getVoices() || [];
+      for (var i=0;i<voices.length;i++){
+        if (voices[i].lang && voices[i].lang.toLowerCase().indexOf(lang === "ur" ? "ur" : "en") === 0){
+          u.voice = voices[i]; break;
+        }
+      }
+      window.speechSynthesis.speak(u);
+    }catch(e){}
+  });
+
+  applyLang();
+})();
+</script>
+</body>
+</html>

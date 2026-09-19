@@ -342,7 +342,9 @@
             "explanation": "Doctor stethoscope ka istemal bimariyan sunne ke liye karta hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g3-community-helpers.html",
+      "interactive_label": "Khelo - Community helpers"
     }
   ]
 }

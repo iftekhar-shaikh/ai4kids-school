@@ -735,5 +735,13 @@
       "interactive_file": "interactives/g3-din-aur-raat.html",
       "interactive_label": "Khelo - Din aur raat"
     }
+  },
+  {
+    "file": "kb/grade_3/science.json",
+    "match_title": "Community helpers",
+    "add": {
+      "interactive_file": "interactives/g3-community-helpers.html",
+      "interactive_label": "Khelo - Community helpers"
+    }
   }
 ]
