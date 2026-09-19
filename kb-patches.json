@@ -527,5 +527,13 @@
       "interactive_file": "interactives/g4-simple-machines.html",
       "interactive_label": "Khelo - Simple machines"
     }
+  },
+  {
+    "file": "kb/grade_4/science.json",
+    "match_title": "Roshni aur saya",
+    "add": {
+      "interactive_file": "interactives/g4-roshni-aur-saya.html",
+      "interactive_label": "Khelo - Roshni aur saya"
+    }
   }
 ]
