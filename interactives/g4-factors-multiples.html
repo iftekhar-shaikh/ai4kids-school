@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Factors aur multiples | AI4Kids Class 4</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--board:#e5f3ea;--board-deep:#c9e4d2;--sky:#c5e7f6;--sky2:#6eb0d4;--accent:#1d6b52;--ok:#2e7d4f;--ink:#1e2a1a;--ink-soft:#4a5744;--paper:#fdfaf3;--line:#d5dec8;--gold:#e8b23d;--left:#c4453a;--fs-cap:clamp(12px,3.2vw,13px);--fs-xs:clamp(14px,3.7vw,15px);--fs-sm:clamp(16px,4.2vw,17px);--fs-md:clamp(17px,4.6vw,19px);--fs-lg:clamp(20px,5.4vw,23px);--fs-xl:clamp(27px,7.4vw,33px);--lh:1.5}
+body.urdu{--fs-cap:clamp(13px,3.5vw,15px);--fs-xs:clamp(15px,4.1vw,17px);--fs-sm:clamp(17px,4.7vw,19px);--fs-md:clamp(19px,5.2vw,21px);--fs-lg:clamp(22px,6vw,25px);--fs-xl:clamp(26px,7vw,31px);--lh:2.1}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px}
+.wrap{max-width:560px;margin:0 auto;padding:0 14px}
+.bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+.brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+.chip{border:2px solid var(--ink);background:var(--paper);color:var(--ink);border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;font-size:var(--fs-xs);cursor:pointer;min-height:42px;touch-action:manipulation}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.chip:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.stars{display:flex;align-items:center;gap:6px;font-weight:800;font-size:var(--fs-xs);background:#fff6e2;border:2px solid var(--gold);border-radius:999px;padding:7px 13px}
+h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+.sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+.ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+h1.ur{line-height:1.9}
+.tabs{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
+.tabs button{flex:1 1 28%;min-width:90px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);border-radius:14px;padding:10px 6px;font:inherit;font-weight:800;font-size:var(--fs-cap);cursor:pointer;min-height:54px;line-height:1.2;touch-action:manipulation}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.tabs button .badge{color:var(--gold)}
+.story{background:#fff8ea;border:2px dashed var(--gold);border-radius:16px;padding:13px 15px;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;margin-bottom:14px}
+body.urdu .story{line-height:var(--lh)}
+.story b{color:var(--ink)}
+.scene{position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);background:linear-gradient(180deg,var(--sky) 0%,var(--sky2) 36%,var(--board) 36%,var(--board-deep) 100%);min-height:280px}
+.scene-pad{padding:10px 12px 18px;min-height:260px;position:relative}
+.sky-layer{position:absolute;inset:0 0 58% 0;pointer-events:none;overflow:hidden}
+.sun-ball{position:absolute;top:12px;right:18px;width:36px;height:36px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#ffe9a0,#f5c542 60%,#e0a020);box-shadow:0 0 18px rgba(245,197,66,.45);z-index:1}
+body.urdu .sun-ball{right:auto;left:18px}
+.cloud{position:absolute;background:rgba(255,255,255,.85);border-radius:40px;opacity:.9}
+.cloud:before,.cloud:after{content:"";position:absolute;background:inherit;border-radius:50%}
+.c1{width:48px;height:15px;top:18px;left:12%}
+.c1:before{width:22px;height:22px;top:-12px;left:6px}
+.c1:after{width:18px;height:18px;top:-8px;left:24px}
+.c2{width:34px;height:12px;top:34px;left:55%;opacity:.7}
+.c2:before{width:16px;height:16px;top:-9px;left:4px}
+.c2:after{width:12px;height:12px;top:-5px;left:16px}
+.num-stage{position:relative;z-index:5;padding:62px 8px 8px;text-align:center}
+.hero-em{font-size:34px;line-height:1;margin:0}
+.num-hero{font-weight:800;font-size:clamp(30px,8.4vw,44px);letter-spacing:.5px;direction:ltr;unicode-bidi:isolate;margin:6px 0 2px;line-height:1.1}
+.sayline{font-weight:700;font-size:var(--fs-xs);margin:2px 8px 8px;color:var(--ink)}
+.capline{font-size:var(--fs-cap);font-weight:800;color:var(--accent);margin:6px 8px 0;line-height:1.45}
+body.urdu .capline,body.urdu .hintbox,body.urdu .card-box{line-height:var(--lh)}
+.eqline{direction:ltr;unicode-bidi:isolate;font-weight:800;font-size:var(--fs-sm);margin:8px 6px 4px;line-height:1.35}
+.card-box{background:rgba(253,250,243,.95);border:2.5px solid var(--ink);border-radius:14px;padding:10px 12px;font-weight:800;font-size:var(--fs-xs);max-width:340px;margin:8px auto 0;line-height:1.4}
+.bank{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:4px}
+.bank.ltrb{direction:ltr}
+.mini-item{border:2px solid var(--ink);border-radius:12px;padding:8px 10px;background:#fff;line-height:1.2;cursor:pointer;min-width:52px;min-height:52px;font-weight:800;font-size:var(--fs-cap);display:flex;align-items:center;justify-content:center;gap:4px;touch-action:manipulation}
+.mini-item.dig{font-size:22px;min-width:64px;min-height:56px}
+.mini-item.used{opacity:.35;pointer-events:none}
+.mini-item.right,.save-choices button.right,.opt.right{border-color:var(--ok);background:#e8f2ed}
+.mini-item.wrong,.save-choices button.wrong,.opt.wrong{border-color:var(--left);background:#fbeae8}
+.yn-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:8px}
+.yn-chip{border:2.5px solid var(--ink);border-radius:14px;padding:12px 18px;background:var(--paper);font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:52px;min-width:100px;touch-action:manipulation}
+.yn-chip.right{border-color:var(--ok);background:#e8f2ed}
+.yn-chip.wrong{border-color:var(--left);background:#fbeae8}
+.rule-tag{display:inline-block;background:#fff6d8;border:2px solid var(--gold);border-radius:999px;padding:4px 12px;font-weight:800;font-size:var(--fs-cap);margin:4px 2px;direction:ltr}
+.save-choices{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+.save-choices button{border:2.5px solid var(--ink);background:var(--paper);border-radius:14px;padding:12px 14px;font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;text-align:left;min-height:52px;display:flex;align-items:center;gap:10px;touch-action:manipulation}
+body.urdu .save-choices button{text-align:right}
+.save-choices button.numc{justify-content:center;text-align:center;direction:ltr;font-size:20px}
+.readout{margin-top:-18px;position:relative;z-index:2;background:var(--paper);border:3px solid var(--ink);border-radius:18px;padding:16px 18px}
+.statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+.statechip.ur{padding:2px 14px 7px}
+.statechip.win{background:var(--ok)}
+.statechip.miss{background:var(--left)}
+.headline{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+.headline.ur{line-height:1.95}
+.detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+.hintbox{margin-top:14px;border:2px solid var(--accent);background:#e7f6ef;border-radius:14px;padding:11px 14px;font-size:var(--fs-xs);color:var(--accent);font-weight:700;line-height:1.55;display:none}
+.hintbox.show{display:block}
+.panel{margin-top:22px}
+.panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+.prog{margin:0 0 10px;font-size:var(--fs-xs);font-weight:700;color:var(--ink-soft)}
+.btns{display:flex;gap:9px;margin-top:8px;flex-wrap:wrap}
+.btns button{border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:50px;padding:8px 14px;flex:1;touch-action:manipulation}
+.btns .go{background:var(--ink);color:var(--paper)}
+.btns button:active{transform:scale(.97)}
+.btns button:disabled{opacity:.4;cursor:default}
+.quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+.qhead{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+.qhead h2{font-size:var(--fs-lg);font-weight:800;margin:0;flex:1}
+.q{margin-bottom:26px}
+.q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+.q p.ur{font-weight:400}
+.gloss{margin:-6px 0 12px;font-size:var(--fs-xs);color:var(--ink-soft);font-weight:600;line-height:1.45}
+.opt{display:block;width:100%;text-align:left;margin-bottom:10px;border:2px solid var(--line);background:var(--paper);border-radius:12px;padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);min-height:50px;touch-action:manipulation}
+.opt.ur{text-align:right;line-height:var(--lh)}
+.opt:disabled{cursor:default}
+.fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+.fb.show{display:block}
+footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);font-size:var(--fs-xs);color:var(--ink-soft)}
+@media (min-width:820px){
+.wrap{max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;grid-template-areas:"bar bar" "head head" "tabs tabs" "story story" "left right" "quiz quiz" "foot foot";align-items:start}
+.bar{grid-area:bar}.head{grid-area:head}.tabs{grid-area:tabs}.story{grid-area:story}.left{grid-area:left}.right{grid-area:right}.quiz{grid-area:quiz;margin-top:34px}footer{grid-area:foot}.panel{margin-top:0}
+}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01ms !important;animation:none !important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 4 · Hisaab</span>
+    <span class="stars">⭐ <span id="starCount">0</span></span>
+    <button class="chip" id="langBtn" aria-pressed="false" type="button">اردو</button>
+    <button class="chip" id="speakBtn" type="button" aria-label="Sunlo">🔊</button>
+  </div>
+  <div class="head"><h1 id="title"></h1><p class="sub" id="subtitle"></p></div>
+  <div class="tabs" role="group">
+    <button type="button" id="tabDiv" aria-pressed="true"></button>
+    <button type="button" id="tabFac" aria-pressed="false"></button>
+    <button type="button" id="tabPrime" aria-pressed="false"></button>
+  </div>
+  <p class="story" id="story"></p>
+  <div class="left">
+    <div class="scene"><div class="scene-pad" id="scenePad"></div></div>
+    <div class="readout">
+      <span class="statechip" id="statechip"></span>
+      <p class="headline" id="headline"></p>
+      <p class="detail" id="detail"></p>
+      <p class="hintbox" id="hintbox"></p>
+    </div>
+  </div>
+  <div class="right">
+    <div class="panel">
+      <h2 id="ctlHead"></h2>
+      <p class="prog" id="prog"></p>
+      <div id="actionBox"></div>
+      <div class="btns"><button type="button" class="go" id="nextBtn"></button></div>
+      <div class="btns"><button type="button" id="hintBtn"></button><button type="button" id="resetBtn"></button></div>
+    </div>
+  </div>
+  <div class="quiz">
+    <div class="qhead"><h2 id="quizHead"></h2><button type="button" class="chip" id="newQuiz"></button></div>
+    <div id="quizBox"></div>
+  </div>
+  <footer>
+    <p data-en="AI4Kids — Islamabad bilingual school. Offline. WhatsApp 0337 1468899 · Factors aur multiples" data-ur="اے آئی فور کڈز — اسلام آباد دو لسانی اسکول۔ آف لائن۔ واٹس ایپ 0337 1468899 · عوامل اور مضارب"></p>
+  </footer>
+</div>
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id)}
+function isolate(s){return "\u2066"+s+"\u2069"}
+function setText(el,str){if(!el)return;el.textContent=(lang==="ur")?isolate(str):str;el.classList.toggle("ur",lang==="ur");el.setAttribute("dir",lang==="ur"?"rtl":"ltr")}
+function t(o){return (o&&o[lang])||(o&&o.en)||""}
+function shuffle(arr){var a=arr.slice(),i,j,tmp;for(i=a.length-1;i>0;i--){j=Math.floor(Math.random()*(i+1));tmp=a[i];a[i]=a[j];a[j]=tmp}return a}
+function fmt(n){var s=String(Math.abs(n|0)),out="";while(s.length>3){out=","+s.slice(-3)+out;s=s.slice(0,-3)}return s+out}
+var lang="en",mode="div",stars=0,awarded={},doneModes={div:false,fac:false,prime:false},speakTimer=null;
+var T={
+title:{en:"Factors aur multiples",ur:"عوامل اور مضارب"},
+sub:{en:"Divisibility by 2, 3, 5, 10. Factors, multiples, prime and composite — Class 4 hisaab.",ur:"2، 3، 5، 10 سے تقسیم۔ عوامل، مضارب، مفرد اور مرکب — کلاس 4 حساب۔"},
+tabDiv:{en:"Divisible?",ur:"قابلِ تقسیم؟"},
+tabFac:{en:"Factors & multiples",ur:"عوامل و مضارب"},
+tabPrime:{en:"Prime or composite",ur:"مفرد یا مرکب"},
+storyDiv:{en:"A number is <b>divisible</b> by another if it divides evenly (no remainder). Rules: <b>2</b> — last digit even; <b>3</b> — digit sum ÷3; <b>5</b> — ends in 0 or 5; <b>10</b> — ends in 0. Try cricket scores and bazaar counts up to 4 digits.",ur:"ایک نمبر دوسرے سے <b>قابلِ تقسیم</b> ہے اگر بغیر باقی کے بٹے۔ قواعد: <b>2</b> — آخری ہندسہ جفت؛ <b>3</b> — ہندسوں کا مجموعہ ÷3؛ <b>5</b> — 0 یا 5 پر ختم؛ <b>10</b> — 0 پر ختم۔ کرکٹ سکور اور بازار کی گنتی 4 ہندسوں تک آزماؤ۔"},
+storyFac:{en:"A <b>factor</b> divides a number exactly. <b>Factor pairs</b> multiply to that number (like 4×6=24). <b>Multiples</b> are that number times 1, 2, 3… <b>Common factors</b> and <b>common multiples</b> belong to two numbers. Share mithai boxes and cricket overs fairly!",ur:"<b>عامل</b> نمبر کو بالکل تقسیم کرتا ہے۔ <b>عامل جوڑے</b> ضرب دے کر وہ نمبر بناتے ہیں (جیسے 4×6=24)۔ <b>مضارب</b> وہ نمبر ×1، 2، 3… ہیں۔ <b>مشترک عوامل</b> اور <b>مشترک مضارب</b> دو نمبروں کے ہوتے ہیں۔ مٹھائی کے ڈبے اور کرکٹ اوور منصفانہ بانٹو!"},
+storyPrime:{en:"A <b>prime</b> has exactly two factors: 1 and itself (2, 3, 5, 7…). A <b>composite</b> has more than two factors (4, 6, 8, 9…). 1 is neither. We check 2-digit primes and composites up to <b>50</b>.",ur:"<b>مفرد</b> کے صرف دو عوامل ہوتے ہیں: 1 اور خود (2، 3، 5، 7…)۔ <b>مرکب</b> کے دو سے زیادہ عوامل ہوتے ہیں (4، 6، 8، 9…)۔ 1 نہ مفرد ہے نہ مرکب۔ ہم <b>50</b> تک دو ہندسوں والے مفرد اور مرکب چیک کرتے ہیں۔"},
+ctl:{en:"Your turn — hisaab lab",ur:"تمہاری باری — حساب لیب"},
+next:{en:"Next challenge",ur:"اگلا چیلنج"},
+hint:{en:"Hint",ur:"اشارہ"},
+reset:{en:"Reset",ur:"ری سیٹ"},
+quiz:{en:"Check yourself",ur:"اپنا چیک"},
+newQuiz:{en:"New quiz",ur:"نیا کوئز"},
+nice:{en:"Shabash!",ur:"شاباش!"},
+oops:{en:"Almost — try again",ur:"قریب — دوبارہ آزماؤ"},
+tipDiv:{en:"Last digit even → ÷2. Digit sum ÷3 → ÷3. Ends in 0 or 5 → ÷5. Ends in 0 → ÷10. A number can follow more than one rule.",ur:"آخری ہندسہ جفت → ÷2۔ ہندسوں کا مجموعہ ÷3 → ÷3۔ 0 یا 5 پر ختم → ÷5۔ 0 پر ختم → ÷10۔ ایک نمبر کئی قواعد پر پورا اتر سکتا ہے۔"},
+tipFac:{en:"List factors in pairs: small × big. Multiples skip-count by that number. Common factor divides both. Common multiple is in both lists.",ur:"عوامل جوڑوں میں لکھو: چھوٹا × بڑا۔ مضارب اس نمبر سے چھلانگ لگا کر گنو۔ مشترک عامل دونوں کو تقسیم کرتا ہے۔ مشترک مضارب دونوں فہرستوں میں ہوتا ہے۔"},
+tipPrime:{en:"Check factors up to the square root. If only 1 and itself divide it, it is prime. If another factor appears, it is composite. 1 is special — neither.",ur:"جذر تک عوامل چیک کرو۔ اگر صرف 1 اور خود تقسیم کریں تو مفرد۔ اگر اور عامل ملے تو مرکب۔ 1 خاص ہے — نہ مفرد نہ مرکب۔"},
+progDiv:{en:"Divisible rounds",ur:"تقسیم راؤنڈ"},
+progFac:{en:"Factor rounds",ur:"عامل راؤنڈ"},
+progPrime:{en:"Prime rounds",ur:"مفرد راؤنڈ"},
+yes:{en:"Yes",ur:"ہاں"},
+no:{en:"No",ur:"نہیں"},
+primeLab:{en:"Prime",ur:"مفرد"},
+compLab:{en:"Composite",ur:"مرکب"}
+};
+var DIV=[
+{id:"d1",em:"🏏",title:{en:"Even cricket score?",ur:"جفت کرکٹ سکور؟"},blurb:{en:"Bilal scored 2,468 runs in school nets this year.",ur:"بلال نے اس سال اسکول نیٹ میں 2,468 رنز بنائے۔"},n:2468,by:2,answer:true,
+ask:{en:"Is 2,468 divisible by 2?",ur:"کیا 2,468، 2 سے قابلِ تقسیم ہے؟"},
+hint:{en:"Rule for 2: look at the last digit. 8 is even, so yes — 2,468 ÷ 2 = 1,234.",ur:"2 کا قاعدہ: آخری ہندسہ دیکھو۔ 8 جفت ہے، اس لیے ہاں — 2,468 ÷ 2 = 1,234۔"},
+done:{en:"Yes! Last digit 8 is even.",ur:"ہاں! آخری ہندسہ 8 جفت ہے۔"},
+why:{en:"Any even last digit (0,2,4,6,8) means divisible by 2.",ur:"کوئی بھی جفت آخری ہندسہ (0،2،4،6،8) مطلب 2 سے قابلِ تقسیم۔"}},
+{id:"d2",em:"🍊",title:{en:"Oranges by threes",ur:"مالٹے تین تین"},blurb:{en:"Ali's Sunday bazaar stall has 1,245 oranges.",ur:"علی کے اتوار بازار سٹال پر 1,245 مالٹے ہیں۔"},n:1245,by:3,answer:true,
+ask:{en:"Is 1,245 divisible by 3?",ur:"کیا 1,245، 3 سے قابلِ تقسیم ہے؟"},
+hint:{en:"Add digits: 1+2+4+5 = 12. 12 ÷ 3 = 4, so yes. The number itself ÷3 works too.",ur:"ہندسے جمع کرو: 1+2+4+5 = 12۔ 12 ÷ 3 = 4، اس لیے ہاں۔ خود نمبر بھی ÷3 ہو جاتا ہے۔"},
+done:{en:"Yes! Digit sum 12 is ÷3.",ur:"ہاں! ہندسوں کا مجموعہ 12، 3 سے بٹتا ہے۔"},
+why:{en:"Digit-sum rule is quick for big numbers up to 4 digits.",ur:"ہندسوں کے مجموعے کا قاعدہ 4 ہندسوں تک تیز ہے۔"}},
+{id:"d3",em:"🍬",title:{en:"Mithai fives",ur:"مٹھائی پانچوں"},blurb:{en:"Ayesha packed 3,170 laddoos for Eid boxes.",ur:"عائشہ نے عید کے ڈبوں کے لیے 3,170 لڈو پیک کیے۔"},n:3170,by:5,answer:true,
+ask:{en:"Is 3,170 divisible by 5?",ur:"کیا 3,170، 5 سے قابلِ تقسیم ہے؟"},
+hint:{en:"Rule for 5: last digit is 0 or 5. Here it is 0, so yes. Bonus: ends in 0 also means ÷10!",ur:"5 کا قاعدہ: آخری ہندسہ 0 یا 5۔ یہاں 0 ہے، اس لیے ہاں۔ بونس: 0 پر ختم یعنی ÷10 بھی!"},
+done:{en:"Yes! Ends in 0 — ÷5 and ÷10.",ur:"ہاں! 0 پر ختم — ÷5 اور ÷10۔"},
+why:{en:"Ends in 0 → ÷5 and ÷10. Ends in 5 → ÷5 only (not ÷10).",ur:"0 پر ختم → ÷5 اور ÷10۔ 5 پر ختم → صرف ÷5 (÷10 نہیں)۔"}},
+{id:"d4",em:"📚",title:{en:"Library tens?",ur:"لائبریری دس؟"},blurb:{en:"Islamabad school library logged 4,835 books borrowed.",ur:"اسلام آباد اسکول لائبریری میں 4,835 کتابیں ادھار گئیں۔"},n:4835,by:10,answer:false,
+ask:{en:"Is 4,835 divisible by 10?",ur:"کیا 4,835، 10 سے قابلِ تقسیم ہے؟"},
+hint:{en:"Rule for 10: must end in 0. Last digit is 5, not 0. It is ÷5 (ends in 5) but not ÷10.",ur:"10 کا قاعدہ: 0 پر ختم ہونا چاہیے۔ آخری ہندسہ 5 ہے، 0 نہیں۔ یہ ÷5 ہے لیکن ÷10 نہیں۔"},
+done:{en:"No — ends in 5, not 0.",ur:"نہیں — 5 پر ختم، 0 نہیں۔"},
+why:{en:"÷10 needs a zero at the end. 4,835 ÷ 10 leaves remainder 5.",ur:"÷10 کے لیے آخر میں صفر چاہیے۔ 4,835 ÷ 10 میں باقی 5 رہتی ہے۔"}},
+{id:"d5",em:"🚌",title:{en:"Bus tickets by 2?",ur:"بس ٹکٹ دو سے؟"},blurb:{en:"Hamza sold 1,573 fair tickets at the school gate.",ur:"حمزہ نے اسکول گیٹ پر 1,573 میلے کے ٹکٹ بیچے۔"},n:1573,by:2,answer:false,
+ask:{en:"Is 1,573 divisible by 2?",ur:"کیا 1,573، 2 سے قابلِ تقسیم ہے؟"},
+hint:{en:"Last digit is 3 — odd, not even. So not ÷2. Digit sum 1+5+7+3=16 is not ÷3 either.",ur:"آخری ہندسہ 3 — طاق ہے، جفت نہیں۔ اس لیے ÷2 نہیں۔ ہندسوں کا مجموعہ 16 بھی ÷3 نہیں۔"},
+done:{en:"No — last digit 3 is odd.",ur:"نہیں — آخری ہندسہ 3 طاق ہے۔"},
+why:{en:"Odd last digit means not divisible by 2.",ur:"طاق آخری ہندسہ مطلب 2 سے قابلِ تقسیم نہیں۔"}}
+];
+var FAC=[
+{id:"f1",em:"🍬",kind:"pairs",title:{en:"Laddoo factor pairs",ur:"لڈو عامل جوڑے"},blurb:{en:"Share 24 laddoos in equal boxes. Find all factor pairs of 24.",ur:"24 لڈو برابر ڈبوں میں بانٹو۔ 24 کے سب عامل جوڑے تلاش کرو۔"},n:24,
+pairs:["1×24","2×12","3×8","4×6"],
+traps:["5×5","6×5","8×2"],
+ask:{en:"Tap every true factor pair of 24 (order small×big).",ur:"24 کا ہر صحیح عامل جوڑا ٹیپ کرو (چھوٹا×بڑا)۔"},
+hint:{en:"1×24, 2×12, 3×8, 4×6. Stop when factors meet. 5 does not divide 24. 8×2 is the same as 2×12 — we already listed small first.",ur:"1×24، 2×12، 3×8، 4×6۔ جہاں عوامل ملیں رک جاؤ۔ 5، 24 کو نہیں بانٹتا۔ 8×2 وہی 2×12 ہے — پہلے چھوٹا لکھتے ہیں۔"},
+done:{en:"Pairs: 1×24, 2×12, 3×8, 4×6.",ur:"جوڑے: 1×24، 2×12، 3×8، 4×6۔"},
+why:{en:"Factors of 24: 1,2,3,4,6,8,12,24. Each pair multiplies to 24.",ur:"24 کے عوامل: 1،2،3،4،6،8،12،24۔ ہر جوڑا ضرب دے کر 24 بناتا ہے۔"}},
+{id:"f2",em:"🏏",kind:"multiples",title:{en:"Overs as multiples",ur:"اوور بطور مضارب"},blurb:{en:"Each over is 6 balls. Which numbers are multiples of 6?",ur:"ہر اوور 6 گیندیں۔ کون سے نمبر 6 کے مضارب ہیں؟"},n:6,
+want:[12,18,30,42],
+opts:[12,14,18,25,30,42],
+ask:{en:"Tap all multiples of 6 in the list.",ur:"فہرست میں 6 کے سب مضارب ٹیپ کرو۔"},
+hint:{en:"Skip-count: 6,12,18,24,30,36,42… 14 and 25 are not in that list.",ur:"چھلانگ گنتی: 6،12،18،24،30،36،42… 14 اور 25 اس فہرست میں نہیں۔"},
+done:{en:"Multiples: 12, 18, 30, 42.",ur:"مضارب: 12، 18، 30، 42۔"},
+why:{en:"A multiple of 6 is 6×k for a whole number k.",ur:"6 کا مضارب 6×k ہے جہاں k پورا نمبر ہے۔"}},
+{id:"f3",em:"📚",kind:"commonFac",title:{en:"Common factors of books",ur:"کتابوں کے مشترک عوامل"},blurb:{en:"Class A has 18 storybooks. Class B has 24. Find common factors.",ur:"کلاس A میں 18 کہانی کی کتابیں۔ کلاس B میں 24۔ مشترک عوامل تلاش کرو۔"},n1:18,n2:24,
+want:[1,2,3,6],
+opts:[1,2,3,4,5,6,8,9],
+ask:{en:"Tap every common factor of 18 and 24.",ur:"18 اور 24 کا ہر مشترک عامل ٹیپ کرو۔"},
+hint:{en:"Factors of 18: 1,2,3,6,9,18. Of 24: 1,2,3,4,6,8,12,24. Shared: 1,2,3,6. Greatest common factor is 6.",ur:"18 کے عوامل: 1،2،3،6،9،18۔ 24 کے: 1،2،3،4،6،8،12،24۔ مشترک: 1،2،3،6۔ سب سے بڑا مشترک عامل 6 ہے۔"},
+done:{en:"Common factors: 1, 2, 3, 6.",ur:"مشترک عوامل: 1، 2، 3، 6۔"},
+why:{en:"Common factors divide both numbers. GCF of 18 and 24 is 6.",ur:"مشترک عوامل دونوں کو تقسیم کرتے ہیں۔ 18 اور 24 کا GCF 6 ہے۔"}},
+{id:"f4",em:"🚌",kind:"commonMult",title:{en:"Common multiples — bus times",ur:"مشترک مضارب — بس اوقات"},blurb:{en:"Red bus every 4 minutes. Blue bus every 6 minutes. Common multiples?",ur:"لال بس ہر 4 منٹ۔ نیلی بس ہر 6 منٹ۔ مشترک مضارب؟"},n1:4,n2:6,
+want:[12,24],
+opts:[8,12,16,18,24,30],
+ask:{en:"Tap common multiples of 4 and 6 from the list.",ur:"فہرست سے 4 اور 6 کے مشترک مضارب ٹیپ کرو۔"},
+hint:{en:"Multiples of 4: 4,8,12,16,20,24,28,32… Of 6: 6,12,18,24,30… Shared here: 12 and 24. LCM is 12.",ur:"4 کے مضارب: 4،8،12،16،20،24… 6 کے: 6،12،18،24،30… یہاں مشترک: 12 اور 24۔ LCM 12 ہے۔"},
+done:{en:"Common multiples here: 12 and 24.",ur:"یہاں مشترک مضارب: 12 اور 24۔"},
+why:{en:"LCM of 4 and 6 is 12 — first time both buses meet again.",ur:"4 اور 6 کا LCM 12 ہے — دونوں بسیں دوبارہ اسی وقت ملیں گی۔"}}
+];
+var PRIME=[
+{id:"p1",em:"⭐",title:{en:"Is 17 prime?",ur:"کیا 17 مفرد ہے؟"},blurb:{en:"Sara's jersey number is 17 in the Islamabad junior match.",ur:"سارہ کا جرسی نمبر اسلام آباد جونیئر میچ میں 17 ہے۔"},n:17,answer:"prime",
+ask:{en:"Is 17 prime or composite?",ur:"کیا 17 مفرد ہے یا مرکب؟"},
+hint:{en:"Check ÷2,3,4… up to √17≈4. Only 1 and 17 divide it. Two factors → prime.",ur:"÷2،3،4… √17≈4 تک چیک کرو۔ صرف 1 اور 17 تقسیم کرتے ہیں۔ دو عوامل → مفرد۔"},
+done:{en:"17 is prime.",ur:"17 مفرد ہے۔"},
+why:{en:"Primes up to 50 include 2,3,5,7,11,13,17,19,23,29,31,37,41,43,47.",ur:"50 تک مفرد: 2،3،5،7،11،13،17،19،23،29،31،37،41،43،47۔"}},
+{id:"p2",em:"🍊",title:{en:"Is 21 composite?",ur:"کیا 21 مرکب ہے؟"},blurb:{en:"21 mangoes in three bags of 7 — Ali's Friday bazaar share.",ur:"تین تھیلوں میں 7-7، کل 21 آم — علی کا جمعہ بازار حصہ۔"},n:21,answer:"composite",
+ask:{en:"Is 21 prime or composite?",ur:"کیا 21 مفرد ہے یا مرکب؟"},
+hint:{en:"21 = 3×7. Factors: 1,3,7,21 — more than two, so composite.",ur:"21 = 3×7۔ عوامل: 1،3،7،21 — دو سے زیادہ، اس لیے مرکب۔"},
+done:{en:"21 is composite.",ur:"21 مرکب ہے۔"},
+why:{en:"Any product of smaller primes is composite (except the primes themselves).",ur:"چھوٹے مفردوں کا کوئی بھی حاصلِ ضرب مرکب ہے (خود مفرد کے سوا)۔"}},
+{id:"p3",em:"🏏",title:{en:"Is 29 prime?",ur:"کیا 29 مفرد ہے؟"},blurb:{en:"Hamza bowled 29 balls before the first wicket.",ur:"حمزہ نے پہلی وکٹ سے پہلے 29 گیندیں پھینکیں۔"},n:29,answer:"prime",
+ask:{en:"Is 29 prime or composite?",ur:"کیا 29 مفرد ہے یا مرکب؟"},
+hint:{en:"√29≈5.4. Check 2,3,5 — none divide 29. Only factors 1 and 29 → prime.",ur:"√29≈5.4۔ 2،3،5 چیک کرو — کوئی 29 کو نہیں بانٹتا۔ صرف عوامل 1 اور 29 → مفرد۔"},
+done:{en:"29 is prime.",ur:"29 مفرد ہے۔"},
+why:{en:"Odd numbers are not always prime — but 29 is.",ur:"طاق نمبر ہمیشہ مفرد نہیں — مگر 29 ہے۔"}},
+{id:"p4",em:"📚",title:{en:"Is 45 composite?",ur:"کیا 45 مرکب ہے؟"},blurb:{en:"Class 4 read 45 pages — 5 groups of 9 pages each.",ur:"کلاس 4 نے 45 صفحے پڑھے — ہر گروپ میں 9 صفحے۔"},n:45,answer:"composite",
+ask:{en:"Is 45 prime or composite?",ur:"کیا 45 مفرد ہے یا مرکب؟"},
+hint:{en:"Ends in 5 → ÷5. Also 45=5×9=3×15. Factors include 1,3,5,9,15,45 → composite.",ur:"5 پر ختم → ÷5۔ نیز 45=5×9=3×15۔ عوامل: 1،3،5،9،15،45 → مرکب۔"},
+done:{en:"45 is composite.",ur:"45 مرکب ہے۔"},
+why:{en:"45 is under 50 and has many factors — classic composite.",ur:"45، 50 سے کم ہے اور بہت عوامل رکھتا ہے — کلاسیکی مرکب۔"}},
+{id:"p5",em:"🚌",title:{en:"Is 49 composite?",ur:"کیا 49 مرکب ہے؟"},blurb:{en:"Bus stop number 49 — seven rows of seven seats painted.",ur:"بس اسٹاپ نمبر 49 — سات قطاریں، سات سیٹیں۔"},n:49,answer:"composite",
+ask:{en:"Is 49 prime or composite?",ur:"کیا 49 مفرد ہے یا مرکب؟"},
+hint:{en:"49 = 7×7. Factors: 1,7,49 — three factors → composite (a square).",ur:"49 = 7×7۔ عوامل: 1،7،49 — تین عوامل → مرکب (مربع)۔"},
+done:{en:"49 is composite (7×7).",ur:"49 مرکب ہے (7×7)۔"},
+why:{en:"Squares of primes greater than 1 are composite. 49 is under our Class 4 limit of 50.",ur:"1 سے بڑے مفردوں کے مربع مرکب ہیں۔ 49 ہماری کلاس 4 حد 50 کے اندر ہے۔"}}
+];
+var QUIZ=[
+{id:"q2",pin:true,q:{en:"Which rule checks divisibility by 2?",ur:"2 سے قابلِ تقسیم چیک کرنے کا قاعدہ کون سا ہے؟"},ru:"2 se divisible check karne ka rule kaun sa hai?",
+opts:[{en:"Last digit is even",ur:"آخری ہندسہ جفت ہو"},{en:"Digit sum ÷3",ur:"ہندسوں کا مجموعہ ÷3"},{en:"Ends in 0 only",ur:"صرف 0 پر ختم"},{en:"Ends in 5 only",ur:"صرف 5 پر ختم"}],correct:0,
+why:{en:"Even last digit (0,2,4,6,8) means ÷2. Digit sum is for 3. Ending in 0 is for 10 (also even).",ur:"جفت آخری ہندسہ مطلب ÷2۔ ہندسوں کا مجموعہ 3 کے لیے ہے۔ 0 پر ختم 10 کے لیے ہے (وہ بھی جفت)۔"}},
+{id:"qprime",pin:true,q:{en:"Which number is prime?",ur:"کون سا نمبر مفرد ہے؟"},ru:"Kaun sa number prime hai?",
+opts:[{en:"21",ur:"21"},{en:"27",ur:"27"},{en:"29",ur:"29"},{en:"33",ur:"33"}],correct:2,
+why:{en:"29 has only factors 1 and 29. 21=3×7, 27=3×9, 33=3×11 are composite.",ur:"29 کے صرف عوامل 1 اور 29 ہیں۔ 21=3×7، 27=3×9، 33=3×11 مرکب ہیں۔"}},
+{id:"q3",q:{en:"Is 2,412 divisible by 3?",ur:"کیا 2,412، 3 سے قابلِ تقسیم ہے؟"},ru:"Kya 2,412 teen se divisible hai?",
+opts:[{en:"Yes — digit sum 9 ÷3",ur:"ہاں — ہندسوں کا مجموعہ 9 ÷3"},{en:"No — last digit odd",ur:"نہیں — آخری ہندسہ طاق"},{en:"Only if ÷10",ur:"صرف اگر ÷10 ہو"},{en:"Cannot tell",ur:"پتہ نہیں چل سکتا"}],correct:0,
+why:{en:"2+4+1+2=9, and 9÷3=3, so yes. Last-digit odd/even is the rule for 2, not 3.",ur:"2+4+1+2=9، اور 9÷3=3، اس لیے ہاں۔ طاق/جفت قاعدہ 2 کا ہے، 3 کا نہیں۔"}},
+{id:"qfac",q:{en:"Which is a factor pair of 36?",ur:"36 کا عامل جوڑا کون سا ہے؟"},ru:"36 ka factor pair kaun sa hai?",
+opts:[{en:"5 × 7",ur:"5 × 7"},{en:"4 × 9",ur:"4 × 9"},{en:"8 × 5",ur:"8 × 5"},{en:"3 × 10",ur:"3 × 10"}],correct:1,
+why:{en:"4×9=36. Factors of 36 include 1,2,3,4,6,9,12,18,36.",ur:"4×9=36۔ 36 کے عوامل میں 1،2،3،4،6،9،12،18،36 شامل ہیں۔"}},
+{id:"q10",q:{en:"Which number is divisible by 10?",ur:"کون سا نمبر 10 سے قابلِ تقسیم ہے؟"},ru:"Kaun sa number 10 se divisible hai?",
+opts:[{en:"1,245",ur:"1,245"},{en:"3,170",ur:"3,170"},{en:"4,835",ur:"4,835"},{en:"2,157",ur:"2,157"}],correct:1,
+why:{en:"Only 3,170 ends in 0. Ending in 5 means ÷5 but not ÷10.",ur:"صرف 3,170 صفر پر ختم ہوتا ہے۔ 5 پر ختم مطلب ÷5 مگر ÷10 نہیں۔"}},
+{id:"qcm",q:{en:"A common multiple of 4 and 6 is…",ur:"4 اور 6 کا مشترک مضارب ہے…"},ru:"4 aur 6 ka common multiple hai…",
+opts:[{en:"8",ur:"8"},{en:"10",ur:"10"},{en:"12",ur:"12"},{en:"14",ur:"14"}],correct:2,
+why:{en:"12 is in both lists (4×3 and 6×2). It is also the LCM.",ur:"12 دونوں فہرستوں میں ہے (4×3 اور 6×2)۔ یہ LCM بھی ہے۔"}},
+{id:"qcomp",q:{en:"Why is 1 neither prime nor composite?",ur:"1 نہ مفرد ہے نہ مرکب — کیوں؟"},ru:"1 na prime hai na composite — kyun?",
+opts:[{en:"It has only one factor: 1",ur:"اس کا صرف ایک عامل ہے: 1"},{en:"It is even",ur:"یہ جفت ہے"},{en:"It is bigger than 50",ur:"یہ 50 سے بڑا ہے"},{en:"It ends in 1",ur:"یہ 1 پر ختم ہوتا ہے"}],correct:0,
+why:{en:"Prime needs exactly two factors. Composite needs more than two. 1 has only itself.",ur:"مفرد کو بالکل دو عوامل چاہیے۔ مرکب کو دو سے زیادہ۔ 1 کے پاس صرف خود ہے۔"}}
+];
+var divIdx=0,divDone={};
+var facIdx=0,facDone={},facPicked={};
+var primeIdx=0,primeDone={};
+var optKey="",optOrder=[],quizSet=[],quizState={};
+
+function award(key,n){if(awarded[key])return;awarded[key]=true;stars+=(n||1);$("starCount").textContent=String(stars)}
+function recountStars(){stars=0;Object.keys(awarded).forEach(function(k){stars+=(k.indexOf("mode-")===0)?2:1});$("starCount").textContent=String(stars)}
+function markWin(prefix,id,doneMap,modeKey,total){if(doneMap[id])return;doneMap[id]=true;award(prefix+"-"+id,1);if(Object.keys(doneMap).length>=total){doneModes[modeKey]=true;award("mode-"+modeKey,2)}tabBadges()}
+function skyHTML(){return '<div class="sky-layer"><div class="sun-ball"></div><div class="cloud c1"></div><div class="cloud c2"></div></div>'}
+function prepScene(){var pad=$("scenePad");pad.innerHTML=skyHTML();var stage=document.createElement("div");stage.className="num-stage";pad.appendChild(stage);return stage}
+function addBlurb(stage,ch){var em=document.createElement("div");em.className="hero-em";em.textContent=ch.em||"🔢";stage.appendChild(em);var box=document.createElement("div");box.className="card-box";setText(box,t(ch.blurb));stage.appendChild(box)}
+function addHero(stage,n){var h=document.createElement("div");h.className="num-hero";h.textContent=fmt(n);stage.appendChild(h)}
+function addCap(stage,msg){var c=document.createElement("div");c.className="capline";setText(c,msg);stage.appendChild(c)}
+function showStep(i,n){setText($("statechip"),(i+1)+" / "+n);$("statechip").className="statechip"+(lang==="ur"?" ur":"")}
+function showWin(msg){setText($("headline"),msg);$("statechip").className="statechip win"+(lang==="ur"?" ur":"");setText($("statechip"),t(T.nice))}
+function showMiss(){setText($("headline"),t(T.oops));$("statechip").className="statechip miss"+(lang==="ur"?" ur":"");setText($("statechip"),t(T.oops))}
+function stableOrder(key,arr){if(optKey!==key){optKey=key;optOrder=shuffle(arr)}return optOrder}
+function clearHint(){$("hintbox").classList.remove("show")}
+function ruleTag(by){return '<span class="rule-tag">÷ '+by+'</span>'}
+
+function renderDiv(){
+  var ch=DIV[divIdx],stage=prepScene();addBlurb(stage,ch);addHero(stage,ch.n);
+  var tag=document.createElement("div");tag.innerHTML=ruleTag(ch.by);stage.appendChild(tag);
+  addCap(stage,lang==="en"?"Use the divisibility rule. Yes or No.":"قابلِ تقسیم کا قاعدہ استعمال کرو۔ ہاں یا نہیں۔");
+  showStep(divIdx,DIV.length);setText($("headline"),t(ch.title));
+  setText($("detail"),divDone[ch.id]?t(ch.why):t(ch.ask));clearHint();
+  if(divDone[ch.id])showWin(t(ch.done));
+  var box=$("actionBox");box.innerHTML="";
+  var row=document.createElement("div");row.className="yn-row";
+  [{v:true,lab:T.yes},{v:false,lab:T.no}].forEach(function(opt){
+    var b=document.createElement("button");b.type="button";b.className="yn-chip";setText(b,t(opt.lab));
+    if(divDone[ch.id]&&opt.v===ch.answer)b.classList.add("right");
+    b.disabled=!!divDone[ch.id];
+    b.addEventListener("click",function(){
+      if(divDone[ch.id])return;
+      if(opt.v===ch.answer){markWin("div",ch.id,divDone,"div",DIV.length);renderDiv()}
+      else{b.classList.add("wrong");showMiss()}
+    });
+    row.appendChild(b);
+  });
+  box.appendChild(row);
+  setText($("prog"),t(T.progDiv)+": "+Object.keys(divDone).length+"/"+DIV.length);
+}
+
+function sameSet(a,b){if(a.length!==b.length)return false;var sa=a.slice().sort(),sb=b.slice().sort(),i;for(i=0;i<sa.length;i++)if(String(sa[i])!==String(sb[i]))return false;return true}
+function renderFac(){
+  var ch=FAC[facIdx],stage=prepScene();addBlurb(stage,ch);
+  if(ch.kind==="pairs"){addHero(stage,ch.n);addCap(stage,lang==="en"?"Factor pairs: small × big = "+ch.n:"عامل جوڑے: چھوٹا × بڑا = "+ch.n)}
+  else if(ch.kind==="multiples"){addHero(stage,ch.n);addCap(stage,lang==="en"?"Multiples of "+ch.n:ch.n+" کے مضارب")}
+  else if(ch.kind==="commonFac"){var eq=document.createElement("div");eq.className="eqline";eq.textContent=fmt(ch.n1)+"  &  "+fmt(ch.n2);stage.appendChild(eq);addCap(stage,lang==="en"?"Common factors of both":"دونوں کے مشترک عوامل")}
+  else{var eq2=document.createElement("div");eq2.className="eqline";eq2.textContent=fmt(ch.n1)+"  &  "+fmt(ch.n2);stage.appendChild(eq2);addCap(stage,lang==="en"?"Common multiples":"مشترک مضارب")}
+  showStep(facIdx,FAC.length);setText($("headline"),t(ch.title));
+  setText($("detail"),facDone[ch.id]?t(ch.why):t(ch.ask));clearHint();
+  if(facDone[ch.id])showWin(t(ch.done));
+  var box=$("actionBox");box.innerHTML="";
+  if(!facPicked[ch.id])facPicked[ch.id]=[];
+  var picked=facPicked[ch.id];
+  var bank=document.createElement("div");bank.className="bank ltrb";
+  var items,want;
+  if(ch.kind==="pairs"){
+    if(optKey!=="fac-"+ch.id){optKey="fac-"+ch.id;optOrder=shuffle(ch.pairs.concat(ch.traps))}
+    items=optOrder;want=ch.pairs;
+  }else{
+    if(optKey!=="fac-"+ch.id){optKey="fac-"+ch.id;optOrder=shuffle(ch.opts.slice())}
+    items=optOrder;want=ch.want.map(String);
+  }
+  items.forEach(function(item){
+    var key=String(item);
+    var isWant=want.indexOf(key)>=0||(ch.kind==="pairs"&&want.indexOf(item)>=0);
+    var isPicked=picked.indexOf(key)>=0;
+    var b=document.createElement("button");b.type="button";b.className="mini-item dig";
+    b.textContent=key;b.setAttribute("dir","ltr");
+    if(facDone[ch.id]&&isWant)b.classList.add("right");
+    if(isPicked&&!facDone[ch.id])b.classList.add("right");
+    if(isPicked)b.classList.add("used");
+    b.disabled=!!facDone[ch.id]||isPicked;
+    b.addEventListener("click",function(){
+      if(facDone[ch.id]||isPicked)return;
+      if(isWant||(ch.kind==="pairs"&&ch.pairs.indexOf(item)>=0)){
+        picked.push(key);
+        var need=(ch.kind==="pairs")?ch.pairs:ch.want.map(String);
+        if(sameSet(picked,need)){markWin("fac",ch.id,facDone,"fac",FAC.length)}
+        renderFac();
+      }else{b.classList.add("wrong");showMiss()}
+    });
+    bank.appendChild(b);
+  });
+  box.appendChild(bank);
+  setText($("prog"),t(T.progFac)+": "+Object.keys(facDone).length+"/"+FAC.length);
+}
+
+function renderPrime(){
+  var ch=PRIME[primeIdx],stage=prepScene();addBlurb(stage,ch);addHero(stage,ch.n);
+  addCap(stage,lang==="en"?"Exactly two factors → prime. More → composite.":"بالکل دو عوامل → مفرد۔ زیادہ → مرکب۔");
+  showStep(primeIdx,PRIME.length);setText($("headline"),t(ch.title));
+  setText($("detail"),primeDone[ch.id]?t(ch.why):t(ch.ask));clearHint();
+  if(primeDone[ch.id])showWin(t(ch.done));
+  var box=$("actionBox");box.innerHTML="";
+  var row=document.createElement("div");row.className="yn-row";
+  [{v:"prime",lab:T.primeLab},{v:"composite",lab:T.compLab}].forEach(function(opt){
+    var b=document.createElement("button");b.type="button";b.className="yn-chip";setText(b,t(opt.lab));
+    if(primeDone[ch.id]&&opt.v===ch.answer)b.classList.add("right");
+    b.disabled=!!primeDone[ch.id];
+    b.addEventListener("click",function(){
+      if(primeDone[ch.id])return;
+      if(opt.v===ch.answer){markWin("prime",ch.id,primeDone,"prime",PRIME.length);renderPrime()}
+      else{b.classList.add("wrong");showMiss()}
+    });
+    row.appendChild(b);
+  });
+  box.appendChild(row);
+  setText($("prog"),t(T.progPrime)+": "+Object.keys(primeDone).length+"/"+PRIME.length);
+}
+
+function pickQuiz(){
+  var pin=[],rest=[],i;quizState={};
+  for(i=0;i<QUIZ.length;i++){if(QUIZ[i].pin)pin.push(QUIZ[i]);else rest.push(QUIZ[i])}
+  rest=shuffle(rest);quizSet=shuffle(pin.concat(rest.slice(0,5-pin.length)));
+}
+function renderQuiz(){
+  var box=$("quizBox");box.innerHTML="";
+  quizSet.forEach(function(item,qi){
+    var wrap=document.createElement("div");wrap.className="q";
+    var p=document.createElement("p");setText(p,(qi+1)+". "+t(item.q));wrap.appendChild(p);
+    if(lang==="en"&&item.ru){var g=document.createElement("p");g.className="gloss";g.textContent=item.ru;wrap.appendChild(g)}
+    var st=quizState[item.id];
+    item.opts.forEach(function(opt,oi){
+      var b=document.createElement("button");b.type="button";b.className="opt"+(lang==="ur"?" ur":"");setText(b,t(opt));
+      if(st&&oi===item.correct)b.classList.add("right");
+      if(st==="no"&&quizState[item.id+"-pick"]===oi&&oi!==item.correct)b.classList.add("wrong");
+      if(st)b.disabled=true;
+      b.addEventListener("click",function(){
+        if(quizState[item.id])return;
+        quizState[item.id+"-pick"]=oi;
+        if(oi===item.correct){quizState[item.id]="ok";b.classList.add("right");award("quiz-"+item.id,1)}
+        else{quizState[item.id]="no";b.classList.add("wrong");var kids=wrap.querySelectorAll(".opt");if(kids[item.correct])kids[item.correct].classList.add("right")}
+        fb.classList.add("show");
+        var all=wrap.querySelectorAll(".opt"),k;for(k=0;k<all.length;k++)all[k].disabled=true;
+      });
+      wrap.appendChild(b);
+    });
+    var fb=document.createElement("p");fb.className="fb"+(st?" show":"");setText(fb,t(item.why));wrap.appendChild(fb);
+    box.appendChild(wrap);
+  });
+}
+function storyHtml(){if(mode==="div")return t(T.storyDiv);if(mode==="fac")return t(T.storyFac);return t(T.storyPrime)}
+function currentTip(){if(mode==="div")return T.tipDiv;if(mode==="fac")return T.tipFac;return T.tipPrime}
+function tabBadges(){
+  function lab(btn,label,key){btn.innerHTML="";var span=document.createElement("span");setText(span,t(label));btn.appendChild(span);if(doneModes[key]){var b=document.createElement("span");b.className="badge";b.textContent=" ★";btn.appendChild(b)}}
+  lab($("tabDiv"),T.tabDiv,"div");lab($("tabFac"),T.tabFac,"fac");lab($("tabPrime"),T.tabPrime,"prime");
+  $("tabDiv").setAttribute("aria-pressed",mode==="div"?"true":"false");
+  $("tabFac").setAttribute("aria-pressed",mode==="fac"?"true":"false");
+  $("tabPrime").setAttribute("aria-pressed",mode==="prime"?"true":"false");
+}
+function renderCurrent(){if(mode==="div")renderDiv();else if(mode==="fac")renderFac();else renderPrime()}
+function setMode(m){mode=m;optKey="";renderCurrent();applyChrome()}
+function applyChrome(){
+  setText($("title"),t(T.title));setText($("subtitle"),t(T.sub));
+  $("story").innerHTML=storyHtml();$("story").classList.toggle("ur",lang==="ur");$("story").setAttribute("dir",lang==="ur"?"rtl":"ltr");
+  setText($("ctlHead"),t(T.ctl));setText($("nextBtn"),t(T.next));setText($("hintBtn"),t(T.hint));setText($("resetBtn"),t(T.reset));
+  setText($("quizHead"),t(T.quiz));setText($("newQuiz"),t(T.newQuiz));
+  $("langBtn").textContent=(lang==="en")?"اردو":"EN";$("langBtn").setAttribute("aria-pressed",lang==="ur"?"true":"false");
+  document.body.classList.toggle("urdu",lang==="ur");
+  document.documentElement.lang=(lang==="ur")?"ur":"en";
+  document.documentElement.dir=(lang==="ur")?"rtl":"ltr";
+  document.title=t(T.title)+" | AI4Kids Class 4";
+  tabBadges();
+  var foot=document.querySelector("footer p");
+  if(foot)setText(foot,foot.getAttribute(lang==="ur"?"data-ur":"data-en"));
+}
+function applyLang(){applyChrome();renderCurrent();renderQuiz()}
+function next(){
+  optKey="";
+  if(mode==="div"){divIdx=(divIdx+1)%DIV.length;renderDiv()}
+  else if(mode==="fac"){facIdx=(facIdx+1)%FAC.length;renderFac()}
+  else{primeIdx=(primeIdx+1)%PRIME.length;renderPrime()}
+}
+function showHint(){
+  var h=mode==="div"?DIV[divIdx].hint:(mode==="fac"?FAC[facIdx].hint:PRIME[primeIdx].hint);
+  var hb=$("hintbox");setText(hb,t(h));hb.classList.add("show");
+}
+function resetMode(){
+  if(mode==="div"){Object.keys(awarded).forEach(function(k){if(k.indexOf("div-")===0||k==="mode-div")delete awarded[k]});divDone={};divIdx=0;doneModes.div=false;recountStars();renderDiv()}
+  else if(mode==="fac"){Object.keys(awarded).forEach(function(k){if(k.indexOf("fac-")===0||k==="mode-fac")delete awarded[k]});facDone={};facPicked={};facIdx=0;doneModes.fac=false;recountStars();renderFac()}
+  else{Object.keys(awarded).forEach(function(k){if(k.indexOf("prime-")===0||k==="mode-prime")delete awarded[k]});primeDone={};primeIdx=0;doneModes.prime=false;recountStars();renderPrime()}
+  optKey="";tabBadges();applyChrome();
+}
+function cleanSpeakText(s){return String(s||"").replace(/<[^>]+>/g," ").replace(/&gt;/g,">").replace(/&lt;/g,"<").replace(/&amp;/g,"&").replace(/\s+/g," ").trim()}
+function buildSpeakText(){
+  var bits=[];bits.push(t(T.title));bits.push(cleanSpeakText(storyHtml()));
+  bits.push(cleanSpeakText(($("headline")&&$("headline").textContent)||""));
+  bits.push(cleanSpeakText(($("detail")&&$("detail").textContent)||""));
+  bits.push(t(currentTip()));return bits.filter(Boolean).join(". ");
+}
+function pickVoice(voices,want){
+  var i,v,L;for(i=0;i<voices.length;i++){v=voices[i];L=(v.lang||"").toLowerCase().replace("_","-");if(L.indexOf(want)===0)return v}
+  for(i=0;i<voices.length;i++){v=voices[i];L=(v.lang||"").toLowerCase().replace("_","-");if(L.indexOf("en")===0)return v}
+  return voices[0]||null;
+}
+function setSpeaking(on){var btn=$("speakBtn");if(!btn)return;btn.setAttribute("aria-pressed",on?"true":"false");btn.style.opacity=on?"0.65":""}
+function doSpeak(text,asLang){
+  var u=new SpeechSynthesisUtterance(text);u.rate=0.92;u.lang=(asLang==="ur")?"ur-PK":"en-US";
+  var voices=window.speechSynthesis.getVoices()||[];var voice=pickVoice(voices,asLang==="ur"?"ur":"en");if(voice)u.voice=voice;
+  u.onstart=function(){setSpeaking(true)};u.onend=function(){setSpeaking(false)};
+  u.onerror=function(){setSpeaking(false);if(asLang==="ur"){var fallback=cleanSpeakText(T.title.en+". "+T.storyDiv.en+". "+T.tipDiv.en);var u2=new SpeechSynthesisUtterance(fallback);u2.lang="en-US";u2.rate=0.92;var v2=pickVoice(window.speechSynthesis.getVoices()||[],"en");if(v2)u2.voice=v2;u2.onstart=function(){setSpeaking(true)};u2.onend=u2.onerror=function(){setSpeaking(false)};window.speechSynthesis.speak(u2)}};
+  window.speechSynthesis.speak(u);
+}
+if("speechSynthesis" in window){
+  try{window.speechSynthesis.getVoices()}catch(e0){}
+  if(typeof window.speechSynthesis.addEventListener==="function"){window.speechSynthesis.addEventListener("voiceschanged",function(){try{window.speechSynthesis.getVoices()}catch(e1){}})}
+}else{var noBtn=$("speakBtn");if(noBtn){noBtn.disabled=true;noBtn.title="Voice not available on this device"}}
+$("langBtn").addEventListener("click",function(){lang=(lang==="en")?"ur":"en";applyLang()});
+$("tabDiv").addEventListener("click",function(){setMode("div")});
+$("tabFac").addEventListener("click",function(){setMode("fac")});
+$("tabPrime").addEventListener("click",function(){setMode("prime")});
+$("nextBtn").addEventListener("click",next);
+$("hintBtn").addEventListener("click",showHint);
+$("resetBtn").addEventListener("click",resetMode);
+$("newQuiz").addEventListener("click",function(){pickQuiz();renderQuiz()});
+$("speakBtn").addEventListener("click",function(){
+  try{
+    if(!("speechSynthesis" in window))return;
+    var text=buildSpeakText();if(!text)return;
+    if(speakTimer){clearTimeout(speakTimer);speakTimer=null}
+    window.speechSynthesis.cancel();setSpeaking(false);
+    var speakLang=lang;
+    speakTimer=setTimeout(function(){speakTimer=null;doSpeak(text,speakLang)},80);
+  }catch(e){setSpeaking(false)}
+});
+pickQuiz();applyLang();
+})();
+</script>
+</body>
+</html>

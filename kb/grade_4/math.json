@@ -156,7 +156,9 @@
             "correct": "a"
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g4-factors-multiples.html",
+      "interactive_label": "Khelo - Factors aur multiples"
     },
     {
       "title": "Fractions operations",

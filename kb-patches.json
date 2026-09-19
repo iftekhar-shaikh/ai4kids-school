@@ -455,5 +455,13 @@
       "interactive_file": "interactives/g4-number-operations.html",
       "interactive_label": "Khelo - Number operations"
     }
+  },
+  {
+    "file": "kb/grade_4/math.json",
+    "match_title": "Factors aur multiples",
+    "add": {
+      "interactive_file": "interactives/g4-factors-multiples.html",
+      "interactive_label": "Khelo - Factors aur multiples"
+    }
   }
 ]
