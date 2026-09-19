@@ -711,5 +711,13 @@
       "interactive_file": "interactives/g4-qomi-tehwar.html",
       "interactive_label": "Khelo - Qomi tehwar"
     }
+  },
+  {
+    "file": "kb/grade_3/science.json",
+    "match_title": "Haddiyaan aur muscles",
+    "add": {
+      "interactive_file": "interactives/g3-haddiyaan-muscles.html",
+      "interactive_label": "Khelo - Haddiyaan aur muscles"
+    }
   }
 ]

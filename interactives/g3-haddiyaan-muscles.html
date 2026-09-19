@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Haddiyaan aur muscles | AI4Kids Grade 3 General Science</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --skin:#f5c9a8;
+    --bone:#e8d9b8;
+    --bone-deep:#c4a86a;
+    --muscle:#c94a4a;
+    --muscle-deep:#8f2e2e;
+    --joint:#5b8fd9;
+    --joint-deep:#2f5fa0;
+    --tooth:#fff8e8;
+    --ok:#2e7d4f;
+    --no:#c4453a;
+    --ink:#1f2933;
+    --ink-soft:#4a5661;
+    --paper:#fdfaf3;
+    --line:#ded5c4;
+    --accent:#1a5b8f;
+    --warm:#c9702e;
+    --care:#3d8b6e;
+    --board:#eef3f7;
+    --board-deep:#d9e5ee;
+
+    --fs-cap:clamp(14px, 3.8vw, 16px);
+    --fs-xs:clamp(16px, 4.2vw, 18px);
+    --fs-sm:clamp(18px, 4.8vw, 20px);
+    --fs-md:clamp(19px, 5.2vw, 22px);
+    --fs-lg:clamp(22px, 6vw, 26px);
+    --fs-xl:clamp(30px, 8vw, 38px);
+    --lh:1.5;
+  }
+  body.urdu{
+    --fs-cap:clamp(15px, 4vw, 17px);
+    --fs-xs:clamp(17px, 4.5vw, 19px);
+    --fs-sm:clamp(19px, 5.2vw, 22px);
+    --fs-md:clamp(21px, 5.6vw, 24px);
+    --fs-lg:clamp(24px, 6.5vw, 28px);
+    --fs-xl:clamp(28px, 7.5vw, 36px);
+    --lh:2.1;
+  }
+
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px;flex-wrap:wrap}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--warm);outline-offset:2px}
+
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+
+  .tabs{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 14px}
+  .tabs button{
+    flex:1 1 28%;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:9px 6px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:52px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:linear-gradient(180deg,var(--board) 0%,var(--board-deep) 100%);
+  }
+  .scene svg{display:block;width:100%;height:auto}
+  .zone{cursor:pointer;transition:opacity .2s, stroke-width .2s}
+  .zone:hover,.zone.on{opacity:1}
+  .zone:not(.on){opacity:.75}
+  .zone.on{stroke-width:3.5}
+
+  .readout{
+    margin-top:12px;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-cap);font-weight:700;margin-bottom:10px;
+             background:var(--accent)}
+  .statechip.ur{padding:2px 14px 7px}
+  .lead{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+  .lead.ur{line-height:1.95}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+
+  .why-note{
+    margin:12px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.55;
+    border-left:3px solid var(--accent);padding-left:11px;
+  }
+  .why-note b{color:var(--accent);font-weight:800}
+  body.urdu .why-note{
+    border-left:0;border-right:3px solid var(--accent);padding-left:0;padding-right:11px;
+    line-height:var(--lh);
+  }
+
+  .play{
+    width:100%;margin-top:12px;border:3px solid var(--ink);border-radius:18px;
+    background:var(--ink);color:var(--paper);font:inherit;font-weight:800;
+    font-size:var(--fs-md);cursor:pointer;min-height:60px;
+  }
+  .play:active{transform:scale(.98)}
+  .play.alt{background:var(--muscle);border-color:var(--muscle-deep)}
+
+  .two{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+  .two .play{flex:1;min-width:140px;margin-top:0}
+
+  .card-row{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+  .card{flex:1;min-width:120px;border:3px solid var(--line);border-radius:16px;padding:12px 10px;text-align:center}
+  .card em{display:block;font-style:normal;font-size:var(--fs-cap);color:var(--ink-soft);
+           font-weight:700;margin-bottom:4px}
+  .card b{display:block;font-size:var(--fs-md);font-weight:800;line-height:1.25}
+  .card.bone{border-color:var(--bone-deep)}
+  .card.muscle{border-color:var(--muscle)}
+  .card.joint{border-color:var(--joint)}
+
+  .panel{margin-top:18px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+
+  .lesson{
+    margin-top:18px;border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+    background:var(--paper);
+  }
+  .lesson .tag{
+    display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+    padding:4px 12px;font-size:var(--fs-cap);font-weight:800;margin-bottom:10px;
+  }
+  .lesson p{margin:0 0 10px;font-size:var(--fs-sm);line-height:1.55}
+  .lesson p:last-child{margin-bottom:0}
+  body.urdu .lesson p{line-height:var(--lh)}
+
+  .teeth-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:12px}
+  .tooth-btn{
+    border:3px solid var(--line);background:var(--paper);border-radius:16px;
+    padding:12px 6px;font:inherit;cursor:pointer;min-height:90px;color:var(--ink);
+  }
+  .tooth-btn .emoji{font-size:28px;display:block;margin-bottom:4px}
+  .tooth-btn .lbl{font-size:var(--fs-cap);font-weight:800;display:block}
+  .tooth-btn[aria-pressed="true"]{border-color:var(--ink);background:#fff8e8}
+  .tooth-btn.ok{border-color:var(--ok);background:#e8f2ed}
+  .tooth-btn.no{border-color:var(--no);background:#fbeae8}
+
+  .sort-prompt{
+    margin-top:12px;padding:14px 16px;border:2px dashed var(--warm);border-radius:14px;
+    background:#fbf1e8;font-size:var(--fs-sm);font-weight:700;color:#8a4a12;line-height:1.55;
+  }
+  body.urdu .sort-prompt{line-height:var(--lh)}
+
+  .care-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+  .care{
+    border:3px solid var(--care);border-radius:16px;padding:14px 12px;background:#eaf6f1;
+    text-align:center;
+  }
+  .care .emoji{font-size:32px;display:block;margin-bottom:6px}
+  .care b{display:block;font-size:var(--fs-sm);font-weight:800;margin-bottom:4px;line-height:1.3}
+  .care span{display:block;font-size:var(--fs-cap);color:var(--ink-soft);font-weight:600;line-height:1.4}
+
+  .arm-svg .forearm{transform-origin:118px 95px;transition:transform .45s ease}
+  .arm-svg.bent .forearm{transform:rotate(-55deg)}
+  .arm-svg .bicep{transform-origin:95px 88px;transition:transform .45s ease, fill .45s}
+  .arm-svg.bent .bicep{transform:scaleY(1.35) scaleX(.92);fill:var(--muscle-deep)}
+  .leg-svg .shin{transform-origin:160px 120px;transition:transform .45s ease}
+  .leg-svg.kick .shin{transform:rotate(-40deg)}
+  .leg-svg .quad{transition:fill .45s, transform .45s;transform-origin:155px 95px}
+  .leg-svg.kick .quad{fill:var(--muscle-deep);transform:scaleY(1.2) scaleX(.95)}
+
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:52px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e6f4ec;font-weight:600}
+  .opt.wrong{border-color:var(--no);background:#fbeae4}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none;line-height:1.55}
+  .fb.show{display:block}
+  .score{
+    margin-top:8px;padding:14px 16px;border:3px solid var(--ok);border-radius:16px;
+    background:#eaf4ee;font-size:var(--fs-md);font-weight:800;text-align:center;
+    display:none;
+  }
+  .score.show{display:block}
+
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+
+  .hidden{display:none !important}
+
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;
+      grid-template-columns:1fr 1fr;
+      grid-template-areas:
+        "bar   bar"
+        "head  head"
+        "tabs  tabs"
+        "left  right"
+        "quiz  quiz"
+        "foot  foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar}
+    .head{grid-area:head}
+    .tabs{grid-area:tabs}
+    .left{grid-area:left}
+    .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px}
+    footer{grid-area:foot}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .arm-svg .forearm,.arm-svg .bicep,.leg-svg .shin,.leg-svg .quad{transition:none}
+    *{transition-duration:.01ms !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Grade 3 · General Science</span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunein">🔊</button>
+  </div>
+
+  <div class="head">
+    <h1 id="title"></h1>
+    <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group" id="tabs">
+    <button type="button" data-tab="hook" aria-pressed="true">Hook</button>
+    <button type="button" data-tab="body" aria-pressed="false">Body</button>
+    <button type="button" data-tab="move" aria-pressed="false">Move</button>
+    <button type="button" data-tab="teeth" aria-pressed="false">Teeth</button>
+    <button type="button" data-tab="care" aria-pressed="false">Care</button>
+  </div>
+
+  <div class="left" id="leftPane"></div>
+  <div class="right" id="rightPane"></div>
+
+  <div class="quiz">
+    <h2 id="quizHead" style="font-size:var(--fs-lg);font-weight:800;margin:0 0 16px"></h2>
+    <div id="quizBox"></div>
+    <div class="score" id="scoreBox"></div>
+  </div>
+
+  <footer id="foot"></footer>
+</div>
+
+<script>
+(function(){
+  var lang = "en";
+  var tab = "hook";
+  var lastSpoken = "";
+  var selectedZone = "bones";
+  var armBent = false;
+  var legKick = false;
+  var toothPick = null;
+  var quizScore = 0;
+  var quizAnswered = 0;
+
+  var T = {
+    brand: {en:"AI4Kids · Grade 3 · General Science", ur:"AI4Kids · جماعت ۳ · جنرل سائنس"},
+    title: {en:"Haddiyaan aur muscles", ur:"ہڈیاں اور مسکلز"},
+    sub: {
+      en:"Bones hold you up. Muscles move you. Teeth help you eat. Tap, bend, sort — then take the quiz!",
+      ur:"ہڈیاں آپ کو سیدھا رکھتی ہیں۔ مسکلز آپ کو چلاتی ہیں۔ دانت کھانے میں مدد دیتے ہیں۔ چھوئیں، موڑیں، چُنیں — پھر کوئز!"
+    },
+    tabs: {
+      hook:{en:"Hook", ur:"ہُک"},
+      body:{en:"Body", ur:"باڈی"},
+      move:{en:"Move", ur:"موو"},
+      teeth:{en:"Teeth", ur:"دانت"},
+      care:{en:"Care", ur:"کیئر"}
+    },
+    quiz: {en:"Quiz — 5 sawaal", ur:"کوئز — ۵ سوال"},
+    scoreLbl: {en:"Your score", ur:"آپ کا اسکور"},
+    of: {en:"out of", ur:"میں سے"},
+    foot: {
+      en:"AI4Kids Islamabad · Grade 3 General Science · Haddiyaan aur muscles",
+      ur:"AI4Kids اسلام آباد · جماعت ۳ جنرل سائنس · ہڈیاں اور مسکلز"
+    },
+    ghaur: {en:"Ghaur karein:", ur:"غور کریں:"}
+  };
+
+  var HOOK = {
+    tag:{en:"HOOK", ur:"ہُک"},
+    p1:{
+      en:"Have you ever thought — when you play cricket in Islamabad, what parts of your body are working? Your haddiyaan (bones) and muscles help you run, bat, and catch!",
+      ur:"کیا آپ نے کبھی سوچا — جب آپ اسلام آباد میں کرکٹ کھیلتے ہیں، تو آپ کی باڈی کے کون سے حصے کام کر رہے ہوتے ہیں؟ آپ کی ہڈیاں اور مسکلز ہی آپ کو دوڑنے، بیٹ مارنے اور کیچ پکڑنے میں مدد دیتی ہیں!"
+    },
+    p2:{
+      en:"Imagine: if you had no bones and no muscles, how would you feel? You could not stand, walk, or even smile!",
+      ur:"سوچیے: اگر آپ کی ہڈیاں اور مسکلز نہ ہوتیں، تو آپ کیسا محسوس کرتے؟ آپ کھڑے، چل، یا مسکرا بھی نہیں سکتے!"
+    }
+  };
+  var SAMJHAO = {
+    tag:{en:"SAMJHAO", ur:"سمجھاؤ"},
+    p1:{
+      en:"Bones make your skeleton. They are the strongest support in your body. A grown-up has about 206 bones. Bones meet at joints — like your knees and elbows — so you can bend.",
+      ur:"ہڈیاں آپ کا کنکال بناتی ہیں۔ یہ باڈی کا سب سے مضبوط سہارا ہیں۔ بڑے انسان میں تقریباً ۲۰۶ ہڈیاں ہوتی ہیں۔ ہڈیاں جوڑوں (joints) پر ملتی ہیں — جیسے گھٹنے اور کہنی — تاکہ آپ مڑ سکیں۔"
+    },
+    p2:{
+      en:"Muscles pull on bones when they contract (get shorter and fatter). You have more than 600 muscles. That is how you lift your arm or kick a ball.",
+      ur:"مسکلز جب سکڑتی ہیں (مختصر اور موٹی ہوتی ہیں) تو ہڈیوں کو کھینچتی ہیں۔ آپ کے پاس ۶۰۰ سے زیادہ مسکلز ہیں۔ اسی لیے آپ بازو اٹھا سکتے یا گیند کو لات مار سکتے ہیں۔"
+    },
+    p3:{
+      en:"Teeth help you eat. Different teeth do different jobs — cut, tear, or chew. Without teeth, food would be hard to eat!",
+      ur:"دانت کھانے میں مدد دیتے ہیں۔ مختلف دانت مختلف کام کرتے ہیں — کاٹنا، پھاڑنا، یا چبانا۔ دانتوں کے بغیر کھانا مشکل ہو جاتا!"
+    }
+  };
+  var MISAAL = {
+    tag:{en:"MISAAL", ur:"مثال"},
+    p1:{
+      en:"Think of the bazaar: when you lift a bag of biryani or point at a shop, your muscles and bones work together. Walking to school, climbing stairs, brushing teeth — all need bones, joints, and muscles.",
+      ur:"بازار سوچیے: جب آپ بریانی کا تھیلا اٹھاتے ہیں یا دکان کی طرف اشارہ کرتے ہیں، تو مسکلز اور ہڈیاں مل کر کام کرتی ہیں۔ اسکول جانا، سیڑھیاں چڑھنا، دانت صاف کرنا — سب میں ہڈیاں، جوڑ اور مسکلز چاہیے ہوتے ہیں۔"
+    }
+  };
+  var KARO = {
+    tag:{en:"KARO", ur:"کرو"},
+    p1:{
+      en:"Try at home: raise your arm, wiggle your toes, sit and stand. Feel which muscles get tight. Do it with a friend or family — it is fun science!",
+      ur:"گھر پر آزمائیں: بازو اوپر اٹھائیں، انگلیاں ہلائیں، بیٹھیں اور کھڑے ہوں۔ محسوس کریں کون سی مسکلز سخت ہوتی ہیں۔ دوست یا گھر والوں کے ساتھ کریں — مزے کی سائنس!"
+    }
+  };
+
+  var ZONES = {
+    bones:{
+      chip:{en:"Bones", ur:"ہڈیاں"},
+      chipBg:"var(--bone-deep)",
+      name:{en:"Haddiyaan — your strong frame", ur:"ہڈیاں — آپ کا مضبوط فریم"},
+      desc:{
+        en:"Bones hold you up like the poles of a tent. Ribs guard your heart and lungs. The long bone in your thigh (femur) is the longest bone!",
+        ur:"ہڈیاں آپ کو خیمے کے کھمبوں کی طرح سیدھا رکھتی ہیں۔ پسلیاں دل اور پھیپھڑوں کی حفاظت کرتی ہیں۔ ران کی لمبی ہڈی (فیمر) سب سے لمبی ہوتی ہے!"
+      },
+      tip:{
+        en:"Kid label: skull (sir), ribs (pasliyan), spine (reedh), arm & leg bones.",
+        ur:"بچوں کے لیبل: کھوپڑی (سر)، پسلیاں، ریڑھ، بازو اور ٹانگ کی ہڈیاں۔"
+      }
+    },
+    muscles:{
+      chip:{en:"Muscles", ur:"مسکلز"},
+      chipBg:"var(--muscle)",
+      name:{en:"Muscles — the movers", ur:"مسکلز — چلانے والے"},
+      desc:{
+        en:"When a muscle contracts, it pulls a bone and you move. Biceps bend your arm. Quads help you kick and jump. Soft smile? Face muscles!",
+        ur:"جب مسکل سکڑتی ہے تو ہڈی کھینچتی ہے اور آپ حرکت کرتے ہیں۔ بائسپس بازو موڑتی ہے۔ کوآڈز لات اور چھلانگ میں مدد دیتی ہیں۔ مسکراہٹ؟ چہرے کی مسکلز!"
+      },
+      tip:{
+        en:"Kid label: arm muscle, leg muscle, tummy muscle. Over 600 in your body!",
+        ur:"بچوں کے لیبل: بازو کی مسکل، ٹانگ کی مسکل، پیٹ کی مسکل۔ باڈی میں ۶۰۰ سے زیادہ!"
+      }
+    },
+    joints:{
+      chip:{en:"Joints", ur:"جوڑ"},
+      chipBg:"var(--joint)",
+      name:{en:"Joints — where bones meet", ur:"جوڑ — جہاں ہڈیاں ملتی ہیں"},
+      desc:{
+        en:"Joints let you bend. Knee and elbow are hinge joints (like a door). Shoulder and hip can swing more ways — ball-and-socket!",
+        ur:"جوڑ آپ کو موڑنے دیتے ہیں۔ گھٹنا اور کہنی ہِنج جوڑ ہیں (دروازے کی طرح)۔ کندھا اور کولہا زیادہ سمتوں میں گھوم سکتے ہیں!"
+      },
+      tip:{
+        en:"Kid label: knee, elbow, wrist, ankle, shoulder.",
+        ur:"بچوں کے لیبل: گھٹنا، کہنی، کلائی، ٹخنہ، کندھا۔"
+      }
+    }
+  };
+
+  var MOVE = {
+    head:{en:"Watch muscles contract", ur:"مسکلز کا سکڑنا دیکھیں"},
+    bend:{en:"Bend arm", ur:"بازو موڑو"},
+    straighten:{en:"Straighten", ur:"سیدھا کرو"},
+    kick:{en:"Kick!", ur:"لات مارو!"},
+    reset:{en:"Reset leg", ur:"ٹانگ واپس"},
+    armLead:{
+      en:"Biceps contracts → forearm lifts",
+      ur:"بائسپس سکڑتی ہے → بازو اٹھتا ہے"
+    },
+    armDetail:{
+      en:"Your biceps gets shorter and thicker. That pull bends the elbow joint. Bones do not bend — joints and muscles do the work!",
+      ur:"بائسپس چھوٹی اور موٹی ہو جاتی ہے۔ وہ کھینچ کہنی کے جوڑ کو موڑتی ہے۔ ہڈیاں نہیں مڑتیں — جوڑ اور مسکلز کام کرتی ہیں!"
+    },
+    kickLead:{
+      en:"Quad contracts → shin swings forward",
+      ur:"کوآڈ سکڑتی ہے → پنڈلی آگے جاتی ہے"
+    },
+    kickDetail:{
+      en:"Front thigh muscles (quads) pull to straighten the knee for a kick — perfect for cricket or football in the park!",
+      ur:"ران کے سامنے کی مسکلز (کوآڈز) گھٹنے کو سیدھا کھینچتی ہیں — کرکٹ یا فٹ بال کے لیے بہترین!"
+    },
+    tip:{
+      en:"Contract = muscle gets shorter and fatter to pull a bone.",
+      ur:"سکڑنا = مسکل چھوٹی اور موٹی ہو کر ہڈی کھینچتی ہے۔"
+    }
+  };
+
+  var TEETH = {
+    head:{en:"Teeth sorter — what does each do?", ur:"دانت چُنو — ہر ایک کیا کرتا ہے؟"},
+    promptAsk:{en:"Which teeth are best for this job?", ur:"اس کام کے لیے کون سے دانت بہتر ہیں؟"},
+    jobs:[
+      {
+        id:"cut",
+        ask:{en:"Cut a crisp apple into a bite?", ur:"خستہ سیب کاٹ کر نوالہ بنانا؟"},
+        ans:"incisors",
+        ok:{en:"Incisors cut! Front teeth are like little scissors.", ur:"انسیزر کاٹتے ہیں! سامنے والے دانت چھوٹی قینچی کی طرح ہیں۔"},
+        no:{en:"Not quite — try the front cutting teeth (incisors).", ur:"ٹھیک نہیں — سامنے والے کاٹنے والے دانت (انسیزر) آزمائیں۔"}
+      },
+      {
+        id:"tear",
+        ask:{en:"Tear a piece of chicken or kebab?", ur:"چکن یا کباب کا ٹکڑا پھاڑنا؟"},
+        ans:"canines",
+        ok:{en:"Canines tear! Pointy teeth grip and rip food.", ur:"کینائنز پھاڑتے ہیں! نوکیلے دانت پکڑ کر پھاڑتے ہیں۔"},
+        no:{en:"Hint: the pointy corner teeth (canines) tear food.", ur:"اشارہ: کونوں والے نوکیلے دانت (کینائنز) کھانا پھاڑتے ہیں۔"}
+      },
+      {
+        id:"chew",
+        ask:{en:"Chew roti or rice until soft?", ur:"روٹی یا چاول نرم ہونے تک چبانا؟"},
+        ans:"molars",
+        ok:{en:"Molars chew! Flat back teeth grind food small.", ur:"مولرز چباتے ہیں! پیچھے والے چپٹے دانت کھانا پیس کر چھوٹا کرتے ہیں۔"},
+        no:{en:"Think of the big flat teeth at the back (molars).", ur:"پیچھے والے بڑے چپٹے دانت (مولرز) سوچیے۔"}
+      }
+    ],
+    types:{
+      incisors:{en:"Incisors", ur:"انسیزر", job:{en:"Cut", ur:"کاٹنا"}},
+      canines:{en:"Canines", ur:"کینائنز", job:{en:"Tear", ur:"پھاڑنا"}},
+      molars:{en:"Molars", ur:"مولرز", job:{en:"Chew", ur:"چبانا"}}
+    },
+    next:{en:"Next job", ur:"اگلا کام"},
+    done:{en:"Shabash! You sorted all three jobs.", ur:"شاباش! آپ نے تینوں کام چُن لیے۔"}
+  };
+
+  var CARE = {
+    head:{en:"Care tips for strong body", ur:"مضبوط باڈی کے لیے کیئر ٹپس"},
+    items:[
+      {
+        emoji:"🥛",
+        title:{en:"Milk & calcium", ur:"دودھ اور کیلشیم"},
+        desc:{en:"Milk, dahi, and leafy greens help bones grow strong.", ur:"دودھ، دہی اور ہری سبزیاں ہڈیوں کو مضبوط بناتی ہیں۔"}
+      },
+      {
+        emoji:"🏃",
+        title:{en:"Exercise & play", ur:"ورزش اور کھیل"},
+        desc:{en:"Running, cricket, and climbing make bones and muscles stronger.", ur:"دوڑ، کرکٹ اور چڑھنا ہڈیوں اور مسکلز کو مضبوط بناتا ہے۔"}
+      },
+      {
+        emoji:"🪥",
+        title:{en:"Brush teeth", ur:"دانت صاف کرو"},
+        desc:{en:"Brush twice a day. Less sugary drinks keep teeth healthy.", ur:"دن میں دو بار برش کریں۔ میٹھے مشروبات کم رکھیں تاکہ دانت صحت مند رہیں۔"}
+      },
+      {
+        emoji:"😴",
+        title:{en:"Rest & sleep", ur:"آرام اور نیند"},
+        desc:{en:"Sleep helps muscles recover after a busy day of play.", ur:"کھیل کے بعد نیند مسکلز کو ٹھیک ہونے میں مدد دیتی ہے۔"}
+      }
+    ],
+    tip:{
+      en:"Strong bones + working muscles + clean teeth = a happy, moving body!",
+      ur:"مضبوط ہڈیاں + کام کرنے والی مسکلز + صاف دانت = خوش اور متحرک باڈی!"
+    }
+  };
+
+  /* Quiz exact from brief — bilingual wrappers for UI; answers match brief */
+  var QUIZ = [
+    {
+      q:{en:"Insaani jism mein kitni haddiyan hoti hain?", ur:"انسانی جسم میں کتنی ہڈیاں ہوتی ہیں؟"},
+      o:[
+        {en:"206", ur:"۲۰۶"},
+        {en:"150", ur:"۱۵۰"},
+        {en:"250", ur:"۲۵۰"},
+        {en:"300", ur:"۳۰۰"}
+      ],
+      a:0,
+      f:{
+        en:"Insaani jism mein aam tor par 206 haddiyan hoti hain.",
+        ur:"انسانی جسم میں عام طور پر ۲۰۶ ہڈیاں ہوتی ہیں۔"
+      }
+    },
+    {
+      q:{en:"Kaun si muscle zyada tar body ki hilaqat ke liye responsible hoti hai?", ur:"کون سی مسکل زیادہ تر باڈی کی حرکت کے لیے ذمہ دار ہوتی ہے؟"},
+      o:[
+        {en:"Cardiac muscle", ur:"کارڈیاک مسکل"},
+        {en:"Skeletal muscle", ur:"اسکیلیٹل مسکل"},
+        {en:"Smooth muscle", ur:"سموتھ مسکل"},
+        {en:"Nerve muscle", ur:"نرو مسکل"}
+      ],
+      a:1,
+      f:{
+        en:"Skeletal muscle insaan ki hilaqat aur movement ke liye responsible hoti hai.",
+        ur:"اسکیلیٹل مسکل انسان کی حرکت اور موومنٹ کے لیے ذمہ دار ہوتی ہے۔"
+      }
+    },
+    {
+      q:{en:"Insaan ka kaunsa hissa sab se mazboot hissa hai?", ur:"انسان کا کونسا حصہ سب سے مضبوط حصہ ہے؟"},
+      o:[
+        {en:"Jangha", ur:"جانگھ"},
+        {en:"Daant", ur:"دانت"},
+        {en:"Aankhein", ur:"آنکھیں"},
+        {en:"Kamar", ur:"کمر"}
+      ],
+      a:1,
+      f:{
+        en:"Daant insaani jism ka sab se mazboot hissa hain aur inka kaam khanay cheezon ko chhota karna hai.",
+        ur:"دانت انسانی جسم کا سب سے مضبوط حصہ ہیں اور ان کا کام کھانے کی چیزوں کو چھوٹا کرنا ہے۔"
+      }
+    },
+    {
+      q:{en:"Kaun si muscle dil ko pump karne mein madad karti hai?", ur:"کون سی مسکل دل کو پمپ کرنے میں مدد کرتی ہے؟"},
+      o:[
+        {en:"Cardiac muscle", ur:"کارڈیاک مسکل"},
+        {en:"Skeletal muscle", ur:"اسکیلیٹل مسکل"},
+        {en:"Smooth muscle", ur:"سموتھ مسکل"},
+        {en:"Nerve muscle", ur:"نرو مسکل"}
+      ],
+      a:0,
+      f:{
+        en:"Cardiac muscle dil mein hoti hai aur iski madad se dil khoon pump karta hai.",
+        ur:"کارڈیاک مسکل دل میں ہوتی ہے اور اس کی مدد سے دل خون پمپ کرتا ہے۔"
+      }
+    },
+    {
+      q:{en:"Insaan ke jism mein muscles ki kitni categories hain?", ur:"انسان کے جسم میں مسکلز کی کتنی کیٹیگریز ہیں؟"},
+      o:[
+        {en:"2", ur:"۲"},
+        {en:"3", ur:"۳"},
+        {en:"4", ur:"۴"},
+        {en:"5", ur:"۵"}
+      ],
+      a:1,
+      f:{
+        en:"Insaan ki muscles teen categories mein aati hain: cardiac, smooth aur skeletal.",
+        ur:"انسان کی مسکلز تین کیٹیگریز میں آتی ہیں: کارڈیاک، سموتھ اور اسکیلیٹل۔"
+      }
+    }
+  ];
+
+  var toothJobIndex = 0;
+  var toothFeedback = "";
+
+  function $(id){ return document.getElementById(id); }
+  function t(o){ return o[lang]; }
+
+  var LRI = "\u2066", PDI = "\u2069";
+  var LATIN_RUN = /[A-Za-z0-9][A-Za-z0-9 .,+()\/@_°%-]*[A-Za-z0-9°%]|[A-Za-z0-9%]/g;
+  function isolate(s){ return String(s).replace(LATIN_RUN, function(m){ return LRI + m + PDI; }); }
+
+  function setText(el, str){
+    if (!el) return;
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+
+  function bodyMapSVG(){
+    return (
+      '<svg viewBox="0 0 280 360" role="img" aria-label="Body map">' +
+      '<ellipse cx="140" cy="42" rx="28" ry="32" fill="var(--skin)" stroke="var(--ink)" stroke-width="2"/>' +
+      /* spine / torso bones */
+      '<rect class="zone" data-z="bones" x="118" y="78" width="44" height="110" rx="12" fill="var(--bone)" stroke="var(--bone-deep)" stroke-width="2.5"/>' +
+      /* ribs hint */
+      '<path class="zone" data-z="bones" d="M118 95 Q95 110 118 125 M162 95 Q185 110 162 125 M118 130 Q100 145 118 160 M162 130 Q180 145 162 160" fill="none" stroke="var(--bone-deep)" stroke-width="3"/>' +
+      /* arm muscles L/R */
+      '<ellipse class="zone" data-z="muscles" cx="78" cy="130" rx="18" ry="42" fill="var(--muscle)" stroke="var(--muscle-deep)" stroke-width="2" opacity=".9"/>' +
+      '<ellipse class="zone" data-z="muscles" cx="202" cy="130" rx="18" ry="42" fill="var(--muscle)" stroke="var(--muscle-deep)" stroke-width="2" opacity=".9"/>' +
+      /* leg muscles */
+      '<ellipse class="zone" data-z="muscles" cx="118" cy="260" rx="22" ry="55" fill="var(--muscle)" stroke="var(--muscle-deep)" stroke-width="2" opacity=".85"/>' +
+      '<ellipse class="zone" data-z="muscles" cx="162" cy="260" rx="22" ry="55" fill="var(--muscle)" stroke="var(--muscle-deep)" stroke-width="2" opacity=".85"/>' +
+      /* joints: shoulder, elbow, knee, hip */
+      '<circle class="zone" data-z="joints" cx="95" cy="88" r="12" fill="var(--joint)" stroke="var(--joint-deep)" stroke-width="2"/>' +
+      '<circle class="zone" data-z="joints" cx="185" cy="88" r="12" fill="var(--joint)" stroke="var(--joint-deep)" stroke-width="2"/>' +
+      '<circle class="zone" data-z="joints" cx="70" cy="168" r="10" fill="var(--joint)" stroke="var(--joint-deep)" stroke-width="2"/>' +
+      '<circle class="zone" data-z="joints" cx="210" cy="168" r="10" fill="var(--joint)" stroke="var(--joint-deep)" stroke-width="2"/>' +
+      '<circle class="zone" data-z="joints" cx="125" cy="200" r="11" fill="var(--joint)" stroke="var(--joint-deep)" stroke-width="2"/>' +
+      '<circle class="zone" data-z="joints" cx="155" cy="200" r="11" fill="var(--joint)" stroke="var(--joint-deep)" stroke-width="2"/>' +
+      '<circle class="zone" data-z="joints" cx="118" cy="300" r="11" fill="var(--joint)" stroke="var(--joint-deep)" stroke-width="2"/>' +
+      '<circle class="zone" data-z="joints" cx="162" cy="300" r="11" fill="var(--joint)" stroke="var(--joint-deep)" stroke-width="2"/>' +
+      /* bone shafts in legs */
+      '<rect class="zone" data-z="bones" x="108" y="210" width="16" height="85" rx="6" fill="var(--bone)" stroke="var(--bone-deep)" stroke-width="2"/>' +
+      '<rect class="zone" data-z="bones" x="156" y="210" width="16" height="85" rx="6" fill="var(--bone)" stroke="var(--bone-deep)" stroke-width="2"/>' +
+      '<text x="140" y="348" text-anchor="middle" fill="var(--ink-soft)" font-size="11" font-family="Baloo Bhaijaan 2,sans-serif" font-weight="700">Tap a colour zone</text>' +
+      '</svg>'
+    );
+  }
+
+  function armSVG(){
+    var cls = armBent ? "arm-svg bent" : "arm-svg";
+    return (
+      '<svg class="'+cls+'" viewBox="0 0 280 200" role="img" aria-label="Arm bend demo">' +
+      '<rect x="40" y="70" width="70" height="28" rx="12" fill="var(--skin)" stroke="var(--ink)" stroke-width="2"/>' +
+      '<ellipse class="bicep" cx="95" cy="78" rx="22" ry="18" fill="var(--muscle)" stroke="var(--muscle-deep)" stroke-width="2"/>' +
+      '<circle cx="118" cy="84" r="10" fill="var(--joint)" stroke="var(--joint-deep)" stroke-width="2"/>' +
+      '<g class="forearm">' +
+      '<rect x="118" y="72" width="90" height="24" rx="11" fill="var(--skin)" stroke="var(--ink)" stroke-width="2"/>' +
+      '<rect x="130" y="78" width="60" height="10" rx="4" fill="var(--bone)" stroke="var(--bone-deep)" stroke-width="1.5"/>' +
+      '<circle cx="210" cy="84" r="14" fill="var(--skin)" stroke="var(--ink)" stroke-width="2"/>' +
+      '</g>' +
+      '<text x="95" y="55" text-anchor="middle" fill="var(--muscle-deep)" font-size="12" font-weight="800" font-family="Baloo Bhaijaan 2,sans-serif">biceps</text>' +
+      '<text x="118" y="115" text-anchor="middle" fill="var(--joint-deep)" font-size="11" font-weight="700" font-family="Baloo Bhaijaan 2,sans-serif">elbow</text>' +
+      '</svg>'
+    );
+  }
+
+  function legSVG(){
+    var cls = legKick ? "leg-svg kick" : "leg-svg";
+    return (
+      '<svg class="'+cls+'" viewBox="0 0 280 220" role="img" aria-label="Kick demo">' +
+      '<rect x="140" y="30" width="36" height="90" rx="14" fill="var(--skin)" stroke="var(--ink)" stroke-width="2"/>' +
+      '<ellipse class="quad" cx="158" cy="70" rx="28" ry="40" fill="var(--muscle)" stroke="var(--muscle-deep)" stroke-width="2"/>' +
+      '<circle cx="160" cy="120" r="12" fill="var(--joint)" stroke="var(--joint-deep)" stroke-width="2"/>' +
+      '<g class="shin">' +
+      '<rect x="148" y="120" width="24" height="70" rx="10" fill="var(--skin)" stroke="var(--ink)" stroke-width="2"/>' +
+      '<rect x="152" y="128" width="14" height="50" rx="4" fill="var(--bone)" stroke="var(--bone-deep)" stroke-width="1.5"/>' +
+      '<ellipse cx="175" cy="195" rx="28" ry="12" fill="var(--skin)" stroke="var(--ink)" stroke-width="2"/>' +
+      '</g>' +
+      '<text x="100" y="70" fill="var(--muscle-deep)" font-size="12" font-weight="800" font-family="Baloo Bhaijaan 2,sans-serif">quad</text>' +
+      '<text x="195" y="125" fill="var(--joint-deep)" font-size="11" font-weight="700" font-family="Baloo Bhaijaan 2,sans-serif">knee</text>' +
+      '</svg>'
+    );
+  }
+
+  function renderHook(){
+    var L = $("leftPane"), R = $("rightPane");
+    L.innerHTML =
+      '<div class="lesson"><span class="tag" id="tagHook"></span><p id="hook1"></p><p id="hook2"></p></div>' +
+      '<div class="lesson" style="margin-top:12px"><span class="tag" id="tagSam"></span><p id="sam1"></p><p id="sam2"></p><p id="sam3"></p></div>';
+    R.innerHTML =
+      '<div class="lesson"><span class="tag" id="tagMis"></span><p id="mis1"></p></div>' +
+      '<div class="lesson" style="margin-top:12px"><span class="tag" id="tagKar"></span><p id="kar1"></p></div>';
+
+    setText($("tagHook"), t(HOOK.tag));
+    setText($("hook1"), t(HOOK.p1));
+    setText($("hook2"), t(HOOK.p2));
+    setText($("tagSam"), t(SAMJHAO.tag));
+    setText($("sam1"), t(SAMJHAO.p1));
+    setText($("sam2"), t(SAMJHAO.p2));
+    setText($("sam3"), t(SAMJHAO.p3));
+    setText($("tagMis"), t(MISAAL.tag));
+    setText($("mis1"), t(MISAAL.p1));
+    setText($("tagKar"), t(KARO.tag));
+    setText($("kar1"), t(KARO.p1));
+    lastSpoken = t(HOOK.p1) + " " + t(SAMJHAO.p1);
+  }
+
+  function renderBody(){
+    var L = $("leftPane"), R = $("rightPane");
+    var z = ZONES[selectedZone];
+    L.innerHTML =
+      '<div class="scene" id="bodyScene">'+bodyMapSVG()+'</div>' +
+      '<div class="card-row">' +
+        '<div class="card bone"><em id="cBoneE"></em><b id="cBoneB"></b></div>' +
+        '<div class="card muscle"><em id="cMusE"></em><b id="cMusB"></b></div>' +
+        '<div class="card joint"><em id="cJoiE"></em><b id="cJoiB"></b></div>' +
+      '</div>';
+    R.innerHTML =
+      '<div class="readout">' +
+        '<span class="statechip" id="zChip"></span>' +
+        '<p class="lead" id="zName"></p>' +
+        '<p class="detail" id="zDesc"></p>' +
+        '<p class="why-note"><b id="zGhaur"></b> <span id="zTip"></span></p>' +
+      '</div>';
+
+    setText($("cBoneE"), t(ZONES.bones.chip));
+    setText($("cBoneB"), lang==="en" ? "Tap beige" : "بیج چھوئیں");
+    setText($("cMusE"), t(ZONES.muscles.chip));
+    setText($("cMusB"), lang==="en" ? "Tap red" : "سرخ چھوئیں");
+    setText($("cJoiE"), t(ZONES.joints.chip));
+    setText($("cJoiB"), lang==="en" ? "Tap blue" : "نیلا چھوئیں");
+
+    $("zChip").style.background = z.chipBg;
+    setText($("zChip"), t(z.chip));
+    setText($("zName"), t(z.name));
+    setText($("zDesc"), t(z.desc));
+    $("zGhaur").textContent = t(T.ghaur);
+    setText($("zTip"), t(z.tip));
+    lastSpoken = t(z.name) + ". " + t(z.desc);
+
+    Array.prototype.forEach.call(document.querySelectorAll(".zone"), function(el){
+      el.classList.toggle("on", el.getAttribute("data-z") === selectedZone);
+      el.addEventListener("click", function(){
+        selectedZone = el.getAttribute("data-z");
+        renderBody();
+      });
+    });
+  }
+
+  function renderMove(){
+    var L = $("leftPane"), R = $("rightPane");
+    L.innerHTML =
+      '<div class="panel"><h2 id="moveHead"></h2></div>' +
+      '<div class="scene">'+armSVG()+'</div>' +
+      '<div class="two">' +
+        '<button type="button" class="play" id="bendBtn"></button>' +
+      '</div>' +
+      '<div class="scene" style="margin-top:12px">'+legSVG()+'</div>' +
+      '<div class="two">' +
+        '<button type="button" class="play alt" id="kickBtn"></button>' +
+      '</div>';
+    R.innerHTML =
+      '<div class="readout">' +
+        '<span class="statechip" id="mChip"></span>' +
+        '<p class="lead" id="mLead"></p>' +
+        '<p class="detail" id="mDetail"></p>' +
+        '<p class="why-note"><b id="mGhaur"></b> <span id="mTip"></span></p>' +
+      '</div>';
+
+    setText($("moveHead"), t(MOVE.head));
+    setText($("bendBtn"), armBent ? t(MOVE.straighten) : t(MOVE.bend));
+    setText($("kickBtn"), legKick ? t(MOVE.reset) : t(MOVE.kick));
+
+    if (legKick){
+      setText($("mChip"), t(MOVE.kick));
+      $("mChip").style.background = "var(--muscle)";
+      setText($("mLead"), t(MOVE.kickLead));
+      setText($("mDetail"), t(MOVE.kickDetail));
+      lastSpoken = t(MOVE.kickLead) + ". " + t(MOVE.kickDetail);
+    } else {
+      setText($("mChip"), t(MOVE.bend));
+      $("mChip").style.background = "var(--joint)";
+      setText($("mLead"), t(MOVE.armLead));
+      setText($("mDetail"), t(MOVE.armDetail));
+      lastSpoken = t(MOVE.armLead) + ". " + t(MOVE.armDetail);
+    }
+    $("mGhaur").textContent = t(T.ghaur);
+    setText($("mTip"), t(MOVE.tip));
+
+    $("bendBtn").addEventListener("click", function(){
+      armBent = !armBent;
+      renderMove();
+    });
+    $("kickBtn").addEventListener("click", function(){
+      legKick = !legKick;
+      renderMove();
+    });
+  }
+
+  function renderTeeth(){
+    var L = $("leftPane"), R = $("rightPane");
+    var job = TEETH.jobs[toothJobIndex];
+    var types = ["incisors","canines","molars"];
+    var emoji = {incisors:"🦷", canines:"🧛", molars:"🫓"};
+
+    L.innerHTML =
+      '<div class="panel"><h2 id="teethHead"></h2></div>' +
+      '<div class="sort-prompt"><span id="promptAsk"></span><br><span id="promptJob"></span></div>' +
+      '<div class="teeth-grid" id="teethGrid"></div>' +
+      '<button type="button" class="play" id="nextJob" style="margin-top:12px"></button>';
+    R.innerHTML =
+      '<div class="readout">' +
+        '<span class="statechip" id="tChip" style="background:var(--warm)"></span>' +
+        '<p class="lead" id="tLead"></p>' +
+        '<p class="detail" id="tDetail"></p>' +
+      '</div>' +
+      '<div class="card-row" style="margin-top:12px">' +
+        '<div class="card"><em id="tiE"></em><b id="tiB"></b></div>' +
+        '<div class="card"><em id="tcE"></em><b id="tcB"></b></div>' +
+        '<div class="card"><em id="tmE"></em><b id="tmB"></b></div>' +
+      '</div>';
+
+    setText($("teethHead"), t(TEETH.head));
+    setText($("promptAsk"), t(TEETH.promptAsk));
+    setText($("promptJob"), t(job.ask));
+
+    var grid = $("teethGrid");
+    types.forEach(function(id){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "tooth-btn";
+      b.setAttribute("data-id", id);
+      if (toothPick === id){
+        b.setAttribute("aria-pressed","true");
+        b.classList.add(id === job.ans ? "ok" : "no");
+      } else {
+        b.setAttribute("aria-pressed","false");
+      }
+      b.innerHTML = '<span class="emoji">'+emoji[id]+'</span><span class="lbl"></span>';
+      setText(b.querySelector(".lbl"), t(TEETH.types[id]));
+      b.addEventListener("click", function(){
+        toothPick = id;
+        if (id === job.ans) toothFeedback = "ok";
+        else toothFeedback = "no";
+        renderTeeth();
+      });
+      grid.appendChild(b);
+    });
+
+    setText($("tiE"), t(TEETH.types.incisors));
+    setText($("tiB"), t(TEETH.types.incisors.job));
+    setText($("tcE"), t(TEETH.types.canines));
+    setText($("tcB"), t(TEETH.types.canines.job));
+    setText($("tmE"), t(TEETH.types.molars));
+    setText($("tmB"), t(TEETH.types.molars.job));
+
+    if (toothFeedback === "ok"){
+      setText($("tChip"), lang==="en"?"Correct!":"درست!");
+      $("tChip").style.background = "var(--ok)";
+      setText($("tLead"), t(job.ok));
+      setText($("tDetail"), "");
+      lastSpoken = t(job.ok);
+    } else if (toothFeedback === "no"){
+      setText($("tChip"), lang==="en"?"Try again":"پھر کوشش");
+      $("tChip").style.background = "var(--no)";
+      setText($("tLead"), t(job.no));
+      setText($("tDetail"), "");
+      lastSpoken = t(job.no);
+    } else {
+      setText($("tChip"), t(TEETH.promptAsk));
+      $("tChip").style.background = "var(--warm)";
+      setText($("tLead"), t(job.ask));
+      setText($("tDetail"), lang==="en"
+        ? "Incisors cut · Canines tear · Molars chew"
+        : "انسیزر کاٹتے · کینائنز پھاڑتے · مولرز چباتے");
+      lastSpoken = t(job.ask);
+    }
+
+    var nextBtn = $("nextJob");
+    if (toothJobIndex >= TEETH.jobs.length - 1 && toothFeedback === "ok"){
+      setText(nextBtn, t(TEETH.done));
+      nextBtn.disabled = true;
+    } else {
+      setText(nextBtn, t(TEETH.next));
+      nextBtn.disabled = toothFeedback !== "ok";
+      nextBtn.addEventListener("click", function(){
+        if (toothFeedback !== "ok") return;
+        toothJobIndex = (toothJobIndex + 1) % TEETH.jobs.length;
+        toothPick = null;
+        toothFeedback = "";
+        renderTeeth();
+      });
+    }
+  }
+
+  function renderCare(){
+    var L = $("leftPane"), R = $("rightPane");
+    L.innerHTML =
+      '<div class="panel"><h2 id="careHead"></h2></div>' +
+      '<div class="care-grid" id="careGrid"></div>';
+    R.innerHTML =
+      '<div class="readout">' +
+        '<span class="statechip" id="careChip" style="background:var(--care)"></span>' +
+        '<p class="lead" id="careLead"></p>' +
+        '<p class="why-note"><b id="careGhaur"></b> <span id="careTip"></span></p>' +
+      '</div>' +
+      '<div class="lesson" style="margin-top:12px"><span class="tag" id="careKarTag"></span><p id="careKar"></p></div>';
+
+    setText($("careHead"), t(CARE.head));
+    var grid = $("careGrid");
+    CARE.items.forEach(function(item){
+      var d = document.createElement("div");
+      d.className = "care";
+      d.innerHTML = '<span class="emoji">'+item.emoji+'</span><b></b><span></span>';
+      setText(d.querySelector("b"), t(item.title));
+      setText(d.querySelector("span"), t(item.desc));
+      grid.appendChild(d);
+    });
+    setText($("careChip"), lang==="en"?"Stay strong":"مضبوط رہو");
+    setText($("careLead"), t(CARE.tip));
+    $("careGhaur").textContent = t(T.ghaur);
+    setText($("careTip"), lang==="en"
+      ? "Milk + exercise for bones; brush for teeth — every day!"
+      : "ہڈیوں کے لیے دودھ + ورزش؛ دانتوں کے لیے برش — ہر روز!");
+    setText($("careKarTag"), t(KARO.tag));
+    setText($("careKar"), t(KARO.p1));
+    lastSpoken = t(CARE.tip);
+  }
+
+  function renderTab(){
+    if (tab === "hook") renderHook();
+    else if (tab === "body") renderBody();
+    else if (tab === "move") renderMove();
+    else if (tab === "teeth") renderTeeth();
+    else renderCare();
+  }
+
+  function buildQuiz(){
+    var box = $("quizBox");
+    box.innerHTML = "";
+    quizScore = 0;
+    quizAnswered = 0;
+    $("scoreBox").classList.remove("show");
+
+    QUIZ.forEach(function(item, qi){
+      var wrap = document.createElement("div");
+      wrap.className = "q";
+      var q = document.createElement("p");
+      setText(q, (qi+1) + ". " + t(item.q));
+      wrap.appendChild(q);
+      var fb = document.createElement("p");
+      fb.className = "fb";
+      item.o.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt" + (lang === "ur" ? " ur" : "");
+        b.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+        b.textContent = (lang === "ur") ? isolate(t(opt)) : t(opt);
+        b.addEventListener("click", function(){
+          if (wrap.getAttribute("data-done") === "1") return;
+          wrap.setAttribute("data-done","1");
+          quizAnswered++;
+          var correct = (oi === item.a);
+          if (correct) quizScore++;
+          Array.prototype.forEach.call(wrap.querySelectorAll(".opt"), function(x, xi){
+            if (xi === item.a) x.classList.add("right");
+            else if (xi === oi && !correct) x.classList.add("wrong");
+          });
+          setText(fb, t(item.f));
+          fb.classList.add("show");
+          if (quizAnswered === QUIZ.length){
+            var sb = $("scoreBox");
+            setText(sb, t(T.scoreLbl) + ": " + quizScore + " " + t(T.of) + " " + QUIZ.length);
+            sb.classList.add("show");
+          }
+        });
+        wrap.appendChild(b);
+      });
+      wrap.appendChild(fb);
+      box.appendChild(wrap);
+    });
+  }
+
+  function applyLang(){
+    document.body.classList.toggle("urdu", lang === "ur");
+    document.documentElement.lang = (lang === "ur") ? "ur" : "en";
+    document.documentElement.dir = (lang === "ur") ? "rtl" : "ltr";
+
+    var lb = $("langBtn");
+    lb.textContent = (lang === "en") ? "اردو" : "English";
+    lb.setAttribute("aria-pressed", lang === "ur" ? "true" : "false");
+
+    setText($("title"), t(T.title));
+    setText($("subtitle"), t(T.sub));
+    setText($("quizHead"), t(T.quiz));
+    setText($("foot"), t(T.foot));
+
+    Array.prototype.forEach.call(document.querySelectorAll("#tabs button"), function(b){
+      var key = b.getAttribute("data-tab");
+      setText(b, t(T.tabs[key]));
+      b.setAttribute("aria-pressed", key === tab ? "true" : "false");
+    });
+
+    buildQuiz();
+    renderTab();
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll("#tabs button"), function(b){
+    b.addEventListener("click", function(){
+      tab = b.getAttribute("data-tab");
+      Array.prototype.forEach.call(document.querySelectorAll("#tabs button"), function(x){
+        x.setAttribute("aria-pressed", x === b ? "true" : "false");
+      });
+      renderTab();
+    });
+  });
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en";
+    applyLang();
+  });
+
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      window.speechSynthesis.cancel();
+      var u = new SpeechSynthesisUtterance(lastSpoken);
+      u.lang = (lang === "ur") ? "ur-PK" : "en-US";
+      u.rate = 0.92;
+      var voices = window.speechSynthesis.getVoices() || [];
+      for (var i=0;i<voices.length;i++){
+        if (voices[i].lang && voices[i].lang.toLowerCase().indexOf(lang === "ur" ? "ur" : "en") === 0){
+          u.voice = voices[i]; break;
+        }
+      }
+      window.speechSynthesis.speak(u);
+    }catch(e){}
+  });
+
+  applyLang();
+})();
+</script>
+</body>
+</html>
