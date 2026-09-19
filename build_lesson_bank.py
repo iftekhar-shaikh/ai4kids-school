@@ -478,7 +478,6 @@ function openModal(i) {{
   let html = `<h2>${{t.emoji}} ${{t.title}}</h2>
   <p class="meta">${{t.subj}} • Grade ${{t.grade}} • ${{t.desc}}</p>`;
 
-  // Lesson + Sunlo only — Khelo is NOT inside the grid modal
   if (t.lesson) {{
     window.__lessonRaw = t.lesson;
     html += `<div class="read-bar">
@@ -490,13 +489,15 @@ function openModal(i) {{
     html += '<p style="color:#999;padding:10px;font-size:1.1rem">Lesson abhi available nahi hai.</p>';
   }}
 
-  // Close grid first, then open under-grid panel (Sabaq → App → Quiz)
+  // TWO clear buttons: Close modal, then KHELO (opens under grid)
+  html += `<div style="margin-top:14px;display:flex;flex-direction:column;gap:10px">`;
+  html += `<button type="button" class="khelo-go" id="modalCloseBtn" style="background:#7f8c8d;width:100%">✖️ Close / Modal band karo</button>`;
   if (t.interactive_file) {{
-    html += `<div style="margin-top:14px;padding:12px;background:#f5eef8;border-radius:12px;border-left:4px solid #8e44ad">
-      <p style="margin:0 0 10px;font-size:1.05rem">Khelo grid ke <b>bahar</b> chalta hai. Pehle yeh modal band karo.</p>
-      <button type="button" class="khelo-go" id="kheloBelowBtn" style="background:#8e44ad;width:100%">✖️ Band karo → neeche app kholo</button>
-    </div>`;
+    const label = t.interactive_label || 'Khelo';
+    html += `<button type="button" class="khelo-go" id="kheloBelowBtn" style="background:#8e44ad;width:100%">🎮 KHELO — ${{label}}</button>`;
+    html += `<span class="hint">Pehle Close, ya seedha KHELO dabao (modal band hoga, app neeche khulegi: Sabaq → App → Quiz).</span>`;
   }}
+  html += `</div>`;
 
   if (t.questions && t.questions.length) {{
     window.__curQuestions = t.questions;
@@ -526,6 +527,8 @@ function openModal(i) {{
   }}
 
   document.getElementById('modal-content').innerHTML = html;
+  const bClose = document.getElementById('modalCloseBtn');
+  if (bClose) bClose.onclick = function() {{ closeModal(); }};
   if (t.interactive_file) {{
     const bBelow = document.getElementById('kheloBelowBtn');
     if (bBelow) bBelow.onclick = function() {{
