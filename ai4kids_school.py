@@ -7,7 +7,8 @@ Run:  streamlit run ai4kids_school.py
 """
 
 import os
-from pathlib import Path, json, datetime, warnings
+from pathlib import Path
+import json, datetime, warnings
 warnings.filterwarnings("ignore", category=SyntaxWarning)
 from openai import OpenAI
 
