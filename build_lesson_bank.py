@@ -114,7 +114,7 @@ lines.append("""<!DOCTYPE html>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f5f5f0;color:#2c3e50}
 .header{background:linear-gradient(135deg,#27ae60,#1abc9c);color:#fff;padding:24px;text-align:center}
-.header h1{font-size:1.8rem;margin-bottom:4px}
+.header h1{font-size:clamp(1.4rem,5vw,2rem);margin-bottom:4px}
 .header p{font-size:0.95rem;opacity:0.9}
 .controls{background:#fff;padding:18px 56px 14px 20px;border-bottom:2px solid #eee;
   display:flex;flex-wrap:wrap;gap:10px;align-items:center;position:sticky;top:0;z-index:100}
@@ -133,11 +133,11 @@ body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f5f5f0;color:#2c3e50}
 .card:hover{box-shadow:0 4px 16px rgba(0,0,0,.1)}
 .card-header{padding:12px 16px;display:flex;align-items:center;gap:10px}
 .card-emoji{font-size:1.5rem}
-.card-info h3{font-size:1rem;margin:0}
+.card-info h3{font-size:clamp(1.05rem,3.5vw,1.25rem);margin:0}
 .card-info .meta{font-size:0.78rem;color:#888;margin-top:2px}
 .grade-badge{padding:2px 8px;border-radius:10px;font-size:0.75rem;
   font-weight:700;color:#fff;margin-left:auto;flex-shrink:0}
-.card-desc{padding:0 16px 10px;font-size:0.85rem;color:#666}
+.card-desc{padding:0 16px 10px;font-size:clamp(0.95rem,3vw,1.1rem);color:#666}
 .card-footer{padding:8px 16px;background:#f9f9f9;border-top:1px solid #eee;
   display:flex;gap:8px;align-items:center}
 .tag{padding:2px 8px;border-radius:10px;font-size:0.75rem;background:#eee;color:#555}
@@ -152,13 +152,13 @@ body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f5f5f0;color:#2c3e50}
 .modal-close{position:absolute;top:14px;right:16px;font-size:1.5rem;
   cursor:pointer;color:#999;background:none;border:none;line-height:1}
 .modal-close:hover{color:#333}
-.modal h2{font-size:1.3rem;margin-bottom:4px}
-.modal .meta{font-size:0.85rem;color:#888;margin-bottom:16px}
-.lesson-text{white-space:pre-wrap;font-size:0.92rem;line-height:1.7;
+.modal h2{font-size:clamp(1.35rem,4.5vw,1.75rem);margin-bottom:4px}
+.modal .meta{font-size:clamp(1rem,3.2vw,1.15rem);color:#555;margin-bottom:16px}
+.lesson-text{white-space:pre-wrap;font-size:clamp(1.15rem,4vw,1.35rem);line-height:1.75;
   background:#fafafa;border-radius:10px;padding:16px;border:1px solid #eee}
 .read-bar{display:flex;align-items:center;gap:12px;margin-bottom:10px}
-.read-btn{padding:9px 20px;border:none;border-radius:22px;background:#8e44ad;
-  color:#fff;font-size:1.05rem;font-weight:700;cursor:pointer}
+.read-btn{padding:12px 22px;border:none;border-radius:22px;background:#8e44ad;
+  color:#fff;font-size:clamp(1.1rem,3.5vw,1.25rem);font-weight:700;cursor:pointer;min-height:48px}
 .read-btn:hover{background:#7d3c98}
 .read-status{color:#8e44ad;font-weight:600;font-size:0.9rem}
 .rw.reading{background:#ffe08a;border-radius:4px;box-shadow:0 0 0 2px #ffe08a}
@@ -166,13 +166,13 @@ body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f5f5f0;color:#2c3e50}
 .quiz-section h3{margin-bottom:12px;color:#d68910}
 .question{background:#fffbea;border-radius:10px;padding:14px;margin-bottom:10px;
   border-left:4px solid #f39c12}
-.question p{font-weight:600;margin-bottom:8px}
+.question p{font-weight:600;margin-bottom:8px;font-size:clamp(1.05rem,3.5vw,1.2rem)}
 .option{padding:4px 0;font-size:0.9rem}
 .option.correct{color:#27ae60;font-weight:700}
 /* --- interactive quiz --- */
-.opt-btn{display:block;width:100%;text-align:left;padding:11px 14px;margin:7px 0;
+.opt-btn{display:block;width:100%;text-align:left;padding:14px 16px;margin:8px 0;
   border:2px solid #ddd;border-radius:12px;background:#fff;cursor:pointer;
-  font-size:1rem;font-family:inherit;color:#2c3e50;transition:all .15s}
+  font-size:clamp(1.05rem,3.5vw,1.2rem);font-family:inherit;color:#2c3e50;transition:all .15s;min-height:48px}
 .opt-btn:hover:not(:disabled){border-color:#f39c12;background:#fffdf5}
 .opt-btn:disabled{cursor:default;opacity:.95}
 .opt-btn.right{background:#eafaf1;border-color:#27ae60;color:#1e8449;font-weight:700}
@@ -201,6 +201,12 @@ body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f5f5f0;color:#2c3e50}
 .card-thumb{width:100%;height:120px;object-fit:cover;background:linear-gradient(135deg,#e8f8f5,#f5eef8);display:block}
 .card-thumb-fallback{height:120px;display:flex;align-items:center;justify-content:center;
   font-size:2.6rem;background:linear-gradient(135deg,#e8f8f5,#f5eef8)}
+.khelo-top{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0 16px;align-items:center}
+.khelo-top .khelo-go{flex:1;min-width:160px;padding:14px 18px;border:none;border-radius:14px;
+  background:#8e44ad;color:#fff;font-weight:800;font-size:clamp(1.1rem,3.8vw,1.3rem);
+  cursor:pointer;min-height:52px;text-align:center}
+.khelo-top .hint{font-size:clamp(0.95rem,3vw,1.05rem);color:#6c3483}
+.khelo-frame-wrap{margin:12px 0 18px;scroll-margin-top:12px}
 .khelo-badge{padding:3px 10px;border-radius:12px;font-size:0.78rem;font-weight:800;
   background:#8e44ad;color:#fff;letter-spacing:.02em}
 .tag.has-interactive{background:#8e44ad;color:#fff;font-weight:700}
@@ -317,6 +323,7 @@ topics_json = json.dumps([{
 lines.append(f"""<script>
 const ALL = {topics_json};
 let gf = 'all', sf = 'all';
+if ('speechSynthesis' in window) {{ window.speechSynthesis.getVoices(); window.speechSynthesis.onvoiceschanged = function(){{ window.speechSynthesis.getVoices(); }}; }}
 
 const LB_KEY = 'ai4kids_lb_last';
 function refreshContinue() {{
@@ -413,6 +420,17 @@ function openModal(i) {{
   }} catch (e) {{}}
   let html = `<h2>${{t.emoji}} ${{t.title}}</h2>
   <p class="meta">${{t.subj}} • Grade ${{t.grade}} • ${{t.desc}}</p>`;
+  if (t.interactive_b64) {{
+    const label = t.interactive_label || 'Khelo — interactive';
+    html += `<div class="khelo-top">
+      <button type="button" class="khelo-go" onclick="document.getElementById('kheloFrameWrap').scrollIntoView({{behavior:'smooth',block:'start'}})">🎮 ${{label}}</button>
+      <span class="hint">Pehle yahan khelo — neeche sabaq + quiz</span>
+    </div>`;
+    html += `<div class="khelo-frame-wrap" id="kheloFrameWrap">
+      <div style="padding:10px 12px;background:#f5eef8;border-left:4px solid #8e44ad;border-radius:0 10px 10px 0;margin-bottom:8px"><b>🎮 ${{label}}</b></div>
+      <iframe id="kheloFrame" title="Interactive" style="width:100%;height:min(75vh,640px);border:2px solid #eee;border-radius:12px;background:#fff"></iframe>
+    </div>`;
+  }}
   if (t.lesson) {{
     window.__lessonRaw = t.lesson;
     html += `<div class="read-bar">
@@ -421,12 +439,7 @@ function openModal(i) {{
     </div>`;
     html += `<div class="lesson-text" id="lessonText">${{t.lesson.replace(/</g,'&lt;').replace(/>/g,'&gt;')}}</div>`;
   }} else {{
-    html += '<p style="color:#999;padding:10px">Lesson abhi available nahi hai.</p>';
-  }}
-  if (t.interactive_b64) {{
-    const label = t.interactive_label || 'Khelo — interactive';
-    html += `<div style="margin:14px 0;padding:10px 12px;background:#f5eef8;border-left:4px solid #8e44ad;border-radius:0 10px 10px 0"><b>🎮 ${{label}}</b><br><span style="font-size:0.85rem">Neeche khelo — phir quiz lo.</span></div>`;
-    html += `<iframe src="data:text/html;base64,${{t.interactive_b64}}" title="Interactive" style="width:100%;height:min(70vh,560px);border:2px solid #eee;border-radius:12px;background:#fff"></iframe>`;
+    html += '<p style="color:#999;padding:10px;font-size:1.1rem">Lesson abhi available nahi hai.</p>';
   }}
   if (t.questions && t.questions.length) {{
     window.__curQuestions = t.questions;
@@ -455,6 +468,22 @@ function openModal(i) {{
     html += '</div>';
   }}
   document.getElementById('modal-content').innerHTML = html;
+  
+  // Prefer srcdoc (works inside Streamlit iframe); data: URLs often blocked nested
+  if (t.interactive_b64) {{
+    const fr = document.getElementById('kheloFrame');
+    if (fr) {{
+      try {{
+        const bin = atob(t.interactive_b64);
+        const bytes = new Uint8Array(bin.length);
+        for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+        fr.srcdoc = new TextDecoder('utf-8').decode(bytes);
+      }} catch (err) {{
+        fr.srcdoc = '<p style="padding:16px;font-size:1.2rem">Interactive load nahi hui. Page refresh karein.</p>';
+      }}
+    }}
+  }}
+  
   document.getElementById('modal').classList.add('open');
 }}
 
@@ -513,8 +542,34 @@ function toggleKey() {{
 
 // ---- Read-aloud (Sunlo) with live word highlight ----
 let __reading = false, __wordSpans = [];
-function cleanForSpeech(t) {{
-  return (t||'').replace(/\\r/g,'').replace(/`/g,' ').replace(/[*_>#]/g,' ');
+function cleanForSpeech(s) {{
+  if (!s) return '';
+  let t = String(s);
+  // strip markdown headers / bullets for clearer speech
+  t = t.replace(/^#+\s*/gm, '');
+  t = t.replace(/^[-*]\s+/gm, '');
+  t = t.replace(/\*\*?/g, '');
+  t = t.replace(/`+/g, '');
+  // Roman Urdu: expand common abbreviations for TTS
+  const map = [
+    [/\bAI\b/g, 'A I'],
+    [/\b3D\b/g, 'three D'],
+    [/\bkya\b/gi, 'kya'],
+    [/\bhain\b/gi, 'hain'],
+    [/\bhai\b/gi, 'hai'],
+    [/se /gi, 'se '],
+    // help Hindi/Urdu TTS: insert spaces around Latin clumps already spaced
+  ];
+  // Soft pauses after section labels
+  t = t.replace(/\bHOOK\b/gi, 'Hook. ');
+  t = t.replace(/\bSAMJHAO\b/gi, 'Samjhao. ');
+  t = t.replace(/\bMISAAL\b/gi, 'Misaal. ');
+  t = t.replace(/\bKARO\b/gi, 'Karo. ');
+  t = t.replace(/\bSAWAAL\b/gi, 'Sawaal. ');
+  t = t.replace(/\n{2,}/g, '. ');
+  t = t.replace(/\n/g, ' ');
+  t = t.replace(/\s+/g, ' ').trim();
+  return t;
 }}
 function escHtml(s) {{ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }}
 function tokenizeRead(text) {{
@@ -528,9 +583,23 @@ function tokenizeRead(text) {{
   return {{html:html, spans:spans}};
 }}
 function pickVoice() {{
-  const vs = window.speechSynthesis.getVoices()||[];
-  return vs.find(v=>/(^|[^a-z])ur/i.test(v.lang)||/urdu/i.test(v.name))
-      || vs.find(v=>/hi-?IN/i.test(v.lang)||/hindi/i.test(v.name)) || null;
+  const voices = window.speechSynthesis.getVoices() || [];
+  const score = (v) => {{
+    const n = ((v.lang||'') + ' ' + (v.name||'')).toLowerCase();
+    let s = 0;
+    if (n.includes('ur-pk') || n.includes('ur_pk')) s += 100;
+    if (n.includes('urdu')) s += 90;
+    if (n.includes('hi-in') || n.includes('hindi')) s += 70;
+    if (n.includes('google') && (n.includes('हिन्दी') || n.includes('hindi') || n.includes('urdu'))) s += 20;
+    if (n.includes('female') || n.includes('zira') || n.includes('neural')) s += 5;
+    return s;
+  }};
+  let best = null, bestS = -1;
+  for (const v of voices) {{
+    const s = score(v);
+    if (s > bestS) {{ bestS = s; best = v; }}
+  }}
+  return best;
 }}
 function toggleRead() {{ if (__reading) stopRead(); else startRead(); }}
 function startRead() {{
@@ -543,7 +612,7 @@ function startRead() {{
   const nodes = el.querySelectorAll('.rw');
   for (let j=0;j<__wordSpans.length;j++) __wordSpans[j].el = nodes[j];
   const u = new SpeechSynthesisUtterance(clean);
-  u.lang='hi-IN'; u.rate=0.9; const v=pickVoice(); if(v) u.voice=v;
+  u.lang=(pickVoice()&&(pickVoice().lang||'').toLowerCase().startsWith('ur'))?'ur-PK':'hi-IN'; u.rate=0.82; u.pitch=1.0; const v=pickVoice(); if(v) u.voice=v;
   u.onboundary = function(e) {{ if (e.name && e.name!=='word') return; highlightAt(e.charIndex); }};
   u.onend = function() {{ stopRead(); }};
   window.speechSynthesis.cancel();

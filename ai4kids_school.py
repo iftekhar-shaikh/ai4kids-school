@@ -1280,7 +1280,7 @@ def render_topic_interactive(subject_key, grade, topic_title):
     st.markdown(
         f'<div style="padding:10px 14px;background:#f5eef8;border-left:4px solid #8e44ad;'
         f'border-radius:0 10px 10px 0;margin:8px 0"><b>{label}</b><br>'
-        f'<span style="font-size:0.85em">Neeche khelo — phir quiz lo.</span></div>',
+        f'<span style="font-size:1.05rem">Upar/neeche khelo — phir quiz lo.</span></div>',
         unsafe_allow_html=True,
     )
     try:
