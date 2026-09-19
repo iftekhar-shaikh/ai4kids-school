@@ -2654,7 +2654,7 @@ def render_html_viewers():
 
     if st.session_state.get("view_lessonbank"):
         st.markdown("#### 📚 Lesson Bank")
-        st.caption("Upar Khelo panel: topic chuno → sabaq → app. Neeche grid browse ke liye.")
+        st.caption("Grid same. Topic chuno / Khelo dabao → neeche sabaq, us ke neeche app.")
         if st.button("✖️ Lesson Bank band karo", key="lb_close_top"):
             st.session_state.view_lessonbank = False
             st.session_state.pop("lb_topic_key", None)
@@ -2663,9 +2663,18 @@ def render_html_viewers():
             except Exception:
                 pass
             st.rerun()
-        # Khelo panel FIRST (visible without scrolling past huge grid)
-        st.markdown("### 🎮 Khelo — sabaq ke neeche app")
-        st.caption("Grade / Subject / Topic chuno — pehle sabaq, us ke neeche app khulti hai.")
+
+        # ORIGINAL grid first — do not move or replace
+        try:
+            components.html(open(LESSON_BANK_PATH, encoding="utf-8").read(),
+                            height=_embed_height(900), scrolling=True)
+        except Exception as e:
+            st.error(f"Lesson Bank nahi khul saki: {e}")
+
+        # Under grid: sabaq then Khelo (apps open here — nested iframe inside grid cannot)
+        st.markdown("---")
+        st.markdown("### 🎮 Neeche panel — sabaq phir Khelo")
+        st.caption("Grid ke baad: topic select → pehle sabaq, us ke neeche app.")
         topics = _lb_load_all_topics()
         playable = [t for t in topics if t.get("interactive_file")]
         if not playable:
@@ -2708,7 +2717,6 @@ def render_html_viewers():
                 key="lb_panel_topic",
             )
 
-            # Always bind current picks so app opens without a second "go" click
             if sk and title:
                 st.session_state.lb_topic_key = f"{g}|{sk}|{title}"
 
@@ -2746,16 +2754,6 @@ def render_html_viewers():
                 ok = render_topic_interactive(ssk, gg, ttl)
                 if not ok:
                     st.warning("Interactive file nahi mili — KB / interactives/ check karein.")
-                else:
-                    st.success("App neeche chal rahi hai.")
-
-        st.markdown("---")
-        st.markdown("#### 📚 Topic grid (browse)")
-        try:
-            components.html(open(LESSON_BANK_PATH, encoding="utf-8").read(),
-                            height=_embed_height(520), scrolling=True)
-        except Exception as e:
-            st.error(f"Lesson Bank nahi khul saki: {e}")
 
 
 
