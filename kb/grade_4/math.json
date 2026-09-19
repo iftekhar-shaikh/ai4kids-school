@@ -312,7 +312,9 @@
             "correct": "a"
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g4-naap-conversions.html",
+      "interactive_label": "Khelo - Naap conversions"
     },
     {
       "title": "Area aur perimeter",

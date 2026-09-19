@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Naap conversions | AI4Kids Class 4</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--board:#e5f3ea;--board-deep:#c9e4d2;--sky:#c5e7f6;--sky2:#6eb0d4;--accent:#1d6b52;--ok:#2e7d4f;--ink:#1e2a1a;--ink-soft:#4a5744;--paper:#fdfaf3;--line:#d5dec8;--gold:#e8b23d;--left:#c4453a;--fs-cap:clamp(12px,3.2vw,13px);--fs-xs:clamp(14px,3.7vw,15px);--fs-sm:clamp(16px,4.2vw,17px);--fs-md:clamp(17px,4.6vw,19px);--fs-lg:clamp(20px,5.4vw,23px);--fs-xl:clamp(27px,7.4vw,33px);--lh:1.5}
+body.urdu{--fs-cap:clamp(13px,3.5vw,15px);--fs-xs:clamp(15px,4.1vw,17px);--fs-sm:clamp(17px,4.7vw,19px);--fs-md:clamp(19px,5.2vw,21px);--fs-lg:clamp(22px,6vw,25px);--fs-xl:clamp(26px,7vw,31px);--lh:2.1}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px}
+.wrap{max-width:560px;margin:0 auto;padding:0 14px}
+.bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+.brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+.chip{border:2px solid var(--ink);background:var(--paper);color:var(--ink);border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;font-size:var(--fs-xs);cursor:pointer;min-height:42px;touch-action:manipulation}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.chip:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.stars{display:flex;align-items:center;gap:6px;font-weight:800;font-size:var(--fs-xs);background:#fff6e2;border:2px solid var(--gold);border-radius:999px;padding:7px 13px}
+h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+.sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+.ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+h1.ur{line-height:1.9}
+.tabs{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
+.tabs button{flex:1 1 28%;min-width:90px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);border-radius:14px;padding:10px 6px;font:inherit;font-weight:800;font-size:var(--fs-cap);cursor:pointer;min-height:54px;line-height:1.2;touch-action:manipulation}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.tabs button .badge{color:var(--gold)}
+.story{background:#fff8ea;border:2px dashed var(--gold);border-radius:16px;padding:13px 15px;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;margin-bottom:14px}
+body.urdu .story{line-height:var(--lh)}
+.story b{color:var(--ink)}
+.scene{position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);background:linear-gradient(180deg,var(--sky) 0%,var(--sky2) 36%,var(--board) 36%,var(--board-deep) 100%);min-height:280px}
+.scene-pad{padding:10px 12px 18px;min-height:260px;position:relative}
+.sky-layer{position:absolute;inset:0 0 58% 0;pointer-events:none;overflow:hidden}
+.sun-ball{position:absolute;top:12px;right:18px;width:36px;height:36px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#ffe9a0,#f5c542 60%,#e0a020);box-shadow:0 0 18px rgba(245,197,66,.45);z-index:1}
+body.urdu .sun-ball{right:auto;left:18px}
+.cloud{position:absolute;background:rgba(255,255,255,.85);border-radius:40px;opacity:.9}
+.cloud:before,.cloud:after{content:"";position:absolute;background:inherit;border-radius:50%}
+.c1{width:48px;height:15px;top:18px;left:12%}
+.c1:before{width:22px;height:22px;top:-12px;left:6px}
+.c1:after{width:18px;height:18px;top:-8px;left:24px}
+.c2{width:34px;height:12px;top:34px;left:55%;opacity:.7}
+.c2:before{width:16px;height:16px;top:-9px;left:4px}
+.c2:after{width:12px;height:12px;top:-5px;left:16px}
+.num-stage{position:relative;z-index:5;padding:62px 8px 8px;text-align:center}
+.hero-em{font-size:34px;line-height:1;margin:0}
+.num-hero{font-weight:800;font-size:clamp(28px,7.8vw,40px);letter-spacing:.5px;direction:ltr;unicode-bidi:isolate;margin:6px 0 2px;line-height:1.15}
+.sayline{font-weight:700;font-size:var(--fs-xs);margin:2px 8px 8px;color:var(--ink)}
+.capline{font-size:var(--fs-cap);font-weight:800;color:var(--accent);margin:6px 8px 0;line-height:1.45}
+body.urdu .capline,body.urdu .hintbox,body.urdu .card-box{line-height:var(--lh)}
+.eqline{direction:ltr;unicode-bidi:isolate;font-weight:800;font-size:var(--fs-sm);margin:8px 6px 4px;line-height:1.35}
+.card-box{background:rgba(253,250,243,.95);border:2.5px solid var(--ink);border-radius:14px;padding:10px 12px;font-weight:800;font-size:var(--fs-xs);max-width:340px;margin:8px auto 0;line-height:1.4}
+.fact-pills{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:8px 4px 0}
+.pill{background:#fff;border:2px solid var(--ink);border-radius:999px;padding:5px 10px;font-weight:800;font-size:12px;direction:ltr}
+.save-choices{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+.save-choices button{border:2.5px solid var(--ink);background:var(--paper);border-radius:14px;padding:12px 14px;font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;text-align:left;min-height:52px;display:flex;align-items:center;gap:10px;touch-action:manipulation}
+body.urdu .save-choices button{text-align:right}
+.save-choices button.numc{justify-content:center;text-align:center;direction:ltr;font-size:20px}
+.save-choices button.right,.opt.right{border-color:var(--ok);background:#e8f2ed}
+.save-choices button.wrong,.opt.wrong{border-color:var(--left);background:#fbeae8}
+.readout{margin-top:-18px;position:relative;z-index:2;background:var(--paper);border:3px solid var(--ink);border-radius:18px;padding:16px 18px}
+.statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+.statechip.ur{padding:2px 14px 7px}
+.statechip.win{background:var(--ok)}
+.statechip.miss{background:var(--left)}
+.headline{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+.headline.ur{line-height:1.95}
+.detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+.hintbox{margin-top:14px;border:2px solid var(--accent);background:#e7f6ef;border-radius:14px;padding:11px 14px;font-size:var(--fs-xs);color:var(--accent);font-weight:700;line-height:1.55;display:none}
+.hintbox.show{display:block}
+.panel{margin-top:22px}
+.panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+.prog{margin:0 0 10px;font-size:var(--fs-xs);font-weight:700;color:var(--ink-soft)}
+.btns{display:flex;gap:9px;margin-top:8px;flex-wrap:wrap}
+.btns button{border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:50px;padding:8px 14px;flex:1;touch-action:manipulation}
+.btns .go{background:var(--ink);color:var(--paper)}
+.btns button:active{transform:scale(.97)}
+.btns button:disabled{opacity:.4;cursor:default}
+.quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+.qhead{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+.qhead h2{font-size:var(--fs-lg);font-weight:800;margin:0;flex:1}
+.q{margin-bottom:26px}
+.q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+.q p.ur{font-weight:400}
+.gloss{margin:-6px 0 12px;font-size:var(--fs-xs);color:var(--ink-soft);font-weight:600;line-height:1.45}
+.opt{display:block;width:100%;text-align:left;margin-bottom:10px;border:2px solid var(--line);background:var(--paper);border-radius:12px;padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);min-height:50px;touch-action:manipulation}
+.opt.ur{text-align:right;line-height:var(--lh)}
+.opt:disabled{cursor:default}
+.fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+.fb.show{display:block}
+footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);font-size:var(--fs-xs);color:var(--ink-soft)}
+@media (min-width:820px){
+.wrap{max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;grid-template-areas:"bar bar" "head head" "tabs tabs" "story story" "left right" "quiz quiz" "foot foot";align-items:start}
+.bar{grid-area:bar}.head{grid-area:head}.tabs{grid-area:tabs}.story{grid-area:story}.left{grid-area:left}.right{grid-area:right}.quiz{grid-area:quiz;margin-top:34px}footer{grid-area:foot}.panel{margin-top:0}
+}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01ms !important;animation:none !important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 4 · Hisaab</span>
+    <span class="stars">⭐ <span id="starCount">0</span></span>
+    <button class="chip" id="langBtn" aria-pressed="false" type="button">اردو</button>
+    <button class="chip" id="speakBtn" type="button" aria-label="Sunlo">🔊</button>
+  </div>
+  <div class="head"><h1 id="title"></h1><p class="sub" id="subtitle"></p></div>
+  <div class="tabs" role="group">
+    <button type="button" id="tabUnits" aria-pressed="true"></button>
+    <button type="button" id="tabTime" aria-pressed="false"></button>
+    <button type="button" id="tabWord" aria-pressed="false"></button>
+  </div>
+  <p class="story" id="story"></p>
+  <div class="left">
+    <div class="scene"><div class="scene-pad" id="scenePad"></div></div>
+    <div class="readout">
+      <span class="statechip" id="statechip"></span>
+      <p class="headline" id="headline"></p>
+      <p class="detail" id="detail"></p>
+      <p class="hintbox" id="hintbox"></p>
+    </div>
+  </div>
+  <div class="right">
+    <div class="panel">
+      <h2 id="ctlHead"></h2>
+      <p class="prog" id="prog"></p>
+      <div id="actionBox"></div>
+      <div class="btns"><button type="button" class="go" id="nextBtn"></button></div>
+      <div class="btns"><button type="button" id="hintBtn"></button><button type="button" id="resetBtn"></button></div>
+    </div>
+  </div>
+  <div class="quiz">
+    <div class="qhead"><h2 id="quizHead"></h2><button type="button" class="chip" id="newQuiz"></button></div>
+    <div id="quizBox"></div>
+  </div>
+  <footer>
+    <p data-en="AI4Kids — Islamabad bilingual school. Offline. WhatsApp 0337 1468899 · Naap conversions" data-ur="اے آئی فور کڈز — اسلام آباد دو لسانی اسکول۔ آف لائن۔ واٹس ایپ 0337 1468899 · ناپ کنورژنز"></p>
+  </footer>
+</div>
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id)}
+function isolate(s){return "\u2066"+s+"\u2069"}
+function setText(el,str){if(!el)return;el.textContent=(lang==="ur")?isolate(str):str;el.classList.toggle("ur",lang==="ur");el.setAttribute("dir",lang==="ur"?"rtl":"ltr")}
+function t(o){return (o&&o[lang])||(o&&o.en)||""}
+function shuffle(arr){var a=arr.slice(),i,j,tmp;for(i=a.length-1;i>0;i--){j=Math.floor(Math.random()*(i+1));tmp=a[i];a[i]=a[j];a[j]=tmp}return a}
+function fmt(n){var s=String(Math.abs(n|0)),out="";while(s.length>3){out=","+s.slice(-3)+out;s=s.slice(0,-3)}return (n<0?"-":"")+s+out}
+
+var lang="en",mode="units",stars=0,awarded={},doneModes={units:false,time:false,word:false},speakTimer=null;
+var T={
+title:{en:"Naap conversions",ur:"ناپ کنورژنز"},
+sub:{en:"Length, mass, capacity, and time. Convert larger units to smaller ones (×). Pakistani school, bazaar, and travel examples for Class 4 Hisaab.",ur:"لمبائی، وزن، گنجائش اور وقت۔ بڑی اکائیوں کو چھوٹی میں بدل (×)۔ کلاس 4 حساب کے لیے پاکستانی اسکول، بازار اور سفر کی مثالیں۔"},
+tabUnits:{en:"Length · mass · L",ur:"لمبائی · وزن · لیٹر"},
+tabTime:{en:"Time formats",ur:"وقت کی شکلیں"},
+tabWord:{en:"Word problems",ur:"لفظی مسائل"},
+storyUnits:{en:"Bigger unit → smaller unit: <b>multiply</b>. Length ladder: <b>1 km = 1,000 m</b>, <b>1 m = 100 cm</b>, <b>1 cm = 10 mm</b>. Mass: <b>1 kg = 1,000 g</b>, <b>1 g = 1,000 mg</b>. Capacity: <b>1 L = 1,000 ml</b>. Add or subtract <b>only the same units</b> — convert first if they differ.",ur:"بڑی اکائی → چھوٹی اکائی: <b>ضرب</b>۔ لمبائی سیڑھی: <b>1 km = 1,000 m</b>، <b>1 m = 100 cm</b>، <b>1 cm = 10 mm</b>۔ وزن: <b>1 kg = 1,000 g</b>، <b>1 g = 1,000 mg</b>۔ گنجائش: <b>1 L = 1,000 ml</b>۔ جمع یا منفی <b>صرف ایک جیسی اکائیوں</b> پر — مختلف ہوں تو پہلے تبدیل کرو۔"},
+storyTime:{en:"<b>12-hour</b> uses am (morning) and pm (afternoon/night). <b>24-hour</b> runs from 00:00 to 23:59 — no am/pm. After noon, add 12 for 24-hour (3:00 pm → 15:00). Midnight is 00:00; noon is 12:00. Duration = end time minus start time (hours and minutes).",ur:"<b>12 گھنٹے</b> میں am (صبح) اور pm (دوپہر/رات)۔ <b>24 گھنٹے</b> 00:00 سے 23:59 تک — بغیر am/pm۔ دوپہر کے بعد 24 گھنٹے کے لیے 12 جمع کرو (3:00 pm → 15:00)۔ آدھی رات 00:00؛ دوپہر 12:00۔ مدت = اختتام منفی آغاز (گھنٹے اور منٹ)۔"},
+storyWord:{en:"Read the story. Convert first if units differ, then add or subtract. Think of school bags, bazaar sugar, train walks, cloth for masks, and water bottles — real Pakistani naap from home and school.",ur:"کہانی پڑھو۔ اگر اکائیاں مختلف ہوں تو پہلے تبدیل کرو، پھر جمع یا منفی۔ اسکول بیگ، بازار کی چینی، ٹرین تک چلنا، ماسک کا کپڑا، پانی کی بوتل — گھر اور اسکول کا حقیقی پاکستانی ناپ۔"},
+ctl:{en:"Your turn — naap lab",ur:"تمہاری باری — ناپ لیب"},
+next:{en:"Next challenge",ur:"اگلا چیلنج"},
+hint:{en:"Hint",ur:"اشارہ"},
+reset:{en:"Reset",ur:"ری سیٹ"},
+quiz:{en:"Check yourself",ur:"اپنا چیک"},
+newQuiz:{en:"New quiz",ur:"نیا کوئز"},
+nice:{en:"Shabash!",ur:"شاباش!"},
+oops:{en:"Almost — try again",ur:"قریب — دوبارہ آزماؤ"},
+tipUnits:{en:"Larger to smaller: multiply. Length: km→m×1000, m→cm×100, cm→mm×10. Mass: kg→g×1000, g→mg×1000. Capacity: L→ml×1000. Same units only for add and subtract.",ur:"بڑی سے چھوٹی: ضرب۔ لمبائی: km→m×1000، m→cm×100، cm→mm×10۔ وزن: kg→g×1000، g→mg×1000۔ گنجائش: L→ml×1000۔ جمع اور منفی صرف ایک جیسی اکائیوں پر۔"},
+tipTime:{en:"am is morning, pm is afternoon or night. For 24-hour after noon, add 12 hours. Midnight is 00:00. Noon is 12:00. Duration is end minus start.",ur:"am صبح ہے، pm دوپہر یا رات۔ دوپہر کے بعد 24 گھنٹے کے لیے 12 جمع کرو۔ آدھی رات 00:00۔ دوپہر 12:00۔ مدت اختتام منفی آغاز ہے۔"},
+tipWord:{en:"Change to the same unit first. Then add or subtract. Check your zeros: kilo, milli, and kilo-metre all use 1,000.",ur:"پہلے ایک جیسی اکائی بناؤ۔ پھر جمع یا منفی۔ صفر چیک کرو: کلو، ملی اور کلو میٹر سب 1,000 استعمال کرتے ہیں۔"},
+progUnits:{en:"Unit rounds",ur:"اکائی راؤنڈ"},
+progTime:{en:"Time rounds",ur:"وقت راؤنڈ"},
+progWord:{en:"Story rounds",ur:"کہانی راؤنڈ"}
+};
+
+var UNITS=[
+{id:"u1",em:"🏫",title:{en:"School gate to gate",ur:"اسکول گیٹ سے گیٹ"},blurb:{en:"Islamabad school playground is 2 km long from gate to gate.",ur:"اسلام آباد اسکول کا میدان گیٹ سے گیٹ تک 2 km لمبا ہے۔"},show:"2 km  →  ? m",pills:["1 km = 1,000 m"],ask:{en:"How many metres is 2 km?",ur:"2 km کتنے میٹر ہیں؟"},opts:[{id:"a",en:"200 m",ur:"200 m"},{id:"b",en:"2,000 m",ur:"2,000 m"},{id:"c",en:"20,000 m",ur:"20,000 m"},{id:"d",en:"200 cm",ur:"200 cm"}],correct:"b",hint:{en:"Larger → smaller: multiply. 1 km = 1,000 m, so 2 × 1,000 = 2,000 m. Not 200 (that would be ÷10 by mistake).",ur:"بڑی → چھوٹی: ضرب۔ 1 km = 1,000 m، اس لیے 2 × 1,000 = 2,000 m۔ 200 نہیں (وہ غلطی سے ÷10 ہوگا)۔"},done:{en:"2 km = 2,000 m.",ur:"2 km = 2,000 m۔"},why:{en:"Two kilometres means two times one thousand metres.",ur:"دو کلومیٹر یعنی ایک ہزار میٹر دو بار۔"}},
+{id:"u2",em:"📏",title:{en:"Ribbon for charts",ur:"چارٹ کا ربن"},blurb:{en:"Art class needs 3 m of ribbon for wall charts.",ur:"آرٹ کلاس کو وال چارٹ کے لیے 3 m ربن چاہیے۔"},show:"3 m  →  ? cm",pills:["1 m = 100 cm"],ask:{en:"How many centimetres is 3 m?",ur:"3 m کتنے سینٹی میٹر ہیں؟"},opts:[{id:"a",en:"30 cm",ur:"30 cm"},{id:"b",en:"300 cm",ur:"300 cm"},{id:"c",en:"3,000 cm",ur:"3,000 cm"},{id:"d",en:"3 cm",ur:"3 cm"}],correct:"b",hint:{en:"1 m = 100 cm. Multiply: 3 × 100 = 300 cm. 3,000 would be metres to millimetres (×1,000).",ur:"1 m = 100 cm۔ ضرب: 3 × 100 = 300 cm۔ 3,000 میٹر سے ملی میٹر ہوتا (×1,000)۔"},done:{en:"3 m = 300 cm.",ur:"3 m = 300 cm۔"},why:{en:"Three metres is three hundred centimetres.",ur:"تین میٹر تین سو سینٹی میٹر ہیں۔"}},
+{id:"u3",em:"🐜",title:{en:"Ant path on desk",ur:"میز پر چیونٹی کا راستہ"},blurb:{en:"An ant walked 5 cm across Ayesha's pencil case.",ur:"چیونٹی عائشہ کے پنسل کیس پر 5 cm چلی۔"},show:"5 cm  →  ? mm",pills:["1 cm = 10 mm"],ask:{en:"How many millimetres is 5 cm?",ur:"5 cm کتنے ملی میٹر ہیں؟"},opts:[{id:"a",en:"5 mm",ur:"5 mm"},{id:"b",en:"50 mm",ur:"50 mm"},{id:"c",en:"500 mm",ur:"500 mm"},{id:"d",en:"15 mm",ur:"15 mm"}],correct:"b",hint:{en:"1 cm = 10 mm. So 5 × 10 = 50 mm. Not 500 — that would be ×100.",ur:"1 cm = 10 mm۔ اس لیے 5 × 10 = 50 mm۔ 500 نہیں — وہ ×100 ہوگا۔"},done:{en:"5 cm = 50 mm.",ur:"5 cm = 50 mm۔"},why:{en:"Each centimetre holds ten millimetres.",ur:"ہر سینٹی میٹر میں دس ملی میٹر ہوتے ہیں۔"}},
+{id:"u4",em:"⚖️",title:{en:"Bazaar sugar bag",ur:"بازار کی چینی"},blurb:{en:"Ammi bought 4 kg of sugar for Eid sweets.",ur:"امی نے عید کی مٹھائی کے لیے 4 kg چینی خریدی۔"},show:"4 kg  →  ? g",pills:["1 kg = 1,000 g"],ask:{en:"How many grams is 4 kg?",ur:"4 kg کتنے گرام ہیں؟"},opts:[{id:"a",en:"40 g",ur:"40 g"},{id:"b",en:"400 g",ur:"400 g"},{id:"c",en:"4,000 g",ur:"4,000 g"},{id:"d",en:"4,000 mg",ur:"4,000 mg"}],correct:"c",hint:{en:"1 kg = 1,000 g. Multiply: 4 × 1,000 = 4,000 g. mg would need another ×1,000 from grams.",ur:"1 kg = 1,000 g۔ ضرب: 4 × 1,000 = 4,000 g۔ mg کے لیے گرام سے ایک اور ×1,000 چاہیے۔"},done:{en:"4 kg = 4,000 g.",ur:"4 kg = 4,000 g۔"},why:{en:"Four kilograms is four thousand grams.",ur:"چار کلوگرام چار ہزار گرام ہیں۔"}},
+{id:"u5",em:"💊",title:{en:"Medicine drop",ur:"دوا کا قطرہ"},blurb:{en:"The school nurse measured 2 g of powder for a safe practice demo (not to swallow).",ur:"اسکول نرس نے محفوظ مشق کے لیے 2 g پاؤڈر ناپا (نگلنا نہیں)۔"},show:"2 g  →  ? mg",pills:["1 g = 1,000 mg"],ask:{en:"How many milligrams is 2 g?",ur:"2 g کتنے ملی گرام ہیں؟"},opts:[{id:"a",en:"2 mg",ur:"2 mg"},{id:"b",en:"20 mg",ur:"20 mg"},{id:"c",en:"200 mg",ur:"200 mg"},{id:"d",en:"2,000 mg",ur:"2,000 mg"}],correct:"d",hint:{en:"1 g = 1,000 mg. Multiply: 2 × 1,000 = 2,000 mg. Same pattern as kg to g.",ur:"1 g = 1,000 mg۔ ضرب: 2 × 1,000 = 2,000 mg۔ kg سے g جیسا ہی طریقہ۔"},done:{en:"2 g = 2,000 mg.",ur:"2 g = 2,000 mg۔"},why:{en:"Milli means one-thousandth. One gram holds one thousand milligrams.",ur:"ملی کا مطلب ہزارواں حصہ۔ ایک گرام میں ایک ہزار ملی گرام ہوتے ہیں۔"}},
+{id:"u6",em:"🧃",title:{en:"Juice for sports day",ur:"سپورٹس ڈے کا جوس"},blurb:{en:"Class 4 poured 3 L of mango juice into cups.",ur:"کلاس 4 نے کپوں میں 3 L آم کا جوس ڈالا۔"},show:"3 L  →  ? ml",pills:["1 L = 1,000 ml"],ask:{en:"How many millilitres is 3 L?",ur:"3 L کتنے ملی لیٹر ہیں؟"},opts:[{id:"a",en:"30 ml",ur:"30 ml"},{id:"b",en:"300 ml",ur:"300 ml"},{id:"c",en:"3,000 ml",ur:"3,000 ml"},{id:"d",en:"3 ml",ur:"3 ml"}],correct:"c",hint:{en:"1 L = 1,000 ml. So 3 × 1,000 = 3,000 ml. A small juice box is often about 200 ml — much less than 3 L.",ur:"1 L = 1,000 ml۔ اس لیے 3 × 1,000 = 3,000 ml۔ چھوٹا جوس باکس اکثر تقریباً 200 ml ہوتا ہے — 3 L سے بہت کم۔"},done:{en:"3 L = 3,000 ml.",ur:"3 L = 3,000 ml۔"},why:{en:"Three litres is three thousand millilitres.",ur:"تین لیٹر تین ہزار ملی لیٹر ہیں۔"}}
+];
+
+var TIME=[
+{id:"t1",em:"🚌",title:{en:"Morning school bus",ur:"صبح کی اسکول بس"},blurb:{en:"Bilal's bus leaves at 7:30 am. Write it in 24-hour time.",ur:"بلال کی بس 7:30 am پر نکلتی ہے۔ اسے 24 گھنٹے میں لکھو۔"},show:"7:30 am  →  ?",pills:["am = morning","no +12 before noon"],ask:{en:"What is 7:30 am in 24-hour time?",ur:"7:30 am 24 گھنٹے میں کیا ہے؟"},opts:[{id:"a",en:"07:30",ur:"07:30"},{id:"b",en:"19:30",ur:"19:30"},{id:"c",en:"17:30",ur:"17:30"},{id:"d",en:"7:30 pm",ur:"7:30 pm"}],correct:"a",hint:{en:"Morning am times before noon keep the same hour. Write 07:30. 19:30 would be 7:30 pm.",ur:"دوپہر سے پہلے am اوقات وہی گھنٹہ رکھتے ہیں۔ لکھو 07:30۔ 19:30 تو 7:30 pm ہوگا۔"},done:{en:"7:30 am = 07:30.",ur:"7:30 am = 07:30۔"},why:{en:"Before noon we do not add 12. Zero-pad the hour if needed.",ur:"دوپہر سے پہلے 12 نہیں جمع کرتے۔ ضرورت ہو تو گھنٹے کے آگے صفر لگائیں۔"}},
+{id:"t2",em:"🏏",title:{en:"Afternoon cricket",ur:"دوپہر کرکٹ"},blurb:{en:"Match starts at 3:15 pm on the school ground.",ur:"میچ اسکول گراؤنڈ پر 3:15 pm شروع ہوتا ہے۔"},show:"3:15 pm  →  ?",pills:["pm after noon → +12"],ask:{en:"What is 3:15 pm in 24-hour time?",ur:"3:15 pm 24 گھنٹے میں کیا ہے؟"},opts:[{id:"a",en:"03:15",ur:"03:15"},{id:"b",en:"15:15",ur:"15:15"},{id:"c",en:"13:15",ur:"13:15"},{id:"d",en:"23:15",ur:"23:15"}],correct:"b",hint:{en:"After noon, add 12 to the hour: 3 + 12 = 15. Minutes stay 15. So 15:15. Not 03:15 (that is am).",ur:"دوپہر کے بعد گھنٹے میں 12 جمع کرو: 3 + 12 = 15۔ منٹ 15 رہیں۔ اس لیے 15:15۔ 03:15 نہیں (وہ am ہے)۔"},done:{en:"3:15 pm = 15:15.",ur:"3:15 pm = 15:15۔"},why:{en:"Fifteen hours fifteen minutes on the 24-hour clock.",ur:"چوبیس گھنٹے کی گھڑی پر پندرہ گھنٹے پندرہ منٹ۔"}},
+{id:"t3",em:"🕰️",title:{en:"Back to 12-hour",ur:"واپس 12 گھنٹے"},blurb:{en:"The mosque clock shows 18:45 in 24-hour time.",ur:"مسجد کی گھڑی 24 گھنٹے میں 18:45 دکھاتی ہے۔"},show:"18:45  →  ?",pills:["hour ≥ 13 → −12 + pm"],ask:{en:"What is 18:45 in 12-hour time?",ur:"18:45 12 گھنٹے میں کیا ہے؟"},opts:[{id:"a",en:"6:45 am",ur:"6:45 am"},{id:"b",en:"8:45 pm",ur:"8:45 pm"},{id:"c",en:"6:45 pm",ur:"6:45 pm"},{id:"d",en:"18:45 am",ur:"18:45 am"}],correct:"c",hint:{en:"18 − 12 = 6, and hours 13–23 are pm. So 6:45 pm. Not am — that would be morning.",ur:"18 − 12 = 6، اور 13–23 والے گھنٹے pm ہیں۔ اس لیے 6:45 pm۔ am نہیں — وہ صبح ہوتی۔"},done:{en:"18:45 = 6:45 pm.",ur:"18:45 = 6:45 pm۔"},why:{en:"Evening Maghrib time is around then in many seasons.",ur:"بہت سے موسموں میں شام مغرب کے قریب یہ وقت ہوتا ہے۔"}},
+{id:"t4",em:"📖",title:{en:"Homework duration",ur:"ہوم ورک کی مدت"},blurb:{en:"Sara starts homework at 4:00 pm and finishes at 5:30 pm.",ur:"سارہ 4:00 pm پر ہوم ورک شروع کرتی ہے اور 5:30 pm پر ختم کرتی ہے۔"},show:"4:00 pm → 5:30 pm",pills:["duration = end − start"],ask:{en:"How long did Sara work?",ur:"سارہ نے کتنی دیر کام کیا؟"},opts:[{id:"a",en:"1 hour",ur:"1 گھنٹہ"},{id:"b",en:"1 hour 30 minutes",ur:"1 گھنٹہ 30 منٹ"},{id:"c",en:"2 hours",ur:"2 گھنٹے"},{id:"d",en:"30 minutes",ur:"30 منٹ"}],correct:"b",hint:{en:"From 4:00 to 5:00 is 1 hour. Then to 5:30 is 30 more minutes. Total 1 hour 30 minutes. Same as 90 minutes.",ur:"4:00 سے 5:00 تک 1 گھنٹہ۔ پھر 5:30 تک مزید 30 منٹ۔ کل 1 گھنٹہ 30 منٹ۔ یہی 90 منٹ ہیں۔"},done:{en:"Duration = 1 hour 30 minutes.",ur:"مدت = 1 گھنٹہ 30 منٹ۔"},why:{en:"End minus start: 5:30 − 4:00 = 1:30.",ur:"اختتام منفی آغاز: 5:30 − 4:00 = 1:30۔"}}
+];
+
+var WORD=[
+{id:"w1",em:"🎒",title:{en:"Two school bags",ur:"دو اسکول بیگ"},blurb:{en:"On Monday in Islamabad, Hamza's bag is 2 kg and Ali's bag is 500 g. How heavy are they together in grams?",ur:"اسلام آباد میں پیر کو حمزہ کا بیگ 2 kg اور علی کا بیگ 500 g ہے۔ دونوں مل کر کتنے گرام؟"},show:"2 kg + 500 g  →  ? g",ask:{en:"Total mass in grams?",ur:"کل وزن گرام میں؟"},opts:[{id:"a",en:"700 g",ur:"700 g"},{id:"b",en:"2,500 g",ur:"2,500 g"},{id:"c",en:"2,050 g",ur:"2,050 g"},{id:"d",en:"25,000 g",ur:"25,000 g"}],correct:"b",hint:{en:"First convert: 2 kg = 2,000 g. Then add: 2,000 + 500 = 2,500 g. Do not add 2 + 500.",ur:"پہلے تبدیل کرو: 2 kg = 2,000 g۔ پھر جمع: 2,000 + 500 = 2,500 g۔ 2 + 500 مت کرو۔"},done:{en:"2,000 g + 500 g = 2,500 g.",ur:"2,000 g + 500 g = 2,500 g۔"},why:{en:"Same units first, then add. Two and a half kilograms together.",ur:"پہلے ایک جیسی اکائی، پھر جمع۔ مل کر ڈھائی کلوگرام۔"}},
+{id:"w2",em:"💧",title:{en:"Water bottle left",ur:"بوتل میں باقی پانی"},blurb:{en:"A bottle held 1 L. After sports, 250 ml remains. How much was drunk (in ml)?",ur:"بوتل میں 1 L تھا۔ کھیل کے بعد 250 ml باقی۔ کتنا پیا گیا (ml میں)؟"},show:"1 L − 250 ml  →  ? ml",ask:{en:"How many ml were drunk?",ur:"کتنے ml پیے گئے؟"},opts:[{id:"a",en:"750 ml",ur:"750 ml"},{id:"b",en:"250 ml",ur:"250 ml"},{id:"c",en:"1,250 ml",ur:"1,250 ml"},{id:"d",en:"75 ml",ur:"75 ml"}],correct:"a",hint:{en:"1 L = 1,000 ml. Drunk = 1,000 − 250 = 750 ml. Remaining is 250, not the answer.",ur:"1 L = 1,000 ml۔ پیا گیا = 1,000 − 250 = 750 ml۔ باقی 250 ہے، جواب نہیں۔"},done:{en:"1,000 − 250 = 750 ml drunk.",ur:"1,000 − 250 = 750 ml پیے۔"},why:{en:"Subtract same units after converting litres to millilitres.",ur:"لیٹر کو ملی لیٹر بنا کر ایک جیسی اکائی منفی کرو۔"}},
+{id:"w3",em:"🛤️",title:{en:"Train station walk",ur:"اسٹیشن تک چلنا"},blurb:{en:"From home to the Rawalpindi station is 3 km. Sara already walked 800 m. How many metres left?",ur:"گھر سے راولپنڈی اسٹیشن تک 3 km ہے۔ سارہ پہلے ہی 800 m چل چکی۔ کتنے میٹر باقی؟"},show:"3 km − 800 m  →  ? m",ask:{en:"How many metres are left?",ur:"کتنے میٹر باقی ہیں؟"},opts:[{id:"a",en:"2,200 m",ur:"2,200 m"},{id:"b",en:"220 m",ur:"220 m"},{id:"c",en:"2,800 m",ur:"2,800 m"},{id:"d",en:"3,800 m",ur:"3,800 m"}],correct:"a",hint:{en:"3 km = 3,000 m. Left = 3,000 − 800 = 2,200 m. Not 220 — watch the zeros.",ur:"3 km = 3,000 m۔ باقی = 3,000 − 800 = 2,200 m۔ 220 نہیں — صفر دیکھنا۔"},done:{en:"3,000 − 800 = 2,200 m left.",ur:"3,000 − 800 = 2,200 m باقی۔"},why:{en:"Convert kilometres to metres, then subtract.",ur:"کلومیٹر کو میٹر بناؤ، پھر منفی کرو۔"}},
+{id:"w4",em:"🧵",title:{en:"Two cloth pieces",ur:"کپڑے کے دو ٹکڑے"},blurb:{en:"Ammi cut 45 cm and 30 cm of cloth for masks. Total length in centimetres?",ur:"امی نے ماسک کے لیے 45 cm اور 30 cm کپڑا کاٹا۔ کل لمبائی سینٹی میٹر میں؟"},show:"45 cm + 30 cm  →  ?",ask:{en:"What is the total length?",ur:"کل لمبائی کیا ہے؟"},opts:[{id:"a",en:"75 cm",ur:"75 cm"},{id:"b",en:"15 cm",ur:"15 cm"},{id:"c",en:"75 mm",ur:"75 mm"},{id:"d",en:"750 cm",ur:"750 cm"}],correct:"a",hint:{en:"Same unit already — just add: 45 + 30 = 75 cm. Not mm unless you convert (×10).",ur:"اکائی پہلے ہی ایک جیسی ہے — صرف جمع: 45 + 30 = 75 cm۔ mm نہیں جب تک تبدیل نہ کرو (×10)۔"},done:{en:"45 + 30 = 75 cm.",ur:"45 + 30 = 75 cm۔"},why:{en:"When units match, add straight away.",ur:"جب اکائیاں ملیں تو سیدھا جمع کرو۔"}}
+];
+
+var QUIZ=[
+{id:"qkm",pin:true,q:{en:"1 kilometre equals how many metres?",ur:"1 کلومیٹر کتنے میٹر کے برابر ہے؟"},ru:"1 kilometre kitne metres ke barabar hai?",opts:[{en:"100 m",ur:"100 m"},{en:"1,000 m",ur:"1,000 m"},{en:"10 m",ur:"10 m"},{en:"10,000 m",ur:"10,000 m"}],correct:1,why:{en:"1 km = 1,000 m. Larger to smaller means multiply by 1,000.",ur:"1 km = 1,000 m۔ بڑی سے چھوٹی یعنی 1,000 سے ضرب۔"}},
+{id:"q24",pin:true,q:{en:"What is 4:00 pm in 24-hour time?",ur:"4:00 pm 24 گھنٹے میں کیا ہے؟"},ru:"4:00 pm 24-hour time mein kya hai?",opts:[{en:"04:00",ur:"04:00"},{en:"14:00",ur:"14:00"},{en:"16:00",ur:"16:00"},{en:"40:00",ur:"40:00"}],correct:2,why:{en:"After noon add 12: 4 + 12 = 16. So 16:00. 14:00 is 2:00 pm.",ur:"دوپہر کے بعد 12 جمع: 4 + 12 = 16۔ اس لیے 16:00۔ 14:00 تو 2:00 pm ہے۔"}},
+{id:"ql",q:{en:"3 L equals how many ml?",ur:"3 L کتنے ml کے برابر ہیں؟"},ru:"3 L kitne ml ke barabar hain?",opts:[{en:"30 ml",ur:"30 ml"},{en:"300 ml",ur:"300 ml"},{en:"3,000 ml",ur:"3,000 ml"},{en:"3 ml",ur:"3 ml"}],correct:2,why:{en:"1 L = 1,000 ml, so 3 × 1,000 = 3,000 ml.",ur:"1 L = 1,000 ml، اس لیے 3 × 1,000 = 3,000 ml۔"}},
+{id:"qkg",q:{en:"Which is the same as 2 kg?",ur:"2 kg کس کے برابر ہے؟"},ru:"2 kg kis ke barabar hai?",opts:[{en:"200 g",ur:"200 g"},{en:"2,000 g",ur:"2,000 g"},{en:"20 g",ur:"20 g"},{en:"2,000 mg",ur:"2,000 mg"}],correct:1,why:{en:"1 kg = 1,000 g, so 2 kg = 2,000 g. 2,000 mg is only 2 g — milligrams are much smaller than grams.",ur:"1 kg = 1,000 g، اس لیے 2 kg = 2,000 g۔ 2,000 mg صرف 2 g ہیں — ملی گرام گرام سے بہت چھوٹے ہیں۔"}},
+{id:"qcm",q:{en:"How many millimetres in 4 cm?",ur:"4 cm میں کتنے ملی میٹر؟"},ru:"4 cm mein kitne millimetres hain?",opts:[{en:"4 mm",ur:"4 mm"},{en:"40 mm",ur:"40 mm"},{en:"400 mm",ur:"400 mm"},{en:"14 mm",ur:"14 mm"}],correct:1,why:{en:"1 cm = 10 mm, so 4 × 10 = 40 mm.",ur:"1 cm = 10 mm، اس لیے 4 × 10 = 40 mm۔"}},
+{id:"qdur",q:{en:"A lesson starts at 9:00 am and ends at 10:15 am. How long is it?",ur:"سبق 9:00 am شروع اور 10:15 am ختم۔ مدت کتنی؟"},ru:"Sabak 9:00 am shuru aur 10:15 am khatam. Muddat kitni?",opts:[{en:"15 minutes",ur:"15 منٹ"},{en:"1 hour",ur:"1 گھنٹہ"},{en:"1 hour 15 minutes",ur:"1 گھنٹہ 15 منٹ"},{en:"2 hours",ur:"2 گھنٹے"}],correct:2,why:{en:"From 9:00 to 10:00 is 1 hour, plus 15 minutes to 10:15.",ur:"9:00 سے 10:00 تک 1 گھنٹہ، پھر 10:15 تک 15 منٹ۔"}},
+{id:"qadd",q:{en:"A rope is 2 m and another is 50 cm. Total in centimetres?",ur:"ایک رسی 2 m اور دوسری 50 cm۔ کل سینٹی میٹر میں؟"},ru:"Ek rassi 2 m aur doosri 50 cm. Kul centimetres mein?",opts:[{en:"52 cm",ur:"52 cm"},{en:"250 cm",ur:"250 cm"},{en:"150 cm",ur:"150 cm"},{en:"2,050 cm",ur:"2,050 cm"}],correct:1,why:{en:"Convert first: 2 m = 200 cm (×100). Then add same units: 200 + 50 = 250 cm. Do not add 2 + 50.",ur:"پہلے تبدیل: 2 m = 200 cm (×100)۔ پھر ایک جیسی اکائی جمع: 200 + 50 = 250 cm۔ 2 + 50 مت کرو۔"}}
+];
+
+var unitsIdx=0,unitsDone={};
+var timeIdx=0,timeDone={};
+var wordIdx=0,wordDone={};
+var optKey="",optOrder=[],quizSet=[],quizState={};
+
+function award(key,n){if(awarded[key])return;awarded[key]=true;stars+=(n||1);$("starCount").textContent=String(stars)}
+function recountStars(){stars=0;Object.keys(awarded).forEach(function(k){stars+=(k.indexOf("mode-")===0)?2:1});$("starCount").textContent=String(stars)}
+function markWin(prefix,id,doneMap,modeKey,total){if(doneMap[id])return;doneMap[id]=true;award(prefix+"-"+id,1);if(Object.keys(doneMap).length>=total){doneModes[modeKey]=true;award("mode-"+modeKey,2)}tabBadges()}
+function skyHTML(){return '<div class="sky-layer"><div class="sun-ball"></div><div class="cloud c1"></div><div class="cloud c2"></div></div>'}
+function prepScene(){var pad=$("scenePad");pad.innerHTML=skyHTML();var stage=document.createElement("div");stage.className="num-stage";pad.appendChild(stage);return stage}
+function addBlurb(stage,ch){var em=document.createElement("div");em.className="hero-em";em.textContent=ch.em||"📐";stage.appendChild(em);var box=document.createElement("div");box.className="card-box";setText(box,t(ch.blurb));stage.appendChild(box)}
+function addShow(stage,ch){var h=document.createElement("div");h.className="num-hero";h.textContent=ch.show;stage.appendChild(h)}
+function addPills(stage,ch){if(!ch.pills||!ch.pills.length)return;var row=document.createElement("div");row.className="fact-pills";ch.pills.forEach(function(p){var s=document.createElement("span");s.className="pill";s.textContent=p;row.appendChild(s)});stage.appendChild(row)}
+function showStep(i,n){setText($("statechip"),(i+1)+" / "+n);$("statechip").className="statechip"+(lang==="ur"?" ur":"")}
+function showWin(msg){setText($("headline"),msg);$("statechip").className="statechip win"+(lang==="ur"?" ur":"");setText($("statechip"),t(T.nice))}
+function showMiss(){setText($("headline"),t(T.oops));$("statechip").className="statechip miss"+(lang==="ur"?" ur":"");setText($("statechip"),t(T.oops))}
+function stableOrder(key,arr){if(optKey!==key){optKey=key;optOrder=shuffle(arr)}return optOrder}
+function clearHint(){$("hintbox").classList.remove("show")}
+
+function renderChoices(ch,doneMap,prefix,modeKey,total,rerender){
+  var box=$("actionBox");box.innerHTML="";
+  var choices=document.createElement("div");choices.className="save-choices";
+  stableOrder(prefix+"-"+ch.id,ch.opts.slice()).forEach(function(opt){
+    var b=document.createElement("button");b.type="button";
+    if(/^\d/.test(t(opt))||/^[0-9]/.test(opt.en)){b.className="numc";b.textContent=opt.en;b.setAttribute("dir","ltr")}
+    else setText(b,t(opt));
+    if(doneMap[ch.id]&&opt.id===ch.correct)b.classList.add("right");
+    b.disabled=!!doneMap[ch.id];
+    b.addEventListener("click",function(){if(doneMap[ch.id])return;if(opt.id===ch.correct){markWin(prefix,ch.id,doneMap,modeKey,total);rerender()}else{b.classList.add("wrong");showMiss()}});
+    choices.appendChild(b);
+  });
+  box.appendChild(choices);
+}
+
+function renderUnits(){
+  var ch=UNITS[unitsIdx],stage=prepScene();
+  addBlurb(stage,ch);addShow(stage,ch);addPills(stage,ch);
+  showStep(unitsIdx,UNITS.length);setText($("headline"),t(ch.title));
+  setText($("detail"),unitsDone[ch.id]?t(ch.why):t(ch.ask));clearHint();
+  if(unitsDone[ch.id])showWin(t(ch.done));
+  renderChoices(ch,unitsDone,"units","units",UNITS.length,renderUnits);
+  setText($("prog"),t(T.progUnits)+": "+Object.keys(unitsDone).length+"/"+UNITS.length);
+}
+function renderTime(){
+  var ch=TIME[timeIdx],stage=prepScene();
+  addBlurb(stage,ch);addShow(stage,ch);addPills(stage,ch);
+  showStep(timeIdx,TIME.length);setText($("headline"),t(ch.title));
+  setText($("detail"),timeDone[ch.id]?t(ch.why):t(ch.ask));clearHint();
+  if(timeDone[ch.id])showWin(t(ch.done));
+  renderChoices(ch,timeDone,"time","time",TIME.length,renderTime);
+  setText($("prog"),t(T.progTime)+": "+Object.keys(timeDone).length+"/"+TIME.length);
+}
+function renderWord(){
+  var ch=WORD[wordIdx],stage=prepScene();
+  addBlurb(stage,ch);addShow(stage,ch);
+  var cap=document.createElement("div");cap.className="capline";
+  setText(cap,lang==="en"?"Convert first if units differ, then + or −.":"اگر اکائیاں مختلف ہوں تو پہلے تبدیل، پھر + یا −۔");
+  stage.appendChild(cap);
+  showStep(wordIdx,WORD.length);setText($("headline"),t(ch.title));
+  setText($("detail"),wordDone[ch.id]?t(ch.why):t(ch.ask));clearHint();
+  if(wordDone[ch.id])showWin(t(ch.done));
+  renderChoices(ch,wordDone,"word","word",WORD.length,renderWord);
+  setText($("prog"),t(T.progWord)+": "+Object.keys(wordDone).length+"/"+WORD.length);
+}
+
+function pickQuiz(){
+  var pin=[],rest=[],i;quizState={};
+  for(i=0;i<QUIZ.length;i++){if(QUIZ[i].pin)pin.push(QUIZ[i]);else rest.push(QUIZ[i])}
+  rest=shuffle(rest);quizSet=shuffle(pin.concat(rest.slice(0,5-pin.length)));
+}
+function renderQuiz(){
+  var box=$("quizBox");box.innerHTML="";
+  quizSet.forEach(function(item,qi){
+    var wrap=document.createElement("div");wrap.className="q";
+    var p=document.createElement("p");setText(p,(qi+1)+". "+t(item.q));wrap.appendChild(p);
+    if(lang==="en"&&item.ru){var g=document.createElement("p");g.className="gloss";g.textContent=item.ru;wrap.appendChild(g)}
+    var st=quizState[item.id];
+    item.opts.forEach(function(opt,oi){
+      var b=document.createElement("button");b.type="button";b.className="opt"+(lang==="ur"?" ur":"");setText(b,t(opt));
+      if(st&&oi===item.correct)b.classList.add("right");
+      if(st==="no"&&quizState[item.id+"-pick"]===oi&&oi!==item.correct)b.classList.add("wrong");
+      if(st)b.disabled=true;
+      b.addEventListener("click",function(){
+        if(quizState[item.id])return;
+        quizState[item.id+"-pick"]=oi;
+        if(oi===item.correct){quizState[item.id]="ok";b.classList.add("right");award("quiz-"+item.id,1)}
+        else{quizState[item.id]="no";b.classList.add("wrong");var kids=wrap.querySelectorAll(".opt");if(kids[item.correct])kids[item.correct].classList.add("right")}
+        fb.classList.add("show");
+        var all=wrap.querySelectorAll(".opt"),k;for(k=0;k<all.length;k++)all[k].disabled=true;
+      });
+      wrap.appendChild(b);
+    });
+    var fb=document.createElement("p");fb.className="fb"+(st?" show":"");setText(fb,t(item.why));wrap.appendChild(fb);
+    box.appendChild(wrap);
+  });
+}
+function storyHtml(){if(mode==="units")return t(T.storyUnits);if(mode==="time")return t(T.storyTime);return t(T.storyWord)}
+function currentTip(){if(mode==="units")return T.tipUnits;if(mode==="time")return T.tipTime;return T.tipWord}
+function tabBadges(){
+  function lab(btn,label,key){btn.innerHTML="";var span=document.createElement("span");setText(span,t(label));btn.appendChild(span);if(doneModes[key]){var b=document.createElement("span");b.className="badge";b.textContent=" ★";btn.appendChild(b)}}
+  lab($("tabUnits"),T.tabUnits,"units");lab($("tabTime"),T.tabTime,"time");lab($("tabWord"),T.tabWord,"word");
+  $("tabUnits").setAttribute("aria-pressed",mode==="units"?"true":"false");
+  $("tabTime").setAttribute("aria-pressed",mode==="time"?"true":"false");
+  $("tabWord").setAttribute("aria-pressed",mode==="word"?"true":"false");
+}
+function renderCurrent(){if(mode==="units")renderUnits();else if(mode==="time")renderTime();else renderWord()}
+function setMode(m){mode=m;optKey="";renderCurrent();applyChrome()}
+function applyChrome(){
+  setText($("title"),t(T.title));setText($("subtitle"),t(T.sub));
+  $("story").innerHTML=storyHtml();$("story").classList.toggle("ur",lang==="ur");$("story").setAttribute("dir",lang==="ur"?"rtl":"ltr");
+  setText($("ctlHead"),t(T.ctl));setText($("nextBtn"),t(T.next));setText($("hintBtn"),t(T.hint));setText($("resetBtn"),t(T.reset));
+  setText($("quizHead"),t(T.quiz));setText($("newQuiz"),t(T.newQuiz));
+  $("langBtn").textContent=(lang==="en")?"اردو":"EN";$("langBtn").setAttribute("aria-pressed",lang==="ur"?"true":"false");
+  document.body.classList.toggle("urdu",lang==="ur");
+  document.documentElement.lang=(lang==="ur")?"ur":"en";
+  document.documentElement.dir=(lang==="ur")?"rtl":"ltr";
+  document.title=t(T.title)+" | AI4Kids Class 4";
+  tabBadges();
+  var foot=document.querySelector("footer p");
+  if(foot)setText(foot,foot.getAttribute(lang==="ur"?"data-ur":"data-en"));
+}
+function applyLang(){applyChrome();renderCurrent();renderQuiz()}
+function next(){
+  optKey="";
+  if(mode==="units"){unitsIdx=(unitsIdx+1)%UNITS.length;renderUnits()}
+  else if(mode==="time"){timeIdx=(timeIdx+1)%TIME.length;renderTime()}
+  else{wordIdx=(wordIdx+1)%WORD.length;renderWord()}
+}
+function showHint(){
+  var h=mode==="units"?UNITS[unitsIdx].hint:(mode==="time"?TIME[timeIdx].hint:WORD[wordIdx].hint);
+  var hb=$("hintbox");setText(hb,t(h));hb.classList.add("show");
+}
+function resetMode(){
+  if(mode==="units"){Object.keys(awarded).forEach(function(k){if(k.indexOf("units-")===0||k==="mode-units")delete awarded[k]});unitsDone={};unitsIdx=0;doneModes.units=false;recountStars();renderUnits()}
+  else if(mode==="time"){Object.keys(awarded).forEach(function(k){if(k.indexOf("time-")===0||k==="mode-time")delete awarded[k]});timeDone={};timeIdx=0;doneModes.time=false;recountStars();renderTime()}
+  else{Object.keys(awarded).forEach(function(k){if(k.indexOf("word-")===0||k==="mode-word")delete awarded[k]});wordDone={};wordIdx=0;doneModes.word=false;recountStars();renderWord()}
+  optKey="";tabBadges();applyChrome();
+}
+function cleanSpeakText(s){return String(s||"").replace(/<[^>]+>/g," ").replace(/&gt;/g,">").replace(/&lt;/g,"<").replace(/&amp;/g,"&").replace(/\s+/g," ").trim()}
+function buildSpeakText(){
+  var bits=[];bits.push(t(T.title));bits.push(cleanSpeakText(storyHtml()));
+  bits.push(cleanSpeakText(($("headline")&&$("headline").textContent)||""));
+  bits.push(cleanSpeakText(($("detail")&&$("detail").textContent)||""));
+  bits.push(t(currentTip()));return bits.filter(Boolean).join(". ");
+}
+function pickVoice(voices,want){
+  var i,v,L;for(i=0;i<voices.length;i++){v=voices[i];L=(v.lang||"").toLowerCase().replace("_","-");if(L.indexOf(want)===0)return v}
+  for(i=0;i<voices.length;i++){v=voices[i];L=(v.lang||"").toLowerCase().replace("_","-");if(L.indexOf("en")===0)return v}
+  return voices[0]||null;
+}
+function setSpeaking(on){var btn=$("speakBtn");if(!btn)return;btn.setAttribute("aria-pressed",on?"true":"false");btn.style.opacity=on?"0.65":""}
+function doSpeak(text,asLang){
+  var u=new SpeechSynthesisUtterance(text);u.rate=0.92;u.lang=(asLang==="ur")?"ur-PK":"en-US";
+  var voices=window.speechSynthesis.getVoices()||[];var voice=pickVoice(voices,asLang==="ur"?"ur":"en");if(voice)u.voice=voice;
+  u.onstart=function(){setSpeaking(true)};u.onend=function(){setSpeaking(false)};
+  u.onerror=function(){setSpeaking(false);if(asLang==="ur"){var fallback=cleanSpeakText(T.title.en+". "+T.storyUnits.en+". "+T.tipUnits.en);var u2=new SpeechSynthesisUtterance(fallback);u2.lang="en-US";u2.rate=0.92;var v2=pickVoice(window.speechSynthesis.getVoices()||[],"en");if(v2)u2.voice=v2;u2.onstart=function(){setSpeaking(true)};u2.onend=u2.onerror=function(){setSpeaking(false)};window.speechSynthesis.speak(u2)}};
+  window.speechSynthesis.speak(u);
+}
+if("speechSynthesis" in window){
+  try{window.speechSynthesis.getVoices()}catch(e0){}
+  if(typeof window.speechSynthesis.addEventListener==="function"){window.speechSynthesis.addEventListener("voiceschanged",function(){try{window.speechSynthesis.getVoices()}catch(e1){}})}
+}else{var noBtn=$("speakBtn");if(noBtn){noBtn.disabled=true;noBtn.title="Voice not available on this device"}}
+$("langBtn").addEventListener("click",function(){lang=(lang==="en")?"ur":"en";applyLang()});
+$("tabUnits").addEventListener("click",function(){setMode("units")});
+$("tabTime").addEventListener("click",function(){setMode("time")});
+$("tabWord").addEventListener("click",function(){setMode("word")});
+$("nextBtn").addEventListener("click",next);
+$("hintBtn").addEventListener("click",showHint);
+$("resetBtn").addEventListener("click",resetMode);
+$("newQuiz").addEventListener("click",function(){pickQuiz();renderQuiz()});
+$("speakBtn").addEventListener("click",function(){
+  try{
+    if(!("speechSynthesis" in window))return;
+    var text=buildSpeakText();if(!text)return;
+    if(speakTimer){clearTimeout(speakTimer);speakTimer=null}
+    window.speechSynthesis.cancel();setSpeaking(false);
+    var speakLang=lang;
+    speakTimer=setTimeout(function(){speakTimer=null;doSpeak(text,speakLang)},80);
+  }catch(e){setSpeaking(false)}
+});
+pickQuiz();applyLang();
+})();
+</script>
+</body>
+</html>

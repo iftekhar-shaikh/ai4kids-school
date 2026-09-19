@@ -479,5 +479,13 @@
       "interactive_file": "interactives/g4-decimals.html",
       "interactive_label": "Khelo - Decimals"
     }
+  },
+  {
+    "file": "kb/grade_4/math.json",
+    "match_title": "Naap conversions",
+    "add": {
+      "interactive_file": "interactives/g4-naap-conversions.html",
+      "interactive_label": "Khelo - Naap conversions"
+    }
   }
 ]
