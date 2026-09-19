@@ -463,5 +463,13 @@
       "interactive_file": "interactives/g4-factors-multiples.html",
       "interactive_label": "Khelo - Factors aur multiples"
     }
+  },
+  {
+    "file": "kb/grade_4/math.json",
+    "match_title": "Fractions operations",
+    "add": {
+      "interactive_file": "interactives/g4-fractions-operations.html",
+      "interactive_label": "Khelo - Fractions operations"
+    }
   }
 ]

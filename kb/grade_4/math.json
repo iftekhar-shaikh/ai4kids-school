@@ -208,7 +208,9 @@
             "correct": "a"
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g4-fractions-operations.html",
+      "interactive_label": "Khelo - Fractions operations"
     },
     {
       "title": "Decimals",

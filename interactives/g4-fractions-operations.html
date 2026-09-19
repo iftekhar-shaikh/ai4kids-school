@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Fractions operations | AI4Kids Class 4</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--board:#e5f3ea;--board-deep:#c9e4d2;--sky:#c5e7f6;--sky2:#6eb0d4;--accent:#1d6b52;--ok:#2e7d4f;--ink:#1e2a1a;--ink-soft:#4a5744;--paper:#fdfaf3;--line:#d5dec8;--gold:#e8b23d;--left:#c4453a;--fs-cap:clamp(12px,3.2vw,13px);--fs-xs:clamp(14px,3.7vw,15px);--fs-sm:clamp(16px,4.2vw,17px);--fs-md:clamp(17px,4.6vw,19px);--fs-lg:clamp(20px,5.4vw,23px);--fs-xl:clamp(27px,7.4vw,33px);--lh:1.5}
+body.urdu{--fs-cap:clamp(13px,3.5vw,15px);--fs-xs:clamp(15px,4.1vw,17px);--fs-sm:clamp(17px,4.7vw,19px);--fs-md:clamp(19px,5.2vw,21px);--fs-lg:clamp(22px,6vw,25px);--fs-xl:clamp(26px,7vw,31px);--lh:2.1}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px}
+.wrap{max-width:560px;margin:0 auto;padding:0 14px}
+.bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+.brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+.chip{border:2px solid var(--ink);background:var(--paper);color:var(--ink);border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;font-size:var(--fs-xs);cursor:pointer;min-height:42px;touch-action:manipulation}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.chip:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.stars{display:flex;align-items:center;gap:6px;font-weight:800;font-size:var(--fs-xs);background:#fff6e2;border:2px solid var(--gold);border-radius:999px;padding:7px 13px}
+h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+.sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+.ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+h1.ur{line-height:1.9}
+.tabs{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
+.tabs button{flex:1 1 28%;min-width:90px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);border-radius:14px;padding:10px 6px;font:inherit;font-weight:800;font-size:var(--fs-cap);cursor:pointer;min-height:54px;line-height:1.2;touch-action:manipulation}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.tabs button .badge{color:var(--gold)}
+.story{background:#fff8ea;border:2px dashed var(--gold);border-radius:16px;padding:13px 15px;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;margin-bottom:14px}
+body.urdu .story{line-height:var(--lh)}
+.story b{color:var(--ink)}
+.scene{position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);background:linear-gradient(180deg,var(--sky) 0%,var(--sky2) 36%,var(--board) 36%,var(--board-deep) 100%);min-height:280px}
+.scene-pad{padding:10px 12px 18px;min-height:260px;position:relative}
+.sky-layer{position:absolute;inset:0 0 58% 0;pointer-events:none;overflow:hidden}
+.sun-ball{position:absolute;top:12px;right:18px;width:36px;height:36px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#ffe9a0,#f5c542 60%,#e0a020);box-shadow:0 0 18px rgba(245,197,66,.45);z-index:1}
+body.urdu .sun-ball{right:auto;left:18px}
+.cloud{position:absolute;background:rgba(255,255,255,.85);border-radius:40px;opacity:.9}
+.cloud:before,.cloud:after{content:"";position:absolute;background:inherit;border-radius:50%}
+.c1{width:48px;height:15px;top:18px;left:12%}
+.c1:before{width:22px;height:22px;top:-12px;left:6px}
+.c1:after{width:18px;height:18px;top:-8px;left:24px}
+.c2{width:34px;height:12px;top:34px;left:55%;opacity:.7}
+.c2:before{width:16px;height:16px;top:-9px;left:4px}
+.c2:after{width:12px;height:12px;top:-5px;left:16px}
+.num-stage{position:relative;z-index:5;padding:62px 8px 8px;text-align:center}
+.hero-em{font-size:34px;line-height:1;margin:0}
+.frac-hero{font-weight:800;font-size:clamp(36px,9vw,52px);letter-spacing:1px;direction:ltr;unicode-bidi:isolate;margin:8px 0 4px;line-height:1.1}
+.eqline{direction:ltr;unicode-bidi:isolate;font-weight:800;font-size:clamp(20px,5.6vw,28px);margin:10px 6px 6px;line-height:1.35}
+.capline{font-size:var(--fs-cap);font-weight:800;color:var(--accent);margin:6px 8px 0;line-height:1.45}
+body.urdu .capline,body.urdu .hintbox,body.urdu .card-box{line-height:var(--lh)}
+.card-box{background:rgba(253,250,243,.95);border:2.5px solid var(--ink);border-radius:14px;padding:10px 12px;font-weight:800;font-size:var(--fs-xs);max-width:360px;margin:8px auto 0;line-height:1.4}
+.frac-bar{display:inline-flex;flex-direction:column;align-items:center;direction:ltr;unicode-bidi:isolate;vertical-align:middle;margin:0 4px;line-height:1}
+.frac-bar .n,.frac-bar .d{font-weight:800;font-size:clamp(22px,6vw,30px);padding:0 6px}
+.frac-bar .line{width:100%;min-width:28px;height:3px;background:var(--ink);margin:2px 0}
+.mixed-hero{display:inline-flex;align-items:center;gap:6px;direction:ltr;unicode-bidi:isolate;font-weight:800;font-size:clamp(28px,7.5vw,42px);margin:8px 0 4px}
+.pie{display:inline-grid;grid-template-columns:repeat(auto-fit,minmax(18px,1fr));gap:3px;max-width:160px;margin:8px auto;direction:ltr}
+.pie span{aspect-ratio:1;border-radius:6px;border:2px solid var(--ink);background:#fff}
+.pie span.on{background:var(--accent)}
+.bank{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:4px}
+.bank.ltrb{direction:ltr}
+.mini-item{border:2px solid var(--ink);border-radius:12px;padding:8px 10px;background:#fff;line-height:1.2;cursor:pointer;min-width:52px;min-height:52px;font-weight:800;font-size:var(--fs-cap);display:flex;align-items:center;justify-content:center;gap:4px;touch-action:manipulation}
+.mini-item.right,.save-choices button.right,.opt.right{border-color:var(--ok);background:#e8f2ed}
+.mini-item.wrong,.save-choices button.wrong,.opt.wrong{border-color:var(--left);background:#fbeae8}
+.opt.right{font-weight:600}
+.save-choices{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+.save-choices button{border:2.5px solid var(--ink);background:var(--paper);border-radius:14px;padding:12px 14px;font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;text-align:left;min-height:52px;display:flex;align-items:center;gap:10px;touch-action:manipulation}
+body.urdu .save-choices button{text-align:right}
+.save-choices button.numc{justify-content:center;text-align:center;direction:ltr;font-size:22px}
+.readout{margin-top:-18px;position:relative;z-index:2;background:var(--paper);border:3px solid var(--ink);border-radius:18px;padding:16px 18px}
+.statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+.statechip.ur{padding:2px 14px 7px}
+.statechip.win{background:var(--ok)}
+.statechip.miss{background:var(--left)}
+.headline{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+.headline.ur{line-height:1.95}
+.detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+.hintbox{margin-top:14px;border:2px solid var(--accent);background:#e7f6ef;border-radius:14px;padding:11px 14px;font-size:var(--fs-xs);color:var(--accent);font-weight:700;line-height:1.55;display:none}
+.hintbox.show{display:block}
+.panel{margin-top:22px}
+.panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+.prog{margin:0 0 10px;font-size:var(--fs-xs);font-weight:700;color:var(--ink-soft)}
+.btns{display:flex;gap:9px;margin-top:8px;flex-wrap:wrap}
+.btns button{border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:50px;padding:8px 14px;flex:1;touch-action:manipulation}
+.btns .go{background:var(--ink);color:var(--paper)}
+.btns button:active{transform:scale(.97)}
+.btns button:disabled{opacity:.4;cursor:default}
+.quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+.qhead{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+.qhead h2{font-size:var(--fs-lg);font-weight:800;margin:0;flex:1}
+.q{margin-bottom:26px}
+.q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+.q p.ur{font-weight:400}
+.gloss{margin:-6px 0 12px;font-size:var(--fs-xs);color:var(--ink-soft);font-weight:600;line-height:1.45}
+.opt{display:block;width:100%;text-align:left;margin-bottom:10px;border:2px solid var(--line);background:var(--paper);border-radius:12px;padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);min-height:50px;touch-action:manipulation}
+.opt.ur{text-align:right;line-height:var(--lh)}
+.opt:disabled{cursor:default}
+.fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+.fb.show{display:block}
+footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);font-size:var(--fs-xs);color:var(--ink-soft)}
+@media (min-width:820px){
+.wrap{max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;grid-template-areas:"bar bar" "head head" "tabs tabs" "story story" "left right" "quiz quiz" "foot foot";align-items:start}
+.bar{grid-area:bar}.head{grid-area:head}.tabs{grid-area:tabs}.story{grid-area:story}.left{grid-area:left}.right{grid-area:right}.quiz{grid-area:quiz;margin-top:34px}footer{grid-area:foot}.panel{margin-top:0}
+}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01ms !important;animation:none !important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 4 · Hisaab</span>
+    <span class="stars">⭐ <span id="starCount">0</span></span>
+    <button class="chip" id="langBtn" aria-pressed="false" type="button">اردو</button>
+    <button class="chip" id="speakBtn" type="button" aria-label="Sunlo">🔊</button>
+  </div>
+  <div class="head"><h1 id="title"></h1><p class="sub" id="subtitle"></p></div>
+  <div class="tabs" role="group">
+    <button type="button" id="tabSort" aria-pressed="true"></button>
+    <button type="button" id="tabOps" aria-pressed="false"></button>
+    <button type="button" id="tabDiv" aria-pressed="false"></button>
+  </div>
+  <p class="story" id="story"></p>
+  <div class="left">
+    <div class="scene"><div class="scene-pad" id="scenePad"></div></div>
+    <div class="readout">
+      <span class="statechip" id="statechip"></span>
+      <p class="headline" id="headline"></p>
+      <p class="detail" id="detail"></p>
+      <p class="hintbox" id="hintbox"></p>
+    </div>
+  </div>
+  <div class="right">
+    <div class="panel">
+      <h2 id="ctlHead"></h2>
+      <p class="prog" id="prog"></p>
+      <div id="actionBox"></div>
+      <div class="btns"><button type="button" class="go" id="nextBtn"></button></div>
+      <div class="btns"><button type="button" id="hintBtn"></button><button type="button" id="resetBtn"></button></div>
+    </div>
+  </div>
+  <div class="quiz">
+    <div class="qhead"><h2 id="quizHead"></h2><button type="button" class="chip" id="newQuiz"></button></div>
+    <div id="quizBox"></div>
+  </div>
+  <footer>
+    <p data-en="AI4Kids — Islamabad bilingual school. Offline. WhatsApp 0337 1468899 · Fractions operations" data-ur="اے آئی فور کڈز — اسلام آباد دو لسانی اسکول۔ آف لائن۔ واٹس ایپ 0337 1468899 · کسر کے عمل"></p>
+  </footer>
+</div>
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id)}
+function isolate(s){return "\u2066"+s+"\u2069"}
+function setText(el,str){if(!el)return;el.textContent=(lang==="ur")?isolate(str):str;el.classList.toggle("ur",lang==="ur");el.setAttribute("dir",lang==="ur"?"rtl":"ltr")}
+function t(o){return (o&&o[lang])||(o&&o.en)||""}
+function shuffle(arr){var a=arr.slice(),i,j,tmp;for(i=a.length-1;i>0;i--){j=Math.floor(Math.random()*(i+1));tmp=a[i];a[i]=a[j];a[j]=tmp}return a}
+function fracStr(n,d){return n+"/"+d}
+function mixedStr(w,n,d){return w+" "+n+"/"+d}
+var lang="en",mode="sort",stars=0,awarded={},doneModes={sort:false,ops:false,div:false},speakTimer=null;
+var TYPES=[
+  {id:"proper",en:"Proper",ur:"مناسب کسر"},
+  {id:"improper",en:"Improper",ur:"غیر مناسب کسر"},
+  {id:"mixed",en:"Mixed",ur:"مختلط عدد"}
+];
+var T={
+title:{en:"Fractions operations",ur:"کسر کے عمل"},
+sub:{en:"Proper, improper, mixed. Add, subtract, multiply. Divide fraction by a whole only.",ur:"مناسب، غیر مناسب، مختلط۔ جمع، تفریق، ضرب۔ کسر کو صرف پورے عدد سے تقسیم۔"},
+tabSort:{en:"Sort types",ur:"اقسام چھانٹو"},
+tabOps:{en:"+ − ×",ur:"+ − ×"},
+tabDiv:{en:"÷ whole",ur:"÷ پورا عدد"},
+storySort:{en:"A <b>proper</b> fraction is smaller than 1 (top &lt; bottom). An <b>improper</b> fraction is 1 or more (top ≥ bottom). A <b>mixed</b> number has a whole and a proper part, like 2 1/4. Sort each Pakistani snack or cricket score!",ur:"<b>مناسب</b> کسر 1 سے چھوٹی ہے (اوپر &lt; نیچے)۔ <b>غیر مناسب</b> کسر 1 یا اس سے بڑی ہے (اوپر ≥ نیچے)۔ <b>مختلط</b> عدد میں پورا اور مناسب حصہ ہوتا ہے، جیسے 2 1/4۔ ہر پاکستانی مثال چھانٹو!"},
+storyOps:{en:"<b>Like</b> fractions share a denominator — add or subtract tops. <b>Unlike</b> with multiples: rewrite so bottoms match, then add or subtract. Multiply: fraction × whole, or two fractions (tops × tops, bottoms × bottoms). Class 4 does <b>not</b> divide fraction by fraction.",ur:"<b>ہم جنس</b> کسر کا نیچے ایک جیسا — اوپر جمع یا تفریق۔ <b>غیر ہم جنس</b> جو multiples ہوں: نیچے برابر کرو، پھر جمع یا تفریق۔ ضرب: کسر × پورا، یا دو کسر (اوپر × اوپر، نیچے × نیچے)۔ کلاس 4 میں کسر ÷ کسر <b>نہیں</b>۔"},
+storyDiv:{en:"Divide a fraction by a <b>whole number</b> only: keep the top, multiply the bottom by the whole. Example: 3/4 ÷ 3 = 3/12 = 1/4. Never do fraction ÷ fraction in Class 4 — that is Grade 5.",ur:"کسر کو صرف <b>پورے عدد</b> سے تقسیم کرو: اوپر رکھو، نیچے کو پورے عدد سے ضرب دو۔ مثال: 3/4 ÷ 3 = 3/12 = 1/4۔ کلاس 4 میں کسر ÷ کسر مت کرو — وہ گریڈ 5 ہے۔"},
+ctl:{en:"Your turn — hisaab lab",ur:"تمہاری باری — حساب لیب"},
+next:{en:"Next challenge",ur:"اگلا چیلنج"},
+hint:{en:"Hint",ur:"اشارہ"},
+reset:{en:"Reset",ur:"ری سیٹ"},
+quiz:{en:"Check yourself",ur:"اپنا چیک"},
+newQuiz:{en:"New quiz",ur:"نیا کوئز"},
+nice:{en:"Shabash!",ur:"شاباش!"},
+oops:{en:"Almost — try again",ur:"قریب — دوبارہ آزماؤ"},
+tipSort:{en:"Proper: numerator smaller than denominator. Improper: numerator equal or bigger. Mixed: whole number plus a proper fraction.",ur:"مناسب: صورت مخرج سے چھوٹی۔ غیر مناسب: صورت برابر یا بڑی۔ مختلط: پورا عدد جمع مناسب کسر۔"},
+tipOps:{en:"Same bottom: add or subtract tops. Different bottoms that are multiples: make bottoms equal first. Multiply: tops together and bottoms together. Fraction × whole: multiply top by the whole.",ur:"ایک جیسا نیچے: اوپر جمع یا تفریق۔ مختلف نیچے جو multiples ہوں: پہلے برابر کرو۔ ضرب: اوپر اکٹھے اور نیچے اکٹھے۔ کسر × پورا: اوپر کو پورے سے ضرب۔"},
+tipDiv:{en:"Fraction ÷ whole: multiply the denominator by the whole. Simplify if you can. Do not divide by another fraction in Class 4.",ur:"کسر ÷ پورا: مخرج کو پورے عدد سے ضرب دو۔ سادہ بناؤ اگر ہو سکے۔ کلاس 4 میں کسر سے تقسیم مت کرو۔"},
+progSort:{en:"Sort rounds",ur:"چھانٹ راؤنڈ"},
+progOps:{en:"Ops rounds",ur:"عمل راؤنڈ"},
+progDiv:{en:"Divide rounds",ur:"تقسیم راؤنڈ"}
+};
+
+var SORT=[
+{id:"s1",em:"🍊",title:{en:"Ayesha's oranges",ur:"عائشہ کے مالٹے"},blurb:{en:"Ayesha ate 3 out of 8 orange slices at Friday bazaar.",ur:"عائشہ نے جمعہ بازار میں 8 میں سے 3 مالٹے کے ٹکڑے کھائے۔"},show:"3/8",kind:"proper",n:3,d:8,ask:{en:"Is 3/8 proper, improper, or mixed?",ur:"3/8 مناسب، غیر مناسب، یا مختلط ہے؟"},hint:{en:"Top 3 is smaller than bottom 8, so it is less than 1 — proper.",ur:"اوپر 3، نیچے 8 سے چھوٹا ہے، اس لیے 1 سے کم — مناسب۔"},done:{en:"3/8 is proper.",ur:"3/8 مناسب کسر ہے۔"},why:{en:"Proper means numerator < denominator. Three-eighths of the orange.",ur:"مناسب یعنی صورت < مخرج۔ مالٹے کا تین آٹھواں حصہ۔"}},
+{id:"s2",em:"🏏",title:{en:"Bilal's overs",ur:"بلال کے اوورز"},blurb:{en:"Bilal bowled 5 balls in an over of 6 — wait, the scoreboard shows 7/4 runs per ball as a joke fraction!",ur:"بلال نے اوور کے 6 میں سے 5 گیندیں پھینکیں — اسکور بورڈ مذاق میں 7/4 دکھاتا ہے!"},show:"7/4",kind:"improper",n:7,d:4,ask:{en:"Is 7/4 proper, improper, or mixed?",ur:"7/4 مناسب، غیر مناسب، یا مختلط ہے؟"},hint:{en:"Top 7 is bigger than bottom 4, so it is more than 1 — improper. As mixed it is 1 3/4.",ur:"اوپر 7، نیچے 4 سے بڑا ہے، اس لیے 1 سے زیادہ — غیر مناسب۔ مختلط میں 1 3/4۔"},done:{en:"7/4 is improper.",ur:"7/4 غیر مناسب کسر ہے۔"},why:{en:"Improper means numerator ≥ denominator. Seven-fourths is one and three-fourths.",ur:"غیر مناسب یعنی صورت ≥ مخرج۔ سات چوتھائی ایک اور تین چوتھائی ہے۔"}},
+{id:"s3",em:"🧁",title:{en:"Sana's cupcakes",ur:"ثانا کے کپ کیک"},blurb:{en:"Sana baked 2 whole trays and 1/3 of another for the Islamabad school fair.",ur:"ثانا نے اسلام آباد اسکول میلے کے لیے 2 مکمل ٹرے اور ایک تہائی اور بنائی۔"},show:"2 1/3",kind:"mixed",w:2,n:1,d:3,ask:{en:"Is 2 1/3 proper, improper, or mixed?",ur:"2 1/3 مناسب، غیر مناسب، یا مختلط ہے؟"},hint:{en:"It has a whole number 2 plus a proper part 1/3 — that is mixed.",ur:"اس میں پورا عدد 2 اور مناسب حصہ 1/3 ہے — یہ مختلط ہے۔"},done:{en:"2 1/3 is mixed.",ur:"2 1/3 مختلط عدد ہے۔"},why:{en:"Mixed = whole + proper fraction. Two and one-third cupcake trays.",ur:"مختلط = پورا + مناسب کسر۔ دو اور ایک تہائی کپ کیک ٹرے۔"}},
+{id:"s4",em:"🥛",title:{en:"Hamza's lassi",ur:"حمزہ کی لسی"},blurb:{en:"Hamza poured 4/4 of a glass of mango lassi — a full glass!",ur:"حمزہ نے آم کی لسی کا 4/4 گلاس بھرا — پورا گلاس!"},show:"4/4",kind:"improper",n:4,d:4,ask:{en:"Is 4/4 proper, improper, or mixed?",ur:"4/4 مناسب، غیر مناسب، یا مختلط ہے؟"},hint:{en:"Top equals bottom, so the fraction equals 1. Equal tops and bottoms are improper (not proper).",ur:"اوپر اور نیچے برابر ہیں، اس لیے کسر 1 کے برابر ہے۔ برابر ہونے پر غیر مناسب ہوتی ہے (مناسب نہیں)۔"},done:{en:"4/4 is improper (equals 1).",ur:"4/4 غیر مناسب ہے (1 کے برابر)۔"},why:{en:"When numerator equals denominator the fraction is 1, which is improper.",ur:"صورت مخرج کے برابر ہو تو کسر 1 ہے، جو غیر مناسب ہے۔"}},
+{id:"s5",em:"📚",title:{en:"Zara's pages",ur:"زارا کے صفحات"},blurb:{en:"Zara read 5 pages out of 12 in her Urdu storybook.",ur:"زارا نے اپنی اردو کہانی کی کتاب کے 12 میں سے 5 صفحات پڑھے۔"},show:"5/12",kind:"proper",n:5,d:12,ask:{en:"Is 5/12 proper, improper, or mixed?",ur:"5/12 مناسب، غیر مناسب، یا مختلط ہے؟"},hint:{en:"5 is smaller than 12, so proper — less than one book.",ur:"5، 12 سے چھوٹا ہے، اس لیے مناسب — ایک کتاب سے کم۔"},done:{en:"5/12 is proper.",ur:"5/12 مناسب کسر ہے۔"},why:{en:"Five-twelfths of the storybook. Proper because top < bottom.",ur:"کہانی کا پانچ بارہواں حصہ۔ مناسب کیونکہ اوپر < نیچے۔"}}
+];
+
+var OPS=[
+{id:"o1",op:"+",em:"🥭",title:{en:"Like add — mangoes",ur:"ہم جنس جمع — آم"},blurb:{en:"Ali ate 2/7 of a mango box, Fatima ate 3/7. Same bottom!",ur:"علی نے آم کے ڈبے کا 2/7 کھایا، فاطمہ نے 3/7۔ نیچے ایک جیسا!"},eq:"2/7 + 3/7",ans:"5/7",opts:["5/7","5/14","6/7","1/7"],correct:0,ask:{en:"What is 2/7 + 3/7?",ur:"2/7 + 3/7 کتنا ہے؟"},hint:{en:"Like fractions: keep 7, add tops 2+3=5. Answer 5/7.",ur:"ہم جنس: 7 رکھو، اوپر 2+3=5۔ جواب 5/7۔"},done:{en:"2/7 + 3/7 = 5/7",ur:"2/7 + 3/7 = 5/7"},why:{en:"Same denominator — add numerators only. Five-sevenths of the mango box.",ur:"ایک جیسا مخرج — صرف صورت جمع۔ ڈبے کا پانچ ساتواں۔"}},
+{id:"o2",op:"-",em:"🏏",title:{en:"Like subtract — cricket",ur:"ہم جنس تفریق — کرکٹ"},blurb:{en:"Team had 5/8 of the over left, then bowled 2/8. How much remains?",ur:"ٹیم کے پاس اوور کا 5/8 باقی تھا، پھر 2/8 پھینکا۔ کتنا بچا؟"},eq:"5/8 − 2/8",ans:"3/8",opts:["3/8","3/16","7/8","2/8"],correct:0,ask:{en:"What is 5/8 − 2/8?",ur:"5/8 − 2/8 کتنا ہے؟"},hint:{en:"Keep bottom 8. Tops: 5−2=3. So 3/8.",ur:"نیچے 8 رکھو۔ اوپر: 5−2=3۔ یعنی 3/8۔"},done:{en:"5/8 − 2/8 = 3/8",ur:"5/8 − 2/8 = 3/8"},why:{en:"Like subtract: same bottom, subtract tops. Three-eighths of the over left.",ur:"ہم جنس تفریق: ایک جیسا نیچے، اوپر گھٹاؤ۔ اوور کا تین آٹھواں بچا۔"}},
+{id:"o3",op:"+",em:"🧃",title:{en:"Unlike add — juice",ur:"غیر ہم جنس جمع — جوس"},blurb:{en:"Ayesha mixed 1/2 cup of mango juice with 1/4 cup of milk. Bottoms are multiples.",ur:"عائشہ نے 1/2 کپ آم کا جوس اور 1/4 کپ دودھ ملایا۔ نیچے multiples ہیں۔"},eq:"1/2 + 1/4",ans:"3/4",opts:["3/4","2/6","1/6","2/4"],correct:0,ask:{en:"What is 1/2 + 1/4?",ur:"1/2 + 1/4 کتنا ہے؟"},hint:{en:"2 goes into 4. Rewrite 1/2 as 2/4. Then 2/4 + 1/4 = 3/4.",ur:"2، 4 میں آتا ہے۔ 1/2 کو 2/4 لکھو۔ پھر 2/4 + 1/4 = 3/4۔"},done:{en:"1/2 + 1/4 = 3/4",ur:"1/2 + 1/4 = 3/4"},why:{en:"Make bottoms equal (multiples), then add. Three-quarters of a cup.",ur:"نیچے برابر کرو (multiples)، پھر جمع۔ تین چوتھائی کپ۔"}},
+{id:"o4",op:"-",em:"🍕",title:{en:"Unlike subtract — pizza",ur:"غیر ہم جنس تفریق — پزا"},blurb:{en:"School fair pizza: 3/4 left, then friends ate 1/8. Denominators are multiples.",ur:"اسکول میلے کی پزا: 3/4 باقی، پھر دوستوں نے 1/8 کھایا۔ مخرج multiples ہیں۔"},eq:"3/4 − 1/8",ans:"5/8",opts:["5/8","2/4","2/8","4/8"],correct:0,ask:{en:"What is 3/4 − 1/8?",ur:"3/4 − 1/8 کتنا ہے؟"},hint:{en:"4 goes into 8. 3/4 = 6/8. Then 6/8 − 1/8 = 5/8.",ur:"4، 8 میں آتا ہے۔ 3/4 = 6/8۔ پھر 6/8 − 1/8 = 5/8۔"},done:{en:"3/4 − 1/8 = 5/8",ur:"3/4 − 1/8 = 5/8"},why:{en:"Rewrite so bottoms match, then subtract. Five-eighths of the pizza left.",ur:"نیچے برابر کرو، پھر تفریق۔ پزا کا پانچ آٹھواں بچا۔"}},
+{id:"o5",op:"×",em:"🍬",title:{en:"Fraction × whole — toffees",ur:"کسر × پورا — ٹوفیاں"},blurb:{en:"Each bag holds 2/5 kg of toffees. Mama bought 3 bags at the Sunday bazaar.",ur:"ہر تھیلی میں 2/5 کلو ٹوفیاں۔ امی نے اتوار بازار سے 3 تھیلے خریدیں۔"},eq:"2/5 × 3",ans:"6/5",opts:["6/5","2/15","5/6","6/15"],correct:0,ask:{en:"What is 2/5 × 3?",ur:"2/5 × 3 کتنا ہے؟"},hint:{en:"Multiply the top by the whole: 2×3=6, keep bottom 5. So 6/5 (improper).",ur:"اوپر کو پورے سے ضرب: 2×3=6، نیچے 5 رکھو۔ یعنی 6/5 (غیر مناسب)۔"},done:{en:"2/5 × 3 = 6/5",ur:"2/5 × 3 = 6/5"},why:{en:"Fraction × whole: multiply numerator by the whole. Six-fifths kilogram.",ur:"کسر × پورا: صورت کو پورے سے ضرب۔ چھ پانچواں کلو۔"}},
+{id:"o6",op:"×",em:"🪁",title:{en:"Two fractions — kite paper",ur:"دو کسر — پتنگ کا کاغذ"},blurb:{en:"Bilal used 2/3 of a sheet, and of that he painted 1/4 blue for Basant.",ur:"بلال نے شیٹ کا 2/3 استعمال کیا، اور اس میں سے 1/4 نیلا رنگ کیا بسنت کے لیے۔"},eq:"2/3 × 1/4",ans:"2/12",opts:["2/12","3/7","2/7","3/12"],correct:0,ask:{en:"What is 2/3 × 1/4? (You may leave unsimplified.)",ur:"2/3 × 1/4 کتنا ہے؟ (سادہ نہ بھی کرو تو چلے)"},hint:{en:"Tops: 2×1=2. Bottoms: 3×4=12. Answer 2/12 (or 1/6).",ur:"اوپر: 2×1=2۔ نیچے: 3×4=12۔ جواب 2/12 (یا 1/6)۔"},done:{en:"2/3 × 1/4 = 2/12",ur:"2/3 × 1/4 = 2/12"},why:{en:"Multiply tops and bottoms. Two-twelfths of the kite paper (simplifies to one-sixth).",ur:"اوپر اور نیچے ضرب۔ پتنگ کا دو بارہواں (سادہ میں ایک چھٹا)۔"}}
+];
+
+var DIV=[
+{id:"d1",em:"🍫",title:{en:"Share the bar",ur:"بار بانٹو"},blurb:{en:"Sana has 3/4 of a chocolate bar to share equally among 3 cousins.",ur:"ثانا کے پاس چاکلیٹ کا 3/4 ہے، تین کزنوں میں برابر بانٹنا ہے۔"},eq:"3/4 ÷ 3",ans:"1/4",opts:["1/4","3/12","9/4","1/3"],correct:0,ask:{en:"What is 3/4 ÷ 3?",ur:"3/4 ÷ 3 کتنا ہے؟"},hint:{en:"Keep top 3. Multiply bottom by 3: 4×3=12. So 3/12, which simplifies to 1/4.",ur:"اوپر 3 رکھو۔ نیچے کو 3 سے ضرب: 4×3=12۔ یعنی 3/12، سادہ میں 1/4۔"},done:{en:"3/4 ÷ 3 = 1/4",ur:"3/4 ÷ 3 = 1/4"},why:{en:"Fraction ÷ whole: multiply the denominator by the whole. Each cousin gets one-fourth.",ur:"کسر ÷ پورا: مخرج کو پورے سے ضرب۔ ہر کزن کو ایک چوتھائی۔"}},
+{id:"d2",em:"🧃",title:{en:"Juice for friends",ur:"دوستوں کے لیے جوس"},blurb:{en:"2/5 litre of sugarcane juice shared by 2 friends after cricket.",ur:"گنے کے جوس کا 2/5 لیٹر، کرکٹ کے بعد 2 دوستوں میں۔"},eq:"2/5 ÷ 2",ans:"1/5",opts:["1/5","2/10","4/5","2/7"],correct:0,ask:{en:"What is 2/5 ÷ 2?",ur:"2/5 ÷ 2 کتنا ہے؟"},hint:{en:"Bottom × 2 → 2/10, simplify by 2 → 1/5. Or cancel: 2÷2 on top gives 1/5.",ur:"نیچے × 2 → 2/10، 2 سے سادہ → 1/5۔ یا اوپر 2÷2 سے سیدھا 1/5۔"},done:{en:"2/5 ÷ 2 = 1/5",ur:"2/5 ÷ 2 = 1/5"},why:{en:"Each friend gets one-fifth of a litre. Class 4 only divides by a whole.",ur:"ہر دوست کو ایک پانچواں لیٹر۔ کلاس 4 صرف پورے عدد سے تقسیم کرتی ہے۔"}},
+{id:"d3",em:"🍪",title:{en:"Cookie plate",ur:"بسکٹ پلیٹ"},blurb:{en:"Mama cut 4/6 of a cookie plate into 2 equal shares for Zara and Ali.",ur:"امی نے بسکٹ پلیٹ کا 4/6 دو برابر حصوں میں زارا اور علی کے لیے کاٹا۔"},eq:"4/6 ÷ 2",ans:"2/6",opts:["2/6","4/12","8/6","4/8"],correct:0,ask:{en:"What is 4/6 ÷ 2? (Unsimplified OK.)",ur:"4/6 ÷ 2 کتنا ہے؟ (سادہ نہ بھی کرو تو چلے)"},hint:{en:"Keep 4. Bottom 6×2=12 → 4/12, or divide top by 2 → 2/6. Both equal 1/3.",ur:"4 رکھو۔ نیچے 6×2=12 → 4/12، یا اوپر ÷2 → 2/6۔ دونوں 1/3 کے برابر۔"},done:{en:"4/6 ÷ 2 = 2/6",ur:"4/6 ÷ 2 = 2/6"},why:{en:"Divide by whole 2. Two-sixths each (one-third). Never divide by a fraction here.",ur:"پورے 2 سے تقسیم۔ ہر ایک کو دو چھٹے (ایک تہائی)۔ یہاں کسر سے تقسیم مت کرو۔"}},
+{id:"d4",em:"🌾",title:{en:"Chapati dough",ur:"روٹی کا آٹا"},blurb:{en:"1/2 kg of atta dough divided among 4 rotis for iftar.",ur:"افطار کے لیے 1/2 کلو آٹا، 4 روٹیوں میں تقسیم۔"},eq:"1/2 ÷ 4",ans:"1/8",opts:["1/8","1/6","4/2","1/4"],correct:0,ask:{en:"What is 1/2 ÷ 4?",ur:"1/2 ÷ 4 کتنا ہے؟"},hint:{en:"Keep top 1. Bottom 2×4=8. Answer 1/8 kg per roti.",ur:"اوپر 1 رکھو۔ نیچے 2×4=8۔ جواب ہر روٹی 1/8 کلو۔"},done:{en:"1/2 ÷ 4 = 1/8",ur:"1/2 ÷ 4 = 1/8"},why:{en:"Fraction ÷ whole number only. Each roti uses one-eighth kilogram.",ur:"صرف کسر ÷ پورا عدد۔ ہر روٹی ایک آٹھواں کلو۔"}}
+];
+
+var QUIZ=[
+{id:"qdivf",pin:true,q:{en:"In Class 4, which division is NOT taught yet? (That is Grade 5.)",ur:"کلاس 4 میں کون سی تقسیم ابھی نہیں پڑھاتے؟ (وہ گریڈ 5 ہے۔)"},ru:"Class 4 mein kaun si division abhi nahi? (Woh Grade 5 hai.)",opts:[{en:"3/4 ÷ 2  (fraction ÷ whole)",ur:"3/4 ÷ 2  (کسر ÷ پورا)"},{en:"2/5 ÷ 5  (fraction ÷ whole)",ur:"2/5 ÷ 5  (کسر ÷ پورا)"},{en:"1/2 ÷ 1/4  (fraction ÷ fraction)",ur:"1/2 ÷ 1/4  (کسر ÷ کسر)"},{en:"4/6 ÷ 3  (fraction ÷ whole)",ur:"4/6 ÷ 3  (کسر ÷ پورا)"}],correct:2,why:{en:"Class 4 only divides a fraction by a whole number. Fraction ÷ fraction is Grade 5.",ur:"کلاس 4 صرف کسر کو پورے عدد سے تقسیم کرتی ہے۔ کسر ÷ کسر گریڈ 5 ہے۔"}},
+{id:"qtype",pin:true,q:{en:"Which is a mixed number?",ur:"مختلط عدد کون سا ہے؟"},ru:"Mixed number kaun sa hai?",opts:[{en:"5/9",ur:"5/9"},{en:"9/5",ur:"9/5"},{en:"2 1/5",ur:"2 1/5"},{en:"5/5",ur:"5/5"}],correct:2,why:{en:"2 1/5 has a whole and a proper part — mixed. 5/9 is proper. 9/5 and 5/5 are improper.",ur:"2 1/5 میں پورا اور مناسب حصہ — مختلط۔ 5/9 مناسب ہے۔ 9/5 اور 5/5 غیر مناسب۔"}},
+{id:"qadd",q:{en:"What is 1/6 + 4/6?",ur:"1/6 + 4/6 کتنا ہے؟"},ru:"1/6 + 4/6 kitna hai?",opts:[{en:"5/6",ur:"5/6"},{en:"5/12",ur:"5/12"},{en:"4/6",ur:"4/6"},{en:"1/3",ur:"1/3"}],correct:0,why:{en:"Like fractions: keep 6, add 1+4=5. Answer 5/6.",ur:"ہم جنس: 6 رکھو، 1+4=5۔ جواب 5/6۔"}},
+{id:"qsub",q:{en:"What is 5/6 − 1/3? (3 is a multiple of… wait — rewrite.)",ur:"5/6 − 1/3 کتنا ہے؟ (نیچے برابر کرو۔)"},ru:"5/6 − 1/3 kitna hai?",opts:[{en:"3/6",ur:"3/6"},{en:"4/3",ur:"4/3"},{en:"4/6",ur:"4/6"},{en:"1/6",ur:"1/6"}],correct:0,why:{en:"1/3 = 2/6. Then 5/6 − 2/6 = 3/6. Bottoms are multiples.",ur:"1/3 = 2/6۔ پھر 5/6 − 2/6 = 3/6۔ نیچے multiples ہیں۔"}},
+{id:"qmulw",q:{en:"What is 3/8 × 2?",ur:"3/8 × 2 کتنا ہے؟"},ru:"3/8 × 2 kitna hai?",opts:[{en:"6/8",ur:"6/8"},{en:"3/16",ur:"3/16"},{en:"5/8",ur:"5/8"},{en:"6/10",ur:"6/10"}],correct:0,why:{en:"Multiply top by whole: 3×2=6, keep 8. So 6/8.",ur:"اوپر کو پورے سے ضرب: 3×2=6، 8 رکھو۔ یعنی 6/8۔"}},
+{id:"qmulf",q:{en:"What is 1/3 × 2/5?",ur:"1/3 × 2/5 کتنا ہے؟"},ru:"1/3 × 2/5 kitna hai?",opts:[{en:"2/15",ur:"2/15"},{en:"3/5",ur:"3/5"},{en:"2/8",ur:"2/8"},{en:"3/10",ur:"3/10"}],correct:0,why:{en:"Tops 1×2=2, bottoms 3×5=15. Answer 2/15.",ur:"اوپر 1×2=2، نیچے 3×5=15۔ جواب 2/15۔"}},
+{id:"qimp",q:{en:"Which fraction is improper?",ur:"کون سی کسر غیر مناسب ہے؟"},ru:"Kaun si fraction improper hai?",opts:[{en:"2/9",ur:"2/9"},{en:"8/3",ur:"8/3"},{en:"1/4",ur:"1/4"},{en:"3/7",ur:"3/7"}],correct:1,why:{en:"8/3 has top bigger than bottom — improper. The others are proper.",ur:"8/3 میں اوپر نیچے سے بڑا — غیر مناسب۔ باقی مناسب ہیں۔"}}
+];
+
+var sortIdx=0,sortDone={};
+var opsIdx=0,opsDone={};
+var divIdx=0,divDone={};
+var optKey="",optOrder=[],quizSet=[],quizState={};
+
+function award(key,n){if(awarded[key])return;awarded[key]=true;stars+=(n||1);$("starCount").textContent=String(stars)}
+function recountStars(){stars=0;Object.keys(awarded).forEach(function(k){stars+=(k.indexOf("mode-")===0)?2:1});$("starCount").textContent=String(stars)}
+function markWin(prefix,id,doneMap,modeKey,total){if(doneMap[id])return;doneMap[id]=true;award(prefix+"-"+id,1);if(Object.keys(doneMap).length>=total){doneModes[modeKey]=true;award("mode-"+modeKey,2)}tabBadges()}
+function skyHTML(){return '<div class="sky-layer"><div class="sun-ball"></div><div class="cloud c1"></div><div class="cloud c2"></div></div>'}
+function prepScene(){var pad=$("scenePad");pad.innerHTML=skyHTML();var stage=document.createElement("div");stage.className="num-stage";pad.appendChild(stage);return stage}
+function addBlurb(stage,ch){var em=document.createElement("div");em.className="hero-em";em.textContent=ch.em||"🔢";stage.appendChild(em);var box=document.createElement("div");box.className="card-box";setText(box,t(ch.blurb));stage.appendChild(box)}
+function addCap(stage,msg){var c=document.createElement("div");c.className="capline";setText(c,msg);stage.appendChild(c)}
+function showStep(i,n){setText($("statechip"),(i+1)+" / "+n);$("statechip").className="statechip"+(lang==="ur"?" ur":"")}
+function showWin(msg){setText($("headline"),msg);$("statechip").className="statechip win"+(lang==="ur"?" ur":"");setText($("statechip"),t(T.nice))}
+function showMiss(){setText($("headline"),t(T.oops));$("statechip").className="statechip miss"+(lang==="ur"?" ur":"");setText($("statechip"),t(T.oops))}
+function stableOrder(key,arr){if(optKey!==key){optKey=key;optOrder=shuffle(arr)}return optOrder}
+function clearHint(){$("hintbox").classList.remove("show")}
+function makeFracEl(n,d){var w=document.createElement("span");w.className="frac-bar";w.setAttribute("dir","ltr");var tn=document.createElement("span");tn.className="n";tn.textContent=String(n);var line=document.createElement("span");line.className="line";var td=document.createElement("span");td.className="d";td.textContent=String(d);w.appendChild(tn);w.appendChild(line);w.appendChild(td);return w}
+function addPie(stage,n,d){var pie=document.createElement("div");pie.className="pie";var i,max=Math.min(d,12);for(i=0;i<max;i++){var s=document.createElement("span");if(i<n)s.className="on";pie.appendChild(s)}stage.appendChild(pie)}
+function addShowFrac(stage,ch){
+  if(ch.kind==="mixed"||ch.w!=null){
+    var m=document.createElement("div");m.className="mixed-hero";
+    var w=document.createElement("span");w.textContent=String(ch.w);m.appendChild(w);
+    m.appendChild(makeFracEl(ch.n,ch.d));stage.appendChild(m);
+  }else{
+    var nn=ch.n,dd=ch.d;
+    if((nn==null||dd==null)&&ch.show){var parts=String(ch.show).split("/");nn=+parts[0];dd=+parts[1]}
+    var h=document.createElement("div");h.className="frac-hero";h.setAttribute("dir","ltr");
+    h.appendChild(makeFracEl(nn,dd));stage.appendChild(h);
+    if(dd&&dd<=12)addPie(stage,Math.min(nn,dd),dd);
+  }
+}
+function addEqLine(stage,eq){
+  var el=document.createElement("div");el.className="eqline";el.setAttribute("dir","ltr");el.textContent=eq;stage.appendChild(el);
+}
+
+function renderSort(){
+  var ch=SORT[sortIdx],stage=prepScene();addBlurb(stage,ch);addShowFrac(stage,ch);
+  addCap(stage,lang==="en"?"Compare top and bottom. Mixed has a whole.":"اوپر اور نیچے دیکھو۔ مختلط میں پورا ہوتا ہے۔");
+  showStep(sortIdx,SORT.length);setText($("headline"),t(ch.title));
+  setText($("detail"),sortDone[ch.id]?t(ch.why):t(ch.ask));clearHint();
+  if(sortDone[ch.id])showWin(t(ch.done));
+  var box=$("actionBox");box.innerHTML="";
+  var choices=document.createElement("div");choices.className="save-choices";
+  stableOrder("sort-"+ch.id,TYPES.slice()).forEach(function(tp){
+    var b=document.createElement("button");b.type="button";setText(b,t(tp));
+    if(sortDone[ch.id]&&tp.id===ch.kind)b.classList.add("right");b.disabled=!!sortDone[ch.id];
+    b.addEventListener("click",function(){if(sortDone[ch.id])return;if(tp.id===ch.kind){markWin("sort",ch.id,sortDone,"sort",SORT.length);renderSort()}else{b.classList.add("wrong");showMiss()}});
+    choices.appendChild(b);
+  });
+  box.appendChild(choices);
+  setText($("prog"),t(T.progSort)+": "+Object.keys(sortDone).length+"/"+SORT.length);
+}
+
+function renderOps(){
+  var ch=OPS[opsIdx],stage=prepScene();addBlurb(stage,ch);addEqLine(stage,ch.eq);
+  addCap(stage,lang==="en"?"Pick the correct answer. Like = same bottom.":"صحیح جواب چنو۔ ہم جنس = ایک جیسا نیچے۔");
+  showStep(opsIdx,OPS.length);setText($("headline"),t(ch.title));
+  setText($("detail"),opsDone[ch.id]?t(ch.why):t(ch.ask));clearHint();
+  if(opsDone[ch.id])showWin(t(ch.done));
+  var box=$("actionBox");box.innerHTML="";
+  var choices=document.createElement("div");choices.className="save-choices";
+  var indexed=ch.opts.map(function(o,i){return{o:o,i:i}});
+  stableOrder("ops-"+ch.id,indexed).forEach(function(item){
+    var b=document.createElement("button");b.type="button";b.className="numc";b.textContent=item.o;b.setAttribute("dir","ltr");
+    if(opsDone[ch.id]&&item.i===ch.correct)b.classList.add("right");b.disabled=!!opsDone[ch.id];
+    b.addEventListener("click",function(){if(opsDone[ch.id])return;if(item.i===ch.correct){markWin("ops",ch.id,opsDone,"ops",OPS.length);renderOps()}else{b.classList.add("wrong");showMiss()}});
+    choices.appendChild(b);
+  });
+  box.appendChild(choices);
+  setText($("prog"),t(T.progOps)+": "+Object.keys(opsDone).length+"/"+OPS.length);
+}
+
+function renderDiv(){
+  var ch=DIV[divIdx],stage=prepScene();addBlurb(stage,ch);addEqLine(stage,ch.eq);
+  addCap(stage,lang==="en"?"Only ÷ by a whole. Keep top, grow the bottom.":"صرف پورے سے ÷۔ اوپر رکھو، نیچے بڑا کرو۔");
+  showStep(divIdx,DIV.length);setText($("headline"),t(ch.title));
+  setText($("detail"),divDone[ch.id]?t(ch.why):t(ch.ask));clearHint();
+  if(divDone[ch.id])showWin(t(ch.done));
+  var box=$("actionBox");box.innerHTML="";
+  var choices=document.createElement("div");choices.className="save-choices";
+  var indexed=ch.opts.map(function(o,i){return{o:o,i:i}});
+  stableOrder("div-"+ch.id,indexed).forEach(function(item){
+    var b=document.createElement("button");b.type="button";b.className="numc";b.textContent=item.o;b.setAttribute("dir","ltr");
+    if(divDone[ch.id]&&item.i===ch.correct)b.classList.add("right");b.disabled=!!divDone[ch.id];
+    b.addEventListener("click",function(){if(divDone[ch.id])return;if(item.i===ch.correct){markWin("div",ch.id,divDone,"div",DIV.length);renderDiv()}else{b.classList.add("wrong");showMiss()}});
+    choices.appendChild(b);
+  });
+  box.appendChild(choices);
+  setText($("prog"),t(T.progDiv)+": "+Object.keys(divDone).length+"/"+DIV.length);
+}
+
+function pickQuiz(){
+  var pin=[],rest=[],i;quizState={};
+  for(i=0;i<QUIZ.length;i++){if(QUIZ[i].pin)pin.push(QUIZ[i]);else rest.push(QUIZ[i])}
+  rest=shuffle(rest);quizSet=shuffle(pin.concat(rest.slice(0,5-pin.length)));
+}
+function renderQuiz(){
+  var box=$("quizBox");box.innerHTML="";
+  quizSet.forEach(function(item,qi){
+    var wrap=document.createElement("div");wrap.className="q";
+    var p=document.createElement("p");setText(p,(qi+1)+". "+t(item.q));wrap.appendChild(p);
+    if(lang==="en"&&item.ru){var g=document.createElement("p");g.className="gloss";g.textContent=item.ru;wrap.appendChild(g)}
+    var st=quizState[item.id];
+    item.opts.forEach(function(opt,oi){
+      var b=document.createElement("button");b.type="button";b.className="opt"+(lang==="ur"?" ur":"");setText(b,t(opt));
+      if(st&&oi===item.correct)b.classList.add("right");
+      if(st==="no"&&quizState[item.id+"-pick"]===oi&&oi!==item.correct)b.classList.add("wrong");
+      if(st)b.disabled=true;
+      b.addEventListener("click",function(){
+        if(quizState[item.id])return;
+        quizState[item.id+"-pick"]=oi;
+        if(oi===item.correct){quizState[item.id]="ok";b.classList.add("right");award("quiz-"+item.id,1)}
+        else{quizState[item.id]="no";b.classList.add("wrong");var kids=wrap.querySelectorAll(".opt");if(kids[item.correct])kids[item.correct].classList.add("right")}
+        fb.classList.add("show");
+        var all=wrap.querySelectorAll(".opt"),k;for(k=0;k<all.length;k++)all[k].disabled=true;
+      });
+      wrap.appendChild(b);
+    });
+    var fb=document.createElement("p");fb.className="fb"+(st?" show":"");setText(fb,t(item.why));wrap.appendChild(fb);
+    box.appendChild(wrap);
+  });
+}
+function storyHtml(){if(mode==="sort")return t(T.storySort);if(mode==="ops")return t(T.storyOps);return t(T.storyDiv)}
+function currentTip(){if(mode==="sort")return T.tipSort;if(mode==="ops")return T.tipOps;return T.tipDiv}
+function tabBadges(){
+  function lab(btn,label,key){btn.innerHTML="";var span=document.createElement("span");setText(span,t(label));btn.appendChild(span);if(doneModes[key]){var b=document.createElement("span");b.className="badge";b.textContent=" ★";btn.appendChild(b)}}
+  lab($("tabSort"),T.tabSort,"sort");lab($("tabOps"),T.tabOps,"ops");lab($("tabDiv"),T.tabDiv,"div");
+  $("tabSort").setAttribute("aria-pressed",mode==="sort"?"true":"false");
+  $("tabOps").setAttribute("aria-pressed",mode==="ops"?"true":"false");
+  $("tabDiv").setAttribute("aria-pressed",mode==="div"?"true":"false");
+}
+function renderCurrent(){if(mode==="sort")renderSort();else if(mode==="ops")renderOps();else renderDiv()}
+function setMode(m){mode=m;optKey="";renderCurrent();applyChrome()}
+function applyChrome(){
+  setText($("title"),t(T.title));setText($("subtitle"),t(T.sub));
+  $("story").innerHTML=storyHtml();$("story").classList.toggle("ur",lang==="ur");$("story").setAttribute("dir",lang==="ur"?"rtl":"ltr");
+  setText($("ctlHead"),t(T.ctl));setText($("nextBtn"),t(T.next));setText($("hintBtn"),t(T.hint));setText($("resetBtn"),t(T.reset));
+  setText($("quizHead"),t(T.quiz));setText($("newQuiz"),t(T.newQuiz));
+  $("langBtn").textContent=(lang==="en")?"اردو":"EN";$("langBtn").setAttribute("aria-pressed",lang==="ur"?"true":"false");
+  document.body.classList.toggle("urdu",lang==="ur");
+  document.documentElement.lang=(lang==="ur")?"ur":"en";
+  document.documentElement.dir=(lang==="ur")?"rtl":"ltr";
+  document.title=t(T.title)+" | AI4Kids Class 4";
+  tabBadges();
+  var foot=document.querySelector("footer p");
+  if(foot)setText(foot,foot.getAttribute(lang==="ur"?"data-ur":"data-en"));
+}
+function applyLang(){applyChrome();renderCurrent();renderQuiz()}
+function next(){
+  optKey="";
+  if(mode==="sort"){sortIdx=(sortIdx+1)%SORT.length;renderSort()}
+  else if(mode==="ops"){opsIdx=(opsIdx+1)%OPS.length;renderOps()}
+  else{divIdx=(divIdx+1)%DIV.length;renderDiv()}
+}
+function showHint(){
+  var h=mode==="sort"?SORT[sortIdx].hint:(mode==="ops"?OPS[opsIdx].hint:DIV[divIdx].hint);
+  var hb=$("hintbox");setText(hb,t(h));hb.classList.add("show");
+}
+function resetMode(){
+  if(mode==="sort"){Object.keys(awarded).forEach(function(k){if(k.indexOf("sort-")===0||k==="mode-sort")delete awarded[k]});sortDone={};sortIdx=0;doneModes.sort=false;recountStars();renderSort()}
+  else if(mode==="ops"){Object.keys(awarded).forEach(function(k){if(k.indexOf("ops-")===0||k==="mode-ops")delete awarded[k]});opsDone={};opsIdx=0;doneModes.ops=false;recountStars();renderOps()}
+  else{Object.keys(awarded).forEach(function(k){if(k.indexOf("div-")===0||k==="mode-div")delete awarded[k]});divDone={};divIdx=0;doneModes.div=false;recountStars();renderDiv()}
+  optKey="";tabBadges();applyChrome();
+}
+function cleanSpeakText(s){return String(s||"").replace(/<[^>]+>/g," ").replace(/&gt;/g,">").replace(/&lt;/g,"<").replace(/&amp;/g,"&").replace(/\s+/g," ").trim()}
+function buildSpeakText(){
+  var bits=[];bits.push(t(T.title));bits.push(cleanSpeakText(storyHtml()));
+  bits.push(cleanSpeakText(($("headline")&&$("headline").textContent)||""));
+  bits.push(cleanSpeakText(($("detail")&&$("detail").textContent)||""));
+  bits.push(t(currentTip()));return bits.filter(Boolean).join(". ");
+}
+function pickVoice(voices,want){
+  var i,v,L;for(i=0;i<voices.length;i++){v=voices[i];L=(v.lang||"").toLowerCase().replace("_","-");if(L.indexOf(want)===0)return v}
+  for(i=0;i<voices.length;i++){v=voices[i];L=(v.lang||"").toLowerCase().replace("_","-");if(L.indexOf("en")===0)return v}
+  return voices[0]||null;
+}
+function setSpeaking(on){var btn=$("speakBtn");if(!btn)return;btn.setAttribute("aria-pressed",on?"true":"false");btn.style.opacity=on?"0.65":""}
+function doSpeak(text,asLang){
+  var u=new SpeechSynthesisUtterance(text);u.rate=0.92;u.lang=(asLang==="ur")?"ur-PK":"en-US";
+  var voices=window.speechSynthesis.getVoices()||[];var voice=pickVoice(voices,asLang==="ur"?"ur":"en");if(voice)u.voice=voice;
+  u.onstart=function(){setSpeaking(true)};u.onend=function(){setSpeaking(false)};
+  u.onerror=function(){setSpeaking(false);if(asLang==="ur"){var fallback=cleanSpeakText(T.title.en+". "+T.storySort.en+". "+T.tipSort.en);var u2=new SpeechSynthesisUtterance(fallback);u2.lang="en-US";u2.rate=0.92;var v2=pickVoice(window.speechSynthesis.getVoices()||[],"en");if(v2)u2.voice=v2;u2.onstart=function(){setSpeaking(true)};u2.onend=u2.onerror=function(){setSpeaking(false)};window.speechSynthesis.speak(u2)}};
+  window.speechSynthesis.speak(u);
+}
+if("speechSynthesis" in window){
+  try{window.speechSynthesis.getVoices()}catch(e0){}
+  if(typeof window.speechSynthesis.addEventListener==="function"){window.speechSynthesis.addEventListener("voiceschanged",function(){try{window.speechSynthesis.getVoices()}catch(e1){}})}
+}else{var noBtn=$("speakBtn");if(noBtn){noBtn.disabled=true;noBtn.title="Voice not available on this device"}}
+$("langBtn").addEventListener("click",function(){lang=(lang==="en")?"ur":"en";applyLang()});
+$("tabSort").addEventListener("click",function(){setMode("sort")});
+$("tabOps").addEventListener("click",function(){setMode("ops")});
+$("tabDiv").addEventListener("click",function(){setMode("div")});
+$("nextBtn").addEventListener("click",next);
+$("hintBtn").addEventListener("click",showHint);
+$("resetBtn").addEventListener("click",resetMode);
+$("newQuiz").addEventListener("click",function(){pickQuiz();renderQuiz()});
+$("speakBtn").addEventListener("click",function(){
+  try{
+    if(!("speechSynthesis" in window))return;
+    var text=buildSpeakText();if(!text)return;
+    if(speakTimer){clearTimeout(speakTimer);speakTimer=null}
+    window.speechSynthesis.cancel();setSpeaking(false);
+    var speakLang=lang;
+    speakTimer=setTimeout(function(){speakTimer=null;doSpeak(text,speakLang)},80);
+  }catch(e){setSpeaking(false)}
+});
+pickQuiz();applyLang();
+})();
+</script>
+</body>
+</html>
