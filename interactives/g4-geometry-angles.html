@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Geometry angles | AI4Kids Class 4</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--board:#e5f3ea;--board-deep:#c9e4d2;--sky:#c5e7f6;--sky2:#6eb0d4;--accent:#1d6b52;--ok:#2e7d4f;--ink:#1e2a1a;--ink-soft:#4a5744;--paper:#fdfaf3;--line:#d5dec8;--gold:#e8b23d;--left:#c4453a;--acute:#2f6fb5;--right:#d4701f;--obtuse:#7a4fb5;--fs-cap:clamp(12px,3.2vw,13px);--fs-xs:clamp(14px,3.7vw,15px);--fs-sm:clamp(16px,4.2vw,17px);--fs-md:clamp(17px,4.6vw,19px);--fs-lg:clamp(20px,5.4vw,23px);--fs-xl:clamp(27px,7.4vw,33px);--lh:1.5}
+body.urdu{--fs-cap:clamp(13px,3.5vw,15px);--fs-xs:clamp(15px,4.1vw,17px);--fs-sm:clamp(17px,4.7vw,19px);--fs-md:clamp(19px,5.2vw,21px);--fs-lg:clamp(22px,6vw,25px);--fs-xl:clamp(26px,7vw,31px);--lh:2.1}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px}
+.wrap{max-width:560px;margin:0 auto;padding:0 14px}
+.bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+.brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+.chip{border:2px solid var(--ink);background:var(--paper);color:var(--ink);border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;font-size:var(--fs-xs);cursor:pointer;min-height:42px;touch-action:manipulation}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.chip:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.stars{display:flex;align-items:center;gap:6px;font-weight:800;font-size:var(--fs-xs);background:#fff6e2;border:2px solid var(--gold);border-radius:999px;padding:7px 13px}
+h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+.sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+.ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+h1.ur{line-height:1.9}
+.tabs{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
+.tabs button{flex:1 1 28%;min-width:90px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);border-radius:14px;padding:10px 6px;font:inherit;font-weight:800;font-size:var(--fs-cap);cursor:pointer;min-height:54px;line-height:1.2;touch-action:manipulation}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.tabs button .badge{color:var(--gold)}
+.story{background:#fff8ea;border:2px dashed var(--gold);border-radius:16px;padding:13px 15px;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;margin-bottom:14px}
+body.urdu .story{line-height:var(--lh)}
+.story b{color:var(--ink)}
+.scene{position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);background:linear-gradient(180deg,var(--sky) 0%,var(--sky2) 36%,var(--board) 36%,var(--board-deep) 100%);min-height:280px}
+.scene-pad{padding:10px 12px 18px;min-height:260px;position:relative}
+.sky-layer{position:absolute;inset:0 0 58% 0;pointer-events:none;overflow:hidden}
+.sun-ball{position:absolute;top:12px;right:18px;width:36px;height:36px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#ffe9a0,#f5c542 60%,#e0a020);box-shadow:0 0 18px rgba(245,197,66,.45);z-index:1}
+body.urdu .sun-ball{right:auto;left:18px}
+.cloud{position:absolute;background:rgba(255,255,255,.85);border-radius:40px;opacity:.9}
+.cloud:before,.cloud:after{content:"";position:absolute;background:inherit;border-radius:50%}
+.c1{width:48px;height:15px;top:18px;left:12%}
+.c1:before{width:22px;height:22px;top:-12px;left:6px}
+.c1:after{width:18px;height:18px;top:-8px;left:24px}
+.c2{width:34px;height:12px;top:34px;left:55%;opacity:.7}
+.c2:before{width:16px;height:16px;top:-9px;left:4px}
+.c2:after{width:12px;height:12px;top:-5px;left:16px}
+.num-stage{position:relative;z-index:5;padding:62px 8px 8px;text-align:center}
+.hero-em{font-size:34px;line-height:1;margin:0}
+.num-hero{font-weight:800;font-size:clamp(26px,7.2vw,36px);letter-spacing:.5px;direction:ltr;unicode-bidi:isolate;margin:6px 0 2px;line-height:1.15}
+.capline{font-size:var(--fs-cap);font-weight:800;color:var(--accent);margin:6px 8px 0;line-height:1.45}
+body.urdu .capline,body.urdu .hintbox,body.urdu .card-box{line-height:var(--lh)}
+.eqline{direction:ltr;unicode-bidi:isolate;font-weight:800;font-size:var(--fs-sm);margin:8px 6px 4px;line-height:1.35}
+.card-box{background:rgba(253,250,243,.95);border:2.5px solid var(--ink);border-radius:14px;padding:10px 12px;font-weight:800;font-size:var(--fs-xs);max-width:340px;margin:8px auto 0;line-height:1.4}
+.fact-pills{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:8px 4px 0}
+.pill{background:#fff;border:2px solid var(--ink);border-radius:999px;padding:5px 10px;font-weight:800;font-size:12px;direction:ltr}
+.pill.acute{border-color:var(--acute);color:var(--acute)}
+.pill.right{border-color:var(--right);color:var(--right)}
+.pill.obtuse{border-color:var(--obtuse);color:var(--obtuse)}
+.ang-wrap{margin:10px auto 4px;max-width:240px}
+.ang-wrap svg{display:block;width:100%;height:auto}
+.compare-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:8px 0 4px}
+.compare-row .mini{max-width:110px;flex:1 1 100px}
+.compare-row .mini svg{display:block;width:100%;height:auto}
+.save-choices{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+.save-choices button{border:2.5px solid var(--ink);background:var(--paper);border-radius:14px;padding:12px 14px;font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;text-align:left;min-height:52px;display:flex;align-items:center;gap:10px;touch-action:manipulation}
+body.urdu .save-choices button{text-align:right}
+.save-choices button.numc{justify-content:center;text-align:center;direction:ltr;font-size:20px}
+.save-choices button.right,.opt.right{border-color:var(--ok);background:#e8f2ed}
+.save-choices button.wrong,.opt.wrong{border-color:var(--left);background:#fbeae8}
+.readout{margin-top:-18px;position:relative;z-index:2;background:var(--paper);border:3px solid var(--ink);border-radius:18px;padding:16px 18px}
+.statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+.statechip.ur{padding:2px 14px 7px}
+.statechip.win{background:var(--ok)}
+.statechip.miss{background:var(--left)}
+.headline{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+.headline.ur{line-height:1.95}
+.detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+.hintbox{margin-top:14px;border:2px solid var(--accent);background:#e7f6ef;border-radius:14px;padding:11px 14px;font-size:var(--fs-xs);color:var(--accent);font-weight:700;line-height:1.55;display:none}
+.hintbox.show{display:block}
+.panel{margin-top:22px}
+.panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+.prog{margin:0 0 10px;font-size:var(--fs-xs);font-weight:700;color:var(--ink-soft)}
+.btns{display:flex;gap:9px;margin-top:8px;flex-wrap:wrap}
+.btns button{border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:50px;padding:8px 14px;flex:1;touch-action:manipulation}
+.btns .go{background:var(--ink);color:var(--paper)}
+.btns button:active{transform:scale(.97)}
+.btns button:disabled{opacity:.4;cursor:default}
+.quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+.qhead{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+.qhead h2{font-size:var(--fs-lg);font-weight:800;margin:0;flex:1}
+.q{margin-bottom:26px}
+.q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+.q p.ur{font-weight:400}
+.gloss{margin:-6px 0 12px;font-size:var(--fs-xs);color:var(--ink-soft);font-weight:600;line-height:1.45}
+.opt{display:block;width:100%;text-align:left;margin-bottom:10px;border:2px solid var(--line);background:var(--paper);border-radius:12px;padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);min-height:50px;touch-action:manipulation}
+.opt.ur{text-align:right;line-height:var(--lh)}
+.opt:disabled{cursor:default}
+.fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+.fb.show{display:block}
+footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);font-size:var(--fs-xs);color:var(--ink-soft)}
+@media (min-width:820px){
+.wrap{max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;grid-template-areas:"bar bar" "head head" "tabs tabs" "story story" "left right" "quiz quiz" "foot foot";align-items:start}
+.bar{grid-area:bar}.head{grid-area:head}.tabs{grid-area:tabs}.story{grid-area:story}.left{grid-area:left}.right{grid-area:right}.quiz{grid-area:quiz;margin-top:34px}footer{grid-area:foot}.panel{margin-top:0}
+}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01ms !important;animation:none !important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 4 · Hisaab</span>
+    <span class="stars">⭐ <span id="starCount">0</span></span>
+    <button class="chip" id="langBtn" aria-pressed="false" type="button">اردو</button>
+    <button class="chip" id="speakBtn" type="button" aria-label="Sunlo">🔊</button>
+  </div>
+  <div class="head"><h1 id="title"></h1><p class="sub" id="subtitle"></p></div>
+  <div class="tabs" role="group">
+    <button type="button" id="tabName" aria-pressed="true"></button>
+    <button type="button" id="tabOrder" aria-pressed="false"></button>
+    <button type="button" id="tabLines" aria-pressed="false"></button>
+  </div>
+  <p class="story" id="story"></p>
+  <div class="left">
+    <div class="scene"><div class="scene-pad" id="scenePad"></div></div>
+    <div class="readout">
+      <span class="statechip" id="statechip"></span>
+      <p class="headline" id="headline"></p>
+      <p class="detail" id="detail"></p>
+      <p class="hintbox" id="hintbox"></p>
+    </div>
+  </div>
+  <div class="right">
+    <div class="panel">
+      <h2 id="ctlHead"></h2>
+      <p class="prog" id="prog"></p>
+      <div id="actionBox"></div>
+      <div class="btns"><button type="button" class="go" id="nextBtn"></button></div>
+      <div class="btns"><button type="button" id="hintBtn"></button><button type="button" id="resetBtn"></button></div>
+    </div>
+  </div>
+  <div class="quiz">
+    <div class="qhead"><h2 id="quizHead"></h2><button type="button" class="chip" id="newQuiz"></button></div>
+    <div id="quizBox"></div>
+  </div>
+  <footer>
+    <p data-en="AI4Kids — Islamabad bilingual school. Offline. WhatsApp 0337 1468899 · Geometry angles" data-ur="اے آئی فور کڈز — اسلام آباد دو لسانی اسکول۔ آف لائن۔ واٹس ایپ 0337 1468899 · جیومیٹری زاویے"></p>
+  </footer>
+</div>
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id)}
+function isolate(s){return "\u2066"+s+"\u2069"}
+function setText(el,str){if(!el)return;el.textContent=(lang==="ur")?isolate(str):str;el.classList.toggle("ur",lang==="ur");el.setAttribute("dir",lang==="ur"?"rtl":"ltr")}
+function t(o){return (o&&o[lang])||(o&&o.en)||""}
+function shuffle(arr){var a=arr.slice(),i,j,tmp;for(i=a.length-1;i>0;i--){j=Math.floor(Math.random()*(i+1));tmp=a[i];a[i]=a[j];a[j]=tmp}return a}
+
+var lang="en",mode="name",stars=0,awarded={},doneModes={name:false,order:false,lines:false},speakTimer=null;
+var T={
+title:{en:"Geometry angles",ur:"جیومیٹری زاویے"},
+sub:{en:"Name acute, right, obtuse. Compare and read degrees up to 180°. Spot parallel lines — Class 4 Hisaab with Pakistani rooms and roads.",ur:"تیز، قائمہ، منفرجہ نام لو۔ موازنہ کرو اور 180° تک ڈگری پڑھو۔ متوازی لکیریں پہچانو — کلاس 4 حساب، پاکستانی کمرے اور سڑکیں۔"},
+tabName:{en:"Name the angle",ur:"زاویے کا نام"},
+tabOrder:{en:"Order & measure",ur:"ترتیب اور ناپ"},
+tabLines:{en:"Parallel lines",ur:"متوازی لکیریں"},
+storyName:{en:"An <b>angle</b> is the turn between two rays that meet. <b>Acute</b> is less than 90°. <b>Right</b> is exactly 90° (like a book corner). <b>Obtuse</b> is more than 90° but less than 180°. Class 4 looks up to a straight turn of 180°.",ur:"<b>زاویہ</b> دو شعاعوں کے درمیان موڑ ہے۔ <b>تیز</b> 90° سے کم۔ <b>قائمہ</b> بالکل 90° (کتاب کے کونے جیسا)۔ <b>منفرجہ</b> 90° سے زیادہ مگر 180° سے کم۔ کلاس 4 سیدھی موڑ 180° تک دیکھتی ہے۔"},
+storyOrder:{en:"Bigger opening = bigger angle. Compare two angles, or read a simple protractor mark. Think of a school clock hand, a door opening, or a cricket bat tilt — pick the degrees carefully up to 180°.",ur:"بڑا کھلاؤ = بڑا زاویہ۔ دو زاویوں کا موازنہ کرو، یا سادہ پرٹریکٹر نشان پڑھو۔ اسکول کی گھڑی، دروازہ کھلنا، یا کرکٹ بیٹ کا جھکاؤ سوچو — 180° تک ڈگری غور سے چنو۔"},
+storyLines:{en:"<b>Parallel</b> lines stay the same distance apart and never meet — like railway tracks or ruled notebook lines. Non-parallel lines will meet if you extend them. Look at classroom edges and Islamabad roads.",ur:"<b>متوازی</b> لکیریں برابر فاصلے پر رہتی ہیں اور کبھی نہیں ملتیں — ریلوے ٹریک یا کاپی کی لکیریں جیسے۔ غیر متوازی کو بڑھانے پر ملتی ہیں۔ کلاس کے کنارے اور اسلام آباد کی سڑکیں دیکھو۔"},
+ctl:{en:"Your turn — angle lab",ur:"تمہاری باری — زاویہ لیب"},
+next:{en:"Next challenge",ur:"اگلا چیلنج"},
+hint:{en:"Hint",ur:"اشارہ"},
+reset:{en:"Reset",ur:"ری سیٹ"},
+quiz:{en:"Check yourself",ur:"اپنا چیک"},
+newQuiz:{en:"New quiz",ur:"نیا کوئز"},
+nice:{en:"Shabash!",ur:"شاباش!"},
+oops:{en:"Almost — try again",ur:"قریب — دوبارہ آزماؤ"},
+tipName:{en:"Acute under 90°. Right exactly 90°. Obtuse between 90° and 180°. A corner of your notebook is a right angle friend.",ur:"تیز 90° سے کم۔ قائمہ بالکل 90°۔ منفرجہ 90° اور 180° کے درمیان۔ کاپی کا کونہ قائمہ زاویے کا دوست ہے۔"},
+tipOrder:{en:"Compare openings: wider means bigger. On a protractor, read the mark where the ray crosses. Stay at or under 180° for Class 4.",ur:"کھلاؤ موازنہ کرو: زیادہ چوڑا مطلب بڑا۔ پرٹریکٹر پر جہاں شعاع کاٹے وہ نشان پڑھو۔ کلاس 4 کے لیے 180° تک رہو۔"},
+tipLines:{en:"Parallel never meet and stay equally apart. Crossing or meeting lines are not parallel. Railway tracks are a classic parallel pair.",ur:"متوازی کبھی نہیں ملتیں اور برابر فاصلے پر رہتی ہیں۔ کاٹتی یا ملتی لکیریں متوازی نہیں۔ ریلوے ٹریک کلاسک متوازی جوڑا ہے۔"},
+progName:{en:"Name rounds",ur:"نام راؤنڈ"},
+progOrder:{en:"Order rounds",ur:"ترتیب راؤنڈ"},
+progLines:{en:"Lines rounds",ur:"لکیر راؤنڈ"}
+};
+
+var NAME=[
+{id:"n1",em:"📐",deg:45,kind:"acute",title:{en:"Door half-open",ur:"آدھا کھلا دروازہ"},blurb:{en:"Ayesha's classroom door in Islamabad opens a little — about 45°.",ur:"عائشہ کا اسلام آباد کلاس دروازہ تھوڑا کھلا ہے — تقریباً 45°۔"},show:"45°",pills:["acute < 90°"],ask:{en:"What kind of angle is 45°?",ur:"45° کس قسم کا زاویہ ہے؟"},opts:[{id:"a",en:"Acute — less than 90°",ur:"تیز — 90° سے کم"},{id:"b",en:"Right — exactly 90°",ur:"قائمہ — بالکل 90°"},{id:"c",en:"Obtuse — more than 90°",ur:"منفرجہ — 90° سے زیادہ"},{id:"d",en:"Straight — 180°",ur:"سیدھا — 180°"}],correct:"a",hint:{en:"45 is less than 90, so it is acute. A right angle would be 90. Obtuse starts after 90.",ur:"45، 90 سے کم ہے، اس لیے تیز۔ قائمہ 90 ہوتا۔ منفرجہ 90 کے بعد شروع ہوتا ہے۔"},done:{en:"45° is acute.",ur:"45° تیز ہے۔"},why:{en:"A small door opening is an acute angle — sharper than a square corner.",ur:"چھوٹا دروازہ کھلاؤ تیز زاویہ ہے — مربع کونے سے زیادہ نوکدار۔"}},
+{id:"n2",em:"📒",deg:90,kind:"right",title:{en:"Notebook corner",ur:"کاپی کا کونہ"},blurb:{en:"Bilal's notebook corner is a perfect square turn — 90°.",ur:"بلال کی کاپی کا کونہ بالکل مربع موڑ ہے — 90°۔"},show:"90°",pills:["right = 90°"],ask:{en:"What kind of angle is 90°?",ur:"90° کس قسم کا زاویہ ہے؟"},opts:[{id:"a",en:"Acute",ur:"تیز"},{id:"b",en:"Right",ur:"قائمہ"},{id:"c",en:"Obtuse",ur:"منفرجہ"},{id:"d",en:"Straight",ur:"سیدھا"}],correct:"b",hint:{en:"Exactly 90° is a right angle. Look for the little square mark at the corner. Acute is under 90; obtuse is over 90.",ur:"بالکل 90° قائمہ زاویہ ہے۔ کونے پر چھوٹا مربع نشان دیکھو۔ تیز 90 سے کم؛ منفرجہ 90 سے زیادہ۔"},done:{en:"90° is a right angle.",ur:"90° قائمہ زاویہ ہے۔"},why:{en:"Book corners, room corners, and window frames often show right angles.",ur:"کتاب، کمرہ، اور کھڑکی کے کونے اکثر قائمہ زاویے دکھاتے ہیں۔"}},
+{id:"n3",em:"🏏",deg:120,kind:"obtuse",title:{en:"Bat tilt",ur:"بیٹ کا جھکاؤ"},blurb:{en:"Hamza leans his cricket bat — the angle with the ground looks about 120°.",ur:"حمزہ نے کرکٹ بیٹ جھکایا — زمین کے ساتھ زاویہ تقریباً 120° لگتا ہے۔"},show:"120°",pills:["90° < obtuse < 180°"],ask:{en:"What kind of angle is 120°?",ur:"120° کس قسم کا زاویہ ہے؟"},opts:[{id:"a",en:"Acute",ur:"تیز"},{id:"b",en:"Right",ur:"قائمہ"},{id:"c",en:"Obtuse",ur:"منفرجہ"},{id:"d",en:"Less than 90°",ur:"90° سے کم"}],correct:"c",hint:{en:"120 is more than 90 and less than 180, so obtuse. Not acute (that is under 90). Not right (exactly 90).",ur:"120، 90 سے زیادہ اور 180 سے کم ہے، اس لیے منفرجہ۔ تیز نہیں (وہ 90 سے کم)۔ قائمہ نہیں (بالکل 90)۔"},done:{en:"120° is obtuse.",ur:"120° منفرجہ ہے۔"},why:{en:"A wide bat lean makes an obtuse angle with the ground.",ur:"بیٹ کا چوڑا جھکاؤ زمین کے ساتھ منفرجہ زاویہ بناتا ہے۔"}},
+{id:"n4",em:"🕐",deg:30,kind:"acute",title:{en:"Clock hands",ur:"گھڑی کی سوئیاں"},blurb:{en:"At about 1 o'clock on the class wall clock, the hands make a small angle near 30°.",ur:"کلاس کی دیوار گھڑی پر تقریباً 1 بجے سوئیاں چھوٹا زاویہ بناتی ہیں، قریب 30°۔"},show:"≈ 30°",pills:["acute < 90°"],ask:{en:"Name this angle type.",ur:"اس زاویے کی قسم بتاؤ۔"},opts:[{id:"a",en:"Obtuse",ur:"منفرجہ"},{id:"b",en:"Right",ur:"قائمہ"},{id:"c",en:"Acute",ur:"تیز"},{id:"d",en:"Straight 180°",ur:"سیدھا 180°"}],correct:"c",hint:{en:"30° is much smaller than 90°, so acute. Clock hands near each other make a sharp little turn.",ur:"30°، 90° سے بہت چھوٹا ہے، اس لیے تیز۔ قریب سوئیاں چھوٹا نوکدار موڑ بناتی ہیں۔"},done:{en:"About 30° is acute.",ur:"تقریباً 30° تیز ہے۔"},why:{en:"Small clock openings are acute angles.",ur:"گھڑی کے چھوٹے کھلاؤ تیز زاویے ہیں۔"}},
+{id:"n5",em:"🪟",deg:135,kind:"obtuse",title:{en:"Window half-fold",ur:"کھڑکی کا آدھا فولڈ"},blurb:{en:"Sara opens the classroom window wide — the hinge angle is about 135°.",ur:"سارہ نے کلاس کی کھڑکی چوڑی کھولی — ہنج زاویہ تقریباً 135° ہے۔"},show:"135°",pills:["obtuse"],ask:{en:"Is 135° acute, right, or obtuse?",ur:"135° تیز، قائمہ، یا منفرجہ؟"},opts:[{id:"a",en:"Acute — under 90°",ur:"تیز — 90° سے کم"},{id:"b",en:"Right — equal to 90°",ur:"قائمہ — 90° کے برابر"},{id:"c",en:"Obtuse — between 90° and 180°",ur:"منفرجہ — 90° اور 180° کے درمیان"},{id:"d",en:"Bigger than 180°",ur:"180° سے بڑا"}],correct:"c",hint:{en:"135 > 90 and 135 < 180 → obtuse. Right is only 90. Acute stays under 90.",ur:"135 > 90 اور 135 < 180 → منفرجہ۔ قائمہ صرف 90 ہے۔ تیز 90 سے نیچے رہتا ہے۔"},done:{en:"135° is obtuse.",ur:"135° منفرجہ ہے۔"},why:{en:"A wide window opening is an obtuse angle.",ur:"چوڑی کھڑکی کا کھلاؤ منفرجہ زاویہ ہے۔"}}
+];
+
+var ORDER=[
+{id:"o1",em:"📏",kind:"bigger",a:40,b:70,title:{en:"Which angle is bigger?",ur:"کون سا زاویہ بڑا ہے؟"},blurb:{en:"Two chalk angles on the board: 40° and 70°. Pick the bigger one.",ur:"بورڈ پر دو چاک زاویے: 40° اور 70°۔ بڑا چنو۔"},show:"40°  vs  70°",ask:{en:"Which is bigger?",ur:"کون سا بڑا ہے؟"},opts:[{id:"a",en:"40°",ur:"40°"},{id:"b",en:"70°",ur:"70°"},{id:"c",en:"They are equal",ur:"دونوں برابر"},{id:"d",en:"Neither — both over 90°",ur:"کوئی نہیں — دونوں 90° سے اوپر"}],correct:"b",hint:{en:"70 is greater than 40, so 70° is bigger. Both are still acute (under 90°).",ur:"70، 40 سے بڑا ہے، اس لیے 70° بڑا ہے۔ دونوں اب بھی تیز ہیں (90° سے کم)۔"},done:{en:"70° is bigger than 40°.",ur:"70°، 40° سے بڑا ہے۔"},why:{en:"A wider opening means a larger angle measure.",ur:"چوڑا کھلاؤ مطلب بڑی زاویہ ناپ۔"}},
+{id:"o2",em:"🧭",kind:"bigger",a:90,b:110,title:{en:"Right vs obtuse",ur:"قائمہ بمقابلہ منفرجہ"},blurb:{en:"Compare a right corner (90°) with an open door (110°).",ur:"قائمہ کونہ (90°) کا موازنہ کھلے دروازے (110°) سے کرو۔"},show:"90°  vs  110°",ask:{en:"Which angle is bigger?",ur:"کون سا زاویہ بڑا ہے؟"},opts:[{id:"a",en:"90°",ur:"90°"},{id:"b",en:"110°",ur:"110°"},{id:"c",en:"Equal",ur:"برابر"},{id:"d",en:"90° because it is right",ur:"90° کیونکہ قائمہ ہے"}],correct:"b",hint:{en:"110 > 90, so 110° is bigger. Being a right angle does not make 90° the biggest — obtuse is wider.",ur:"110 > 90، اس لیے 110° بڑا ہے۔ قائمہ ہونا 90° کو سب سے بڑا نہیں بناتا — منفرجہ چوڑا ہے۔"},done:{en:"110° is bigger.",ur:"110° بڑا ہے۔"},why:{en:"Obtuse openings beat a right angle in size.",ur:"منفرجہ کھلاؤ سائز میں قائمہ کو ہرا دیتا ہے۔"}},
+{id:"o3",em:"📐",kind:"read",deg:60,title:{en:"Protractor reading",ur:"پرٹریکٹر ریڈنگ"},blurb:{en:"Ali places a protractor on a triangle corner. The ray crosses near the 60 mark.",ur:"علی نے مثلث کے کونے پر پرٹریکٹر رکھا۔ شعاع 60 کے نشان کے قریب کاٹتی ہے۔"},show:"read ≈ 60°",pills:["protractor · up to 180°"],ask:{en:"Which degree reading matches?",ur:"کون سی ڈگری ریڈنگ ملتی ہے؟"},opts:[{id:"a",en:"30°",ur:"30°"},{id:"b",en:"60°",ur:"60°"},{id:"c",en:"90°",ur:"90°"},{id:"d",en:"120°",ur:"120°"}],correct:"b",hint:{en:"The ray sits between 0 and 90, near 60 — not at the square 90, and not past into obtuse 120.",ur:"شعاع 0 اور 90 کے درمیان 60 کے قریب ہے — مربع 90 پر نہیں، اور منفرجہ 120 میں نہیں۔"},done:{en:"Reading is 60°.",ur:"ریڈنگ 60° ہے۔"},why:{en:"Match the mark where the arm crosses the protractor scale.",ur:"جہاں بازو پرٹریکٹر اسکیل کاٹے وہ نشان ملاؤ۔"}},
+{id:"o4",em:"📖",kind:"order",title:{en:"Small to big",ur:"چھوٹے سے بڑا"},blurb:{en:"Order these Class 4 angles: 25°, 90°, 150°.",ur:"ان کلاس 4 زاویوں کو ترتیب دو: 25°، 90°، 150°۔"},show:"25° · 90° · 150°",ask:{en:"Which list is ascending (small to big)?",ur:"صعودی ترتیب (چھوٹے سے بڑا) کون سی ہے؟"},opts:[{id:"a",en:"150°, 90°, 25°",ur:"150°، 90°، 25°"},{id:"b",en:"90°, 25°, 150°",ur:"90°، 25°، 150°"},{id:"c",en:"25°, 90°, 150°",ur:"25°، 90°، 150°"},{id:"d",en:"25°, 150°, 90°",ur:"25°، 150°، 90°"}],correct:"c",hint:{en:"Ascending means small to big: acute 25°, then right 90°, then obtuse 150°. Descending would reverse that.",ur:"صعودی مطلب چھوٹے سے بڑا: تیز 25°، پھر قائمہ 90°، پھر منفرجہ 150°۔ نزولی اس کا الٹ ہے۔"},done:{en:"25° < 90° < 150°.",ur:"25° < 90° < 150°۔"},why:{en:"Acute, then right, then obtuse — from sharp to wide.",ur:"تیز، پھر قائمہ، پھر منفرجہ — نوکدار سے چوڑا۔"}}
+];
+
+var LINES=[
+{id:"l1",em:"🛤️",kind:"parallel",title:{en:"Railway tracks",ur:"ریلوے ٹریک"},blurb:{en:"Near Rawalpindi station, two rails stay side by side and never meet.",ur:"راولپنڈی اسٹیشن کے قریب دو ریل ایک ساتھ رہتی ہیں اور کبھی نہیں ملتیں۔"},show:"same gap · never meet",pills:["parallel"],ask:{en:"Are these lines parallel?",ur:"کیا یہ لکیریں متوازی ہیں؟"},opts:[{id:"a",en:"Yes — parallel",ur:"ہاں — متوازی"},{id:"b",en:"No — they will meet",ur:"نہیں — وہ ملیں گی"},{id:"c",en:"Only if they form 90°",ur:"صرف اگر 90° بنائیں"},{id:"d",en:"Only curved lines can be parallel",ur:"صرف خم دار متوازی ہو سکتی ہیں"}],correct:"a",hint:{en:"Equal distance and never meeting = parallel. Rails are the classic example in Pakistan textbooks.",ur:"برابر فاصلہ اور کبھی نہ ملنا = متوازی۔ ریل پاکستانی کتابوں کی کلاسک مثال ہے۔"},done:{en:"Rails are parallel.",ur:"ریلیں متوازی ہیں۔"},why:{en:"Parallel lines keep the same gap forever.",ur:"متوازی لکیریں ہمیشہ ایک جیسا فاصلہ رکھتی ہیں۔"}},
+{id:"l2",em:"✖️",kind:"cross",title:{en:"Crossing roads",ur:"کاٹتی سڑکیں"},blurb:{en:"Two Islamabad roads meet at a chowk — if you extend them, they cross.",ur:"اسلام آباد کی دو سڑکیں چوک پر ملتی ہیں — بڑھانے پر وہ کاٹتی ہیں۔"},show:"they meet / cross",pills:["not parallel"],ask:{en:"Are crossing roads parallel?",ur:"کیا کاٹتی سڑکیں متوازی ہیں؟"},opts:[{id:"a",en:"Yes — they stay apart",ur:"ہاں — الگ رہتی ہیں"},{id:"b",en:"No — meeting lines are not parallel",ur:"نہیں — ملنے والی متوازی نہیں"},{id:"c",en:"Yes if the angle is acute",ur:"ہاں اگر زاویہ تیز ہو"},{id:"d",en:"Only at night",ur:"صرف رات کو"}],correct:"b",hint:{en:"If lines meet or will meet when extended, they are not parallel. Parallel never meet.",ur:"اگر لکیریں ملیں یا بڑھانے پر ملیں، متوازی نہیں۔ متوازی کبھی نہیں ملتیں۔"},done:{en:"Crossing = not parallel.",ur:"کاٹنا = متوازی نہیں۔"},why:{en:"A chowk shows non-parallel lines that meet.",ur:"چوک غیر متوازی لکیریں دکھاتا ہے جو ملتی ہیں۔"}},
+{id:"l3",em:"📓",kind:"parallel",title:{en:"Ruled notebook",ur:"لکیری کاپی"},blurb:{en:"Sara's notebook has straight blue lines for writing — same gap on every line.",ur:"سارہ کی کاپی پر لکھنے کی سیدھی نیلی لکیریں ہیں — ہر لائن پر ایک جیسا فاصلہ۔"},show:"equal spacing",ask:{en:"Notebook ruling lines are…",ur:"کاپی کی لکیریں ہیں…"},opts:[{id:"a",en:"Parallel",ur:"متوازی"},{id:"b",en:"Always meeting at the margin",ur:"ہمیشہ حاشیے پر ملتی"},{id:"c",en:"Perpendicular only",ur:"صرف عمودی"},{id:"d",en:"Random zig-zag",ur:"بے ترتیب زیگ زیگ"}],correct:"a",hint:{en:"Same distance between lines and they do not meet on the page → parallel. The left margin is a different edge, not the lines meeting each other.",ur:"لکیروں کے درمیان ایک جیسا فاصلہ اور صفحے پر نہ ملنا → متوازی۔ بایاں حاشیہ الگ کنارہ ہے، لکیریں آپس میں نہیں ملتیں۔"},done:{en:"Ruling lines are parallel.",ur:"لکھنے کی لکیریں متوازی ہیں۔"},why:{en:"Equal gaps make neat parallel writing lines.",ur:"برابر فاصلے صاف متوازی لکھنے کی لکیریں بناتے ہیں۔"}},
+{id:"l4",em:"🏫",kind:"cross",title:{en:"Wall and floor",ur:"دیوار اور فرش"},blurb:{en:"The classroom wall meets the floor at a right angle corner.",ur:"کلاس کی دیوار فرش سے قائمہ زاویے کے کونے پر ملتی ہے۔"},show:"meet at 90°",ask:{en:"Wall and floor lines are…",ur:"دیوار اور فرش کی لکیریں ہیں…"},opts:[{id:"a",en:"Parallel — never meet",ur:"متوازی — کبھی نہیں ملتیں"},{id:"b",en:"Not parallel — they meet",ur:"متوازی نہیں — وہ ملتی ہیں"},{id:"c",en:"Parallel because angle is 90°",ur:"متوازی کیونکہ زاویہ 90° ہے"},{id:"d",en:"Neither lines nor angles",ur:"نہ لکیریں نہ زاویے"}],correct:"b",hint:{en:"They meet at the skirting corner, so not parallel. Meeting at 90° means perpendicular — still not parallel.",ur:"وہ اسکرٹنگ کونے پر ملتی ہیں، اس لیے متوازی نہیں۔ 90° پر ملنا عمودی ہے — پھر بھی متوازی نہیں۔"},done:{en:"Meeting lines are not parallel.",ur:"ملنے والی لکیریں متوازی نہیں۔"},why:{en:"Wall and floor form a right angle where they meet.",ur:"دیوار اور فرش جہاں ملتی ہیں قائمہ زاویہ بناتی ہیں۔"}}
+];
+
+var QUIZ=[
+{id:"qacute",pin:true,q:{en:"An angle of 55° is called…",ur:"55° کے زاویے کو کہتے ہیں…"},ru:"55° ke zawiye ko kya kehte hain?",opts:[{en:"Right",ur:"قائمہ"},{en:"Obtuse",ur:"منفرجہ"},{en:"Acute",ur:"تیز"},{en:"Straight",ur:"سیدھا"}],correct:2,why:{en:"55° is less than 90°, so it is acute.",ur:"55°، 90° سے کم ہے، اس لیے تیز ہے۔"}},
+{id:"qright",pin:true,q:{en:"A right angle measures exactly…",ur:"قائمہ زاویہ بالکل کتنا ناپتا ہے؟"},ru:"Qaima zawiya bilkul kitna napta hai?",opts:[{en:"45°",ur:"45°"},{en:"90°",ur:"90°"},{en:"180°",ur:"180°"},{en:"120°",ur:"120°"}],correct:1,why:{en:"A right angle is exactly 90° — like a notebook corner.",ur:"قائمہ زاویہ بالکل 90° ہے — کاپی کے کونے جیسا۔"}},
+{id:"qobt",q:{en:"Which angle is obtuse?",ur:"کون سا زاویہ منفرجہ ہے؟"},ru:"Kaun sa zawiya munfarja hai?",opts:[{en:"20°",ur:"20°"},{en:"90°",ur:"90°"},{en:"140°",ur:"140°"},{en:"180°",ur:"180°"}],correct:2,why:{en:"140° is between 90° and 180°, so obtuse. 180° is a straight angle.",ur:"140°، 90° اور 180° کے درمیان ہے، اس لیے منفرجہ۔ 180° سیدھا زاویہ ہے۔"}},
+{id:"qcmp",q:{en:"Which is bigger: 80° or 100°?",ur:"کون سا بڑا ہے: 80° یا 100°؟"},ru:"Kaun sa bara hai: 80° ya 100°?",opts:[{en:"80°",ur:"80°"},{en:"100°",ur:"100°"},{en:"Equal",ur:"برابر"},{en:"Cannot tell",ur:"پتہ نہیں چل سکتا"}],correct:1,why:{en:"100 > 80, so 100° is bigger. 100° is obtuse; 80° is acute.",ur:"100 > 80، اس لیے 100° بڑا ہے۔ 100° منفرجہ؛ 80° تیز۔"}},
+{id:"qpar",q:{en:"Parallel lines…",ur:"متوازی لکیریں…"},ru:"Mutawazi lakeerein…",opts:[{en:"Always meet at one point",ur:"ہمیشہ ایک نقطے پر ملتی ہیں"},{en:"Never meet and stay equally apart",ur:"کبھی نہیں ملتیں اور برابر فاصلے پر رہتی ہیں"},{en:"Must form a right angle",ur:"ضرور قائمہ زاویہ بنائیں"},{en:"Are always curved",ur:"ہمیشہ خم دار ہوتی ہیں"}],correct:1,why:{en:"Parallel means same distance apart and never meeting — like rails or notebook lines.",ur:"متوازی مطلب برابر فاصلہ اور کبھی نہ ملنا — ریل یا کاپی لکیروں جیسا۔"}},
+{id:"qprot",q:{en:"Class 4 measures and draws angles with a protractor up to…",ur:"کلاس 4 پرٹریکٹر سے زاویے ناپتی اور کھینچتی ہے تک…"},ru:"Class 4 protractor se zawiye napti aur kheenchti hai tak…",opts:[{en:"45° only",ur:"صرف 45°"},{en:"90° only",ur:"صرف 90°"},{en:"180°",ur:"180°"},{en:"360°",ur:"360°"}],correct:2,why:{en:"Class 4 works with angles up to 180° — a straight turn.",ur:"کلاس 4 زاویے 180° تک پڑھتی ہے — سیدھا موڑ۔"}},
+{id:"qnpar",q:{en:"Two roads that cross at a chowk are…",ur:"دو سڑکیں جو چوک پر کاٹتی ہیں…"},ru:"Do sadkein jo chowk par kaatti hain…",opts:[{en:"Parallel",ur:"متوازی"},{en:"Not parallel",ur:"متوازی نہیں"},{en:"Always acute only",ur:"ہمیشہ صرف تیز"},{en:"Neither lines",ur:"لکیریں نہیں"}],correct:1,why:{en:"Crossing means they meet, so they are not parallel.",ur:"کاٹنا مطلب ملتی ہیں، اس لیے متوازی نہیں۔"}}
+];
+
+var nameIdx=0,nameDone={};
+var orderIdx=0,orderDone={};
+var linesIdx=0,linesDone={};
+var optKey="",optOrder=[],quizSet=[],quizState={};
+
+function award(key,n){if(awarded[key])return;awarded[key]=true;stars+=(n||1);$("starCount").textContent=String(stars)}
+function recountStars(){stars=0;Object.keys(awarded).forEach(function(k){stars+=(k.indexOf("mode-")===0)?2:1});$("starCount").textContent=String(stars)}
+function markWin(prefix,id,doneMap,modeKey,total){if(doneMap[id])return;doneMap[id]=true;award(prefix+"-"+id,1);if(Object.keys(doneMap).length>=total){doneModes[modeKey]=true;award("mode-"+modeKey,2)}tabBadges()}
+function skyHTML(){return '<div class="sky-layer"><div class="sun-ball"></div><div class="cloud c1"></div><div class="cloud c2"></div></div>'}
+function prepScene(){var pad=$("scenePad");pad.innerHTML=skyHTML();var stage=document.createElement("div");stage.className="num-stage";pad.appendChild(stage);return stage}
+function addBlurb(stage,ch){var em=document.createElement("div");em.className="hero-em";em.textContent=ch.em||"📐";stage.appendChild(em);var box=document.createElement("div");box.className="card-box";setText(box,t(ch.blurb));stage.appendChild(box)}
+function addShow(stage,ch){var h=document.createElement("div");h.className="num-hero";h.textContent=ch.show;stage.appendChild(h)}
+function addPills(stage,ch){if(!ch.pills||!ch.pills.length)return;var row=document.createElement("div");row.className="fact-pills";ch.pills.forEach(function(p){var s=document.createElement("span");s.className="pill";var pl=p.toLowerCase();if(pl.indexOf("acute")>=0||pl.indexOf("< 90")>=0)s.className+=" acute";else if(pl.indexOf("right")>=0||pl.indexOf("= 90")>=0)s.className+=" right";else if(pl.indexOf("obtuse")>=0)s.className+=" obtuse";s.textContent=p;row.appendChild(s)});stage.appendChild(row)}
+function degColor(d){if(d<90)return"#5b9bd5";if(d===90)return"#e08a3a";return"#9b6bc7"}
+function angleSVG(deg,label,w){
+  var r=52,cx=70,cy=78,rad=deg*Math.PI/180;
+  var x2=cx+r*Math.cos(rad),y2=cy-r*Math.sin(rad);
+  var large=deg>180?1:0;
+  var col=degColor(deg);
+  var sq="";
+  if(deg===90)sq='<rect x="'+(cx+2)+'" y="'+(cy-14)+'" width="12" height="12" fill="none" stroke="#1e2a1a" stroke-width="2"/>';
+  var arc='<path d="M '+(cx+28)+' '+cy+' A 28 28 0 '+large+' 0 '+ (cx+28*Math.cos(rad))+' '+(cy-28*Math.sin(rad))+'" fill="'+col+'" fill-opacity=".35" stroke="'+col+'" stroke-width="2"/>';
+  return '<svg viewBox="0 0 '+(w||140)+' 100" aria-hidden="true"><line x1="'+(cx-55)+'" y1="'+cy+'" x2="'+(cx+55)+'" y2="'+cy+'" stroke="#1e2a1a" stroke-width="3" stroke-linecap="round"/><line x1="'+cx+'" y1="'+cy+'" x2="'+x2+'" y2="'+y2+'" stroke="#1e2a1a" stroke-width="3" stroke-linecap="round"/>'+arc+sq+'<circle cx="'+cx+'" cy="'+cy+'" r="3.5" fill="#1e2a1a"/><text x="'+cx+'" y="18" text-anchor="middle" font-size="13" font-weight="800" fill="#1e2a1a">'+(label||(deg+"°"))+'</text></svg>';
+}
+function linesSVG(kind){
+  if(kind==="parallel"){
+    return '<svg viewBox="0 0 160 90" aria-hidden="true"><line x1="20" y1="28" x2="140" y2="28" stroke="#1e2a1a" stroke-width="4" stroke-linecap="round"/><line x1="20" y1="58" x2="140" y2="58" stroke="#1e2a1a" stroke-width="4" stroke-linecap="round"/><line x1="50" y1="28" x2="50" y2="58" stroke="#2f6fb5" stroke-width="2" stroke-dasharray="3 3"/><line x1="100" y1="28" x2="100" y2="58" stroke="#2f6fb5" stroke-width="2" stroke-dasharray="3 3"/><text x="80" y="82" text-anchor="middle" font-size="11" font-weight="800" fill="#1d6b52">= gap</text></svg>';
+  }
+  return '<svg viewBox="0 0 160 90" aria-hidden="true"><line x1="25" y1="20" x2="135" y2="70" stroke="#1e2a1a" stroke-width="4" stroke-linecap="round"/><line x1="25" y1="70" x2="135" y2="20" stroke="#1e2a1a" stroke-width="4" stroke-linecap="round"/><circle cx="80" cy="45" r="5" fill="#c4453a"/><text x="80" y="84" text-anchor="middle" font-size="11" font-weight="800" fill="#c4453a">meet</text></svg>';
+}
+function addAngle(stage,deg,label){var d=document.createElement("div");d.className="ang-wrap";d.innerHTML=angleSVG(deg,label);stage.appendChild(d)}
+function addCompare(stage,a,b){var row=document.createElement("div");row.className="compare-row";var m1=document.createElement("div");m1.className="mini";m1.innerHTML=angleSVG(a,a+"°",120);var m2=document.createElement("div");m2.className="mini";m2.innerHTML=angleSVG(b,b+"°",120);row.appendChild(m1);row.appendChild(m2);stage.appendChild(row)}
+function addLinesPic(stage,kind){var d=document.createElement("div");d.className="ang-wrap";d.innerHTML=linesSVG(kind);stage.appendChild(d)}
+function showStep(i,n){setText($("statechip"),(i+1)+" / "+n);$("statechip").className="statechip"+(lang==="ur"?" ur":"")}
+function showWin(msg){setText($("headline"),msg);$("statechip").className="statechip win"+(lang==="ur"?" ur":"");setText($("statechip"),t(T.nice))}
+function showMiss(){setText($("headline"),t(T.oops));$("statechip").className="statechip miss"+(lang==="ur"?" ur":"");setText($("statechip"),t(T.oops))}
+function stableOrder(key,arr){if(optKey!==key){optKey=key;optOrder=shuffle(arr)}return optOrder}
+function clearHint(){$("hintbox").classList.remove("show")}
+
+function renderChoices(ch,doneMap,prefix,modeKey,total,rerender){
+  var box=$("actionBox");box.innerHTML="";
+  var choices=document.createElement("div");choices.className="save-choices";
+  stableOrder(prefix+"-"+ch.id,ch.opts.slice()).forEach(function(opt){
+    var b=document.createElement("button");b.type="button";
+    var en=opt.en||"";
+    if(/^\d/.test(en)&&en.indexOf("°")>=0&&en.length<=6){b.className="numc";b.textContent=en;b.setAttribute("dir","ltr")}
+    else setText(b,t(opt));
+    if(doneMap[ch.id]&&opt.id===ch.correct)b.classList.add("right");
+    b.disabled=!!doneMap[ch.id];
+    b.addEventListener("click",function(){if(doneMap[ch.id])return;if(opt.id===ch.correct){markWin(prefix,ch.id,doneMap,modeKey,total);rerender()}else{b.classList.add("wrong");showMiss()}});
+    choices.appendChild(b);
+  });
+  box.appendChild(choices);
+}
+
+function renderName(){
+  var ch=NAME[nameIdx],stage=prepScene();
+  addBlurb(stage,ch);addShow(stage,ch);addPills(stage,ch);addAngle(stage,ch.deg,ch.deg+"°");
+  showStep(nameIdx,NAME.length);setText($("headline"),t(ch.title));
+  setText($("detail"),nameDone[ch.id]?t(ch.why):t(ch.ask));clearHint();
+  if(nameDone[ch.id])showWin(t(ch.done));
+  renderChoices(ch,nameDone,"name","name",NAME.length,renderName);
+  setText($("prog"),t(T.progName)+": "+Object.keys(nameDone).length+"/"+NAME.length);
+}
+function renderOrder(){
+  var ch=ORDER[orderIdx],stage=prepScene();
+  addBlurb(stage,ch);addShow(stage,ch);addPills(stage,ch);
+  if(ch.kind==="bigger")addCompare(stage,ch.a,ch.b);
+  else if(ch.kind==="read")addAngle(stage,ch.deg,ch.deg+"°");
+  else{
+    var cap=document.createElement("div");cap.className="capline";
+    setText(cap,lang==="en"?"Ascending = small → big.":"صعودی = چھوٹا → بڑا۔");
+    stage.appendChild(cap);
+  }
+  showStep(orderIdx,ORDER.length);setText($("headline"),t(ch.title));
+  setText($("detail"),orderDone[ch.id]?t(ch.why):t(ch.ask));clearHint();
+  if(orderDone[ch.id])showWin(t(ch.done));
+  renderChoices(ch,orderDone,"order","order",ORDER.length,renderOrder);
+  setText($("prog"),t(T.progOrder)+": "+Object.keys(orderDone).length+"/"+ORDER.length);
+}
+function renderLines(){
+  var ch=LINES[linesIdx],stage=prepScene();
+  addBlurb(stage,ch);addShow(stage,ch);addPills(stage,ch);
+  addLinesPic(stage,ch.kind==="parallel"?"parallel":"cross");
+  showStep(linesIdx,LINES.length);setText($("headline"),t(ch.title));
+  setText($("detail"),linesDone[ch.id]?t(ch.why):t(ch.ask));clearHint();
+  if(linesDone[ch.id])showWin(t(ch.done));
+  renderChoices(ch,linesDone,"lines","lines",LINES.length,renderLines);
+  setText($("prog"),t(T.progLines)+": "+Object.keys(linesDone).length+"/"+LINES.length);
+}
+
+function pickQuiz(){
+  var pin=[],rest=[],i;quizState={};
+  for(i=0;i<QUIZ.length;i++){if(QUIZ[i].pin)pin.push(QUIZ[i]);else rest.push(QUIZ[i])}
+  rest=shuffle(rest);quizSet=shuffle(pin.concat(rest.slice(0,5-pin.length)));
+}
+function renderQuiz(){
+  var box=$("quizBox");box.innerHTML="";
+  quizSet.forEach(function(item,qi){
+    var wrap=document.createElement("div");wrap.className="q";
+    var p=document.createElement("p");setText(p,(qi+1)+". "+t(item.q));wrap.appendChild(p);
+    if(lang==="en"&&item.ru){var g=document.createElement("p");g.className="gloss";g.textContent=item.ru;wrap.appendChild(g)}
+    var st=quizState[item.id];
+    item.opts.forEach(function(opt,oi){
+      var b=document.createElement("button");b.type="button";b.className="opt"+(lang==="ur"?" ur":"");setText(b,t(opt));
+      if(st&&oi===item.correct)b.classList.add("right");
+      if(st==="no"&&quizState[item.id+"-pick"]===oi&&oi!==item.correct)b.classList.add("wrong");
+      if(st)b.disabled=true;
+      b.addEventListener("click",function(){
+        if(quizState[item.id])return;
+        quizState[item.id+"-pick"]=oi;
+        if(oi===item.correct){quizState[item.id]="ok";b.classList.add("right");award("quiz-"+item.id,1)}
+        else{quizState[item.id]="no";b.classList.add("wrong");var kids=wrap.querySelectorAll(".opt");if(kids[item.correct])kids[item.correct].classList.add("right")}
+        fb.classList.add("show");
+        var all=wrap.querySelectorAll(".opt"),k;for(k=0;k<all.length;k++)all[k].disabled=true;
+      });
+      wrap.appendChild(b);
+    });
+    var fb=document.createElement("p");fb.className="fb"+(st?" show":"");setText(fb,t(item.why));wrap.appendChild(fb);
+    box.appendChild(wrap);
+  });
+}
+function storyHtml(){if(mode==="name")return t(T.storyName);if(mode==="order")return t(T.storyOrder);return t(T.storyLines)}
+function currentTip(){if(mode==="name")return T.tipName;if(mode==="order")return T.tipOrder;return T.tipLines}
+function tabBadges(){
+  function lab(btn,label,key){btn.innerHTML="";var span=document.createElement("span");setText(span,t(label));btn.appendChild(span);if(doneModes[key]){var b=document.createElement("span");b.className="badge";b.textContent=" ★";btn.appendChild(b)}}
+  lab($("tabName"),T.tabName,"name");lab($("tabOrder"),T.tabOrder,"order");lab($("tabLines"),T.tabLines,"lines");
+  $("tabName").setAttribute("aria-pressed",mode==="name"?"true":"false");
+  $("tabOrder").setAttribute("aria-pressed",mode==="order"?"true":"false");
+  $("tabLines").setAttribute("aria-pressed",mode==="lines"?"true":"false");
+}
+function renderCurrent(){if(mode==="name")renderName();else if(mode==="order")renderOrder();else renderLines()}
+function setMode(m){mode=m;optKey="";renderCurrent();applyChrome()}
+function applyChrome(){
+  setText($("title"),t(T.title));setText($("subtitle"),t(T.sub));
+  $("story").innerHTML=storyHtml();$("story").classList.toggle("ur",lang==="ur");$("story").setAttribute("dir",lang==="ur"?"rtl":"ltr");
+  setText($("ctlHead"),t(T.ctl));setText($("nextBtn"),t(T.next));setText($("hintBtn"),t(T.hint));setText($("resetBtn"),t(T.reset));
+  setText($("quizHead"),t(T.quiz));setText($("newQuiz"),t(T.newQuiz));
+  $("langBtn").textContent=(lang==="en")?"اردو":"EN";$("langBtn").setAttribute("aria-pressed",lang==="ur"?"true":"false");
+  document.body.classList.toggle("urdu",lang==="ur");
+  document.documentElement.lang=(lang==="ur")?"ur":"en";
+  document.documentElement.dir=(lang==="ur")?"rtl":"ltr";
+  document.title=t(T.title)+" | AI4Kids Class 4";
+  tabBadges();
+  var foot=document.querySelector("footer p");
+  if(foot)setText(foot,foot.getAttribute(lang==="ur"?"data-ur":"data-en"));
+}
+function applyLang(){applyChrome();renderCurrent();renderQuiz()}
+function next(){
+  optKey="";
+  if(mode==="name"){nameIdx=(nameIdx+1)%NAME.length;renderName()}
+  else if(mode==="order"){orderIdx=(orderIdx+1)%ORDER.length;renderOrder()}
+  else{linesIdx=(linesIdx+1)%LINES.length;renderLines()}
+}
+function showHint(){
+  var h=mode==="name"?NAME[nameIdx].hint:(mode==="order"?ORDER[orderIdx].hint:LINES[linesIdx].hint);
+  var hb=$("hintbox");setText(hb,t(h));hb.classList.add("show");
+}
+function resetMode(){
+  if(mode==="name"){Object.keys(awarded).forEach(function(k){if(k.indexOf("name-")===0||k==="mode-name")delete awarded[k]});nameDone={};nameIdx=0;doneModes.name=false;recountStars();renderName()}
+  else if(mode==="order"){Object.keys(awarded).forEach(function(k){if(k.indexOf("order-")===0||k==="mode-order")delete awarded[k]});orderDone={};orderIdx=0;doneModes.order=false;recountStars();renderOrder()}
+  else{Object.keys(awarded).forEach(function(k){if(k.indexOf("lines-")===0||k==="mode-lines")delete awarded[k]});linesDone={};linesIdx=0;doneModes.lines=false;recountStars();renderLines()}
+  optKey="";tabBadges();applyChrome();
+}
+function cleanSpeakText(s){return String(s||"").replace(/<[^>]+>/g," ").replace(/&gt;/g,">").replace(/&lt;/g,"<").replace(/&amp;/g,"&").replace(/\s+/g," ").trim()}
+function buildSpeakText(){
+  var bits=[];bits.push(t(T.title));bits.push(cleanSpeakText(storyHtml()));
+  bits.push(cleanSpeakText(($("headline")&&$("headline").textContent)||""));
+  bits.push(cleanSpeakText(($("detail")&&$("detail").textContent)||""));
+  bits.push(t(currentTip()));return bits.filter(Boolean).join(". ");
+}
+function pickVoice(voices,want){
+  var i,v,L;for(i=0;i<voices.length;i++){v=voices[i];L=(v.lang||"").toLowerCase().replace("_","-");if(L.indexOf(want)===0)return v}
+  for(i=0;i<voices.length;i++){v=voices[i];L=(v.lang||"").toLowerCase().replace("_","-");if(L.indexOf("en")===0)return v}
+  return voices[0]||null;
+}
+function setSpeaking(on){var btn=$("speakBtn");if(!btn)return;btn.setAttribute("aria-pressed",on?"true":"false");btn.style.opacity=on?"0.65":""}
+function doSpeak(text,asLang){
+  var u=new SpeechSynthesisUtterance(text);u.rate=0.92;u.lang=(asLang==="ur")?"ur-PK":"en-US";
+  var voices=window.speechSynthesis.getVoices()||[];var voice=pickVoice(voices,asLang==="ur"?"ur":"en");if(voice)u.voice=voice;
+  u.onstart=function(){setSpeaking(true)};u.onend=function(){setSpeaking(false)};
+  u.onerror=function(){setSpeaking(false);if(asLang==="ur"){var fallback=cleanSpeakText(T.title.en+". "+T.storyName.en+". "+T.tipName.en);var u2=new SpeechSynthesisUtterance(fallback);u2.lang="en-US";u2.rate=0.92;var v2=pickVoice(window.speechSynthesis.getVoices()||[],"en");if(v2)u2.voice=v2;u2.onstart=function(){setSpeaking(true)};u2.onend=u2.onerror=function(){setSpeaking(false)};window.speechSynthesis.speak(u2)}};
+  window.speechSynthesis.speak(u);
+}
+if("speechSynthesis" in window){
+  try{window.speechSynthesis.getVoices()}catch(e0){}
+  if(typeof window.speechSynthesis.addEventListener==="function"){window.speechSynthesis.addEventListener("voiceschanged",function(){try{window.speechSynthesis.getVoices()}catch(e1){}})}
+}else{var noBtn=$("speakBtn");if(noBtn){noBtn.disabled=true;noBtn.title="Voice not available on this device"}}
+$("langBtn").addEventListener("click",function(){lang=(lang==="en")?"ur":"en";applyLang()});
+$("tabName").addEventListener("click",function(){setMode("name")});
+$("tabOrder").addEventListener("click",function(){setMode("order")});
+$("tabLines").addEventListener("click",function(){setMode("lines")});
+$("nextBtn").addEventListener("click",next);
+$("hintBtn").addEventListener("click",showHint);
+$("resetBtn").addEventListener("click",resetMode);
+$("newQuiz").addEventListener("click",function(){pickQuiz();renderQuiz()});
+$("speakBtn").addEventListener("click",function(){
+  try{
+    if(!("speechSynthesis" in window))return;
+    var text=buildSpeakText();if(!text)return;
+    if(speakTimer){clearTimeout(speakTimer);speakTimer=null}
+    window.speechSynthesis.cancel();setSpeaking(false);
+    var speakLang=lang;
+    speakTimer=setTimeout(function(){speakTimer=null;doSpeak(text,speakLang)},80);
+  }catch(e){setSpeaking(false)}
+});
+pickQuiz();applyLang();
+})();
+</script>
+</body>
+</html>

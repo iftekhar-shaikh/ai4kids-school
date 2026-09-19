@@ -495,5 +495,13 @@
       "interactive_file": "interactives/g4-area-perimeter.html",
       "interactive_label": "Khelo - Area aur perimeter"
     }
+  },
+  {
+    "file": "kb/grade_4/math.json",
+    "match_title": "Geometry angles",
+    "add": {
+      "interactive_file": "interactives/g4-geometry-angles.html",
+      "interactive_label": "Khelo - Geometry angles"
+    }
   }
 ]
