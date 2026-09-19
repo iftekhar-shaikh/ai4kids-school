@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Economics — معاشیات | AI4Kids Grade 4 Social Studies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --board:#eef0f5; --board-deep:#dde1ea; --accent:#1d4c85; --accent2:#c9702e;
+  --ok:#2e7d4f; --no:#c4453a; --ink:#1f2933; --ink-soft:#4a5661; --paper:#fdfaf3;
+  --line:#ded5c4; --bin-a:#2f6fb5; --bin-b:#c9702e; --gold:#e8b23d;
+  --fs-cap:clamp(14px, 3.8vw, 16px); --fs-xs:clamp(16px, 4.2vw, 18px);
+  --fs-sm:clamp(18px, 4.8vw, 20px); --fs-md:clamp(19px, 5.2vw, 22px);
+  --fs-lg:clamp(22px, 6vw, 26px); --fs-xl:clamp(30px, 8vw, 38px); --lh:1.55;
+}
+body.urdu{
+  --fs-cap:clamp(17px, 4.4vw, 18px); --fs-xs:clamp(18px, 4.7vw, 20px);
+  --fs-sm:clamp(20px, 5.2vw, 22px); --fs-md:clamp(21px, 5.6vw, 24px);
+  --fs-lg:clamp(24px, 6.4vw, 28px); --fs-xl:clamp(28px, 7.4vw, 34px); --lh:2.05;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;font-size:var(--fs-sm);line-height:1.55;padding:0 0 40px}
+body.urdu{font-family:"Noto Nastaliq Urdu","Baloo Bhaijaan 2",serif;line-height:var(--lh)}
+.wrap{max-width:560px;margin:0 auto;padding:0 14px}
+.bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px;flex-wrap:wrap}
+.brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+.chip{border:2px solid var(--ink);background:var(--paper);color:var(--ink);border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;font-size:var(--fs-xs);cursor:pointer;min-height:44px}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.chip:focus-visible,button:focus-visible{outline:3px solid var(--accent2);outline-offset:2px}
+h1{font-size:var(--fs-xl);line-height:1.25;font-weight:800;margin:8px 0 4px}
+body.urdu h1{line-height:1.9}
+.sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+.tabs{display:flex;gap:7px;margin:0 0 14px;flex-wrap:wrap}
+.tabs button{flex:1;min-width:88px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);border-radius:14px;padding:9px 6px;font:inherit;font-weight:800;font-size:var(--fs-cap);cursor:pointer;min-height:54px}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.scene{position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);background:linear-gradient(180deg,var(--board) 0%,var(--board-deep) 100%);min-height:200px;padding:14px}
+.play{width:100%;margin-top:12px;border:3px solid var(--ink);border-radius:18px;background:var(--ink);color:var(--paper);font:inherit;font-weight:800;font-size:var(--fs-md);cursor:pointer;min-height:60px}
+.play:active{transform:scale(.98)}
+.play.alt{background:var(--paper);color:var(--ink)}
+.play.go{background:var(--ok);border-color:var(--ok)}
+.play.hidden,.hidden{display:none !important}
+.readout{margin-top:12px;background:var(--paper);border:3px solid var(--ink);border-radius:18px;padding:16px 18px}
+.statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;padding:4px 14px;font-size:var(--fs-cap);font-weight:700;margin-bottom:10px}
+.statechip.ok{background:var(--ok)}.statechip.no{background:var(--no)}
+.lead{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.4}
+body.urdu .lead{line-height:1.95}
+.detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+.trade{margin-top:14px;border:2px dashed var(--accent2);background:#fbf1e8;border-radius:14px;padding:12px 14px;font-size:var(--fs-xs);font-weight:700;color:#8a4a12;line-height:1.6}
+.why-note{margin:12px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;border-left:3px solid var(--accent);padding-left:11px}
+body.urdu .why-note{border-left:0;border-right:3px solid var(--accent);padding-left:0;padding-right:11px;line-height:var(--lh)}
+.why-note b{color:var(--accent);font-weight:800}
+.panel{margin-top:18px}
+.panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.schip{border:2px solid var(--line);background:var(--paper);border-radius:999px;padding:9px 15px;font:inherit;font-size:var(--fs-cap);font-weight:800;color:var(--ink);cursor:pointer;min-height:46px}
+.schip[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+.schip.ok{border-color:var(--ok);background:#e8f2ed}
+.schip.no{border-color:var(--no);background:#fbeae8}
+.lcard{border:3px solid var(--line);border-radius:18px;padding:14px 16px;margin-bottom:12px;background:#fffdf8}
+.lcard .tag{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;padding:3px 12px;font-size:var(--fs-cap);font-weight:800;margin-bottom:8px}
+.lcard.hook .tag{background:var(--accent2)}
+.lcard.misaal .tag{background:var(--ok)}
+.lcard.karo .tag{background:#6b4a8f}
+.lcard p{margin:0;font-size:var(--fs-sm);line-height:1.6}
+body.urdu .lcard p{line-height:var(--lh)}
+.lesson{margin-top:8px}
+.quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+.q{margin-bottom:26px}
+.q > p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+.opt{display:block;width:100%;text-align:left;margin-bottom:10px;border:2px solid var(--line);background:var(--paper);border-radius:12px;padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);min-height:52px}
+body.urdu .opt{text-align:right}
+.opt:hover{border-color:var(--ink)}
+.opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+.opt.wrong{border-color:var(--no);background:#fbeae8}
+.fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none;line-height:1.6}
+.fb.show{display:block}
+.score{margin-top:14px;padding:14px;border:3px solid var(--ink);border-radius:16px;font-weight:800;font-size:var(--fs-md);text-align:center;display:none}
+.score.show{display:block}
+footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);font-size:var(--fs-xs);color:var(--ink-soft)}
+.sort-wrap{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.bin{border:2.5px solid var(--ink);border-radius:14px;padding:10px 8px;min-height:100px;background:rgba(253,250,243,.9);text-align:center}
+.bin h3{margin:0 0 8px;font-size:var(--fs-cap);font-weight:800}
+.bin.a{border-color:var(--bin-a);background:rgba(232,240,250,.92)}
+.bin.b{border-color:var(--bin-b);background:rgba(250,238,220,.92)}
+.bin .drop{min-height:50px;display:flex;flex-wrap:wrap;gap:4px;justify-content:center}
+.item{background:#fff;border:2.5px solid var(--ink);border-radius:14px;padding:8px 10px;text-align:center;cursor:pointer;font-weight:800;font-size:var(--fs-cap);user-select:none;min-width:70px}
+.item.sel{border-color:var(--accent);background:#e8eef8;box-shadow:0 0 0 3px rgba(29,76,133,.2)}
+.item.ok{border-color:var(--ok);background:#e8f2ed}
+.item.no{border-color:var(--no);background:#fbeae8}
+.bank{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:8px 0}
+.card-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tcard{border:3px solid var(--line);border-radius:16px;padding:12px 10px;text-align:center;cursor:pointer;background:#fffdf8}
+.tcard.on{border-color:var(--accent);background:#e8eef8}
+.tcard .em{font-size:36px;display:block;margin-bottom:4px}
+.tcard b{display:block;font-size:var(--fs-sm);font-weight:800}
+.tcard span{display:block;font-size:var(--fs-cap);color:var(--ink-soft);margin-top:4px;font-weight:700}
+.choice{display:flex;flex-direction:column;gap:8px}
+.choice button{border:2.5px solid var(--ink);background:var(--paper);border-radius:14px;padding:12px 14px;font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;text-align:left;min-height:52px;display:flex;align-items:center;gap:10px}
+body.urdu .choice button{text-align:right}
+.choice button.right{border-color:var(--ok);background:#e8f2ed}
+.choice button.wrong{border-color:var(--no);background:#fbeae8}
+.slider-row{display:flex;align-items:center;gap:10px;margin:10px 0;flex-wrap:wrap}
+.slider-row input[type=range]{flex:1;min-width:140px;height:36px;accent-color:var(--accent)}
+.compass{width:160px;height:160px;margin:10px auto;border-radius:50%;border:4px solid var(--ink);background:#fff;position:relative;display:flex;align-items:center;justify-content:center}
+.compass .n,.compass .s,.compass .e,.compass .w{position:absolute;font-weight:800;font-size:var(--fs-md);cursor:pointer;padding:4px 8px;border-radius:8px}
+.compass .n{top:6px;left:50%;transform:translateX(-50%)}.compass .s{bottom:6px;left:50%;transform:translateX(-50%)}
+.compass .e{right:8px;top:50%;transform:translateY(-50%)}.compass .w{left:8px;top:50%;transform:translateY(-50%)}
+.compass .n.on,.compass .s.on,.compass .e.on,.compass .w.on{background:var(--accent);color:#fff}
+.compass .needle{width:4px;height:50px;background:var(--no);border-radius:2px;transform-origin:bottom center;transition:transform .3s}
+.piggy{text-align:center;padding:16px}
+.piggy .jar{font-size:64px;line-height:1}
+.piggy .coins{font-size:var(--fs-lg);font-weight:800;margin:8px 0}
+.check-list{display:flex;flex-direction:column;gap:8px}
+.check-list label{display:flex;align-items:center;gap:10px;border:2px solid var(--line);border-radius:12px;padding:10px 12px;font-weight:800;font-size:var(--fs-xs);cursor:pointer;background:#fff}
+.check-list label.on{border-color:var(--ok);background:#e8f2ed}
+.check-list input{width:22px;height:22px;accent-color:var(--ok)}
+.tl{margin:12px 0}
+.tl-marks{display:flex;justify-content:space-between;font-size:var(--fs-cap);font-weight:800;margin-top:6px}
+@media (min-width:820px){
+  .wrap{max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;grid-template-areas:"bar bar" "head head" "tabs tabs" "left right" "lesson lesson" "quiz quiz" "foot foot";align-items:start}
+  .bar{grid-area:bar}.head{grid-area:head}.tabs{grid-area:tabs}.left{grid-area:left}.right{grid-area:right}
+  .lesson{grid-area:lesson}.quiz{grid-area:quiz;margin-top:34px}footer{grid-area:foot}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition-duration:.01ms !important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar">
+    <span class="brand">AI4Kids · Grade 4 · Social Studies</span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+  <div class="head">
+    <h1 id="title"></h1>
+    <p class="sub" id="subtitle"></p>
+  </div>
+  <div class="tabs" role="group" id="tabs"></div>
+  <div class="left">
+    <div class="scene" id="scene"></div>
+    <div class="readout">
+      <span class="statechip" id="statechip"></span>
+      <p class="lead" id="lead"></p>
+      <p class="detail" id="detail"></p>
+      <p class="trade" id="trade"></p>
+      <p class="why-note"><b id="whyLbl"></b> <span id="whyText"></span></p>
+    </div>
+  </div>
+  <div class="right">
+    <div class="panel">
+      <h2 id="panelHead"></h2>
+      <div class="chips" id="chips" role="group"></div>
+      <div id="controls"></div>
+      <button type="button" class="play" id="playBtn"></button>
+      <button type="button" class="play alt" id="playBtn2" style="margin-top:8px"></button>
+    </div>
+  </div>
+  <div class="lesson" id="lessonBox"></div>
+  <div class="quiz">
+    <h2 id="quizHead" style="font-size:var(--fs-lg);font-weight:800;margin:0 0 18px"></h2>
+    <div id="quizBox"></div>
+    <div class="score" id="scoreBox"></div>
+  </div>
+  <footer><p id="foot"></p></footer>
+</div>
+<script>
+(function(){
+"use strict";
+var lang="en", tab="main";
+function $(id){ return document.getElementById(id); }
+function t(o){ return (o && typeof o==="object") ? (o[lang]||o.en||"") : (o||""); }
+function setText(el, s){
+  if(!el) return;
+  el.textContent = s;
+  if(lang==="ur"){ el.setAttribute("dir","rtl"); }
+  else { el.setAttribute("dir","ltr"); }
+}
+function buildTabs(list){
+  var tabs=$("tabs"); tabs.innerHTML="";
+  list.forEach(function(x){
+    var b=document.createElement("button"); b.type="button";
+    b.setAttribute("aria-pressed", tab===x[0]?"true":"false");
+    setText(b, t(x[1]));
+    b.addEventListener("click", function(){ if(tab===x[0]) return; tab=x[0]; if(typeof onTab==="function") onTab(); render(); });
+    tabs.appendChild(b);
+  });
+}
+function buildLesson(){
+  var box=$("lessonBox"); if(!box) return; box.innerHTML="";
+  var cards=[{cls:"hook", tag:{en:"HOOK",ur:"ہک"}, body:LESSON.hook},
+   {cls:"samjhao", tag:{en:"SAMJHAO",ur:"سمجھاؤ"}, body:LESSON.samjhao},
+   {cls:"misaal", tag:{en:"MISAAL",ur:"مثال"}, body:LESSON.misaal}];
+  if(LESSON.karo) cards.push({cls:"karo", tag:{en:"KARO",ur:"کرو"}, body:LESSON.karo});
+  cards.forEach(function(c){
+    var d=document.createElement("div"); d.className="lcard "+c.cls;
+    var tag=document.createElement("span"); tag.className="tag"; setText(tag,t(c.tag));
+    var p=document.createElement("p"); setText(p,t(c.body));
+    d.appendChild(tag); d.appendChild(p); box.appendChild(d);
+  });
+}
+var quizScore=0, quizDone=0;
+function buildQuiz(){
+  var box=$("quizBox"); box.innerHTML=""; quizScore=0; quizDone=0;
+  var sb=$("scoreBox"); sb.classList.remove("show"); sb.textContent="";
+  setText($("quizHead"), t({en:"Check yourself", ur:"اپنا امتحان لیں"}));
+  QUIZ.forEach(function(item){
+    var wrap=document.createElement("div"); wrap.className="q";
+    var q=document.createElement("p"); setText(q, t(item.q)); wrap.appendChild(q);
+    var fb=document.createElement("p"); fb.className="fb";
+    ["a","b","c","d"].forEach(function(k, oi){
+      var b=document.createElement("button"); b.type="button"; b.className="opt";
+      b.setAttribute("dir", lang==="ur"?"rtl":"ltr");
+      b.textContent = String.fromCharCode(65+oi)+". "+t(item[k]);
+      b.addEventListener("click", function(){
+        if(wrap.getAttribute("data-done")==="1") return;
+        wrap.setAttribute("data-done","1"); quizDone++;
+        if(item.correct===k) quizScore++;
+        ["a","b","c","d"].forEach(function(kk, xi){
+          var btn=wrap.querySelectorAll(".opt")[xi];
+          if(kk===item.correct) btn.classList.add("right");
+          else if(kk===k) btn.classList.add("wrong");
+        });
+        setText(fb, t(item.explanation)); fb.classList.add("show");
+        if(quizDone===QUIZ.length){
+          sb.classList.add("show");
+          setText(sb, t({en:"Score: "+quizScore+" / "+QUIZ.length, ur:"سکور: "+quizScore+" / "+QUIZ.length}));
+        }
+      });
+      wrap.appendChild(b);
+    });
+    wrap.appendChild(fb); box.appendChild(wrap);
+  });
+}
+function applyLang(){
+  document.body.classList.toggle("urdu", lang==="ur");
+  document.documentElement.lang = (lang==="ur") ? "ur" : "en";
+  var lb=$("langBtn");
+  lb.textContent = (lang==="en") ? "اردو" : "English";
+  lb.setAttribute("aria-pressed", lang==="ur" ? "true":"false");
+  setText($("foot"), t({en:"AI4Kids — Islamabad's bilingual AI and coding school. Offline · Grade 4 Social Studies. WhatsApp 0337 1468899",
+    ur:"اے آئی فور کڈز — اسلام آباد کا دو زبانوں والا سکول۔ آف لائن · گریڈ 4 سماجی علوم۔ واٹس ایپ 0337 1468899"}));
+  setText($("whyLbl"), t({en:"Notice:",ur:"غور کریں:"}));
+  buildLesson(); buildQuiz(); render();
+}
+$("langBtn").addEventListener("click", function(){ lang=(lang==="en")?"ur":"en"; applyLang(); });
+$("speakBtn").addEventListener("click", function(){
+  try{
+    if(!("speechSynthesis" in window)) return;
+    window.speechSynthesis.cancel();
+    var lead=$("lead"); var text = (lead && lead.textContent) || ($("title")&&$("title").textContent) || "";
+    var u=new SpeechSynthesisUtterance(text);
+    u.lang=(lang==="ur")?"ur-PK":"en-US"; u.rate=0.92;
+    window.speechSynthesis.speak(u);
+  }catch(e){}
+});
+function onTab(){}
+
+var LESSON={
+  hook:{en:"Bread is a need — a new toy is often a want. Knowing needs vs wants is the first step to smart money!",
+        ur:"روٹی ضروری ہے — نیا کھلونا اکثر خواہش ہوتا ہے۔ ضروریات اور خواہشات کا فرق سمجھنا اسمارٹ پیسے کا پہلا قدم!"},
+  samjhao:{en:"Goods = things (book, fruit). Services = help / work (doctor, teacher, barber). Money makes exchange easy. A bank keeps money safe and sometimes helps with savings. Resources are limited — so we must choose (scarcity). Trade = give and take.",
+           ur:"سامان = چیزیں (کتاب، پھل)۔ خدمات = مدد / کام (ڈاکٹر، استاد، نائی)۔ پیسے سے تبادلہ آسان ہوتا ہے۔ بینک پیسہ محفوظ رکھتا ہے اور کبھی بچت میں مدد کرتا ہے۔ وسائل محدود ہوتے ہیں — اس لیے انتخاب کرنا پڑتا ہے (قلت)۔ تجارت = دینا لینا۔"},
+  misaal:{en:"Vegetables from the market (goods); a doctor check-up (service). Saving pocket money starts with a piggy bank.",
+          ur:"بازار سے سبزی (سامان)؛ ڈاکٹر چیک اپ (خدمت)۔ جیب خرچ بچانا گلٹی پگی بینک سے شروع۔"},
+  karo:{en:"Write 5 needs and 5 wants. Give one goods and one service example.",
+        ur:"5 ضروریات اور 5 خواہشات لکھو۔ ایک سامان اور ایک خدمت کی مثال دو۔"}
+};
+var QUIZ=[
+  {q:{en:"An apple / book is what kind of thing?",ur:"سیب / کتاب کس قسم کی چیز ہے؟"},a:{en:"A good",ur:"سامان (Good)"},b:{en:"Service only",ur:"صرف خدمت"},c:{en:"Map legend",ur:"نقشہ لیجنڈ"},d:{en:"Election",ur:"انتخاب"},correct:"a",explanation:{en:"A tangible thing is a good.",ur:"چھوئی جا سکنے والی چیز سامان ہوتی ہے۔"}},
+  {q:{en:"A doctor's treatment is…",ur:"ڈاکٹر کا علاج؟"},a:{en:"A service",ur:"خدمت"},b:{en:"Good only",ur:"صرف سامان"},c:{en:"Desert",ur:"صحرا"},d:{en:"Festival",ur:"تہوار"},correct:"a",explanation:{en:"A service is work / help.",ur:"خدمت ایک کام / مدد ہے۔"}},
+  {q:{en:"Water / food is usually a…",ur:"پانی / کھانا زیادہ تر؟"},a:{en:"Need",ur:"ضرورت"},b:{en:"Only a want",ur:"صرف خواہش"},c:{en:"Only a game",ur:"صرف کھیل"},d:{en:"Only fashion",ur:"صرف فیشن"},correct:"a",explanation:{en:"Necessary things are needs.",ur:"ضروری چیزیں ضروریات ہیں۔"}},
+  {q:{en:"One job of a bank?",ur:"بینک کا ایک کام؟"},a:{en:"Keeping money safe",ur:"پیسہ محفوظ رکھنا"},b:{en:"Only flying kites",ur:"صرف پتنگ اڑانا"},c:{en:"Only painting",ur:"صرف پینٹنگ"},d:{en:"Only skipping",ur:"صرف رسی کودنا"},correct:"a",explanation:{en:"Banks keep money safe.",ur:"بینک پیسہ محفوظ رکھتے ہیں۔"}},
+  {q:{en:"When resources are few, what happens?",ur:"وسائل کم ہوں تو کیا ہوتا ہے؟"},a:{en:"We must choose (scarcity)",ur:"انتخاب کرنا پڑتا ہے (قلت)"},b:{en:"Everything is free",ur:"ہر چیز مفت"},c:{en:"The map breaks",ur:"نقشہ بگڑتا ہے"},d:{en:"Voting stops",ur:"ووٹ بند"},correct:"a",explanation:{en:"Scarcity means choices.",ur:"قلت انتخاب مانگتی ہے۔"}}
+];
+var nwSel=null, nwPlaced={}, nwDone=false;
+var gsSel=null, gsPlaced={}, gsDone=false;
+var coins=0, scarChoice=null;
+var NEEDS_WANTS=[
+  {id:"water",em:"💧",en:"Clean water",ur:"صاف پانی",bin:"n"},
+  {id:"food",em:"🍞",en:"Food / roti",ur:"کھانا / روٹی",bin:"n"},
+  {id:"toy",em:"🧸",en:"New toy",ur:"نیا کھلونا",bin:"w"},
+  {id:"game",em:"🎮",en:"Extra game",ur:"اضافی گیم",bin:"w"},
+  {id:"clothes",em:"👕",en:"Basic clothes",ur:"بنیادی کپڑے",bin:"n"},
+  {id:"candy",em:"🍬",en:"Lots of candy",ur:"بہت سی مٹھائی",bin:"w"}
+];
+var GOODS_SVC=[
+  {id:"book",em:"📚",en:"Book",ur:"کتاب",bin:"g"},
+  {id:"fruit",em:"🍎",en:"Fruit",ur:"پھل",bin:"g"},
+  {id:"doc",em:"🩺",en:"Doctor visit",ur:"ڈاکٹر وزٹ",bin:"s"},
+  {id:"teach",em:"👩‍🏫",en:"Teacher's lesson",ur:"استاد کا سبق",bin:"s"},
+  {id:"hair",em:"💇",en:"Haircut",ur:"بال کٹوانا",bin:"s"},
+  {id:"pencil",em:"✏️",en:"Pencil",ur:"پنسل",bin:"g"}
+];
+function sorterUI(sc, items, placed, sel, done, binA, binB, labA, labB, onSel, onBin){
+  sc.innerHTML="";
+  var wrap=document.createElement("div"); wrap.className="sort-wrap";
+  var ba=document.createElement("div"); ba.className="bin a"; ba.innerHTML="<h3></h3><div class='drop' id='dropA'></div>";
+  var bb=document.createElement("div"); bb.className="bin b"; bb.innerHTML="<h3></h3><div class='drop' id='dropB'></div>";
+  setText(ba.querySelector("h3"), t(labA)); setText(bb.querySelector("h3"), t(labB));
+  wrap.appendChild(ba); wrap.appendChild(bb); sc.appendChild(wrap);
+  var bank=document.createElement("div"); bank.className="bank";
+  items.forEach(function(it){
+    if(placed[it.id]){
+      var drop=$(placed[it.id]===binA?"dropA":"dropB");
+      var el=document.createElement("div"); el.className="item "+(done?(placed[it.id]===it.bin?"ok":"no"):"");
+      el.textContent=it.em; drop.appendChild(el); return;
+    }
+    var el=document.createElement("div"); el.className="item"+(sel===it.id?" sel":"");
+    el.textContent=it.em+" "+t({en:it.en,ur:it.ur});
+    el.onclick=function(){ onSel(it.id); }; bank.appendChild(el);
+  });
+  sc.appendChild(bank);
+  ba.onclick=function(){ onBin(binA); }; bb.onclick=function(){ onBin(binB); };
+}
+function render(){
+  buildTabs([["nw",{en:"Needs / wants",ur:"ضرورت / خواہش"}],["gs",{en:"Goods / services",ur:"سامان / خدمت"}],["save",{en:"Piggy bank",ur:"پگی بینک"}],["scar",{en:"Scarcity",ur:"قلت"}]]);
+  if(!tab||tab==="main") tab="nw";
+  var chips=$("chips"); chips.innerHTML=""; $("controls").innerHTML="";
+  var play=$("playBtn"), play2=$("playBtn2");
+  play.className="play"; play2.className="play alt hidden";
+  setText($("title"), t({en:"Economics",ur:"معاشیات"}));
+  if(tab==="nw"){
+    setText($("subtitle"), t({en:"Sort needs vs wants.",ur:"ضروریات اور خواہشات چھانٹو۔"}));
+    setText($("panelHead"), t({en:"Needs & wants",ur:"ضرورت و خواہش"}));
+    sorterUI($("scene"), NEEDS_WANTS, nwPlaced, nwSel, nwDone, "n", "w",
+      {en:"Needs",ur:"ضروریات"}, {en:"Wants",ur:"خواہشات"},
+      function(id){ nwSel=id; render(); },
+      function(bin){ if(!nwSel||nwDone) return; nwPlaced[nwSel]=bin; nwSel=null; render(); });
+    setText($("statechip"), t({en:"Sorted "+Object.keys(nwPlaced).length+"/6",ur:"چھانٹی "+Object.keys(nwPlaced).length+"/6"}));
+    setText($("lead"), t({en:"Needs keep us healthy and safe. Wants are nice extras.",ur:"ضروریات صحت اور سلامتی رکھتی ہیں۔ خواہشات اضافی ہیں۔"}));
+    setText($("detail"), t({en:"Water, food, clothes = needs. Toys & candy = wants.",ur:"پانی، کھانا، کپڑے = ضروریات۔ کھلونے و مٹھائی = خواہشات۔"}));
+    setText($("trade"),""); setText($("whyText"), t({en:"Spend on needs first, then save for wants.",ur:"پہلے ضروریات پر خرچ، پھر خواہشات کے لیے بچت۔"}));
+    setText(play, t({en:"Check sort",ur:"چھانٹی چیک"}));
+    play.onclick=function(){
+      if(Object.keys(nwPlaced).length<6){ setText($("lead"), t({en:"Place all first!",ur:"پہلے سب رکھو!"})); return; }
+      nwDone=true; var ok=0; NEEDS_WANTS.forEach(function(it){ if(nwPlaced[it.id]===it.bin) ok++; });
+      $("statechip").className="statechip "+(ok===6?"ok":"no");
+      setText($("statechip"), t({en:ok+"/6 correct",ur:ok+"/6 درست"}));
+      setText($("lead"), ok===6?t({en:"Shabash — money smart!",ur:"شاباش — پیسے ہوشیار!"}):t({en:"Almost — Reset",ur:"قریب — ری سیٹ"}));
+      render();
+    };
+    play2.classList.remove("hidden"); setText(play2,t({en:"Reset",ur:"ری سیٹ"}));
+    play2.onclick=function(){ nwPlaced={}; nwSel=null; nwDone=false; $("statechip").className="statechip"; render(); };
+    return;
+  }
+  if(tab==="gs"){
+    setText($("subtitle"), t({en:"Sort goods vs services.",ur:"سامان اور خدمات چھانٹو۔"}));
+    setText($("panelHead"), t({en:"Goods & services",ur:"سامان و خدمت"}));
+    sorterUI($("scene"), GOODS_SVC, gsPlaced, gsSel, gsDone, "g", "s",
+      {en:"Goods",ur:"سامان"}, {en:"Services",ur:"خدمات"},
+      function(id){ gsSel=id; render(); },
+      function(bin){ if(!gsSel||gsDone) return; gsPlaced[gsSel]=bin; gsSel=null; render(); });
+    setText($("statechip"), t({en:"Sorted "+Object.keys(gsPlaced).length+"/6",ur:"چھانٹی "+Object.keys(gsPlaced).length+"/6"}));
+    setText($("lead"), t({en:"Goods you can hold. Services are helpful work.",ur:"سامان ہاتھ میں آتا ہے۔ خدمت مددگار کام ہے۔"}));
+    setText($("detail"), t({en:"Book & fruit = goods. Doctor & teacher = services.",ur:"کتاب و پھل = سامان۔ ڈاکٹر و استاد = خدمات۔"}));
+    setText($("trade"),""); setText($("whyText"), t({en:"Markets trade both goods and services.",ur:"بازار دونوں سامان اور خدمات کا تبادلہ کرتے ہیں۔"}));
+    setText(play, t({en:"Check sort",ur:"چھانٹی چیک"}));
+    play.onclick=function(){
+      if(Object.keys(gsPlaced).length<6){ setText($("lead"), t({en:"Place all first!",ur:"پہلے سب رکھو!"})); return; }
+      gsDone=true; var ok=0; GOODS_SVC.forEach(function(it){ if(gsPlaced[it.id]===it.bin) ok++; });
+      $("statechip").className="statechip "+(ok===6?"ok":"no");
+      setText($("statechip"), t({en:ok+"/6 correct",ur:ok+"/6 درست"}));
+      setText($("lead"), ok===6?t({en:"Perfect!",ur:"بہترین!"}):t({en:"Try again",ur:"دوبارہ"}));
+      render();
+    };
+    play2.classList.remove("hidden"); setText(play2,t({en:"Reset",ur:"ری سیٹ"}));
+    play2.onclick=function(){ gsPlaced={}; gsSel=null; gsDone=false; $("statechip").className="statechip"; render(); };
+    return;
+  }
+  if(tab==="save"){
+    setText($("subtitle"), t({en:"Save coins in your piggy bank.",ur:"پگی بینک میں سکے بچاؤ۔"}));
+    setText($("panelHead"), t({en:"Save demo",ur:"بچت ڈیمو"}));
+    $("scene").innerHTML="<div class='piggy'><div class='jar'>🐷</div><div class='coins' id='coinLab'></div></div>";
+    setText($("coinLab"), t({en:coins+" coins saved",ur:coins+" سکے بچے"}));
+    setText($("statechip"), t({en:"Piggy bank",ur:"پگی بینک"}));
+    setText($("lead"), t({en:"Small saves add up!",ur:"چھوٹی بچتیں جمع ہوتی ہیں!"}));
+    setText($("detail"), t({en:"Banks keep money safe — a piggy bank is practice for kids.",ur:"بینک پیسہ محفوظ رکھتے ہیں — پگی بینک بچوں کی مشق ہے۔"}));
+    setText($("trade"), t({en:"Tip: save a little from pocket money each week.",ur:"ٹپ: ہر ہفتے جیب خرچ سے تھوڑا بچاؤ۔"}));
+    setText($("whyText"), t({en:"Saving helps you buy a need or a planned want later.",ur:"بچت بعد میں ضرورت یا منصوبہ خواہش خریدنے میں مدد دیتی ہے۔"}));
+    setText(play, t({en:"+1 Save a coin",ur:"+1 سکہ بچاؤ"}));
+    play.classList.add("go");
+    play.onclick=function(){ coins++; render(); };
+    play2.classList.remove("hidden"); setText(play2,t({en:"Spend 1 (if any)",ur:"1 خرچ (اگر ہو)"}));
+    play2.onclick=function(){ if(coins>0) coins--; render(); };
+    return;
+  }
+  setText($("subtitle"), t({en:"Only Rs 100 — what do you choose?",ur:"صرف 100 روپے — کیا چنو گے؟"}));
+  setText($("panelHead"), t({en:"Scarcity choice",ur:"قلت کا انتخاب"}));
+  $("scene").innerHTML="<div style='text-align:center;padding:16px;font-size:48px'>💰❓</div>";
+  setText($("statechip"), t({en:"Rs 100 only",ur:"صرف 100 روپے"}));
+  setText($("lead"), t({en:"You need a notebook for school. You also want chips. Money is limited!",ur:"اسکول کے لیے کاپی چاہیے۔ چپس بھی چاہییں۔ پیسہ محدود!"}));
+  setText($("detail"), t({en:"Scarcity means we cannot buy everything — we choose.",ur:"قلت کا مطلب سب نہیں خرید سکتے — انتخاب کرتے ہیں۔"}));
+  var box=document.createElement("div"); box.className="choice";
+  [{id:"note",en:"Buy notebook (need first)",ur:"کاپی خریدو (پہلے ضرورت)",ok:1},
+   {id:"chips",en:"Only chips (skip school need)",ur:"صرف چپس (ضرورت چھوڑو)",ok:0},
+   {id:"both",en:"Pretend money is unlimited",ur:"سوچو پیسہ لامحدود ہے",ok:0}
+  ].forEach(function(o){
+    var b=document.createElement("button"); b.type="button";
+    if(scarChoice===o.id) b.classList.add(o.ok?"right":"wrong");
+    setText(b, t({en:o.en,ur:o.ur}));
+    b.onclick=function(){
+      scarChoice=o.id;
+      $("statechip").className="statechip "+(o.ok?"ok":"no");
+      setText($("statechip"), o.ok?t({en:"Wise choice!",ur:"دانشمند انتخاب!"}):t({en:"Think scarcity",ur:"قلت سوچو"}));
+      setText($("lead"), o.ok?t({en:"Needs first when money is scarce — Shabash!",ur:"قلت میں پہلے ضروریات — شاباش!"}):t({en:"Resources are limited — prioritise needs.",ur:"وسائل محدود — ضروریات کو ترجیح۔"}));
+      render();
+    };
+    box.appendChild(b);
+  });
+  $("controls").appendChild(box);
+  setText($("trade"), t({en:"Trade tip: choose, don't waste.",ur:"تجارت ٹپ: چنو، ضائع نہ کرو۔"}));
+  setText($("whyText"), t({en:"Scarcity forces smart choices — that is economics!",ur:"قلت ہوشیار انتخاب مانگتی ہے — یہی معاشیات!"}));
+  play.classList.add("hidden");
+}
+
+applyLang();
+})();
+</script>
+</body>
+</html>

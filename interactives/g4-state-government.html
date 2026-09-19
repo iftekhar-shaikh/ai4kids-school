@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>State aur Government — ریاست اور حکومت | AI4Kids Grade 4 Social Studies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --board:#eef0f5; --board-deep:#dde1ea; --accent:#1d4c85; --accent2:#c9702e;
+  --ok:#2e7d4f; --no:#c4453a; --ink:#1f2933; --ink-soft:#4a5661; --paper:#fdfaf3;
+  --line:#ded5c4; --bin-a:#2f6fb5; --bin-b:#c9702e; --gold:#e8b23d;
+  --fs-cap:clamp(14px, 3.8vw, 16px); --fs-xs:clamp(16px, 4.2vw, 18px);
+  --fs-sm:clamp(18px, 4.8vw, 20px); --fs-md:clamp(19px, 5.2vw, 22px);
+  --fs-lg:clamp(22px, 6vw, 26px); --fs-xl:clamp(30px, 8vw, 38px); --lh:1.55;
+}
+body.urdu{
+  --fs-cap:clamp(17px, 4.4vw, 18px); --fs-xs:clamp(18px, 4.7vw, 20px);
+  --fs-sm:clamp(20px, 5.2vw, 22px); --fs-md:clamp(21px, 5.6vw, 24px);
+  --fs-lg:clamp(24px, 6.4vw, 28px); --fs-xl:clamp(28px, 7.4vw, 34px); --lh:2.05;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;font-size:var(--fs-sm);line-height:1.55;padding:0 0 40px}
+body.urdu{font-family:"Noto Nastaliq Urdu","Baloo Bhaijaan 2",serif;line-height:var(--lh)}
+.wrap{max-width:560px;margin:0 auto;padding:0 14px}
+.bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px;flex-wrap:wrap}
+.brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+.chip{border:2px solid var(--ink);background:var(--paper);color:var(--ink);border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;font-size:var(--fs-xs);cursor:pointer;min-height:44px}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.chip:focus-visible,button:focus-visible{outline:3px solid var(--accent2);outline-offset:2px}
+h1{font-size:var(--fs-xl);line-height:1.25;font-weight:800;margin:8px 0 4px}
+body.urdu h1{line-height:1.9}
+.sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+.tabs{display:flex;gap:7px;margin:0 0 14px;flex-wrap:wrap}
+.tabs button{flex:1;min-width:88px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);border-radius:14px;padding:9px 6px;font:inherit;font-weight:800;font-size:var(--fs-cap);cursor:pointer;min-height:54px}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.scene{position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);background:linear-gradient(180deg,var(--board) 0%,var(--board-deep) 100%);min-height:200px;padding:14px}
+.play{width:100%;margin-top:12px;border:3px solid var(--ink);border-radius:18px;background:var(--ink);color:var(--paper);font:inherit;font-weight:800;font-size:var(--fs-md);cursor:pointer;min-height:60px}
+.play:active{transform:scale(.98)}
+.play.alt{background:var(--paper);color:var(--ink)}
+.play.go{background:var(--ok);border-color:var(--ok)}
+.play.hidden,.hidden{display:none !important}
+.readout{margin-top:12px;background:var(--paper);border:3px solid var(--ink);border-radius:18px;padding:16px 18px}
+.statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;padding:4px 14px;font-size:var(--fs-cap);font-weight:700;margin-bottom:10px}
+.statechip.ok{background:var(--ok)}.statechip.no{background:var(--no)}
+.lead{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.4}
+body.urdu .lead{line-height:1.95}
+.detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+.trade{margin-top:14px;border:2px dashed var(--accent2);background:#fbf1e8;border-radius:14px;padding:12px 14px;font-size:var(--fs-xs);font-weight:700;color:#8a4a12;line-height:1.6}
+.why-note{margin:12px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;border-left:3px solid var(--accent);padding-left:11px}
+body.urdu .why-note{border-left:0;border-right:3px solid var(--accent);padding-left:0;padding-right:11px;line-height:var(--lh)}
+.why-note b{color:var(--accent);font-weight:800}
+.panel{margin-top:18px}
+.panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.schip{border:2px solid var(--line);background:var(--paper);border-radius:999px;padding:9px 15px;font:inherit;font-size:var(--fs-cap);font-weight:800;color:var(--ink);cursor:pointer;min-height:46px}
+.schip[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+.schip.ok{border-color:var(--ok);background:#e8f2ed}
+.schip.no{border-color:var(--no);background:#fbeae8}
+.lcard{border:3px solid var(--line);border-radius:18px;padding:14px 16px;margin-bottom:12px;background:#fffdf8}
+.lcard .tag{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;padding:3px 12px;font-size:var(--fs-cap);font-weight:800;margin-bottom:8px}
+.lcard.hook .tag{background:var(--accent2)}
+.lcard.misaal .tag{background:var(--ok)}
+.lcard.karo .tag{background:#6b4a8f}
+.lcard p{margin:0;font-size:var(--fs-sm);line-height:1.6}
+body.urdu .lcard p{line-height:var(--lh)}
+.lesson{margin-top:8px}
+.quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+.q{margin-bottom:26px}
+.q > p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+.opt{display:block;width:100%;text-align:left;margin-bottom:10px;border:2px solid var(--line);background:var(--paper);border-radius:12px;padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);min-height:52px}
+body.urdu .opt{text-align:right}
+.opt:hover{border-color:var(--ink)}
+.opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+.opt.wrong{border-color:var(--no);background:#fbeae8}
+.fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none;line-height:1.6}
+.fb.show{display:block}
+.score{margin-top:14px;padding:14px;border:3px solid var(--ink);border-radius:16px;font-weight:800;font-size:var(--fs-md);text-align:center;display:none}
+.score.show{display:block}
+footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);font-size:var(--fs-xs);color:var(--ink-soft)}
+.sort-wrap{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.bin{border:2.5px solid var(--ink);border-radius:14px;padding:10px 8px;min-height:100px;background:rgba(253,250,243,.9);text-align:center}
+.bin h3{margin:0 0 8px;font-size:var(--fs-cap);font-weight:800}
+.bin.a{border-color:var(--bin-a);background:rgba(232,240,250,.92)}
+.bin.b{border-color:var(--bin-b);background:rgba(250,238,220,.92)}
+.bin .drop{min-height:50px;display:flex;flex-wrap:wrap;gap:4px;justify-content:center}
+.item{background:#fff;border:2.5px solid var(--ink);border-radius:14px;padding:8px 10px;text-align:center;cursor:pointer;font-weight:800;font-size:var(--fs-cap);user-select:none;min-width:70px}
+.item.sel{border-color:var(--accent);background:#e8eef8;box-shadow:0 0 0 3px rgba(29,76,133,.2)}
+.item.ok{border-color:var(--ok);background:#e8f2ed}
+.item.no{border-color:var(--no);background:#fbeae8}
+.bank{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:8px 0}
+.card-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tcard{border:3px solid var(--line);border-radius:16px;padding:12px 10px;text-align:center;cursor:pointer;background:#fffdf8}
+.tcard.on{border-color:var(--accent);background:#e8eef8}
+.tcard .em{font-size:36px;display:block;margin-bottom:4px}
+.tcard b{display:block;font-size:var(--fs-sm);font-weight:800}
+.tcard span{display:block;font-size:var(--fs-cap);color:var(--ink-soft);margin-top:4px;font-weight:700}
+.choice{display:flex;flex-direction:column;gap:8px}
+.choice button{border:2.5px solid var(--ink);background:var(--paper);border-radius:14px;padding:12px 14px;font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;text-align:left;min-height:52px;display:flex;align-items:center;gap:10px}
+body.urdu .choice button{text-align:right}
+.choice button.right{border-color:var(--ok);background:#e8f2ed}
+.choice button.wrong{border-color:var(--no);background:#fbeae8}
+.slider-row{display:flex;align-items:center;gap:10px;margin:10px 0;flex-wrap:wrap}
+.slider-row input[type=range]{flex:1;min-width:140px;height:36px;accent-color:var(--accent)}
+.compass{width:160px;height:160px;margin:10px auto;border-radius:50%;border:4px solid var(--ink);background:#fff;position:relative;display:flex;align-items:center;justify-content:center}
+.compass .n,.compass .s,.compass .e,.compass .w{position:absolute;font-weight:800;font-size:var(--fs-md);cursor:pointer;padding:4px 8px;border-radius:8px}
+.compass .n{top:6px;left:50%;transform:translateX(-50%)}.compass .s{bottom:6px;left:50%;transform:translateX(-50%)}
+.compass .e{right:8px;top:50%;transform:translateY(-50%)}.compass .w{left:8px;top:50%;transform:translateY(-50%)}
+.compass .n.on,.compass .s.on,.compass .e.on,.compass .w.on{background:var(--accent);color:#fff}
+.compass .needle{width:4px;height:50px;background:var(--no);border-radius:2px;transform-origin:bottom center;transition:transform .3s}
+.piggy{text-align:center;padding:16px}
+.piggy .jar{font-size:64px;line-height:1}
+.piggy .coins{font-size:var(--fs-lg);font-weight:800;margin:8px 0}
+.check-list{display:flex;flex-direction:column;gap:8px}
+.check-list label{display:flex;align-items:center;gap:10px;border:2px solid var(--line);border-radius:12px;padding:10px 12px;font-weight:800;font-size:var(--fs-xs);cursor:pointer;background:#fff}
+.check-list label.on{border-color:var(--ok);background:#e8f2ed}
+.check-list input{width:22px;height:22px;accent-color:var(--ok)}
+.tl{margin:12px 0}
+.tl-marks{display:flex;justify-content:space-between;font-size:var(--fs-cap);font-weight:800;margin-top:6px}
+@media (min-width:820px){
+  .wrap{max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;grid-template-areas:"bar bar" "head head" "tabs tabs" "left right" "lesson lesson" "quiz quiz" "foot foot";align-items:start}
+  .bar{grid-area:bar}.head{grid-area:head}.tabs{grid-area:tabs}.left{grid-area:left}.right{grid-area:right}
+  .lesson{grid-area:lesson}.quiz{grid-area:quiz;margin-top:34px}footer{grid-area:foot}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition-duration:.01ms !important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar">
+    <span class="brand">AI4Kids · Grade 4 · Social Studies</span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+  <div class="head">
+    <h1 id="title"></h1>
+    <p class="sub" id="subtitle"></p>
+  </div>
+  <div class="tabs" role="group" id="tabs"></div>
+  <div class="left">
+    <div class="scene" id="scene"></div>
+    <div class="readout">
+      <span class="statechip" id="statechip"></span>
+      <p class="lead" id="lead"></p>
+      <p class="detail" id="detail"></p>
+      <p class="trade" id="trade"></p>
+      <p class="why-note"><b id="whyLbl"></b> <span id="whyText"></span></p>
+    </div>
+  </div>
+  <div class="right">
+    <div class="panel">
+      <h2 id="panelHead"></h2>
+      <div class="chips" id="chips" role="group"></div>
+      <div id="controls"></div>
+      <button type="button" class="play" id="playBtn"></button>
+      <button type="button" class="play alt" id="playBtn2" style="margin-top:8px"></button>
+    </div>
+  </div>
+  <div class="lesson" id="lessonBox"></div>
+  <div class="quiz">
+    <h2 id="quizHead" style="font-size:var(--fs-lg);font-weight:800;margin:0 0 18px"></h2>
+    <div id="quizBox"></div>
+    <div class="score" id="scoreBox"></div>
+  </div>
+  <footer><p id="foot"></p></footer>
+</div>
+<script>
+(function(){
+"use strict";
+var lang="en", tab="main";
+function $(id){ return document.getElementById(id); }
+function t(o){ return (o && typeof o==="object") ? (o[lang]||o.en||"") : (o||""); }
+function setText(el, s){
+  if(!el) return;
+  el.textContent = s;
+  if(lang==="ur"){ el.setAttribute("dir","rtl"); }
+  else { el.setAttribute("dir","ltr"); }
+}
+function buildTabs(list){
+  var tabs=$("tabs"); tabs.innerHTML="";
+  list.forEach(function(x){
+    var b=document.createElement("button"); b.type="button";
+    b.setAttribute("aria-pressed", tab===x[0]?"true":"false");
+    setText(b, t(x[1]));
+    b.addEventListener("click", function(){ if(tab===x[0]) return; tab=x[0]; if(typeof onTab==="function") onTab(); render(); });
+    tabs.appendChild(b);
+  });
+}
+function buildLesson(){
+  var box=$("lessonBox"); if(!box) return; box.innerHTML="";
+  var cards=[{cls:"hook", tag:{en:"HOOK",ur:"ہک"}, body:LESSON.hook},
+   {cls:"samjhao", tag:{en:"SAMJHAO",ur:"سمجھاؤ"}, body:LESSON.samjhao},
+   {cls:"misaal", tag:{en:"MISAAL",ur:"مثال"}, body:LESSON.misaal}];
+  if(LESSON.karo) cards.push({cls:"karo", tag:{en:"KARO",ur:"کرو"}, body:LESSON.karo});
+  cards.forEach(function(c){
+    var d=document.createElement("div"); d.className="lcard "+c.cls;
+    var tag=document.createElement("span"); tag.className="tag"; setText(tag,t(c.tag));
+    var p=document.createElement("p"); setText(p,t(c.body));
+    d.appendChild(tag); d.appendChild(p); box.appendChild(d);
+  });
+}
+var quizScore=0, quizDone=0;
+function buildQuiz(){
+  var box=$("quizBox"); box.innerHTML=""; quizScore=0; quizDone=0;
+  var sb=$("scoreBox"); sb.classList.remove("show"); sb.textContent="";
+  setText($("quizHead"), t({en:"Check yourself", ur:"اپنا امتحان لیں"}));
+  QUIZ.forEach(function(item){
+    var wrap=document.createElement("div"); wrap.className="q";
+    var q=document.createElement("p"); setText(q, t(item.q)); wrap.appendChild(q);
+    var fb=document.createElement("p"); fb.className="fb";
+    ["a","b","c","d"].forEach(function(k, oi){
+      var b=document.createElement("button"); b.type="button"; b.className="opt";
+      b.setAttribute("dir", lang==="ur"?"rtl":"ltr");
+      b.textContent = String.fromCharCode(65+oi)+". "+t(item[k]);
+      b.addEventListener("click", function(){
+        if(wrap.getAttribute("data-done")==="1") return;
+        wrap.setAttribute("data-done","1"); quizDone++;
+        if(item.correct===k) quizScore++;
+        ["a","b","c","d"].forEach(function(kk, xi){
+          var btn=wrap.querySelectorAll(".opt")[xi];
+          if(kk===item.correct) btn.classList.add("right");
+          else if(kk===k) btn.classList.add("wrong");
+        });
+        setText(fb, t(item.explanation)); fb.classList.add("show");
+        if(quizDone===QUIZ.length){
+          sb.classList.add("show");
+          setText(sb, t({en:"Score: "+quizScore+" / "+QUIZ.length, ur:"سکور: "+quizScore+" / "+QUIZ.length}));
+        }
+      });
+      wrap.appendChild(b);
+    });
+    wrap.appendChild(fb); box.appendChild(wrap);
+  });
+}
+function applyLang(){
+  document.body.classList.toggle("urdu", lang==="ur");
+  document.documentElement.lang = (lang==="ur") ? "ur" : "en";
+  var lb=$("langBtn");
+  lb.textContent = (lang==="en") ? "اردو" : "English";
+  lb.setAttribute("aria-pressed", lang==="ur" ? "true":"false");
+  setText($("foot"), t({en:"AI4Kids — Islamabad's bilingual AI and coding school. Offline · Grade 4 Social Studies. WhatsApp 0337 1468899",
+    ur:"اے آئی فور کڈز — اسلام آباد کا دو زبانوں والا سکول۔ آف لائن · گریڈ 4 سماجی علوم۔ واٹس ایپ 0337 1468899"}));
+  setText($("whyLbl"), t({en:"Notice:",ur:"غور کریں:"}));
+  buildLesson(); buildQuiz(); render();
+}
+$("langBtn").addEventListener("click", function(){ lang=(lang==="en")?"ur":"en"; applyLang(); });
+$("speakBtn").addEventListener("click", function(){
+  try{
+    if(!("speechSynthesis" in window)) return;
+    window.speechSynthesis.cancel();
+    var lead=$("lead"); var text = (lead && lead.textContent) || ($("title")&&$("title").textContent) || "";
+    var u=new SpeechSynthesisUtterance(text);
+    u.lang=(lang==="ur")?"ur-PK":"en-US"; u.rate=0.92;
+    window.speechSynthesis.speak(u);
+  }catch(e){}
+});
+function onTab(){}
+
+var LESSON={
+  hook:{en:"A school principal can change, but the school building and rules stay — a bit like the difference between state and government!",
+        ur:"اسکول کا پرنسپل بدل سکتا ہے، مگر عمارت اور قواعد رہتے ہیں — تھوڑا ایسا ہی ریاست اور حکومت کا فرق ہے!"},
+  samjhao:{en:"State = the country (land, people, laws). Government = the people / system who run the country (chosen for a while). Constitution = the book of basic laws. General Elections = people vote to choose leaders. A good leader: honest, helpful, a listener, fair to all.",
+           ur:"ریاست = ملک (زمین، لوگ، قانون)۔ حکومت = وہ لوگ / نظام جو ملک چلاتے ہیں (تھوڑی دیر کے لیے چنے جاتے ہیں)۔ آئین = بنیادی قانون کی کتاب۔ عام انتخابات = لوگ ووٹ دے کر رہنما چنتے ہیں۔ اچھا رہنما: سچا، مددگار، سننے والا، سب کے لیے انصاف۔"},
+  misaal:{en:"Choosing a class monitor — vote, then responsibility. That is small election practice.",
+          ur:"کلاس مانیٹر چننا — ووٹ، پھر ذمہ داری۔ یہ چھوٹی سی الیکشن کی مشق ہے۔"},
+  karo:{en:"Write 3 qualities of a good leader. Ask family: what is a vote?",
+        ur:"اچھے رہنما کی 3 خوبیوں لکھو۔ گھر والوں سے پوچھو: ووٹ کیا ہوتا ہے؟"}
+};
+var QUIZ=[
+  {q:{en:"State is closest to…",ur:"ریاست زیادہ قریب کس سے ہے؟"},a:{en:"Country (land + people + law)",ur:"ملک (زمین + لوگ + قانون)"},b:{en:"Only one teacher",ur:"صرف ایک استاد"},c:{en:"Only one shop",ur:"صرف ایک دکان"},d:{en:"Only one app",ur:"صرف ایک ایپ"},correct:"a",explanation:{en:"State is the country's system.",ur:"ریاست ملک کا نظام ہے۔"}},
+  {q:{en:"What does government do?",ur:"حکومت کیا کرتی ہے؟"},a:{en:"Runs the country",ur:"ملک چلاتی ہے"},b:{en:"Only plays cricket",ur:"صرف کرکٹ"},c:{en:"Only cartoons",ur:"صرف کارٹون"},d:{en:"Only cooking",ur:"صرف کھانا"},correct:"a",explanation:{en:"Government runs rules and services.",ur:"حکومت قواعد اور خدمات چلاتی ہے۔"}},
+  {q:{en:"Voting is part of which process?",ur:"ووٹ دینا کس عمل کا حصہ ہے؟"},a:{en:"Election",ur:"انتخاب"},b:{en:"Picnic",ur:"پکنک"},c:{en:"Homework copy",ur:"ہوم ورک کاپی"},d:{en:"Drone race",ur:"ڈرون ریس"},correct:"a",explanation:{en:"In elections people vote.",ur:"انتخاب میں لوگ ووٹ دیتے ہیں۔"}},
+  {q:{en:"What is a constitution?",ur:"آئین کیا ہے؟"},a:{en:"Basic law",ur:"بنیادی قانون"},b:{en:"A story book",ur:"کہانی کی کتاب"},c:{en:"A game",ur:"ایک کھیل"},d:{en:"A map",ur:"ایک نقشہ"},correct:"a",explanation:{en:"Constitution = basic rules of the country.",ur:"آئین ملک کے بنیادی قواعد ہیں۔"}},
+  {q:{en:"A good leader should have…",ur:"اچھے رہنما میں کیا ہونا چاہیے؟"},a:{en:"Honesty and fairness",ur:"سچائی اور انصاف"},b:{en:"Only noise",ur:"صرف شور"},c:{en:"Only anger",ur:"صرف غصہ"},d:{en:"Only laziness",ur:"صرف سستی"},correct:"a",explanation:{en:"A good leader listens and is fair.",ur:"اچھا رہنما سنتا اور انصاف کرتا ہے۔"}}
+];
+var cmpPick="state", voteLeader=null, voteQs={}, factIdx=0;
+var LEADERS=[
+  {id:"a",em:"🌟",en:"Sami — listens & shares",ur:"سامی — سنتا اور بانٹتا"},
+  {id:"b",em:"📢",en:"Bilo — shouts loudest",ur:"بلو — سب سے زیادہ چیختا"},
+  {id:"c",em:"🤝",en:"Hira — helps everyone",ur:"حرا — سب کی مدد کرتی"}
+];
+var QUALS=[
+  {id:"honest",en:"Honest / sachcha",ur:"ایماندار / سچا"},
+  {id:"listen",en:"Listens to others",ur:"دوسروں کی سنتا ہے"},
+  {id:"fair",en:"Fair to all",ur:"سب کے لیے منصف"},
+  {id:"help",en:"Helpful",ur:"مددگار"},
+  {id:"shout",en:"Only shouts",ur:"صرف چیختا ہے",bad:1},
+  {id:"lazy",en:"Lazy",ur:"سست",bad:1}
+];
+var FACTS=[
+  {em:"📖",en:"Constitution = basic law book",ur:"آئین = بنیادی قانون کتاب",d:{en:"It protects rights and sets how government works.",ur:"یہ حقوق بچاتا اور حکومت کا طریقہ بتاتا ہے۔"}},
+  {em:"🗳️",en:"Elections choose leaders",ur:"انتخاب رہنما چنتے ہیں",d:{en:"Citizens vote — one person, one vote.",ur:"شہری ووٹ دیتے ہیں — ایک شخص، ایک ووٹ۔"}},
+  {em:"⚖️",en:"Laws apply to everyone",ur:"قانون سب پر",d:{en:"Even leaders must follow the constitution.",ur:"رہنما بھی آئین مانیں۔"}},
+  {em:"🏫",en:"Class monitor practice",ur:"مانیٹر مشق",d:{en:"Voting for a monitor teaches fairness and duty.",ur:"مانیٹر کے لیے ووٹ انصاف اور فرض سکھاتا ہے۔"}}
+];
+function render(){
+  buildTabs([["cmp",{en:"State vs Gov",ur:"ریاست بمقابلہ حکومت"}],["vote",{en:"Voting booth",ur:"ووٹنگ بوتھ"}],["const",{en:"Constitution",ur:"آئین"}]]);
+  if(!tab||tab==="main") tab="cmp";
+  var chips=$("chips"); chips.innerHTML=""; $("controls").innerHTML="";
+  var play=$("playBtn"), play2=$("playBtn2");
+  play.className="play"; play2.className="play alt hidden";
+  setText($("title"), t({en:"State aur Government",ur:"ریاست اور حکومت"}));
+  if(tab==="cmp"){
+    setText($("subtitle"), t({en:"Compare state and government cards.",ur:"ریاست اور حکومت کے کارڈ دیکھو۔"}));
+    setText($("panelHead"), t({en:"Tap a side",ur:"ایک طرف چنو"}));
+    $("scene").innerHTML="<div class='card-grid' id='cg'></div>";
+    [{id:"state",em:"🗺️",en:"STATE",ur:"ریاست",lead:{en:"Land + people + lasting laws",ur:"زمین + لوگ + پائیدار قوانین"},det:{en:"Like the school building and school rules that stay.",ur:"جیسے اسکول کی عمارت اور قواعد جو رہتے ہیں۔"}},
+     {id:"gov",em:"👥",en:"GOVERNMENT",ur:"حکومت",lead:{en:"People who run things for a term",ur:"جو لوگ ایک مدت چلاتے ہیں"},det:{en:"Like a principal who can change after some years.",ur:"جیسے پرنسپل جو چند سال بعد بدل سکتا ہے۔"}}
+    ].forEach(function(c){
+      var d=document.createElement("div"); d.className="tcard"+(cmpPick===c.id?" on":"");
+      d.innerHTML="<span class='em'>"+c.em+"</span>";
+      var b=document.createElement("b"); setText(b,t({en:c.en,ur:c.ur})); d.appendChild(b);
+      d.onclick=function(){ cmpPick=c.id; render(); };
+      $("cg").appendChild(d);
+      if(cmpPick===c.id){
+        setText($("statechip"), t({en:c.en,ur:c.ur}));
+        setText($("lead"), t(c.lead)); setText($("detail"), t(c.det));
+      }
+    });
+    setText($("trade"), t({en:"Remember: state stays; government can change with elections.",ur:"یاد رکھو: ریاست رہتی ہے؛ حکومت انتخاب سے بدل سکتی ہے۔"}));
+    setText($("whyText"), t({en:"Pakistan is the state; elected teams form the government.",ur:"پاکستان ریاست ہے؛ منتخب ٹیمیں حکومت بناتی ہیں۔"}));
+    play.classList.add("hidden");
+    return;
+  }
+  if(tab==="vote"){
+    setText($("subtitle"), t({en:"Pick a class leader and good qualities.",ur:"کلاس رہنما اور اچھی خوبیاں چنو۔"}));
+    setText($("panelHead"), t({en:"Mini voting booth",ur:"منی ووٹنگ بوتھ"}));
+    $("scene").innerHTML="<div style='text-align:center;font-size:48px;padding:8px'>🗳️</div><div class='card-grid' id='cg'></div>";
+    LEADERS.forEach(function(L){
+      var d=document.createElement("div"); d.className="tcard"+(voteLeader===L.id?" on":"");
+      d.style.gridColumn=L.id==="c"?"1/-1":"";
+      d.innerHTML="<span class='em'>"+L.em+"</span>";
+      var b=document.createElement("b"); setText(b,t({en:L.en,ur:L.ur})); d.appendChild(b);
+      d.onclick=function(){ voteLeader=L.id; render(); };
+      $("cg").appendChild(d);
+    });
+    var qbox=document.createElement("div"); qbox.style.marginTop="10px";
+    setText($("detail"), t({en:"Tick qualities a GOOD leader needs (avoid bad ones).",ur:"اچھے رہنما کی خوبیاں چنو (برے سے بچو)۔"}));
+    QUALS.forEach(function(q){
+      var b=document.createElement("button"); b.type="button"; b.className="schip"+(voteQs[q.id]?" ok":"");
+      setText(b, t({en:q.en,ur:q.ur}));
+      b.onclick=function(){ voteQs[q.id]=!voteQs[q.id]; render(); };
+      chips.appendChild(b);
+    });
+    setText($("statechip"), voteLeader?t({en:"Ballot ready",ur:"بیلٹ تیار"}):t({en:"Choose a leader",ur:"رہنما چنو"}));
+    setText($("lead"), t({en:"Vote + good qualities = fair choice",ur:"ووٹ + اچھی خوبیاں = منصفانہ انتخاب"}));
+    setText($("trade"), t({en:"Best pick: someone who listens and helps — not only shouts!",ur:"بہترین: جو سنے اور مدد کرے — صرف شور نہ!"}));
+    setText($("whyText"), t({en:"Elections work when we choose carefully.",ur:"انتخاب تب کام کرتے ہیں جب غور سے چنیں۔"}));
+    setText(play, t({en:"Cast vote",ur:"ووٹ ڈالو"}));
+    play.onclick=function(){
+      if(!voteLeader){ setText($("lead"), t({en:"Pick a leader first!",ur:"پہلے رہنما چنو!"})); return; }
+      var good=["honest","listen","fair","help"]; var bad=0, g=0;
+      good.forEach(function(id){ if(voteQs[id]) g++; });
+      if(voteQs.shout||voteQs.lazy) bad=1;
+      var best=(voteLeader==="a"||voteLeader==="c") && g>=2 && !bad;
+      $("statechip").className="statechip "+(best?"ok":"no");
+      setText($("statechip"), best?t({en:"Great vote!",ur:"زبردست ووٹ!"}):t({en:"Think again",ur:"دوبارہ سوچو"}));
+      setText($("lead"), best?t({en:"Shabash — you chose wisely!",ur:"شاباش — دانشمندی سے چنا!"}):t({en:"Prefer listeners & helpers; skip shout/lazy.",ur:"سننے اور مددگار کو ترجیح؛ شور/سستی چھوڑو۔"}));
+    };
+    play2.classList.remove("hidden"); setText(play2,t({en:"Reset",ur:"ری سیٹ"}));
+    play2.onclick=function(){ voteLeader=null; voteQs={}; $("statechip").className="statechip"; render(); };
+    return;
+  }
+  setText($("subtitle"), t({en:"Simple constitution fact cards.",ur:"آئین کے سادہ حقائق۔"}));
+  setText($("panelHead"), t({en:"Fact cards",ur:"حقائق کارڈز"}));
+  var f=FACTS[factIdx];
+  $("scene").innerHTML="<div style='text-align:center;padding:24px'><div style='font-size:64px'>"+f.em+"</div></div>";
+  FACTS.forEach(function(_,i){
+    var b=document.createElement("button"); b.type="button"; b.className="schip";
+    b.setAttribute("aria-pressed", factIdx===i?"true":"false");
+    setText(b, String(i+1)); b.onclick=function(){ factIdx=i; render(); }; chips.appendChild(b);
+  });
+  setText($("statechip"), t({en:"Fact "+(factIdx+1),ur:"حقیقت "+(factIdx+1)}));
+  setText($("lead"), t({en:f.en,ur:f.ur}));
+  setText($("detail"), t(f.d));
+  setText($("trade"), t({en:"Pakistan's constitution is the highest law.",ur:"پاکستان کا آئین سب سے اونچا قانون ہے۔"}));
+  setText($("whyText"), t({en:"Knowing basic rules helps young citizens.",ur:"بنیادی قواعد جاننا نوجوان شہریوں کی مدد کرتا ہے۔"}));
+  setText(play, t({en:"Next fact",ur:"اگلی حقیقت"}));
+  play.onclick=function(){ factIdx=(factIdx+1)%FACTS.length; render(); };
+}
+
+applyLang();
+})();
+</script>
+</body>
+</html>

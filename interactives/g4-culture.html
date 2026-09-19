@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Culture — ثقافت | AI4Kids Grade 4 Social Studies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --board:#eef0f5; --board-deep:#dde1ea; --accent:#1d4c85; --accent2:#c9702e;
+  --ok:#2e7d4f; --no:#c4453a; --ink:#1f2933; --ink-soft:#4a5661; --paper:#fdfaf3;
+  --line:#ded5c4; --bin-a:#2f6fb5; --bin-b:#c9702e; --gold:#e8b23d;
+  --fs-cap:clamp(14px, 3.8vw, 16px); --fs-xs:clamp(16px, 4.2vw, 18px);
+  --fs-sm:clamp(18px, 4.8vw, 20px); --fs-md:clamp(19px, 5.2vw, 22px);
+  --fs-lg:clamp(22px, 6vw, 26px); --fs-xl:clamp(30px, 8vw, 38px); --lh:1.55;
+}
+body.urdu{
+  --fs-cap:clamp(17px, 4.4vw, 18px); --fs-xs:clamp(18px, 4.7vw, 20px);
+  --fs-sm:clamp(20px, 5.2vw, 22px); --fs-md:clamp(21px, 5.6vw, 24px);
+  --fs-lg:clamp(24px, 6.4vw, 28px); --fs-xl:clamp(28px, 7.4vw, 34px); --lh:2.05;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;font-size:var(--fs-sm);line-height:1.55;padding:0 0 40px}
+body.urdu{font-family:"Noto Nastaliq Urdu","Baloo Bhaijaan 2",serif;line-height:var(--lh)}
+.wrap{max-width:560px;margin:0 auto;padding:0 14px}
+.bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px;flex-wrap:wrap}
+.brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+.chip{border:2px solid var(--ink);background:var(--paper);color:var(--ink);border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;font-size:var(--fs-xs);cursor:pointer;min-height:44px}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.chip:focus-visible,button:focus-visible{outline:3px solid var(--accent2);outline-offset:2px}
+h1{font-size:var(--fs-xl);line-height:1.25;font-weight:800;margin:8px 0 4px}
+body.urdu h1{line-height:1.9}
+.sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+.tabs{display:flex;gap:7px;margin:0 0 14px;flex-wrap:wrap}
+.tabs button{flex:1;min-width:88px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);border-radius:14px;padding:9px 6px;font:inherit;font-weight:800;font-size:var(--fs-cap);cursor:pointer;min-height:54px}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.scene{position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);background:linear-gradient(180deg,var(--board) 0%,var(--board-deep) 100%);min-height:200px;padding:14px}
+.play{width:100%;margin-top:12px;border:3px solid var(--ink);border-radius:18px;background:var(--ink);color:var(--paper);font:inherit;font-weight:800;font-size:var(--fs-md);cursor:pointer;min-height:60px}
+.play:active{transform:scale(.98)}
+.play.alt{background:var(--paper);color:var(--ink)}
+.play.go{background:var(--ok);border-color:var(--ok)}
+.play.hidden,.hidden{display:none !important}
+.readout{margin-top:12px;background:var(--paper);border:3px solid var(--ink);border-radius:18px;padding:16px 18px}
+.statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;padding:4px 14px;font-size:var(--fs-cap);font-weight:700;margin-bottom:10px}
+.statechip.ok{background:var(--ok)}.statechip.no{background:var(--no)}
+.lead{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.4}
+body.urdu .lead{line-height:1.95}
+.detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+.trade{margin-top:14px;border:2px dashed var(--accent2);background:#fbf1e8;border-radius:14px;padding:12px 14px;font-size:var(--fs-xs);font-weight:700;color:#8a4a12;line-height:1.6}
+.why-note{margin:12px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;border-left:3px solid var(--accent);padding-left:11px}
+body.urdu .why-note{border-left:0;border-right:3px solid var(--accent);padding-left:0;padding-right:11px;line-height:var(--lh)}
+.why-note b{color:var(--accent);font-weight:800}
+.panel{margin-top:18px}
+.panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.schip{border:2px solid var(--line);background:var(--paper);border-radius:999px;padding:9px 15px;font:inherit;font-size:var(--fs-cap);font-weight:800;color:var(--ink);cursor:pointer;min-height:46px}
+.schip[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+.schip.ok{border-color:var(--ok);background:#e8f2ed}
+.schip.no{border-color:var(--no);background:#fbeae8}
+.lcard{border:3px solid var(--line);border-radius:18px;padding:14px 16px;margin-bottom:12px;background:#fffdf8}
+.lcard .tag{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;padding:3px 12px;font-size:var(--fs-cap);font-weight:800;margin-bottom:8px}
+.lcard.hook .tag{background:var(--accent2)}
+.lcard.misaal .tag{background:var(--ok)}
+.lcard.karo .tag{background:#6b4a8f}
+.lcard p{margin:0;font-size:var(--fs-sm);line-height:1.6}
+body.urdu .lcard p{line-height:var(--lh)}
+.lesson{margin-top:8px}
+.quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+.q{margin-bottom:26px}
+.q > p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+.opt{display:block;width:100%;text-align:left;margin-bottom:10px;border:2px solid var(--line);background:var(--paper);border-radius:12px;padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);min-height:52px}
+body.urdu .opt{text-align:right}
+.opt:hover{border-color:var(--ink)}
+.opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+.opt.wrong{border-color:var(--no);background:#fbeae8}
+.fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none;line-height:1.6}
+.fb.show{display:block}
+.score{margin-top:14px;padding:14px;border:3px solid var(--ink);border-radius:16px;font-weight:800;font-size:var(--fs-md);text-align:center;display:none}
+.score.show{display:block}
+footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);font-size:var(--fs-xs);color:var(--ink-soft)}
+.sort-wrap{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.bin{border:2.5px solid var(--ink);border-radius:14px;padding:10px 8px;min-height:100px;background:rgba(253,250,243,.9);text-align:center}
+.bin h3{margin:0 0 8px;font-size:var(--fs-cap);font-weight:800}
+.bin.a{border-color:var(--bin-a);background:rgba(232,240,250,.92)}
+.bin.b{border-color:var(--bin-b);background:rgba(250,238,220,.92)}
+.bin .drop{min-height:50px;display:flex;flex-wrap:wrap;gap:4px;justify-content:center}
+.item{background:#fff;border:2.5px solid var(--ink);border-radius:14px;padding:8px 10px;text-align:center;cursor:pointer;font-weight:800;font-size:var(--fs-cap);user-select:none;min-width:70px}
+.item.sel{border-color:var(--accent);background:#e8eef8;box-shadow:0 0 0 3px rgba(29,76,133,.2)}
+.item.ok{border-color:var(--ok);background:#e8f2ed}
+.item.no{border-color:var(--no);background:#fbeae8}
+.bank{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:8px 0}
+.card-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tcard{border:3px solid var(--line);border-radius:16px;padding:12px 10px;text-align:center;cursor:pointer;background:#fffdf8}
+.tcard.on{border-color:var(--accent);background:#e8eef8}
+.tcard .em{font-size:36px;display:block;margin-bottom:4px}
+.tcard b{display:block;font-size:var(--fs-sm);font-weight:800}
+.tcard span{display:block;font-size:var(--fs-cap);color:var(--ink-soft);margin-top:4px;font-weight:700}
+.choice{display:flex;flex-direction:column;gap:8px}
+.choice button{border:2.5px solid var(--ink);background:var(--paper);border-radius:14px;padding:12px 14px;font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;text-align:left;min-height:52px;display:flex;align-items:center;gap:10px}
+body.urdu .choice button{text-align:right}
+.choice button.right{border-color:var(--ok);background:#e8f2ed}
+.choice button.wrong{border-color:var(--no);background:#fbeae8}
+.slider-row{display:flex;align-items:center;gap:10px;margin:10px 0;flex-wrap:wrap}
+.slider-row input[type=range]{flex:1;min-width:140px;height:36px;accent-color:var(--accent)}
+.compass{width:160px;height:160px;margin:10px auto;border-radius:50%;border:4px solid var(--ink);background:#fff;position:relative;display:flex;align-items:center;justify-content:center}
+.compass .n,.compass .s,.compass .e,.compass .w{position:absolute;font-weight:800;font-size:var(--fs-md);cursor:pointer;padding:4px 8px;border-radius:8px}
+.compass .n{top:6px;left:50%;transform:translateX(-50%)}.compass .s{bottom:6px;left:50%;transform:translateX(-50%)}
+.compass .e{right:8px;top:50%;transform:translateY(-50%)}.compass .w{left:8px;top:50%;transform:translateY(-50%)}
+.compass .n.on,.compass .s.on,.compass .e.on,.compass .w.on{background:var(--accent);color:#fff}
+.compass .needle{width:4px;height:50px;background:var(--no);border-radius:2px;transform-origin:bottom center;transition:transform .3s}
+.piggy{text-align:center;padding:16px}
+.piggy .jar{font-size:64px;line-height:1}
+.piggy .coins{font-size:var(--fs-lg);font-weight:800;margin:8px 0}
+.check-list{display:flex;flex-direction:column;gap:8px}
+.check-list label{display:flex;align-items:center;gap:10px;border:2px solid var(--line);border-radius:12px;padding:10px 12px;font-weight:800;font-size:var(--fs-xs);cursor:pointer;background:#fff}
+.check-list label.on{border-color:var(--ok);background:#e8f2ed}
+.check-list input{width:22px;height:22px;accent-color:var(--ok)}
+.tl{margin:12px 0}
+.tl-marks{display:flex;justify-content:space-between;font-size:var(--fs-cap);font-weight:800;margin-top:6px}
+@media (min-width:820px){
+  .wrap{max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;grid-template-areas:"bar bar" "head head" "tabs tabs" "left right" "lesson lesson" "quiz quiz" "foot foot";align-items:start}
+  .bar{grid-area:bar}.head{grid-area:head}.tabs{grid-area:tabs}.left{grid-area:left}.right{grid-area:right}
+  .lesson{grid-area:lesson}.quiz{grid-area:quiz;margin-top:34px}footer{grid-area:foot}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition-duration:.01ms !important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar">
+    <span class="brand">AI4Kids · Grade 4 · Social Studies</span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+  <div class="head">
+    <h1 id="title"></h1>
+    <p class="sub" id="subtitle"></p>
+  </div>
+  <div class="tabs" role="group" id="tabs"></div>
+  <div class="left">
+    <div class="scene" id="scene"></div>
+    <div class="readout">
+      <span class="statechip" id="statechip"></span>
+      <p class="lead" id="lead"></p>
+      <p class="detail" id="detail"></p>
+      <p class="trade" id="trade"></p>
+      <p class="why-note"><b id="whyLbl"></b> <span id="whyText"></span></p>
+    </div>
+  </div>
+  <div class="right">
+    <div class="panel">
+      <h2 id="panelHead"></h2>
+      <div class="chips" id="chips" role="group"></div>
+      <div id="controls"></div>
+      <button type="button" class="play" id="playBtn"></button>
+      <button type="button" class="play alt" id="playBtn2" style="margin-top:8px"></button>
+    </div>
+  </div>
+  <div class="lesson" id="lessonBox"></div>
+  <div class="quiz">
+    <h2 id="quizHead" style="font-size:var(--fs-lg);font-weight:800;margin:0 0 18px"></h2>
+    <div id="quizBox"></div>
+    <div class="score" id="scoreBox"></div>
+  </div>
+  <footer><p id="foot"></p></footer>
+</div>
+<script>
+(function(){
+"use strict";
+var lang="en", tab="main";
+function $(id){ return document.getElementById(id); }
+function t(o){ return (o && typeof o==="object") ? (o[lang]||o.en||"") : (o||""); }
+function setText(el, s){
+  if(!el) return;
+  el.textContent = s;
+  if(lang==="ur"){ el.setAttribute("dir","rtl"); }
+  else { el.setAttribute("dir","ltr"); }
+}
+function buildTabs(list){
+  var tabs=$("tabs"); tabs.innerHTML="";
+  list.forEach(function(x){
+    var b=document.createElement("button"); b.type="button";
+    b.setAttribute("aria-pressed", tab===x[0]?"true":"false");
+    setText(b, t(x[1]));
+    b.addEventListener("click", function(){ if(tab===x[0]) return; tab=x[0]; if(typeof onTab==="function") onTab(); render(); });
+    tabs.appendChild(b);
+  });
+}
+function buildLesson(){
+  var box=$("lessonBox"); if(!box) return; box.innerHTML="";
+  var cards=[{cls:"hook", tag:{en:"HOOK",ur:"ہک"}, body:LESSON.hook},
+   {cls:"samjhao", tag:{en:"SAMJHAO",ur:"سمجھاؤ"}, body:LESSON.samjhao},
+   {cls:"misaal", tag:{en:"MISAAL",ur:"مثال"}, body:LESSON.misaal}];
+  if(LESSON.karo) cards.push({cls:"karo", tag:{en:"KARO",ur:"کرو"}, body:LESSON.karo});
+  cards.forEach(function(c){
+    var d=document.createElement("div"); d.className="lcard "+c.cls;
+    var tag=document.createElement("span"); tag.className="tag"; setText(tag,t(c.tag));
+    var p=document.createElement("p"); setText(p,t(c.body));
+    d.appendChild(tag); d.appendChild(p); box.appendChild(d);
+  });
+}
+var quizScore=0, quizDone=0;
+function buildQuiz(){
+  var box=$("quizBox"); box.innerHTML=""; quizScore=0; quizDone=0;
+  var sb=$("scoreBox"); sb.classList.remove("show"); sb.textContent="";
+  setText($("quizHead"), t({en:"Check yourself", ur:"اپنا امتحان لیں"}));
+  QUIZ.forEach(function(item){
+    var wrap=document.createElement("div"); wrap.className="q";
+    var q=document.createElement("p"); setText(q, t(item.q)); wrap.appendChild(q);
+    var fb=document.createElement("p"); fb.className="fb";
+    ["a","b","c","d"].forEach(function(k, oi){
+      var b=document.createElement("button"); b.type="button"; b.className="opt";
+      b.setAttribute("dir", lang==="ur"?"rtl":"ltr");
+      b.textContent = String.fromCharCode(65+oi)+". "+t(item[k]);
+      b.addEventListener("click", function(){
+        if(wrap.getAttribute("data-done")==="1") return;
+        wrap.setAttribute("data-done","1"); quizDone++;
+        if(item.correct===k) quizScore++;
+        ["a","b","c","d"].forEach(function(kk, xi){
+          var btn=wrap.querySelectorAll(".opt")[xi];
+          if(kk===item.correct) btn.classList.add("right");
+          else if(kk===k) btn.classList.add("wrong");
+        });
+        setText(fb, t(item.explanation)); fb.classList.add("show");
+        if(quizDone===QUIZ.length){
+          sb.classList.add("show");
+          setText(sb, t({en:"Score: "+quizScore+" / "+QUIZ.length, ur:"سکور: "+quizScore+" / "+QUIZ.length}));
+        }
+      });
+      wrap.appendChild(b);
+    });
+    wrap.appendChild(fb); box.appendChild(wrap);
+  });
+}
+function applyLang(){
+  document.body.classList.toggle("urdu", lang==="ur");
+  document.documentElement.lang = (lang==="ur") ? "ur" : "en";
+  var lb=$("langBtn");
+  lb.textContent = (lang==="en") ? "اردو" : "English";
+  lb.setAttribute("aria-pressed", lang==="ur" ? "true":"false");
+  setText($("foot"), t({en:"AI4Kids — Islamabad's bilingual AI and coding school. Offline · Grade 4 Social Studies. WhatsApp 0337 1468899",
+    ur:"اے آئی فور کڈز — اسلام آباد کا دو زبانوں والا سکول۔ آف لائن · گریڈ 4 سماجی علوم۔ واٹس ایپ 0337 1468899"}));
+  setText($("whyLbl"), t({en:"Notice:",ur:"غور کریں:"}));
+  buildLesson(); buildQuiz(); render();
+}
+$("langBtn").addEventListener("click", function(){ lang=(lang==="en")?"ur":"en"; applyLang(); });
+$("speakBtn").addEventListener("click", function(){
+  try{
+    if(!("speechSynthesis" in window)) return;
+    window.speechSynthesis.cancel();
+    var lead=$("lead"); var text = (lead && lead.textContent) || ($("title")&&$("title").textContent) || "";
+    var u=new SpeechSynthesisUtterance(text);
+    u.lang=(lang==="ur")?"ur-PK":"en-US"; u.rate=0.92;
+    window.speechSynthesis.speak(u);
+  }catch(e){}
+});
+function onTab(){}
+
+var LESSON={
+  hook:{en:"Punjabi, Pashto, Sindhi, Balochi, Urdu — so many languages in one country! This diversity is Pakistan's beauty.",
+        ur:"پنجابی، پشتو، سندھی، بلوچی، اردو — ایک ملک میں اتنی زبانیں! یہ تنوع پاکستان کی خوبصورتی ہے۔"},
+  samjhao:{en:"Culture = people's ways: language, food, dress, festivals, and traditions. A nation = people linked to one country. In Pakistan many ethnic groups and faiths live together. Interfaith harmony means respecting each other. Communication (talking): speaking, writing, phone, TV — has both benefits and downsides.",
+           ur:"ثقافت = لوگوں کے طریقے: زبان، کھانا، لباس، تہوار، اور روایات۔ قوم = لوگ جو ایک ملک سے جڑتے ہیں۔ پاکستان میں کئی نسلی گروہ اور مذاہب مل کر رہتے ہیں۔ بین المذاہب ہم آہنگی کا مطلب ایک دوسرے کا احترام۔ بات چیت: بولنا، لکھنا، فون، ٹی وی — فائدے اور نقصان دونوں ہیں۔"},
+  misaal:{en:"Eid, Christmas, Diwali — friends celebrate joy together. At Islamabad melas you see different dresses.",
+          ur:"عید، کرسمس، دیوالی — دوست مل کر خوشی مناتے ہیں۔ اسلام آباد کے میلوں میں الگ لباس نظر آتے ہیں۔"},
+  karo:{en:"Write one festival from your home and one favourite dish. Ask a friend one new thing about their culture.",
+        ur:"اپنے گھر کا ایک تہوار اور ایک پسندیدہ کھانا لکھو۔ دوست سے اس کی ثقافت کی ایک نئی بات پوچھو۔"}
+};
+var QUIZ=[
+  {q:{en:"What is part of culture?",ur:"ثقافت میں کیا آتا ہے؟"},a:{en:"Language, food, festivals",ur:"زبان، کھانا، تہوار"},b:{en:"Only cricket score",ur:"صرف کرکٹ سکور"},c:{en:"Only WiFi password",ur:"صرف وائی فائی"},d:{en:"Only homework",ur:"صرف ہوم ورک"},correct:"a",explanation:{en:"Culture is traditions and lifestyle.",ur:"ثقافت روایات اور طرز زندگی ہے۔"}},
+  {q:{en:"Many languages in Pakistan is called…",ur:"پاکستان میں کئی زبانیں ہونا کیا کہلاتا ہے؟"},a:{en:"Diversity",ur:"تنوع"},b:{en:"Only a problem",ur:"صرف مسئلہ"},c:{en:"Only confusion",ur:"صرف الجھن"},d:{en:"Only an error",ur:"صرف غلطی"},correct:"a",explanation:{en:"Diversity is the country's strength.",ur:"تنوع ملک کی طاقت ہے۔"}},
+  {q:{en:"Respecting another faith is…",ur:"دوسرے مذہب کا احترام؟"},a:{en:"Interfaith harmony",ur:"بین المذاہب ہم آہنگی"},b:{en:"Ignoring them",ur:"نظر انداز کرنا"},c:{en:"Fighting",ur:"لڑائی"},d:{en:"Hiding",ur:"چھپانا"},correct:"a",explanation:{en:"Respect builds peace.",ur:"احترام سے امن بنتا ہے۔"}},
+  {q:{en:"One benefit of TV/phone communication?",ur:"ٹی وی / فون سے بات چیت کا ایک فائدہ؟"},a:{en:"News arrives quickly",ur:"خبر جلدی ملتی ہے"},b:{en:"Always lies",ur:"ہمیشہ جھوٹ"},c:{en:"Never useful",ur:"کبھی کام نہیں"},d:{en:"Only noise",ur:"صرف شور"},correct:"a",explanation:{en:"Fast contact helps — but verify.",ur:"جلدی رابطہ فائدہ ہے — مگر تصدیق کرو۔"}},
+  {q:{en:"Eid is an example of…",ur:"عید کس چیز کی مثال ہے؟"},a:{en:"Festival / culture",ur:"تہوار / ثقافت"},b:{en:"Math formula",ur:"ریاضی فارمولا"},c:{en:"Robot part",ur:"روبوٹ حصہ"},d:{en:"Map scale",ur:"نقشہ پیمانہ"},correct:"a",explanation:{en:"A festival is part of culture.",ur:"تہوار ثقافت کا حصہ ہے۔"}}
+];
+var pickLang=0, matchSel=null, matchPlaced={}, matchDone=false, commSide="pro";
+var LANGS=[
+  {em:"🗣️",en:"Urdu",ur:"اردو",note:{en:"National language — shared across Pakistan.",ur:"قومی زبان — پورے پاکستان میں۔"}},
+  {em:"🎵",en:"Punjabi",ur:"پنجابی",note:{en:"Spoken widely in Punjab — rich songs & folk tales.",ur:"پنجاب میں وسیع — گانے اور لوک کہانیاں۔"}},
+  {em:"🏔️",en:"Pashto",ur:"پشتو",note:{en:"Spoken in Khyber Pakhtunkhwa & nearby areas.",ur:"خیبر پختونخوا اور قریبی علاقوں میں۔"}},
+  {em:"🌊",en:"Sindhi",ur:"سندھی",note:{en:"Language of Sindh — poetry and Ajrak culture.",ur:"سندھ کی زبان — شاعری اور اجرک۔"}},
+  {em:"🏜️",en:"Balochi",ur:"بلوچی",note:{en:"Spoken in Balochistan — strong traditions.",ur:"بلوچستان میں — مضبوط روایات۔"}}
+];
+var FESTS=[
+  {em:"🌙",en:"Eid",ur:"عید",note:{en:"Joy, sweets, family visits, sharing with neighbours.",ur:"خوشی، میٹھائیاں، خاندانی ملاقات، پڑوسیوں سے بانٹنا۔"}},
+  {em:"🎄",en:"Christmas",ur:"کرسمس",note:{en:"Christian friends celebrate with joy and kindness.",ur:"عیسائی دوست خوشی اور مہربانی سے مناتے ہیں۔"}},
+  {em:"🪔",en:"Diwali",ur:"دیوالی",note:{en:"Lights and sweets — Hindu festival of light.",ur:"روشنیاں اور میٹھائیاں — ہندو تہوار۔"}},
+  {em:"🇵🇰",en:"Independence Day",ur:"یوم آزادی",note:{en:"14 August — flag, songs, pride in Pakistan.",ur:"14 اگست — پرچم، گانے، پاکستان پر فخر۔"}}
+];
+var MATCH=[
+  {id:"ajrak",em:"🧣",en:"Ajrak",ur:"اجرک",bin:"sindh"},
+  {id:"chapli",em:"🫓",en:"Chapli kebab",ur:"چپلی کباب",bin:"kpk"},
+  {id:"saag",em:"🥬",en:"Saag & roti",ur:"ساگ روٹی",bin:"punjab"},
+  {id:"sajji",em:"🍖",en:"Sajji",ur:"سجی",bin:"baloch"}
+];
+var BINS={sindh:{en:"Sindh",ur:"سندھ"},kpk:{en:"KPK",ur:"خیبر پختونخوا"},punjab:{en:"Punjab",ur:"پنجاب"},baloch:{en:"Balochistan",ur:"بلوچستان"}};
+function render(){
+  buildTabs([["lang",{en:"Languages & festivals",ur:"زبانیں و تہوار"}],["match",{en:"Diversity match",ur:"تنوع جوڑو"}],["comm",{en:"Communication",ur:"بات چیت"}]]);
+  if(!tab||tab==="main") tab="lang";
+  var chips=$("chips"); chips.innerHTML=""; $("controls").innerHTML="";
+  var play=$("playBtn"), play2=$("playBtn2");
+  play.className="play"; play2.className="play alt hidden";
+  setText($("title"), t({en:"Culture",ur:"ثقافت"}));
+  if(tab==="lang"){
+    setText($("subtitle"), t({en:"Tap a language or festival to learn.",ur:"زبان یا تہوار ٹیپ کرو۔"}));
+    setText($("panelHead"), t({en:"Explore Pakistan",ur:"پاکستان دیکھو"}));
+    var all=LANGS.concat(FESTS);
+    var cur=all[pickLang];
+    $("scene").innerHTML="<div class='card-grid' id='cg'></div>";
+    var cg=$("cg");
+    all.forEach(function(x,i){
+      var d=document.createElement("div"); d.className="tcard"+(pickLang===i?" on":"");
+      d.innerHTML="<span class='em'>"+x.em+"</span>";
+      var b=document.createElement("b"); setText(b,t({en:x.en,ur:x.ur})); d.appendChild(b);
+      d.onclick=function(){ pickLang=i; render(); };
+      cg.appendChild(d);
+    });
+    setText($("statechip"), t({en:cur.en,ur:cur.ur}));
+    setText($("lead"), t({en:cur.en,ur:cur.ur}));
+    setText($("detail"), t(cur.note));
+    setText($("trade"), t({en:"Islamabad tip: melas show many cultures side by side!",ur:"اسلام آباد ٹپ: میلوں میں کئی ثقافتیں اکٹھی نظر آتی ہیں!"}));
+    setText($("whyText"), t({en:"Diversity makes Pakistan colourful and strong.",ur:"تنوع پاکستان کو رنگین اور مضبوط بناتا ہے۔"}));
+    play.classList.add("hidden");
+    return;
+  }
+  if(tab==="match"){
+    setText($("subtitle"), t({en:"Match the cultural item to its region.",ur:"ثقافتی چیز کو علاقے سے جوڑو۔"}));
+    setText($("panelHead"), t({en:"Tap item, then region",ur:"چیز پھر علاقہ"}));
+    var sc=$("scene"); sc.innerHTML="";
+    var wrap=document.createElement("div"); wrap.className="sort-wrap";
+    Object.keys(BINS).forEach(function(k){
+      var bin=document.createElement("div"); bin.className="bin a"; bin.style.minHeight="70px";
+      bin.innerHTML="<h3></h3><div class='drop' id='drop_"+k+"'></div>";
+      setText(bin.querySelector("h3"), t(BINS[k]));
+      bin.onclick=function(){
+        if(!matchSel||matchDone) return;
+        matchPlaced[matchSel]=k; matchSel=null; render();
+      };
+      wrap.appendChild(bin);
+    });
+    sc.appendChild(wrap);
+    var bank=document.createElement("div"); bank.className="bank";
+    MATCH.forEach(function(it){
+      if(matchPlaced[it.id]) {
+        var drop=$("drop_"+matchPlaced[it.id]);
+        if(drop){ var el=document.createElement("div"); el.className="item "+(matchDone?(matchPlaced[it.id]===it.bin?"ok":"no"):""); el.textContent=it.em; drop.appendChild(el); }
+        return;
+      }
+      var el=document.createElement("div"); el.className="item"+(matchSel===it.id?" sel":"");
+      el.textContent=it.em+" "+t({en:it.en,ur:it.ur});
+      el.onclick=function(){ matchSel=it.id; render(); };
+      bank.appendChild(el);
+    });
+    sc.appendChild(bank);
+    var n=Object.keys(matchPlaced).length;
+    setText($("statechip"), t({en:"Matched "+n+"/4",ur:"جوڑے "+n+"/4"}));
+    setText($("lead"), t({en:"Each province brings special food and crafts.",ur:"ہر صوبہ خاص کھانا اور دستکاری لاتا ہے۔"}));
+    setText($("detail"), t({en:"Ajrak→Sindh, Chapli→KPK, Saag→Punjab, Sajji→Balochistan.",ur:"اجرک→سندھ، چپلی→خیبر، ساگ→پنجاب، سجی→بلوچستان۔"}));
+    setText($("trade"),""); setText($("whyText"), t({en:"Knowing others' culture builds friendship.",ur:"دوسروں کی ثقافت جاننا دوستی بناتا ہے۔"}));
+    setText(play, t({en:"Check match",ur:"جوڑ چیک"}));
+    play.onclick=function(){
+      if(Object.keys(matchPlaced).length<4){ setText($("lead"), t({en:"Match all 4 first!",ur:"پہلے سب جوڑو!"})); return; }
+      matchDone=true; var ok=0; MATCH.forEach(function(it){ if(matchPlaced[it.id]===it.bin) ok++; });
+      $("statechip").className="statechip "+(ok===4?"ok":"no");
+      setText($("statechip"), t({en:ok+"/4 correct",ur:ok+"/4 درست"}));
+      setText($("lead"), ok===4?t({en:"Shabash — diversity star!",ur:"شاباش — تنوع ستارہ!"}):t({en:"Almost — try Reset",ur:"قریب — ری سیٹ"}));
+      render();
+    };
+    play2.classList.remove("hidden"); setText(play2,t({en:"Reset",ur:"ری سیٹ"}));
+    play2.onclick=function(){ matchPlaced={}; matchSel=null; matchDone=false; $("statechip").className="statechip"; render(); };
+    return;
+  }
+  setText($("subtitle"), t({en:"Toggle pros and cons of modern communication.",ur:"جدید بات چیت کے فائدے اور نقصان۔"}));
+  setText($("panelHead"), t({en:"Pros / Cons",ur:"فائدے / نقصان"}));
+  $("scene").innerHTML="<div style='text-align:center;font-size:64px;padding:20px'>📱📺☎️</div>";
+  [{id:"pro",en:"Benefits ✓",ur:"فائدے ✓"},{id:"con",en:"Watch outs ✗",ur:"خبردار ✗"}].forEach(function(o){
+    var b=document.createElement("button"); b.type="button"; b.className="schip";
+    b.setAttribute("aria-pressed", commSide===o.id?"true":"false");
+    setText(b,t(o)); b.onclick=function(){ commSide=o.id; render(); }; chips.appendChild(b);
+  });
+  if(commSide==="pro"){
+    setText($("statechip"), t({en:"Benefits",ur:"فائدے"}));
+    setText($("lead"), t({en:"News and family contact arrive quickly.",ur:"خبر اور خاندانی رابطہ جلدی ملتا ہے۔"}));
+    setText($("detail"), t({en:"Phone and TV help us learn and stay close to relatives far away.",ur:"فون اور ٹی وی سیکھنے اور دور رشتہ داروں سے قریب رہنے میں مدد دیتے ہیں۔"}));
+  } else {
+    setText($("statechip"), t({en:"Watch outs",ur:"خبردار"}));
+    setText($("lead"), t({en:"Too much screen time & fake news hurt us.",ur:"زیادہ اسکرین اور جھوٹی خبر نقصان دیتی ہیں۔"}));
+    setText($("detail"), t({en:"Always verify news. Take breaks. Be kind in messages.",ur:"ہمیشہ خبر چیک کرو۔ وقفہ لو۔ پیغامات میں مہربان رہو۔"}));
+  }
+  setText($("trade"), t({en:"Smart tip: use tech, don't let tech use you!",ur:"سمارٹ ٹپ: ٹیک استعمال کرو، ٹیک تمہیں استعمال نہ کرے!"}));
+  setText($("whyText"), t({en:"Communication is powerful — use it with civic sense.",ur:"بات چیت طاقتور ہے — شہری حس سے استعمال کرو۔"}));
+  play.classList.add("hidden");
+}
+
+applyLang();
+})();
+</script>
+</body>
+</html>

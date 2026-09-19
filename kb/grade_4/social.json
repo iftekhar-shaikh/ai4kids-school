@@ -1,0 +1,349 @@
+{
+  "subject": "social",
+  "name": "Social Studies",
+  "grade": 4,
+  "topics": [
+    {
+      "title": "Citizenship",
+      "description": "Citizen, rights, responsibilities, civic sense",
+      "lesson": "## HOOK\nIslamabad ke park mein agar koi litter phenke, to aap kya karenge? Chhote se kaam se shehar clean reh sakta hai!\n\n## SAMJHAO\nCitizen woh shakhs hai jo kisi mulk ka hissa ho. Global citizen duniya ke logon ka khayal rakhta hai. Digital citizen internet par bhi tameez aur safety rakhta hai.\n\nRights (huqooq) jaise taleem aur khayal-rakhna — aur responsibilities (zimmedariyan) jaise qanoon manna, dusron ka ehtram, aur gandagi na phenkna.\n\nCivic sense: line mein khade hona, zor se shor na karna, aur madad karna.\n\n## MISAAL\nSchool bus mein seat dena, traffic light wait karna, aur WhatsApp pe jhooti khabar forward na karna — yeh sab achhe citizen ke kaam hain.\n\n## KARO\nGhar mein 3 rights aur 3 responsibilities ki list banao. Ek digital safety rule likho.\n\n## SAWAAL\n1. Citizen ka matlab kya hai?\n2. Ek responsibility ka misaal do.\n3. Digital citizen kya karta hai?",
+      "quiz": {
+        "title": "Quiz",
+        "questions": [
+          {
+            "q": "Citizen kis cheez ka hissa hota hai?",
+            "a": "Mulk / community",
+            "b": "Sirf school",
+            "c": "Sirf park",
+            "d": "Sirf mobile",
+            "correct": "a",
+            "explanation": "Citizen mulk aur community ka hissa hota hai."
+          },
+          {
+            "q": "Litter na phenkna kis tarah ki baat hai?",
+            "a": "Responsibility",
+            "b": "Sirf game",
+            "c": "Sirf fashion",
+            "d": "Sirf holiday",
+            "correct": "a",
+            "explanation": "Saaf rehna zimmedari hai."
+          },
+          {
+            "q": "Digital citizen internet par kya rakhta hai?",
+            "a": "Tameez aur safety",
+            "b": "Sirf games",
+            "c": "Sirf photos",
+            "d": "Sirf jokes",
+            "correct": "a",
+            "explanation": "Digital citizen safe aur respectful rehta hai."
+          },
+          {
+            "q": "Line mein khade hona kis cheez ki misaal hai?",
+            "a": "Civic sense",
+            "b": "Math sum",
+            "c": "Drone flight",
+            "d": "Cooking",
+            "correct": "a",
+            "explanation": "Line manners civic sense hain."
+          },
+          {
+            "q": "Jhooti khabar forward karna?",
+            "a": "Galat — check karo",
+            "b": "Hamesha theek",
+            "c": "Sirf raat ko theek",
+            "d": "Teacher ko mat batao",
+            "correct": "a",
+            "explanation": "Pehle verify karo, phir share."
+          }
+        ]
+      },
+      "interactive_file": "interactives/g4-citizenship.html",
+      "interactive_label": "Khelo - Citizenship"
+    },
+    {
+      "title": "Culture",
+      "description": "Pakistan cultures, languages, festivals, diversity",
+      "lesson": "## HOOK\nPunjabi, Pashto, Sindhi, Balochi, Urdu — itni zubanein ek mulk mein! Yeh diversity Pakistan ki khubsurati hai.\n\n## SAMJHAO\nCulture = logon ke tarike: zabaan, khana, libaas, festivals, aur riwayat. Nation = log jo ek mulk se judte hain.\n\nPakistan mein kai ethnic groups aur mazahib mil kar rehte hain. Interfaith harmony matlab ek dusre ka ehtram.\n\nCommunication (baat-cheet): bolna, likhna, phone, TV — fayde aur nuqsan dono hain.\n\n## MISAAL\nEid, Christmas, Diwali — dost mil kar khushi manate hain. Islamabad ke Melas mein alag dresses dikhte hain.\n\n## KARO\nApne ghar ka ek festival aur ek favourite dish likho. Ek dost ki culture se ek nayi baat poochho.\n\n## SAWAAL\n1. Culture mein kya shamil hota hai?\n2. Diversity ka fayda kya hai?\n3. Interfaith harmony kya hai?",
+      "quiz": {
+        "title": "Quiz",
+        "questions": [
+          {
+            "q": "Culture mein kya aata hai?",
+            "a": "Zabaan, khana, festivals",
+            "b": "Sirf cricket score",
+            "c": "Sirf WiFi password",
+            "d": "Sirf homework",
+            "correct": "a",
+            "explanation": "Culture riwayat aur lifestyle hai."
+          },
+          {
+            "q": "Pakistan mein kai zubanein hona kya kehlata hai?",
+            "a": "Diversity",
+            "b": "Problem only",
+            "c": "Sirf confusion",
+            "d": "Sirf error",
+            "correct": "a",
+            "explanation": "Diversity mulk ki taqat hai."
+          },
+          {
+            "q": "Dusre mazhab ka ehtram?",
+            "a": "Interfaith harmony",
+            "b": "Ignore karna",
+            "c": "Ladai",
+            "d": "Chhupaana",
+            "correct": "a",
+            "explanation": "Ehtram se aman banta hai."
+          },
+          {
+            "q": "TV / phone se communication ka ek fayda?",
+            "a": "Khabar jaldi milti hai",
+            "b": "Hamesha jhoot",
+            "c": "Kabhi kaam nahi",
+            "d": "Sirf noise",
+            "correct": "a",
+            "explanation": "Jaldi rabta fayda hai — lekin verify karo."
+          },
+          {
+            "q": "Eid kis cheez ki misaal hai?",
+            "a": "Festival / culture",
+            "b": "Math formula",
+            "c": "Robot part",
+            "d": "Map scale",
+            "correct": "a",
+            "explanation": "Festival culture ka hissa hai."
+          }
+        ]
+      },
+      "interactive_file": "interactives/g4-culture.html",
+      "interactive_label": "Khelo - Culture"
+    },
+    {
+      "title": "State aur Government",
+      "description": "State vs government, elections, good leader",
+      "lesson": "## HOOK\nSchool ka principal badal sakta hai, lekin school ki building aur rules rehte hain — thoda aisa hi state aur government ka farq hai!\n\n## SAMJHAO\nState = mulk (zameen, log, qanoon). Government = woh log / nizam jo mulk chalate hain (thori der ke liye chuney jate hain).\n\nConstitution = bunyadi qanoon ki kitab. General Elections = log vote dekar leaders chunte hain.\n\nAchha leader: sachcha, madadgar, sunne wala, aur sab ke liye insaaf.\n\n## MISAAL\nClass monitor chunna — vote, phir zimmedari. Wahi chhoti si election ki practice.\n\n## KARO\n3 qualities of a good leader likho. Ghar walon se poochho: vote kya hota hai?\n\n## SAWAAL\n1. State aur government mein farq?\n2. Constitution kya hai?\n3. Achhe leader ki ek quality?",
+      "quiz": {
+        "title": "Quiz",
+        "questions": [
+          {
+            "q": "State zyada qareeb kis se hai?",
+            "a": "Mulk (zameen + log + qanoon)",
+            "b": "Sirf ek teacher",
+            "c": "Sirf ek shop",
+            "d": "Sirf ek app",
+            "correct": "a",
+            "explanation": "State mulk ka nizam hai."
+          },
+          {
+            "q": "Government kya karti hai?",
+            "a": "Mulk chalati hai",
+            "b": "Sirf cricket khelti hai",
+            "c": "Sirf cartoons",
+            "d": "Sirf cooking",
+            "correct": "a",
+            "explanation": "Government rules aur services chalati hai."
+          },
+          {
+            "q": "Vote dena kis process ka hissa hai?",
+            "a": "Election",
+            "b": "Picnic",
+            "c": "Homework copy",
+            "d": "Drone race",
+            "correct": "a",
+            "explanation": "Election mein log vote dete hain."
+          },
+          {
+            "q": "Constitution kya hai?",
+            "a": "Bunyadi qanoon",
+            "b": "Ek kahani kitab",
+            "c": "Ek game",
+            "d": "Ek map",
+            "correct": "a",
+            "explanation": "Constitution mulk ke bunyadi rules hain."
+          },
+          {
+            "q": "Achhe leader mein kya hona chahiye?",
+            "a": "Sachchai aur insaaf",
+            "b": "Sirf shor",
+            "c": "Sirf anger",
+            "d": "Sirf laziness",
+            "correct": "a",
+            "explanation": "Achha leader sunta aur insaaf karta hai."
+          }
+        ]
+      },
+      "interactive_file": "interactives/g4-state-government.html",
+      "interactive_label": "Khelo - State aur Government"
+    },
+    {
+      "title": "History",
+      "description": "Early people, Indus Valley, old stories of land",
+      "lesson": "## HOOK\nPakistan ki zameen bohot purani hai — yahan Indus Valley jaisi qadeem civilization thi!\n\n## SAMJHAO\nHistory = guzray waqt ki kahani (sources: books, ruins, coins, stories).\n\nAncient civilizations: Indus Valley (Harappa, Mohenjo-daro) — planned streets, wells, seals. Mehrgarh jaisi purani bastiyan bhi is ilaqe se judti hain.\n\nHum seekhte hain ke log kaise rehte they, kya banate they, aur kyun tabdeeli aayi.\n\n## MISAAL\nMuseum mein purani mitti ke bartan dekhna — woh bhi history ka source hai.\n\n## KARO\nEk timeline banao: pehle → phir → aaj. Indus Valley ki 2 baatein yaad karo (streets, wells).\n\n## SAWAAL\n1. History kya hai?\n2. Indus Valley ki ek khas baat?\n3. History ka ek source?",
+      "quiz": {
+        "title": "Quiz",
+        "questions": [
+          {
+            "q": "History kis cheez ki kahani hai?",
+            "a": "Guzray waqt",
+            "b": "Sirf future games",
+            "c": "Sirf weather",
+            "d": "Sirf WiFi",
+            "correct": "a",
+            "explanation": "History past ko samjhati hai."
+          },
+          {
+            "q": "Harappa / Mohenjo-daro kis civilization se?",
+            "a": "Indus Valley",
+            "b": "Sirf Mars",
+            "c": "Sirf Amazon forest",
+            "d": "Sirf Arctic",
+            "correct": "a",
+            "explanation": "Yeh Indus Valley sites hain."
+          },
+          {
+            "q": "Indus Valley mein kya famous tha?",
+            "a": "Planned streets aur wells",
+            "b": "Sirf airplanes",
+            "c": "Sirf smartphones",
+            "d": "Sirf rockets",
+            "correct": "a",
+            "explanation": "Planned cities unki pehchan thin."
+          },
+          {
+            "q": "Purani coin / ruin history ka kya hai?",
+            "a": "Source",
+            "b": "Joke",
+            "c": "Homework error",
+            "d": "Map legend only",
+            "correct": "a",
+            "explanation": "Objects past ke evidence hote hain."
+          },
+          {
+            "q": "Mehrgarh kis se juda hai?",
+            "a": "Purani basti / early life",
+            "b": "Sirf cricket stadium",
+            "c": "Sirf mall",
+            "d": "Sirf airport",
+            "correct": "a",
+            "explanation": "Mehrgarh early settlement se juda hai."
+          }
+        ]
+      },
+      "interactive_file": "interactives/g4-history.html",
+      "interactive_label": "Khelo - History"
+    },
+    {
+      "title": "Geography",
+      "description": "Maps, directions, Pakistan land and climate basics",
+      "lesson": "## HOOK\nBina map ke nayi gali mein kho jana asaan hai — map humein rasta dikhata hai!\n\n## SAMJHAO\nMap essentials (BOLTS): Border, Orientation (north), Legend, Title, Scale.\n\nDirections: North South East West. Globe zameen ka model hai.\n\nPakistan: mountains, plains, desert, coast — alag ilaqe. Weather short-term; climate long-term pattern. Population = kitne log rehte hain.\n\n## MISAAL\nIslamabad se Murree — map par north/east check karo. School map par class rooms dhundo.\n\n## KARO\nApne kamre ka chhota map banao (door, window, table). North mark karo.\n\n## SAWAAL\n1. BOLTS mein L kis liye?\n2. Scale kis kaam aata hai?\n3. Climate aur weather mein farq?",
+      "quiz": {
+        "title": "Quiz",
+        "questions": [
+          {
+            "q": "Map par North dikhana kis se related hai?",
+            "a": "Orientation",
+            "b": "Sirf colour",
+            "c": "Sirf quiz",
+            "d": "Sirf song",
+            "correct": "a",
+            "explanation": "Orientation direction batati hai."
+          },
+          {
+            "q": "Legend map par kya batata hai?",
+            "a": "Symbols ka matlab",
+            "b": "Sirf teacher name",
+            "c": "Sirf score",
+            "d": "Sirf password",
+            "correct": "a",
+            "explanation": "Legend symbols explain karta hai."
+          },
+          {
+            "q": "Scale kis liye hota hai?",
+            "a": "Asli doori andaza",
+            "b": "Sirf drawing fancy",
+            "c": "Sirf erase",
+            "d": "Sirf zoom joke",
+            "correct": "a",
+            "explanation": "Scale real distance batata hai."
+          },
+          {
+            "q": "Pakistan mein desert ki misaal?",
+            "a": "Thar (jaise desert ilaqe)",
+            "b": "Sirf Antarctica",
+            "c": "Sirf Amazon",
+            "d": "Sirf moon",
+            "correct": "a",
+            "explanation": "Pakistan mein desert regions hain."
+          },
+          {
+            "q": "Climate kya hai?",
+            "a": "Lamba weather pattern",
+            "b": "Sirf aaj ki baarish",
+            "c": "Sirf ek cloud",
+            "d": "Sirf AC setting",
+            "correct": "a",
+            "explanation": "Climate long-term pattern hai."
+          }
+        ]
+      },
+      "interactive_file": "interactives/g4-geography.html",
+      "interactive_label": "Khelo - Geography"
+    },
+    {
+      "title": "Economics",
+      "description": "Goods, services, money, needs vs wants, banks",
+      "lesson": "## HOOK\nRoti zaroori hai — naya toy aksar want hota hai. Needs aur wants ka farq samajhna smart money ka pehla qadam!\n\n## SAMJHAO\nGoods = cheezein (kitab, fruit). Services = madad / kaam (doctor, teacher, barber).\n\nMoney se asani se exchange hota hai. Bank paisa mehfuz rakhta hai aur kabhi savings help karta hai.\n\nResources limited hoti hain — is liye choose karna parta hai (scarcity). Trade = dena-lena.\n\n## MISAAL\nKachay bazaron se sabzi (goods); doctor check-up (service). Pocket money save karna bank / gilty piggy bank se shuru.\n\n## KARO\n5 needs aur 5 wants likho. Ek goods aur ek service ki misaal do.\n\n## SAWAAL\n1. Goods aur services mein farq?\n2. Bank ka ek kaam?\n3. Need ki misaal?",
+      "quiz": {
+        "title": "Quiz",
+        "questions": [
+          {
+            "q": "Apple / kitab kis tarah ki cheez hai?",
+            "a": "Good",
+            "b": "Service only",
+            "c": "Map legend",
+            "d": "Election",
+            "correct": "a",
+            "explanation": "Tangible cheez good hoti hai."
+          },
+          {
+            "q": "Doctor ka ilaaj?",
+            "a": "Service",
+            "b": "Good only",
+            "c": "Desert",
+            "d": "Festival",
+            "correct": "a",
+            "explanation": "Service ek kaam / madad hai."
+          },
+          {
+            "q": "Pani / khana zyada tar?",
+            "a": "Need",
+            "b": "Sirf want",
+            "c": "Sirf game",
+            "d": "Sirf fashion",
+            "correct": "a",
+            "explanation": "Zaroori cheezein needs hain."
+          },
+          {
+            "q": "Bank ka ek kaam?",
+            "a": "Paisa mehfuz rakhna",
+            "b": "Sirf kites urana",
+            "c": "Sirf painting",
+            "d": "Sirf skipping",
+            "correct": "a",
+            "explanation": "Banks money safe rakhte hain."
+          },
+          {
+            "q": "Resources kam hon to kya hota hai?",
+            "a": "Choose karna parta hai (scarcity)",
+            "b": "Har cheez free",
+            "c": "Map bigadta hai",
+            "d": "Vote band",
+            "correct": "a",
+            "explanation": "Scarcity choices mangti hai."
+          }
+        ]
+      },
+      "interactive_file": "interactives/g4-economics.html",
+      "interactive_label": "Khelo - Economics"
+    }
+  ]
+}

@@ -591,5 +591,53 @@
       "interactive_file": "interactives/g4-robotic-arm.html",
       "interactive_label": "Khelo - Robotic arm"
     }
+  },
+  {
+    "file": "kb/grade_4/social.json",
+    "match_title": "Citizenship",
+    "add": {
+      "interactive_file": "interactives/g4-citizenship.html",
+      "interactive_label": "Khelo - Citizenship"
+    }
+  },
+  {
+    "file": "kb/grade_4/social.json",
+    "match_title": "Culture",
+    "add": {
+      "interactive_file": "interactives/g4-culture.html",
+      "interactive_label": "Khelo - Culture"
+    }
+  },
+  {
+    "file": "kb/grade_4/social.json",
+    "match_title": "State aur Government",
+    "add": {
+      "interactive_file": "interactives/g4-state-government.html",
+      "interactive_label": "Khelo - State aur Government"
+    }
+  },
+  {
+    "file": "kb/grade_4/social.json",
+    "match_title": "History",
+    "add": {
+      "interactive_file": "interactives/g4-history.html",
+      "interactive_label": "Khelo - History"
+    }
+  },
+  {
+    "file": "kb/grade_4/social.json",
+    "match_title": "Geography",
+    "add": {
+      "interactive_file": "interactives/g4-geography.html",
+      "interactive_label": "Khelo - Geography"
+    }
+  },
+  {
+    "file": "kb/grade_4/social.json",
+    "match_title": "Economics",
+    "add": {
+      "interactive_file": "interactives/g4-economics.html",
+      "interactive_label": "Khelo - Economics"
+    }
   }
 ]

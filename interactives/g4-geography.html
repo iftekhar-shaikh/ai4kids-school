@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Geography — جغرافیہ | AI4Kids Grade 4 Social Studies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --board:#eef0f5; --board-deep:#dde1ea; --accent:#1d4c85; --accent2:#c9702e;
+  --ok:#2e7d4f; --no:#c4453a; --ink:#1f2933; --ink-soft:#4a5661; --paper:#fdfaf3;
+  --line:#ded5c4; --bin-a:#2f6fb5; --bin-b:#c9702e; --gold:#e8b23d;
+  --fs-cap:clamp(14px, 3.8vw, 16px); --fs-xs:clamp(16px, 4.2vw, 18px);
+  --fs-sm:clamp(18px, 4.8vw, 20px); --fs-md:clamp(19px, 5.2vw, 22px);
+  --fs-lg:clamp(22px, 6vw, 26px); --fs-xl:clamp(30px, 8vw, 38px); --lh:1.55;
+}
+body.urdu{
+  --fs-cap:clamp(17px, 4.4vw, 18px); --fs-xs:clamp(18px, 4.7vw, 20px);
+  --fs-sm:clamp(20px, 5.2vw, 22px); --fs-md:clamp(21px, 5.6vw, 24px);
+  --fs-lg:clamp(24px, 6.4vw, 28px); --fs-xl:clamp(28px, 7.4vw, 34px); --lh:2.05;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;font-size:var(--fs-sm);line-height:1.55;padding:0 0 40px}
+body.urdu{font-family:"Noto Nastaliq Urdu","Baloo Bhaijaan 2",serif;line-height:var(--lh)}
+.wrap{max-width:560px;margin:0 auto;padding:0 14px}
+.bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px;flex-wrap:wrap}
+.brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+.chip{border:2px solid var(--ink);background:var(--paper);color:var(--ink);border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;font-size:var(--fs-xs);cursor:pointer;min-height:44px}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.chip:focus-visible,button:focus-visible{outline:3px solid var(--accent2);outline-offset:2px}
+h1{font-size:var(--fs-xl);line-height:1.25;font-weight:800;margin:8px 0 4px}
+body.urdu h1{line-height:1.9}
+.sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+.tabs{display:flex;gap:7px;margin:0 0 14px;flex-wrap:wrap}
+.tabs button{flex:1;min-width:88px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);border-radius:14px;padding:9px 6px;font:inherit;font-weight:800;font-size:var(--fs-cap);cursor:pointer;min-height:54px}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.scene{position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);background:linear-gradient(180deg,var(--board) 0%,var(--board-deep) 100%);min-height:200px;padding:14px}
+.play{width:100%;margin-top:12px;border:3px solid var(--ink);border-radius:18px;background:var(--ink);color:var(--paper);font:inherit;font-weight:800;font-size:var(--fs-md);cursor:pointer;min-height:60px}
+.play:active{transform:scale(.98)}
+.play.alt{background:var(--paper);color:var(--ink)}
+.play.go{background:var(--ok);border-color:var(--ok)}
+.play.hidden,.hidden{display:none !important}
+.readout{margin-top:12px;background:var(--paper);border:3px solid var(--ink);border-radius:18px;padding:16px 18px}
+.statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;padding:4px 14px;font-size:var(--fs-cap);font-weight:700;margin-bottom:10px}
+.statechip.ok{background:var(--ok)}.statechip.no{background:var(--no)}
+.lead{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.4}
+body.urdu .lead{line-height:1.95}
+.detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+.trade{margin-top:14px;border:2px dashed var(--accent2);background:#fbf1e8;border-radius:14px;padding:12px 14px;font-size:var(--fs-xs);font-weight:700;color:#8a4a12;line-height:1.6}
+.why-note{margin:12px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;border-left:3px solid var(--accent);padding-left:11px}
+body.urdu .why-note{border-left:0;border-right:3px solid var(--accent);padding-left:0;padding-right:11px;line-height:var(--lh)}
+.why-note b{color:var(--accent);font-weight:800}
+.panel{margin-top:18px}
+.panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.schip{border:2px solid var(--line);background:var(--paper);border-radius:999px;padding:9px 15px;font:inherit;font-size:var(--fs-cap);font-weight:800;color:var(--ink);cursor:pointer;min-height:46px}
+.schip[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+.schip.ok{border-color:var(--ok);background:#e8f2ed}
+.schip.no{border-color:var(--no);background:#fbeae8}
+.lcard{border:3px solid var(--line);border-radius:18px;padding:14px 16px;margin-bottom:12px;background:#fffdf8}
+.lcard .tag{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;padding:3px 12px;font-size:var(--fs-cap);font-weight:800;margin-bottom:8px}
+.lcard.hook .tag{background:var(--accent2)}
+.lcard.misaal .tag{background:var(--ok)}
+.lcard.karo .tag{background:#6b4a8f}
+.lcard p{margin:0;font-size:var(--fs-sm);line-height:1.6}
+body.urdu .lcard p{line-height:var(--lh)}
+.lesson{margin-top:8px}
+.quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+.q{margin-bottom:26px}
+.q > p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+.opt{display:block;width:100%;text-align:left;margin-bottom:10px;border:2px solid var(--line);background:var(--paper);border-radius:12px;padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);min-height:52px}
+body.urdu .opt{text-align:right}
+.opt:hover{border-color:var(--ink)}
+.opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+.opt.wrong{border-color:var(--no);background:#fbeae8}
+.fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none;line-height:1.6}
+.fb.show{display:block}
+.score{margin-top:14px;padding:14px;border:3px solid var(--ink);border-radius:16px;font-weight:800;font-size:var(--fs-md);text-align:center;display:none}
+.score.show{display:block}
+footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);font-size:var(--fs-xs);color:var(--ink-soft)}
+.sort-wrap{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.bin{border:2.5px solid var(--ink);border-radius:14px;padding:10px 8px;min-height:100px;background:rgba(253,250,243,.9);text-align:center}
+.bin h3{margin:0 0 8px;font-size:var(--fs-cap);font-weight:800}
+.bin.a{border-color:var(--bin-a);background:rgba(232,240,250,.92)}
+.bin.b{border-color:var(--bin-b);background:rgba(250,238,220,.92)}
+.bin .drop{min-height:50px;display:flex;flex-wrap:wrap;gap:4px;justify-content:center}
+.item{background:#fff;border:2.5px solid var(--ink);border-radius:14px;padding:8px 10px;text-align:center;cursor:pointer;font-weight:800;font-size:var(--fs-cap);user-select:none;min-width:70px}
+.item.sel{border-color:var(--accent);background:#e8eef8;box-shadow:0 0 0 3px rgba(29,76,133,.2)}
+.item.ok{border-color:var(--ok);background:#e8f2ed}
+.item.no{border-color:var(--no);background:#fbeae8}
+.bank{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:8px 0}
+.card-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tcard{border:3px solid var(--line);border-radius:16px;padding:12px 10px;text-align:center;cursor:pointer;background:#fffdf8}
+.tcard.on{border-color:var(--accent);background:#e8eef8}
+.tcard .em{font-size:36px;display:block;margin-bottom:4px}
+.tcard b{display:block;font-size:var(--fs-sm);font-weight:800}
+.tcard span{display:block;font-size:var(--fs-cap);color:var(--ink-soft);margin-top:4px;font-weight:700}
+.choice{display:flex;flex-direction:column;gap:8px}
+.choice button{border:2.5px solid var(--ink);background:var(--paper);border-radius:14px;padding:12px 14px;font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;text-align:left;min-height:52px;display:flex;align-items:center;gap:10px}
+body.urdu .choice button{text-align:right}
+.choice button.right{border-color:var(--ok);background:#e8f2ed}
+.choice button.wrong{border-color:var(--no);background:#fbeae8}
+.slider-row{display:flex;align-items:center;gap:10px;margin:10px 0;flex-wrap:wrap}
+.slider-row input[type=range]{flex:1;min-width:140px;height:36px;accent-color:var(--accent)}
+.compass{width:160px;height:160px;margin:10px auto;border-radius:50%;border:4px solid var(--ink);background:#fff;position:relative;display:flex;align-items:center;justify-content:center}
+.compass .n,.compass .s,.compass .e,.compass .w{position:absolute;font-weight:800;font-size:var(--fs-md);cursor:pointer;padding:4px 8px;border-radius:8px}
+.compass .n{top:6px;left:50%;transform:translateX(-50%)}.compass .s{bottom:6px;left:50%;transform:translateX(-50%)}
+.compass .e{right:8px;top:50%;transform:translateY(-50%)}.compass .w{left:8px;top:50%;transform:translateY(-50%)}
+.compass .n.on,.compass .s.on,.compass .e.on,.compass .w.on{background:var(--accent);color:#fff}
+.compass .needle{width:4px;height:50px;background:var(--no);border-radius:2px;transform-origin:bottom center;transition:transform .3s}
+.piggy{text-align:center;padding:16px}
+.piggy .jar{font-size:64px;line-height:1}
+.piggy .coins{font-size:var(--fs-lg);font-weight:800;margin:8px 0}
+.check-list{display:flex;flex-direction:column;gap:8px}
+.check-list label{display:flex;align-items:center;gap:10px;border:2px solid var(--line);border-radius:12px;padding:10px 12px;font-weight:800;font-size:var(--fs-xs);cursor:pointer;background:#fff}
+.check-list label.on{border-color:var(--ok);background:#e8f2ed}
+.check-list input{width:22px;height:22px;accent-color:var(--ok)}
+.tl{margin:12px 0}
+.tl-marks{display:flex;justify-content:space-between;font-size:var(--fs-cap);font-weight:800;margin-top:6px}
+@media (min-width:820px){
+  .wrap{max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;grid-template-areas:"bar bar" "head head" "tabs tabs" "left right" "lesson lesson" "quiz quiz" "foot foot";align-items:start}
+  .bar{grid-area:bar}.head{grid-area:head}.tabs{grid-area:tabs}.left{grid-area:left}.right{grid-area:right}
+  .lesson{grid-area:lesson}.quiz{grid-area:quiz;margin-top:34px}footer{grid-area:foot}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition-duration:.01ms !important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar">
+    <span class="brand">AI4Kids · Grade 4 · Social Studies</span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+  <div class="head">
+    <h1 id="title"></h1>
+    <p class="sub" id="subtitle"></p>
+  </div>
+  <div class="tabs" role="group" id="tabs"></div>
+  <div class="left">
+    <div class="scene" id="scene"></div>
+    <div class="readout">
+      <span class="statechip" id="statechip"></span>
+      <p class="lead" id="lead"></p>
+      <p class="detail" id="detail"></p>
+      <p class="trade" id="trade"></p>
+      <p class="why-note"><b id="whyLbl"></b> <span id="whyText"></span></p>
+    </div>
+  </div>
+  <div class="right">
+    <div class="panel">
+      <h2 id="panelHead"></h2>
+      <div class="chips" id="chips" role="group"></div>
+      <div id="controls"></div>
+      <button type="button" class="play" id="playBtn"></button>
+      <button type="button" class="play alt" id="playBtn2" style="margin-top:8px"></button>
+    </div>
+  </div>
+  <div class="lesson" id="lessonBox"></div>
+  <div class="quiz">
+    <h2 id="quizHead" style="font-size:var(--fs-lg);font-weight:800;margin:0 0 18px"></h2>
+    <div id="quizBox"></div>
+    <div class="score" id="scoreBox"></div>
+  </div>
+  <footer><p id="foot"></p></footer>
+</div>
+<script>
+(function(){
+"use strict";
+var lang="en", tab="main";
+function $(id){ return document.getElementById(id); }
+function t(o){ return (o && typeof o==="object") ? (o[lang]||o.en||"") : (o||""); }
+function setText(el, s){
+  if(!el) return;
+  el.textContent = s;
+  if(lang==="ur"){ el.setAttribute("dir","rtl"); }
+  else { el.setAttribute("dir","ltr"); }
+}
+function buildTabs(list){
+  var tabs=$("tabs"); tabs.innerHTML="";
+  list.forEach(function(x){
+    var b=document.createElement("button"); b.type="button";
+    b.setAttribute("aria-pressed", tab===x[0]?"true":"false");
+    setText(b, t(x[1]));
+    b.addEventListener("click", function(){ if(tab===x[0]) return; tab=x[0]; if(typeof onTab==="function") onTab(); render(); });
+    tabs.appendChild(b);
+  });
+}
+function buildLesson(){
+  var box=$("lessonBox"); if(!box) return; box.innerHTML="";
+  var cards=[{cls:"hook", tag:{en:"HOOK",ur:"ہک"}, body:LESSON.hook},
+   {cls:"samjhao", tag:{en:"SAMJHAO",ur:"سمجھاؤ"}, body:LESSON.samjhao},
+   {cls:"misaal", tag:{en:"MISAAL",ur:"مثال"}, body:LESSON.misaal}];
+  if(LESSON.karo) cards.push({cls:"karo", tag:{en:"KARO",ur:"کرو"}, body:LESSON.karo});
+  cards.forEach(function(c){
+    var d=document.createElement("div"); d.className="lcard "+c.cls;
+    var tag=document.createElement("span"); tag.className="tag"; setText(tag,t(c.tag));
+    var p=document.createElement("p"); setText(p,t(c.body));
+    d.appendChild(tag); d.appendChild(p); box.appendChild(d);
+  });
+}
+var quizScore=0, quizDone=0;
+function buildQuiz(){
+  var box=$("quizBox"); box.innerHTML=""; quizScore=0; quizDone=0;
+  var sb=$("scoreBox"); sb.classList.remove("show"); sb.textContent="";
+  setText($("quizHead"), t({en:"Check yourself", ur:"اپنا امتحان لیں"}));
+  QUIZ.forEach(function(item){
+    var wrap=document.createElement("div"); wrap.className="q";
+    var q=document.createElement("p"); setText(q, t(item.q)); wrap.appendChild(q);
+    var fb=document.createElement("p"); fb.className="fb";
+    ["a","b","c","d"].forEach(function(k, oi){
+      var b=document.createElement("button"); b.type="button"; b.className="opt";
+      b.setAttribute("dir", lang==="ur"?"rtl":"ltr");
+      b.textContent = String.fromCharCode(65+oi)+". "+t(item[k]);
+      b.addEventListener("click", function(){
+        if(wrap.getAttribute("data-done")==="1") return;
+        wrap.setAttribute("data-done","1"); quizDone++;
+        if(item.correct===k) quizScore++;
+        ["a","b","c","d"].forEach(function(kk, xi){
+          var btn=wrap.querySelectorAll(".opt")[xi];
+          if(kk===item.correct) btn.classList.add("right");
+          else if(kk===k) btn.classList.add("wrong");
+        });
+        setText(fb, t(item.explanation)); fb.classList.add("show");
+        if(quizDone===QUIZ.length){
+          sb.classList.add("show");
+          setText(sb, t({en:"Score: "+quizScore+" / "+QUIZ.length, ur:"سکور: "+quizScore+" / "+QUIZ.length}));
+        }
+      });
+      wrap.appendChild(b);
+    });
+    wrap.appendChild(fb); box.appendChild(wrap);
+  });
+}
+function applyLang(){
+  document.body.classList.toggle("urdu", lang==="ur");
+  document.documentElement.lang = (lang==="ur") ? "ur" : "en";
+  var lb=$("langBtn");
+  lb.textContent = (lang==="en") ? "اردو" : "English";
+  lb.setAttribute("aria-pressed", lang==="ur" ? "true":"false");
+  setText($("foot"), t({en:"AI4Kids — Islamabad's bilingual AI and coding school. Offline · Grade 4 Social Studies. WhatsApp 0337 1468899",
+    ur:"اے آئی فور کڈز — اسلام آباد کا دو زبانوں والا سکول۔ آف لائن · گریڈ 4 سماجی علوم۔ واٹس ایپ 0337 1468899"}));
+  setText($("whyLbl"), t({en:"Notice:",ur:"غور کریں:"}));
+  buildLesson(); buildQuiz(); render();
+}
+$("langBtn").addEventListener("click", function(){ lang=(lang==="en")?"ur":"en"; applyLang(); });
+$("speakBtn").addEventListener("click", function(){
+  try{
+    if(!("speechSynthesis" in window)) return;
+    window.speechSynthesis.cancel();
+    var lead=$("lead"); var text = (lead && lead.textContent) || ($("title")&&$("title").textContent) || "";
+    var u=new SpeechSynthesisUtterance(text);
+    u.lang=(lang==="ur")?"ur-PK":"en-US"; u.rate=0.92;
+    window.speechSynthesis.speak(u);
+  }catch(e){}
+});
+function onTab(){}
+
+var LESSON={
+  hook:{en:"Without a map it is easy to get lost in a new street — a map shows the way!",
+        ur:"بغیر نقشے کے نئی گلی میں کھو جانا آسان ہے — نقشہ ہمیں راستہ دکھاتا ہے!"},
+  samjhao:{en:"Map essentials (BOLTS): Border, Orientation (north), Legend, Title, Scale. Directions: North South East West. A globe is a model of Earth. Pakistan: mountains, plains, desert, coast — different regions. Weather is short-term; climate is a long-term pattern. Population = how many people live there.",
+           ur:"نقشے کی ضروریات (BOLTS): باڈر، اورینٹیشن (شمال)، لیجنڈ، عنوان، پیمانہ۔ سمتیں: شمال جنوب مشرق مغرب۔ گلوب زمین کا ماڈل ہے۔ پاکستان: پہاڑ، میدان، صحرا، ساحل — الگ علاقے۔ موسم قلیل مدتی؛ آب و ہوا طویل مدتی پیٹرن۔ آبادی = کتنے لوگ رہتے ہیں۔"},
+  misaal:{en:"Islamabad to Murree — check north/east on a map. Find classrooms on a school map.",
+          ur:"اسلام آباد سے مری — نقشے پر شمال/مشرق چیک کرو۔ اسکول نقشے پر کلاس روم ڈھونڈو۔"},
+  karo:{en:"Draw a small map of your room (door, window, table). Mark North.",
+        ur:"اپنے کمرے کا چھوٹا نقشہ بناؤ (دروازہ، کھڑکی، میز)۔ شمال نشان لگاؤ۔"}
+};
+var QUIZ=[
+  {q:{en:"Showing North on a map relates to…",ur:"نقشے پر شمال دکھانا کس سے متعلق ہے؟"},a:{en:"Orientation",ur:"اورینٹیشن"},b:{en:"Only colour",ur:"صرف رنگ"},c:{en:"Only a quiz",ur:"صرف کوئز"},d:{en:"Only a song",ur:"صرف گانا"},correct:"a",explanation:{en:"Orientation tells direction.",ur:"اورینٹیشن سمت بتاتی ہے۔"}},
+  {q:{en:"What does a legend tell on a map?",ur:"لیجنڈ نقشے پر کیا بتاتا ہے؟"},a:{en:"Meaning of symbols",ur:"علامات کا مطلب"},b:{en:"Only teacher name",ur:"صرف استاد کا نام"},c:{en:"Only score",ur:"صرف سکور"},d:{en:"Only password",ur:"صرف پاس ورڈ"},correct:"a",explanation:{en:"Legend explains symbols.",ur:"لیجنڈ علامات سمجھاتا ہے۔"}},
+  {q:{en:"Scale is used for…",ur:"پیمانہ کس لیے ہوتا ہے؟"},a:{en:"Estimating real distance",ur:"اصلی دوری کا اندازہ"},b:{en:"Only fancy drawing",ur:"صرف خوبصورت ڈرائنگ"},c:{en:"Only erase",ur:"صرف مٹانا"},d:{en:"Only a zoom joke",ur:"صرف زوم مذاق"},correct:"a",explanation:{en:"Scale shows real distance.",ur:"پیمانہ اصلی دوری بتاتا ہے۔"}},
+  {q:{en:"An example of desert in Pakistan?",ur:"پاکستان میں صحرا کی مثال؟"},a:{en:"Thar (desert areas)",ur:"تھر (صحرائی علاقے)"},b:{en:"Only Antarctica",ur:"صرف انٹارکٹیکا"},c:{en:"Only Amazon",ur:"صرف ایمیزون"},d:{en:"Only the moon",ur:"صرف چاند"},correct:"a",explanation:{en:"Pakistan has desert regions.",ur:"پاکستان میں صحرائی علاقے ہیں۔"}},
+  {q:{en:"What is climate?",ur:"آب و ہوا کیا ہے؟"},a:{en:"Long weather pattern",ur:"لمبا موسمی پیٹرن"},b:{en:"Only today's rain",ur:"صرف آج کی بارش"},c:{en:"Only one cloud",ur:"صرف ایک بادل"},d:{en:"Only AC setting",ur:"صرف اے سی"},correct:"a",explanation:{en:"Climate is a long-term pattern.",ur:"آب و ہوا طویل مدتی پیٹرن ہے۔"}}
+];
+var bolts={B:0,O:0,L:0,T:0,S:0}, compassDir=null, landPick="mountain";
+var BOLTS_ITEMS=[
+  {k:"B",en:"Border — map edge/frame",ur:"باڈر — نقشے کا کنارہ"},
+  {k:"O",en:"Orientation — North arrow",ur:"اورینٹیشن — شمال تیر"},
+  {k:"L",en:"Legend — symbol meanings",ur:"لیجنڈ — علامات کا مطلب"},
+  {k:"T",en:"Title — what the map shows",ur:"عنوان — نقشہ کیا دکھاتا ہے"},
+  {k:"S",en:"Scale — real distance",ur:"پیمانہ — اصلی دوری"}
+];
+var LANDS=[
+  {id:"mountain",em:"🏔️",en:"Mountains",ur:"پہاڑ",d:{en:"High rocky areas — like near Murree & northern ranges.",ur:"اونچے چٹانی علاقے — جیسے مری اور شمالی سلسلے۔"}},
+  {id:"plain",em:"🌾",en:"Plains",ur:"میدان",d:{en:"Flat fertile land — good for farming.",ur:"ہموار زرخیز زمین — کھیتی کے لیے اچھی۔"}},
+  {id:"desert",em:"🏜️",en:"Desert",ur:"صحرا",d:{en:"Dry sandy regions — like Thar areas.",ur:"خشک ریتیلے علاقے — جیسے تھر۔"}},
+  {id:"coast",em:"🌊",en:"Coast",ur:"ساحل",d:{en:"Where land meets the sea — southern Pakistan.",ur:"جہاں زمین سمندر سے ملتی ہے — جنوبی پاکستان۔"}}
+];
+function render(){
+  buildTabs([["bolts",{en:"BOLTS map",ur:"BOLTS نقشہ"}],["compass",{en:"Compass",ur:"قطب نما"}],["land",{en:"Landforms",ur:"زمینی شکلیں"}]]);
+  if(!tab||tab==="main") tab="bolts";
+  var chips=$("chips"); chips.innerHTML=""; $("controls").innerHTML="";
+  var play=$("playBtn"), play2=$("playBtn2");
+  play.className="play"; play2.className="play alt hidden";
+  setText($("title"), t({en:"Geography",ur:"جغرافیہ"}));
+  if(tab==="bolts"){
+    setText($("subtitle"), t({en:"Check all BOLTS parts on a mini map.",ur:"منی نقشے پر تمام BOLTS چیک کرو۔"}));
+    setText($("panelHead"), t({en:"BOLTS checklist",ur:"BOLTS فہرست"}));
+    $("scene").innerHTML="<div style='border:3px dashed var(--ink);border-radius:12px;padding:12px;background:#fff;position:relative;min-height:140px'><div style='font-weight:800;font-size:var(--fs-sm);text-align:center'>🗺️ Islamabad Area Map</div><div style='position:absolute;top:8px;right:10px;font-weight:800'>N↑</div><div style='margin-top:20px;font-size:var(--fs-cap)'>🏫 School · 🌳 Park · 🛣️ Road</div><div style='margin-top:8px;font-size:var(--fs-cap);color:var(--ink-soft)'>1 cm ≈ 100 m</div><div style='position:absolute;inset:4px;border:2px solid var(--accent);pointer-events:none;border-radius:8px'></div></div>";
+    var list=document.createElement("div"); list.className="check-list";
+    BOLTS_ITEMS.forEach(function(it){
+      var lab=document.createElement("label"); if(bolts[it.k]) lab.className="on";
+      var inp=document.createElement("input"); inp.type="checkbox"; inp.checked=!!bolts[it.k];
+      inp.onchange=function(){ bolts[it.k]=inp.checked?1:0; render(); };
+      lab.appendChild(inp);
+      var sp=document.createElement("span"); setText(sp, it.k+": "+t({en:it.en,ur:it.ur})); lab.appendChild(sp);
+      list.appendChild(lab);
+    });
+    $("controls").appendChild(list);
+    var done=Object.keys(bolts).every(function(k){ return bolts[k]; });
+    setText($("statechip"), done?t({en:"BOLTS complete!",ur:"BOLTS مکمل!"}):t({en:"Tick each letter",ur:"ہر حرف چیک کرو"}));
+    $("statechip").className="statechip"+(done?" ok":"");
+    setText($("lead"), t({en:"B O L T S — five map helpers",ur:"B O L T S — پانچ نقشہ مددگار"}));
+    setText($("detail"), t({en:"Border, Orientation, Legend, Title, Scale.",ur:"باڈر، اورینٹیشن، لیجنڈ، عنوان، پیمانہ۔"}));
+    setText($("trade"), t({en:"School map tip: find title and North first!",ur:"اسکول نقشہ ٹپ: پہلے عنوان اور شمال ڈھونڈو!"}));
+    setText($("whyText"), t({en:"BOLTS helps you read any map like a pro.",ur:"BOLTS کسی بھی نقشے کو ماہر کی طرح پڑھنے میں مدد دیتا ہے۔"}));
+    play.classList.add("hidden");
+    return;
+  }
+  if(tab==="compass"){
+    setText($("subtitle"), t({en:"Tap N S E W on the compass.",ur:"قطب نما پر N S E W دباؤ۔"}));
+    setText($("panelHead"), t({en:"Directions",ur:"سمتیں"}));
+    var rot={N:0,E:90,S:180,W:270};
+    $("scene").innerHTML="<div class='compass'><span class='n"+(compassDir==="N"?" on":"")+"' id='cN'>N</span><span class='e"+(compassDir==="E"?" on":"")+"' id='cE'>E</span><span class='s"+(compassDir==="S"?" on":"")+"' id='cS'>S</span><span class='w"+(compassDir==="W"?" on":"")+"' id='cW'>W</span><div class='needle' id='needle' style='transform:rotate("+(rot[compassDir]||0)+"deg)'></div></div>";
+    ["N","E","S","W"].forEach(function(d){
+      $("c"+d).onclick=function(){ compassDir=d; render(); };
+    });
+    var names={N:{en:"North",ur:"شمال"},S:{en:"South",ur:"جنوب"},E:{en:"East",ur:"مشرق"},W:{en:"West",ur:"مغرب"}};
+    setText($("statechip"), compassDir?t(names[compassDir]):t({en:"Pick a direction",ur:"سمت چنو"}));
+    setText($("lead"), compassDir?t({en:names[compassDir].en+" — "+compassDir,ur:names[compassDir].ur+" — "+compassDir}):t({en:"Where is North?",ur:"شمال کہاں ہے؟"}));
+    setText($("detail"), t({en:"Murree is roughly north of Islamabad. Sun rises in the East.",ur:"مری تقریباً اسلام آباد کے شمال میں ہے۔ سورج مشرق سے نکلتا ہے۔"}));
+    setText($("trade"), t({en:"Remember: Never Eat Soggy Waffles — N E S W!",ur:"یاد رکھو: North East South West — N E S W!"}));
+    setText($("whyText"), t({en:"Orientation on a map uses these four directions.",ur:"نقشے پر اورینٹیشن ان چار سمتوں سے ہوتی ہے۔"}));
+    play.classList.add("hidden");
+    return;
+  }
+  setText($("subtitle"), t({en:"Tap Pakistan landforms.",ur:"پاکستان کی زمینی شکلیں ٹیپ کرو۔"}));
+  setText($("panelHead"), t({en:"Landform picker",ur:"زمینی شکل"}));
+  $("scene").innerHTML="<div class='card-grid' id='cg'></div>";
+  var cur=LANDS[0];
+  LANDS.forEach(function(L){
+    var d=document.createElement("div"); d.className="tcard"+(landPick===L.id?" on":"");
+    d.innerHTML="<span class='em'>"+L.em+"</span>";
+    var b=document.createElement("b"); setText(b,t({en:L.en,ur:L.ur})); d.appendChild(b);
+    d.onclick=function(){ landPick=L.id; render(); };
+    $("cg").appendChild(d);
+    if(landPick===L.id) cur=L;
+  });
+  setText($("statechip"), t({en:"Pakistan land",ur:"پاکستان زمین"}));
+  setText($("lead"), t({en:cur.en,ur:cur.ur}));
+  setText($("detail"), t(cur.d));
+  setText($("trade"), t({en:"One country — many land types!",ur:"ایک ملک — کئی زمینی اقسام!"}));
+  setText($("whyText"), t({en:"Landforms affect weather, farms, and how people live.",ur:"زمینی شکلیں موسم، کھیتی اور رہن سہن پر اثر ڈالتی ہیں۔"}));
+  play.classList.add("hidden");
+}
+
+applyLang();
+})();
+</script>
+</body>
+</html>
