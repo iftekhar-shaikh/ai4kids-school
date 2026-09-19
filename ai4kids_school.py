@@ -2554,15 +2554,22 @@ def grade1_offline_pack_bytes():
     """Return Class 1 offline zip bytes (build if missing)."""
     root = Path(os.path.dirname(os.path.abspath(__file__)))
     zpath = root / "packs" / "ai4kids-grade1-offline.zip"
-    if not zpath.exists():
-        try:
-            import build_offline_pack as _bop
+    try:
+        import build_offline_pack as _bop
+        # refresh pack so new G1 apps are included
+        if (not zpath.exists()) or zpath.stat().st_size < 1000:
             _bop.build_zip()
-        except Exception:
-            pass
+    except Exception:
+        pass
     if zpath.exists():
         return zpath.read_bytes()
-    return None
+    # last resort: build in memory-less path via rebuild
+    try:
+        import build_offline_pack as _bop
+        info = _bop.build_zip()
+        return Path(info["zip"]).read_bytes()
+    except Exception:
+        return None
 
 def render_grade1_download_button(key_suffix="lb"):
     """Download Class 1 offline pack."""
