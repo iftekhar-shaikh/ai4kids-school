@@ -37,7 +37,53 @@ button, .btn, .opt, [role=button] { min-height: 44px; min-width: 44px; }
 <div class="bar"><span class="brand" id="brand"></span><button class="chip" id="langBtn" aria-pressed="false">Roman Urdu</button><button class="chip" id="speakBtn" aria-label="Read aloud">🔊</button></div>
 <header><h1 id="title"></h1><p class="sub" id="subtitle"></p></header>
 <nav class="tabs" id="tabs" aria-label="Lesson sections"></nav>
-<section class="demo-wrap" id="demo"><div class="demo-head"><h2 id="demoTitle"></h2><button class="chip" id="launch"></button></div><p class="demo-instruction" id="demoInstruction"></p><div class="demo-stage" id="demoStage"></div></section>
+<section class="demo-wrap" id="demo"><div class="demo-head"><h2 id="demoTitle"></h2><button class="chip" id="launch"></button></div><p class="demo-instruction" id="demoInstruction"></p><div class="comic-strip"><svg viewBox="0 0 620 160" role="img" aria-label="Subtraction comic">
+      <g transform="translate(5,5)"><g>
+  <rect width="200" height="150" fill="#e8f6ff" stroke="#17252f" stroke-width="3"/>
+  
+        <circle cx="40" cy="65" r="12" fill="#9b59b6" stroke="#17252f" stroke-width="2"/>
+        <circle cx="70" cy="65" r="12" fill="#9b59b6" stroke="#17252f" stroke-width="2"/>
+        <circle cx="100" cy="65" r="12" fill="#9b59b6" stroke="#17252f" stroke-width="2"/>
+        <circle cx="130" cy="65" r="12" fill="#9b59b6" stroke="#17252f" stroke-width="2"/>
+        <circle cx="160" cy="65" r="12" fill="#9b59b6" stroke="#17252f" stroke-width="2"/>
+        <text x="100" y="100" text-anchor="middle" font-size="18" font-weight="900">5 apples</text>
+      
+  <rect y="120" width="200" height="30" fill="#ffffffcc"/>
+  <text x="100" y="140" text-anchor="middle" font-family="Trebuchet MS,sans-serif" font-size="13" font-weight="800" fill="#17252f">Start</text>
+</g></g>
+      <g transform="translate(210,5)"><g>
+  <rect width="200" height="150" fill="#ffe8e8" stroke="#17252f" stroke-width="3"/>
+  <g transform="translate(0,0)">
+  <ellipse cx="40" cy="93.0" rx="16.0" ry="6.0" fill="#00000022"/>
+  <circle cx="40" cy="55" r="16.0" fill="#f2c9a0" stroke="#17252f" stroke-width="2"/>
+  <path d="M26.0,51.0 Q40,33.0 54.0,51.0" fill="#3b2a1a"/>
+  <circle cx="35.0" cy="55" r="2.0" fill="#17252f"/><circle cx="45.0" cy="55" r="2.0" fill="#17252f"/>
+  <path d="M36.0,61.0 Q40,65.0 44.0,61.0" stroke="#17252f" stroke-width="1.5" fill="none"/>
+  <rect x="26.0" y="69.0" width="28.0" height="26.0" rx="4" fill="#1f7a4c" stroke="#17252f" stroke-width="2"/>
+  <rect x="32.0" y="75.0" width="16.0" height="8.0" fill="#fff" opacity=".9"/>
+  <path d="M28.0,65.0 L18.0,83.0" stroke="#17252f" stroke-width="3" fill="none"/><path d="M52.0,65.0 L62.0,83.0" stroke="#17252f" stroke-width="3" fill="none"/>
+  <path d="M32.0,95.0 L32.0,110.0" stroke="#17252f" stroke-width="3"/><path d="M48.0,95.0 L48.0,110.0" stroke="#17252f" stroke-width="3"/>
+</g>
+        <circle cx="120" cy="60" r="12" fill="#9b59b6" stroke="#17252f" stroke-width="2" opacity=".35"/>
+        <circle cx="155" cy="60" r="12" fill="#9b59b6" stroke="#17252f" stroke-width="2" opacity=".35"/>
+        <text x="140" y="100" text-anchor="middle" font-size="18" font-weight="900">- 2</text>
+      
+  <rect y="120" width="200" height="30" fill="#ffffffcc"/>
+  <text x="100" y="140" text-anchor="middle" font-family="Trebuchet MS,sans-serif" font-size="13" font-weight="800" fill="#17252f">Take away</text>
+</g></g>
+      <g transform="translate(415,5)"><g>
+  <rect width="200" height="150" fill="#eaf8ea" stroke="#17252f" stroke-width="3"/>
+  
+        <circle cx="70" cy="70" r="14" fill="#9b59b6" stroke="#17252f" stroke-width="2"/>
+        <circle cx="110" cy="70" r="14" fill="#9b59b6" stroke="#17252f" stroke-width="2"/>
+        <circle cx="150" cy="70" r="14" fill="#9b59b6" stroke="#17252f" stroke-width="2"/>
+        <text x="110" y="110" text-anchor="middle" font-size="22" font-weight="900">= 3</text>
+      
+  <rect y="120" width="200" height="30" fill="#ffffffcc"/>
+  <text x="100" y="140" text-anchor="middle" font-family="Trebuchet MS,sans-serif" font-size="13" font-weight="800" fill="#17252f">Left</text>
+</g></g>
+    </svg><div class="comic-cap">Minus comic — kuch nikal do</div></div>
+<div class="demo-stage" id="demoStage"></div></section>
 <main class="lesson-grid"><article class="lesson hook" id="hook"><span class="tag" id="hookTag"></span><p id="hookText"></p></article><article class="lesson samjhao" id="samjhao"><span class="tag" id="samjhaoTag"></span><p id="samjhaoText"></p></article><article class="lesson misaal" id="misaal"><span class="tag" id="misaalTag"></span><p id="misaalText"></p></article><article class="lesson karo" id="karo"><span class="tag" id="karoTag"></span><p id="karoText"></p></article></main>
 <section class="quiz"><h2 id="quizHead"></h2><div id="quizBox"></div><div class="score" id="score"></div></section><footer id="foot"></footer></div>
 <script>const DATA={"title":{"en":"Minus (−)","ru":"Minus (-)"},"sub":{"en":"Take away objects and subtract without borrowing.","ru":"Cheezen nikaalo aur baghair borrowing ke minus karo."},"lesson":{"hook":{"en":"You have 10 toffees and give 3 to a friend. How many are left? That is a minus question!","ru":"Tumhare paas 10 toffiyan hain aur dost ko 3 de dete ho. Kitni bachin? Yeh minus ka sawal hai!"},"samjhao":{"en":"Minus means take away or find what remains. Start with the bigger number, take away the smaller number, and count the rest. 8 − 2 = 6.","ru":"Minus ka matlab nikaalna ya baqi maloom karna hai. Baray number se chhota number nikaalo aur baqi gino. 8 − 2 = 6."},"misaal":{"en":"You buy 15 sweets and your brother takes 5. Ten sweets remain: 15 − 5 = 10.","ru":"Tum 15 mithaiyan lete ho aur bhai 5 le leta hai. 10 mithaiyan bachti hain: 15 − 5 = 10."},"karo":{"en":"Place 10 buttons on a table. Ask someone to take away 3. Count and write how many remain.","ru":"Table par 10 buttons rakho. Kisi se kaho 3 nikaal le. Bachi hui cheezen gino aur likho."}},"demo":{"type":"minus","title":{"en":"Take-away lab","ru":"Nikaalne ka lab"},"instruction":{"en":"Change how many toffees are taken away and watch what remains.","ru":"Jitni toffiyan nikalti hain woh badlo aur baqi dekho."}},"quiz":[{"q":{"en":"8 mangoes take away 3 leaves how many?","ru":"8 aam mein se 3 nikaalain to kitne bachay?"},"options":[{"en":"5","ru":"5"},{"en":"4","ru":"4"},{"en":"6","ru":"6"},{"en":"3","ru":"3"}],"correct":0,"explanation":{"en":"8 − 3 = 5.","ru":"8 − 3 = 5."}},{"q":{"en":"10 toffees take away 2 leaves how many?","ru":"10 toffiyan mein se 2 nikaalain to kitni bachin?"},"options":[{"en":"7","ru":"7"},{"en":"8","ru":"8"},{"en":"9","ru":"9"},{"en":"6","ru":"6"}],"correct":1,"explanation":{"en":"10 − 2 = 8.","ru":"10 − 2 = 8."}},{"q":{"en":"7 toys take away 4 leaves how many?","ru":"7 khilonon mein se 4 nikaalain to kitne bachay?"},"options":[{"en":"3","ru":"3"},{"en":"5","ru":"5"},{"en":"4","ru":"4"},{"en":"2","ru":"2"}],"correct":0,"explanation":{"en":"7 − 4 = 3.","ru":"7 − 4 = 3."}},{"q":{"en":"12 paise take away 5 leaves how many?","ru":"12 paisay mein se 5 kharch hon to kitne bachay?"},"options":[{"en":"7","ru":"7"},{"en":"6","ru":"6"},{"en":"5","ru":"5"},{"en":"8","ru":"8"}],"correct":0,"explanation":{"en":"12 − 5 = 7.","ru":"12 − 5 = 7."}},{"q":{"en":"15 books take away 9 leaves how many?","ru":"15 kitabon mein se 9 nikaalain to kitni bachin?"},"options":[{"en":"6","ru":"6"},{"en":"5","ru":"5"},{"en":"7","ru":"7"},{"en":"8","ru":"8"}],"correct":0,"explanation":{"en":"15 − 9 = 6.","ru":"15 − 9 = 6."}}]};
