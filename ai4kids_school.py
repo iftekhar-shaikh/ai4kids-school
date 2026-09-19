@@ -2654,7 +2654,7 @@ def render_html_viewers():
 
     if st.session_state.get("view_lessonbank"):
         st.markdown("#### 📚 Lesson Bank")
-        st.caption("Grid same. Topic chuno / Khelo dabao → neeche sabaq, us ke neeche app.")
+        st.caption("Grid same. Topic chuno → neeche pehle app, us ke neeche quiz.")
         if st.button("✖️ Lesson Bank band karo", key="lb_close_top"):
             st.session_state.view_lessonbank = False
             st.session_state.pop("lb_topic_key", None)
@@ -2673,8 +2673,8 @@ def render_html_viewers():
 
         # Under grid: sabaq then Khelo (apps open here — nested iframe inside grid cannot)
         st.markdown("---")
-        st.markdown("### 🎮 Neeche panel — sabaq phir Khelo")
-        st.caption("Grid ke baad: topic select → pehle sabaq, us ke neeche app.")
+        st.markdown("### 🎮 Neeche panel — app phir quiz")
+        st.caption("Grid ke baad: topic select → pehle app, us ke neeche quiz.")
         topics = _lb_load_all_topics()
         playable = [t for t in topics if t.get("interactive_file")]
         if not playable:
@@ -2734,26 +2734,39 @@ def render_html_viewers():
             gg, ssk, ttl = g, sk, title
             if gg and ssk and ttl:
                 st.markdown("---")
-                st.markdown(f"#### 📖 Sabaq — {ttl}")
                 cur = next((t for t in topics if t["grade"] == gg and t["sk"] == ssk and t["title"] == ttl), None)
-                lesson = (cur or {}).get("lesson") or ""
-                if lesson:
-                    try:
-                        tts_button(lesson)
-                    except Exception:
-                        pass
-                    st.markdown(
-                        f"<div style='font-size:clamp(1.35rem,4.5vw,1.65rem);line-height:1.85;padding:16px;"
-                        f"background:#fafafa;border-radius:12px;border:1px solid #eee;"
-                        f"white-space:pre-wrap'>{lesson.replace('<','&lt;')}</div>",
-                        unsafe_allow_html=True,
-                    )
-                else:
-                    st.caption("Lesson text abhi nahi.")
-                st.markdown("### 🎮 Khelo")
+                # 1) APP first
+                st.markdown(f"### 🎮 Khelo — {ttl}")
                 ok = render_topic_interactive(ssk, gg, ttl)
                 if not ok:
                     st.warning("Interactive file nahi mili — KB / interactives/ check karein.")
+                # 2) Quiz under the app
+                qs = (cur or {}).get("questions") or []
+                if qs:
+                    st.markdown(f"### 📝 Quiz — {len(qs)} sawaal")
+                    for i, qq in enumerate(qs):
+                        stem = qq.get("q") or qq.get("question") or f"Q{i+1}"
+                        st.markdown(
+                            f"<p style='font-size:clamp(1.25rem,4vw,1.45rem);font-weight:700'>Q{i+1}. {stem}</p>",
+                            unsafe_allow_html=True,
+                        )
+                        opts = []
+                        if qq.get("a") is not None:
+                            for letter in "abcd":
+                                if qq.get(letter):
+                                    opts.append(f"{letter}) {qq[letter]}")
+                        elif isinstance(qq.get("options"), list):
+                            opts = [f"{chr(97+j)}) {o}" for j, o in enumerate(qq["options"])]
+                        if opts:
+                            st.markdown(
+                                "<div style='font-size:clamp(1.1rem,3.5vw,1.3rem);line-height:1.6;margin:0 0 12px 8px'>"
+                                + "<br>".join(o.replace("<", "&lt;") for o in opts)
+                                + "</div>",
+                                unsafe_allow_html=True,
+                            )
+                        ans = qq.get("correct") or qq.get("answer")
+                        if ans:
+                            st.caption(f"Answer key (teacher): {ans}")
 
 
 

@@ -4700,26 +4700,17 @@ function openModal(i) {
   let html = `<h2>${t.emoji} ${t.title}</h2>
   <p class="meta">${t.subj} • Grade ${t.grade} • ${t.desc}</p>`;
 
-  if (t.lesson) {
-    window.__lessonRaw = t.lesson;
-    html += `<div class="read-bar">
-      <button class="read-btn" id="readBtn" onclick="toggleRead()">🔊 Sunlo</button>
-      <span class="read-status" id="readStatus"></span>
-    </div>`;
-    html += `<div class="lesson-text" id="lessonText">${t.lesson.replace(/</g,'&lt;').replace(/>/g,'&gt;')}</div>`;
-  } else {
-    html += '<p style="color:#999;padding:10px;font-size:1.1rem">Lesson abhi available nahi hai.</p>';
-  }
-
+  // 1) Khelo / app first
   if (t.interactive_file) {
     const label = t.interactive_label || 'Khelo — interactive';
     html += `<div class="khelo-top" style="margin-top:14px">
       <button type="button" class="khelo-go" id="kheloBelowBtn" style="background:#8e44ad;width:100%">🎮 ${label}</button>
-      <span class="hint">App lesson ke neeche panel mein khulegi — button dabao, phir thoda neeche scroll.</span>
+      <span class="hint">Pehle app (neeche panel), us ke neeche quiz.</span>
       <div id="kheloStatus" style="margin-top:8px;font-size:1rem;color:#6c3483"></div>
     </div>`;
   }
 
+  // 2) Quiz under app
   if (t.questions && t.questions.length) {
     window.__curQuestions = t.questions;
     __score = 0; __answered = 0; __keyShown = false;
@@ -4746,6 +4737,17 @@ function openModal(i) {
     });
     html += '</div>';
   }
+
+  // Lesson optional at end (Sunlo) — does not sit between app and quiz
+  if (t.lesson) {
+    window.__lessonRaw = t.lesson;
+    html += `<div class="read-bar" style="margin-top:16px">
+      <button class="read-btn" id="readBtn" onclick="toggleRead()">🔊 Sunlo</button>
+      <span class="read-status" id="readStatus"></span>
+    </div>`;
+    html += `<div class="lesson-text" id="lessonText">${t.lesson.replace(/</g,'&lt;').replace(/>/g,'&gt;')}</div>`;
+  }
+
   document.getElementById('modal-content').innerHTML = html;
 
   if (t.interactive_file) {
@@ -4755,7 +4757,6 @@ function openModal(i) {
 
   document.getElementById('modal').classList.add('open');
 }
-
 
 function openKheloBelow(t) {
   try {
