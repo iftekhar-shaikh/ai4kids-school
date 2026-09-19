@@ -3,47 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>All Tenses — تینوں زمانے | AI4Kids Class 5 English</title>
+<title>All tenses review — AI4Kids Class 5</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --board:#f1eee9;
-    --board-deep:#e3ded6;
-    --past:#a8632e;
-    --past-deep:#7d4720;
-    --now:#2e7d55;
-    --now-deep:#1d5a3c;
-    --fut:#3a5ea8;
-    --fut-deep:#26417a;
-    --ink:#241f1a;
-    --ink-soft:#544c42;
-    --paper:#fdfaf3;
-    --line:#ded5c4;
-    --accent:#6b4a8f;
-    --ok:#2e7d4f;
-    --no:#c4453a;
-
-    --fs-cap:clamp(15px, 3.9vw, 16px);
-    --fs-xs:clamp(16px, 4.2vw, 18px);
-    --fs-sm:clamp(18px, 4.7vw, 19px);
-    --fs-md:clamp(19px, 5.1vw, 21px);
-    --fs-lg:clamp(22px, 5.9vw, 25px);
-    --fs-xl:clamp(28px, 7.6vw, 34px);
-    --lh:1.5;
+    --board:#f5efe3;--board-deep:#e8dcc8;--sky:#b8d4f0;--sky2:#7eb0e0;
+    --past:#8b5a2b;--now:#2f6fb5;--fut:#2e7d4f;--gold:#e8b23d;
+    --left:#c4453a;--ok:#2e7d4f;--ink:#2a2419;--ink-soft:#574e3e;
+    --paper:#fdfaf3;--line:#ded5c4;--accent:#5b4a8f;--cont:#c9702e;--perf:#7a5aa8;
+    --fs-cap:clamp(14px, 3.8vw, 16px);--fs-xs:clamp(16px, 4.2vw, 18px);--fs-sm:clamp(18px, 4.8vw, 20px);--fs-md:clamp(19px, 5.2vw, 22px);--fs-lg:clamp(22px, 6vw, 26px);--fs-xl:clamp(30px, 8vw, 38px);--lh:1.5;
   }
-  /* Urdu is set larger than Latin — Nastaliq reads smaller at the same size. */
   body.urdu{
-    --fs-cap:clamp(17px, 4.4vw, 18px);
-    --fs-xs:clamp(18px, 4.7vw, 20px);
-    --fs-sm:clamp(20px, 5.2vw, 22px);
-    --fs-md:clamp(21px, 5.6vw, 23px);
-    --fs-lg:clamp(24px, 6.4vw, 27px);
-    --fs-xl:clamp(27px, 7.2vw, 32px);
-    --lh:2.1;
+    --fs-cap:clamp(15px, 4vw, 17px);--fs-xs:clamp(17px, 4.5vw, 19px);--fs-sm:clamp(19px, 5.2vw, 22px);--fs-md:clamp(21px, 5.6vw, 24px);--fs-lg:clamp(24px, 6.5vw, 28px);--fs-xl:clamp(28px, 7.5vw, 36px);--lh:2.1;
   }
-
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   html,body{margin:0;padding:0}
   body{
@@ -52,137 +26,312 @@
     font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
   }
   .wrap{max-width:560px;margin:0 auto;padding:0 14px}
-
   .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
   .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
   .chip{
     border:2px solid var(--ink);background:var(--paper);color:var(--ink);
-    border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;
+    border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;
     font-size:var(--fs-xs);cursor:pointer;min-height:42px;
   }
   .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
-  .chip:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
-
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  .stars{display:flex;align-items:center;gap:6px;font-weight:800;font-size:var(--fs-xs);
+         background:#fff6e2;border:2px solid var(--gold);border-radius:999px;padding:7px 13px}
   h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
   .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
   .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
   h1.ur{line-height:1.9}
-
-  .tabs{display:flex;gap:7px;margin:0 0 14px}
+  .tabs{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
   .tabs button{
-    flex:1;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
-    border-radius:14px;padding:9px 6px;font:inherit;font-weight:800;
+    flex:1 1 22%;min-width:72px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:10px 4px;font:inherit;font-weight:800;
     font-size:var(--fs-cap);cursor:pointer;min-height:54px;
   }
   .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
-
+  .tabs button .badge{color:var(--gold)}
+  .story{
+    background:#fff8ea;border:2px dashed var(--gold);border-radius:16px;padding:13px 15px;
+    font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;margin-bottom:14px;
+  }
+  body.urdu .story{line-height:var(--lh)}
+  .story b{color:var(--ink)}
   .scene{
     position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
     background:linear-gradient(180deg,var(--board) 0%,var(--board-deep) 100%);
   }
-  .scene svg{display:block;width:100%;height:auto}
-  .mark{transition:opacity .3s ease}
-
-  /* the 2 x 3 grid of tenses */
-  .matrix{display:grid;grid-template-columns:auto 1fr 1fr 1fr;gap:6px;margin-top:12px}
-  .mh{display:flex;align-items:center;justify-content:center;font-size:var(--fs-cap);
-      font-weight:800;color:var(--ink-soft);padding:4px 2px;text-align:center}
-  .mh.p{color:var(--past-deep)} .mh.n{color:var(--now-deep)} .mh.f{color:var(--fut-deep)}
-  .mrow{display:flex;align-items:center;font-size:var(--fs-cap);font-weight:800;
-        color:var(--ink-soft);padding-right:4px}
-  .cell{
-    border:2px solid var(--line);background:var(--paper);border-radius:12px;
-    padding:9px 4px;font:inherit;font-size:var(--fs-cap);font-weight:700;color:var(--ink);
-    cursor:pointer;min-height:56px;line-height:1.25;
-  }
-  .cell[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
-  .cell.p[aria-pressed="true"]{background:var(--past);border-color:var(--past)}
-  .cell.n[aria-pressed="true"]{background:var(--now);border-color:var(--now)}
-  .cell.f[aria-pressed="true"]{background:var(--fut);border-color:var(--fut)}
-
+  .scene-pad{padding:14px 14px 22px;min-height:280px}
   .readout{
-    margin-top:14px;background:var(--paper);
+    margin-top:-18px;position:relative;z-index:2;background:var(--paper);
     border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
   }
   .statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
              padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
   .statechip.ur{padding:2px 14px 7px}
-  .statechip.ok{background:var(--ok)} .statechip.no{background:var(--no)}
-  .eng{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.4;direction:ltr}
-  .eng u{text-decoration:none;background:#ffe9b8;border-radius:5px;padding:1px 4px;
-         box-shadow:inset 0 -2px 0 #e8b23d}
-  .urdu{margin:0 0 4px;font-size:var(--fs-sm);color:var(--ink)}
-  .formula{
-    margin:12px 0 0;border:2px dashed var(--accent);border-radius:14px;padding:11px 13px;
-    font-size:var(--fs-sm);font-weight:800;color:var(--accent);text-align:center;direction:ltr;
+  .statechip.win{background:var(--ok)}
+  .statechip.miss{background:var(--left)}
+  .headline{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+  .headline.ur{line-height:1.95}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+  .hintbox{
+    margin-top:14px;border:2px solid var(--now);background:#eaf1f9;border-radius:14px;
+    padding:11px 14px;font-size:var(--fs-xs);color:var(--now);font-weight:700;line-height:1.55;
+    display:none;
   }
-  .detail{margin:10px 0 0;color:var(--ink-soft);font-size:var(--fs-sm)}
-
-  .why-note{
-    margin:12px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.55;
-    border-left:3px solid var(--accent);padding-left:11px;
-  }
-  .why-note b{color:var(--accent);font-weight:800}
-  body.urdu .why-note{
-    border-left:0;border-right:3px solid var(--accent);padding-left:0;padding-right:11px;
-    line-height:var(--lh);
-  }
-  .trap{
-    margin:12px 0 0;border:2px dashed var(--no);border-radius:14px;padding:11px 13px;
-    font-size:var(--fs-xs);color:var(--no);font-weight:700;line-height:1.55;
-  }
-  body.urdu .trap{line-height:var(--lh)}
-  .trap .x{direction:ltr;display:inline-block;font-weight:800}
-
+  .hintbox.show{display:block}
+  body.urdu .hintbox{line-height:var(--lh)}
   .panel{margin-top:22px}
-  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 9px;color:var(--ink-soft)}
-  .chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px}
-  .schip{
-    border:2px solid var(--line);background:var(--paper);border-radius:999px;padding:8px 14px;
-    font:inherit;font-size:var(--fs-cap);font-weight:700;color:var(--ink);cursor:pointer;min-height:44px;
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .prog{margin:0 0 10px;font-size:var(--fs-xs);font-weight:700;color:var(--ink-soft)}
+  .btns{display:flex;gap:9px;margin-top:8px;flex-wrap:wrap}
+  .btns button{
+    border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);
+    font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:50px;
+    padding:8px 14px;flex:1;
   }
-  .schip[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
-  .schip.done{border-color:var(--ok)}
-
-  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
-  .q{margin-bottom:26px}
-  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
-  .q p.ur{font-weight:400}
-  .opt{
+  .btns .go{background:var(--ink);color:var(--paper)}
+  .btns button:active{transform:scale(.97)}
+  .btns button:disabled{opacity:.4;cursor:default}
+  .choice{
     display:block;width:100%;text-align:left;margin-bottom:10px;
     border:2px solid var(--line);background:var(--paper);border-radius:12px;
     padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
-    min-height:50px;
+    min-height:50px;font-weight:700;
+  }
+  .choice.ur{text-align:right;line-height:var(--lh)}
+  .choice:hover{border-color:var(--ink)}
+  .choice.right{border-color:var(--ok);background:#e8f2ed}
+  .choice.wrong{border-color:var(--left);background:#fbeae8}
+  .choice .cem{font-size:22px;margin-right:8px}
+  body.urdu .choice .cem{margin-right:0;margin-left:8px}
+
+  /* --- Timeline visual --- */
+  .tl-rail{
+    position:relative;height:110px;margin:6px 0 14px;border-radius:16px;overflow:hidden;
+    border:2.5px solid var(--ink);background:linear-gradient(180deg,#c5dff5 0%,#e8f0d8 55%,#c8b896 100%);
+  }
+  .tl-hills{
+    position:absolute;left:0;right:0;bottom:28%;height:40px;
+    background:
+      radial-gradient(ellipse at 18% 100%,#3d6b3d 0%,transparent 50%),
+      radial-gradient(ellipse at 55% 100%,#4a7a4a 0%,transparent 55%),
+      radial-gradient(ellipse at 85% 100%,#2f5a2f 0%,transparent 48%);
+    opacity:.85;
+  }
+  .tl-sun{
+    position:absolute;top:10px;left:50%;transform:translateX(-50%);
+    width:28px;height:28px;border-radius:50%;background:#f5c842;
+    box-shadow:0 0 18px 6px rgba(245,200,66,.55);
+  }
+  .tl-line{
+    position:absolute;left:8%;right:8%;top:58%;height:4px;background:var(--ink);
+    border-radius:4px;z-index:1;
+  }
+  .tl-arrow-l,.tl-arrow-r{
+    position:absolute;top:52%;font-size:18px;font-weight:800;z-index:2;color:var(--ink);
+  }
+  .tl-arrow-l{left:3%} .tl-arrow-r{right:3%}
+  .tl-node{
+    position:absolute;top:42%;transform:translate(-50%,-50%);z-index:3;text-align:center;
+  }
+  .tl-node .dot{
+    width:18px;height:18px;border-radius:50%;border:3px solid var(--ink);margin:0 auto 4px;
+    background:var(--paper);
+  }
+  .tl-node.past .dot{background:var(--past);border-color:var(--past)}
+  .tl-node.now .dot{background:var(--now);border-color:var(--now);width:22px;height:22px;
+    box-shadow:0 0 0 4px rgba(47,111,181,.25)}
+  .tl-node.fut .dot{background:var(--fut);border-color:var(--fut)}
+  .tl-node .lab{font-size:15px;font-weight:800;color:var(--ink);letter-spacing:.02em;
+    background:rgba(253,250,243,.9);padding:2px 6px;border-radius:6px}
+  .tl-node.past{left:18%} .tl-node.now{left:50%} .tl-node.fut{left:82%}
+  .tl-now-flag{
+    position:absolute;top:8px;left:50%;transform:translateX(-50%);
+    font-size:14px;font-weight:800;background:var(--now);color:#fff;
+    border-radius:999px;padding:3px 10px;z-index:4;
+  }
+
+  .buckets{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:10px 0}
+  .bucket{
+    border:2.5px dashed var(--ink);border-radius:14px;padding:12px 6px;text-align:center;
+    cursor:pointer;background:var(--paper);min-height:78px;transition:transform .12s,background .12s;
+    font-weight:800;font-size:var(--fs-xs);
+  }
+  .bucket:hover{transform:translateY(-2px)}
+  .bucket.past{border-color:var(--past);color:var(--past)}
+  .bucket.now{border-color:var(--now);color:var(--now)}
+  .bucket.fut{border-color:var(--fut);color:var(--fut)}
+  .bucket.picked-ok{background:#e8f2ed;border-style:solid}
+  .bucket.picked-no{background:#fbeae8;border-style:solid;border-color:var(--left);color:var(--left)}
+  .bucket .bem{font-size:28px;display:block;margin-bottom:2px;line-height:1}
+  .bucket .blab{display:block}
+
+  .sent-card{
+    background:var(--paper);border:3px solid var(--ink);border-radius:16px;
+    padding:12px 14px;margin:8px 0;text-align:center;position:relative;overflow:hidden;
+  }
+  .sent-card .sc-sky{
+    position:absolute;inset:0 0 40% 0;
+    background:linear-gradient(180deg,var(--sky) 0%,var(--sky2) 100%);opacity:.45;pointer-events:none;
+  }
+  .sent-card .sc-em{font-size:48px;position:relative;z-index:1;margin:10px 0 4px;line-height:1.1}
+  .sent-card .sc-sent{position:relative;z-index:1;font-weight:800;font-size:var(--fs-md);margin:0}
+  body.urdu .sent-card .sc-sent{line-height:var(--lh);font-weight:400}
+  .sent-card .sc-place{position:relative;z-index:1;font-size:var(--fs-cap);color:var(--ink-soft);font-weight:700;margin:4px 0 0}
+
+  /* Comic panels for continuous vs simple */
+  .comic{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+  .comic.trio{grid-template-columns:1fr 1fr 1fr}
+  .panel-card{
+    background:var(--paper);border:2.5px solid var(--ink);border-radius:16px;
+    padding:10px 8px 12px;text-align:center;position:relative;min-height:140px;overflow:hidden;
+  }
+  .panel-card.hi-cont{border-color:var(--cont);box-shadow:inset 0 0 0 3px rgba(201,112,46,.15)}
+  .panel-card.hi-simp{border-color:var(--now);box-shadow:inset 0 0 0 3px rgba(47,111,181,.12)}
+  .panel-card.hi-perf{border-color:var(--perf);box-shadow:inset 0 0 0 3px rgba(122,90,168,.15)}
+  .panel-sky{
+    position:absolute;inset:0 0 45% 0;
+    background:linear-gradient(180deg,var(--sky) 0%,var(--sky2) 100%);opacity:.55;pointer-events:none;
+  }
+  .panel-hills{
+    position:absolute;left:0;right:0;bottom:38%;height:28px;
+    background:radial-gradient(ellipse at 30% 100%,#4a7a4a 0%,transparent 55%),
+               radial-gradient(ellipse at 70% 100%,#3d6b3d 0%,transparent 50%);
+    opacity:.7;pointer-events:none;
+  }
+  .panel-ground{
+    position:absolute;left:0;right:0;bottom:0;height:40%;
+    background:linear-gradient(180deg,#c8b896 0%,#b09a70 100%);opacity:.35;pointer-events:none;
+  }
+  .panel-em{font-size:42px;line-height:1.15;position:relative;z-index:1;margin:18px 0 4px;user-select:none}
+  .panel-em.lg{font-size:52px}
+  .panel-cap{position:relative;z-index:1;font-size:var(--fs-cap);font-weight:800;margin:0;color:var(--ink)}
+  .panel-tag{
+    position:absolute;top:6px;left:6px;z-index:2;
+    background:var(--ink);color:var(--paper);font-size:15px;font-weight:800;
+    border-radius:999px;padding:3px 8px;
+  }
+  body.urdu .panel-tag{left:auto;right:6px}
+  .panel-tag.cont-tag{background:var(--cont)}
+  .panel-tag.simp-tag{background:var(--now)}
+  .panel-tag.perf-tag{background:var(--perf)}
+  .motion-rings{
+    position:absolute;top:28%;left:50%;transform:translateX(-50%);z-index:0;
+    width:70px;height:70px;border-radius:50%;border:2px dashed var(--cont);opacity:.5;
+    animation:spin 4s linear infinite;
+  }
+  @keyframes spin{to{transform:translateX(-50%) rotate(360deg)}}
+  .check-badge{
+    position:absolute;top:8px;right:8px;z-index:2;font-size:22px;
+    background:#e8f2ed;border-radius:50%;width:32px;height:32px;line-height:32px;
+  }
+  body.urdu .check-badge{right:auto;left:8px}
+
+  .legend{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:6px 0 10px}
+  .leg{
+    font-size:var(--fs-cap);font-weight:800;padding:4px 10px;border-radius:999px;border:2px solid var(--line);
+  }
+  .leg.past{border-color:var(--past);color:var(--past);background:#f5ebe0}
+  .leg.now{border-color:var(--now);color:var(--now);background:#eaf1f9}
+  .leg.fut{border-color:var(--fut);color:var(--fut);background:#e8f2ed}
+  .leg.cont{border-color:var(--cont);color:var(--cont);background:#fdf0e4}
+  .leg.simp{border-color:var(--now);color:var(--now);background:#eaf1f9}
+  .leg.perf{border-color:var(--perf);color:var(--perf);background:#f1eef8}
+
+  .formula{
+    background:#f1eef8;border:2px solid var(--accent);border-radius:14px;
+    padding:10px 12px;margin:8px 0;font-size:var(--fs-xs);font-weight:700;color:var(--accent);
+    text-align:center;
+  }
+  body.urdu .formula{line-height:var(--lh)}
+
+  .dots{display:flex;gap:6px;justify-content:center;margin:10px 0 0}
+  .dots i{width:9px;height:9px;border-radius:50%;background:var(--line);display:block}
+  .dots i.on{background:var(--ink)}
+  .dots i.ok{background:var(--ok)}
+  .dots i.no{background:var(--left)}
+  .hit{animation:pop .45s ease-out}
+  @keyframes pop{0%{transform:scale(.6);opacity:0}60%{transform:scale(1.15)}100%{transform:scale(1)}}
+
+  .build-slots{
+    display:flex;gap:6px;flex-wrap:wrap;justify-content:center;align-items:center;
+    margin:10px 0;min-height:56px;
+  }
+  .slot{
+    min-width:72px;min-height:48px;border:2.5px dashed var(--ink);border-radius:12px;
+    background:#fff;display:flex;align-items:center;justify-content:center;
+    font-weight:800;font-size:var(--fs-xs);padding:6px 10px;color:var(--ink-soft);
+  }
+  .slot.filled{border-style:solid;background:#f1eef8;color:var(--perf);border-color:var(--perf)}
+  .slot-plus{font-weight:800;color:var(--cont);font-size:20px}
+  .chip-row{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:8px}
+  .pick-chip{
+    border:2px solid var(--ink);border-radius:999px;background:var(--paper);color:var(--ink);
+    font:inherit;font-weight:800;font-size:var(--fs-xs);padding:10px 14px;cursor:pointer;min-height:44px;
+  }
+  .pick-chip.used{opacity:.35;pointer-events:none}
+  .pick-chip.sel{background:var(--perf);color:#fff;border-color:var(--perf)}
+  .build-check{
+    margin-top:10px;width:100%;border:2px solid var(--ink);border-radius:14px;
+    background:var(--ink);color:var(--paper);font:inherit;font-weight:800;
+    font-size:var(--fs-sm);padding:12px;cursor:pointer;min-height:50px;
+  }
+  .build-check:disabled{opacity:.4;cursor:default}
+
+  .mid-banner{
+    background:linear-gradient(90deg,#fff6e2,#ffe8b8);border:2px dashed var(--cont);
+    border-radius:12px;padding:8px 12px;text-align:center;font-weight:800;
+    font-size:var(--fs-xs);margin:8px 0;color:var(--cont);
+  }
+
+  .qhead{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+  .qhead h2{font-size:var(--fs-lg);font-weight:800;margin:0;flex:1}
+  .q{margin-bottom:22px;padding-bottom:18px;border-bottom:2px solid var(--line)}
+  .q:last-child{border-bottom:0}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:8px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:12px 14px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);min-height:48px;
   }
   .opt.ur{text-align:right;line-height:var(--lh)}
   .opt:hover{border-color:var(--ink)}
   .opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
-  .opt.wrong{border-color:var(--no);background:#fbeae8}
+  .opt.wrong{border-color:var(--left);background:#fbeae8}
   .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
   .fb.show{display:block}
-
-  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+  footer{margin-top:28px;padding-top:14px;border-top:2px solid var(--line);
          font-size:var(--fs-xs);color:var(--ink-soft)}
-
   @media (min-width:820px){
     .wrap{
-      max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
-      grid-template-areas:"bar bar" "head head" "tabs tabs" "left right" "quiz quiz" "foot foot";
+      max-width:1000px;display:grid;gap:0 32px;
+      grid-template-columns:1fr 1fr;
+      grid-template-areas:
+        "bar   bar"
+        "head  head"
+        "tabs  tabs"
+        "story story"
+        "left  right"
+        "quiz  quiz"
+        "foot  foot";
       align-items:start;
     }
     .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
-    .left{grid-area:left} .right{grid-area:right}
+    .story{grid-area:story} .left{grid-area:left} .right{grid-area:right}
     .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
     .panel{margin-top:0}
   }
-  @media (prefers-reduced-motion:reduce){ *{transition-duration:.01ms !important} }
+  @media (prefers-reduced-motion:reduce){
+    *{transition-duration:.01ms !important;animation:none !important}
+  }
 </style>
 </head>
 <body>
 <div class="wrap">
 
   <div class="bar">
-    <span class="brand">AI4Kids · Class 5 English</span>
+    <span class="brand">AI4Kids · Class 5</span>
+    <span class="stars" id="starBox">⭐ <span id="starCount">0</span></span>
     <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
     <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
   </div>
@@ -193,53 +342,51 @@
   </div>
 
   <div class="tabs" role="group">
-    <button type="button" id="tabLine" aria-pressed="true"></button>
-    <button type="button" id="tabMake" aria-pressed="false"></button>
-    <button type="button" id="tabSpot" aria-pressed="false"></button>
+    <button type="button" id="tabTime" aria-pressed="true"></button>
+    <button type="button" id="tabCont" aria-pressed="false"></button>
+    <button type="button" id="tabPerf" aria-pressed="false"></button>
   </div>
+
+  <p class="story" id="story"></p>
 
   <div class="left">
   <div class="scene">
-    <svg viewBox="0 0 340 190" role="img" id="svg" aria-label="A timeline showing where the action happens"></svg>
+    <div class="scene-pad" id="scenePad"></div>
   </div>
-
   <div class="readout">
     <span class="statechip" id="statechip"></span>
-    <p class="eng" id="eng"></p>
-    <p class="urdu" id="urdu"></p>
-    <p class="formula" id="formula"></p>
+    <p class="headline" id="headline"></p>
     <p class="detail" id="detail"></p>
-    <p class="trap" id="trap"></p>
-    <p class="why-note"><b id="whyLbl"></b> <span id="whyText"></span></p>
+    <p class="hintbox" id="hintbox"></p>
   </div>
   </div>
 
   <div class="right">
-  <div class="panel" id="gridPanel">
-    <h2 id="gridHead"></h2>
-    <div class="matrix" id="matrix"></div>
-  </div>
-
-  <div class="panel" id="makePanel">
-    <h2 id="subjHead"></h2>
-    <div class="chips" id="subjChips" role="group"></div>
-    <h2 id="verbHead"></h2>
-    <div class="chips" id="verbChips" role="group"></div>
-  </div>
-
-  <div class="panel" id="spotPanel">
-    <h2 id="spotHead"></h2>
-    <div class="chips" id="spotChips" role="group"></div>
+  <div class="panel">
+    <h2 id="ctlHead"></h2>
+    <p class="prog" id="prog"></p>
+    <div id="actionBox"></div>
+    <div class="btns">
+      <button type="button" class="go" id="nextBtn"></button>
+    </div>
+    <div class="btns">
+      <button type="button" id="hintBtn"></button>
+      <button type="button" id="resetBtn"></button>
+    </div>
   </div>
   </div>
 
   <div class="quiz">
-    <h2 id="quizHead" style="font-size:var(--fs-lg);font-weight:800;margin:0 0 18px"></h2>
+    <div class="qhead">
+      <h2 id="quizHead"></h2>
+      <button type="button" class="chip" id="newQuiz"></button>
+    </div>
     <div id="quizBox"></div>
   </div>
 
   <footer>
-    <p data-en="AI4Kids — Islamabad's bilingual AI and coding school. WhatsApp 0337 1468899" data-ur="اے آئی فور کڈز — اسلام آباد کا دو زبانوں والا اے آئی اور کوڈنگ سکول۔ واٹس ایپ 0337 1468899"></p>
+    <p data-en="AI4Kids — Islamabad bilingual AI school. Offline play · no APIs. WhatsApp 0337 1468899"
+       data-ur="اے آئی فور کڈز — اسلام آباد۔ آف لائن کھیلو۔ واٹس ایپ 0337 1468899"></p>
   </footer>
 </div>
 
@@ -247,502 +394,787 @@
 (function(){
   "use strict";
 
-  var lang = "en";
-  var tab  = "line";
-  var when = "now", form = "simple";     // which cell of the grid
-  var subjI = 1, verbI = 0;
-  var spotI = 0, spotAns = null;
-  var solved = {};
-
-  var SUBJ = [
-    { w:"I",    ur:"میں", s:false, be:"am",  bePast:"was"  },
-    { w:"He",   ur:"وہ",  s:true,  be:"is",  bePast:"was"  },
-    { w:"We",   ur:"ہم",  s:false, be:"are", bePast:"were" },
-    { w:"They", ur:"وہ (جمع)", s:false, be:"are", bePast:"were" }
-  ];
-  var VERBS = [
-    { base:"play",  past:"played", ing:"playing", obj:"cricket",   ur:"کھیلنا" },
-    { base:"eat",   past:"ate",    ing:"eating",  obj:"biryani",   ur:"کھانا"  },
-    { base:"go",    past:"went",   ing:"going",   obj:"to school", ur:"جانا"   },
-    { base:"write", past:"wrote",  ing:"writing", obj:"a letter",  ur:"لکھنا"  }
-  ];
-  function thirdS(v){                       // he plays, he goes, he writes
-    if (/(ch|sh|s|x|o)$/.test(v)) return v + "es";
-    return v + "s";
-  }
-
-  function build(si, vi, when, form){
-    var s = SUBJ[si], v = VERBS[vi], head, tail, hl;
-    if (form === "simple"){
-      if (when === "past"){ head = s.w; hl = v.past; tail = ""; }
-      else if (when === "now"){ head = s.w; hl = s.s ? thirdS(v.base) : v.base; tail = ""; }
-      else { head = s.w; hl = "will " + v.base; tail = ""; }
-    } else {
-      if (when === "past"){ head = s.w; hl = s.bePast + " " + v.ing; tail = ""; }
-      else if (when === "now"){ head = s.w; hl = s.be + " " + v.ing; tail = ""; }
-      else { head = s.w; hl = "will be " + v.ing; tail = ""; }
-    }
-    return { head:head, hl:hl, tail:tail };
-  }
-
-  var T = {
-    tabLine:{en:"The time line", ur:"وقت کی لکیر"},
-    tabMake:{en:"Make a sentence", ur:"جملہ بنائیں"},
-    tabSpot:{en:"Spot the tense", ur:"زمانہ پہچانیں"},
-    titleLine:{en:"Every sentence sits somewhere on a line of time.",
-               ur:"ہر جملہ وقت کی لکیر پر کہیں نہ کہیں بیٹھتا ہے۔"},
-    subLine:{en:"A simple tense is a dot. A continuous tense is a stretch.",
-             ur:"سادہ زمانہ ایک نقطہ ہے۔ جاری زمانہ ایک پٹی ہے۔"},
-    titleMake:{en:"Only the verb changes. Watch which part moves.",
-               ur:"صرف فعل بدلتا ہے۔ دیکھیں کون سا حصہ حرکت کرتا ہے۔"},
-    subMake:{en:"Pick who and what. The highlighted part is the only thing the tense touches.",
-             ur:"کون اور کیا چنیں۔ نمایاں حصہ ہی وہ ہے جسے زمانہ بدلتا ہے۔"},
-    titleSpot:{en:"Read the sentence. Where does it belong?",
-               ur:"جملہ پڑھیں۔ یہ کہاں بیٹھتا ہے؟"},
-    subSpot:{en:"Find the clue word, then pick the box.",
-             ur:"اشارہ دینے والا لفظ ڈھونڈیں، پھر خانہ چنیں۔"},
-    gridHead:{en:"Pick a box", ur:"کوئی خانہ چنیں"},
-    subjHead:{en:"Who?", ur:"کون؟"},
-    verbHead:{en:"Doing what?", ur:"کیا کر رہا ہے؟"},
-    spotHead:{en:"Pick a sentence", ur:"کوئی جملہ چنیں"},
-    past:{en:"Past", ur:"ماضی"},
-    now:{en:"Present", ur:"حال"},
-    fut:{en:"Future", ur:"مستقبل"},
-    simple:{en:"Simple", ur:"سادہ"},
-    cont:{en:"Continuous", ur:"جاری"},
-    names:{
-      "past-simple":{en:"Simple Past", ur:"ماضی مطلق"},
-      "past-cont":{en:"Past Continuous", ur:"ماضی جاری"},
-      "now-simple":{en:"Simple Present", ur:"حال مطلق"},
-      "now-cont":{en:"Present Continuous", ur:"حال جاری"},
-      "fut-simple":{en:"Simple Future", ur:"مستقبل مطلق"},
-      "fut-cont":{en:"Future Continuous", ur:"مستقبل جاری"}
-    },
-    formulas:{
-      "past-simple":"Subject + verb-ed / V2",
-      "past-cont":"Subject + was/were + verb-ing",
-      "now-simple":"Subject + verb (+s for he/she/it)",
-      "now-cont":"Subject + am/is/are + verb-ing",
-      "fut-simple":"Subject + will + verb",
-      "fut-cont":"Subject + will be + verb-ing"
-    },
-    uses:{
-      "past-simple":{en:"Something that finished. One moment, already over.",
-                     ur:"جو کام ہو چکا۔ ایک لمحہ، جو گزر گیا۔"},
-      "past-cont":{en:"Something that was going on for a while, back then.",
-                   ur:"جو کام اُس وقت کچھ دیر تک چل رہا تھا۔"},
-      "now-simple":{en:"A habit. Something that happens again and again.",
-                    ur:"عادت۔ جو کام بار بار ہوتا رہتا ہے۔"},
-      "now-cont":{en:"Happening right now, as you speak.",
-                  ur:"ابھی اسی وقت ہو رہا ہے، بولتے بولتے۔"},
-      "fut-simple":{en:"Something that will happen later. One moment, not yet come.",
-                    ur:"جو کام بعد میں ہوگا۔ ایک لمحہ، جو ابھی آیا نہیں۔"},
-      "fut-cont":{en:"Something that will be going on for a while, later.",
-                  ur:"جو کام بعد میں کچھ دیر تک چل رہا ہوگا۔"}
-    },
-    samples:{
-      "past-simple":{en:"He played cricket yesterday.", ur:"اس نے کل کرکٹ کھیلی۔"},
-      "past-cont":{en:"He was playing cricket when it rained.", ur:"جب بارش ہوئی تو وہ کرکٹ کھیل رہا تھا۔"},
-      "now-simple":{en:"He plays cricket every Sunday.", ur:"وہ ہر اتوار کرکٹ کھیلتا ہے۔"},
-      "now-cont":{en:"He is playing cricket right now.", ur:"وہ ابھی کرکٹ کھیل رہا ہے۔"},
-      "fut-simple":{en:"He will play cricket tomorrow.", ur:"وہ کل کرکٹ کھیلے گا۔"},
-      "fut-cont":{en:"He will be playing cricket at 5 o'clock.", ur:"وہ پانچ بجے کرکٹ کھیل رہا ہوگا۔"}
-    },
-    traps:{
-      "now-simple":{en:"The commonest mistake of all: \u201cHe go to school.\u201d With he, she or it, the verb needs an s \u2014 He goes. With I, we, they, it does not.",
-                    ur:"سب سے عام غلطی: \u201cHe go to school.\u201d۔ he، she یا it کے ساتھ فعل پر s لگتا ہے \u2014 He goes۔ I، we، they کے ساتھ نہیں لگتا۔"},
-      "past-simple":{en:"\u201cHe did went\u201d is wrong. Once did appears, the verb goes back to its plain form: He did go, He did not go.",
-                     ur:"\u201cHe did went\u201d غلط ہے۔ جہاں did آ جائے، فعل واپس اپنی سادہ شکل میں چلا جاتا ہے: He did go, He did not go۔"},
-      "fut-simple":{en:"After will the verb never changes: \u201cwill played\u201d and \u201cwill goes\u201d are both wrong. Always will + the plain verb.",
-                    ur:"will کے بعد فعل کبھی نہیں بدلتا: \u201cwill played\u201d اور \u201cwill goes\u201d دونوں غلط ہیں۔ ہمیشہ will + سادہ فعل۔"},
-      "now-cont":{en:"The be word is not optional. \u201cHe playing\u201d is not a sentence \u2014 it needs is: He is playing.",
-                  ur:"be والا لفظ چھوڑا نہیں جا سکتا۔ \u201cHe playing\u201d جملہ ہی نہیں \u2014 اسے is چاہیے: He is playing۔"},
-      "past-cont":{en:"Match the be word to the subject: I/he/she was, but we/they were. \u201cThey was playing\u201d is wrong.",
-                   ur:"be والا لفظ فاعل کے مطابق چنیں: I/he/she کے ساتھ was، مگر we/they کے ساتھ were۔ \u201cThey was playing\u201d غلط ہے۔"},
-      "fut-cont":{en:"It is will be, never will is or will are. The be stays in its plain form after will.",
-                  ur:"یہ will be ہے، will is یا will are کبھی نہیں۔ will کے بعد be اپنی سادہ شکل میں رہتا ہے۔"}
-    },
-    whyDot:{en:"Look at the line: this one is a single dot. The action is thought of as one moment, whether it is finished, habitual or still to come.",
-            ur:"لکیر کو دیکھیں: یہ ایک نقطہ ہے۔ کام کو ایک لمحے کے طور پر سوچا جا رہا ہے — چاہے ہو چکا ہو، عادت ہو، یا ابھی آنا ہو۔"},
-    whyBand:{en:"Look at the line: this one is a stretch, not a dot. Continuous always means the action was, is, or will be going on for some time — not finished in an instant.",
-             ur:"لکیر کو دیکھیں: یہ نقطہ نہیں، ایک پٹی ہے۔ جاری زمانہ ہمیشہ یہ بتاتا ہے کہ کام کچھ دیر تک چل رہا تھا، چل رہا ہے، یا چل رہا ہوگا — ایک لمحے میں ختم نہیں۔"},
-    whyHabit:{en:"Notice the three dots. Simple Present is usually not about right now at all \u2014 it is about something that repeats. For right now you need Present Continuous.",
-              ur:"تین نقطے دیکھیں۔ حال مطلق اکثر \u201cابھی\u201d کے بارے میں ہوتا ہی نہیں — یہ اُس کام کے بارے میں ہے جو بار بار ہوتا ہے۔ \u201cابھی\u201d کے لیے حال جاری چاہیے۔"},
-    whyMake:{en:"The subject never changes and the rest of the sentence never changes. Only the highlighted part moves. That is all a tense is.",
-             ur:"فاعل کبھی نہیں بدلتا اور باقی جملہ بھی نہیں بدلتا۔ صرف نمایاں حصہ حرکت کرتا ہے۔ زمانہ بس اتنا ہی ہے۔"},
-    spotAsk:{en:"Which box does this sentence belong in?", ur:"یہ جملہ کس خانے میں جائے گا؟"},
-    spotOk:{en:"Correct.", ur:"درست۔"},
-    spotNo:{en:"Not that one.", ur:"یہ نہیں۔"},
-    whyLbl:{en:"Notice:", ur:"غور کریں:"},
-    quiz:{en:"Check yourself", ur:"اپنا امتحان لیں"}
-  };
-
-  var SPOTS = [
-    { s:"She is reading a book right now.", when:"now",  form:"cont",
-      clue:{en:"right now + is reading", ur:"right now + is reading"} },
-    { s:"We played hockey last Friday.", when:"past", form:"simple",
-      clue:{en:"last Friday + played", ur:"last Friday + played"} },
-    { s:"I will call you tomorrow.", when:"fut", form:"simple",
-      clue:{en:"tomorrow + will call", ur:"tomorrow + will call"} },
-    { s:"My father goes to work every morning.", when:"now", form:"simple",
-      clue:{en:"every morning + goes", ur:"every morning + goes"} },
-    { s:"They were waiting for the bus at 8 o'clock.", when:"past", form:"cont",
-      clue:{en:"at 8 o'clock + were waiting", ur:"at 8 o'clock + were waiting"} },
-    { s:"This time tomorrow I will be flying to Karachi.", when:"fut", form:"cont",
-      clue:{en:"this time tomorrow + will be flying", ur:"this time tomorrow + will be flying"} }
-  ];
-
-  var QUIZ = [
-    { q:{en:"Which sentence is correct?", ur:"کون سا جملہ درست ہے؟"},
-      o:[{en:"He go to school every day.", ur:"He go to school every day."},
-         {en:"He goes to school every day.", ur:"He goes to school every day."},
-         {en:"He going to school every day.", ur:"He going to school every day."},
-         {en:"He is go to school every day.", ur:"He is go to school every day."}],
-      a:1,
-      f:{en:"With he, she or it in the Simple Present, the verb takes an s. With I, we or they it does not: I go, they go, but he goes.",
-         ur:"حال مطلق میں he، she یا it کے ساتھ فعل پر s لگتا ہے۔ I، we، they کے ساتھ نہیں: I go, they go، مگر he goes۔"} },
-
-    { q:{en:"\u201cShe ______ her homework when the light went off.\u201d",
-         ur:"\u201cShe ______ her homework when the light went off.\u201d"},
-      o:[{en:"does", ur:"does"},{en:"was doing", ur:"was doing"},
-         {en:"will do", ur:"will do"},{en:"is doing", ur:"is doing"}],
-      a:1,
-      f:{en:"The homework was going on for a while, and then something interrupted it. A stretch of time in the past is Past Continuous: was/were + verb-ing.",
-         ur:"کام کچھ دیر سے چل رہا تھا، پھر کسی چیز نے روک دیا۔ ماضی میں چلتا ہوا عرصہ ماضی جاری ہے: was/were + verb-ing۔"} },
-
-    { q:{en:"Which one is wrong?", ur:"ان میں سے غلط کون سا ہے؟"},
-      o:[{en:"I will go tomorrow.", ur:"I will go tomorrow."},
-         {en:"I will went tomorrow.", ur:"I will went tomorrow."},
-         {en:"I will be going tomorrow.", ur:"I will be going tomorrow."},
-         {en:"I am going tomorrow.", ur:"I am going tomorrow."}],
-      a:1,
-      f:{en:"After will the verb always stays in its plain form. Will already carries the future, so the verb does not need to change as well.",
-         ur:"will کے بعد فعل ہمیشہ سادہ شکل میں رہتا ہے۔ مستقبل کا کام will خود کر رہا ہے، تو فعل کو بھی بدلنے کی ضرورت نہیں۔"} },
-
-    { q:{en:"\u201cThey ______ cricket in the park at the moment.\u201d",
-         ur:"\u201cThey ______ cricket in the park at the moment.\u201d"},
-      o:[{en:"play", ur:"play"},{en:"plays", ur:"plays"},
-         {en:"are playing", ur:"are playing"},{en:"was playing", ur:"was playing"}],
-      a:2,
-      f:{en:"\u201cAt the moment\u201d means right now, so it is Present Continuous. And with they the be word is are, not was.",
-         ur:"\u201cAt the moment\u201d کا مطلب ابھی، تو یہ حال جاری ہے۔ اور they کے ساتھ be والا لفظ are ہے، was نہیں۔"} },
-
-    { q:{en:"\u201cHe plays cricket every Sunday.\u201d When does he play?",
-         ur:"\u201cHe plays cricket every Sunday.\u201d وہ کب کھیلتا ہے؟"},
-      o:[{en:"Right now, at this moment", ur:"ابھی، اسی لمحے"},
-         {en:"Again and again, as a habit", ur:"بار بار، عادت کے طور پر"},
-         {en:"Once, in the past", ur:"ایک بار، ماضی میں"},
-         {en:"Once, in the future", ur:"ایک بار، مستقبل میں"}],
-      a:1,
-      f:{en:"This is the part children most often get wrong. Simple Present is usually not about right now — it is about what repeats. For right now you need \u201cHe is playing\u201d.",
-         ur:"یہی وہ بات ہے جو بچے سب سے زیادہ غلط سمجھتے ہیں۔ حال مطلق عموماً \u201cابھی\u201d کے بارے میں نہیں — یہ اُس کام کے بارے میں ہے جو دہراتا ہے۔ \u201cابھی\u201d کے لیے \u201cHe is playing\u201d چاہیے۔"} },
-
-    { q:{en:"What is the difference between a simple tense and a continuous one?",
-         ur:"سادہ اور جاری زمانے میں فرق کیا ہے؟"},
-      o:[{en:"A simple tense is for one moment; a continuous tense is for a stretch of time",
-          ur:"سادہ زمانہ ایک لمحے کے لیے؛ جاری زمانہ کچھ دیر چلنے والے کام کے لیے"},
-         {en:"A continuous tense is only for the future", ur:"جاری زمانہ صرف مستقبل کے لیے ہوتا ہے"},
-         {en:"They mean exactly the same thing", ur:"دونوں کا مطلب بالکل ایک ہے"},
-         {en:"A simple tense is only for the past", ur:"سادہ زمانہ صرف ماضی کے لیے ہوتا ہے"}],
-      a:0,
-      f:{en:"That is why the app draws one as a dot and the other as a band. Every one of the three times — past, present, future — can be either.",
-         ur:"اسی لیے ایپ ایک کو نقطہ اور دوسرے کو پٹی بنا کر دکھاتی ہے۔ تینوں زمانے — ماضی، حال، مستقبل — دونوں طرح کے ہو سکتے ہیں۔"} }
-  ];
-
   function $(id){ return document.getElementById(id); }
-  function t(o){ return o[lang]; }
-  function key(){ return when + "-" + (form === "simple" ? "simple" : "cont"); }
-
-  var LRI = "\u2066", PDI = "\u2069";
-  var LATIN_RUN = /[A-Za-z0-9][A-Za-z0-9 .,'\u2019+()\/@_-]*[A-Za-z0-9.]|[A-Za-z0-9]/g;
-  function isolate(s){ return s.replace(LATIN_RUN, function(m){ return LRI + m + PDI; }); }
+  function isolate(s){ return "\u2066" + s + "\u2069"; }
   function setText(el, str){
+    if (!el) return;
     el.textContent = (lang === "ur") ? isolate(str) : str;
     el.classList.toggle("ur", lang === "ur");
     el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
   }
-
-  var NS = "http://www.w3.org/2000/svg";
-  function mk(tag, a){
-    var e = document.createElementNS(NS, tag);
-    for (var k in a) e.setAttribute(k, a[k]);
-    return e;
-  }
-
-  /* ---------- the time line ---------- */
-  function drawLine(w, f){
-    var svg = $("svg"); svg.innerHTML = "";
-    var g = mk("g", {}); svg.appendChild(g);
-    var Y = 108, X0 = 24, X1 = 316, NOW = 170;
-
-    g.appendChild(mk("line", {x1:X0, y1:Y, x2:X1, y2:Y, stroke:"var(--ink-soft)",
-                              "stroke-width":3, "stroke-linecap":"round"}));
-    g.appendChild(mk("path", {d:"M"+(X1-11)+" "+(Y-7)+" L"+X1+" "+Y+" L"+(X1-11)+" "+(Y+7),
-                              fill:"none", stroke:"var(--ink-soft)", "stroke-width":3,
-                              "stroke-linecap":"round", "stroke-linejoin":"round"}));
-
-    // the NOW marker
-    g.appendChild(mk("line", {x1:NOW, y1:Y-34, x2:NOW, y2:Y+34, stroke:"var(--now)",
-                              "stroke-width":3, "stroke-dasharray":"5 4"}));
-    var nowT = mk("text", {x:NOW, y:Y+52, "text-anchor":"middle", "font-size":"13",
-                           "font-weight":"800", fill:"var(--now-deep)",
-                           "font-family": lang === "ur" ? "Noto Nastaliq Urdu, serif"
-                                                        : "Baloo Bhaijaan 2, sans-serif"});
-    nowT.textContent = lang === "ur" ? "\u0627\u0628" : "NOW";
-    g.appendChild(nowT);
-
-    [[X0+26, t(T.past), "var(--past-deep)"], [X1-30, t(T.fut), "var(--fut-deep)"]].forEach(function(l){
-      var tx = mk("text", {x:l[0], y:Y-46, "text-anchor":"middle", "font-size":"13",
-                           "font-weight":"800", fill:l[2],
-                           "font-family": lang === "ur" ? "Noto Nastaliq Urdu, serif"
-                                                        : "Baloo Bhaijaan 2, sans-serif"});
-      tx.textContent = l[1];
-      g.appendChild(tx);
-    });
-
-    var col = w === "past" ? "var(--past)" : (w === "now" ? "var(--now)" : "var(--fut)");
-    var cx  = w === "past" ? 84 : (w === "now" ? NOW : 256);
-
-    if (f === "cont"){
-      // a stretch of time: a band with soft ends
-      g.appendChild(mk("rect", {x:cx-46, y:Y-16, width:92, height:32, rx:16,
-                                fill:col, opacity:.30}));
-      g.appendChild(mk("rect", {x:cx-46, y:Y-16, width:92, height:32, rx:16,
-                                fill:"none", stroke:col, "stroke-width":3.5}));
-      for (var i=-1;i<=1;i++){
-        g.appendChild(mk("circle", {cx:cx + i*26, cy:Y, r:4.5, fill:col}));
-      }
-    } else if (w === "now"){
-      // a habit: the same dot, over and over
-      [-92,-50,0,50,92].forEach(function(o){
-        g.appendChild(mk("circle", {cx:cx+o, cy:Y, r: o === 0 ? 9 : 7,
-                                    fill:col, opacity: o === 0 ? 1 : .55}));
-      });
-    } else {
-      g.appendChild(mk("circle", {cx:cx, cy:Y, r:11, fill:col}));
-      g.appendChild(mk("circle", {cx:cx, cy:Y, r:19, fill:"none", stroke:col,
-                                  "stroke-width":2.5, opacity:.45}));
+  function t(o){ return (o && o[lang]) || (o && o.en) || ""; }
+  function shuffle(arr){
+    var a = arr.slice(), i, j, tmp;
+    for (i = a.length - 1; i > 0; i--){
+      j = Math.floor(Math.random() * (i + 1));
+      tmp = a[i]; a[i] = a[j]; a[j] = tmp;
     }
-
-    var nm = mk("text", {x:cx, y:Y-34, "text-anchor":"middle", "font-size":"13",
-                         "font-weight":"800", fill:col,
-                         "font-family": lang === "ur" ? "Noto Nastaliq Urdu, serif"
-                                                      : "Baloo Bhaijaan 2, sans-serif"});
-    nm.textContent = t(T.names[key()]);
-    if (w !== "now" || f === "cont") g.appendChild(nm);
+    return a;
   }
 
-  /* ---------- the 2 x 3 grid ---------- */
-  function buildMatrix(){
-    var m = $("matrix"); m.innerHTML = "";
-    var blank = document.createElement("div"); blank.className = "mh";
-    m.appendChild(blank);
-    [["past","p"],["now","n"],["fut","f"]].forEach(function(c){
-      var h = document.createElement("div"); h.className = "mh " + c[1];
-      h.textContent = t(T[c[0]]);
-      h.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
-      m.appendChild(h);
+  var lang = "en";
+  var mode = "time";
+  var stars = 0;
+  var awarded = {};
+  var doneModes = {time:false, cont:false, perf:false};
+  var tIdx = 0, cIdx = 0, pIdx = 0;
+  var answered = {time:{}, cont:{}, perf:{}};
+  var quizSet = [];
+  var perfSlots = []; // selected chips for perfect builder
+
+  var T = {
+    title:{en:"All tenses review", ur:"تمام ٹینسز کا جائزہ"},
+    sub:{en:"Past ← Now → Future — simple, continuous, perfect!", ur:"ماضی ← اب ← مستقبل — سادہ، جاری، مکمل!"},
+    tabTime:{en:"Timeline", ur:"ٹائم لائن"},
+    tabCont:{en:"Simple / Cont.", ur:"سادہ / جاری"},
+    tabPerf:{en:"Perfect", ur:"پرفیکٹ"},
+    storyTime:{en:"Look at the scene + sentence. Tap the correct place on the timeline: <b>Past</b>, <b>Present</b>, or <b>Future</b>.",
+               ur:"منظر اور جملہ دیکھو۔ ٹائم لائن پر درست جگہ ٹیپ کرو: <b>ماضی</b>، <b>حال</b>، یا <b>مستقبل</b>۔"},
+    storyCont:{en:"Is the action a <b>habit/fact</b> (Simple) or <b>happening right now</b> (Continuous — -ing)?",
+               ur:"کیا عمل <b>عادت/حقیقت</b> ہے (سادہ) یا <b>ابھی ہو رہا ہے</b> (جاری — -ing)؟"},
+    storyPerf:{en:"Scene shows work <b>already done</b>. Build: <b>has/have + V3</b> (past participle).",
+               ur:"منظر میں کام <b>پہلے ہی ہو چکا</b>۔ بناؤ: <b>has/have + V3</b>۔"},
+    ctl:{en:"Your turn", ur:"تمہاری باری"},
+    next:{en:"Next scene", ur:"اگلا منظر"},
+    hint:{en:"Hint", ur:"اشارہ"},
+    reset:{en:"Reset", ur:"ری سیٹ"},
+    quiz:{en:"Check yourself", ur:"اپنا امتحان"},
+    newQuiz:{en:"New quiz", ur:"نیا کوئز"},
+    askTime:{en:"Where does this sentence live on the timeline?", ur:"یہ جملہ ٹائم لائن پر کہاں ہے؟"},
+    askCont:{en:"Which form fits the picture?", ur:"تصویر کے لیے کون سی شکل؟"},
+    askPerf:{en:"Build the Present Perfect sentence", ur:"Present Perfect جملہ بناؤ"},
+    nice:{en:"Shabash — tense master!", ur:"شاباش — ٹینس ماہر!"},
+    oops:{en:"Not quite — check the time clues", ur:"ٹھیک نہیں — وقت کے اشارے دیکھو"},
+    doneRound:{en:"Round complete!", ur:"راؤنڈ مکمل!"},
+    progT:{en:"Timeline sorts", ur:"ٹائم لائن"},
+    progC:{en:"Form picks", ur:"شکل چنیں"},
+    progP:{en:"Perfect builds", ur:"پرفیکٹ"},
+    past:{en:"Past", ur:"ماضی"},
+    present:{en:"Present", ur:"حال"},
+    future:{en:"Future", ur:"مستقبل"},
+    nowFlag:{en:"NOW", ur:"اب"},
+    check:{en:"Check", ur:"چیک کرو"},
+    simpleLab:{en:"Simple", ur:"سادہ"},
+    contLab:{en:"Continuous", ur:"جاری"},
+    tip:{en:"Tip: Continuous = in progress (−ing). Perfect = already done (has/have + V3).",
+         ur:"نکتہ: Continuous = جاری (−ing)۔ Perfect = ہو چکا (has/have + V3)۔"}
+  };
+
+  /* ---- Timeline scenes (Islamabad) ---- */
+  var TIME = [
+    {
+      id:"cricket-yest",
+      place:{en:"F-7 cricket ground · yesterday", ur:"ایف-۷ کرکٹ گراؤنڈ · کل"},
+      em:"👦🏏🌅",
+      sent:{en:"Ali played cricket yesterday.", ur:"علی نے کل کرکٹ کھیلی۔"},
+      tense:"past",
+      why:{en:"Yesterday = Past. Simple past: played.", ur:"کل = ماضی۔ Simple past: played۔"},
+      hint:{en:"Look for time words: yesterday, last week, ago.", ur:"وقت کے الفاظ دیکھو: yesterday, last week, ago۔"}
+    },
+    {
+      id:"bell-now",
+      place:{en:"Islamabad school · right now", ur:"اسلام آباد اسکول · ابھی"},
+      em:"🔔🏫👧",
+      sent:{en:"The school bell is ringing now.", ur:"اسکول کی گھنٹی اب بج رہی ہے۔"},
+      tense:"present",
+      why:{en:"Now + is ringing = Present Continuous (happening this moment).", ur:"اب + is ringing = حال جاری۔"},
+      hint:{en:"Words like now / at the moment → Present.", ur:"now / at the moment → حال۔"}
+    },
+    {
+      id:"margalla-tom",
+      place:{en:"Margalla Hills trail · tomorrow", ur:"مارگلہ پہاڑ · کل (آنے والا)"},
+      em:"⛰️🥾👪",
+      sent:{en:"We will hike Margalla tomorrow.", ur:"ہم کل مارگلہ پر چڑھیں گے۔"},
+      tense:"future",
+      why:{en:"Tomorrow + will hike = Future Simple.", ur:"کل (آنے والا) + will = مستقبل۔"},
+      hint:{en:"will / going to / tomorrow → Future.", ur:"will / going to / tomorrow → مستقبل۔"}
+    },
+    {
+      id:"hw-habit",
+      place:{en:"G-9 home study desk · every day", ur:"جی-۹ گھر · روزانہ"},
+      em:"📚✏️🌙",
+      sent:{en:"Sana does her homework every evening.", ur:"ثانا ہر شام ہوم ورک کرتی ہے۔"},
+      tense:"present",
+      why:{en:"every evening = habit → Present Simple.", ur:"ہر شام = عادت → Present Simple۔"},
+      hint:{en:"Habits and facts use Present Simple.", ur:"عادات اور حقائق Present Simple۔"},
+    },
+    {
+      id:"match-last",
+      place:{en:"Rawalpindi stadium · last Sunday", ur:"راولپنڈی اسٹیڈیم · پچھلا اتوار"},
+      em:"🏏🏆🎉",
+      sent:{en:"Pakistan won the match last Sunday.", ur:"پاکستان نے پچھلے اتوار میچ جیتا۔"},
+      tense:"past",
+      why:{en:"last Sunday = Past Simple (won).", ur:"پچھلا اتوار = ماضی۔"},
+      hint:{en:"Finished action at a past time → Past.", ur:"ماضی کے وقت کا ختم عمل → ماضی۔"}
+    },
+    {
+      id:"picnic-next",
+      place:{en:"Daman-e-Koh · next Friday", ur:"دامنِ کوہ · اگلا جمعہ"},
+      em:"🧺🌳☀️",
+      sent:{en:"Our class will picnic at Daman-e-Koh next Friday.", ur:"ہماری کلاس اگلے جمعہ دامنِ کوہ پر پکنک کرے گی۔"},
+      tense:"future",
+      why:{en:"next Friday + will = Future.", ur:"اگلا جمعہ + will = مستقبل۔"},
+      hint:{en:"Plans with will / next… sit in the Future.", ur:"will / next… مستقبل میں۔"}
+    }
+  ];
+
+  /* ---- Simple vs Continuous ---- */
+  var CONT = [
+    {
+      id:"bat-now",
+      place:{en:"F-6 nets · this minute", ur:"ایف-۶ نیٹس · اس لمحے"},
+      sceneEm:"👦🏏💨",
+      sceneCap:{en:"In progress!", ur:"جاری!"},
+      askPic:{en:"Ali is swinging the bat right now.", ur:"علی ابھی بیٹ گھما رہا ہے۔"},
+      opts:[
+        {em:"⚡", en:"Ali swings the bat. (Simple)", ur:"Ali swings the bat. (سادہ)", kind:"simp"},
+        {em:"🔄", en:"Ali is swinging the bat. (Continuous)", ur:"Ali is swinging the bat. (جاری)", kind:"cont"}
+      ],
+      a:1,
+      why:{en:"Action in progress → be + V-ing (is swinging).", ur:"جاری عمل → be + V-ing۔"},
+      hint:{en:"See the motion lines? That means Continuous.", ur:"حرکت کے دائرے؟ Continuous۔"}
+    },
+    {
+      id:"bell-habit",
+      place:{en:"School gate · every morning", ur:"اسکول گیٹ · ہر صبح"},
+      sceneEm:"🔔🏫📅",
+      sceneCap:{en:"Habit / routine", ur:"عادت / معمول"},
+      askPic:{en:"The bell rings at 8 every day — a routine.", ur:"گھنٹی روزانہ ۸ بجے بجتی ہے — معمول۔"},
+      opts:[
+        {em:"📅", en:"The bell rings at 8. (Simple)", ur:"The bell rings at 8. (سادہ)", kind:"simp"},
+        {em:"🔄", en:"The bell is ringing at 8. (Continuous)", ur:"The bell is ringing at 8. (جاری)", kind:"cont"}
+      ],
+      a:0,
+      why:{en:"Habits / schedules → Present Simple (rings).", ur:"عادات → Present Simple۔"},
+      hint:{en:"every day / usually → Simple, not -ing.", ur:"every day → سادہ، -ing نہیں۔"}
+    },
+    {
+      id:"hw-prog",
+      place:{en:"Desk under Margalla view", ur:"مارگلہ کے نظارے والا ڈیسک"},
+      sceneEm:"👧📝⏳",
+      sceneCap:{en:"Still writing…", ur:"ابھی لکھ رہی…"},
+      askPic:{en:"Sana has not finished — she is writing now.", ur:"ثانا نے ابھی ختم نہیں کیا — وہ لکھ رہی ہے۔"},
+      opts:[
+        {em:"🔄", en:"Sana is writing her essay. (Continuous)", ur:"Sana is writing her essay. (جاری)", kind:"cont"},
+        {em:"⚡", en:"Sana writes her essay. (Simple)", ur:"Sana writes her essay. (سادہ)", kind:"simp"}
+      ],
+      a:0,
+      why:{en:"Happening at this moment → Continuous.", ur:"اس لمحے ہو رہا → Continuous۔"},
+      hint:{en:"Unfinished action in the picture → -ing.", ur:"تصویر میں نامکمل عمل → -ing۔"}
+    },
+    {
+      id:"fact-islamabad",
+      place:{en:"Capital fact", ur:"دارالحکومت کی حقیقت"},
+      sceneEm:"🏛️🇵🇰🗺️",
+      sceneCap:{en:"Always true", ur:"ہمیشہ سچ"},
+      askPic:{en:"Islamabad is the capital — a fact, not a moment.", ur:"اسلام آباد دارالحکومت ہے — حقیقت، لمحہ نہیں۔"},
+      opts:[
+        {em:"⚡", en:"Islamabad is the capital of Pakistan. (Simple)", ur:"Islamabad is the capital… (سادہ)", kind:"simp"},
+        {em:"🔄", en:"Islamabad is being the capital. (Continuous)", ur:"Islamabad is being the capital. (جاری)", kind:"cont"}
+      ],
+      a:0,
+      why:{en:"Permanent facts use Simple (is), not Continuous.", ur:"مستقل حقائق Simple۔"},
+      hint:{en:"Facts & truths → Simple.", ur:"حقائق → سادہ۔"}
+    },
+    {
+      id:"rain-now",
+      place:{en:"Monsoon over Blue Area", ur:"بلیو ایریا پر مون سون"},
+      sceneEm:"🌧️🏢☔",
+      sceneCap:{en:"Look outside!", ur:"باہر دیکھو!"},
+      askPic:{en:"Rain is falling on the window right now.", ur:"بارش ابھی کھڑکی پر گر رہی ہے۔"},
+      opts:[
+        {em:"⚡", en:"It rains in Islamabad. (Simple habit)", ur:"It rains in Islamabad. (عادت)", kind:"simp"},
+        {em:"🔄", en:"It is raining right now. (Continuous)", ur:"It is raining right now. (جاری)", kind:"cont"}
+      ],
+      a:1,
+      why:{en:"This moment's weather → Continuous (is raining).", ur:"اس لمحے کا موسم → Continuous۔"},
+      hint:{en:"Pointing at the window now → -ing.", ur:"ابھی کھڑکی کی طرف → -ing۔"}
+    }
+  ];
+
+  /* ---- Perfect (has/have + V3) ---- */
+  var PERF = [
+    {
+      id:"hw-done",
+      place:{en:"Homework finished · G-9", ur:"ہوم ورک مکمل · جی-۹"},
+      em:"✅📚😊",
+      prompt:{en:"Sana _____ _____ her homework. (already done)", ur:"ثانا نے ہوم ورک _____ _____۔ (ہو چکا)"},
+      target:["has","finished"],
+      chips:["has","have","finished","finishing","finish"],
+      full:{en:"Sana has finished her homework.", ur:"ثانا نے ہوم ورک ختم کر لیا ہے۔"},
+      why:{en:"She = has + V3 (finished). Work is already done.", ur:"She = has + V3۔ کام ہو چکا۔"},
+      hint:{en:"Singular he/she/it → has + V3.", ur:"he/she/it → has + V3۔"}
+    },
+    {
+      id:"match-won",
+      place:{en:"After the final ball · F-7", ur:"آخری گیند کے بعد · ایف-۷"},
+      em:"🏆🏏🙌",
+      prompt:{en:"We _____ _____ the match! (already)", ur:"ہم میچ _____ _____! (پہلے ہی)"},
+      target:["have","won"],
+      chips:["have","has","won","winning","win"],
+      full:{en:"We have won the match!", ur:"ہم میچ جیت چکے ہیں!"},
+      why:{en:"We/you/they → have + V3 (won).", ur:"We → have + V3 (won)۔"},
+      hint:{en:"Plural subjects use have, not has.", ur:"جمع فاعل → have۔"}
+    },
+    {
+      id:"bell-gone",
+      place:{en:"Corridor after first bell", ur:"پہلی گھنٹی کے بعد راہداری"},
+      em:"🔔➡️🚪",
+      prompt:{en:"The bell _____ _____ . Class has started.", ur:"گھنٹی _____ _____۔ کلاس شروع ہو چکی۔"},
+      target:["has","rung"],
+      chips:["has","have","rung","ringing","rang"],
+      full:{en:"The bell has rung.", ur:"گھنٹی بج چکی ہے۔"},
+      why:{en:"Bell = it → has + V3 (rung, not rang).", ur:"Bell → has + rung (rang نہیں)۔"},
+      hint:{en:"V3 of ring is rung.", ur:"ring کا V3 = rung۔"}
+    },
+    {
+      id:"trail-seen",
+      place:{en:"Margalla viewpoint selfie done", ur:"مارگلہ ویو پوائنٹ سیلفی ہو چکی"},
+      em:"📸⛰️✅",
+      prompt:{en:"I _____ _____ the Margalla sunrise.", ur:"میں نے مارگلہ کا سورج _____ _____۔"},
+      target:["have","seen"],
+      chips:["have","has","seen","seeing","saw"],
+      full:{en:"I have seen the Margalla sunrise.", ur:"میں مارگلہ کا سورج دیکھ چکا/چکی ہوں۔"},
+      why:{en:"I → have + V3 (seen).", ur:"I → have + seen۔"},
+      hint:{en:"I/you/we/they → have.", ur:"I/you/we/they → have۔"}
+    }
+  ];
+
+  var QUIZ = [
+    {q:{en:"\"Ali played cricket yesterday.\" — tense?", ur:"\"Ali played cricket yesterday.\" — کون سا ٹینس؟"},
+     opts:[{en:"Past Simple", ur:"Past Simple"},{en:"Present Continuous", ur:"Present Continuous"},
+           {en:"Future Perfect", ur:"Future Perfect"},{en:"Present Perfect", ur:"Present Perfect"}], a:0},
+    {q:{en:"Action happening right now uses…", ur:"ابھی ہو رہا عمل استعمال کرتا ہے…"},
+     opts:[{en:"Present Simple", ur:"Present Simple"},{en:"Present Continuous (be + -ing)", ur:"Present Continuous (be + -ing)"},
+           {en:"Past Perfect", ur:"Past Perfect"},{en:"Future Simple only", ur:"صرف Future Simple"}], a:1},
+    {q:{en:"Present Perfect pattern is…", ur:"Present Perfect کا فارمولا…"},
+     opts:[{en:"will + V1", ur:"will + V1"},{en:"be + V-ing", ur:"be + V-ing"},
+           {en:"has/have + V3", ur:"has/have + V3"},{en:"did + V-ing", ur:"did + V-ing"}], a:2},
+    {q:{en:"\"We will hike Margalla tomorrow.\" — tense?", ur:"\"We will hike Margalla tomorrow.\" — ٹینس؟"},
+     opts:[{en:"Past Continuous", ur:"Past Continuous"},{en:"Present Perfect", ur:"Present Perfect"},
+           {en:"Future Simple", ur:"Future Simple"},{en:"Present Simple", ur:"Present Simple"}], a:2},
+    {q:{en:"Which sentence shows work already done?", ur:"کون سا جملہ کام ہو چکا دکھاتا ہے؟"},
+     opts:[{en:"Sana is writing her essay.", ur:"Sana is writing her essay."},
+           {en:"Sana has finished her essay.", ur:"Sana has finished her essay."},
+           {en:"Sana will write her essay.", ur:"Sana will write her essay."},
+           {en:"Sana writes essays.", ur:"Sana writes essays."}], a:1},
+    {q:{en:"\"The school bell is ringing now.\" — which form?", ur:"\"The school bell is ringing now.\" — کون سی شکل؟"},
+     opts:[{en:"Simple", ur:"سادہ"},{en:"Continuous", ur:"جاری"},
+           {en:"Perfect", ur:"پرفیکٹ"},{en:"Future Perfect", ur:"Future Perfect"}], a:1}
+  ];
+
+  function award(key, n){
+    if (awarded[key]) return;
+    awarded[key] = true;
+    stars += (n || 1);
+    $("starCount").textContent = String(stars);
+  }
+  function recountStars(){
+    stars = 0;
+    Object.keys(awarded).forEach(function(k){
+      stars += (k.indexOf("mode-")===0) ? 2 : 1;
     });
-    [["simple","simple"],["cont","cont"]].forEach(function(r){
-      var lab = document.createElement("div"); lab.className = "mrow";
-      lab.textContent = t(T[r[0]]);
-      lab.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
-      m.appendChild(lab);
-      [["past","p"],["now","n"],["fut","f"]].forEach(function(c){
-        var b = document.createElement("button");
-        b.type = "button"; b.className = "cell " + c[1];
-        var k = c[0] + "-" + (r[1] === "simple" ? "simple" : "cont");
-        b.textContent = t(T.names[k]);
-        b.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
-        b.setAttribute("aria-pressed", (when === c[0] && form === r[1]) ? "true" : "false");
-        b.addEventListener("click", function(){
-          when = c[0]; form = r[1];
-          if (tab === "spot") spotAns = { when:c[0], form:r[1] };
-          render();
-        });
-        m.appendChild(b);
-      });
-    });
+    $("starCount").textContent = String(stars);
+  }
+  function storyHtml(){
+    if (mode === "time") return t(T.storyTime);
+    if (mode === "cont") return t(T.storyCont);
+    return t(T.storyPerf);
+  }
+  function maybeDone(mapKey, dict, len){
+    var keys = Object.keys(dict), ok = 0, i;
+    for (i=0;i<len;i++){ if (dict[i] === true) ok++; }
+    if (ok >= len && !doneModes[mapKey]){
+      doneModes[mapKey] = true;
+      award("mode-" + mapKey, 2);
+    }
+  }
+  function renderDots(arr, idx, kind){
+    var h = '<div class="dots">', i, cls;
+    for (i=0;i<arr.length;i++){
+      cls = (i===idx) ? "on" : "";
+      if (answered[kind][i] === true) cls = "ok";
+      if (answered[kind][i] === false) cls = "no";
+      if (i===idx && answered[kind][i] == null) cls = "on";
+      h += "<i class=\"" + cls + "\"></i>";
+    }
+    return h + "</div>";
   }
 
-  /* ---------- render ---------- */
-  function render(){
-    ["Line","Make","Spot"].forEach(function(x){
-      $("tab"+x).setAttribute("aria-pressed", tab === x.toLowerCase() ? "true" : "false");
-    });
-    setText($("tabLine"), t(T.tabLine));
-    setText($("tabMake"), t(T.tabMake));
-    setText($("tabSpot"), t(T.tabSpot));
-    $("whyLbl").textContent = t(T.whyLbl);
-    setText($("quizHead"), t(T.quiz));
-    $("makePanel").style.display = (tab === "make") ? "" : "none";
-    $("spotPanel").style.display = (tab === "spot") ? "" : "none";
-    $("gridPanel").style.display = (tab === "make") ? "none" : "";
-    setText($("gridHead"), tab === "spot" ? t(T.spotAsk) : t(T.gridHead));
-    setText($("subjHead"), t(T.subjHead));
-    setText($("verbHead"), t(T.verbHead));
-    setText($("spotHead"), t(T.spotHead));
-    var chip = $("statechip"); chip.className = "statechip";
-    $("trap").style.display = "";
+  function tlHtml(activeTense){
+    var pastL = t(T.past), nowL = t(T.present), futL = t(T.future), nf = t(T.nowFlag);
+    return '<div class="tl-rail">' +
+      '<div class="tl-hills"></div><div class="tl-sun"></div>' +
+      '<div class="tl-now-flag">' + nf + '</div>' +
+      '<div class="tl-line"></div>' +
+      '<span class="tl-arrow-l">←</span><span class="tl-arrow-r">→</span>' +
+      '<div class="tl-node past' + (activeTense==="past"?" hit":"") + '"><div class="dot"></div><div class="lab">' + pastL + '</div></div>' +
+      '<div class="tl-node now' + (activeTense==="present"?" hit":"") + '"><div class="dot"></div><div class="lab">' + nowL + '</div></div>' +
+      '<div class="tl-node fut' + (activeTense==="future"?" hit":"") + '"><div class="dot"></div><div class="lab">' + futL + '</div></div>' +
+      '</div>';
+  }
 
-    if (tab === "spot"){
-      var sp = SPOTS[spotI];
-      drawLine(spotAns ? spotAns.when : sp.when, spotAns ? spotAns.form : sp.form);
-      buildMatrix();
-      setText($("title"), t(T.titleSpot));
-      setText($("subtitle"), t(T.subSpot));
-      $("eng").textContent = sp.s;
-      setText($("urdu"), "");
-      $("formula").textContent = t(T.formulas[sp.when + "-" + sp.form]);
-      if (!spotAns){
-        setText(chip, t(T.spotAsk));
-        setText($("detail"), "");
-      } else {
-        var good = (spotAns.when === sp.when && spotAns.form === sp.form);
-        chip.className = "statechip " + (good ? "ok" : "no");
-        setText(chip, good ? t(T.spotOk) : t(T.spotNo));
-        if (good) solved[spotI] = true;
-        setText($("detail"), t(T.uses[sp.when + "-" + sp.form]));
-      }
-      setText($("trap"), t(T.traps[sp.when + "-" + sp.form]));
-      setText($("whyText"), t(T.uses[sp.when + "-" + sp.form]) + " " +
-                            (lang === "ur" ? "اشارہ: " : "Clue: ") + t(sp.clue));
-      var sc = $("spotChips"); sc.innerHTML = "";
-      SPOTS.forEach(function(x, i){
+  /* ---------- TIME mode ---------- */
+  function renderTime(){
+    var item = TIME[tIdx];
+    var pad = $("scenePad");
+    var ans = answered.time[tIdx];
+    var showT = (ans === true) ? item.tense : null;
+    pad.innerHTML =
+      tlHtml(showT) +
+      '<div class="legend">' +
+        '<span class="leg past">← ' + t(T.past) + '</span>' +
+        '<span class="leg now">' + t(T.present) + '</span>' +
+        '<span class="leg fut">' + t(T.future) + ' →</span>' +
+      '</div>' +
+      '<div class="sent-card">' +
+        '<div class="sc-sky"></div>' +
+        '<div class="sc-em">' + item.em + '</div>' +
+        '<p class="sc-sent' + (lang==="ur"?" ur":"") + '" dir="' + (lang==="ur"?"rtl":"ltr") + '">' +
+          (lang==="ur"?isolate(t(item.sent)):t(item.sent)) + '</p>' +
+        '<p class="sc-place">' + t(item.place) + '</p>' +
+      '</div>' +
+      renderDots(TIME, tIdx, "time");
+
+    setText($("statechip"), ans === true ? t(T.nice) : (ans === false ? t(T.oops) : t(T.askTime)));
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (ans===true?" win":(ans===false?" miss":""));
+    setText($("headline"), t(item.sent));
+    setText($("detail"), ans === true ? t(item.why) : t(item.place));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+    if (ans != null){
+      var fb = document.createElement("p");
+      fb.className = "formula";
+      setText(fb, t(item.why));
+      box.appendChild(fb);
+    } else {
+      var buckets = document.createElement("div");
+      buckets.className = "buckets";
+      [["past",T.past,"📜"],["present",T.present,"☀️"],["future",T.future,"🚀"]].forEach(function(row){
         var b = document.createElement("button");
         b.type = "button";
-        b.className = "schip" + (solved[i] ? " done" : "");
-        b.textContent = String(i+1) + (solved[i] ? " \u2605" : "");
-        b.setAttribute("aria-pressed", i === spotI ? "true" : "false");
-        b.addEventListener("click", function(){ spotI = i; spotAns = null; render(); });
-        sc.appendChild(b);
+        b.className = "bucket " + row[0] + (lang==="ur"?" ur":"");
+        b.setAttribute("dir", lang==="ur"?"rtl":"ltr");
+        b.innerHTML = '<span class="bem">' + row[2] + '</span><span class="blab">' +
+          (lang==="ur"?isolate(t(row[1])):t(row[1])) + '</span>';
+        b.addEventListener("click", function(){
+          if (answered.time[tIdx] != null) return;
+          var ok = (row[0] === item.tense);
+          answered.time[tIdx] = ok;
+          if (ok) award("time-" + tIdx, 1);
+          maybeDone("time", answered.time, TIME.length);
+          renderTime();
+        });
+        buckets.appendChild(b);
       });
-      lastSpoken = sp.s;
-      return;
+      box.appendChild(buckets);
     }
-
-    drawLine(when, form);
-    buildMatrix();
-    var k = key();
-
-    if (tab === "line"){
-      setText($("title"), t(T.titleLine));
-      setText($("subtitle"), t(T.subLine));
-      setText(chip, t(T.names[k]));
-      $("eng").textContent = t(T.samples[k]).en || T.samples[k].en;
-      setText($("urdu"), T.samples[k].ur);
-      $("formula").textContent = T.formulas[k];
-      setText($("detail"), t(T.uses[k]));
-      setText($("trap"), t(T.traps[k]));
-      setText($("whyText"), form === "cont" ? t(T.whyBand)
-                          : (when === "now" ? t(T.whyHabit) : t(T.whyDot)));
-      lastSpoken = T.samples[k].en;
-      return;
-    }
-
-    // make a sentence
-    setText($("title"), t(T.titleMake));
-    setText($("subtitle"), t(T.subMake));
-    var b = build(subjI, verbI, when, form);
-    setText(chip, t(T.names[k]));
-    $("eng").innerHTML = "";
-    var h = document.createElement("span"); h.textContent = b.head + " ";
-    var u = document.createElement("u"); u.textContent = b.hl;
-    var tl = document.createElement("span");
-    tl.textContent = " " + VERBS[verbI].obj + ".";
-    $("eng").appendChild(h); $("eng").appendChild(u); $("eng").appendChild(tl);
-    $("eng").setAttribute("dir","ltr");
-    setText($("urdu"), SUBJ[subjI].ur + " \u00b7 " + VERBS[verbI].ur);
-    $("formula").textContent = T.formulas[k];
-    setText($("detail"), t(T.uses[k]));
-    setText($("trap"), t(T.traps[k]));
-    setText($("whyText"), t(T.whyMake));
-
-    var scb = $("subjChips"); scb.innerHTML = "";
-    SUBJ.forEach(function(s, i){
-      var bt = document.createElement("button");
-      bt.type = "button"; bt.className = "schip";
-      bt.textContent = s.w; bt.setAttribute("dir","ltr");
-      bt.setAttribute("aria-pressed", i === subjI ? "true" : "false");
-      bt.addEventListener("click", function(){ subjI = i; render(); });
-      scb.appendChild(bt);
-    });
-    var vcb = $("verbChips"); vcb.innerHTML = "";
-    VERBS.forEach(function(v, i){
-      var bt = document.createElement("button");
-      bt.type = "button"; bt.className = "schip";
-      bt.textContent = v.base; bt.setAttribute("dir","ltr");
-      bt.setAttribute("aria-pressed", i === verbI ? "true" : "false");
-      bt.addEventListener("click", function(){ verbI = i; render(); });
-      vcb.appendChild(bt);
-    });
-    lastSpoken = b.head + " " + b.hl + " " + VERBS[verbI].obj + ".";
+    $("prog").textContent = t(T.progT) + ": " + countOk(answered.time) + "/" + TIME.length;
   }
 
-  var lastSpoken = "";
+  function countOk(dict){
+    var n=0,k; for (k in dict){ if (dict[k]===true) n++; } return n;
+  }
 
-  ["Line","Make","Spot"].forEach(function(x){
-    $("tab"+x).addEventListener("click", function(){
-      var m = x.toLowerCase();
-      if (tab === m) return;
-      tab = m; spotAns = null; render();
-    });
-  });
+  /* ---------- CONT mode ---------- */
+  function renderCont(){
+    var item = CONT[cIdx];
+    var pad = $("scenePad");
+    var ans = answered.cont[cIdx];
+    var isCont = item.opts[item.a].kind === "cont";
+    pad.innerHTML =
+      '<div class="legend">' +
+        '<span class="leg simp">' + t(T.simpleLab) + '</span>' +
+        '<span class="leg cont">' + t(T.contLab) + ' (−ing)</span>' +
+      '</div>' +
+      '<div class="comic">' +
+        '<div class="panel-card ' + (isCont ? "hi-cont" : "hi-simp") + '">' +
+          '<div class="panel-sky"></div><div class="panel-hills"></div><div class="panel-ground"></div>' +
+          (isCont ? '<div class="motion-rings"></div>' : '') +
+          '<span class="panel-tag ' + (isCont?"cont-tag":"simp-tag") + '">' +
+            (isCont ? t(T.contLab) : t(T.simpleLab)) + '</span>' +
+          '<div class="panel-em lg">' + item.sceneEm + '</div>' +
+          '<p class="panel-cap">' + t(item.sceneCap) + '</p>' +
+        '</div>' +
+        '<div class="panel-card">' +
+          '<div class="panel-sky"></div><div class="panel-hills"></div><div class="panel-ground"></div>' +
+          '<span class="panel-tag">' + (lang==="en"?"Clue":"اشارہ") + '</span>' +
+          '<div class="panel-em">🕐📍</div>' +
+          '<p class="panel-cap">' + t(item.place) + '</p>' +
+        '</div>' +
+      '</div>' +
+      '<div class="mid-banner">' + t(item.askPic) + '</div>' +
+      renderDots(CONT, cIdx, "cont");
 
-  /* ---------- quiz ---------- */
-  function buildQuiz(){
-    var box = $("quizBox"); box.innerHTML = "";
-    QUIZ.forEach(function(item){
-      var wrap = document.createElement("div"); wrap.className = "q";
-      var q = document.createElement("p"); setText(q, t(item.q)); wrap.appendChild(q);
-      var fb = document.createElement("p"); fb.className = "fb";
-      item.o.forEach(function(opt, oi){
-        var bt = document.createElement("button");
-        bt.type = "button";
-        bt.className = "opt";
-        bt.setAttribute("dir","ltr");
-        bt.textContent = t(opt);
-        bt.addEventListener("click", function(){
-          if (wrap.getAttribute("data-done") === "1") return;
-          wrap.setAttribute("data-done","1");
-          Array.prototype.forEach.call(wrap.querySelectorAll(".opt"), function(x, xi){
-            if (xi === item.a) x.classList.add("right");
-            else if (xi === oi) x.classList.add("wrong");
-          });
-          setText(fb, t(item.f));
-          fb.classList.add("show","fb");
-        });
-        wrap.appendChild(bt);
+    setText($("statechip"), ans === true ? t(T.nice) : (ans === false ? t(T.oops) : t(T.askCont)));
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (ans===true?" win":(ans===false?" miss":""));
+    setText($("headline"), t(item.askPic));
+    setText($("detail"), ans === true ? t(item.why) : t(item.place));
+    $("hintbox").classList.remove("show");
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+    item.opts.forEach(function(opt, oi){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "choice" + (lang==="ur"?" ur":"");
+      b.setAttribute("dir", lang==="ur"?"rtl":"ltr");
+      b.innerHTML = '<span class="cem">' + (opt.em||"") + '</span>' +
+        (lang==="ur"?isolate(t(opt)):t(opt));
+      if (ans != null){
+        if (oi === item.a) b.classList.add("right");
+        else if (ans === false && oi !== item.a) { /* leave */ }
+        b.disabled = true;
+      }
+      b.addEventListener("click", function(){
+        if (answered.cont[cIdx] != null) return;
+        var ok = (oi === item.a);
+        answered.cont[cIdx] = ok;
+        if (ok) award("cont-" + cIdx, 1);
+        maybeDone("cont", answered.cont, CONT.length);
+        renderCont();
       });
-      wrap.appendChild(fb); box.appendChild(wrap);
+      box.appendChild(b);
+    });
+    if (ans === true){
+      var fb = document.createElement("p");
+      fb.className = "formula";
+      setText(fb, t(item.why));
+      box.appendChild(fb);
+    }
+    $("prog").textContent = t(T.progC) + ": " + countOk(answered.cont) + "/" + CONT.length;
+  }
+
+  /* ---------- PERF mode ---------- */
+  function renderPerf(){
+    var item = PERF[pIdx];
+    var pad = $("scenePad");
+    var ans = answered.perf[pIdx];
+    pad.innerHTML =
+      '<div class="legend"><span class="leg perf">has / have + V3</span></div>' +
+      '<div class="panel-card hi-perf" style="min-height:160px">' +
+        '<div class="panel-sky"></div><div class="panel-hills"></div><div class="panel-ground"></div>' +
+        '<span class="check-badge">✅</span>' +
+        '<span class="panel-tag perf-tag">Perfect</span>' +
+        '<div class="panel-em lg">' + item.em + '</div>' +
+        '<p class="panel-cap">' + t(item.place) + '</p>' +
+      '</div>' +
+      '<div class="formula">' + t(item.prompt) + '</div>' +
+      renderDots(PERF, pIdx, "perf");
+
+    setText($("statechip"), ans === true ? t(T.nice) : (ans === false ? t(T.oops) : t(T.askPerf)));
+    $("statechip").className = "statechip" + (lang==="ur"?" ur":"") + (ans===true?" win":(ans===false?" miss":""));
+    setText($("headline"), ans === true ? t(item.full) : t(item.prompt));
+    setText($("detail"), ans === true ? t(item.why) : t(item.place));
+    $("hintbox").classList.remove("show");
+
+    if (ans != null){
+      // freeze slots display
+    } else if (!perfSlots.length || perfSlots._for !== pIdx){
+      perfSlots = [];
+      perfSlots._for = pIdx;
+    }
+
+    var box = $("actionBox");
+    box.innerHTML = "";
+
+    var slots = document.createElement("div");
+    slots.className = "build-slots";
+    var s0 = document.createElement("div");
+    s0.className = "slot" + (perfSlots[0] ? " filled" : "");
+    s0.textContent = perfSlots[0] || "has/have";
+    var plus = document.createElement("span");
+    plus.className = "slot-plus"; plus.textContent = "+";
+    var s1 = document.createElement("div");
+    s1.className = "slot" + (perfSlots[1] ? " filled" : "");
+    s1.textContent = perfSlots[1] || "V3";
+    slots.appendChild(s0); slots.appendChild(plus); slots.appendChild(s1);
+    box.appendChild(slots);
+
+    if (ans == null){
+      var row = document.createElement("div");
+      row.className = "chip-row";
+      item.chips.forEach(function(ch){
+        var used = perfSlots.indexOf(ch) >= 0;
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "pick-chip" + (used ? " used" : "");
+        b.textContent = ch;
+        b.addEventListener("click", function(){
+          if (answered.perf[pIdx] != null) return;
+          if (perfSlots.length >= 2) return;
+          if (perfSlots.indexOf(ch) >= 0) return;
+          perfSlots.push(ch);
+          renderPerf();
+        });
+        row.appendChild(b);
+      });
+      box.appendChild(row);
+
+      var chk = document.createElement("button");
+      chk.type = "button";
+      chk.className = "build-check";
+      chk.textContent = t(T.check);
+      chk.disabled = perfSlots.length < 2;
+      chk.addEventListener("click", function(){
+        if (perfSlots.length < 2) return;
+        var ok = (perfSlots[0] === item.target[0] && perfSlots[1] === item.target[1]);
+        answered.perf[pIdx] = ok;
+        if (ok) award("perf-" + pIdx, 1);
+        maybeDone("perf", answered.perf, PERF.length);
+        renderPerf();
+      });
+      box.appendChild(chk);
+
+      var undo = document.createElement("button");
+      undo.type = "button";
+      undo.className = "chip";
+      undo.style.marginTop = "8px";
+      undo.textContent = lang==="en" ? "Clear chips" : "صاف کرو";
+      undo.addEventListener("click", function(){
+        if (answered.perf[pIdx] != null) return;
+        perfSlots = []; perfSlots._for = pIdx;
+        renderPerf();
+      });
+      box.appendChild(undo);
+    } else {
+      var fb = document.createElement("p");
+      fb.className = "formula";
+      setText(fb, t(item.full) + " — " + t(item.why));
+      box.appendChild(fb);
+      // show correct fill
+      s0.textContent = item.target[0]; s0.classList.add("filled");
+      s1.textContent = item.target[1]; s1.classList.add("filled");
+    }
+    $("prog").textContent = t(T.progP) + ": " + countOk(answered.perf) + "/" + PERF.length;
+  }
+
+  function setMode(m){
+    mode = m;
+    lab($("tabTime"), T.tabTime, "time");
+    lab($("tabCont"), T.tabCont, "cont");
+    lab($("tabPerf"), T.tabPerf, "perf");
+    $("tabTime").setAttribute("aria-pressed", mode==="time" ? "true":"false");
+    $("tabCont").setAttribute("aria-pressed", mode==="cont" ? "true":"false");
+    $("tabPerf").setAttribute("aria-pressed", mode==="perf" ? "true":"false");
+    $("story").innerHTML = storyHtml();
+    if (lang==="ur"){ $("story").classList.add("ur"); $("story").setAttribute("dir","rtl"); }
+    else { $("story").classList.remove("ur"); $("story").setAttribute("dir","ltr"); }
+    if (mode === "time") renderTime();
+    else if (mode === "cont") renderCont();
+    else renderPerf();
+  }
+  function lab(btn, labelObj, key){
+    var mark = doneModes[key] ? ' <span class="badge">★</span>' : "";
+    btn.innerHTML = t(labelObj) + mark;
+    if (lang==="ur"){ btn.classList.add("ur"); btn.setAttribute("dir","rtl"); }
+    else { btn.classList.remove("ur"); btn.setAttribute("dir","ltr"); }
+  }
+
+  function next(){
+    if (mode === "time"){
+      tIdx = (tIdx + 1) % TIME.length;
+      renderTime();
+    } else if (mode === "cont"){
+      cIdx = (cIdx + 1) % CONT.length;
+      renderCont();
+    } else {
+      pIdx = (pIdx + 1) % PERF.length;
+      perfSlots = []; perfSlots._for = pIdx;
+      renderPerf();
+    }
+  }
+  function showHint(){
+    var item = mode==="time" ? TIME[tIdx] : (mode==="cont" ? CONT[cIdx] : PERF[pIdx]);
+    var hb = $("hintbox");
+    setText(hb, t(item.hint));
+    hb.classList.add("show");
+  }
+  function resetMode(){
+    if (mode === "time"){
+      answered.time = {}; tIdx = 0;
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("time-")===0 || k==="mode-time") delete awarded[k]; });
+      doneModes.time = false;
+      recountStars();
+      renderTime();
+    } else if (mode === "cont"){
+      answered.cont = {}; cIdx = 0;
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("cont-")===0 || k==="mode-cont") delete awarded[k]; });
+      doneModes.cont = false;
+      recountStars();
+      renderCont();
+    } else {
+      answered.perf = {}; pIdx = 0; perfSlots = [];
+      Object.keys(awarded).forEach(function(k){ if (k.indexOf("perf-")===0 || k==="mode-perf") delete awarded[k]; });
+      doneModes.perf = false;
+      recountStars();
+      renderPerf();
+    }
+  }
+
+  function pickQuiz(){ quizSet = shuffle(QUIZ).slice(0, 5); }
+  function renderQuiz(){
+    var box = $("quizBox");
+    box.innerHTML = "";
+    quizSet.forEach(function(item, qi){
+      var q = document.createElement("div");
+      q.className = "q";
+      var p = document.createElement("p");
+      setText(p, (qi+1) + ". " + t(item.q));
+      q.appendChild(p);
+      item.opts.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt" + (lang === "ur" ? " ur" : "");
+        b.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+        b.textContent = (lang === "ur") ? isolate(t(opt)) : t(opt);
+        b.addEventListener("click", function(){
+          if (b.parentNode.querySelector(".opt.right, .opt.wrong")) return;
+          var ok = (oi === item.a);
+          b.classList.add(ok ? "right" : "wrong");
+          if (!ok){
+            var correct = b.parentNode.querySelectorAll(".opt")[item.a];
+            if (correct) correct.classList.add("right");
+          } else {
+            award("quiz-" + qi, 1);
+          }
+          var fb = document.createElement("p");
+          fb.className = "fb show";
+          setText(fb, ok ? (lang==="en"?"Shabash!":"شاباش!") : (lang==="en"?"Look at the green answer.":"سبز جواب دیکھو۔"));
+          q.appendChild(fb);
+        });
+        q.appendChild(b);
+      });
+      box.appendChild(q);
     });
   }
 
   function applyLang(){
     document.body.classList.toggle("urdu", lang === "ur");
+    document.documentElement.lang = (lang === "ur") ? "ur" : "en";
     var lb = $("langBtn");
     lb.textContent = (lang === "en") ? "اردو" : "English";
     lb.setAttribute("aria-pressed", lang === "ur" ? "true" : "false");
-    Array.prototype.forEach.call(document.querySelectorAll("[data-en]"), function(el){
+    setText($("title"), t(T.title));
+    setText($("subtitle"), t(T.sub));
+    setText($("ctlHead"), t(T.ctl));
+    setText($("quizHead"), t(T.quiz));
+    $("nextBtn").textContent = t(T.next);
+    $("hintBtn").textContent = t(T.hint);
+    $("resetBtn").textContent = t(T.reset);
+    $("newQuiz").textContent = t(T.newQuiz);
+    ["nextBtn","hintBtn","resetBtn","newQuiz"].forEach(function(id){
+      if (lang === "ur"){ $(id).classList.add("ur"); $(id).setAttribute("dir","rtl"); }
+      else { $(id).classList.remove("ur"); $(id).setAttribute("dir","ltr"); }
+    });
+    document.querySelectorAll("footer [data-en]").forEach(function(el){
       setText(el, el.getAttribute(lang === "en" ? "data-en" : "data-ur"));
     });
-    buildQuiz(); render();
+    setMode(mode);
+    renderQuiz();
   }
 
-  $("langBtn").addEventListener("click", function(){
-    lang = (lang === "en") ? "ur" : "en"; applyLang();
-  });
+  function cleanSpeakText(s){
+    return String(s || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  }
+  function buildSpeakText(){
+    var parts = [t(T.title), t(T.sub)];
+    if (mode === "time"){
+      parts.push(t(TIME[tIdx].sent));
+      parts.push(t(T.askTime));
+    } else if (mode === "cont"){
+      parts.push(t(CONT[cIdx].askPic));
+      parts.push(t(T.askCont));
+    } else {
+      parts.push(t(PERF[pIdx].full));
+      parts.push(t(T.askPerf));
+    }
+    parts.push(t(T.tip));
+    return cleanSpeakText(parts.filter(Boolean).join(". "));
+  }
+  function pickVoice(voices, want){
+    var i, v, L;
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf(want) === 0) return v;
+    }
+    for (i=0;i<voices.length;i++){
+      v = voices[i]; L = (v.lang || "").toLowerCase().replace("_","-");
+      if (L.indexOf(want.split("-")[0]) === 0) return v;
+    }
+    return voices[0] || null;
+  }
+  var speakTimer = null;
+  function setSpeaking(on){
+    var btn = $("speakBtn");
+    if (!btn) return;
+    btn.setAttribute("aria-pressed", on ? "true" : "false");
+    btn.textContent = on ? "⏹" : "🔊";
+  }
+  function doSpeak(text, asLang){
+    try{
+      var u = new SpeechSynthesisUtterance(text);
+      u.lang = asLang === "ur" ? "ur-PK" : "en-US";
+      var voices = window.speechSynthesis.getVoices() || [];
+      var voice = pickVoice(voices, asLang === "ur" ? "ur" : "en");
+      if (voice) u.voice = voice;
+      u.onstart = function(){ setSpeaking(true); };
+      u.onend = function(){ setSpeaking(false); };
+      u.onerror = function(){ setSpeaking(false); };
+      try {
+        window.speechSynthesis.speak(u);
+      } catch (e2) {
+        var u2 = new SpeechSynthesisUtterance(text);
+        u2.lang = u.lang;
+        u2.onstart = function(){ setSpeaking(true); };
+        u2.onend = u2.onerror = function(){ setSpeaking(false); };
+        window.speechSynthesis.speak(u2);
+      }
+    }catch(e){ setSpeaking(false); }
+  }
 
+  if ("speechSynthesis" in window){
+    try { window.speechSynthesis.getVoices(); } catch (e0) {}
+    if (typeof window.speechSynthesis.addEventListener === "function"){
+      window.speechSynthesis.addEventListener("voiceschanged", function(){
+        try { window.speechSynthesis.getVoices(); } catch (e1) {}
+      });
+    }
+  } else {
+    var noBtn = $("speakBtn");
+    if (noBtn){ noBtn.disabled = true; noBtn.title = "Voice not available on this device"; }
+  }
   $("speakBtn").addEventListener("click", function(){
     try{
       if (!("speechSynthesis" in window)) return;
+      var text = buildSpeakText();
+      if (!text) return;
+      if (speakTimer){ clearTimeout(speakTimer); speakTimer = null; }
       window.speechSynthesis.cancel();
-      var u2 = new SpeechSynthesisUtterance(lastSpoken);
-      u2.lang = "en-US"; u2.rate = 0.9;
-      window.speechSynthesis.speak(u2);
-    }catch(e){ /* no voice available — stay quiet */ }
+      setSpeaking(false);
+      var speakLang = lang;
+      speakTimer = setTimeout(function(){
+        speakTimer = null;
+        doSpeak(text, speakLang);
+      }, 80);
+    }catch(e){ setSpeaking(false); }
   });
 
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en";
+    applyLang();
+  });
+  $("tabTime").addEventListener("click", function(){ setMode("time"); });
+  $("tabCont").addEventListener("click", function(){ setMode("cont"); });
+  $("tabPerf").addEventListener("click", function(){ setMode("perf"); });
+  $("nextBtn").addEventListener("click", next);
+  $("hintBtn").addEventListener("click", showHint);
+  $("resetBtn").addEventListener("click", resetMode);
+  $("newQuiz").addEventListener("click", function(){ pickQuiz(); renderQuiz(); });
+
+  pickQuiz();
   applyLang();
 })();
 </script>
