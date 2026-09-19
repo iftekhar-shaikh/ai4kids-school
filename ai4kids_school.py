@@ -2549,6 +2549,37 @@ def _lb_load_all_topics():
 
 
 
+
+def grade1_offline_pack_bytes():
+    """Return Class 1 offline zip bytes (build if missing)."""
+    root = Path(os.path.dirname(os.path.abspath(__file__)))
+    zpath = root / "packs" / "ai4kids-grade1-offline.zip"
+    if not zpath.exists():
+        try:
+            import build_offline_pack as _bop
+            _bop.build_zip()
+        except Exception:
+            pass
+    if zpath.exists():
+        return zpath.read_bytes()
+    return None
+
+def render_grade1_download_button(key_suffix="lb"):
+    """Download Class 1 offline pack."""
+    data = grade1_offline_pack_bytes()
+    if not data:
+        st.caption("Class 1 offline pack abhi ready nahi.")
+        return
+    st.download_button(
+        label="⬇ Class 1 download (offline pack)",
+        data=data,
+        file_name="ai4kids-grade1-offline.zip",
+        mime="application/zip",
+        key=f"dl_g1_{key_suffix}",
+        use_container_width=True,
+        help="Unzip → index.html kholo. Bina login, offline Khelo apps.",
+    )
+
 def parent_trust_strip():
     """On-screen parent trust: safe, offline-friendly, no login."""
     st.markdown(
@@ -2778,6 +2809,7 @@ def render_html_viewers():
         inject_big_text_css()
         st.markdown("#### 📚 Lesson Bank")
         parent_trust_strip()
+        render_grade1_download_button("lb")
 
         st.caption("Purana card grid. Topic kholo → Sabaq/Sunlo → KHELO → App + Quiz.")
         if st.button("✖️ Lesson Bank band karo", key="lb_close_top"):
@@ -3132,6 +3164,7 @@ if st.session_state.mode == "door":
         c2.image(_app("school_door.jpeg"), width=150)
     st.markdown('<h2 style="text-align:center">🚪 School ka darwaza — andar aayein!</h2>', unsafe_allow_html=True)
     parent_trust_strip()
+    render_grade1_download_button("door")
 
     # KB MODE ka notice — sirf jab API key set na ho (demo school)
     if not AI_ENABLED:
