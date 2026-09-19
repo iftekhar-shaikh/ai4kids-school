@@ -39,6 +39,17 @@ footer{margin-top:31px;border-top:1px solid var(--line);padding-top:15px;color:v
 @media(min-width:760px){.lesson-grid{grid-template-columns:1fr 1fr}.cards{grid-template-columns:repeat(3,1fr)}.play{width:auto;min-width:190px}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 /* AI4KIDS_BRAND */:root{--ink:#17252f;--muted:#526672;--paper:#fffdf7;--card:#ffffff;--line:#d9d2c5;--green:#27ae60;--green-deep:#1e8449;--teal:#1abc9c;--purple:#8e44ad;--orange:#e67e22;--yellow:#fff0b8;--red:#e74c3c;--whatsapp:#25D366;--font:'Segoe UI','Trebuchet MS',Tahoma,sans-serif}/* /AI4KIDS_BRAND */
+
+.demo-rich{display:flex;flex-direction:column;gap:10px}
+.demo-score{font-weight:900;font-size:var(--md);background:var(--yellow);border:2px solid var(--ink);border-radius:12px;padding:8px 12px;display:inline-block}
+.demo-prompt{font-size:var(--md);font-weight:900;margin:0;padding:10px 12px;background:#e2f2f5;border:2px solid var(--ink);border-radius:12px}
+.demo-actions{display:flex;gap:8px;flex-wrap:wrap}
+.demo-actions .play{width:auto;flex:1;min-width:140px;margin-top:0}
+.card.correct-flash{border-color:var(--green)!important;background:#e6f4eb!important;transform:scale(1.03)}
+.card.wrong-flash{border-color:var(--red)!important;background:#f9e6e1!important}
+.scene-strip{border:3px solid var(--ink);border-radius:16px;overflow:hidden;margin-bottom:8px;background:#fff}
+.scene-strip svg{display:block;width:100%;height:auto}
+
 </style></head><body>
 <div class="wrap">
 <div class="bar"><span class="brand" id="brand"></span>
@@ -58,7 +69,7 @@ footer{margin-top:31px;border-top:1px solid var(--line);padding-top:15px;color:v
 <section class="quiz"><h2 id="quizTitle"></h2><div id="quizBox"></div><div class="score" id="score"></div></section>
 <footer id="foot"></footer>
 </div>
-<script>const D={"file": "g3-islamiat-iman-ibadat.html", "title": {"en": "Iman aur Ibadat", "ru": "Iman aur Ibadat"}, "desc": {"en": "Iman aur ibadat ka rishta", "ru": "Iman aur ibadat ka rishta"}, "lesson": {"hook": {"en": "Suno! Aaj hum 'Iman aur Ibadat' seekhenge — adab aur pyar ke sath.", "ru": "Suno! Aaj hum 'Iman aur Ibadat' seekhenge — adab aur pyar ke sath."}, "samjhao": {"en": "Grade 3 ke liye asaan baat: Iman aur Ibadat. Yeh Islam ki khoobsurat taleem hai. Key points: Iman, Ibadat, Namaz, Quran.", "ru": "Grade 3 ke liye asaan baat: Iman aur Ibadat. Yeh Islam ki khoobsurat taleem hai. Key points: Iman, Ibadat, Namaz, Quran."}, "misaal": {"en": "Islamabad / ghar / school mein isay amal mein lao — jaise Iman aur Ibadat.", "ru": "Islamabad / ghar / school mein isay amal mein lao — jaise Iman aur Ibadat."}, "karo": {"en": "Aaj ek kaam: Iman dil mein. Phir family ko batao ke aapne kya seekha.", "ru": "Aaj ek kaam: Iman dil mein. Phir family ko batao ke aapne kya seekha."}}, "demo": {"type": "cards", "title": {"en": "Khelo — tap cards", "ru": "Khelo — cards par tap karo"}, "hint": {"en": "Tap a card to hear and learn.", "ru": "Seekhne ke liye card par tap karo."}, "items": [{"emoji": "❤️", "name": {"en": "Iman", "ru": "Iman"}, "line": {"en": "Iman dil mein.", "ru": "Iman dil mein."}}, {"emoji": "🕌", "name": {"en": "Ibadat", "ru": "Ibadat"}, "line": {"en": "Ibadat amal mein.", "ru": "Ibadat amal mein."}}, {"emoji": "📿", "name": {"en": "Namaz", "ru": "Namaz"}, "line": {"en": "Namaz iman ko mazboot.", "ru": "Namaz iman ko mazboot."}}, {"emoji": "📖", "name": {"en": "Quran", "ru": "Quran"}, "line": {"en": "Quran rehnumai.", "ru": "Quran rehnumai."}}, {"emoji": "🤝", "name": {"en": "Amal", "ru": "Amal"}, "line": {"en": "Amal se iman dikhta.", "ru": "Amal se iman dikhta."}}, {"emoji": "⭐", "name": {"en": "Niyat", "ru": "Niyat"}, "line": {"en": "Niyat saaf rakho.", "ru": "Niyat saaf rakho."}}]}, "quizTitle": {"en": "Iman aur Ibadat Quiz", "ru": "Iman aur Ibadat Quiz"}, "quiz": [{"q": {"en": "Iman aur Ibadat mein 'Iman' ka sahi khayal kya hai?", "ru": "Iman aur Ibadat mein 'Iman' ka sahi khayal kya hai?"}, "opts": [{"en": "Iman dil mein.", "ru": "Iman dil mein."}, {"en": "Ibadat amal mein.", "ru": "Ibadat amal mein."}, {"en": "Sirf khel", "ru": "Sirf khel"}, {"en": "Kuch nahi", "ru": "Kuch nahi"}], "ans": 0, "exp": {"en": "Sahi: Iman dil mein.", "ru": "Sahi: Iman dil mein."}}, {"q": {"en": "Kaunsa option 'Ibadat' se related hai?", "ru": "Kaunsa option 'Ibadat' se related hai?"}, "opts": [{"en": "Ibadat amal mein.", "ru": "Ibadat amal mein."}, {"en": "Bilkul ghalat baat", "ru": "Bilkul ghalat baat"}, {"en": "Sirf TV", "ru": "Sirf TV"}, {"en": "Kuch mat karo", "ru": "Kuch mat karo"}], "ans": 0, "exp": {"en": "Ibadat: Ibadat amal mein.", "ru": "Ibadat: Ibadat amal mein."}}, {"q": {"en": "'Namaz' ke bare mein sahi jumla chuno:", "ru": "'Namaz' ke bare mein sahi jumla chuno:"}, "opts": [{"en": "Namaz iman ko mazboot.", "ru": "Namaz iman ko mazboot."}, {"en": "Yeh zaroori nahi", "ru": "Yeh zaroori nahi"}, {"en": "Sirf bade logon ke liye", "ru": "Sirf bade logon ke liye"}, {"en": "Hamesha ghalat", "ru": "Hamesha ghalat"}], "ans": 0, "exp": {"en": "Namaz iman ko mazboot.", "ru": "Namaz iman ko mazboot."}}, {"q": {"en": "Hum 'Quran' se kya seekhte hain?", "ru": "Hum 'Quran' se kya seekhte hain?"}, "opts": [{"en": "Quran rehnumai.", "ru": "Quran rehnumai."}, {"en": "Gussa karna", "ru": "Gussa karna"}, {"en": "Jhoot bolna", "ru": "Jhoot bolna"}, {"en": "Kachra phenkna", "ru": "Kachra phenkna"}], "ans": 0, "exp": {"en": "Quran rehnumai.", "ru": "Quran rehnumai."}}, {"q": {"en": "Is sabaq 'Iman aur Ibadat' ka best message kya hai?", "ru": "Is sabaq 'Iman aur Ibadat' ka best message kya hai?"}, "opts": [{"en": "Amal se iman dikhta.", "ru": "Amal se iman dikhta."}, {"en": "Rules todna", "ru": "Rules todna"}, {"en": "Dusron ko tang karna", "ru": "Dusron ko tang karna"}, {"en": "Padhai chhorna", "ru": "Padhai chhorna"}], "ans": 0, "exp": {"en": "Amal se iman dikhta.", "ru": "Amal se iman dikhta."}}]};</script>
+<script>/* AI4KIDS_RICH_DEMO */const D={"file": "g3-islamiat-iman-ibadat.html", "title": {"en": "Iman aur Ibadat", "ru": "Iman aur Ibadat"}, "desc": {"en": "Iman aur ibadat ka rishta", "ru": "Iman aur ibadat ka rishta"}, "lesson": {"hook": {"en": "Suno! Aaj hum 'Iman aur Ibadat' seekhenge — adab aur pyar ke sath.", "ru": "Suno! Aaj hum 'Iman aur Ibadat' seekhenge — adab aur pyar ke sath."}, "samjhao": {"en": "Grade 3 ke liye asaan baat: Iman aur Ibadat. Yeh Islam ki khoobsurat taleem hai. Key points: Iman, Ibadat, Namaz, Quran.", "ru": "Grade 3 ke liye asaan baat: Iman aur Ibadat. Yeh Islam ki khoobsurat taleem hai. Key points: Iman, Ibadat, Namaz, Quran."}, "misaal": {"en": "Islamabad / ghar / school mein isay amal mein lao — jaise Iman aur Ibadat.", "ru": "Islamabad / ghar / school mein isay amal mein lao — jaise Iman aur Ibadat."}, "karo": {"en": "Aaj ek kaam: Iman dil mein. Phir family ko batao ke aapne kya seekha.", "ru": "Aaj ek kaam: Iman dil mein. Phir family ko batao ke aapne kya seekha."}}, "demo": {"type": "cards", "title": {"en": "Khelo — tap cards", "ru": "Khelo — cards par tap karo"}, "hint": {"en": "Tap a card to hear and learn.", "ru": "Seekhne ke liye card par tap karo."}, "items": [{"emoji": "❤️", "name": {"en": "Iman", "ru": "Iman"}, "line": {"en": "Iman dil mein.", "ru": "Iman dil mein."}}, {"emoji": "🕌", "name": {"en": "Ibadat", "ru": "Ibadat"}, "line": {"en": "Ibadat amal mein.", "ru": "Ibadat amal mein."}}, {"emoji": "📿", "name": {"en": "Namaz", "ru": "Namaz"}, "line": {"en": "Namaz iman ko mazboot.", "ru": "Namaz iman ko mazboot."}}, {"emoji": "📖", "name": {"en": "Quran", "ru": "Quran"}, "line": {"en": "Quran rehnumai.", "ru": "Quran rehnumai."}}, {"emoji": "🤝", "name": {"en": "Amal", "ru": "Amal"}, "line": {"en": "Amal se iman dikhta.", "ru": "Amal se iman dikhta."}}, {"emoji": "⭐", "name": {"en": "Niyat", "ru": "Niyat"}, "line": {"en": "Niyat saaf rakho.", "ru": "Niyat saaf rakho."}}]}, "quizTitle": {"en": "Iman aur Ibadat Quiz", "ru": "Iman aur Ibadat Quiz"}, "quiz": [{"q": {"en": "Iman aur Ibadat mein 'Iman' ka sahi khayal kya hai?", "ru": "Iman aur Ibadat mein 'Iman' ka sahi khayal kya hai?"}, "opts": [{"en": "Iman dil mein.", "ru": "Iman dil mein."}, {"en": "Ibadat amal mein.", "ru": "Ibadat amal mein."}, {"en": "Sirf khel", "ru": "Sirf khel"}, {"en": "Kuch nahi", "ru": "Kuch nahi"}], "ans": 0, "exp": {"en": "Sahi: Iman dil mein.", "ru": "Sahi: Iman dil mein."}}, {"q": {"en": "Kaunsa option 'Ibadat' se related hai?", "ru": "Kaunsa option 'Ibadat' se related hai?"}, "opts": [{"en": "Ibadat amal mein.", "ru": "Ibadat amal mein."}, {"en": "Bilkul ghalat baat", "ru": "Bilkul ghalat baat"}, {"en": "Sirf TV", "ru": "Sirf TV"}, {"en": "Kuch mat karo", "ru": "Kuch mat karo"}], "ans": 0, "exp": {"en": "Ibadat: Ibadat amal mein.", "ru": "Ibadat: Ibadat amal mein."}}, {"q": {"en": "'Namaz' ke bare mein sahi jumla chuno:", "ru": "'Namaz' ke bare mein sahi jumla chuno:"}, "opts": [{"en": "Namaz iman ko mazboot.", "ru": "Namaz iman ko mazboot."}, {"en": "Yeh zaroori nahi", "ru": "Yeh zaroori nahi"}, {"en": "Sirf bade logon ke liye", "ru": "Sirf bade logon ke liye"}, {"en": "Hamesha ghalat", "ru": "Hamesha ghalat"}], "ans": 0, "exp": {"en": "Namaz iman ko mazboot.", "ru": "Namaz iman ko mazboot."}}, {"q": {"en": "Hum 'Quran' se kya seekhte hain?", "ru": "Hum 'Quran' se kya seekhte hain?"}, "opts": [{"en": "Quran rehnumai.", "ru": "Quran rehnumai."}, {"en": "Gussa karna", "ru": "Gussa karna"}, {"en": "Jhoot bolna", "ru": "Jhoot bolna"}, {"en": "Kachra phenkna", "ru": "Kachra phenkna"}], "ans": 0, "exp": {"en": "Quran rehnumai.", "ru": "Quran rehnumai."}}, {"q": {"en": "Is sabaq 'Iman aur Ibadat' ka best message kya hai?", "ru": "Is sabaq 'Iman aur Ibadat' ka best message kya hai?"}, "opts": [{"en": "Amal se iman dikhta.", "ru": "Amal se iman dikhta."}, {"en": "Rules todna", "ru": "Rules todna"}, {"en": "Dusron ko tang karna", "ru": "Dusron ko tang karna"}, {"en": "Padhai chhorna", "ru": "Padhai chhorna"}], "ans": 0, "exp": {"en": "Amal se iman dikhta.", "ru": "Amal se iman dikhta."}}]};</script>
 <script>
 (function(){
 'use strict';
@@ -117,19 +128,76 @@ function render(){
 }
 
 function renderDemo(){
-  var s=$('stage'); s.innerHTML='';
-  var row=document.createElement('div'); row.className='cards';
-  D.demo.items.forEach(function(it,i){
-    var b=document.createElement('button'); b.type='button';
-    b.className='card'+(selected===i?' selected':'');
-    b.innerHTML='<span class="emoji">'+it.emoji+'</span>';
-    b.appendChild(document.createTextNode(t(it.name)));
-    b.onclick=function(){selected=i; renderDemo(); ai4kidsSpeak(t(it.line));};
-    row.appendChild(b);
-  });
-  s.appendChild(row);
-  var msg=document.createElement('div'); msg.className='demo-msg'; msg.textContent=t(D.demo.items[selected].line);
-  s.appendChild(msg);
+  var s=$('stage'); if(!s) return;
+  var items=(D.demo&&D.demo.items)||[];
+  var mode='learn';
+  var streak=0, done=0, target=0;
+  function shuffle(a){var x=a.slice(); for(var i=x.length-1;i>0;i--){var j=(Math.random()*(i+1))|0; var t=x[i]; x[i]=x[j]; x[j]=t;} return x;}
+  function pickTarget(){ if(!items.length) return 0; target=(Math.random()*items.length)|0; }
+  function paint(){
+    var html='';
+    html+='<div class="scene-strip" aria-hidden="true"><svg viewBox="0 0 640 100" role="img"><rect width="640" height="100" fill="#eaf8ea"/><path d="M480 80 V35 h40 v45" fill="#1f7a4c" stroke="#17252f" stroke-width="2"/><path d="M500 35 q20 -25 40 0" fill="none" stroke="#1f7a4c" stroke-width="4"/><text x="40" y="58" font-size="22" font-weight="900" fill="#17252f">Akhlaq · Iman · Adab</text><circle cx="200" cy="50" r="26" fill="#f2c9a0" stroke="#17252f" stroke-width="2"/><rect x="184" y="76" width="32" height="18" rx="4" fill="#1f7a4c"/></svg></div>';
+    html+='<div class="demo-rich">';
+    html+='<div class="demo-score">⭐ '+streak+' sahi · '+done+' rounds</div>';
+    if(mode==='challenge' && items.length){
+      html+='<p class="demo-prompt">🎯 Dhundo: <span>'+t(items[target].name)+'</span></p>';
+    } else {
+      html+='<p class="demo-prompt">📖 Seekho: card dabao — suno aur padho</p>';
+    }
+    html+='<div class="cards">';
+    var order = mode==='challenge' ? shuffle(items.map(function(_,i){return i;})) : items.map(function(_,i){return i;});
+    order.forEach(function(i){
+      var it=items[i];
+      html+='<button type="button" class="card" data-i="'+i+'"><span class="emoji">'+(it.emoji||'⭐')+'</span>'+t(it.name)+'</button>';
+    });
+    html+='</div>';
+    html+='<p class="demo-msg" id="demoMsg">'+(mode==='learn'?'Card par tap karo.':'Sahi card dhundo!')+'</p>';
+    html+='<div class="demo-actions">';
+    html+='<button type="button" class="play" id="modeBtn">'+(mode==='learn'?'🎯 Challenge shuru':'📖 Seekho mode')+'</button>';
+    html+='<button type="button" class="play" id="speakDemo" style="background:var(--purple);border-color:#5e2d7a">🔊 Sunlo</button>';
+    html+='</div></div>';
+    s.innerHTML=html;
+    s.querySelectorAll('.card').forEach(function(btn){
+      btn.onclick=function(){
+        var i=+btn.getAttribute('data-i');
+        var it=items[i];
+        var msg=$('demoMsg');
+        if(mode==='learn'){
+          btn.classList.add('active');
+          if(msg) msg.textContent=t(it.line||it.name);
+          ai4kidsSpeak(t(it.name)+'. '+t(it.line||''), lang);
+          return;
+        }
+        // challenge
+        if(i===target){
+          streak++; done++;
+          btn.classList.add('correct-flash');
+          if(msg) msg.textContent='Sahi! '+t(it.name)+' ⭐';
+          ai4kidsSpeak('Sahi! '+t(it.name), lang);
+          setTimeout(function(){ pickTarget(); paint(); }, 650);
+        } else {
+          streak=Math.max(0, streak-1);
+          btn.classList.add('wrong-flash');
+          if(msg) msg.textContent='Dobara try — dhundo: '+t(items[target].name);
+          ai4kidsSpeak('Dobara try karo', lang);
+          setTimeout(function(){ btn.classList.remove('wrong-flash'); }, 450);
+        }
+      };
+    });
+    var mb=$('modeBtn');
+    if(mb) mb.onclick=function(){
+      mode = mode==='learn'?'challenge':'learn';
+      if(mode==='challenge'){ pickTarget(); streak=0; done=0; }
+      paint();
+    };
+    var sb=$('speakDemo');
+    if(sb) sb.onclick=function(){
+      if(mode==='challenge' && items[target]) ai4kidsSpeak('Dhundo '+t(items[target].name), lang);
+      else if(items[0]) ai4kidsSpeak(t(D.title)+'. '+t(items[0].line||items[0].name), lang);
+    };
+  }
+  pickTarget();
+  paint();
 }
 
 function renderQuiz(){
