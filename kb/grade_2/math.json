@@ -81,7 +81,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g2-numbers-999.html",
+      "interactive_label": "Khelo - Numbers 999"
     },
     {
       "title": "Jama carrying ke saath",
@@ -160,7 +162,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g2-jama-carrying.html",
+      "interactive_label": "Khelo - Jama carrying"
     },
     {
       "title": "Minus borrowing ke saath",
@@ -239,7 +243,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g2-minus-borrowing.html",
+      "interactive_label": "Khelo - Minus borrowing"
     },
     {
       "title": "Zarb ki tables",
@@ -318,7 +324,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g2-zarb-tables.html",
+      "interactive_label": "Khelo - Zarb tables"
     },
     {
       "title": "Taqseem",
@@ -397,7 +405,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g2-taqseem.html",
+      "interactive_label": "Khelo - Taqseem"
     },
     {
       "title": "Fractions intro",
@@ -476,7 +486,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g2-fractions-intro.html",
+      "interactive_label": "Khelo - Fractions"
     }
   ]
 }

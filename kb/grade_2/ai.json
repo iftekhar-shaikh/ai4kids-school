@@ -81,7 +81,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g2-ai-aankh.html",
+      "interactive_label": "Khelo - AI ki aankh"
     },
     {
       "title": "AI ke kaan",
@@ -160,7 +162,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g2-ai-kaan.html",
+      "interactive_label": "Khelo - AI ke kaan"
     },
     {
       "title": "Sorting seekho",
@@ -239,7 +243,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g2-sorting.html",
+      "interactive_label": "Khelo - Sorting"
     },
     {
       "title": "Yes/No decisions",
@@ -318,7 +324,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g2-yes-no.html",
+      "interactive_label": "Khelo - Yes/No"
     },
     {
       "title": "AI drawings",
@@ -397,7 +405,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g2-ai-drawings.html",
+      "interactive_label": "Khelo - AI drawings"
     },
     {
       "title": "AI hamare ghar mein",
@@ -476,7 +486,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g2-ai-ghar.html",
+      "interactive_label": "Khelo - AI ghar"
     }
   ]
 }

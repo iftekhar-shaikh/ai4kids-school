@@ -81,7 +81,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g2-zinda-bejaan.html",
+      "interactive_label": "Khelo - Zinda bejaan"
     },
     {
       "title": "Janwar ki qismein",
@@ -160,7 +162,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g2-janwar.html",
+      "interactive_label": "Khelo - Janwar"
     },
     {
       "title": "Podha kaise ugta hai",
@@ -239,7 +243,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g2-podha.html",
+      "interactive_label": "Khelo - Podha"
     },
     {
       "title": "Khana ki qismein",
@@ -318,7 +324,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g2-khana.html",
+      "interactive_label": "Khelo - Khana"
     },
     {
       "title": "Paani ki ahmiyat",
@@ -397,7 +405,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g2-paani.html",
+      "interactive_label": "Khelo - Paani"
     },
     {
       "title": "Pakistan ke seasons",
@@ -476,7 +486,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g2-seasons.html",
+      "interactive_label": "Khelo - Seasons"
     }
   ]
 }

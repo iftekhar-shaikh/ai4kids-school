@@ -81,7 +81,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g2-ghar-machines.html",
+      "interactive_label": "Khelo - Ghar machines"
     },
     {
       "title": "Remote control",
@@ -160,7 +162,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g2-remote.html",
+      "interactive_label": "Khelo - Remote"
     },
     {
       "title": "Battery aur switch",
@@ -239,7 +243,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g2-battery-switch.html",
+      "interactive_label": "Khelo - Battery switch"
     },
     {
       "title": "Gears aur pulleys",
@@ -318,7 +324,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g2-gears-pulleys.html",
+      "interactive_label": "Khelo - Gears pulleys"
     },
     {
       "title": "Robot ke hisse",
@@ -397,7 +405,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g2-robot-hisse.html",
+      "interactive_label": "Khelo - Robot hisse"
     },
     {
       "title": "Paper robot banao",
@@ -476,7 +486,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g2-paper-robot.html",
+      "interactive_label": "Khelo - Paper robot"
     }
   ]
 }

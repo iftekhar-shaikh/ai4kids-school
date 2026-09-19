@@ -943,5 +943,245 @@
       "interactive_file": "interactives/g4-articles.html",
       "interactive_label": "Khelo - Articles"
     }
+  },
+  {
+    "file": "kb/grade_2/ai.json",
+    "match_title": "AI ki aankh",
+    "add": {
+      "interactive_file": "interactives/g2-ai-aankh.html",
+      "interactive_label": "Khelo - AI ki aankh"
+    }
+  },
+  {
+    "file": "kb/grade_2/ai.json",
+    "match_title": "AI ke kaan",
+    "add": {
+      "interactive_file": "interactives/g2-ai-kaan.html",
+      "interactive_label": "Khelo - AI ke kaan"
+    }
+  },
+  {
+    "file": "kb/grade_2/ai.json",
+    "match_title": "Sorting seekho",
+    "add": {
+      "interactive_file": "interactives/g2-sorting.html",
+      "interactive_label": "Khelo - Sorting"
+    }
+  },
+  {
+    "file": "kb/grade_2/ai.json",
+    "match_title": "Yes/No decisions",
+    "add": {
+      "interactive_file": "interactives/g2-yes-no.html",
+      "interactive_label": "Khelo - Yes/No"
+    }
+  },
+  {
+    "file": "kb/grade_2/ai.json",
+    "match_title": "AI drawings",
+    "add": {
+      "interactive_file": "interactives/g2-ai-drawings.html",
+      "interactive_label": "Khelo - AI drawings"
+    }
+  },
+  {
+    "file": "kb/grade_2/ai.json",
+    "match_title": "AI hamare ghar mein",
+    "add": {
+      "interactive_file": "interactives/g2-ai-ghar.html",
+      "interactive_label": "Khelo - AI ghar"
+    }
+  },
+  {
+    "file": "kb/grade_2/english.json",
+    "match_title": "Paragraphs parhna",
+    "add": {
+      "interactive_file": "interactives/g2-paragraphs.html",
+      "interactive_label": "Khelo - Paragraphs"
+    }
+  },
+  {
+    "file": "kb/grade_2/english.json",
+    "match_title": "Nouns aur verbs",
+    "add": {
+      "interactive_file": "interactives/g2-nouns-verbs.html",
+      "interactive_label": "Khelo - Nouns verbs"
+    }
+  },
+  {
+    "file": "kb/grade_2/english.json",
+    "match_title": "School aur ghar",
+    "add": {
+      "interactive_file": "interactives/g2-school-ghar.html",
+      "interactive_label": "Khelo - School ghar"
+    }
+  },
+  {
+    "file": "kb/grade_2/english.json",
+    "match_title": "Sentences banana",
+    "add": {
+      "interactive_file": "interactives/g2-sentences.html",
+      "interactive_label": "Khelo - Sentences"
+    }
+  },
+  {
+    "file": "kb/grade_2/english.json",
+    "match_title": "Listening skills",
+    "add": {
+      "interactive_file": "interactives/g2-listening.html",
+      "interactive_label": "Khelo - Listening"
+    }
+  },
+  {
+    "file": "kb/grade_2/english.json",
+    "match_title": "Picture describe karo",
+    "add": {
+      "interactive_file": "interactives/g2-picture-describe.html",
+      "interactive_label": "Khelo - Picture describe"
+    }
+  },
+  {
+    "file": "kb/grade_2/math.json",
+    "match_title": "Numbers 999 tak",
+    "add": {
+      "interactive_file": "interactives/g2-numbers-999.html",
+      "interactive_label": "Khelo - Numbers 999"
+    }
+  },
+  {
+    "file": "kb/grade_2/math.json",
+    "match_title": "Jama carrying ke saath",
+    "add": {
+      "interactive_file": "interactives/g2-jama-carrying.html",
+      "interactive_label": "Khelo - Jama carrying"
+    }
+  },
+  {
+    "file": "kb/grade_2/math.json",
+    "match_title": "Minus borrowing ke saath",
+    "add": {
+      "interactive_file": "interactives/g2-minus-borrowing.html",
+      "interactive_label": "Khelo - Minus borrowing"
+    }
+  },
+  {
+    "file": "kb/grade_2/math.json",
+    "match_title": "Zarb ki tables",
+    "add": {
+      "interactive_file": "interactives/g2-zarb-tables.html",
+      "interactive_label": "Khelo - Zarb tables"
+    }
+  },
+  {
+    "file": "kb/grade_2/math.json",
+    "match_title": "Taqseem",
+    "add": {
+      "interactive_file": "interactives/g2-taqseem.html",
+      "interactive_label": "Khelo - Taqseem"
+    }
+  },
+  {
+    "file": "kb/grade_2/math.json",
+    "match_title": "Fractions intro",
+    "add": {
+      "interactive_file": "interactives/g2-fractions-intro.html",
+      "interactive_label": "Khelo - Fractions"
+    }
+  },
+  {
+    "file": "kb/grade_2/robotics.json",
+    "match_title": "Ghar ki machines",
+    "add": {
+      "interactive_file": "interactives/g2-ghar-machines.html",
+      "interactive_label": "Khelo - Ghar machines"
+    }
+  },
+  {
+    "file": "kb/grade_2/robotics.json",
+    "match_title": "Remote control",
+    "add": {
+      "interactive_file": "interactives/g2-remote.html",
+      "interactive_label": "Khelo - Remote"
+    }
+  },
+  {
+    "file": "kb/grade_2/robotics.json",
+    "match_title": "Battery aur switch",
+    "add": {
+      "interactive_file": "interactives/g2-battery-switch.html",
+      "interactive_label": "Khelo - Battery switch"
+    }
+  },
+  {
+    "file": "kb/grade_2/robotics.json",
+    "match_title": "Gears aur pulleys",
+    "add": {
+      "interactive_file": "interactives/g2-gears-pulleys.html",
+      "interactive_label": "Khelo - Gears pulleys"
+    }
+  },
+  {
+    "file": "kb/grade_2/robotics.json",
+    "match_title": "Robot ke hisse",
+    "add": {
+      "interactive_file": "interactives/g2-robot-hisse.html",
+      "interactive_label": "Khelo - Robot hisse"
+    }
+  },
+  {
+    "file": "kb/grade_2/robotics.json",
+    "match_title": "Paper robot banao",
+    "add": {
+      "interactive_file": "interactives/g2-paper-robot.html",
+      "interactive_label": "Khelo - Paper robot"
+    }
+  },
+  {
+    "file": "kb/grade_2/science.json",
+    "match_title": "Zinda aur be-jaan",
+    "add": {
+      "interactive_file": "interactives/g2-zinda-bejaan.html",
+      "interactive_label": "Khelo - Zinda bejaan"
+    }
+  },
+  {
+    "file": "kb/grade_2/science.json",
+    "match_title": "Janwar ki qismein",
+    "add": {
+      "interactive_file": "interactives/g2-janwar.html",
+      "interactive_label": "Khelo - Janwar"
+    }
+  },
+  {
+    "file": "kb/grade_2/science.json",
+    "match_title": "Podha kaise ugta hai",
+    "add": {
+      "interactive_file": "interactives/g2-podha.html",
+      "interactive_label": "Khelo - Podha"
+    }
+  },
+  {
+    "file": "kb/grade_2/science.json",
+    "match_title": "Khana ki qismein",
+    "add": {
+      "interactive_file": "interactives/g2-khana.html",
+      "interactive_label": "Khelo - Khana"
+    }
+  },
+  {
+    "file": "kb/grade_2/science.json",
+    "match_title": "Paani ki ahmiyat",
+    "add": {
+      "interactive_file": "interactives/g2-paani.html",
+      "interactive_label": "Khelo - Paani"
+    }
+  },
+  {
+    "file": "kb/grade_2/science.json",
+    "match_title": "Pakistan ke seasons",
+    "add": {
+      "interactive_file": "interactives/g2-seasons.html",
+      "interactive_label": "Khelo - Seasons"
+    }
   }
 ]

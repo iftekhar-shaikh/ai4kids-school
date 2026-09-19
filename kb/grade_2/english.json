@@ -81,7 +81,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g2-paragraphs.html",
+      "interactive_label": "Khelo - Paragraphs"
     },
     {
       "title": "Nouns aur verbs",
@@ -160,7 +162,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g2-nouns-verbs.html",
+      "interactive_label": "Khelo - Nouns verbs"
     },
     {
       "title": "School aur ghar",
@@ -239,7 +243,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g2-school-ghar.html",
+      "interactive_label": "Khelo - School ghar"
     },
     {
       "title": "Sentences banana",
@@ -318,7 +324,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g2-sentences.html",
+      "interactive_label": "Khelo - Sentences"
     },
     {
       "title": "Listening skills",
@@ -397,7 +405,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g2-listening.html",
+      "interactive_label": "Khelo - Listening"
     },
     {
       "title": "Picture describe karo",
@@ -476,7 +486,9 @@
           ],
           "answer": 0
         }
-      ]
+      ],
+      "interactive_file": "interactives/g2-picture-describe.html",
+      "interactive_label": "Khelo - Picture describe"
     }
   ]
 }
