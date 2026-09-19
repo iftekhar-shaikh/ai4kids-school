@@ -639,5 +639,13 @@
       "interactive_file": "interactives/g4-economics.html",
       "interactive_label": "Khelo - Economics"
     }
+  },
+  {
+    "file": "kb/grade_4/english.json",
+    "match_title": "Grammar advanced",
+    "add": {
+      "interactive_file": "interactives/g4-grammar-advanced.html",
+      "interactive_label": "Khelo - Prepositions"
+    }
   }
 ]
