@@ -548,10 +548,18 @@ function openKheloBelow(t) {{
     var url = new URL(window.top.location.href);
     url.searchParams.set('view_lb', '1');
     url.searchParams.set('lb_khelo', String(t.grade) + '|' + String(t.sk) + '|' + String(t.title));
-    window.top.location.href = url.toString();
-  }} catch (e) {{
+    var a = document.createElement('a');
+    a.href = url.toString();
+    a.target = '_top';
+    a.rel = 'noopener';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
     var s = document.getElementById('kheloStatus');
-    if (s) s.textContent = 'Panel open nahi hua. Page refresh karke dubara try karein.';
+    if (s) s.textContent = 'Neeche Khelo panel khul raha hai… agar nahi khula to panel se topic chuno.';
+  }} catch (e) {{
+    var s2 = document.getElementById('kheloStatus');
+    if (s2) s2.textContent = 'Grid se neeche Khelo panel mein Grade/Subject/Topic chuno → Khelo kholo.';
   }}
 }}
 

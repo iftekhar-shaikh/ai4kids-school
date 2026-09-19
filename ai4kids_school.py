@@ -2641,7 +2641,7 @@ def render_html_viewers():
                             height=650, scrolling=True)
         except Exception as e:
             st.error(f"Curriculum nahi khul saki: {e}")
-    # Restore Lesson Bank + Khelo panel from URL (iframe → parent navigation)
+    # Restore Lesson Bank from URL if Khelo tried to hand off
     try:
         _qp = st.query_params
         if _qp.get("view_lb") == "1" or _qp.get("lb_khelo"):
@@ -2654,7 +2654,7 @@ def render_html_viewers():
 
     if st.session_state.get("view_lessonbank"):
         st.markdown("#### 📚 Lesson Bank")
-        st.caption("Grid same. Khelo dabao → app neeche panel mein khulti hai.")
+        st.caption("Grid se topic dhoondo. App neeche Khelo panel mein chalti hai.")
         if st.button("✖️ Lesson Bank band karo", key="lb_close_top"):
             st.session_state.view_lessonbank = False
             st.session_state.pop("lb_topic_key", None)
@@ -2669,34 +2669,80 @@ def render_html_viewers():
         except Exception as e:
             st.error(f"Lesson Bank nahi khul saki: {e}")
 
-        # Khelo panel BELOW the grid (Streamlit direct embed — no nested iframe)
-        sel = st.session_state.get("lb_topic_key")
-        if sel:
-            parts = str(sel).split("|", 2)
-            if len(parts) == 3:
+        # Always-on Khelo panel BELOW grid (Streamlit embed — works; nested iframe does not)
+        st.markdown("---")
+        st.markdown("### 🎮 Khelo panel")
+        st.caption("Topic chuno → Khelo kholo. (Grid same rehta hai.)")
+        topics = _lb_load_all_topics()
+        playable = [t for t in topics if t.get("interactive_file")]
+        if not playable:
+            st.warning("Koi interactive file wired nahi mili.")
+        else:
+            # Prefer selection handed off from grid / URL
+            sel = st.session_state.get("lb_topic_key")
+            default_g = None
+            default_sk = None
+            default_title = None
+            if sel:
+                parts = str(sel).split("|", 2)
+                if len(parts) == 3:
+                    try:
+                        default_g = int(parts[0])
+                        default_sk = parts[1]
+                        default_title = parts[2]
+                    except Exception:
+                        pass
+
+            grades = sorted({t["grade"] for t in playable})
+            g_idx = grades.index(default_g) if default_g in grades else 0
+            g = st.selectbox("Grade", grades, index=g_idx, key="lb_panel_grade")
+            sub_opts = sorted({(t["sk"], t["subj"]) for t in playable if t["grade"] == g}, key=lambda x: x[1])
+            sub_labels = [f"{emo_sk[1]} ({emo_sk[0]})" for emo_sk in sub_opts]
+            # sub_opts is (sk, subj)
+            sk_idx = 0
+            if default_sk and default_g == g:
+                for i, (sk0, _) in enumerate(sub_opts):
+                    if sk0 == default_sk:
+                        sk_idx = i
+                        break
+            sub_pick = st.selectbox("Subject", sub_labels, index=sk_idx if sub_labels else 0, key="lb_panel_subj")
+            sk = sub_opts[sub_labels.index(sub_pick)][0] if sub_labels else None
+            titles = sorted({t["title"] for t in playable if t["grade"] == g and t["sk"] == sk})
+            t_idx = titles.index(default_title) if default_title in titles else 0
+            title = st.selectbox("Topic", titles, index=t_idx if titles else 0, key="lb_panel_topic")
+
+            c1, c2 = st.columns([1, 1])
+            with c1:
+                go = st.button("🎮 Khelo kholo", type="primary", key="lb_panel_go", width="stretch")
+            with c2:
+                clear = st.button("✖️ Panel band karo", key="lb_khelo_close", width="stretch")
+            if clear:
+                st.session_state.pop("lb_topic_key", None)
                 try:
-                    g = int(parts[0])
-                    sk = parts[1]
-                    title = parts[2]
+                    keep = {k: v for k, v in st.query_params.items() if k not in ("lb_khelo", "view_lb")}
+                    st.query_params.clear()
+                    for k, v in keep.items():
+                        st.query_params[k] = v
                 except Exception:
-                    g = sk = title = None
-                if g and sk and title:
-                    st.markdown("---")
-                    st.markdown(f"### 🎮 Khelo — {title}")
-                    st.caption(f"Grade {g} · {sk}")
-                    if st.button("✖️ Panel band karo", key="lb_khelo_close"):
-                        st.session_state.pop("lb_topic_key", None)
-                        try:
-                            keep = {k: v for k, v in st.query_params.items() if k != "lb_khelo"}
-                            st.query_params.clear()
-                            for k, v in keep.items():
-                                st.query_params[k] = v
-                        except Exception:
-                            pass
-                        st.rerun()
-                    ok = render_topic_interactive(sk, g, title)
-                    if not ok:
-                        st.warning("Interactive file nahi mila — KB / interactives/ check karein.")
+                    pass
+                st.rerun()
+            if go and sk and title:
+                st.session_state.lb_topic_key = f"{g}|{sk}|{title}"
+                st.rerun()
+
+            sel = st.session_state.get("lb_topic_key")
+            if sel:
+                parts = str(sel).split("|", 2)
+                if len(parts) == 3:
+                    try:
+                        gg = int(parts[0]); ssk = parts[1]; ttl = parts[2]
+                    except Exception:
+                        gg = ssk = ttl = None
+                    if gg and ssk and ttl:
+                        st.markdown(f"#### Ab chal raha: {ttl}")
+                        ok = render_topic_interactive(ssk, gg, ttl)
+                        if not ok:
+                            st.warning("Interactive file nahi mili — KB / interactives/ check karein.")
 
 
 
