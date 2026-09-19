@@ -487,5 +487,13 @@
       "interactive_file": "interactives/g4-naap-conversions.html",
       "interactive_label": "Khelo - Naap conversions"
     }
+  },
+  {
+    "file": "kb/grade_4/math.json",
+    "match_title": "Area aur perimeter",
+    "add": {
+      "interactive_file": "interactives/g4-area-perimeter.html",
+      "interactive_label": "Khelo - Area aur perimeter"
+    }
   }
 ]

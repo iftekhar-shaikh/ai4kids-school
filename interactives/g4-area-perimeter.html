@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Area aur perimeter | AI4Kids Class 4</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--board:#e5f3ea;--board-deep:#c9e4d2;--sky:#c5e7f6;--sky2:#6eb0d4;--accent:#1d6b52;--ok:#2e7d4f;--ink:#1e2a1a;--ink-soft:#4a5744;--paper:#fdfaf3;--line:#d5dec8;--gold:#e8b23d;--left:#c4453a;--peri:#d4701f;--area:#2f6fb5;--fs-cap:clamp(12px,3.2vw,13px);--fs-xs:clamp(14px,3.7vw,15px);--fs-sm:clamp(16px,4.2vw,17px);--fs-md:clamp(17px,4.6vw,19px);--fs-lg:clamp(20px,5.4vw,23px);--fs-xl:clamp(27px,7.4vw,33px);--lh:1.5}
+body.urdu{--fs-cap:clamp(13px,3.5vw,15px);--fs-xs:clamp(15px,4.1vw,17px);--fs-sm:clamp(17px,4.7vw,19px);--fs-md:clamp(19px,5.2vw,21px);--fs-lg:clamp(22px,6vw,25px);--fs-xl:clamp(26px,7vw,31px);--lh:2.1}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px}
+.wrap{max-width:560px;margin:0 auto;padding:0 14px}
+.bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+.brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+.chip{border:2px solid var(--ink);background:var(--paper);color:var(--ink);border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;font-size:var(--fs-xs);cursor:pointer;min-height:42px;touch-action:manipulation}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.chip:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.stars{display:flex;align-items:center;gap:6px;font-weight:800;font-size:var(--fs-xs);background:#fff6e2;border:2px solid var(--gold);border-radius:999px;padding:7px 13px}
+h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+.sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+.ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+h1.ur{line-height:1.9}
+.tabs{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
+.tabs button{flex:1 1 28%;min-width:90px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);border-radius:14px;padding:10px 6px;font:inherit;font-weight:800;font-size:var(--fs-cap);cursor:pointer;min-height:54px;line-height:1.2;touch-action:manipulation}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.tabs button .badge{color:var(--gold)}
+.story{background:#fff8ea;border:2px dashed var(--gold);border-radius:16px;padding:13px 15px;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;margin-bottom:14px}
+body.urdu .story{line-height:var(--lh)}
+.story b{color:var(--ink)}
+.scene{position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);background:linear-gradient(180deg,var(--sky) 0%,var(--sky2) 36%,var(--board) 36%,var(--board-deep) 100%);min-height:280px}
+.scene-pad{padding:10px 12px 18px;min-height:260px;position:relative}
+.sky-layer{position:absolute;inset:0 0 58% 0;pointer-events:none;overflow:hidden}
+.sun-ball{position:absolute;top:12px;right:18px;width:36px;height:36px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#ffe9a0,#f5c542 60%,#e0a020);box-shadow:0 0 18px rgba(245,197,66,.45);z-index:1}
+body.urdu .sun-ball{right:auto;left:18px}
+.cloud{position:absolute;background:rgba(255,255,255,.85);border-radius:40px;opacity:.9}
+.cloud:before,.cloud:after{content:"";position:absolute;background:inherit;border-radius:50%}
+.c1{width:48px;height:15px;top:18px;left:12%}
+.c1:before{width:22px;height:22px;top:-12px;left:6px}
+.c1:after{width:18px;height:18px;top:-8px;left:24px}
+.c2{width:34px;height:12px;top:34px;left:55%;opacity:.7}
+.c2:before{width:16px;height:16px;top:-9px;left:4px}
+.c2:after{width:12px;height:12px;top:-5px;left:16px}
+.num-stage{position:relative;z-index:5;padding:62px 8px 8px;text-align:center}
+.hero-em{font-size:34px;line-height:1;margin:0}
+.num-hero{font-weight:800;font-size:clamp(26px,7.2vw,36px);letter-spacing:.5px;direction:ltr;unicode-bidi:isolate;margin:6px 0 2px;line-height:1.15}
+.capline{font-size:var(--fs-cap);font-weight:800;color:var(--accent);margin:6px 8px 0;line-height:1.45}
+body.urdu .capline,body.urdu .hintbox,body.urdu .card-box{line-height:var(--lh)}
+.eqline{direction:ltr;unicode-bidi:isolate;font-weight:800;font-size:var(--fs-sm);margin:8px 6px 4px;line-height:1.35}
+.card-box{background:rgba(253,250,243,.95);border:2.5px solid var(--ink);border-radius:14px;padding:10px 12px;font-weight:800;font-size:var(--fs-xs);max-width:340px;margin:8px auto 0;line-height:1.4}
+.fact-pills{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:8px 4px 0}
+.pill{background:#fff;border:2px solid var(--ink);border-radius:999px;padding:5px 10px;font-weight:800;font-size:12px;direction:ltr}
+.pill.peri{border-color:var(--peri);color:var(--peri)}
+.pill.area{border-color:var(--area);color:var(--area)}
+.shape-wrap{margin:10px auto 4px;max-width:220px}
+.shape-wrap svg{display:block;width:100%;height:auto}
+.save-choices{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+.save-choices button{border:2.5px solid var(--ink);background:var(--paper);border-radius:14px;padding:12px 14px;font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;text-align:left;min-height:52px;display:flex;align-items:center;gap:10px;touch-action:manipulation}
+body.urdu .save-choices button{text-align:right}
+.save-choices button.numc{justify-content:center;text-align:center;direction:ltr;font-size:20px}
+.save-choices button.right,.opt.right{border-color:var(--ok);background:#e8f2ed}
+.save-choices button.wrong,.opt.wrong{border-color:var(--left);background:#fbeae8}
+.readout{margin-top:-18px;position:relative;z-index:2;background:var(--paper);border:3px solid var(--ink);border-radius:18px;padding:16px 18px}
+.statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+.statechip.ur{padding:2px 14px 7px}
+.statechip.win{background:var(--ok)}
+.statechip.miss{background:var(--left)}
+.headline{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+.headline.ur{line-height:1.95}
+.detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+.hintbox{margin-top:14px;border:2px solid var(--accent);background:#e7f6ef;border-radius:14px;padding:11px 14px;font-size:var(--fs-xs);color:var(--accent);font-weight:700;line-height:1.55;display:none}
+.hintbox.show{display:block}
+.panel{margin-top:22px}
+.panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+.prog{margin:0 0 10px;font-size:var(--fs-xs);font-weight:700;color:var(--ink-soft)}
+.btns{display:flex;gap:9px;margin-top:8px;flex-wrap:wrap}
+.btns button{border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:50px;padding:8px 14px;flex:1;touch-action:manipulation}
+.btns .go{background:var(--ink);color:var(--paper)}
+.btns button:active{transform:scale(.97)}
+.btns button:disabled{opacity:.4;cursor:default}
+.quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+.qhead{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+.qhead h2{font-size:var(--fs-lg);font-weight:800;margin:0;flex:1}
+.q{margin-bottom:26px}
+.q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+.q p.ur{font-weight:400}
+.gloss{margin:-6px 0 12px;font-size:var(--fs-xs);color:var(--ink-soft);font-weight:600;line-height:1.45}
+.opt{display:block;width:100%;text-align:left;margin-bottom:10px;border:2px solid var(--line);background:var(--paper);border-radius:12px;padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);min-height:50px;touch-action:manipulation}
+.opt.ur{text-align:right;line-height:var(--lh)}
+.opt:disabled{cursor:default}
+.fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+.fb.show{display:block}
+footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);font-size:var(--fs-xs);color:var(--ink-soft)}
+@media (min-width:820px){
+.wrap{max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;grid-template-areas:"bar bar" "head head" "tabs tabs" "story story" "left right" "quiz quiz" "foot foot";align-items:start}
+.bar{grid-area:bar}.head{grid-area:head}.tabs{grid-area:tabs}.story{grid-area:story}.left{grid-area:left}.right{grid-area:right}.quiz{grid-area:quiz;margin-top:34px}footer{grid-area:foot}.panel{margin-top:0}
+}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01ms !important;animation:none !important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 4 · Hisaab</span>
+    <span class="stars">⭐ <span id="starCount">0</span></span>
+    <button class="chip" id="langBtn" aria-pressed="false" type="button">اردو</button>
+    <button class="chip" id="speakBtn" type="button" aria-label="Sunlo">🔊</button>
+  </div>
+  <div class="head"><h1 id="title"></h1><p class="sub" id="subtitle"></p></div>
+  <div class="tabs" role="group">
+    <button type="button" id="tabPeri" aria-pressed="true"></button>
+    <button type="button" id="tabArea" aria-pressed="false"></button>
+    <button type="button" id="tabWhich" aria-pressed="false"></button>
+  </div>
+  <p class="story" id="story"></p>
+  <div class="left">
+    <div class="scene"><div class="scene-pad" id="scenePad"></div></div>
+    <div class="readout">
+      <span class="statechip" id="statechip"></span>
+      <p class="headline" id="headline"></p>
+      <p class="detail" id="detail"></p>
+      <p class="hintbox" id="hintbox"></p>
+    </div>
+  </div>
+  <div class="right">
+    <div class="panel">
+      <h2 id="ctlHead"></h2>
+      <p class="prog" id="prog"></p>
+      <div id="actionBox"></div>
+      <div class="btns"><button type="button" class="go" id="nextBtn"></button></div>
+      <div class="btns"><button type="button" id="hintBtn"></button><button type="button" id="resetBtn"></button></div>
+    </div>
+  </div>
+  <div class="quiz">
+    <div class="qhead"><h2 id="quizHead"></h2><button type="button" class="chip" id="newQuiz"></button></div>
+    <div id="quizBox"></div>
+  </div>
+  <footer>
+    <p data-en="AI4Kids — Islamabad bilingual school. Offline. WhatsApp 0337 1468899 · Area aur perimeter" data-ur="اے آئی فور کڈز — اسلام آباد دو لسانی اسکول۔ آف لائن۔ واٹس ایپ 0337 1468899 · رقبہ اور محیط"></p>
+  </footer>
+</div>
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id)}
+function isolate(s){return "\u2066"+s+"\u2069"}
+function setText(el,str){if(!el)return;el.textContent=(lang==="ur")?isolate(str):str;el.classList.toggle("ur",lang==="ur");el.setAttribute("dir",lang==="ur"?"rtl":"ltr")}
+function t(o){return (o&&o[lang])||(o&&o.en)||""}
+function shuffle(arr){var a=arr.slice(),i,j,tmp;for(i=a.length-1;i>0;i--){j=Math.floor(Math.random()*(i+1));tmp=a[i];a[i]=a[j];a[j]=tmp}return a}
+
+var lang="en",mode="peri",stars=0,awarded={},doneModes={peri:false,area:false,which:false},speakTimer=null;
+var T={
+title:{en:"Area aur perimeter",ur:"رقبہ اور محیط"},
+sub:{en:"Boundary is perimeter. Inside cover is area. Squares, rectangles, and one L-shape — Class 4 Hisaab with Pakistani rooms and fields.",ur:"باؤنڈری محیط ہے۔ اندر کی ڈھکائی رقبہ ہے۔ مربع، مستطیل، اور ایک L شکل — کلاس 4 حساب، پاکستانی کمرے اور کھیت۔"},
+tabPeri:{en:"Perimeter",ur:"محیط"},
+tabArea:{en:"Area",ur:"رقبہ"},
+tabWhich:{en:"Which is which?",ur:"کون سا کیا؟"},
+storyPeri:{en:"<b>Perimeter</b> = the boundary walk. Units are length (m, cm). Square: <b>P = 4 × side</b>. Rectangle: <b>P = 2(l + b)</b>. Think of a fence around a garden or tape around a room floor.",ur:"<b>محیط</b> = باؤنڈری پر چلنا۔ اکائیاں لمبائی (m، cm)۔ مربع: <b>P = 4 × ضلع</b>۔ مستطیل: <b>P = 2(l + b)</b>۔ باغ کے گرد باڑ یا کمرے کے فرش کے گرد ٹیپ سوچو۔"},
+storyArea:{en:"<b>Area</b> = how much surface to cover. Units are <b>square</b> units (m², cm²). Square: <b>A = side × side</b>. Rectangle: <b>A = l × b</b>. Think of a carpet, a paint wall, or tiles on a floor.",ur:"<b>رقبہ</b> = کتنا سطح ڈھکنا ہے۔ اکائیاں <b>مربع</b> یونٹ (m²، cm²)۔ مربع: <b>A = ضلع × ضلع</b>۔ مستطیل: <b>A = l × b</b>۔ قالین، دیوار کا رنگ، یا فرش کی ٹائلیں سوچو۔"},
+storyWhich:{en:"Ask: walk the edge or cover the inside? Fence, ribbon, path → <b>perimeter</b>. Carpet, grass seed, paint → <b>area</b>. One challenge is an L-shape courtyard — add two rectangles for area, or walk the outer path for perimeter.",ur:"پوچھو: کنارے پر چلنا ہے یا اندر ڈھکنا؟ باڑ، ربن، راستہ → <b>محیط</b>۔ قالین، گھاس کا بیج، رنگ → <b>رقبہ</b>۔ ایک چیلنج L شکل کا آنگن ہے — رقبے کے لیے دو مستطیل جمع، یا محیط کے لیے باہر والا راستہ۔"},
+ctl:{en:"Your turn — shape lab",ur:"تمہاری باری — شکل لیب"},
+next:{en:"Next challenge",ur:"اگلا چیلنج"},
+hint:{en:"Hint",ur:"اشارہ"},
+reset:{en:"Reset",ur:"ری سیٹ"},
+quiz:{en:"Check yourself",ur:"اپنا چیک"},
+newQuiz:{en:"New quiz",ur:"نیا کوئز"},
+nice:{en:"Shabash!",ur:"شاباش!"},
+oops:{en:"Almost — try again",ur:"قریب — دوبارہ آزماؤ"},
+tipPeri:{en:"Perimeter is the boundary. Square: multiply one side by 4. Rectangle: add length and breadth, then multiply by 2. Answer in length units, not square units.",ur:"محیط باؤنڈری ہے۔ مربع: ایک ضلع × 4۔ مستطیل: لمبائی جمع چوڑائی، پھر × 2۔ جواب لمبائی کی اکائی میں، مربع اکائی میں نہیں۔"},
+tipArea:{en:"Area covers the inside. Square: side × side. Rectangle: length × breadth. Write m² or cm² — the little ² means square units.",ur:"رقبہ اندر ڈھکتا ہے۔ مربع: ضلع × ضلع۔ مستطیل: لمبائی × چوڑائی۔ m² یا cm² لکھو — چھوٹا ² مربع اکائی بتاتا ہے۔"},
+tipWhich:{en:"Edge walk or fence → perimeter. Cover, carpet, paint, grass → area. For an L-shape, split into two rectangles for area, or add the outer sides for perimeter.",ur:"کنارے کی چال یا باڑ → محیط۔ ڈھکنا، قالین، رنگ، گھاس → رقبہ۔ L شکل میں رقبے کے لیے دو مستطیل کاٹو، یا محیط کے لیے باہر والے اضلاع جمع کرو۔"},
+progPeri:{en:"Perimeter rounds",ur:"محیط راؤنڈ"},
+progArea:{en:"Area rounds",ur:"رقبہ راؤنڈ"},
+progWhich:{en:"Which rounds",ur:"کون سا راؤنڈ"}
+};
+
+var PERI=[
+{id:"p1",em:"🟦",kind:"sq",side:5,title:{en:"Square floor tile",ur:"مربع فرش ٹائل"},blurb:{en:"Ayesha's Islamabad classroom has a square floor tile. Each side is 5 cm.",ur:"عائشہ کی اسلام آباد کلاس میں مربع فرش ٹائل ہے۔ ہر ضلع 5 cm ہے۔"},show:"side = 5 cm",pills:["P = 4 × side"],ask:{en:"What is the perimeter of the tile?",ur:"ٹائل کا محیط کیا ہے؟"},opts:[{id:"a",en:"10 cm",ur:"10 cm"},{id:"b",en:"20 cm",ur:"20 cm"},{id:"c",en:"25 cm",ur:"25 cm"},{id:"d",en:"20 cm²",ur:"20 cm²"}],correct:"b",hint:{en:"Square: P = 4 × side. 4 × 5 = 20 cm. Not 25 — that would be area (5×5). Not cm² — perimeter uses length units.",ur:"مربع: P = 4 × ضلع۔ 4 × 5 = 20 cm۔ 25 نہیں — وہ رقبہ ہوگا (5×5)۔ cm² نہیں — محیط لمبائی کی اکائی استعمال کرتا ہے۔"},done:{en:"P = 4 × 5 = 20 cm.",ur:"P = 4 × 5 = 20 cm۔"},why:{en:"Walking all four sides of the tile is twenty centimetres.",ur:"ٹائل کے چاروں اطراف چلنا بیس سینٹی میٹر ہے۔"}},
+{id:"p2",em:"🖼️",kind:"rect",l:4,b:2,title:{en:"Classroom board",ur:"کلاس کا بورڈ"},blurb:{en:"The green board is a rectangle: length 4 m, breadth 2 m.",ur:"سبز بورڈ مستطیل ہے: لمبائی 4 m، چوڑائی 2 m۔"},show:"l = 4 m,  b = 2 m",pills:["P = 2(l + b)"],ask:{en:"What is the perimeter of the board?",ur:"بورڈ کا محیط کیا ہے؟"},opts:[{id:"a",en:"6 m",ur:"6 m"},{id:"b",en:"8 m",ur:"8 m"},{id:"c",en:"12 m",ur:"12 m"},{id:"d",en:"8 m²",ur:"8 m²"}],correct:"c",hint:{en:"P = 2(l + b) = 2(4 + 2) = 2 × 6 = 12 m. Adding once (4+2=6) is only half the walk. 8 m² would be area.",ur:"P = 2(l + b) = 2(4 + 2) = 2 × 6 = 12 m۔ ایک بار جمع (4+2=6) صرف آدھی چال ہے۔ 8 m² رقبہ ہوگا۔"},done:{en:"P = 2(4 + 2) = 12 m.",ur:"P = 2(4 + 2) = 12 m۔"},why:{en:"Two lengths and two breadths: 4+4+2+2 = 12 metres of border.",ur:"دو لمبائیاں اور دو چوڑائیاں: 4+4+2+2 = 12 میٹر باؤنڈری۔"}},
+{id:"p3",em:"🌿",kind:"sq",side:8,title:{en:"Square kitchen garden",ur:"مربع باورچی خانے کا باغ"},blurb:{en:"Ammi's kitchen garden in Rawalpindi is a square. Each side is 8 m. She wants a fence.",ur:"راولپنڈی میں امی کا باورچی خانے کا باغ مربع ہے۔ ہر ضلع 8 m۔ انہیں باڑ چاہیے۔"},show:"side = 8 m",pills:["fence = perimeter","P = 4 × side"],ask:{en:"How long is the fence?",ur:"باڑ کتنی لمبی ہے؟"},opts:[{id:"a",en:"16 m",ur:"16 m"},{id:"b",en:"32 m",ur:"32 m"},{id:"c",en:"64 m",ur:"64 m"},{id:"d",en:"32 m²",ur:"32 m²"}],correct:"b",hint:{en:"Fence follows the boundary → perimeter. 4 × 8 = 32 m. 64 would be area (8×8). Keep units in metres, not m².",ur:"باڑ باؤنڈری پر جاتی ہے → محیط۔ 4 × 8 = 32 m۔ 64 رقبہ ہوگا (8×8)۔ اکائی میٹر رکھو، m² نہیں۔"},done:{en:"Fence = P = 32 m.",ur:"باڑ = P = 32 m۔"},why:{en:"Four equal sides make thirty-two metres of fencing.",ur:"چار برابر اضلاع باتیس میٹر باڑ بناتے ہیں۔"}},
+{id:"p4",em:"🏏",kind:"rect",l:6,b:3,title:{en:"Playground rectangle",ur:"کھیل کے میدان کا مستطیل"},blurb:{en:"Class 4 marked a rectangular cricket practice strip: length 6 m, breadth 3 m.",ur:"کلاس 4 نے مستطیل کرکٹ مشق کی پٹی بنائی: لمبائی 6 m، چوڑائی 3 m۔"},show:"l = 6 m,  b = 3 m",pills:["P = 2(l + b)"],ask:{en:"What is the perimeter?",ur:"محیط کیا ہے؟"},opts:[{id:"a",en:"9 m",ur:"9 m"},{id:"b",en:"18 m",ur:"18 m"},{id:"c",en:"18 m²",ur:"18 m²"},{id:"d",en:"36 m",ur:"36 m"}],correct:"b",hint:{en:"2(6 + 3) = 2 × 9 = 18 m. 9 m is only l+b once. 18 m² is area (6×3). 36 would be 2×l×b by mistake.",ur:"2(6 + 3) = 2 × 9 = 18 m۔ 9 m صرف ایک بار l+b ہے۔ 18 m² رقبہ ہے (6×3)۔ 36 غلطی سے 2×l×b ہوگا۔"},done:{en:"P = 2(6 + 3) = 18 m.",ur:"P = 2(6 + 3) = 18 m۔"},why:{en:"Eighteen metres around the practice strip.",ur:"مشق کی پٹی کے گرد اٹھارہ میٹر۔"}}
+];
+
+var AREA=[
+{id:"a1",em:"🟥",kind:"sq",side:4,title:{en:"Square prayer mat",ur:"مربع نماز کی چٹائی"},blurb:{en:"Bilal's square prayer mat has side 4 m (for a school demo — big mat!).",ur:"بلال کی مربع نماز کی چٹائی کا ضلع 4 m ہے (اسکول ڈیمو — بڑی چٹائی!)۔"},show:"side = 4 m",pills:["A = side × side"],ask:{en:"What is the area of the mat?",ur:"چٹائی کا رقبہ کیا ہے؟"},opts:[{id:"a",en:"8 m",ur:"8 m"},{id:"b",en:"16 m²",ur:"16 m²"},{id:"c",en:"16 m",ur:"16 m"},{id:"d",en:"12 m²",ur:"12 m²"}],correct:"b",hint:{en:"Area = side × side = 4 × 4 = 16. Use m² (square metres), not plain m. 8 m would be half a perimeter idea.",ur:"رقبہ = ضلع × ضلع = 4 × 4 = 16۔ m² (مربع میٹر) استعمال کرو، سادہ m نہیں۔ 8 m آدھے محیط جیسا خیال ہے۔"},done:{en:"A = 4 × 4 = 16 m².",ur:"A = 4 × 4 = 16 m²۔"},why:{en:"Sixteen square metres of mat cover the floor.",ur:"سولہ مربع میٹر چٹائی فرش ڈھکتی ہے۔"}},
+{id:"a2",em:"🏫",kind:"rect",l:8,b:5,title:{en:"Classroom floor",ur:"کلاس کا فرش"},blurb:{en:"Sara's classroom floor is a rectangle: length 8 m, breadth 5 m. New carpet needed.",ur:"سارہ کی کلاس کا فرش مستطیل ہے: لمبائی 8 m، چوڑائی 5 m۔ نیا قالین چاہیے۔"},show:"l = 8 m,  b = 5 m",pills:["A = l × b","carpet = area"],ask:{en:"How much carpet area is needed?",ur:"کتنا قالین رقبہ چاہیے؟"},opts:[{id:"a",en:"13 m",ur:"13 m"},{id:"b",en:"26 m",ur:"26 m"},{id:"c",en:"40 m²",ur:"40 m²"},{id:"d",en:"40 m",ur:"40 m"}],correct:"c",hint:{en:"Carpet covers the inside → area. A = 8 × 5 = 40 m². 26 m would be perimeter 2(8+5). Keep the ².",ur:"قالین اندر ڈھکتا ہے → رقبہ۔ A = 8 × 5 = 40 m²۔ 26 m محیط 2(8+5) ہوگا۔ ² رکھو۔"},done:{en:"A = 8 × 5 = 40 m².",ur:"A = 8 × 5 = 40 m²۔"},why:{en:"Forty square metres of carpet for the room.",ur:"کمرے کے لیے چالیس مربع میٹر قالین۔"}},
+{id:"a3",em:"📓",kind:"sq",side:10,title:{en:"Notebook cover",ur:"کاپی کا سرورق"},blurb:{en:"Hamza's square notebook cover is 10 cm on each side.",ur:"حمزہ کے مربع کاپی سرورق کا ہر ضلع 10 cm ہے۔"},show:"side = 10 cm",pills:["A = side × side"],ask:{en:"What is the area of the cover?",ur:"سرورق کا رقبہ کیا ہے؟"},opts:[{id:"a",en:"40 cm",ur:"40 cm"},{id:"b",en:"100 cm²",ur:"100 cm²"},{id:"c",en:"20 cm²",ur:"20 cm²"},{id:"d",en:"100 cm",ur:"100 cm"}],correct:"b",hint:{en:"10 × 10 = 100. Write cm². 40 cm is the perimeter (4×10). Do not drop the square unit.",ur:"10 × 10 = 100۔ cm² لکھو۔ 40 cm محیط ہے (4×10)۔ مربع اکائی مت بھولو۔"},done:{en:"A = 10 × 10 = 100 cm².",ur:"A = 10 × 10 = 100 cm²۔"},why:{en:"One hundred square centimetres of cover.",ur:"ایک سو مربع سینٹی میٹر سرورق۔"}},
+{id:"a4",em:"🌾",kind:"rect",l:12,b:7,title:{en:"Wheat field plot",ur:"گندم کے کھیت کا پلاٹ"},blurb:{en:"Uncle's small wheat plot near Islamabad is a rectangle: 12 m by 7 m.",ur:"اسلام آباد کے قریب چچا کا چھوٹا گندم کا پلاٹ مستطیل ہے: 12 m × 7 m۔"},show:"l = 12 m,  b = 7 m",pills:["A = l × b"],ask:{en:"What is the area of the plot?",ur:"پلاٹ کا رقبہ کیا ہے؟"},opts:[{id:"a",en:"19 m",ur:"19 m"},{id:"b",en:"38 m",ur:"38 m"},{id:"c",en:"84 m²",ur:"84 m²"},{id:"d",en:"84 m",ur:"84 m"}],correct:"c",hint:{en:"12 × 7 = 84. Area uses m². 38 m is perimeter 2(12+7). 19 is only l+b.",ur:"12 × 7 = 84۔ رقبہ m² استعمال کرتا ہے۔ 38 m محیط 2(12+7) ہے۔ 19 صرف l+b ہے۔"},done:{en:"A = 12 × 7 = 84 m².",ur:"A = 12 × 7 = 84 m²۔"},why:{en:"Eighty-four square metres of wheat plot.",ur:"چوراسی مربع میٹر گندم کا پلاٹ۔"}}
+];
+
+var WHICH=[
+{id:"w1",em:"🚧",kind:"choice",title:{en:"Garden fence",ur:"باغ کی باڑ"},blurb:{en:"Ali wants to put a wire fence around his square vegetable patch.",ur:"علی اپنے مربع سبزی کے پلاٹ کے گرد تار کی باڑ لگانا چاہتا ہے۔"},show:"fence around patch",pills:["edge walk?"],ask:{en:"Does Ali need perimeter or area?",ur:"علی کو محیط چاہیے یا رقبہ؟"},opts:[{id:"a",en:"Perimeter — walk the boundary",ur:"محیط — باؤنڈری پر چلنا"},{id:"b",en:"Area — cover the soil",ur:"رقبہ — مٹی ڈھکنا"},{id:"c",en:"Both the same number",ur:"دونوں ایک ہی نمبر"},{id:"d",en:"Neither — use volume",ur:"کوئی نہیں — حجم استعمال کرو"}],correct:"a",hint:{en:"A fence follows the edge — that is perimeter (length units). Area would be for soil cover or seeds inside.",ur:"باڑ کنارے پر جاتی ہے — وہ محیط ہے (لمبائی اکائی)۔ رقبہ اندر مٹی یا بیج ڈھکنے کے لیے ہوتا۔"},done:{en:"Fence → perimeter.",ur:"باڑ → محیط۔"},why:{en:"Boundary jobs use perimeter. Covering jobs use area.",ur:"باؤنڈری والے کام محیط۔ ڈھکنے والے کام رقبہ۔"}},
+{id:"w2",em:"🎨",kind:"choice",title:{en:"Paint the wall",ur:"دیوار رنگنا"},blurb:{en:"Ammi will paint a rectangular bedroom wall in their flat.",ur:"امی اپنے فلیٹ میں مستطیل بیڈروم دیوار رنگیں گی۔"},show:"paint the wall",pills:["cover inside?"],ask:{en:"Does Ammi need perimeter or area?",ur:"امی کو محیط چاہیے یا رقبہ؟"},opts:[{id:"a",en:"Perimeter — tape the edge only",ur:"محیط — صرف کنارے پر ٹیپ"},{id:"b",en:"Area — cover the wall surface",ur:"رقبہ — دیوار کی سطح ڈھکنا"},{id:"c",en:"Only length, ignore breadth",ur:"صرف لمبائی، چوڑائی بھولو"},{id:"d",en:"Volume of the room",ur:"کمرے کا حجم"}],correct:"b",hint:{en:"Paint covers the whole surface → area (m²). Perimeter would only measure the border of the wall.",ur:"رنگ پوری سطح ڈھکتا ہے → رقبہ (m²)۔ محیط صرف دیوار کی باؤنڈری ناپتا۔"},done:{en:"Paint → area.",ur:"رنگ → رقبہ۔"},why:{en:"Covering jobs need square units of area.",ur:"ڈھکنے والے کاموں کو رقبے کی مربع اکائیاں چاہیے۔"}},
+{id:"w3",em:"🧵",kind:"choice",title:{en:"Ribbon on a chart",ur:"چارٹ پر ربن"},blurb:{en:"Art class will stick ribbon all around a rectangular chart border.",ur:"آرٹ کلاس مستطیل چارٹ کی باؤنڈری کے گرد ربن چسپاں کرے گی۔"},show:"ribbon on border",ask:{en:"Ribbon around the chart needs…",ur:"چارٹ کے گرد ربن کو چاہیے…"},opts:[{id:"a",en:"Area of the chart paper",ur:"چارٹ کاغذ کا رقبہ"},{id:"b",en:"Perimeter of the chart",ur:"چارٹ کا محیط"},{id:"c",en:"Diagonal only",ur:"صرف وتر"},{id:"d",en:"Number of colours",ur:"رنگوں کی تعداد"}],correct:"b",hint:{en:"Ribbon goes around the edge = perimeter. Area would tell how much paper is inside, not how much ribbon.",ur:"ربن کنارے کے گرد جاتی ہے = محیط۔ رقبہ بتاتا ہے اندر کتنا کاغذ ہے، کتنا ربن نہیں۔"},done:{en:"Ribbon border → perimeter.",ur:"ربن باؤنڈری → محیط۔"},why:{en:"Around means perimeter in length units.",ur:"گرد مطلب محیط، لمبائی کی اکائی میں۔"}},
+{id:"w4",em:"🏡",kind:"lshape",title:{en:"L-shape courtyard",ur:"L شکل کا آنگن"},blurb:{en:"The school courtyard is L-shaped: a 6 m × 4 m rectangle plus a 3 m × 2 m rectangle stuck on the side. Find the total floor area.",ur:"اسکول کا آنگن L شکل ہے: 6 m × 4 m مستطیل اور ساتھ 3 m × 2 m مستطیل۔ کل فرش رقبہ نکالو۔"},show:"(6×4) + (3×2)",pills:["split L → two rectangles","area adds"],ask:{en:"What is the total area of the L-shape?",ur:"L شکل کا کل رقبہ کیا ہے؟"},opts:[{id:"a",en:"24 m²",ur:"24 m²"},{id:"b",en:"6 m²",ur:"6 m²"},{id:"c",en:"30 m²",ur:"30 m²"},{id:"d",en:"30 m",ur:"30 m"}],correct:"c",hint:{en:"Split the L: first rectangle 6×4 = 24 m². Second 3×2 = 6 m². Add: 24 + 6 = 30 m². Not plain metres — area needs m². 24 alone forgets the small piece.",ur:"L کاٹو: پہلا مستطیل 6×4 = 24 m²۔ دوسرا 3×2 = 6 m²۔ جمع: 24 + 6 = 30 m²۔ سادہ میٹر نہیں — رقبے کو m² چاہیے۔ صرف 24 چھوٹا ٹکڑا بھول جاتا ہے۔"},done:{en:"24 + 6 = 30 m².",ur:"24 + 6 = 30 m²۔"},why:{en:"An L-shape area is the sum of two simple rectangles.",ur:"L شکل کا رقبہ دو سادہ مستطیلوں کا مجموعہ ہے۔"}}
+];
+
+var QUIZ=[
+{id:"qpsq",pin:true,q:{en:"A square has side 6 m. What is its perimeter?",ur:"مربع کا ضلع 6 m ہے۔ محیط کیا ہے؟"},ru:"Mukab ka zila 6 m hai. Muhit kya hai?",opts:[{en:"12 m",ur:"12 m"},{en:"24 m",ur:"24 m"},{en:"36 m²",ur:"36 m²"},{en:"36 m",ur:"36 m"}],correct:1,why:{en:"P = 4 × side = 4 × 6 = 24 m. 36 m² would be area.",ur:"P = 4 × ضلع = 4 × 6 = 24 m۔ 36 m² رقبہ ہوگا۔"}},
+{id:"qarect",pin:true,q:{en:"A rectangle is 5 cm by 3 cm. What is its area?",ur:"مستطیل 5 cm × 3 cm ہے۔ رقبہ کیا ہے؟"},ru:"Mustateel 5 cm × 3 cm hai. Raqba kya hai?",opts:[{en:"8 cm",ur:"8 cm"},{en:"16 cm",ur:"16 cm"},{en:"15 cm²",ur:"15 cm²"},{en:"15 cm",ur:"15 cm"}],correct:2,why:{en:"A = l × b = 5 × 3 = 15 cm². Perimeter would be 2(5+3) = 16 cm.",ur:"A = l × b = 5 × 3 = 15 cm²۔ محیط 2(5+3) = 16 cm ہوتا۔"}},
+{id:"qunit",q:{en:"Perimeter is measured in which kind of units?",ur:"محیط کس قسم کی اکائیوں میں ناپا جاتا ہے؟"},ru:"Muhit kis qism ki units mein napaa jata hai?",opts:[{en:"Square units (m², cm²)",ur:"مربع اکائیاں (m²، cm²)"},{en:"Length units (m, cm)",ur:"لمبائی کی اکائیاں (m، cm)"},{en:"Volume units (m³)",ur:"حجم کی اکائیاں (m³)"},{en:"Weight units (kg)",ur:"وزن کی اکائیاں (kg)"}],correct:1,why:{en:"Perimeter is a boundary length, so metres or centimetres — not square units.",ur:"محیط باؤنڈری کی لمبائی ہے، اس لیے میٹر یا سینٹی میٹر — مربع اکائیاں نہیں۔"}},
+{id:"qform",q:{en:"Which formula is correct for a rectangle's perimeter?",ur:"مستطیل کے محیط کا صحیح فارمولا کون سا ہے؟"},ru:"Mustateel ke muhit ka sahi formula kaun sa hai?",opts:[{en:"P = l × b",ur:"P = l × b"},{en:"P = 4 × side",ur:"P = 4 × side"},{en:"P = 2(l + b)",ur:"P = 2(l + b)"},{en:"P = l + b",ur:"P = l + b"}],correct:2,why:{en:"Rectangle perimeter is 2(l + b). l × b is area. 4 × side is for a square.",ur:"مستطیل کا محیط 2(l + b) ہے۔ l × b رقبہ ہے۔ 4 × side مربع کے لیے ہے۔"}},
+{id:"qjob",q:{en:"You buy grass seed to cover a school field. Do you need perimeter or area?",ur:"تم اسکول کے میدان پر گھاس کا بیج بونے کے لیے خریدتے ہو۔ محیط چاہیے یا رقبہ؟"},ru:"Tum school field cover karne ke liye grass seed kharidte ho. Muhit chahiye ya raqba?",opts:[{en:"Perimeter",ur:"محیط"},{en:"Area",ur:"رقبہ"},{en:"Only the length",ur:"صرف لمبائی"},{en:"Diagonal",ur:"وتر"}],correct:1,why:{en:"Covering the field means area in square units. Perimeter would be for a fence around it.",ur:"میدان ڈھکنا مطلب رقبہ، مربع اکائیوں میں۔ محیط اس کے گرد باڑ کے لیے ہوتا۔"}},
+{id:"qls",q:{en:"An L-shape is made of a 5 m × 3 m rectangle and a 2 m × 2 m square. Total area?",ur:"L شکل 5 m × 3 m مستطیل اور 2 m × 2 m مربع سے بنی ہے۔ کل رقبہ؟"},ru:"L-shape 5×3 mustateel aur 2×2 mukab se bani. Kul raqba?",opts:[{en:"15 m²",ur:"15 m²"},{en:"4 m²",ur:"4 m²"},{en:"19 m²",ur:"19 m²"},{en:"19 m",ur:"19 m"}],correct:2,why:{en:"5×3 = 15 and 2×2 = 4. Add: 15 + 4 = 19 m².",ur:"5×3 = 15 اور 2×2 = 4۔ جمع: 15 + 4 = 19 m²۔"}},
+{id:"qsqa",q:{en:"A square has side 9 cm. What is its area?",ur:"مربع کا ضلع 9 cm ہے۔ رقبہ کیا ہے؟"},ru:"Mukab ka zila 9 cm hai. Raqba kya hai?",opts:[{en:"36 cm",ur:"36 cm"},{en:"81 cm²",ur:"81 cm²"},{en:"18 cm²",ur:"18 cm²"},{en:"81 cm",ur:"81 cm"}],correct:1,why:{en:"A = side × side = 9 × 9 = 81 cm². Perimeter would be 4 × 9 = 36 cm.",ur:"A = ضلع × ضلع = 9 × 9 = 81 cm²۔ محیط 4 × 9 = 36 cm ہوتا۔"}}
+];
+
+var periIdx=0,periDone={};
+var areaIdx=0,areaDone={};
+var whichIdx=0,whichDone={};
+var optKey="",optOrder=[],quizSet=[],quizState={};
+
+function award(key,n){if(awarded[key])return;awarded[key]=true;stars+=(n||1);$("starCount").textContent=String(stars)}
+function recountStars(){stars=0;Object.keys(awarded).forEach(function(k){stars+=(k.indexOf("mode-")===0)?2:1});$("starCount").textContent=String(stars)}
+function markWin(prefix,id,doneMap,modeKey,total){if(doneMap[id])return;doneMap[id]=true;award(prefix+"-"+id,1);if(Object.keys(doneMap).length>=total){doneModes[modeKey]=true;award("mode-"+modeKey,2)}tabBadges()}
+function skyHTML(){return '<div class="sky-layer"><div class="sun-ball"></div><div class="cloud c1"></div><div class="cloud c2"></div></div>'}
+function prepScene(){var pad=$("scenePad");pad.innerHTML=skyHTML();var stage=document.createElement("div");stage.className="num-stage";pad.appendChild(stage);return stage}
+function addBlurb(stage,ch){var em=document.createElement("div");em.className="hero-em";em.textContent=ch.em||"📐";stage.appendChild(em);var box=document.createElement("div");box.className="card-box";setText(box,t(ch.blurb));stage.appendChild(box)}
+function addShow(stage,ch){var h=document.createElement("div");h.className="num-hero";h.textContent=ch.show;stage.appendChild(h)}
+function addPills(stage,ch){if(!ch.pills||!ch.pills.length)return;var row=document.createElement("div");row.className="fact-pills";ch.pills.forEach(function(p){var s=document.createElement("span");s.className="pill"+(p.indexOf("P =")===0||p.indexOf("fence")===0||p.indexOf("edge")===0?" peri":(p.indexOf("A =")===0||p.indexOf("carpet")===0||p.indexOf("cover")===0||p.indexOf("area")===0||p.indexOf("split")===0?" area":""));s.textContent=p;row.appendChild(s)});stage.appendChild(row)}
+function shapeSVG(ch,fill){
+  var c=fill||"#7eb89a";
+  if(ch.kind==="sq"){
+    return '<div class="shape-wrap"><svg viewBox="0 0 120 100" aria-hidden="true"><rect x="30" y="18" width="60" height="60" fill="'+c+'" stroke="#1e2a1a" stroke-width="3" rx="4"/><text x="60" y="52" text-anchor="middle" font-size="11" font-weight="800" fill="#1e2a1a">'+(ch.side||"")+'</text></svg></div>';
+  }
+  if(ch.kind==="rect"){
+    return '<div class="shape-wrap"><svg viewBox="0 0 140 90" aria-hidden="true"><rect x="20" y="22" width="100" height="50" fill="'+c+'" stroke="#1e2a1a" stroke-width="3" rx="4"/><text x="70" y="42" text-anchor="middle" font-size="10" font-weight="800" fill="#1e2a1a">l='+(ch.l||"")+'</text><text x="70" y="58" text-anchor="middle" font-size="10" font-weight="800" fill="#1e2a1a">b='+(ch.b||"")+'</text></svg></div>';
+  }
+  if(ch.kind==="lshape"){
+    return '<div class="shape-wrap"><svg viewBox="0 0 140 110" aria-hidden="true"><path d="M20,20 h80 v50 h-40 v30 h-40 z" fill="#8ec4a8" stroke="#1e2a1a" stroke-width="3"/><text x="55" y="48" text-anchor="middle" font-size="9" font-weight="800" fill="#1e2a1a">6×4</text><text x="40" y="88" text-anchor="middle" font-size="9" font-weight="800" fill="#1e2a1a">3×2</text></svg></div>';
+  }
+  return "";
+}
+function addShape(stage,ch,fill){var html=shapeSVG(ch,fill);if(html){var d=document.createElement("div");d.innerHTML=html;stage.appendChild(d.firstChild)}}
+function showStep(i,n){setText($("statechip"),(i+1)+" / "+n);$("statechip").className="statechip"+(lang==="ur"?" ur":"")}
+function showWin(msg){setText($("headline"),msg);$("statechip").className="statechip win"+(lang==="ur"?" ur":"");setText($("statechip"),t(T.nice))}
+function showMiss(){setText($("headline"),t(T.oops));$("statechip").className="statechip miss"+(lang==="ur"?" ur":"");setText($("statechip"),t(T.oops))}
+function stableOrder(key,arr){if(optKey!==key){optKey=key;optOrder=shuffle(arr)}return optOrder}
+function clearHint(){$("hintbox").classList.remove("show")}
+
+function renderChoices(ch,doneMap,prefix,modeKey,total,rerender){
+  var box=$("actionBox");box.innerHTML="";
+  var choices=document.createElement("div");choices.className="save-choices";
+  stableOrder(prefix+"-"+ch.id,ch.opts.slice()).forEach(function(opt){
+    var b=document.createElement("button");b.type="button";
+    var en=opt.en||"";
+    if(/^[0-9]/.test(en)||/^\d/.test(t(opt))){b.className="numc";b.textContent=en;b.setAttribute("dir","ltr")}
+    else setText(b,t(opt));
+    if(doneMap[ch.id]&&opt.id===ch.correct)b.classList.add("right");
+    b.disabled=!!doneMap[ch.id];
+    b.addEventListener("click",function(){if(doneMap[ch.id])return;if(opt.id===ch.correct){markWin(prefix,ch.id,doneMap,modeKey,total);rerender()}else{b.classList.add("wrong");showMiss()}});
+    choices.appendChild(b);
+  });
+  box.appendChild(choices);
+}
+
+function renderPeri(){
+  var ch=PERI[periIdx],stage=prepScene();
+  addBlurb(stage,ch);addShow(stage,ch);addPills(stage,ch);addShape(stage,ch,"#f0c080");
+  showStep(periIdx,PERI.length);setText($("headline"),t(ch.title));
+  setText($("detail"),periDone[ch.id]?t(ch.why):t(ch.ask));clearHint();
+  if(periDone[ch.id])showWin(t(ch.done));
+  renderChoices(ch,periDone,"peri","peri",PERI.length,renderPeri);
+  setText($("prog"),t(T.progPeri)+": "+Object.keys(periDone).length+"/"+PERI.length);
+}
+function renderArea(){
+  var ch=AREA[areaIdx],stage=prepScene();
+  addBlurb(stage,ch);addShow(stage,ch);addPills(stage,ch);addShape(stage,ch,"#8bb8e0");
+  showStep(areaIdx,AREA.length);setText($("headline"),t(ch.title));
+  setText($("detail"),areaDone[ch.id]?t(ch.why):t(ch.ask));clearHint();
+  if(areaDone[ch.id])showWin(t(ch.done));
+  renderChoices(ch,areaDone,"area","area",AREA.length,renderArea);
+  setText($("prog"),t(T.progArea)+": "+Object.keys(areaDone).length+"/"+AREA.length);
+}
+function renderWhich(){
+  var ch=WHICH[whichIdx],stage=prepScene();
+  addBlurb(stage,ch);addShow(stage,ch);addPills(stage,ch);
+  if(ch.kind==="lshape")addShape(stage,ch);else{
+    var cap=document.createElement("div");cap.className="capline";
+    setText(cap,lang==="en"?"Edge walk → perimeter. Cover inside → area.":"کنارے کی چال → محیط۔ اندر ڈھکنا → رقبہ۔");
+    stage.appendChild(cap);
+  }
+  showStep(whichIdx,WHICH.length);setText($("headline"),t(ch.title));
+  setText($("detail"),whichDone[ch.id]?t(ch.why):t(ch.ask));clearHint();
+  if(whichDone[ch.id])showWin(t(ch.done));
+  renderChoices(ch,whichDone,"which","which",WHICH.length,renderWhich);
+  setText($("prog"),t(T.progWhich)+": "+Object.keys(whichDone).length+"/"+WHICH.length);
+}
+
+function pickQuiz(){
+  var pin=[],rest=[],i;quizState={};
+  for(i=0;i<QUIZ.length;i++){if(QUIZ[i].pin)pin.push(QUIZ[i]);else rest.push(QUIZ[i])}
+  rest=shuffle(rest);quizSet=shuffle(pin.concat(rest.slice(0,5-pin.length)));
+}
+function renderQuiz(){
+  var box=$("quizBox");box.innerHTML="";
+  quizSet.forEach(function(item,qi){
+    var wrap=document.createElement("div");wrap.className="q";
+    var p=document.createElement("p");setText(p,(qi+1)+". "+t(item.q));wrap.appendChild(p);
+    if(lang==="en"&&item.ru){var g=document.createElement("p");g.className="gloss";g.textContent=item.ru;wrap.appendChild(g)}
+    var st=quizState[item.id];
+    item.opts.forEach(function(opt,oi){
+      var b=document.createElement("button");b.type="button";b.className="opt"+(lang==="ur"?" ur":"");setText(b,t(opt));
+      if(st&&oi===item.correct)b.classList.add("right");
+      if(st==="no"&&quizState[item.id+"-pick"]===oi&&oi!==item.correct)b.classList.add("wrong");
+      if(st)b.disabled=true;
+      b.addEventListener("click",function(){
+        if(quizState[item.id])return;
+        quizState[item.id+"-pick"]=oi;
+        if(oi===item.correct){quizState[item.id]="ok";b.classList.add("right");award("quiz-"+item.id,1)}
+        else{quizState[item.id]="no";b.classList.add("wrong");var kids=wrap.querySelectorAll(".opt");if(kids[item.correct])kids[item.correct].classList.add("right")}
+        fb.classList.add("show");
+        var all=wrap.querySelectorAll(".opt"),k;for(k=0;k<all.length;k++)all[k].disabled=true;
+      });
+      wrap.appendChild(b);
+    });
+    var fb=document.createElement("p");fb.className="fb"+(st?" show":"");setText(fb,t(item.why));wrap.appendChild(fb);
+    box.appendChild(wrap);
+  });
+}
+function storyHtml(){if(mode==="peri")return t(T.storyPeri);if(mode==="area")return t(T.storyArea);return t(T.storyWhich)}
+function currentTip(){if(mode==="peri")return T.tipPeri;if(mode==="area")return T.tipArea;return T.tipWhich}
+function tabBadges(){
+  function lab(btn,label,key){btn.innerHTML="";var span=document.createElement("span");setText(span,t(label));btn.appendChild(span);if(doneModes[key]){var b=document.createElement("span");b.className="badge";b.textContent=" ★";btn.appendChild(b)}}
+  lab($("tabPeri"),T.tabPeri,"peri");lab($("tabArea"),T.tabArea,"area");lab($("tabWhich"),T.tabWhich,"which");
+  $("tabPeri").setAttribute("aria-pressed",mode==="peri"?"true":"false");
+  $("tabArea").setAttribute("aria-pressed",mode==="area"?"true":"false");
+  $("tabWhich").setAttribute("aria-pressed",mode==="which"?"true":"false");
+}
+function renderCurrent(){if(mode==="peri")renderPeri();else if(mode==="area")renderArea();else renderWhich()}
+function setMode(m){mode=m;optKey="";renderCurrent();applyChrome()}
+function applyChrome(){
+  setText($("title"),t(T.title));setText($("subtitle"),t(T.sub));
+  $("story").innerHTML=storyHtml();$("story").classList.toggle("ur",lang==="ur");$("story").setAttribute("dir",lang==="ur"?"rtl":"ltr");
+  setText($("ctlHead"),t(T.ctl));setText($("nextBtn"),t(T.next));setText($("hintBtn"),t(T.hint));setText($("resetBtn"),t(T.reset));
+  setText($("quizHead"),t(T.quiz));setText($("newQuiz"),t(T.newQuiz));
+  $("langBtn").textContent=(lang==="en")?"اردو":"EN";$("langBtn").setAttribute("aria-pressed",lang==="ur"?"true":"false");
+  document.body.classList.toggle("urdu",lang==="ur");
+  document.documentElement.lang=(lang==="ur")?"ur":"en";
+  document.documentElement.dir=(lang==="ur")?"rtl":"ltr";
+  document.title=t(T.title)+" | AI4Kids Class 4";
+  tabBadges();
+  var foot=document.querySelector("footer p");
+  if(foot)setText(foot,foot.getAttribute(lang==="ur"?"data-ur":"data-en"));
+}
+function applyLang(){applyChrome();renderCurrent();renderQuiz()}
+function next(){
+  optKey="";
+  if(mode==="peri"){periIdx=(periIdx+1)%PERI.length;renderPeri()}
+  else if(mode==="area"){areaIdx=(areaIdx+1)%AREA.length;renderArea()}
+  else{whichIdx=(whichIdx+1)%WHICH.length;renderWhich()}
+}
+function showHint(){
+  var h=mode==="peri"?PERI[periIdx].hint:(mode==="area"?AREA[areaIdx].hint:WHICH[whichIdx].hint);
+  var hb=$("hintbox");setText(hb,t(h));hb.classList.add("show");
+}
+function resetMode(){
+  if(mode==="peri"){Object.keys(awarded).forEach(function(k){if(k.indexOf("peri-")===0||k==="mode-peri")delete awarded[k]});periDone={};periIdx=0;doneModes.peri=false;recountStars();renderPeri()}
+  else if(mode==="area"){Object.keys(awarded).forEach(function(k){if(k.indexOf("area-")===0||k==="mode-area")delete awarded[k]});areaDone={};areaIdx=0;doneModes.area=false;recountStars();renderArea()}
+  else{Object.keys(awarded).forEach(function(k){if(k.indexOf("which-")===0||k==="mode-which")delete awarded[k]});whichDone={};whichIdx=0;doneModes.which=false;recountStars();renderWhich()}
+  optKey="";tabBadges();applyChrome();
+}
+function cleanSpeakText(s){return String(s||"").replace(/<[^>]+>/g," ").replace(/&gt;/g,">").replace(/&lt;/g,"<").replace(/&amp;/g,"&").replace(/\s+/g," ").trim()}
+function buildSpeakText(){
+  var bits=[];bits.push(t(T.title));bits.push(cleanSpeakText(storyHtml()));
+  bits.push(cleanSpeakText(($("headline")&&$("headline").textContent)||""));
+  bits.push(cleanSpeakText(($("detail")&&$("detail").textContent)||""));
+  bits.push(t(currentTip()));return bits.filter(Boolean).join(". ");
+}
+function pickVoice(voices,want){
+  var i,v,L;for(i=0;i<voices.length;i++){v=voices[i];L=(v.lang||"").toLowerCase().replace("_","-");if(L.indexOf(want)===0)return v}
+  for(i=0;i<voices.length;i++){v=voices[i];L=(v.lang||"").toLowerCase().replace("_","-");if(L.indexOf("en")===0)return v}
+  return voices[0]||null;
+}
+function setSpeaking(on){var btn=$("speakBtn");if(!btn)return;btn.setAttribute("aria-pressed",on?"true":"false");btn.style.opacity=on?"0.65":""}
+function doSpeak(text,asLang){
+  var u=new SpeechSynthesisUtterance(text);u.rate=0.92;u.lang=(asLang==="ur")?"ur-PK":"en-US";
+  var voices=window.speechSynthesis.getVoices()||[];var voice=pickVoice(voices,asLang==="ur"?"ur":"en");if(voice)u.voice=voice;
+  u.onstart=function(){setSpeaking(true)};u.onend=function(){setSpeaking(false)};
+  u.onerror=function(){setSpeaking(false);if(asLang==="ur"){var fallback=cleanSpeakText(T.title.en+". "+T.storyPeri.en+". "+T.tipPeri.en);var u2=new SpeechSynthesisUtterance(fallback);u2.lang="en-US";u2.rate=0.92;var v2=pickVoice(window.speechSynthesis.getVoices()||[],"en");if(v2)u2.voice=v2;u2.onstart=function(){setSpeaking(true)};u2.onend=u2.onerror=function(){setSpeaking(false)};window.speechSynthesis.speak(u2)}};
+  window.speechSynthesis.speak(u);
+}
+if("speechSynthesis" in window){
+  try{window.speechSynthesis.getVoices()}catch(e0){}
+  if(typeof window.speechSynthesis.addEventListener==="function"){window.speechSynthesis.addEventListener("voiceschanged",function(){try{window.speechSynthesis.getVoices()}catch(e1){}})}
+}else{var noBtn=$("speakBtn");if(noBtn){noBtn.disabled=true;noBtn.title="Voice not available on this device"}}
+$("langBtn").addEventListener("click",function(){lang=(lang==="en")?"ur":"en";applyLang()});
+$("tabPeri").addEventListener("click",function(){setMode("peri")});
+$("tabArea").addEventListener("click",function(){setMode("area")});
+$("tabWhich").addEventListener("click",function(){setMode("which")});
+$("nextBtn").addEventListener("click",next);
+$("hintBtn").addEventListener("click",showHint);
+$("resetBtn").addEventListener("click",resetMode);
+$("newQuiz").addEventListener("click",function(){pickQuiz();renderQuiz()});
+$("speakBtn").addEventListener("click",function(){
+  try{
+    if(!("speechSynthesis" in window))return;
+    var text=buildSpeakText();if(!text)return;
+    if(speakTimer){clearTimeout(speakTimer);speakTimer=null}
+    window.speechSynthesis.cancel();setSpeaking(false);
+    var speakLang=lang;
+    speakTimer=setTimeout(function(){speakTimer=null;doSpeak(text,speakLang)},80);
+  }catch(e){setSpeaking(false)}
+});
+pickQuiz();applyLang();
+})();
+</script>
+</body>
+</html>

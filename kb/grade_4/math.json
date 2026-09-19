@@ -364,7 +364,9 @@
             "correct": "a"
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g4-area-perimeter.html",
+      "interactive_label": "Khelo - Area aur perimeter"
     },
     {
       "title": "Geometry angles",
