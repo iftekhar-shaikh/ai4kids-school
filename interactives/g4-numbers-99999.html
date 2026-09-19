@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ur">
 <head>
 <meta charset="utf-8">
 
@@ -201,7 +201,7 @@ function enWords(n){
 }
 var READ_UR={"45382":"پینتالیس ہزار تین سو بیاسی","70619":"ستر ہزار چھ سو انیس","81940":"اکیاسی ہزار نو سو چالیس","25403":"پچیس ہزار چار سو تین","39215":"انتالیس ہزار دو سو پندرہ","39512":"انتالیس ہزار پانچ سو بارہ","15008":"پندرہ ہزار آٹھ","15080":"پندرہ ہزار اسی","15800":"پندرہ ہزار آٹھ سو","23847":"تئیس ہزار آٹھ سو سینتالیس","23850":"تئیس ہزار آٹھ سو پچاس","48274":"اڑتالیس ہزار دو سو چوہتر","48000":"اڑتالیس ہزار","99999":"ننانوے ہزار نو سو ننانوے"};
 function readOf(n){if(lang==="ur")return READ_UR[String(n)]||fmt(n);return enWords(n)}
-var lang="en",mode="place",stars=0,awarded={},doneModes={place:false,compare:false,roman:false},speakTimer=null;
+var lang="ru",mode="place",stars=0,awarded={},doneModes={place:false,compare:false,roman:false},speakTimer=null;
 var PLACES=[{id:"tt",en:"Ten thousands",ur:"دس ہزار",mult:10000},{id:"th",en:"Thousands",ur:"ہزار",mult:1000},{id:"h",en:"Hundreds",ur:"سینکڑا",mult:100},{id:"t",en:"Tens",ur:"دہائی",mult:10},{id:"o",en:"Ones",ur:"اکائی",mult:1}];
 function placeById(id){var i;for(i=0;i<PLACES.length;i++)if(PLACES[i].id===id)return PLACES[i];return PLACES[0]}
 function placeIndex(id){var i;for(i=0;i<PLACES.length;i++)if(PLACES[i].id===id)return i;return 0}

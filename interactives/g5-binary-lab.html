@@ -483,7 +483,7 @@ const S = {
   }
 };
 
-let lang = "en";
+let lang='ru';
 try{ const v = localStorage.getItem("bitlab-lang"); if(v==="ur"||v==="en") lang=v; }catch(e){}
 const t = k => S[lang][k];
 

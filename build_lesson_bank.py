@@ -522,7 +522,7 @@ function openModal(i) {{
 
   // After lesson text → close grid; App + Quiz stay OUTSIDE (playStage)
   html += `<div class="khelo-top">`;
-  html += `<button type="button" class="khelo-go secondary" id="modalCloseBtn">✖️ Close — sirf modal band</button>`;
+  html += `<button type="button" class="khelo-go secondary" id="modalCloseBtn">✖️ Band karo — sirf modal</button>`;
   if (t.interactive_file) {{
     html += `<button type="button" class="khelo-go" id="kheloBelowBtn">🎮 KHELO — grid band, phir App + Quiz bahar</button>`;
     html += `<span class="hint">Pehle sabaq/Sunlo yahan. Phir KHELO: grid band hoga, App aur Quiz grid ke bahar milenge (connected).</span>`;
@@ -624,7 +624,7 @@ function openKheloBelow(t) {{
       let qhtml = `<div class="quiz-section"><h3>📝 Quiz — ${{t.questions.length}} sawaal (app ke baad)</h3>
         <div class="quiz-head">
           <span class="quiz-score" id="quizScore">0 / ${{t.questions.length}} sahi</span>
-          <button class="key-btn" onclick="toggleKey()" id="keyBtn">🔑 Teacher: jawab dikhao</button>
+          <button class="key-btn" onclick="toggleKey()" id="keyBtn">🔑 Ustaad: jawab dikhao</button>
         </div>`;
       t.questions.forEach((q,qi) => {{
         qhtml += `<div class="question" id="qbox${{qi}}" data-done="0">
@@ -714,7 +714,7 @@ function toggleKey() {{
   if (!sec) return;
   __keyShown = !__keyShown;
   sec.classList.toggle('showkey', __keyShown);
-  btn.textContent = __keyShown ? '🔑 Teacher: jawab chupao' : '🔑 Teacher: jawab dikhao';
+  btn.textContent = __keyShown ? '🔑 Teacher: jawab chupao' : '🔑 Ustaad: jawab dikhao';
 }}
 
 // ---- Read-aloud (Sunlo) with live word highlight ----

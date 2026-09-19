@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ur">
 <head>
 <meta charset="utf-8">
 <title>Decimals | AI4Kids Class 4</title>
@@ -180,7 +180,7 @@ function isolate(s){return "\u2066"+s+"\u2069"}
 function setText(el,str){if(!el)return;el.textContent=(lang==="ur")?isolate(str):str;el.classList.toggle("ur",lang==="ur");el.setAttribute("dir",lang==="ur"?"rtl":"ltr")}
 function t(o){return (o&&o[lang])||(o&&o.en)||""}
 function shuffle(arr){var a=arr.slice(),i,j,tmp;for(i=a.length-1;i>0;i--){j=Math.floor(Math.random()*(i+1));tmp=a[i];a[i]=a[j];a[j]=tmp}return a}
-var lang="en",mode="place",stars=0,awarded={},doneModes={place:false,conv:false,ops:false},speakTimer=null;
+var lang="ru",mode="place",stars=0,awarded={},doneModes={place:false,conv:false,ops:false},speakTimer=null;
 var DEC_PLACES=[{id:"ones",en:"Ones",ur:"اکائی"},{id:"t",en:"Tenths",ur:"دسواں"},{id:"h",en:"Hundredths",ur:"سوواں"},{id:"th",en:"Thousandths",ur:"ہزارواں"}];
 function placeById(id){var i;for(i=0;i<DEC_PLACES.length;i++)if(DEC_PLACES[i].id===id)return DEC_PLACES[i];return DEC_PLACES[1]}
 function placeLabel(p){return t(p)}

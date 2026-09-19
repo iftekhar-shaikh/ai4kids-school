@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ur">
 <head>
 <meta charset="utf-8">
 <title>Number operations | AI4Kids Class 4</title>
@@ -194,7 +194,7 @@ function setText(el,str){if(!el)return;el.textContent=(lang==="ur")?isolate(str)
 function t(o){return (o&&o[lang])||(o&&o.en)||""}
 function shuffle(arr){var a=arr.slice(),i,j,tmp;for(i=a.length-1;i>0;i--){j=Math.floor(Math.random()*(i+1));tmp=a[i];a[i]=a[j];a[j]=tmp}return a}
 function fmt(n){var s=String(Math.abs(n|0)),out="";while(s.length>3){out=","+s.slice(-3)+out;s=s.slice(0,-3)}return s+out}
-var lang="en",mode="add",stars=0,awarded={},doneModes={add:false,mul:false,word:false},speakTimer=null;
+var lang="ru",mode="add",stars=0,awarded={},doneModes={add:false,mul:false,word:false},speakTimer=null;
 var T={
 title:{en:"Number operations",ur:"حسابی اعمال"},
 sub:{en:"Add and subtract up to 5 digits. Multiply and divide up to 4 digits. Pick the right sign.",ur:"پانچ ہندسوں تک جمع اور تفریق۔ چار ہندسوں تک ضرب اور تقسیم۔ صحیح نشان چنو۔"},
