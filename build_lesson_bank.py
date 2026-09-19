@@ -326,6 +326,67 @@ let gf = 'all', sf = 'all';
 if ('speechSynthesis' in window) {{ window.speechSynthesis.getVoices(); window.speechSynthesis.onvoiceschanged = function(){{ window.speechSynthesis.getVoices(); }}; }}
 
 const LB_KEY = 'ai4kids_lb_last';
+
+function decodeKheloB64(b64) {{
+  const bin = atob(b64);
+  const bytes = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+  return new TextDecoder('utf-8').decode(bytes);
+}}
+function mountKhelo(b64) {{
+  const fr = document.getElementById('kheloFrame');
+  const st = document.getElementById('kheloStatus');
+  if (!fr || !b64) return;
+  try {{
+    if (window.__kheloBlobUrl) {{
+      try {{ URL.revokeObjectURL(window.__kheloBlobUrl); }} catch (e) {{}}
+    }}
+    const html = decodeKheloB64(b64);
+    window.__kheloHtml = html;
+    const blob = new Blob([html], {{ type: 'text/html;charset=utf-8' }});
+    const url = URL.createObjectURL(blob);
+    window.__kheloBlobUrl = url;
+    fr.onload = function() {{
+      if (st) st.textContent = 'App ready — andar scroll karke khelo. Blank ho to \"nayi window\" dabayein.';
+    }};
+    fr.onerror = function() {{
+      if (st) st.textContent = 'Embed block ho gaya. Purple button: nayi window mein kholo.';
+    }};
+    fr.removeAttribute('srcdoc');
+    fr.src = url;
+    // Also try srcdoc as secondary after a tick (some WebViews need it)
+    setTimeout(function() {{
+      try {{
+        if (fr.contentDocument && fr.contentDocument.body && fr.contentDocument.body.childElementCount === 0) {{
+          fr.srcdoc = html;
+          if (st) st.textContent = 'srcdoc fallback use hua.';
+        }}
+      }} catch (e) {{
+        /* cross-origin / sandbox — rely on blob or new window */
+        if (st) st.textContent = 'Is browser mein embed limited hai — \"nayi window\" use karein.';
+      }}
+    }}, 600);
+  }} catch (err) {{
+    if (st) st.textContent = 'Load error: ' + err;
+  }}
+}}
+function openKheloWindow() {{
+  let html = window.__kheloHtml;
+  if (!html && window.__kheloB64) {{
+    try {{ html = decodeKheloB64(window.__kheloB64); window.__kheloHtml = html; }}
+    catch (e) {{ alert('Interactive decode nahi hui'); return; }}
+  }}
+  if (!html) {{ alert('Interactive maujood nahi'); return; }}
+  const w = window.open('', '_blank');
+  if (!w) {{
+    alert('Popup block hai — browser site ke liye popups allow karein, ya Yahan dikhao try karein.');
+    return;
+  }}
+  w.document.open();
+  w.document.write(html);
+  w.document.close();
+}}
+
 function refreshContinue() {{
   const bar = document.getElementById('continueBar');
   const meta = document.getElementById('continueMeta');
@@ -422,14 +483,22 @@ function openModal(i) {{
   <p class="meta">${{t.subj}} • Grade ${{t.grade}} • ${{t.desc}}</p>`;
   if (t.interactive_b64) {{
     const label = t.interactive_label || 'Khelo — interactive';
+    window.__kheloB64 = t.interactive_b64;
     html += `<div class="khelo-top">
-      <button type="button" class="khelo-go" onclick="document.getElementById('kheloFrameWrap').scrollIntoView({{behavior:'smooth',block:'start'}})">🎮 ${{label}}</button>
-      <span class="hint">Pehle yahan khelo — neeche sabaq + quiz</span>
+      <button type="button" class="khelo-go" id="kheloOpenBtn">🎮 ${{label}} — nayi window</button>
+      <button type="button" class="khelo-go" id="kheloEmbedBtn" style="background:#16a085">Yahan dikhao</button>
+      <span class="hint">Agar box khali ho to pehla button dabayein (nayi window).</span>
     </div>`;
     html += `<div class="khelo-frame-wrap" id="kheloFrameWrap">
-      <div style="padding:10px 12px;background:#f5eef8;border-left:4px solid #8e44ad;border-radius:0 10px 10px 0;margin-bottom:8px"><b>🎮 ${{label}}</b></div>
-      <iframe id="kheloFrame" title="Interactive" style="width:100%;height:min(75vh,640px);border:2px solid #eee;border-radius:12px;background:#fff"></iframe>
+      <div style="padding:10px 12px;background:#f5eef8;border-left:4px solid #8e44ad;border-radius:0 10px 10px 0;margin-bottom:8px">
+        <b>🎮 ${{label}}</b>
+        <div id="kheloStatus" style="margin-top:6px;font-size:1rem;color:#6c3483">Load ho raha hai…</div>
+      </div>
+      <iframe id="kheloFrame" title="Interactive" sandbox="allow-scripts allow-same-origin allow-forms"
+        style="width:100%;height:min(75vh,640px);border:2px solid #eee;border-radius:12px;background:#fff"></iframe>
     </div>`;
+  }} else {{
+    window.__kheloB64 = '';
   }}
   if (t.lesson) {{
     window.__lessonRaw = t.lesson;
@@ -469,19 +538,16 @@ function openModal(i) {{
   }}
   document.getElementById('modal-content').innerHTML = html;
   
-  // Prefer srcdoc (works inside Streamlit iframe); data: URLs often blocked nested
   if (t.interactive_b64) {{
-    const fr = document.getElementById('kheloFrame');
-    if (fr) {{
-      try {{
-        const bin = atob(t.interactive_b64);
-        const bytes = new Uint8Array(bin.length);
-        for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
-        fr.srcdoc = new TextDecoder('utf-8').decode(bytes);
-      }} catch (err) {{
-        fr.srcdoc = '<p style="padding:16px;font-size:1.2rem">Interactive load nahi hui. Page refresh karein.</p>';
-      }}
-    }}
+    mountKhelo(t.interactive_b64);
+    const bOpen = document.getElementById('kheloOpenBtn');
+    const bEmb = document.getElementById('kheloEmbedBtn');
+    if (bOpen) bOpen.onclick = function() {{ openKheloWindow(); }};
+    if (bEmb) bEmb.onclick = function() {{
+      mountKhelo(t.interactive_b64);
+      const w = document.getElementById('kheloFrameWrap');
+      if (w) w.scrollIntoView({{behavior:'smooth', block:'start'}});
+    }};
   }}
   
   document.getElementById('modal').classList.add('open');
