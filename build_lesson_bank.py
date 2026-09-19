@@ -2,7 +2,8 @@
 Build lesson_bank.html from KB JSON files
 Run: python build_lesson_bank.py
 """
-import json, os, base64
+import json
+import base64, os, base64
 from pathlib import Path
 import re as _re
 try:
@@ -304,11 +305,30 @@ lines.append('<div class="modal" id="modal"><div class="modal-box">')
 lines.append('<button class="modal-close" onclick="closeModal()">✕</button>')
 lines.append('<div id="modal-content"></div>')
 lines.append('</div></div>')
+lines.append('''<div id="playStage" style="display:none;padding:8px 4px 24px">
+  <button type="button" class="khelo-go secondary" id="playBackBtn" style="margin-bottom:12px">← Grid wapas</button>
+  <h2 id="playTitle" style="margin:8px 0;font-size:clamp(1.4rem,5vw,1.9rem)"></h2>
+  <p id="playMeta" class="meta"></p>
+  <div class="read-bar" id="playReadBar" style="display:none">
+    <button class="read-btn" id="playReadBtn" type="button">🔊 Sunlo</button>
+    <span class="read-status" id="playReadStatus"></span>
+  </div>
+  <div class="lesson-text" id="playLesson" style="display:none"></div>
+  <h3 style="margin:16px 0 8px;font-size:clamp(1.25rem,4vw,1.5rem)">🎮 Khelo — app</h3>
+  <iframe id="playFrame" title="Khelo app" sandbox="allow-scripts allow-same-origin allow-forms"
+    style="width:100%;height:min(75vh,720px);min-height:420px;border:2px solid #ddd;border-radius:14px;background:#fff"></iframe>
+  <div id="playQuiz"></div>
+</div>''')
 
 # JS data + logic
-# Do NOT base64-embed interactives into lesson_bank.html (keeps file small; Khelo opens in Streamlit panel)
+# Embed interactives so KHELO can play in-place inside Lesson Bank (Streamlit parent nav is blocked)
 for t in all_topics:
     t["interactive_b64"] = ""
+    rel = t.get("interactive_file") or ""
+    if rel:
+        ip = Path(os.path.dirname(os.path.abspath(__file__))) / rel
+        if ip.exists():
+            t["interactive_b64"] = base64.b64encode(ip.read_bytes()).decode("ascii")
 
 topics_json = json.dumps([{
     "grade": t["grade"],
@@ -548,28 +568,126 @@ function openModal(i) {{
   document.getElementById('modal').classList.add('open');
 }}
 
+function b64ToUtf8(b64) {{
+  const bin = atob(b64);
+  const bytes = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+  return new TextDecoder('utf-8').decode(bytes);
+}}
+
+function setBrowseVisible(show) {{
+  ['search','gradeFilters','subjFilters','continueBar','stats','grid','empty'].forEach(function(id) {{
+    const el = document.getElementById(id);
+    if (!el) return;
+    if (id === 'empty') {{
+      if (show) return; // leave empty logic alone when showing browse
+      el.style.display = 'none';
+      return;
+    }}
+    el.style.display = show ? '' : 'none';
+  }});
+  // hide filter row parents if any
+  const play = document.getElementById('playStage');
+  if (play) play.style.display = show ? 'none' : 'block';
+}}
+
 function openKheloBelow(t) {{
   try {{ closeModal(); }} catch (e) {{}}
-  try {{
-    localStorage.setItem('ai4kids_lb_khelo', JSON.stringify({{
-      grade: t.grade, sk: t.sk, title: t.title, ts: Date.now()
-    }}));
-  }} catch (e) {{}}
-  try {{
-    var url = new URL(window.top.location.href);
-    url.searchParams.set('view_lb', '1');
-    url.searchParams.set('lb_khelo', String(t.grade) + '|' + String(t.sk) + '|' + String(t.title));
-    var a = document.createElement('a');
-    a.href = url.toString();
-    a.target = '_top';
-    a.rel = 'noopener';
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-  }} catch (e) {{
-    var s = document.getElementById('kheloStatus');
-    if (s) s.textContent = 'Modal band. Neeche list se same topic dabao — wahan app chalegi.';
+  if (!t || !t.interactive_b64) {{
+    alert('Is topic ki app file nahi mili.');
+    return;
   }}
+  setBrowseVisible(false);
+  const title = document.getElementById('playTitle');
+  const meta = document.getElementById('playMeta');
+  const lessonEl = document.getElementById('playLesson');
+  const readBar = document.getElementById('playReadBar');
+  const frame = document.getElementById('playFrame');
+  const quizHost = document.getElementById('playQuiz');
+  if (title) title.textContent = (t.emoji || '') + ' ' + t.title;
+  if (meta) meta.textContent = (t.subj || '') + ' • Grade ' + t.grade + ' • ' + (t.desc || '');
+
+  // 1) Lesson + Sunlo
+  if (t.lesson) {{
+    window.__lessonRaw = t.lesson;
+    if (readBar) readBar.style.display = 'flex';
+    if (lessonEl) {{
+      lessonEl.style.display = 'block';
+      lessonEl.textContent = t.lesson;
+    }}
+    const pr = document.getElementById('playReadBtn');
+    if (pr) pr.onclick = function() {{ toggleRead(); }};
+  }} else {{
+    if (readBar) readBar.style.display = 'none';
+    if (lessonEl) lessonEl.style.display = 'none';
+  }}
+
+  // 2) App in-place (blob iframe inside Lesson Bank — no Streamlit parent needed)
+  try {{
+    if (frame._blobUrl) {{ URL.revokeObjectURL(frame._blobUrl); frame._blobUrl = null; }}
+    const html = b64ToUtf8(t.interactive_b64);
+    const blob = new Blob([html], {{ type: 'text/html;charset=utf-8' }});
+    const url = URL.createObjectURL(blob);
+    frame._blobUrl = url;
+    frame.src = url;
+  }} catch (e) {{
+    frame.replaceWith(frame.cloneNode(false));
+    const f2 = document.getElementById('playFrame');
+    try {{
+      const html = b64ToUtf8(t.interactive_b64);
+      f2.srcdoc = html;
+    }} catch (e2) {{
+      alert('App load nahi hui: ' + e2);
+    }}
+  }}
+
+  // 3) Quiz under app
+  if (quizHost) {{
+    quizHost.innerHTML = '';
+    if (t.questions && t.questions.length) {{
+      window.__curQuestions = t.questions;
+      __score = 0; __answered = 0; __keyShown = false;
+      let qhtml = `<div class="quiz-section"><h3>📝 Quiz — ${{t.questions.length}} sawaal (app ke baad)</h3>
+        <div class="quiz-head">
+          <span class="quiz-score" id="quizScore">0 / ${{t.questions.length}} sahi</span>
+          <button class="key-btn" onclick="toggleKey()" id="keyBtn">🔑 Teacher: jawab dikhao</button>
+        </div>`;
+      t.questions.forEach((q,qi) => {{
+        qhtml += `<div class="question" id="qbox${{qi}}" data-done="0">
+          <p>Q${{qi+1}}: ${{(q.q||'').replace(/</g,'&lt;')}}</p>`;
+        ['a','b','c','d'].forEach(opt => {{
+          if (!q[opt]) return;
+          const isRight = q.correct===opt;
+          qhtml += `<button class="opt-btn" data-opt="${{opt}}" data-correct="${{isRight?1:0}}"
+                     onclick="answerQ(${{qi}},'${{opt}}')">
+            ${{opt.toUpperCase()}}) ${{(q[opt]||'').replace(/</g,'&lt;')}}
+          </button>`;
+        }});
+        qhtml += `<div class="q-feedback" id="fb${{qi}}"></div>`;
+        if (q.explanation) qhtml += `<div class="explanation" id="ex${{qi}}" style="display:none">💡 ${{q.explanation.replace(/</g,'&lt;')}}</div>`;
+        qhtml += '</div>';
+      }});
+      qhtml += '</div>';
+      quizHost.innerHTML = qhtml;
+    }}
+  }}
+
+  window.scrollTo(0, 0);
+  const back = document.getElementById('playBackBtn');
+  if (back) back.onclick = function() {{
+    try {{
+      const f = document.getElementById('playFrame');
+      if (f && f._blobUrl) {{ URL.revokeObjectURL(f._blobUrl); f._blobUrl = null; }}
+      if (f) f.src = 'about:blank';
+    }} catch (e) {{}}
+    setBrowseVisible(true);
+    // restore empty/grid display via existing filter render if any
+    try {{ if (typeof filterCards === 'function') filterCards(); }} catch (e) {{}}
+    const g = document.getElementById('grid');
+    if (g) g.style.display = '';
+    const st = document.getElementById('stats');
+    if (st) st.style.display = '';
+  }};
 }}
 
 function closeModal() {{
