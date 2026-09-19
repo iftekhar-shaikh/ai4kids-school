@@ -647,5 +647,13 @@
       "interactive_file": "interactives/g4-grammar-advanced.html",
       "interactive_label": "Khelo - Prepositions"
     }
+  },
+  {
+    "file": "kb/grade_4/english.json",
+    "match_title": "Articles a an the",
+    "add": {
+      "interactive_file": "interactives/g4-articles.html",
+      "interactive_label": "Khelo - Articles"
+    }
   }
 ]

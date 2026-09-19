@@ -119,6 +119,63 @@
       "interactive_label": "Khelo - Prepositions"
     },
     {
+      "title": "Articles a an the",
+      "description": "a, an, the — vowel/consonant sounds",
+      "lesson": "## HOOK\nA apple galat — an apple theek. Chhote se article se sentence smart lagta hai!\n\n## SAMJHAO\nArticles: a, an, the.\n- a + consonant sound (a book, a university — /y/ sound)\n- an + vowel sound (an apple, an hour — silent h)\n- the = specific wali cheez (the sun, the book on the table)\n\n## MISAAL\nIslamabad mein the Faisal Mosque — specific. A park — koi sa park.\n\n## KARO\n5 cheezein likho: a/an/the choose karo.\n\n## SAWAAL\n1. Apple se pehle?\n2. The kab?\n3. University se pehle a ya an?",
+      "quiz": {
+        "title": "Articles Quiz",
+        "questions": [
+          {
+            "q": "___ apple",
+            "a": "an",
+            "b": "a",
+            "c": "the only always",
+            "d": "no article",
+            "correct": "a",
+            "explanation": "Apple vowel sound — an."
+          },
+          {
+            "q": "___ book on my desk (specific)",
+            "a": "the",
+            "b": "a",
+            "c": "an",
+            "d": "no",
+            "correct": "a",
+            "explanation": "Specific book — the."
+          },
+          {
+            "q": "___ university (starts with /y/)",
+            "a": "a",
+            "b": "an",
+            "c": "the only",
+            "d": "no",
+            "correct": "a",
+            "explanation": "Consonant sound /y/ — a."
+          },
+          {
+            "q": "___ hour (silent h)",
+            "a": "an",
+            "b": "a",
+            "c": "the only",
+            "d": "no",
+            "correct": "a",
+            "explanation": "Vowel sound — an."
+          },
+          {
+            "q": "Articles kaam kya karte hain?",
+            "a": "Noun se pehle clarity",
+            "b": "Sirf verbs",
+            "c": "Sirf numbers",
+            "d": "Sirf maps",
+            "correct": "a",
+            "explanation": "Articles nouns ko clear karte hain."
+          }
+        ]
+      },
+      "interactive_file": "interactives/g4-articles.html",
+      "interactive_label": "Khelo - Articles"
+    },
+    {
       "title": "Tenses: Present Past Future",
       "description": "Simple aur continuous tenses",
       "lesson": "## HOOK\nBachon, socho agar tumhari maa kehti hai ke “tum kal school nahi gaye.” Tumhe kaisa lagta hai? Ya agar woh kehti hai “aaj tum kya khanay wale ho?” Yeh sab alag alag waqt ki baatein hain. Aaj hum in waqt ki baaton ko samjhenge!\n\n## SAMJHAO\nTense kiya hai? Tense woh hota hai jo humein batata hai ke koi kaam kis waqt (time) hua hai. Chalo, pehle present tense se shuru karte hain. Present tense ka matlab hai ke koi kaam abhi ho raha hai ya barabar hota hai. Jaise ke “Main school jaata hoon” ya “Mey cricket khel raha hoon”.\n\nAb baat karte hain past tense ki. Past tense ka matlab hai ke koi kaam pehle hua hai. Jaise ke “Main kal school gaya”. Yahan humne bataya ke kaam ab khatam ho gaya hai aur woh kal hua.\n\nAb last hain future tense. Future tense ka matlab hai ke koi kaam baad mein hoga. Jaise ke “Main kal school jaaoonga” ya “Main aaj subha biryani khane jaaoonga”. \n\nIn tenses ke andar do types hote hain: Simple aur Continuous. Simple tense bilkul seedha hota hai, jabke Continuous tense se ye pata chalta hai ke kaam ek process mein hai. Jaise ke “Main school jaa raha hoon” (Continuous) aur “Main school jaata hoon” (Simple).\n\n## MISAAL\nChalo ek bazaar ka example lete hain. Aaj tumne bazaar jana hai. Tum kehte ho “Main bazaar jaata hoon” (Simple Present) jo tumhara routine hai. Agar tumne kal bazaar gaya to kehte ho “Main kal bazaar gaya” (Simple Past) aur agar tum soch rahe ho ke kal tum bazaar jaoge, to kehte ho “Main kal bazaar jaaoonga” (Simple Future). \n\nAgar tum bazaar mein kuch khareed rahe ho, to kehte ho “Main khareed raha hoon” (Continuous Present). Aur agar tum kal bazaar mein kharid rahe the, to kehte ho “Main kal kharid raha tha” (Continuous Past).\n\n## KARO\nBachon, ab ghar par yeh activity karo. Apne din ka plan banao. Likho ke aaj tum kya kar rahe ho, kal kya kiya aur kal kya karne wale ho. Is tarah tum present, past aur future tense ka istemal karke practice karoge. Apne dost ya parivaar ke saath share karo!\n\n## SAWAAL\n1. Present tense ka kya matlab hai? Ek misaal do.\n2. Past tense ki ek kahani sunao.\n3. Future tense ki ek soch bana ke sunaao.\n\nTumhara dosto ka sath hona zaroori hai. English seekhne mein maza aayega! \n\nSign off: English Ma'am.",
