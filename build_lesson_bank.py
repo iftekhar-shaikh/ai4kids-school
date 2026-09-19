@@ -156,8 +156,9 @@ body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f5f5f0;color:#2c3e50}
 .modal .meta{font-size:clamp(1rem,3.2vw,1.15rem);color:#555;margin-bottom:16px}
 .lesson-text{font-size:clamp(1.25rem,4.2vw,1.55rem);line-height:1.85;padding:22px 18px;background:#111;color:#f5f5f5;border-radius:14px;border:2px solid #333;min-height:160px;white-space:pre-wrap;margin:10px 0}
 .read-bar{display:flex;align-items:center;gap:12px;margin-bottom:10px}
-.read-btn{padding:12px 22px;border:none;border-radius:22px;background:#8e44ad;
-  color:#fff;font-size:clamp(1.1rem,3.5vw,1.25rem);font-weight:700;cursor:pointer;min-height:48px}
+.read-btn{display:inline-block;padding:16px 24px;border:none;border-radius:22px;background:#8e44ad;
+  color:#fff;font-size:clamp(1.2rem,4.2vw,1.45rem);font-weight:800;cursor:pointer;min-height:56px;
+  line-height:1.35;white-space:normal}
 .read-btn:hover{background:#7d3c98}
 .read-status{color:#8e44ad;font-weight:600;font-size:0.9rem}
 .rw.reading{background:#ffe08a;border-radius:4px;box-shadow:0 0 0 2px #ffe08a}
@@ -201,9 +202,17 @@ body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f5f5f0;color:#2c3e50}
 .card-thumb-fallback{height:120px;display:flex;align-items:center;justify-content:center;
   font-size:2.6rem;background:linear-gradient(135deg,#e8f8f5,#f5eef8)}
 .khelo-top{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0 16px;align-items:center}
-.khelo-top .khelo-go{flex:1;min-width:160px;padding:14px 18px;border:none;border-radius:14px;
-  background:#8e44ad;color:#fff;font-weight:800;font-size:clamp(1.1rem,3.8vw,1.3rem);
-  cursor:pointer;min-height:52px;text-align:center}
+.khelo-top .khelo-go{
+  display:block;width:100%;box-sizing:border-box;
+  padding:18px 20px;margin:8px 0;border:none;border-radius:16px;
+  background:#8e44ad;color:#fff;font-weight:800;
+  font-size:clamp(1.25rem,4.5vw,1.55rem);line-height:1.4;
+  cursor:pointer;min-height:64px;text-align:center;
+  white-space:normal;word-break:break-word;
+}
+.khelo-go.secondary{background:#7f8c8d}
+.khelo-top{display:flex;flex-direction:column;gap:12px;margin:12px 0;width:100%}
+.khelo-top .hint{font-size:clamp(1rem,3.5vw,1.15rem);line-height:1.45;color:#555}
 .khelo-top .hint{font-size:clamp(0.95rem,3vw,1.05rem);color:#6c3483}
 .khelo-frame-wrap{margin:12px 0 18px;scroll-margin-top:12px}
 .khelo-badge{padding:3px 10px;border-radius:12px;font-size:0.78rem;font-weight:800;
@@ -490,12 +499,12 @@ function openModal(i) {{
   }}
 
   // TWO clear buttons: Close modal, then KHELO (opens under grid)
-  html += `<div style="margin-top:14px;display:flex;flex-direction:column;gap:10px">`;
-  html += `<button type="button" class="khelo-go" id="modalCloseBtn" style="background:#7f8c8d;width:100%">✖️ Close / Modal band karo</button>`;
+  html += `<div class="khelo-top">`;
+  html += `<button type="button" class="khelo-go secondary" id="modalCloseBtn">✖️ Close — modal band karo</button>`;
   if (t.interactive_file) {{
     const label = t.interactive_label || 'Khelo';
-    html += `<button type="button" class="khelo-go" id="kheloBelowBtn" style="background:#8e44ad;width:100%">🎮 KHELO — ${{label}}</button>`;
-    html += `<span class="hint">Pehle Close, ya seedha KHELO dabao (modal band hoga, app neeche khulegi: Sabaq → App → Quiz).</span>`;
+    html += `<button type="button" class="khelo-go" id="kheloBelowBtn">🎮 KHELO — ${{label}}</button>`;
+    html += `<span class="hint">Close = sirf band. KHELO = modal band + neeche app (Sabaq → App → Quiz).</span>`;
   }}
   html += `</div>`;
 
