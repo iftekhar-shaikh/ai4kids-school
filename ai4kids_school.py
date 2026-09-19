@@ -2642,17 +2642,18 @@ def render_html_viewers():
         except Exception as e:
             st.error(f"Curriculum nahi khul saki: {e}")
     if st.session_state.get("view_lessonbank"):
+        st.markdown("#### 📚 Lesson Bank")
+        st.caption("Agar Streamlit Fork page dikhe to in-app close / refresh use karein.")
+        if st.button("✖️ Lesson Bank band karo", key="lb_close_top"):
+            st.session_state.view_lessonbank = False
+            st.session_state.pop("lb_topic_key", None)
+            st.rerun()
         try:
-            render_streamlit_lesson_bank()
+            components.html(open(LESSON_BANK_PATH, encoding="utf-8").read(),
+                            height=_embed_height(900), scrolling=True)
         except Exception as e:
             st.error(f"Lesson Bank nahi khul saki: {e}")
-            # Offline HTML fallback (Khelo may be blank inside iframe — prefer native UI above)
-            if st.button("HTML Lesson Bank try karo (purana)", key="lb_html_fallback"):
-                try:
-                    components.html(open(LESSON_BANK_PATH, encoding="utf-8").read(),
-                                    height=_embed_height(900), scrolling=True)
-                except Exception as e2:
-                    st.error(str(e2))
+
 
 
 # ---------- Curriculum link + topic progress helpers ----------
