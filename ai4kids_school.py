@@ -1112,6 +1112,7 @@ def render_topic_interactive(subject_key, grade, topic_title):
     (4, "english", "Grammar advanced"): "interactives/g4-grammar-advanced.html",
     (4, "english", "Articles a an the"): "interactives/g4-articles.html",
     (4, "english", "Tenses: Present Past Future"): "interactives/g4-tenses.html",
+    (4, "english", "Vocabulary building"): "interactives/g4-vocabulary.html",
     (4, "math", "Numbers 99,999 tak"): "interactives/g4-numbers-99999.html",
     (4, "math", "Number operations"): "interactives/g4-number-operations.html",
     (4, "math", "Factors aur multiples"): "interactives/g4-factors-multiples.html",

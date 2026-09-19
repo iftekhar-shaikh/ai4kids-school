@@ -663,5 +663,13 @@
       "interactive_file": "interactives/g4-tenses.html",
       "interactive_label": "Khelo - Tenses"
     }
+  },
+  {
+    "file": "kb/grade_4/english.json",
+    "match_title": "Vocabulary building",
+    "add": {
+      "interactive_file": "interactives/g4-vocabulary.html",
+      "interactive_label": "Khelo - Vocabulary"
+    }
   }
 ]

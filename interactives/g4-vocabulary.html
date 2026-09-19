@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vocabulary building | AI4Kids Grade 4 English</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#f1f0ea;
+    --board-deep:#e3e1d6;
+    --pref:#6b4a8f;
+    --pref-deep:#4a3266;
+    --suf:#2e7d55;
+    --suf-deep:#1d5a3c;
+    --comp:#2f6fb5;
+    --comp-deep:#1d4c85;
+    --ink:#241f18;
+    --ink-soft:#554c41;
+    --paper:#fdfaf3;
+    --line:#ded5c4;
+    --accent:#1d4c85;
+    --ok:#2e7d4f;
+    --no:#c4453a;
+    --trap:#c9702e;
+
+    --fs-cap:clamp(14px, 3.8vw, 16px);
+    --fs-xs:clamp(16px, 4.2vw, 18px);
+    --fs-sm:clamp(18px, 4.8vw, 20px);
+    --fs-md:clamp(19px, 5.2vw, 22px);
+    --fs-lg:clamp(22px, 6vw, 26px);
+    --fs-xl:clamp(30px, 8vw, 38px);
+    --lh:1.55;
+  }
+  body.urdu{
+    --fs-cap:clamp(16px, 4.2vw, 18px);
+    --fs-xs:clamp(18px, 4.7vw, 20px);
+    --fs-sm:clamp(20px, 5.3vw, 22px);
+    --fs-md:clamp(21px, 5.7vw, 24px);
+    --fs-lg:clamp(24px, 6.5vw, 28px);
+    --fs-xl:clamp(28px, 7.5vw, 34px);
+    --lh:2.05;
+  }
+
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.55;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:44px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--trap);outline-offset:2px}
+
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.85}
+
+  .tabs{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
+  .tabs button{
+    flex:1;min-width:62px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:9px 4px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:56px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+
+  .scene{
+    border-radius:22px;border:3px solid var(--ink);padding:16px 14px;min-height:120px;
+    background:linear-gradient(180deg,var(--board) 0%,var(--board-deep) 100%);
+  }
+
+  .lab-row{display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap;margin:8px 0}
+  .piece{
+    border:3px solid var(--ink);background:#fff;border-radius:14px;padding:10px 14px;
+    font-weight:800;font-size:var(--fs-md);direction:ltr;min-height:48px;
+  }
+  .piece.affix{background:#efe8f6;border-color:var(--pref);color:var(--pref-deep)}
+  .piece.root{background:#fff}
+  .piece.plus{border:none;background:transparent;font-size:var(--fs-lg);padding:0 4px}
+  .piece.result{background:#e8f2ec;border-color:var(--ok);color:var(--ok);font-size:var(--fs-lg)}
+  .piece.suf{background:#e6f3ec;border-color:var(--suf);color:var(--suf-deep)}
+  .piece.comp{background:#e8eef8;border-color:var(--comp);color:var(--comp-deep)}
+
+  .picks{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .picks button{
+    flex:1 1 40%;border:3px solid var(--line);background:var(--paper);border-radius:14px;
+    padding:12px 10px;font:inherit;font-weight:800;font-size:var(--fs-xs);
+    cursor:pointer;min-height:54px;color:var(--ink);
+  }
+  .picks button[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+  .picks button.good{border-color:var(--ok);background:#e8f2ec;color:var(--ok)}
+  .picks button.bad{border-color:var(--no);background:#fbeae8;color:var(--no)}
+
+  .readout{
+    margin-top:12px;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-cap);font-weight:700;margin-bottom:10px}
+  .statechip.ok{background:var(--ok)} .statechip.no{background:var(--no)}
+  .lead{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.4;direction:ltr}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+  .formula{
+    margin:12px 0 0;border:2px dashed var(--accent);border-radius:14px;padding:11px 13px;
+    font-size:var(--fs-sm);font-weight:800;color:var(--accent);text-align:center;direction:ltr;
+  }
+
+  .lesson .block{
+    border:3px solid var(--line);border-radius:16px;padding:14px 16px;margin-bottom:12px;
+    background:var(--paper);
+  }
+  .lesson .tag{
+    display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+    padding:3px 12px;font-size:var(--fs-cap);font-weight:800;margin-bottom:8px;
+  }
+  .lesson .block p{margin:0;font-size:var(--fs-sm);line-height:1.65}
+
+  .panel{margin-top:18px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .schip{
+    border:2px solid var(--line);background:var(--paper);border-radius:999px;padding:9px 14px;
+    font:inherit;font-size:var(--fs-cap);font-weight:800;color:var(--ink);cursor:pointer;min-height:46px;
+  }
+  .schip[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+  .schip.done{border-color:var(--ok)}
+
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:14px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:54px;
+  }
+  .opt.ur{text-align:right}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+  .opt.wrong{border-color:var(--no);background:#fbeae8}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none;line-height:1.6}
+  .fb.show{display:block}
+  .score{
+    margin-top:8px;padding:14px 16px;border:3px solid var(--ink);border-radius:16px;
+    font-weight:800;font-size:var(--fs-md);text-align:center;display:none;
+  }
+  .score.show{display:block}
+
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
+      grid-template-areas:"bar bar" "head head" "tabs tabs" "left right" "quiz quiz" "foot foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+    .left{grid-area:left} .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+    .panel{margin-top:0}
+  }
+  @media (prefers-reduced-motion:reduce){ *{transition-duration:.01ms !important} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Grade 4 · English</span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+
+  <div class="head">
+    <h1 id="title"></h1>
+    <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group">
+    <button type="button" id="tabLearn" aria-pressed="true"></button>
+    <button type="button" id="tabPrefix" aria-pressed="false"></button>
+    <button type="button" id="tabSuffix" aria-pressed="false"></button>
+    <button type="button" id="tabComp" aria-pressed="false"></button>
+    <button type="button" id="tabMatch" aria-pressed="false"></button>
+  </div>
+
+  <div class="left">
+    <div id="learnPane" class="lesson"></div>
+    <div id="playPane" style="display:none">
+      <div class="scene" id="scene"></div>
+      <div class="readout">
+        <span class="statechip" id="statechip"></span>
+        <p class="lead" id="lead"></p>
+        <p class="detail" id="detail"></p>
+        <p class="formula" id="formula" style="display:none"></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="panel" id="sidePanel" style="display:none">
+      <h2 id="panelHead"></h2>
+      <div class="chips" id="chips" role="group"></div>
+    </div>
+  </div>
+
+  <div class="quiz">
+    <h2 id="quizHead" style="font-size:var(--fs-lg);font-weight:800;margin:0 0 18px"></h2>
+    <div id="quizBox"></div>
+    <div class="score" id="scoreBox"></div>
+  </div>
+
+  <footer>
+    <p data-en="AI4Kids — Islamabad's bilingual AI and coding school. WhatsApp 0337 1468899"
+       data-ur="اے آئی فور کڈز — اسلام آباد کا دو زبانوں والا اے آئی اور کوڈنگ سکول۔ واٹس ایپ 0337 1468899"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var lang = "en";
+  var tab = "learn";
+  var prefI = 0, prefPick = null, prefDone = {};
+  var sufI = 0, sufPick = null, sufDone = {};
+  var compI = 0, compPick = null, compDone = {};
+  var matchI = 0, matchPick = null, matchDone = {};
+  var quizScore = 0, quizAnswered = 0;
+  var lastSpoken = "";
+
+  /* Prefix lab: un- / re- / pre- / dis- + root */
+  var PREFIX = [
+    {aff:"un", root:"happy", word:"unhappy",
+     mean:{en:"not happy", ur:"خوش نہیں"},
+     tip:{en:"un- flips the meaning to NOT.", ur:"un- مطلب الٹ کر دیتا ہے — نہیں۔"}},
+    {aff:"re", root:"do", word:"redo",
+     mean:{en:"do again", ur:"دوبارہ کرنا"},
+     tip:{en:"re- means again / back.", ur:"re- مطلب دوبارہ / واپس۔"}},
+    {aff:"pre", root:"view", word:"preview",
+     mean:{en:"see before", ur:"پہلے دیکھنا"},
+     tip:{en:"pre- means before.", ur:"pre- مطلب پہلے / قبل۔"}},
+    {aff:"dis", root:"like", word:"dislike",
+     mean:{en:"not like", ur:"پسند نہ کرنا"},
+     tip:{en:"dis- often means not / opposite.", ur:"dis- اکثر مطلب نہیں / الٹ۔"}},
+    {aff:"un", root:"fair", word:"unfair",
+     mean:{en:"not fair", ur:"انصاف نہیں"},
+     tip:{en:"un- + fair = not fair.", ur:"un- + fair = انصاف نہیں۔"}},
+    {aff:"re", root:"build", word:"rebuild",
+     mean:{en:"build again", ur:"دوبارہ بنانا"},
+     tip:{en:"re- + build = build again.", ur:"re- + build = دوبارہ بنانا۔"}},
+    {aff:"pre", root:"heat", word:"preheat",
+     mean:{en:"heat before", ur:"پہلے گرم کرنا"},
+     tip:{en:"Preheat the oven before baking!", ur:"بیکنگ سے پہلے اوون گرم کرو!"}},
+    {aff:"dis", root:"agree", word:"disagree",
+     mean:{en:"not agree", ur:"اتفاق نہ کرنا"},
+     tip:{en:"dis- + agree = not agree.", ur:"dis- + agree = اتفاق نہیں۔"}}
+  ];
+
+  /* Suffix lab: -ful / -less / -er / -ing */
+  var SUFFIX = [
+    {root:"beauty", aff:"ful", word:"beautiful",
+     mean:{en:"full of beauty", ur:"خوبصورتی سے بھرا"},
+     tip:{en:"-ful = full of.", ur:"-ful = سے بھرا۔"}},
+    {root:"hope", aff:"less", word:"hopeless",
+     mean:{en:"without hope", ur:"بغیر امید کے"},
+     tip:{en:"-less = without.", ur:"-less = کے بغیر۔"}},
+    {root:"teach", aff:"er", word:"teacher",
+     mean:{en:"one who teaches", ur:"جو پڑھاتا ہے"},
+     tip:{en:"-er = the person who does it.", ur:"-er = کرنے والا شخص۔"}},
+    {root:"play", aff:"ing", word:"playing",
+     mean:{en:"doing play now", ur:"ابھی کھیل رہا"},
+     tip:{en:"-ing = action going on.", ur:"-ing = جاری کام۔"}},
+    {root:"care", aff:"ful", word:"careful",
+     mean:{en:"full of care", ur:"احتیاط سے بھرا"},
+     tip:{en:"Be careful crossing Faisal Avenue!", ur:"فیصل ایونیو پار کرتے ہوئے احتیاط!"}},
+    {root:"use", aff:"less", word:"useless",
+     mean:{en:"without use", ur:"بے کار"},
+     tip:{en:"-less flips to without.", ur:"-less مطلب کے بغیر۔"}},
+    {root:"farm", aff:"er", word:"farmer",
+     mean:{en:"one who farms", ur:"کسان"},
+     tip:{en:"-er makes a person-word.", ur:"-er سے شخص کا نام بنتا ہے۔"}},
+    {root:"read", aff:"ing", word:"reading",
+     mean:{en:"doing read now", ur:"ابھی پڑھ رہا"},
+     tip:{en:"I am reading a book.", ur:"میں کتاب پڑھ رہا ہوں۔"}}
+  ];
+
+  /* Compound builder */
+  var COMP = [
+    {a:"sun", b:"flower", word:"sunflower",
+     mean:{en:"a flower that loves the sun", ur:"سورج سے محبت کرنے والا پھول"}},
+    {a:"tooth", b:"brush", word:"toothbrush",
+     mean:{en:"brush for teeth", ur:"دانتوں کا برش"}},
+    {a:"rain", b:"bow", word:"rainbow",
+     mean:{en:"colours after rain", ur:"بارش کے بعد رنگین کمان"}},
+    {a:"foot", b:"ball", word:"football",
+     mean:{en:"ball game with feet", ur:"پاؤں سے کھیلا جانے والا کھیل"}},
+    {a:"butter", b:"fly", word:"butterfly",
+     mean:{en:"pretty flying insect", ur:"خوبصورت اڑنے والا کیڑا"}},
+    {a:"class", b:"room", word:"classroom",
+     mean:{en:"room for class", ur:"جماعت کا کمرہ"}},
+    {a:"basket", b:"ball", word:"basketball",
+     mean:{en:"ball into a basket", ur:"ٹوکری میں گیند کا کھیل"}},
+    {a:"bed", b:"room", word:"bedroom",
+     mean:{en:"room with a bed", ur:"بستر والا کمرہ"}}
+  ];
+
+  /* Match: affix / compound → meaning */
+  var MATCH = [
+    {show:"unhappy", ans:"not happy",
+     opts:["not happy","very happy","happy again","before happy"],
+     kind:"prefix",
+     tip:{en:"un- + happy", ur:"un- + happy"}},
+    {show:"rebuild", ans:"build again",
+     opts:["build again","not build","build before","builder"],
+     kind:"prefix",
+     tip:{en:"re- means again", ur:"re- مطلب دوبارہ"}},
+    {show:"beautiful", ans:"full of beauty",
+     opts:["without beauty","full of beauty","beauty again","one who beauty"],
+     kind:"suffix",
+     tip:{en:"-ful = full of", ur:"-ful = سے بھرا"}},
+    {show:"hopeless", ans:"without hope",
+     opts:["full of hope","hope again","without hope","one who hopes"],
+     kind:"suffix",
+     tip:{en:"-less = without", ur:"-less = کے بغیر"}},
+    {show:"rainbow", ans:"rain + bow",
+     opts:["rain + fall","rain + bow","rainy + day","bow + tie"],
+     kind:"compound",
+     tip:{en:"two words join", ur:"دو الفاظ مل کر"}},
+    {show:"friendship", ans:"friend + ship",
+     opts:["friend + ly","friend + ness","friend + ship","ship + friend"],
+     kind:"compound",
+     tip:{en:"compound = two words → one", ur:"مرکب = دو الفاظ → ایک"}},
+    {show:"preview", ans:"see before",
+     opts:["see again","not see","see before","full of see"],
+     kind:"prefix",
+     tip:{en:"pre- = before", ur:"pre- = پہلے"}},
+    {show:"dislike", ans:"not like",
+     opts:["like again","not like","full of like","like before"],
+     kind:"prefix",
+     tip:{en:"dis- = not / opposite", ur:"dis- = نہیں / الٹ"}}
+  ];
+
+  var LESSON = {
+    hook:{
+      tag:{en:"HOOK", ur:"ہک"},
+      en:"Today we talk about word toys that change colour and size! Ever wonder how new words are made? Prefixes and suffixes do the magic. Come — let’s take this fun trip!",
+      ur:"آج ہم ایسے لفظی کھلونے کی بات کریں گے جو رنگ اور سائز بدلتے رہتے ہیں۔ کبھی سوچا الفاظ کیسے بنتے ہیں؟ Prefixes اور suffixes کی وجہ سے! چلو، اس مزے دار سفر پر چلیں!"
+    },
+    samjhao:{
+      tag:{en:"SAMJHAO — Explain", ur:"سمجھاؤ"},
+      en:"A prefix goes in FRONT of a word. Like un- which flips meaning: happy → unhappy (not happy). A suffix goes at the END: beauty + -ful → beautiful (full of beauty). Compound words join TWO words into one: tooth + brush → toothbrush. These tools help us build a bigger vocabulary.",
+      ur:"Prefix وہ حصہ ہے جو لفظ کے آگے لگتا ہے۔ جیسے un- جو مطلب الٹ دیتا ہے: happy → unhappy (خوش نہیں)۔ Suffix لفظ کے پیچھے لگتا ہے: beauty + -ful → beautiful (خوبصورت)۔ Compound words دو الگ الفاظ ملا کر ایک نیا بناتے ہیں: tooth + brush → toothbrush۔ یہ سب vocabulary بنانے میں مدد دیتے ہیں۔"
+    },
+    misaal:{
+      tag:{en:"MISAAL — Example", ur:"مثال"},
+      en:"Islamabad bazaar time! You think of biryani. If we joke with un- and say “unbiryani”, it means a time WITHOUT biryani — and that can make us sad! Real prefixes work the same way: un- means not, re- means again. Prefixes change feelings of words just like toppings change a plate.",
+      ur:"اسلام آباد بازار کا وقت! آپ کو بریانی کا خیال آتا ہے۔ مذاق میں اگر un- لگا کر «unbiryani» کہیں تو مطلب ہے بغیر بریانی کا وقت — اور وہ اداس کر سکتا ہے! اصلی prefixes بھی ایسے ہی کام کرتے ہیں: un- مطلب نہیں، re- مطلب دوبارہ۔ Prefixes الفاظ کا احساس بدل دیتے ہیں۔"
+    },
+    karo:{
+      tag:{en:"KARO — Try it", ur:"کرو"},
+      en:"At home or school, pick words and stick prefixes or suffixes on them. Try: do → redo, play → playful. Make compound words too: sun + flower. Play with friends — who makes the funniest new word?",
+      ur:"گھر یا اسکول میں کچھ الفاظ لو اور ان پر prefixes یا suffixes لگاؤ۔ جیسے do → redo، play → playful۔ Compound بھی بناؤ: sun + flower۔ دوستوں کے ساتھ کھیلو — سب سے مزے دار نیا لفظ کون بناتا ہے؟"
+    }
+  };
+
+  var T = {
+    tabLearn:{en:"Seekho", ur:"سیکھو"},
+    tabPrefix:{en:"Prefix", ur:"سابقہ"},
+    tabSuffix:{en:"Suffix", ur:"لاحقہ"},
+    tabComp:{en:"Compound", ur:"مرکب"},
+    tabMatch:{en:"Match", ur:"میچ"},
+    titleLearn:{en:"Vocabulary building", ur:"الفاظ کی تعمیر"},
+    subLearn:{en:"Prefixes, suffixes, compound words — Grade 4, Islamabad kids.", ur:"سابقے، لاحقے، مرکب الفاظ — گریڈ ۴، اسلام آباد کے بچے۔"},
+    titlePrefix:{en:"Prefix lab: stick un- / re- / pre- / dis- in front", ur:"سابقہ لیب: آگے un- / re- / pre- / dis- لگاؤ"},
+    subPrefix:{en:"Pick the right prefix. See the new meaning light up!", ur:"صحیح سابقہ چنو۔ نیا مطلب روشن ہو جائے گا!"},
+    titleSuffix:{en:"Suffix lab: add -ful / -less / -er / -ing at the end", ur:"لاحقہ لیب: آخر میں -ful / -less / -er / -ing لگاؤ"},
+    subSuffix:{en:"The ending changes what the word means.", ur:"آخری حصہ لفظ کا مطلب بدل دیتا ہے۔"},
+    titleComp:{en:"Compound builder: two words → one", ur:"مرکب بنانے والا: دو الفاظ → ایک"},
+    subComp:{en:"Tap the second half that fits. Example: sun + flower.", ur:"دوسرا حصہ چنو جو فٹ بیٹھے۔ جیسے sun + flower۔"},
+    titleMatch:{en:"Match: word → meaning", ur:"میچ: لفظ → مطلب"},
+    subMatch:{en:"Affix or compound — what does it mean?", ur:"سابقہ، لاحقہ یا مرکب — اس کا مطلب کیا؟"},
+    panelPref:{en:"Pick a root word", ur:"جڑ کا لفظ چنو"},
+    panelSuf:{en:"Pick a root word", ur:"جڑ کا لفظ چنو"},
+    panelComp:{en:"Pick a first word", ur:"پہلا لفظ چنو"},
+    panelMatch:{en:"Pick a word", ur:"لفظ چنو"},
+    askPref:{en:"Which prefix?", ur:"کون سا سابقہ؟"},
+    askSuf:{en:"Which suffix?", ur:"کون سا لاحقہ؟"},
+    askComp:{en:"Which second word?", ur:"دوسرا لفظ کون سا؟"},
+    askMatch:{en:"What does it mean?", ur:"اس کا مطلب کیا؟"},
+    ok:{en:"Shabash! Correct.", ur:"شاباش! درست۔"},
+    no:{en:"Not that one — try the next!", ur:"یہ نہیں — اگلا آزماؤ!"},
+    quiz:{en:"Vocabulary building Quiz", ur:"الفاظ کی تعمیر کا کوئز"},
+    score:{en:"Your score", ur:"تمہارا اسکور"},
+    of:{en:"out of", ur:"میں سے"},
+    newWord:{en:"New word", ur:"نیا لفظ"},
+    meaning:{en:"Meaning", ur:"مطلب"}
+  };
+
+  /* Quiz — exact from brief; corrects a,a,c,a,b → indices 0,0,2,0,1 */
+  var QUIZ = [
+    {q:{en:"In the words below, which is the correct prefix for 'unhappy'?",
+        ur:"نیچے دیے گئے لفظ میں سے کونسا لفظ 'unhappy' کا صحیح prefix ہے؟"},
+     o:[{en:"un",ur:"un"},{en:"happy",ur:"happy"},{en:"over",ur:"over"},{en:"under",ur:"under"}],
+     a:0,
+     f:{en:"'Un' is the prefix that turns 'happy' into 'unhappy'.",
+        ur:"'Un' prefix ہے جو اسی لفظ کے ساتھ 'happy' کو 'unhappy' بناتا ہے۔"}},
+    {q:{en:"Which suffix turns the word 'beauty' into 'beautiful'?",
+        ur:"کونسا suffix لفظ 'beauty' کو 'beautiful' بناتا ہے؟"},
+     o:[{en:"ful",ur:"ful"},{en:"ness",ur:"ness"},{en:"less",ur:"less"},{en:"ment",ur:"ment"}],
+     a:0,
+     f:{en:"Adding the suffix 'ful' makes 'beauty' into 'beautiful' (full of beauty).",
+        ur:"'Ful' suffix لگانے سے 'beauty' کا مطلب 'خوبصورتی سے بھرا' ہو جاتا ہے۔"}},
+    {q:{en:"Which compound word is made from 'rain' and 'bow'?",
+        ur:"کون سا compound لفظ 'rain' اور 'bow' سے مل کر بنتا ہے؟"},
+     o:[{en:"rainy",ur:"rainy"},{en:"rainfall",ur:"rainfall"},{en:"rainbow",ur:"rainbow"},{en:"bowed",ur:"bowed"}],
+     a:2,
+     f:{en:"'Rainbow' is made by joining 'rain' and 'bow'.",
+        ur:"'Rainbow' لفظ میں 'rain' اور 'bow' ملا کر بنا ہے۔"}},
+    {q:{en:"In the words below, which is the correct prefix for 'rebuild'?",
+        ur:"نیچے دیے گئے لفظ میں سے کونسا لفظ 'rebuild' کا صحیح prefix ہے؟"},
+     o:[{en:"re",ur:"re"},{en:"build",ur:"build"},{en:"over",ur:"over"},{en:"under",ur:"under"}],
+     a:0,
+     f:{en:"The prefix 're' means to do something again, so 'rebuild'.",
+        ur:"'Re' prefix کا مطلب ہے پھر سے کسی چیز کو کرنا، اس لیے 'rebuild'۔"}},
+    {q:{en:"Which word is made from 'friend' and 'ship'?",
+        ur:"کونسا لفظ 'friend' اور 'ship' سے مل کر بنتا ہے؟"},
+     o:[{en:"friendliness",ur:"friendliness"},{en:"friendship",ur:"friendship"},
+        {en:"friendly",ur:"friendly"},{en:"shipper",ur:"shipper"}],
+     a:1,
+     f:{en:"'Friendship' joins 'friend' and 'ship' — it means the bond of friendship.",
+        ur:"'Friendship' لفظ 'friend' اور 'ship' کے جوڑ سے بنا ہے، جو دوستی کے تعلق کو دکھاتا ہے۔"}}
+  ];
+
+  function $(id){ return document.getElementById(id); }
+  function t(o){ return o[lang]; }
+  var LRI = "\u2066", PDI = "\u2069";
+  var LATIN_RUN = /[A-Za-z0-9][A-Za-z0-9 .,'\u2019+\-()\/@_-]*[A-Za-z0-9.]|[A-Za-z0-9]/g;
+  function isolate(s){ return s.replace(LATIN_RUN, function(m){ return LRI + m + PDI; }); }
+  function setText(el, str){
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+
+  function renderLearn(){
+    var box = $("learnPane"); box.innerHTML = "";
+    ["hook","samjhao","misaal","karo"].forEach(function(k){
+      var L = LESSON[k];
+      var d = document.createElement("div"); d.className = "block";
+      var tag = document.createElement("span"); tag.className = "tag";
+      setText(tag, t(L.tag));
+      var p = document.createElement("p"); setText(p, t(L));
+      d.appendChild(tag); d.appendChild(p); box.appendChild(d);
+    });
+    lastSpoken = LESSON.hook.en;
+  }
+
+  function labRow(parts){
+    var row = document.createElement("div"); row.className = "lab-row";
+    parts.forEach(function(p){
+      var s = document.createElement("span");
+      s.className = "piece " + (p.cls || "");
+      s.textContent = p.txt;
+      s.setAttribute("dir","ltr");
+      row.appendChild(s);
+    });
+    return row;
+  }
+
+  function renderPrefix(){
+    var it = PREFIX[prefI];
+    var scene = $("scene"); scene.innerHTML = "";
+    var show = prefPick !== null;
+    scene.appendChild(labRow([
+      {txt: show ? it.aff + "-" : "___-", cls:"affix"},
+      {txt:"+", cls:"plus"},
+      {txt:it.root, cls:"root"},
+      {txt:"→", cls:"plus"},
+      {txt: show ? it.word : "???", cls: show ? "result" : "root"}
+    ]));
+
+    var picks = document.createElement("div"); picks.className = "picks";
+    ["un","re","pre","dis"].forEach(function(opt){
+      var b = document.createElement("button");
+      b.type = "button"; b.textContent = opt + "-"; b.setAttribute("dir","ltr");
+      if (prefPick !== null){
+        if (opt === it.aff) b.className = "good";
+        else if (opt === prefPick) b.className = "bad";
+      }
+      b.addEventListener("click", function(){
+        if (prefPick !== null) return;
+        prefPick = opt;
+        if (opt === it.aff) prefDone[prefI] = true;
+        lastSpoken = it.word;
+        render();
+      });
+      picks.appendChild(b);
+    });
+    scene.appendChild(picks);
+
+    var chip = $("statechip"); chip.className = "statechip";
+    if (prefPick === null){
+      setText(chip, t(T.askPref));
+      $("lead").textContent = "";
+      setText($("detail"), it.root + " + ?");
+      $("formula").style.display = "none";
+    } else {
+      var good = prefPick === it.aff;
+      chip.className = "statechip " + (good ? "ok" : "no");
+      setText(chip, good ? t(T.ok) : t(T.no));
+      $("lead").textContent = it.word + " = " + t(it.mean);
+      $("lead").setAttribute("dir","ltr");
+      setText($("detail"), t(it.tip));
+      $("formula").style.display = "";
+      $("formula").textContent = it.aff + "- + " + it.root + " → " + it.word;
+      lastSpoken = it.word;
+    }
+
+    $("sidePanel").style.display = "";
+    setText($("panelHead"), t(T.panelPref));
+    var chips = $("chips"); chips.innerHTML = "";
+    PREFIX.forEach(function(x,i){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "schip" + (prefDone[i] ? " done" : "");
+      b.textContent = x.root + (prefDone[i] ? " \u2605" : "");
+      b.setAttribute("dir","ltr");
+      b.setAttribute("aria-pressed", i === prefI ? "true" : "false");
+      b.addEventListener("click", function(){ prefI = i; prefPick = null; render(); });
+      chips.appendChild(b);
+    });
+  }
+
+  function renderSuffix(){
+    var it = SUFFIX[sufI];
+    var scene = $("scene"); scene.innerHTML = "";
+    var show = sufPick !== null;
+    scene.appendChild(labRow([
+      {txt:it.root, cls:"root"},
+      {txt:"+", cls:"plus"},
+      {txt: show ? "-" + it.aff : "-___", cls:"suf"},
+      {txt:"→", cls:"plus"},
+      {txt: show ? it.word : "???", cls: show ? "result" : "root"}
+    ]));
+
+    var picks = document.createElement("div"); picks.className = "picks";
+    ["ful","less","er","ing"].forEach(function(opt){
+      var b = document.createElement("button");
+      b.type = "button"; b.textContent = "-" + opt; b.setAttribute("dir","ltr");
+      if (sufPick !== null){
+        if (opt === it.aff) b.className = "good";
+        else if (opt === sufPick) b.className = "bad";
+      }
+      b.addEventListener("click", function(){
+        if (sufPick !== null) return;
+        sufPick = opt;
+        if (opt === it.aff) sufDone[sufI] = true;
+        lastSpoken = it.word;
+        render();
+      });
+      picks.appendChild(b);
+    });
+    scene.appendChild(picks);
+
+    var chip = $("statechip"); chip.className = "statechip";
+    if (sufPick === null){
+      setText(chip, t(T.askSuf));
+      $("lead").textContent = "";
+      setText($("detail"), it.root + " + ?");
+      $("formula").style.display = "none";
+    } else {
+      var good = sufPick === it.aff;
+      chip.className = "statechip " + (good ? "ok" : "no");
+      setText(chip, good ? t(T.ok) : t(T.no));
+      $("lead").textContent = it.word + " = " + t(it.mean);
+      $("lead").setAttribute("dir","ltr");
+      setText($("detail"), t(it.tip));
+      $("formula").style.display = "";
+      $("formula").textContent = it.root + " + -" + it.aff + " → " + it.word;
+      lastSpoken = it.word;
+    }
+
+    $("sidePanel").style.display = "";
+    setText($("panelHead"), t(T.panelSuf));
+    var chips = $("chips"); chips.innerHTML = "";
+    SUFFIX.forEach(function(x,i){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "schip" + (sufDone[i] ? " done" : "");
+      b.textContent = x.root + (sufDone[i] ? " \u2605" : "");
+      b.setAttribute("dir","ltr");
+      b.setAttribute("aria-pressed", i === sufI ? "true" : "false");
+      b.addEventListener("click", function(){ sufI = i; sufPick = null; render(); });
+      chips.appendChild(b);
+    });
+  }
+
+  function renderComp(){
+    var it = COMP[compI];
+    var scene = $("scene"); scene.innerHTML = "";
+    var show = compPick !== null;
+    scene.appendChild(labRow([
+      {txt:it.a, cls:"comp"},
+      {txt:"+", cls:"plus"},
+      {txt: show ? it.b : "???", cls: show ? "comp" : "root"},
+      {txt:"→", cls:"plus"},
+      {txt: show ? it.word : "???", cls: show ? "result" : "root"}
+    ]));
+
+    /* distractors: other B halves + correct */
+    var opts = [it.b];
+    COMP.forEach(function(c){
+      if (c.b !== it.b && opts.length < 4) opts.push(c.b);
+    });
+    opts = opts.slice(0,4);
+    /* stable shuffle by index */
+    var seed = compI + 3;
+    opts.sort(function(a,b){
+      return ((a.charCodeAt(0) * seed) % 7) - ((b.charCodeAt(0) * seed) % 7);
+    });
+
+    var picks = document.createElement("div"); picks.className = "picks";
+    opts.forEach(function(opt){
+      var b = document.createElement("button");
+      b.type = "button"; b.textContent = opt; b.setAttribute("dir","ltr");
+      if (compPick !== null){
+        if (opt === it.b) b.className = "good";
+        else if (opt === compPick) b.className = "bad";
+      }
+      b.addEventListener("click", function(){
+        if (compPick !== null) return;
+        compPick = opt;
+        if (opt === it.b) compDone[compI] = true;
+        lastSpoken = it.word;
+        render();
+      });
+      picks.appendChild(b);
+    });
+    scene.appendChild(picks);
+
+    var chip = $("statechip"); chip.className = "statechip";
+    if (compPick === null){
+      setText(chip, t(T.askComp));
+      $("lead").textContent = "";
+      setText($("detail"), it.a + " + ?");
+      $("formula").style.display = "none";
+    } else {
+      var good = compPick === it.b;
+      chip.className = "statechip " + (good ? "ok" : "no");
+      setText(chip, good ? t(T.ok) : t(T.no));
+      $("lead").textContent = it.word;
+      $("lead").setAttribute("dir","ltr");
+      setText($("detail"), t(it.mean));
+      $("formula").style.display = "";
+      $("formula").textContent = it.a + " + " + it.b + " → " + it.word;
+      lastSpoken = it.word;
+    }
+
+    $("sidePanel").style.display = "";
+    setText($("panelHead"), t(T.panelComp));
+    var chips = $("chips"); chips.innerHTML = "";
+    COMP.forEach(function(x,i){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "schip" + (compDone[i] ? " done" : "");
+      b.textContent = x.a + (compDone[i] ? " \u2605" : "");
+      b.setAttribute("dir","ltr");
+      b.setAttribute("aria-pressed", i === compI ? "true" : "false");
+      b.addEventListener("click", function(){ compI = i; compPick = null; render(); });
+      chips.appendChild(b);
+    });
+  }
+
+  function renderMatch(){
+    var m = MATCH[matchI];
+    var scene = $("scene"); scene.innerHTML = "";
+    var p = document.createElement("p");
+    p.className = "lead"; p.style.margin = "0"; p.style.textAlign = "center";
+    p.textContent = m.show; p.setAttribute("dir","ltr");
+    scene.appendChild(p);
+
+    var picks = document.createElement("div"); picks.className = "picks";
+    m.opts.forEach(function(opt){
+      var b = document.createElement("button");
+      b.type = "button"; b.textContent = opt; b.setAttribute("dir","ltr");
+      if (matchPick !== null){
+        if (opt === m.ans) b.className = "good";
+        else if (opt === matchPick) b.className = "bad";
+      }
+      b.addEventListener("click", function(){
+        if (matchPick !== null) return;
+        matchPick = opt;
+        if (opt === m.ans) matchDone[matchI] = true;
+        lastSpoken = m.show;
+        render();
+      });
+      picks.appendChild(b);
+    });
+    scene.appendChild(picks);
+
+    var chip = $("statechip"); chip.className = "statechip";
+    if (matchPick === null){
+      setText(chip, t(T.askMatch));
+      $("lead").textContent = "";
+      setText($("detail"), t(m.tip) + " · " + m.kind);
+      $("formula").style.display = "none";
+    } else {
+      var good = matchPick === m.ans;
+      chip.className = "statechip " + (good ? "ok" : "no");
+      setText(chip, good ? t(T.ok) : t(T.no));
+      $("lead").textContent = m.show + " = " + m.ans;
+      $("lead").setAttribute("dir","ltr");
+      setText($("detail"), t(m.tip));
+      $("formula").style.display = "";
+      $("formula").textContent = m.kind + ": " + m.show;
+      lastSpoken = m.show;
+    }
+
+    $("sidePanel").style.display = "";
+    setText($("panelHead"), t(T.panelMatch));
+    var chips = $("chips"); chips.innerHTML = "";
+    MATCH.forEach(function(x,i){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "schip" + (matchDone[i] ? " done" : "");
+      b.textContent = String(i+1) + (matchDone[i] ? " \u2605" : "");
+      b.setAttribute("aria-pressed", i === matchI ? "true" : "false");
+      b.addEventListener("click", function(){ matchI = i; matchPick = null; render(); });
+      chips.appendChild(b);
+    });
+  }
+
+  function render(){
+    ["Learn","Prefix","Suffix","Comp","Match"].forEach(function(x){
+      var id = "tab" + x;
+      var key = x.toLowerCase();
+      $(id).setAttribute("aria-pressed", tab === key ? "true" : "false");
+    });
+    setText($("tabLearn"), t(T.tabLearn));
+    setText($("tabPrefix"), t(T.tabPrefix));
+    setText($("tabSuffix"), t(T.tabSuffix));
+    setText($("tabComp"), t(T.tabComp));
+    setText($("tabMatch"), t(T.tabMatch));
+    setText($("quizHead"), t(T.quiz));
+
+    var isLearn = tab === "learn";
+    $("learnPane").style.display = isLearn ? "" : "none";
+    $("playPane").style.display = isLearn ? "none" : "";
+    if (isLearn){
+      setText($("title"), t(T.titleLearn));
+      setText($("subtitle"), t(T.subLearn));
+      $("sidePanel").style.display = "none";
+      renderLearn();
+      return;
+    }
+    if (tab === "prefix"){
+      setText($("title"), t(T.titlePrefix));
+      setText($("subtitle"), t(T.subPrefix));
+      renderPrefix();
+      return;
+    }
+    if (tab === "suffix"){
+      setText($("title"), t(T.titleSuffix));
+      setText($("subtitle"), t(T.subSuffix));
+      renderSuffix();
+      return;
+    }
+    if (tab === "comp"){
+      setText($("title"), t(T.titleComp));
+      setText($("subtitle"), t(T.subComp));
+      renderComp();
+      return;
+    }
+    setText($("title"), t(T.titleMatch));
+    setText($("subtitle"), t(T.subMatch));
+    renderMatch();
+  }
+
+  ["Learn","Prefix","Suffix","Comp","Match"].forEach(function(x){
+    $("tab"+x).addEventListener("click", function(){
+      var m = x.toLowerCase();
+      if (tab === m) return;
+      try{ window.speechSynthesis.cancel(); }catch(e){}
+      tab = m;
+      prefPick = null; sufPick = null; compPick = null; matchPick = null;
+      render();
+    });
+  });
+
+  function buildQuiz(){
+    var box = $("quizBox"); box.innerHTML = "";
+    quizScore = 0; quizAnswered = 0;
+    $("scoreBox").classList.remove("show");
+    QUIZ.forEach(function(item){
+      var wrap = document.createElement("div"); wrap.className = "q";
+      var q = document.createElement("p"); setText(q, t(item.q)); wrap.appendChild(q);
+      var fb = document.createElement("p"); fb.className = "fb";
+      item.o.forEach(function(opt, oi){
+        var bt = document.createElement("button");
+        bt.type = "button"; bt.className = "opt" + (lang === "ur" ? " ur" : "");
+        setText(bt, t(opt));
+        bt.addEventListener("click", function(){
+          if (wrap.getAttribute("data-done") === "1") return;
+          wrap.setAttribute("data-done","1");
+          quizAnswered++;
+          if (oi === item.a) quizScore++;
+          Array.prototype.forEach.call(wrap.querySelectorAll(".opt"), function(x, xi){
+            if (xi === item.a) x.classList.add("right");
+            else if (xi === oi) x.classList.add("wrong");
+          });
+          setText(fb, t(item.f));
+          fb.classList.add("show");
+          if (quizAnswered === QUIZ.length){
+            var sb = $("scoreBox");
+            sb.classList.add("show");
+            setText(sb, t(T.score) + ": " + quizScore + " " + t(T.of) + " " + QUIZ.length);
+          }
+        });
+        wrap.appendChild(bt);
+      });
+      wrap.appendChild(fb); box.appendChild(wrap);
+    });
+  }
+
+  function applyLang(){
+    document.body.classList.toggle("urdu", lang === "ur");
+    var lb = $("langBtn");
+    lb.textContent = (lang === "en") ? "اردو" : "English";
+    lb.setAttribute("aria-pressed", lang === "ur" ? "true" : "false");
+    Array.prototype.forEach.call(document.querySelectorAll("[data-en]"), function(el){
+      setText(el, el.getAttribute(lang === "en" ? "data-en" : "data-ur"));
+    });
+    buildQuiz(); render();
+  }
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en"; applyLang();
+  });
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      window.speechSynthesis.cancel();
+      var u2 = new SpeechSynthesisUtterance(lastSpoken);
+      u2.lang = "en-US"; u2.rate = 0.85;
+      window.speechSynthesis.speak(u2);
+    }catch(e){}
+  });
+
+  applyLang();
+})();
+</script>
+</body>
+</html>
