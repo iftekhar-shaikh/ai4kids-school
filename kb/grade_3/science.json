@@ -285,7 +285,9 @@
             "explanation": "Din ki length mausam ki badlav se badalti hai, jaise ke summer aur winter."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g3-din-aur-raat.html",
+      "interactive_label": "Khelo - Din aur raat"
     },
     {
       "title": "Community helpers",

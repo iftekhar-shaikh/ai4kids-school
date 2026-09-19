@@ -727,5 +727,13 @@
       "interactive_file": "interactives/g3-sehatmand-aadat.html",
       "interactive_label": "Khelo - Sehatmand aadat"
     }
+  },
+  {
+    "file": "kb/grade_3/science.json",
+    "match_title": "Din aur raat",
+    "add": {
+      "interactive_file": "interactives/g3-din-aur-raat.html",
+      "interactive_label": "Khelo - Din aur raat"
+    }
   }
 ]

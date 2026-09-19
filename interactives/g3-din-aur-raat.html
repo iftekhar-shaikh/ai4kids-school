@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Din aur raat | AI4Kids Grade 3 General Science</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sun:#f5b942;
+    --sun-deep:#d4920a;
+    --day:#5bb8e8;
+    --day-deep:#2a7fb0;
+    --night:#2c3a6e;
+    --night-deep:#1a2448;
+    --earth:#3d8b6e;
+    --earth-deep:#2a5f4a;
+    --ok:#2e7d4f;
+    --no:#c4453a;
+    --ink:#1f2933;
+    --ink-soft:#4a5661;
+    --paper:#fdfaf3;
+    --line:#ded5c4;
+    --accent:#1a5b8f;
+    --warm:#c9702e;
+    --care:#3d8b6e;
+    --board:#eef3f7;
+    --board-deep:#d9e5ee;
+    --good-bg:#e8f2ed;
+    --bad-bg:#fbeae8;
+    --myth:#7b5ea7;
+
+    --fs-cap:clamp(14px, 3.8vw, 16px);
+    --fs-xs:clamp(16px, 4.2vw, 18px);
+    --fs-sm:clamp(18px, 4.8vw, 20px);
+    --fs-md:clamp(19px, 5.2vw, 22px);
+    --fs-lg:clamp(22px, 6vw, 26px);
+    --fs-xl:clamp(30px, 8vw, 38px);
+    --lh:1.5;
+  }
+  body.urdu{
+    --fs-cap:clamp(15px, 4vw, 17px);
+    --fs-xs:clamp(17px, 4.5vw, 19px);
+    --fs-sm:clamp(19px, 5.2vw, 22px);
+    --fs-md:clamp(21px, 5.6vw, 24px);
+    --fs-lg:clamp(24px, 6.5vw, 28px);
+    --fs-xl:clamp(28px, 7.5vw, 36px);
+    --lh:2.1;
+  }
+
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px;flex-wrap:wrap}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--warm);outline-offset:2px}
+
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+
+  .tabs{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 14px}
+  .tabs button{
+    flex:1 1 28%;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:9px 6px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:52px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:linear-gradient(180deg,#0b1026 0%,#1a2448 45%,#2a3a5e 100%);
+    padding:10px;
+  }
+  .scene.svg-ready svg{display:block;width:100%;height:auto}
+
+  .readout{
+    margin-top:12px;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-cap);font-weight:700;margin-bottom:10px;
+             background:var(--accent)}
+  .statechip.ur{padding:2px 14px 7px}
+  .lead{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+  .lead.ur{line-height:1.95}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+
+  .why-note{
+    margin:12px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.55;
+    border-left:3px solid var(--accent);padding-left:11px;
+  }
+  .why-note b{color:var(--accent);font-weight:800}
+  body.urdu .why-note{
+    border-left:0;border-right:3px solid var(--accent);padding-left:0;padding-right:11px;
+    line-height:var(--lh);
+  }
+
+  .play{
+    width:100%;margin-top:12px;border:3px solid var(--ink);border-radius:18px;
+    background:var(--ink);color:var(--paper);font:inherit;font-weight:800;
+    font-size:var(--fs-md);cursor:pointer;min-height:60px;
+  }
+  .play:active{transform:scale(.98)}
+  .play.alt{background:var(--sun);border-color:var(--sun-deep);color:var(--ink)}
+  .play.day{background:var(--day);border-color:var(--day-deep);color:var(--ink)}
+  .play.night{background:var(--night);border-color:var(--night-deep);color:#fff}
+  .play:disabled{opacity:.45;cursor:not-allowed}
+
+  .two{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+  .two .play{flex:1;min-width:140px;margin-top:0}
+
+  .card-row{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+  .card{flex:1;min-width:120px;border:3px solid var(--line);border-radius:16px;padding:14px 12px;text-align:center;background:var(--paper)}
+  .card .emoji{font-size:36px;display:block;margin-bottom:6px}
+  .card em{display:block;font-style:normal;font-size:var(--fs-cap);color:var(--ink-soft);
+           font-weight:700;margin-bottom:4px}
+  .card b{display:block;font-size:var(--fs-md);font-weight:800;line-height:1.3}
+  .card.earth{border-color:var(--earth)}
+  .card.sun{border-color:var(--sun-deep);background:#fff8e8}
+  .card.spin{border-color:var(--day-deep);background:#e8f4fb}
+
+  .panel{margin-top:18px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+
+  .lesson{
+    margin-top:18px;border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+    background:var(--paper);
+  }
+  .lesson .tag{
+    display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+    padding:4px 12px;font-size:var(--fs-cap);font-weight:800;margin-bottom:10px;
+  }
+  .lesson p{margin:0 0 10px;font-size:var(--fs-sm);line-height:1.55}
+  .lesson p:last-child{margin-bottom:0}
+  body.urdu .lesson p{line-height:var(--lh)}
+
+  .slider-wrap{margin-top:12px}
+  .slider-wrap label{display:block;font-size:var(--fs-cap);font-weight:700;margin-bottom:6px;color:var(--ink-soft)}
+  .spin-slider{
+    width:100%;height:36px;cursor:pointer;accent-color:var(--sun);
+  }
+
+  .side-row{display:flex;gap:10px;margin-top:10px}
+  .side-pill{
+    flex:1;text-align:center;border-radius:14px;padding:10px 8px;font-weight:800;
+    font-size:var(--fs-sm);border:3px solid var(--ink);min-height:52px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .side-pill.day{background:#dff3fc;color:var(--day-deep);border-color:var(--day-deep)}
+  .side-pill.night{background:#e8eaf5;color:var(--night);border-color:var(--night)}
+
+  .sort-prompt{
+    margin-top:12px;padding:14px 16px;border:2px dashed var(--warm);border-radius:14px;
+    background:#fbf1e8;font-size:var(--fs-sm);font-weight:700;color:#8a4a12;line-height:1.55;
+  }
+  body.urdu .sort-prompt{line-height:var(--lh)}
+
+  .sort-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+  .sort-bin{
+    border:3px solid var(--line);border-radius:16px;padding:12px;min-height:140px;
+    background:var(--paper);
+  }
+  .sort-bin.day{border-color:var(--day-deep);background:#e8f4fb}
+  .sort-bin.night{border-color:var(--night);background:#eef0f8}
+  .sort-bin h3{margin:0 0 8px;font-size:var(--fs-sm);font-weight:800;text-align:center}
+  .sort-bin .drop{min-height:70px;display:flex;flex-direction:column;gap:6px}
+
+  .act-btn{
+    border:3px solid var(--line);background:var(--paper);border-radius:14px;
+    padding:12px 10px;font:inherit;font-weight:700;font-size:var(--fs-cap);
+    cursor:pointer;min-height:64px;color:var(--ink);text-align:center;width:100%;
+  }
+  .act-btn .emoji{font-size:24px;display:block;margin-bottom:2px}
+  .act-btn.ok{border-color:var(--ok);background:var(--good-bg)}
+  .act-btn.no{border-color:var(--no);background:var(--bad-bg)}
+  .act-btn:disabled{opacity:.85;cursor:default}
+
+  .choice-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+  .choice-btn{
+    border:3px solid var(--line);background:var(--paper);border-radius:14px;
+    padding:14px 10px;font:inherit;font-weight:800;font-size:var(--fs-sm);
+    cursor:pointer;min-height:72px;color:var(--ink);text-align:center;
+  }
+  .choice-btn.day{border-color:var(--day-deep)}
+  .choice-btn.night{border-color:var(--night)}
+  .choice-btn.picked-ok{border-color:var(--ok);background:var(--good-bg)}
+  .choice-btn.picked-no{border-color:var(--no);background:var(--bad-bg)}
+  .choice-btn:disabled{opacity:.8;cursor:default}
+
+  .myth-card{
+    margin-top:12px;border:3px solid var(--myth);border-radius:18px;padding:16px 18px;
+    background:#f3eef9;
+  }
+  .myth-card .emoji{font-size:40px;display:block;text-align:center;margin-bottom:8px}
+  .myth-card h3{margin:0 0 8px;font-size:var(--fs-lg);font-weight:800;text-align:center;line-height:1.3}
+  .myth-card p{margin:0;font-size:var(--fs-sm);line-height:1.55;color:var(--ink-soft)}
+  body.urdu .myth-card p,body.urdu .myth-card h3{line-height:var(--lh)}
+
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:52px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e6f4ec;font-weight:600}
+  .opt.wrong{border-color:var(--no);background:#fbeae4}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none;line-height:1.55}
+  .fb.show{display:block}
+  .score{
+    margin-top:8px;padding:14px 16px;border:3px solid var(--ok);border-radius:16px;
+    background:#eaf4ee;font-size:var(--fs-md);font-weight:800;text-align:center;
+    display:none;
+  }
+  .score.show{display:block}
+
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+
+  .hidden{display:none !important}
+
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;
+      grid-template-columns:1fr 1fr;
+      grid-template-areas:
+        "bar   bar"
+        "head  head"
+        "tabs  tabs"
+        "left  right"
+        "quiz  quiz"
+        "foot  foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar}
+    .head{grid-area:head}
+    .tabs{grid-area:tabs}
+    .left{grid-area:left}
+    .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px}
+    footer{grid-area:foot}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition-duration:.01ms !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Grade 3 · General Science</span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunein">🔊</button>
+  </div>
+
+  <div class="head">
+    <h1 id="title"></h1>
+    <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group" id="tabs">
+    <button type="button" data-tab="hook" aria-pressed="true">Hook</button>
+    <button type="button" data-tab="spin" aria-pressed="false">Spin</button>
+    <button type="button" data-tab="cards" aria-pressed="false">Cards</button>
+    <button type="button" data-tab="sort" aria-pressed="false">Sort</button>
+    <button type="button" data-tab="myth" aria-pressed="false">Myth</button>
+  </div>
+
+  <div class="left" id="leftPane"></div>
+  <div class="right" id="rightPane"></div>
+
+  <div class="quiz">
+    <h2 id="quizHead" style="font-size:var(--fs-lg);font-weight:800;margin:0 0 16px"></h2>
+    <div id="quizBox"></div>
+    <div class="score" id="scoreBox"></div>
+  </div>
+
+  <footer id="foot"></footer>
+</div>
+
+<script>
+(function(){
+  var lang = "en";
+  var tab = "hook";
+  var lastSpoken = "";
+  var earthAngle = 0; /* degrees: 0 = Pakistan facing sun (day) */
+  var spinning = false;
+  var spinTimer = null;
+  var sortIndex = 0;
+  var sortPick = null;
+  var sortFeedback = "";
+  var quizScore = 0;
+  var quizAnswered = 0;
+
+  var T = {
+    brand: {en:"AI4Kids · Grade 3 · General Science", ur:"AI4Kids · جماعت ۳ · جنرل سائنس"},
+    title: {en:"Din aur raat", ur:"دن اور رات"},
+    sub: {
+      en:"Earth turns — why day comes. Spin the Earth, sort day vs night, bust a moon myth!",
+      ur:"زمین گھومتی ہے — دن کیوں آتا ہے۔ زمین گھماؤ، دن اور رات چُنو، چاند والا افسانہ توڑو!"
+    },
+    tabs: {
+      hook:{en:"Hook", ur:"ہُک"},
+      spin:{en:"Spin", ur:"گھماؤ"},
+      cards:{en:"Cards", ur:"کارڈز"},
+      sort:{en:"Sort", ur:"چُنو"},
+      myth:{en:"Myth", ur:"افسانہ"}
+    },
+    quiz: {en:"Quiz — 5 sawaal", ur:"کوئز — ۵ سوال"},
+    scoreLbl: {en:"Your score", ur:"آپ کا اسکور"},
+    of: {en:"out of", ur:"میں سے"},
+    foot: {
+      en:"AI4Kids Islamabad · Grade 3 General Science · Din aur raat",
+      ur:"AI4Kids اسلام آباد · جماعت ۳ جنرل سائنس · دن اور رات"
+    },
+    ghaur: {en:"Ghaur karein:", ur:"غور کریں:"}
+  };
+
+  var HOOK = {
+    tag:{en:"HOOK", ur:"ہُک"},
+    p1:{
+      en:"Have you ever thought — when you are asleep, why is it day somewhere else on Earth? Or when you go to school, why is it night in another place? Let's open this secret!",
+      ur:"کیا آپ نے کبھی سوچا ہے کہ جب آپ سوئے ہوتے ہیں، تو آپ کے آس پاس زمین پر کہیں دن کیوں ہوتا ہے؟ یا جب آپ اسکول جاتے ہیں، تو کہیں اور رات کیوں ہوتی ہے؟ چلو، اس راز کو سمجھتے ہیں!"
+    },
+    p2:{
+      en:"Day and night are not a switch in the sky — they come because Earth itself is spinning!",
+      ur:"دن اور رات آسمان کا سوئچ نہیں — یہ اس لیے آتے ہیں کہ خود زمین گھوم رہی ہے!"
+    }
+  };
+  var SAMJHAO = {
+    tag:{en:"SAMJHAO", ur:"سمجھاؤ"},
+    p1:{
+      en:"Earth spins on its axis — like a coin spinning. When Earth turns, one side faces the Sun and gets light: that is day. The other side faces away and is dark: that is night.",
+      ur:"زمین اپنے محور (axis) پر گھومتی ہے — جیسے سکہ گھومتا ہے۔ جب زمین گھومتی ہے تو ایک حصہ سورج کی روشنی میں آتا ہے: وہ دن ہے۔ دوسرا حصہ اندھیرے میں ہوتا ہے: وہ رات ہے۔"
+    },
+    p2:{
+      en:"One complete spin (one rotation) takes about 24 hours. In that time we feel a full day and a full night. The Sun keeps shining — Earth is what turns!",
+      ur:"ایک مکمل گھومنا (ایک rotation) تقریباً ۲۴ گھنٹے میں ہوتا ہے۔ اس وقت میں ہم پورا دن اور پوری رات محسوس کرتے ہیں۔ سورج چمکتا رہتا ہے — گھومتی زمین ہے!"
+    },
+    p3:{
+      en:"In every corner of Pakistan, when the Sun rises in the morning people wake up and the world feels alive. When night comes, people sleep and things grow quiet.",
+      ur:"پاکستان کے ہر کونے میں، صبح جب سورج نکلتا ہے تو لوگ جاگتے ہیں اور سب کچھ جیتا جاگتا لگتا ہے۔ جب رات ہوتی ہے تو لوگ سو جاتے ہیں اور سب کچھ پرسکون ہو جاتا ہے۔"
+    }
+  };
+  var MISAAL = {
+    tag:{en:"MISAAL", ur:"مثال"},
+    p1:{
+      en:"Think of the bazaar in morning light — busy shops, buying, laughing. At night fewer people, shops close. That rhythm comes because Earth is spinning!",
+      ur:"سوچو جب آپ بازار جاتے ہیں صبح کی روشنی میں — دکانیں کھلی، خریداری، ہنسی مذاق۔ رات کو لوگ کم، دکانیں بند۔ یہ سب زمین کے گھومنے کی وجہ سے ہے!"
+    }
+  };
+  var KARO = {
+    tag:{en:"KARO", ur:"کرو"},
+    p1:{
+      en:"Try at home or school: take a ball or globe and a flashlight. Shine the light (Sun) and slowly turn the ball (Earth). Watch one side bright (day) and the other dark (night)!",
+      ur:"گھر یا اسکول میں آزمائیں: گیند یا گلوب اور فلیش لائٹ لیں۔ روشنی (سورج) چمکائیں اور گیند (زمین) آہستہ گھمائیں۔ دیکھو ایک حصہ روشن (دن) اور دوسرا اندھیرا (رات)!"
+    }
+  };
+
+  var SPIN = {
+    head:{en:"Earth–Sun demo — spin for day & night", ur:"زمین–سورج ڈیمو — گھما کر دن و رات دیکھو"},
+    spinLbl:{en:"Spin Earth (degrees)", ur:"زمین گھماؤ (ڈگری)"},
+    auto:{en:"Auto-spin", ur:"خود بخود گھماؤ"},
+    stop:{en:"Stop", ur:"روکو"},
+    reset:{en:"Reset", ur:"ری سیٹ"},
+    daySide:{en:"☀ Day side", ur:"☀ دن والا حصہ"},
+    nightSide:{en:"🌙 Night side", ur:"🌙 رات والا حصہ"},
+    pkDay:{
+      en:"Pakistan is on the sunny side — it is day!",
+      ur:"پاکستان دھوپ والے حصے پر ہے — دن ہے!"
+    },
+    pkNight:{
+      en:"Pakistan is on the dark side — it is night!",
+      ur:"پاکستان اندھیرے حصے پر ہے — رات ہے!"
+    },
+    tip:{
+      en:"The Sun does not switch off. Earth turns — that is why day and night come.",
+      ur:"سورج بند نہیں ہوتا۔ زمین گھومتی ہے — اسی لیے دن اور رات آتے ہیں۔"
+    },
+    lead:{
+      en:"Turn Earth. Watch which side gets Sun light.",
+      ur:"زمین گھماؤ۔ دیکھو کون سا حصہ سورج کی روشنی پاتا ہے۔"
+    }
+  };
+
+  var CARDS = {
+    head:{en:"Two big ideas", ur:"دو بڑی باتیں"},
+    items:[
+      {
+        emoji:"🌍",
+        cls:"earth",
+        title:{en:"Zameen ghumti hai", ur:"زمین گھومتی ہے"},
+        desc:{
+          en:"Earth spins on its axis once every 24 hours. That spin makes day and night.",
+          ur:"زمین اپنے محور پر ہر ۲۴ گھنٹے میں ایک بار گھومتی ہے۔ یہی گھومنا دن اور رات بناتا ہے۔"
+        }
+      },
+      {
+        emoji:"☀️",
+        cls:"sun",
+        title:{en:"Suraj light deta hai", ur:"سورج روشنی دیتا ہے"},
+        desc:{
+          en:"The Sun always shines. The side facing the Sun is bright (day). The far side is dark (night).",
+          ur:"سورج ہمیشہ چمکتا ہے۔ سورج کی طرف والا حصہ روشن (دن) ہے۔ دور والا حصہ اندھیرا (رات) ہے۔"
+        }
+      },
+      {
+        emoji:"🔄",
+        cls:"spin",
+        title:{en:"24 hours = one spin", ur:"۲۴ گھنٹے = ایک گھومنا"},
+        desc:{
+          en:"One full rotation takes about 24 hours — a whole day plus a whole night together.",
+          ur:"ایک مکمل گھومنا تقریباً ۲۴ گھنٹے لیتا ہے — پورا دن اور پوری رات مل کر۔"
+        }
+      }
+    ],
+    tip:{
+      en:"Remember: Sun = light. Earth = spin. Together = din aur raat.",
+      ur:"یاد رکھو: سورج = روشنی۔ زمین = گھومنا۔ مل کر = دن اور رات۔"
+    }
+  };
+
+  var SORT = {
+    head:{en:"Day vs night sorter", ur:"دن بمقابلہ رات چُنو"},
+    ask:{en:"Is this a day activity or a night activity?", ur:"کیا یہ دن کی سرگرمی ہے یا رات کی؟"},
+    dayBtn:{en:"☀ Day", ur:"☀ دن"},
+    nightBtn:{en:"🌙 Night", ur:"🌙 رات"},
+    next:{en:"Next activity", ur:"اگلی سرگرمی"},
+    done:{en:"Shabash! You sorted all activities.", ur:"شاباش! آپ نے سب سرگرمیاں چُن لیں۔"},
+    items:[
+      {
+        id:"school",
+        emoji:"🏫",
+        ask:{en:"Going to school", ur:"اسکول جانا"},
+        ans:"day",
+        ok:{en:"Yes — school is a day activity when the Sun is up!", ur:"ہاں — اسکول دن کی سرگرمی ہے جب سورج نکلا ہو!"},
+        no:{en:"Hint: we go to school in daylight.", ur:"اشارہ: ہم دن کی روشنی میں اسکول جاتے ہیں۔"}
+      },
+      {
+        id:"sleep",
+        emoji:"😴",
+        ask:{en:"Sleeping in bed", ur:"بستر پر سونا"},
+        ans:"night",
+        ok:{en:"Right — most kids sleep at night when it is dark.", ur:"درست — زیادہ تر بچے رات کو اندھیرے میں سوتے ہیں۔"},
+        no:{en:"Hint: sleep usually comes with night.", ur:"اشارہ: نیند عام طور پر رات کے ساتھ آتی ہے۔"}
+      },
+      {
+        id:"cricket",
+        emoji:"🏏",
+        ask:{en:"Playing cricket in the park", ur:"پارک میں کرکٹ کھیلنا"},
+        ans:"day",
+        ok:{en:"Yes — cricket in the park needs daylight!", ur:"ہاں — پارک میں کرکٹ کے لیے دن کی روشنی چاہیے!"},
+        no:{en:"Hint: park cricket is usually in the day.", ur:"اشارہ: پارک کرکٹ عام طور پر دن میں ہوتی ہے۔"}
+      },
+      {
+        id:"stars",
+        emoji:"⭐",
+        ask:{en:"Looking at stars in the sky", ur:"آسمان میں ستارے دیکھنا"},
+        ans:"night",
+        ok:{en:"Perfect — stars shine clear at night!", ur:"بہترین — ستارے رات کو صاف چمکتے ہیں!"},
+        no:{en:"Hint: stars are easiest to see at night.", ur:"اشارہ: ستارے رات کو سب سے آسان دیکھے جاتے ہیں۔"}
+      }
+    ]
+  };
+
+  var MYTH = {
+    head:{en:"Myth bust tip", ur:"افسانہ توڑو — ٹپ"},
+    emoji:"💡",
+    title:{en:"The Moon is not a lamp that turns off!", ur:"چاند کوئی بتی نہیں جو بند ہو جاتی ہو!"},
+    myth:{
+      en:"Some kids think: at night someone switches off the Sun and lights the Moon like a lamp. That is a myth!",
+      ur:"کچھ بچے سوچتے ہیں: رات کو کوئی سورج بند کر دیتا ہے اور چاند کو بتی کی طرح جلا دیتا ہے۔ یہ افسانہ ہے!"
+    },
+    truth:{
+      en:"Truth: the Sun keeps shining. Earth turns away from the Sun, so our side gets dark — that is night. The Moon only reflects a little Sun light; it is not Earth's night lamp switch.",
+      ur:"سچ: سورج چمکتا رہتا ہے۔ زمین سورج سے مڑ جاتی ہے، اس لیے ہمارا حصہ اندھیرا ہو جاتا ہے — یہی رات ہے۔ چاند صرف تھوڑی سورج کی روشنی منعکس کرتا ہے؛ یہ زمین کا رات کا سوئچ نہیں۔"
+    },
+    tip:{
+      en:"Day and night come from Earth's spin — not from turning the Moon on or off.",
+      ur:"دن اور رات زمین کے گھومنے سے آتے ہیں — چاند کو آن/آف کرنے سے نہیں۔"
+    }
+  };
+
+  /* Quiz exact from brief */
+  var QUIZ = [
+    {
+      q:{en:"Zameen din aur raat kyun ghoomti hai?", ur:"زمین دن اور رات کیوں گھومتی ہے؟"},
+      o:[
+        {en:"Zameen apne axis par ghoomti hai.", ur:"زمین اپنے محور پر گھومتی ہے۔"},
+        {en:"Zameen khud ko bhool jaati hai.", ur:"زمین خود کو بھول جاتی ہے۔"},
+        {en:"Zameen chaand se door hoti hai.", ur:"زمین چاند سے دور ہوتی ہے۔"},
+        {en:"Zameen ka koi aur maqsad hai.", ur:"زمین کا کوئی اور مقصد ہے۔"}
+      ],
+      a:0,
+      f:{
+        en:"Zameen apne axis par ghoomne se din aur raat ka chakkar banata hai.",
+        ur:"زمین اپنے محور پر گھومنے سے دن اور رات کا چکر بناتا ہے۔"
+      }
+    },
+    {
+      q:{en:"Din aur raat ka waqt kitna hota hai?", ur:"دن اور رات کا وقت کتنا ہوتا ہے؟"},
+      o:[
+        {en:"24 ghante.", ur:"۲۴ گھنٹے۔"},
+        {en:"12 ghante.", ur:"۱۲ گھنٹے۔"},
+        {en:"36 ghante.", ur:"۳۶ گھنٹے۔"},
+        {en:"10 ghante.", ur:"۱۰ گھنٹے۔"}
+      ],
+      a:0,
+      f:{
+        en:"Din aur raat milakar 24 ghante bante hain.",
+        ur:"دن اور رات ملا کر ۲۴ گھنٹے بنتے ہیں۔"
+      }
+    },
+    {
+      q:{en:"Jab Zameen ka ek hissa dhoop mein hota hai, toh kya hota hai?", ur:"جب زمین کا ایک حصہ دھوپ میں ہوتا ہے، تو کیا ہوتا ہے؟"},
+      o:[
+        {en:"Us hissa mein din hota hai.", ur:"اس حصے میں دن ہوتا ہے۔"},
+        {en:"Us hissa mein raat hoti hai.", ur:"اس حصے میں رات ہوتی ہے۔"},
+        {en:"Us hissa mein andhera hota hai.", ur:"اس حصے میں اندھیرا ہوتا ہے۔"},
+        {en:"Koi farq nahi hota.", ur:"کوئی فرق نہیں ہوتا۔"}
+      ],
+      a:0,
+      f:{
+        en:"Dhoop wale hissa mein din hota hai jabki baaqi hissa raat mein hota hai.",
+        ur:"دھوپ والے حصے میں دن ہوتا ہے جبکہ باقی حصہ رات میں ہوتا ہے۔"
+      }
+    },
+    {
+      q:{en:"Zameen ka ghoomna kis tarah se sab kuch badalta hai?", ur:"زمین کا گھومنا کس طرح سے سب کچھ بدلتا ہے؟"},
+      o:[
+        {en:"Sari duniya mein din aur raat badalti hai.", ur:"ساری دنیا میں دن اور رات بدلتی ہے۔"},
+        {en:"Sirf kuch mulkon mein din aur raat hoti hai.", ur:"صرف کچھ ملکوں میں دن اور رات ہوتی ہے۔"},
+        {en:"Zameen nahi ghoomti.", ur:"زمین نہیں گھومتی۔"},
+        {en:"Din aur raat ka Zameen se koi taluq nahi.", ur:"دن اور رات کا زمین سے کوئی تعلق نہیں۔"}
+      ],
+      a:0,
+      f:{
+        en:"Zameen ka ghoomna sab mulkon mein din aur raat ka asar dalta hai.",
+        ur:"زمین کا گھومنا سب ملکوں میں دن اور رات کا اثر ڈالتا ہے۔"
+      }
+    },
+    {
+      q:{en:"Din ki length kab badalti hai?", ur:"دن کی لمبائی کب بدلتی ہے؟"},
+      o:[
+        {en:"Mausam ki wajah se.", ur:"موسم کی وجہ سے۔"},
+        {en:"Zameen ki size se.", ur:"زمین کی سائز سے۔"},
+        {en:"Logon ki wajah se.", ur:"لوگوں کی وجہ سے۔"},
+        {en:"Kuch nahi badalta.", ur:"کچھ نہیں بدلتا۔"}
+      ],
+      a:0,
+      f:{
+        en:"Din ki length mausam ki badlav se badalti hai, jaise ke summer aur winter.",
+        ur:"دن کی لمبائی موسم کی تبدیلی سے بدلتی ہے، جیسے سمر اور ونٹر۔"
+      }
+    }
+  ];
+
+  function $(id){ return document.getElementById(id); }
+  function t(o){ return o[lang]; }
+
+  var LRI = "\u2066", PDI = "\u2069";
+  var LATIN_RUN = /[A-Za-z0-9][A-Za-z0-9 .,+()\/@_°%-]*[A-Za-z0-9°%]|[A-Za-z0-9%]/g;
+  function isolate(s){ return String(s).replace(LATIN_RUN, function(m){ return LRI + m + PDI; }); }
+
+  function setText(el, str){
+    if (!el) return;
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+
+  function pkIsDay(){
+    /* Marker at angle earthAngle; sun from left (180° in SVG space).
+       Day when facing left-ish: angle mod 360 in [270..360) U [0..90] after transform.
+       We place PK at top of globe at angle 0, sun on the left.
+       Lit hemisphere is left half of circle in screen space; rotating globe by earthAngle.
+       PK position: angle from +x = -90 + earthAngle (start at top).
+       Simpler: at earthAngle=0, PK faces sun (day). Day while |normalized| < 90. */
+    var a = ((earthAngle % 360) + 360) % 360;
+    return (a <= 90 || a >= 270);
+  }
+
+  function earthSunSVG(){
+    var a = earthAngle;
+    return (
+      '<svg class="svg-ready" viewBox="0 0 320 240" role="img" aria-label="Earth and Sun">' +
+      '<defs><clipPath id="earthClip"><circle cx="200" cy="120" r="52"/></clipPath></defs>' +
+      /* stars */
+      '<circle cx="40" cy="30" r="1.5" fill="#fff" opacity=".7"/>' +
+      '<circle cx="90" cy="50" r="1.2" fill="#fff" opacity=".5"/>' +
+      '<circle cx="280" cy="40" r="1.4" fill="#fff" opacity=".6"/>' +
+      '<circle cx="250" cy="70" r="1" fill="#fff" opacity=".4"/>' +
+      '<circle cx="60" cy="200" r="1.3" fill="#fff" opacity=".5"/>' +
+      /* sun left — fixed */
+      '<circle cx="48" cy="120" r="28" fill="var(--sun)" stroke="var(--sun-deep)" stroke-width="3"/>' +
+      '<circle cx="48" cy="120" r="18" fill="#ffe08a" opacity=".9"/>' +
+      '<text x="48" y="168" text-anchor="middle" fill="var(--sun)" font-size="13" font-weight="800" font-family="Baloo Bhaijaan 2,sans-serif">Sun</text>' +
+      '<path d="M80 120 H145" stroke="var(--sun)" stroke-width="3" stroke-dasharray="4 4" opacity=".7"/>' +
+      /* lit hemisphere fixed toward sun (left); dark half right */
+      '<g clip-path="url(#earthClip)">' +
+        '<rect x="148" y="68" width="52" height="104" fill="var(--day)"/>' +
+        '<rect x="200" y="68" width="52" height="104" fill="var(--night)"/>' +
+      '</g>' +
+      /* rotating surface: continents + PK marker (starts facing sun at a=0) */
+      '<g clip-path="url(#earthClip)" transform="rotate('+a+' 200 120)">' +
+        '<ellipse cx="168" cy="108" rx="16" ry="20" fill="var(--earth)" opacity=".9"/>' +
+        '<ellipse cx="230" cy="135" rx="14" ry="18" fill="#243556" opacity=".55"/>' +
+        '<ellipse cx="210" cy="95" rx="10" ry="12" fill="#2a5f4a" opacity=".7"/>' +
+        '<circle cx="155" cy="120" r="8" fill="#e74c3c" stroke="#fff" stroke-width="2"/>' +
+        '<text x="155" y="124" text-anchor="middle" fill="#fff" font-size="8" font-weight="800" font-family="Baloo Bhaijaan 2,sans-serif">PK</text>' +
+      '</g>' +
+      '<circle cx="200" cy="120" r="52" fill="none" stroke="var(--ink)" stroke-width="3"/>' +
+      /* terminator line */
+      '<line x1="200" y1="68" x2="200" y2="172" stroke="rgba(255,255,255,.35)" stroke-width="2" stroke-dasharray="3 3"/>' +
+      '<text x="200" y="198" text-anchor="middle" fill="#c8d0e8" font-size="12" font-weight="700" font-family="Baloo Bhaijaan 2,sans-serif">Earth</text>' +
+      '<text x="170" y="58" text-anchor="middle" fill="var(--day)" font-size="11" font-weight="800" font-family="Baloo Bhaijaan 2,sans-serif">DAY</text>' +
+      '<text x="230" y="58" text-anchor="middle" fill="#a8b4d8" font-size="11" font-weight="800" font-family="Baloo Bhaijaan 2,sans-serif">NIGHT</text>' +
+      '</svg>'
+    );
+  }
+
+  function stopSpin(){
+    spinning = false;
+    if (spinTimer){ clearInterval(spinTimer); spinTimer = null; }
+  }
+
+  function startSpin(){
+    stopSpin();
+    spinning = true;
+    spinTimer = setInterval(function(){
+      earthAngle = (earthAngle + 4) % 360;
+      if (tab === "spin") renderSpin(true);
+    }, 80);
+  }
+
+  function renderHook(){
+    stopSpin();
+    var L = $("leftPane"), R = $("rightPane");
+    L.innerHTML =
+      '<div class="lesson"><span class="tag" id="tagHook"></span><p id="hook1"></p><p id="hook2"></p></div>' +
+      '<div class="lesson" style="margin-top:12px"><span class="tag" id="tagSam"></span><p id="sam1"></p><p id="sam2"></p><p id="sam3"></p></div>';
+    R.innerHTML =
+      '<div class="lesson"><span class="tag" id="tagMis"></span><p id="mis1"></p></div>' +
+      '<div class="lesson" style="margin-top:12px"><span class="tag" id="tagKar"></span><p id="kar1"></p></div>';
+
+    setText($("tagHook"), t(HOOK.tag));
+    setText($("hook1"), t(HOOK.p1));
+    setText($("hook2"), t(HOOK.p2));
+    setText($("tagSam"), t(SAMJHAO.tag));
+    setText($("sam1"), t(SAMJHAO.p1));
+    setText($("sam2"), t(SAMJHAO.p2));
+    setText($("sam3"), t(SAMJHAO.p3));
+    setText($("tagMis"), t(MISAAL.tag));
+    setText($("mis1"), t(MISAAL.p1));
+    setText($("tagKar"), t(KARO.tag));
+    setText($("kar1"), t(KARO.p1));
+    lastSpoken = t(HOOK.p1) + " " + t(SAMJHAO.p1);
+  }
+
+  function renderSpin(keepHandlers){
+    var L = $("leftPane"), R = $("rightPane");
+    var day = pkIsDay();
+
+    if (!keepHandlers || !L.querySelector("#earthScene")){
+      L.innerHTML =
+        '<div class="panel"><h2 id="spinHead"></h2></div>' +
+        '<div class="scene svg-ready" id="earthScene"></div>' +
+        '<div class="slider-wrap">' +
+          '<label id="spinLbl" for="spinRange"></label>' +
+          '<input type="range" class="spin-slider" id="spinRange" min="0" max="360" step="1" value="'+earthAngle+'"/>' +
+        '</div>' +
+        '<div class="two">' +
+          '<button type="button" class="play alt" id="autoBtn"></button>' +
+          '<button type="button" class="play" id="resetBtn"></button>' +
+        '</div>' +
+        '<div class="side-row">' +
+          '<div class="side-pill day" id="dayPill"></div>' +
+          '<div class="side-pill night" id="nightPill"></div>' +
+        '</div>';
+      R.innerHTML =
+        '<div class="readout">' +
+          '<span class="statechip" id="sChip"></span>' +
+          '<p class="lead" id="sLead"></p>' +
+          '<p class="detail" id="sDetail"></p>' +
+          '<p class="why-note"><b id="sGhaur"></b> <span id="sTip"></span></p>' +
+        '</div>' +
+        '<div class="lesson" style="margin-top:12px"><span class="tag" id="sKarTag"></span><p id="sKar"></p></div>';
+
+      setText($("spinHead"), t(SPIN.head));
+      setText($("spinLbl"), t(SPIN.spinLbl));
+      setText($("dayPill"), t(SPIN.daySide));
+      setText($("nightPill"), t(SPIN.nightSide));
+      setText($("sKarTag"), t(KARO.tag));
+      setText($("sKar"), t(KARO.p1));
+      $("sGhaur").textContent = t(T.ghaur);
+      setText($("sTip"), t(SPIN.tip));
+
+      $("spinRange").addEventListener("input", function(){
+        stopSpin();
+        earthAngle = parseInt($("spinRange").value, 10) || 0;
+        renderSpin(true);
+      });
+      $("autoBtn").addEventListener("click", function(){
+        if (spinning){ stopSpin(); renderSpin(true); }
+        else { startSpin(); renderSpin(true); }
+      });
+      $("resetBtn").addEventListener("click", function(){
+        stopSpin();
+        earthAngle = 0;
+        renderSpin(true);
+      });
+    }
+
+    $("earthScene").innerHTML = earthSunSVG();
+    var range = $("spinRange");
+    if (range) range.value = String(earthAngle);
+
+    setText($("autoBtn"), spinning ? t(SPIN.stop) : t(SPIN.auto));
+    setText($("resetBtn"), t(SPIN.reset));
+
+    if (day){
+      $("sChip").style.background = "var(--day-deep)";
+      setText($("sChip"), lang==="en" ? "Day for PK" : "پاکستان میں دن");
+      setText($("sLead"), t(SPIN.pkDay));
+      lastSpoken = t(SPIN.pkDay);
+    } else {
+      $("sChip").style.background = "var(--night)";
+      setText($("sChip"), lang==="en" ? "Night for PK" : "پاکستان میں رات");
+      setText($("sLead"), t(SPIN.pkNight));
+      lastSpoken = t(SPIN.pkNight);
+    }
+    setText($("sDetail"), t(SPIN.lead));
+  }
+
+  function renderCards(){
+    stopSpin();
+    var L = $("leftPane"), R = $("rightPane");
+    L.innerHTML =
+      '<div class="panel"><h2 id="cardsHead"></h2></div>' +
+      '<div id="cardList"></div>';
+    R.innerHTML =
+      '<div class="readout">' +
+        '<span class="statechip" id="cChip" style="background:var(--earth)"></span>' +
+        '<p class="lead" id="cLead"></p>' +
+        '<p class="detail" id="cDetail"></p>' +
+        '<p class="why-note"><b id="cGhaur"></b> <span id="cTip"></span></p>' +
+      '</div>' +
+      '<div class="lesson" style="margin-top:12px"><span class="tag" id="cSamTag"></span><p id="cSam"></p></div>';
+
+    setText($("cardsHead"), t(CARDS.head));
+    var list = $("cardList");
+    CARDS.items.forEach(function(item){
+      var d = document.createElement("div");
+      d.className = "card " + item.cls;
+      d.style.marginTop = "10px";
+      d.style.minWidth = "100%";
+      d.innerHTML = '<span class="emoji">'+item.emoji+'</span><em></em><b></b><p class="detail" style="margin-top:8px"></p>';
+      setText(d.querySelector("em"), t(item.title));
+      setText(d.querySelector("b"), t(item.title));
+      setText(d.querySelector(".detail"), t(item.desc));
+      /* show title once as bold lead */
+      d.querySelector("em").style.display = "none";
+      list.appendChild(d);
+    });
+
+    setText($("cChip"), lang==="en" ? "Remember" : "یاد رکھو");
+    setText($("cLead"), t(CARDS.items[0].title) + " · " + t(CARDS.items[1].title));
+    setText($("cDetail"), t(CARDS.tip));
+    $("cGhaur").textContent = t(T.ghaur);
+    setText($("cTip"), t(SPIN.tip));
+    setText($("cSamTag"), t(SAMJHAO.tag));
+    setText($("cSam"), t(SAMJHAO.p1));
+    lastSpoken = t(CARDS.items[0].desc) + " " + t(CARDS.items[1].desc);
+  }
+
+  function renderSort(){
+    stopSpin();
+    var L = $("leftPane"), R = $("rightPane");
+    var item = SORT.items[sortIndex];
+
+    L.innerHTML =
+      '<div class="panel"><h2 id="sortHead"></h2></div>' +
+      '<div class="sort-prompt"><span id="promptAsk"></span><br><span id="promptAct" style="font-size:var(--fs-lg)"></span></div>' +
+      '<div style="text-align:center;font-size:48px;margin:12px 0" id="actEmoji"></div>' +
+      '<div class="choice-row">' +
+        '<button type="button" class="choice-btn day" id="pickDay"></button>' +
+        '<button type="button" class="choice-btn night" id="pickNight"></button>' +
+      '</div>' +
+      '<button type="button" class="play" id="nextSort" style="margin-top:12px"></button>';
+    R.innerHTML =
+      '<div class="readout">' +
+        '<span class="statechip" id="soChip" style="background:var(--warm)"></span>' +
+        '<p class="lead" id="soLead"></p>' +
+        '<p class="detail" id="soDetail"></p>' +
+      '</div>' +
+      '<div class="sort-grid" style="margin-top:12px">' +
+        '<div class="sort-bin day"><h3 id="binDay"></h3><div class="drop" id="dropDay"></div></div>' +
+        '<div class="sort-bin night"><h3 id="binNight"></h3><div class="drop" id="dropNight"></div></div>' +
+      '</div>';
+
+    setText($("sortHead"), t(SORT.head));
+    setText($("promptAsk"), t(SORT.ask));
+    setText($("promptAct"), item.emoji + " " + t(item.ask));
+    $("actEmoji").textContent = item.emoji;
+    setText($("pickDay"), t(SORT.dayBtn));
+    setText($("pickNight"), t(SORT.nightBtn));
+    setText($("binDay"), t(SORT.dayBtn));
+    setText($("binNight"), t(SORT.nightBtn));
+
+    /* show previously correct placements */
+    SORT.items.forEach(function(it, i){
+      if (i > sortIndex) return;
+      if (i === sortIndex && sortFeedback !== "ok") return;
+      var chip = document.createElement("div");
+      chip.className = "act-btn ok";
+      chip.style.minHeight = "44px";
+      chip.style.padding = "8px";
+      chip.innerHTML = '<span class="emoji" style="font-size:18px;display:inline;margin:0 4px">'+it.emoji+'</span>';
+      var span = document.createElement("span");
+      setText(span, t(it.ask));
+      chip.appendChild(span);
+      if (it.ans === "day") $("dropDay").appendChild(chip);
+      else $("dropNight").appendChild(chip);
+    });
+
+    var dayBtn = $("pickDay"), nightBtn = $("pickNight");
+    if (sortPick){
+      var ok = (sortPick === item.ans);
+      dayBtn.disabled = true;
+      nightBtn.disabled = true;
+      if (sortPick === "day") dayBtn.classList.add(ok ? "picked-ok" : "picked-no");
+      if (sortPick === "night") nightBtn.classList.add(ok ? "picked-ok" : "picked-no");
+      if (ok){
+        setText($("soChip"), lang==="en"?"Correct!":"درست!");
+        $("soChip").style.background = "var(--ok)";
+        setText($("soLead"), t(item.ok));
+        setText($("soDetail"), "");
+        lastSpoken = t(item.ok);
+      } else {
+        setText($("soChip"), lang==="en"?"Try again":"دوبارہ سوچو");
+        $("soChip").style.background = "var(--no)";
+        setText($("soLead"), t(item.no));
+        setText($("soDetail"), "");
+        lastSpoken = t(item.no);
+        dayBtn.disabled = false;
+        nightBtn.disabled = false;
+      }
+    } else {
+      setText($("soChip"), lang==="en"?"Your turn":"آپ کی باری");
+      $("soChip").style.background = "var(--warm)";
+      setText($("soLead"), t(item.ask));
+      setText($("soDetail"), t(SORT.ask));
+      lastSpoken = t(item.ask);
+    }
+
+    dayBtn.onclick = function(){
+      if (sortFeedback === "ok") return;
+      sortPick = "day";
+      sortFeedback = (item.ans === "day") ? "ok" : "no";
+      renderSort();
+    };
+    nightBtn.onclick = function(){
+      if (sortFeedback === "ok") return;
+      sortPick = "night";
+      sortFeedback = (item.ans === "night") ? "ok" : "no";
+      renderSort();
+    };
+
+    var nextBtn = $("nextSort");
+    if (sortIndex >= SORT.items.length - 1 && sortFeedback === "ok"){
+      setText(nextBtn, t(SORT.done));
+      nextBtn.disabled = true;
+    } else {
+      setText(nextBtn, t(SORT.next));
+      nextBtn.disabled = sortFeedback !== "ok";
+      nextBtn.onclick = function(){
+        if (sortFeedback !== "ok") return;
+        sortIndex = sortIndex + 1;
+        if (sortIndex >= SORT.items.length) sortIndex = SORT.items.length - 1;
+        sortPick = null;
+        sortFeedback = "";
+        renderSort();
+      };
+    }
+  }
+
+  function renderMyth(){
+    stopSpin();
+    var L = $("leftPane"), R = $("rightPane");
+    L.innerHTML =
+      '<div class="panel"><h2 id="mythHead"></h2></div>' +
+      '<div class="myth-card">' +
+        '<span class="emoji" id="mythEmoji"></span>' +
+        '<h3 id="mythTitle"></h3>' +
+        '<p id="mythMyth"></p>' +
+      '</div>' +
+      '<div class="lesson" style="margin-top:12px"><span class="tag" id="truthTag"></span><p id="mythTruth"></p></div>';
+    R.innerHTML =
+      '<div class="readout">' +
+        '<span class="statechip" id="mChip" style="background:var(--myth)"></span>' +
+        '<p class="lead" id="mLead"></p>' +
+        '<p class="detail" id="mDetail"></p>' +
+        '<p class="why-note"><b id="mGhaur"></b> <span id="mTip"></span></p>' +
+      '</div>' +
+      '<div class="card-row">' +
+        '<div class="card sun"><span class="emoji">☀️</span><em id="mSunE"></em><b id="mSunB"></b></div>' +
+        '<div class="card earth"><span class="emoji">🌍</span><em id="mEarE"></em><b id="mEarB"></b></div>' +
+      '</div>';
+
+    setText($("mythHead"), t(MYTH.head));
+    $("mythEmoji").textContent = MYTH.emoji;
+    setText($("mythTitle"), t(MYTH.title));
+    setText($("mythMyth"), t(MYTH.myth));
+    setText($("truthTag"), lang==="en"?"TRUTH":"سچ");
+    setText($("mythTruth"), t(MYTH.truth));
+
+    setText($("mChip"), lang==="en"?"Tip card":"ٹپ کارڈ");
+    setText($("mLead"), t(MYTH.title));
+    setText($("mDetail"), t(MYTH.tip));
+    $("mGhaur").textContent = t(T.ghaur);
+    setText($("mTip"), t(SPIN.tip));
+    setText($("mSunE"), t(CARDS.items[1].title));
+    setText($("mSunB"), lang==="en"?"Always on":"ہمیشہ روشن");
+    setText($("mEarE"), t(CARDS.items[0].title));
+    setText($("mEarB"), lang==="en"?"Turns = day/night":"گھومے = دن/رات");
+    lastSpoken = t(MYTH.truth);
+  }
+
+  function renderTab(){
+    if (tab === "hook") renderHook();
+    else if (tab === "spin") renderSpin(false);
+    else if (tab === "cards") renderCards();
+    else if (tab === "sort") renderSort();
+    else renderMyth();
+  }
+
+  function buildQuiz(){
+    var box = $("quizBox");
+    box.innerHTML = "";
+    quizScore = 0;
+    quizAnswered = 0;
+    $("scoreBox").classList.remove("show");
+
+    QUIZ.forEach(function(item, qi){
+      var wrap = document.createElement("div");
+      wrap.className = "q";
+      var q = document.createElement("p");
+      setText(q, (qi+1) + ". " + t(item.q));
+      wrap.appendChild(q);
+      var fb = document.createElement("p");
+      fb.className = "fb";
+      item.o.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt" + (lang === "ur" ? " ur" : "");
+        b.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+        b.textContent = (lang === "ur") ? isolate(t(opt)) : t(opt);
+        b.addEventListener("click", function(){
+          if (wrap.getAttribute("data-done") === "1") return;
+          wrap.setAttribute("data-done","1");
+          quizAnswered++;
+          var correct = (oi === item.a);
+          if (correct) quizScore++;
+          Array.prototype.forEach.call(wrap.querySelectorAll(".opt"), function(x, xi){
+            if (xi === item.a) x.classList.add("right");
+            else if (xi === oi && !correct) x.classList.add("wrong");
+          });
+          setText(fb, t(item.f));
+          fb.classList.add("show");
+          if (quizAnswered === QUIZ.length){
+            var sb = $("scoreBox");
+            setText(sb, t(T.scoreLbl) + ": " + quizScore + " " + t(T.of) + " " + QUIZ.length);
+            sb.classList.add("show");
+          }
+        });
+        wrap.appendChild(b);
+      });
+      wrap.appendChild(fb);
+      box.appendChild(wrap);
+    });
+  }
+
+  function applyLang(){
+    document.body.classList.toggle("urdu", lang === "ur");
+    document.documentElement.lang = (lang === "ur") ? "ur" : "en";
+    document.documentElement.dir = (lang === "ur") ? "rtl" : "ltr";
+
+    var lb = $("langBtn");
+    lb.textContent = (lang === "en") ? "اردو" : "English";
+    lb.setAttribute("aria-pressed", lang === "ur" ? "true" : "false");
+
+    setText($("title"), t(T.title));
+    setText($("subtitle"), t(T.sub));
+    setText($("quizHead"), t(T.quiz));
+    setText($("foot"), t(T.foot));
+
+    Array.prototype.forEach.call(document.querySelectorAll("#tabs button"), function(b){
+      var key = b.getAttribute("data-tab");
+      setText(b, t(T.tabs[key]));
+      b.setAttribute("aria-pressed", key === tab ? "true" : "false");
+    });
+
+    buildQuiz();
+    renderTab();
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll("#tabs button"), function(b){
+    b.addEventListener("click", function(){
+      tab = b.getAttribute("data-tab");
+      Array.prototype.forEach.call(document.querySelectorAll("#tabs button"), function(x){
+        x.setAttribute("aria-pressed", x === b ? "true" : "false");
+      });
+      renderTab();
+    });
+  });
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en";
+    applyLang();
+  });
+
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      window.speechSynthesis.cancel();
+      var u = new SpeechSynthesisUtterance(lastSpoken);
+      u.lang = (lang === "ur") ? "ur-PK" : "en-US";
+      u.rate = 0.92;
+      var voices = window.speechSynthesis.getVoices() || [];
+      for (var i=0;i<voices.length;i++){
+        if (voices[i].lang && voices[i].lang.toLowerCase().indexOf(lang === "ur" ? "ur" : "en") === 0){
+          u.voice = voices[i]; break;
+        }
+      }
+      window.speechSynthesis.speak(u);
+    }catch(e){}
+  });
+
+  applyLang();
+})();
+</script>
+</body>
+</html>
