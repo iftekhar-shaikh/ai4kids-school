@@ -4699,18 +4699,8 @@ function openModal(i) {
   } catch (e) {}
   let html = `<h2>${t.emoji} ${t.title}</h2>
   <p class="meta">${t.subj} • Grade ${t.grade} • ${t.desc}</p>`;
-  if (t.interactive_file || t.interactive_b64) {
-    const label = t.interactive_label || 'Khelo — interactive';
-    window.__kheloB64 = t.interactive_b64 || '';
-    html += `<div class="khelo-top">
-      <button type="button" class="khelo-go" id="kheloBelowBtn" style="background:#8e44ad">🎮 ${label} — neeche panel</button>
-      <button type="button" class="khelo-go" id="kheloOpenBtn" style="background:#16a085">Nayi window</button>
-      <span class="hint">Grid same rahega. Khelo dabao → app page ke neeche panel mein khulti hai.</span>
-      <div id="kheloStatus" style="margin-top:8px;font-size:1rem;color:#6c3483"></div>
-    </div>`;
-  } else {
-    window.__kheloB64 = '';
-  }
+
+  // LESSON first (Khelo goes underneath)
   if (t.lesson) {
     window.__lessonRaw = t.lesson;
     html += `<div class="read-bar">
@@ -4721,6 +4711,21 @@ function openModal(i) {
   } else {
     html += '<p style="color:#999;padding:10px;font-size:1.1rem">Lesson abhi available nahi hai.</p>';
   }
+
+  // Khelo UNDER lesson
+  if (t.interactive_file || t.interactive_b64) {
+    const label = t.interactive_label || 'Khelo — interactive';
+    window.__kheloB64 = t.interactive_b64 || '';
+    html += `<div class="khelo-top" style="margin-top:14px">
+      <button type="button" class="khelo-go" id="kheloBelowBtn" style="background:#8e44ad">🎮 ${label} — neeche panel</button>
+      <button type="button" class="khelo-go" id="kheloOpenBtn" style="background:#16a085">Nayi window</button>
+      <span class="hint">Khelo lesson ke neeche panel mein khulta hai.</span>
+      <div id="kheloStatus" style="margin-top:8px;font-size:1rem;color:#6c3483"></div>
+    </div>`;
+  } else {
+    window.__kheloB64 = '';
+  }
+
   if (t.questions && t.questions.length) {
     window.__curQuestions = t.questions;
     __score = 0; __answered = 0; __keyShown = false;
@@ -4748,36 +4753,15 @@ function openModal(i) {
     html += '</div>';
   }
   document.getElementById('modal-content').innerHTML = html;
-  
+
   if (t.interactive_file || t.interactive_b64) {
     const bBelow = document.getElementById('kheloBelowBtn');
     const bOpen = document.getElementById('kheloOpenBtn');
     if (bBelow) bBelow.onclick = function() { openKheloBelow(t); };
     if (bOpen) bOpen.onclick = function() { openKheloWindow(); };
   }
-  
+
   document.getElementById('modal').classList.add('open');
-}
-
-
-function openKheloBelow(t) {
-  try {
-    var url = new URL(window.top.location.href);
-    url.searchParams.set('view_lb', '1');
-    url.searchParams.set('lb_khelo', String(t.grade) + '|' + String(t.sk) + '|' + String(t.title));
-    var a = document.createElement('a');
-    a.href = url.toString();
-    a.target = '_top';
-    a.rel = 'noopener';
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    var s = document.getElementById('kheloStatus');
-    if (s) s.textContent = 'Neeche Khelo panel khul raha hai… agar nahi khula to panel se topic chuno.';
-  } catch (e) {
-    var s2 = document.getElementById('kheloStatus');
-    if (s2) s2.textContent = 'Grid se neeche Khelo panel mein Grade/Subject/Topic chuno → Khelo kholo.';
-  }
 }
 
 function closeModal() {

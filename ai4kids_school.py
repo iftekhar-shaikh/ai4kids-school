@@ -2672,7 +2672,7 @@ def render_html_viewers():
         # Always-on Khelo panel BELOW grid (Streamlit embed — works; nested iframe does not)
         st.markdown("---")
         st.markdown("### 🎮 Khelo panel")
-        st.caption("Topic chuno → Khelo kholo. (Grid same rehta hai.)")
+        st.caption("Topic chuno → Khelo kholo. Pehle sabaq, us ke neeche app.")
         topics = _lb_load_all_topics()
         playable = [t for t in topics if t.get("interactive_file")]
         if not playable:
@@ -2739,7 +2739,26 @@ def render_html_viewers():
                     except Exception:
                         gg = ssk = ttl = None
                     if gg and ssk and ttl:
-                        st.markdown(f"#### Ab chal raha: {ttl}")
+                        st.markdown("---")
+                        st.markdown(f"#### 📖 Sabaq — {ttl}")
+                        # Lesson text first
+                        cur = next((t for t in topics if t["grade"] == gg and t["sk"] == ssk and t["title"] == ttl), None)
+                        lesson = (cur or {}).get("lesson") or ""
+                        if lesson:
+                            try:
+                                tts_button(lesson)
+                            except Exception:
+                                pass
+                            st.markdown(
+                                f"<div style='font-size:clamp(1.35rem,4.5vw,1.65rem);line-height:1.85;padding:16px;"
+                                f"background:#fafafa;border-radius:12px;border:1px solid #eee;"
+                                f"white-space:pre-wrap'>{lesson.replace('<','&lt;')}</div>",
+                                unsafe_allow_html=True,
+                            )
+                        else:
+                            st.caption("Lesson text abhi nahi.")
+                        # Khelo UNDER lesson
+                        st.markdown("### 🎮 Khelo")
                         ok = render_topic_interactive(ssk, gg, ttl)
                         if not ok:
                             st.warning("Interactive file nahi mili — KB / interactives/ check karein.")
