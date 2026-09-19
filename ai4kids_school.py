@@ -6,7 +6,8 @@ Admin dashboard + Student portal
 Run:  streamlit run ai4kids_school.py
 """
 
-import os, json, datetime, warnings
+import os
+from pathlib import Path, json, datetime, warnings
 warnings.filterwarnings("ignore", category=SyntaxWarning)
 from openai import OpenAI
 
@@ -2577,7 +2578,7 @@ def render_streamlit_lesson_bank():
         label = f"{t['emoji']} {t['title']}  ·  Grade {t['grade']}  ·  {t['subj']}"
         if t.get("interactive_file"):
             label += "  ·  🎮 Khelo"
-        if st.button(label, key=f"lb_open_{key}", use_container_width=True):
+        if st.button(label, key=f"lb_open_{key}", width='stretch'):
             st.session_state.lb_topic_key = key
             st.rerun()
 
