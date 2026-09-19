@@ -835,7 +835,7 @@ button, .btn, .opt, [role=button] { min-height: 44px; min-width: 44px; }
     if (!window.speechSynthesis) return;
     window.speechSynthesis.cancel();
     var u = new SpeechSynthesisUtterance(text);
-    u.lang = speakLang === "ur" ? "ur-PK" : "en-US";
+    var __v=window.ai4kidsPickVoice&&ai4kidsPickVoice();if(__v){u.voice=__v;u.lang=((__v.lang||'').toLowerCase().indexOf('ur')===0)?'ur-PK':'hi-IN';}else{u.lang='hi-IN';}u.rate=.82;
     u.rate=0.82;
     try {
       var voices = window.speechSynthesis.getVoices() || [];

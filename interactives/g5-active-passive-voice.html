@@ -1214,7 +1214,7 @@ button, .btn, .opt, [role=button] { min-height: 44px; min-width: 44px; }
   function doSpeak(text, asLang){
     try{
       var u = new SpeechSynthesisUtterance(text);
-      u.lang = asLang === "ur" ? "ur-PK" : "en-US";
+      var __v=window.ai4kidsPickVoice&&ai4kidsPickVoice();if(__v){u.voice=__v;u.lang=((__v.lang||'').toLowerCase().indexOf('ur')===0)?'ur-PK':'hi-IN';}else{u.lang='hi-IN';}u.rate=.82;
       var voices = window.speechSynthesis.getVoices() || [];
       var voice = pickVoice(voices, asLang === "ur" ? "ur" : "en");
       if (voice) u.voice = voice;
