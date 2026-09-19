@@ -468,7 +468,9 @@
             "correct": "a"
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g4-circle-symmetry.html",
+      "interactive_label": "Khelo - Circle aur symmetry"
     },
     {
       "title": "Data handling",

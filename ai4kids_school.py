@@ -1102,6 +1102,7 @@ def render_topic_interactive(subject_key, grade, topic_title):
     (4, "math", "Naap conversions"): "interactives/g4-naap-conversions.html",
     (4, "math", "Area aur perimeter"): "interactives/g4-area-perimeter.html",
     (4, "math", "Geometry angles"): "interactives/g4-geometry-angles.html",
+    (4, "math", "Circle aur symmetry"): "interactives/g4-circle-symmetry.html",
     (4, "islamiat", "Iman aur Ibadat"): "interactives/g4-iman-ibadat.html",
     (4, "islamiat", "Akhlaq aur Muamalat"): "interactives/g4-akhlaq-muamalat.html",
     (4, "islamiat", "Seerat aur Hidayat"): "interactives/g4-seerat-hidayat.html",

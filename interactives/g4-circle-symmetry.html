@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Circle aur symmetry | AI4Kids Class 4</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--board:#e5f3ea;--board-deep:#c9e4d2;--sky:#c5e7f6;--sky2:#6eb0d4;--accent:#1d6b52;--ok:#2e7d4f;--ink:#1e2a1a;--ink-soft:#4a5744;--paper:#fdfaf3;--line:#d5dec8;--gold:#e8b23d;--left:#c4453a;--rad:#2f6fb5;--dia:#d4701f;--circ:#7a4fb5;--fs-cap:clamp(12px,3.2vw,13px);--fs-xs:clamp(14px,3.7vw,15px);--fs-sm:clamp(16px,4.2vw,17px);--fs-md:clamp(17px,4.6vw,19px);--fs-lg:clamp(20px,5.4vw,23px);--fs-xl:clamp(27px,7.4vw,33px);--lh:1.5}
+body.urdu{--fs-cap:clamp(13px,3.5vw,15px);--fs-xs:clamp(15px,4.1vw,17px);--fs-sm:clamp(17px,4.7vw,19px);--fs-md:clamp(19px,5.2vw,21px);--fs-lg:clamp(22px,6vw,25px);--fs-xl:clamp(26px,7vw,31px);--lh:2.1}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px}
+.wrap{max-width:560px;margin:0 auto;padding:0 14px}
+.bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+.brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+.chip{border:2px solid var(--ink);background:var(--paper);color:var(--ink);border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;font-size:var(--fs-xs);cursor:pointer;min-height:42px;touch-action:manipulation}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.chip:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.stars{display:flex;align-items:center;gap:6px;font-weight:800;font-size:var(--fs-xs);background:#fff6e2;border:2px solid var(--gold);border-radius:999px;padding:7px 13px}
+h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+.sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+.ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+h1.ur{line-height:1.9}
+.tabs{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
+.tabs button{flex:1 1 28%;min-width:90px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);border-radius:14px;padding:10px 6px;font:inherit;font-weight:800;font-size:var(--fs-cap);cursor:pointer;min-height:54px;line-height:1.2;touch-action:manipulation}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.tabs button .badge{color:var(--gold)}
+.story{background:#fff8ea;border:2px dashed var(--gold);border-radius:16px;padding:13px 15px;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;margin-bottom:14px}
+body.urdu .story{line-height:var(--lh)}
+.story b{color:var(--ink)}
+.scene{position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);background:linear-gradient(180deg,var(--sky) 0%,var(--sky2) 36%,var(--board) 36%,var(--board-deep) 100%);min-height:280px}
+.scene-pad{padding:10px 12px 18px;min-height:260px;position:relative}
+.sky-layer{position:absolute;inset:0 0 58% 0;pointer-events:none;overflow:hidden}
+.sun-ball{position:absolute;top:12px;right:18px;width:36px;height:36px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#ffe9a0,#f5c542 60%,#e0a020);box-shadow:0 0 18px rgba(245,197,66,.45);z-index:1}
+body.urdu .sun-ball{right:auto;left:18px}
+.cloud{position:absolute;background:rgba(255,255,255,.85);border-radius:40px;opacity:.9}
+.cloud:before,.cloud:after{content:"";position:absolute;background:inherit;border-radius:50%}
+.c1{width:48px;height:15px;top:18px;left:12%}
+.c1:before{width:22px;height:22px;top:-12px;left:6px}
+.c1:after{width:18px;height:18px;top:-8px;left:24px}
+.c2{width:34px;height:12px;top:34px;left:55%;opacity:.7}
+.c2:before{width:16px;height:16px;top:-9px;left:4px}
+.c2:after{width:12px;height:12px;top:-5px;left:16px}
+.num-stage{position:relative;z-index:5;padding:62px 8px 8px;text-align:center}
+.hero-em{font-size:34px;line-height:1;margin:0}
+.num-hero{font-weight:800;font-size:clamp(24px,6.8vw,34px);letter-spacing:.5px;direction:ltr;unicode-bidi:isolate;margin:6px 0 2px;line-height:1.15}
+.capline{font-size:var(--fs-cap);font-weight:800;color:var(--accent);margin:6px 8px 0;line-height:1.45}
+body.urdu .capline,body.urdu .hintbox,body.urdu .card-box{line-height:var(--lh)}
+.eqline{direction:ltr;unicode-bidi:isolate;font-weight:800;font-size:var(--fs-sm);margin:8px 6px 4px;line-height:1.35}
+.card-box{background:rgba(253,250,243,.95);border:2.5px solid var(--ink);border-radius:14px;padding:10px 12px;font-weight:800;font-size:var(--fs-xs);max-width:340px;margin:8px auto 0;line-height:1.4}
+.fact-pills{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:8px 4px 0}
+.pill{background:#fff;border:2px solid var(--ink);border-radius:999px;padding:5px 10px;font-weight:800;font-size:12px;direction:ltr}
+.pill.rad{border-color:var(--rad);color:var(--rad)}
+.pill.dia{border-color:var(--dia);color:var(--dia)}
+.pill.circ{border-color:var(--circ);color:var(--circ)}
+.fig-wrap{margin:10px auto 4px;max-width:220px}
+.fig-wrap svg{display:block;width:100%;height:auto}
+.save-choices{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+.save-choices button{border:2.5px solid var(--ink);background:var(--paper);border-radius:14px;padding:12px 14px;font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;text-align:left;min-height:52px;display:flex;align-items:center;gap:10px;touch-action:manipulation}
+body.urdu .save-choices button{text-align:right}
+.save-choices button.numc{justify-content:center;text-align:center;direction:ltr;font-size:20px}
+.save-choices button.right,.opt.right{border-color:var(--ok);background:#e8f2ed}
+.save-choices button.wrong,.opt.wrong{border-color:var(--left);background:#fbeae8}
+.readout{margin-top:-18px;position:relative;z-index:2;background:var(--paper);border:3px solid var(--ink);border-radius:18px;padding:16px 18px}
+.statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+.statechip.ur{padding:2px 14px 7px}
+.statechip.win{background:var(--ok)}
+.statechip.miss{background:var(--left)}
+.headline{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+.headline.ur{line-height:1.95}
+.detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+.hintbox{margin-top:14px;border:2px solid var(--accent);background:#e7f6ef;border-radius:14px;padding:11px 14px;font-size:var(--fs-xs);color:var(--accent);font-weight:700;line-height:1.55;display:none}
+.hintbox.show{display:block}
+.panel{margin-top:22px}
+.panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+.prog{margin:0 0 10px;font-size:var(--fs-xs);font-weight:700;color:var(--ink-soft)}
+.btns{display:flex;gap:9px;margin-top:8px;flex-wrap:wrap}
+.btns button{border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:50px;padding:8px 14px;flex:1;touch-action:manipulation}
+.btns .go{background:var(--ink);color:var(--paper)}
+.btns button:active{transform:scale(.97)}
+.btns button:disabled{opacity:.4;cursor:default}
+.quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+.qhead{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+.qhead h2{font-size:var(--fs-lg);font-weight:800;margin:0;flex:1}
+.q{margin-bottom:26px}
+.q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+.q p.ur{font-weight:400}
+.gloss{margin:-6px 0 12px;font-size:var(--fs-xs);color:var(--ink-soft);font-weight:600;line-height:1.45}
+.opt{display:block;width:100%;text-align:left;margin-bottom:10px;border:2px solid var(--line);background:var(--paper);border-radius:12px;padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);min-height:50px;touch-action:manipulation}
+.opt.ur{text-align:right;line-height:var(--lh)}
+.opt:disabled{cursor:default}
+.fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+.fb.show{display:block}
+footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);font-size:var(--fs-xs);color:var(--ink-soft)}
+@media (min-width:820px){
+.wrap{max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;grid-template-areas:"bar bar" "head head" "tabs tabs" "story story" "left right" "quiz quiz" "foot foot";align-items:start}
+.bar{grid-area:bar}.head{grid-area:head}.tabs{grid-area:tabs}.story{grid-area:story}.left{grid-area:left}.right{grid-area:right}.quiz{grid-area:quiz;margin-top:34px}footer{grid-area:foot}.panel{margin-top:0}
+}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01ms !important;animation:none !important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 4 · Hisaab</span>
+    <span class="stars">⭐ <span id="starCount">0</span></span>
+    <button class="chip" id="langBtn" aria-pressed="false" type="button">اردو</button>
+    <button class="chip" id="speakBtn" type="button" aria-label="Sunlo">🔊</button>
+  </div>
+  <div class="head"><h1 id="title"></h1><p class="sub" id="subtitle"></p></div>
+  <div class="tabs" role="group">
+    <button type="button" id="tabParts" aria-pressed="true"></button>
+    <button type="button" id="tabCompute" aria-pressed="false"></button>
+    <button type="button" id="tabSym" aria-pressed="false"></button>
+  </div>
+  <p class="story" id="story"></p>
+  <div class="left">
+    <div class="scene"><div class="scene-pad" id="scenePad"></div></div>
+    <div class="readout">
+      <span class="statechip" id="statechip"></span>
+      <p class="headline" id="headline"></p>
+      <p class="detail" id="detail"></p>
+      <p class="hintbox" id="hintbox"></p>
+    </div>
+  </div>
+  <div class="right">
+    <div class="panel">
+      <h2 id="ctlHead"></h2>
+      <p class="prog" id="prog"></p>
+      <div id="actionBox"></div>
+      <div class="btns"><button type="button" class="go" id="nextBtn"></button></div>
+      <div class="btns"><button type="button" id="hintBtn"></button><button type="button" id="resetBtn"></button></div>
+    </div>
+  </div>
+  <div class="quiz">
+    <div class="qhead"><h2 id="quizHead"></h2><button type="button" class="chip" id="newQuiz"></button></div>
+    <div id="quizBox"></div>
+  </div>
+  <footer>
+    <p data-en="AI4Kids — Islamabad bilingual school. Offline. WhatsApp 0337 1468899 · Circle aur symmetry" data-ur="اے آئی فور کڈز — اسلام آباد دو لسانی اسکول۔ آف لائن۔ واٹس ایپ 0337 1468899 · دائرہ اور ہم شکلی"></p>
+  </footer>
+</div>
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id)}
+function isolate(s){return "\u2066"+s+"\u2069"}
+function setText(el,str){if(!el)return;el.textContent=(lang==="ur")?isolate(str):str;el.classList.toggle("ur",lang==="ur");el.setAttribute("dir",lang==="ur"?"rtl":"ltr")}
+function t(o){return (o&&o[lang])||(o&&o.en)||""}
+function shuffle(arr){var a=arr.slice(),i,j,tmp;for(i=a.length-1;i>0;i--){j=Math.floor(Math.random()*(i+1));tmp=a[i];a[i]=a[j];a[j]=tmp}return a}
+
+var lang="en",mode="parts",stars=0,awarded={},doneModes={parts:false,compute:false,sym:false},speakTimer=null;
+var T={
+title:{en:"Circle aur symmetry",ur:"دائرہ اور ہم شکلی"},
+sub:{en:"Radius, diameter, circumference idea. Spot lines of symmetry — Class 4 Hisaab with coins, plates, and butterflies.",ur:"نصف قطر، قطر، محیط کا خیال۔ ہم شکلی کی لکیریں پہچانو — کلاس 4 حساب، سکّے، پلیٹیں، اور تتلیاں۔"},
+tabParts:{en:"Circle parts",ur:"دائرے کے حصے"},
+tabCompute:{en:"Diameter ↔ radius",ur:"قطر ↔ نصف قطر"},
+tabSym:{en:"Symmetry",ur:"ہم شکلی"},
+storyParts:{en:"A <b>circle</b> is a round shape. The <b>centre</b> is the middle point. <b>Radius</b> goes from centre to the boundary. <b>Diameter</b> goes across through the centre — it is <b>2 × radius</b>. <b>Circumference</b> is the perimeter — the distance around the circle (like the rim of a plate).",ur:"<b>دائرہ</b> گول شکل ہے۔ <b>مرکز</b> درمیانی نقطہ ہے۔ <b>نصف قطر</b> مرکز سے کنارے تک جاتا ہے۔ <b>قطر</b> مرکز سے گزرتا ہوا پار جاتا ہے — یہ <b>2 × نصف قطر</b> ہے۔ <b>محیط</b> محیط ہے — دائرے کے گرد فاصلہ (پلیٹ کے کنارے جیسا)۔"},
+storyCompute:{en:"Remember: <b>diameter = 2 × radius</b> and <b>radius = diameter ÷ 2</b>. Measure a coin or a dinner plate in centimetres, then find the other length. Class 4 keeps numbers small and friendly.",ur:"یاد رکھو: <b>قطر = 2 × نصف قطر</b> اور <b>نصف قطر = قطر ÷ 2</b>۔ سکّہ یا پلیٹ سینٹی میٹر میں ناپو، پھر دوسری لمبائی نکالو۔ کلاس 4 چھوٹے آسان نمبر رکھتی ہے۔"},
+storySym:{en:"A <b>line of symmetry</b> cuts a shape into two matching halves — like a mirror. A coin and a round plate have many. A butterfly has one down the middle. An uneven leaf may have none. Complete a half drawing so both sides match.",ur:"<b>ہم شکلی کی لکیر</b> شکل کو دو ملتے حصوں میں کاٹتی ہے — آئینے جیسی۔ سکّے اور گول پلیٹ میں کئی ہوتی ہیں۔ تتلی کے بیچ میں ایک۔ ان برابر پتے میں کوئی نہیں۔ آدھی شکل مکمل کرو تاکہ دونوں طرف ملیں۔"},
+ctl:{en:"Your turn — circle lab",ur:"تمہاری باری — دائرہ لیب"},
+next:{en:"Next challenge",ur:"اگلا چیلنج"},
+hint:{en:"Hint",ur:"اشارہ"},
+reset:{en:"Reset",ur:"ری سیٹ"},
+quiz:{en:"Check yourself",ur:"اپنا چیک"},
+newQuiz:{en:"New quiz",ur:"نیا کوئز"},
+nice:{en:"Shabash!",ur:"شاباش!"},
+oops:{en:"Almost — try again",ur:"قریب — دوبارہ آزماؤ"},
+tipParts:{en:"Radius: centre to edge. Diameter: across through centre, twice the radius. Circumference: the path around the circle.",ur:"نصف قطر: مرکز سے کنارہ۔ قطر: مرکز سے پار، نصف قطر کا دوگنا۔ محیط: دائرے کے گرد راستہ۔"},
+tipCompute:{en:"Diameter = 2 × radius. Radius = diameter ÷ 2. Check with a coin: if radius is 1 cm, diameter is 2 cm.",ur:"قطر = 2 × نصف قطر۔ نصف قطر = قطر ÷ 2۔ سکّے سے چیک: نصف قطر 1 cm ہو تو قطر 2 cm۔"},
+tipSym:{en:"Fold in your mind: if halves match, there is a line of symmetry. Circles have many; butterflies usually one; some shapes have none.",ur:"ذہن میں موڑو: اگر حصے ملیں تو ہم شکلی کی لکیر ہے۔ دائروں میں کئی؛ تتلی میں عموماً ایک؛ کچھ شکلوں میں کوئی نہیں۔"},
+progParts:{en:"Parts rounds",ur:"حصے راؤنڈ"},
+progCompute:{en:"Compute rounds",ur:"حساب راؤنڈ"},
+progSym:{en:"Symmetry rounds",ur:"ہم شکلی راؤنڈ"}
+};
+
+var PARTS=[
+{id:"p1",em:"🪙",fig:"radius",title:{en:"Radius on a coin",ur:"سکّے پر نصف قطر"},blurb:{en:"Ayesha draws a line from the centre of a 5-rupee coin to its edge.",ur:"عائشہ نے 5 روپے کے سکّے کے مرکز سے کنارے تک لکیر کھینچی۔"},show:"centre → edge",pills:["radius"],ask:{en:"What part did she draw?",ur:"اس نے کون سا حصہ کھینچا؟"},opts:[{id:"a",en:"Radius — centre to boundary",ur:"نصف قطر — مرکز سے کنارہ"},{id:"b",en:"Diameter — across through centre",ur:"قطر — مرکز سے پار"},{id:"c",en:"Circumference — around the rim",ur:"محیط — کنارے کے گرد"},{id:"d",en:"A square corner",ur:"مربع کونہ"}],correct:"a",hint:{en:"Centre to the boundary is radius. Diameter would go all the way across. Circumference goes around.",ur:"مرکز سے کنارہ نصف قطر ہے۔ قطر پورا پار جاتا۔ محیط گرد گھومتا ہے۔"},done:{en:"That line is the radius.",ur:"وہ لکیر نصف قطر ہے۔"},why:{en:"Radius always starts at the centre and ends on the circle.",ur:"نصف قطر ہمیشہ مرکز سے شروع ہو کر دائرے پر ختم ہوتا ہے۔"}},
+{id:"p2",em:"🍽️",fig:"diameter",title:{en:"Plate across",ur:"پلیٹ پار"},blurb:{en:"Bilal measures his dinner plate from one side to the other, through the middle.",ur:"بلال نے ڈنر پلیٹ ایک کنارے سے دوسرے کنارے تک، درمیان سے گزرتے ناپی۔"},show:"edge → centre → edge",pills:["diameter = 2 × radius"],ask:{en:"What did Bilal measure?",ur:"بلال نے کیا ناپا؟"},opts:[{id:"a",en:"Radius only",ur:"صرف نصف قطر"},{id:"b",en:"Diameter",ur:"قطر"},{id:"c",en:"Circumference",ur:"محیط"},{id:"d",en:"Area of a square",ur:"مربع کا رقبہ"}],correct:"b",hint:{en:"A straight line across through the centre is the diameter. It is twice as long as the radius.",ur:"مرکز سے گزرتی سیدھی لکیر قطر ہے۔ یہ نصف قطر سے دوگنی لمبی ہے۔"},done:{en:"Across through the centre = diameter.",ur:"مرکز سے پار = قطر۔"},why:{en:"Diameter is the longest straight cut inside a circle.",ur:"قطر دائرے کے اندر سب سے لمبی سیدھی کٹ ہے۔"}},
+{id:"p3",em:"🍽️",fig:"circ",title:{en:"Around the plate",ur:"پلیٹ کے گرد"},blurb:{en:"Sara traces a finger all the way around her plate's rim — the path outside.",ur:"سارہ نے انگلی سے پلیٹ کے کنارے کے گرد پورا چکر لگایا — باہر والا راستہ۔"},show:"path around",pills:["circumference = perimeter"],ask:{en:"What is that path called?",ur:"اس راستے کو کیا کہتے ہیں؟"},opts:[{id:"a",en:"Radius",ur:"نصف قطر"},{id:"b",en:"Diameter",ur:"قطر"},{id:"c",en:"Circumference — perimeter of the circle",ur:"محیط — دائرے کا محیط"},{id:"d",en:"Centre point only",ur:"صرف مرکزی نقطہ"}],correct:"c",hint:{en:"Going around the boundary is the circumference — the circle's perimeter. Not a straight radius or diameter.",ur:"کنارے کے گرد جانا محیط ہے — دائرے کا محیط۔ سیدھا نصف قطر یا قطر نہیں۔"},done:{en:"Around the rim = circumference.",ur:"کنارے کے گرد = محیط۔"},why:{en:"Circumference is the idea of the distance around a circle.",ur:"محیط دائرے کے گرد فاصلے کا خیال ہے۔"}},
+{id:"p4",em:"🎯",fig:"centre",title:{en:"Find the centre",ur:"مرکز تلاش کرو"},blurb:{en:"Hamza marks the middle point of a chalk circle on the playground.",ur:"حمزہ نے کھیل کے میدان میں چاک دائرے کا درمیانی نقطہ لگایا۔"},show:"middle point",pills:["centre"],ask:{en:"The middle point of a circle is the…",ur:"دائرے کا درمیانی نقطہ ہے…"},opts:[{id:"a",en:"Circumference",ur:"محیط"},{id:"b",en:"Centre",ur:"مرکز"},{id:"c",en:"Diameter only",ur:"صرف قطر"},{id:"d",en:"A corner",ur:"ایک کونہ"}],correct:"b",hint:{en:"The centre is the middle. Radius starts there. Diameter passes through it.",ur:"مرکز درمیان ہے۔ نصف قطر وہیں سے شروع ہوتا ہے۔ قطر اس سے گزرتا ہے۔"},done:{en:"Middle point = centre.",ur:"درمیانی نقطہ = مرکز۔"},why:{en:"Every radius reaches from this same centre to the boundary.",ur:"ہر نصف قطر اسی مرکز سے کنارے تک پہنچتا ہے۔"}},
+{id:"p5",em:"🪙",fig:"compare",title:{en:"Twice as long",ur:"دوگنا لمبا"},blurb:{en:"On the same coin, diameter is longer than radius. How do they relate?",ur:"اسی سکّے پر قطر، نصف قطر سے لمبا ہے۔ دونوں کا رشتہ کیا ہے؟"},show:"d = 2 × r",pills:["diameter = 2 × radius"],ask:{en:"Diameter compared to radius is…",ur:"قطر، نصف قطر کے مقابلے میں…"},opts:[{id:"a",en:"Half as long",ur:"آدھا لمبا"},{id:"b",en:"Twice as long (2 × radius)",ur:"دوگنا لمبا (2 × نصف قطر)"},{id:"c",en:"The same length",ur:"اسی لمبائی"},{id:"d",en:"Three times as long",ur:"تین گنا لمبا"}],correct:"b",hint:{en:"Diameter goes across; radius is only halfway. So diameter = 2 × radius.",ur:"قطر پار جاتا ہے؛ نصف قطر صرف آدھا راستہ۔ اس لیے قطر = 2 × نصف قطر۔"},done:{en:"Diameter = 2 × radius.",ur:"قطر = 2 × نصف قطر۔"},why:{en:"Two radii placed end to end make one diameter.",ur:"دو نصف قطر سر سے سر ملا کر ایک قطر بناتے ہیں۔"}}
+];
+
+var COMPUTE=[
+{id:"c1",em:"🪙",kind:"dFromR",r:3,d:6,title:{en:"Coin radius 3 cm",ur:"سکّہ نصف قطر 3 cm"},blurb:{en:"A practice coin has radius 3 cm. Find the diameter.",ur:"مشق سکّے کا نصف قطر 3 cm ہے۔ قطر نکالو۔"},show:"r = 3 cm → d = ?",ask:{en:"What is the diameter?",ur:"قطر کتنا ہے؟"},opts:[{id:"a",en:"1.5 cm",ur:"1.5 cm"},{id:"b",en:"3 cm",ur:"3 cm"},{id:"c",en:"6 cm",ur:"6 cm"},{id:"d",en:"9 cm",ur:"9 cm"}],correct:"c",hint:{en:"Diameter = 2 × radius. 2 × 3 = 6 cm.",ur:"قطر = 2 × نصف قطر۔ 2 × 3 = 6 cm۔"},done:{en:"Diameter is 6 cm.",ur:"قطر 6 cm ہے۔"},why:{en:"Double the radius to get the diameter.",ur:"نصف قطر دوگنا کرو تو قطر ملتا ہے۔"}},
+{id:"c2",em:"🍽️",kind:"rFromD",r:7,d:14,title:{en:"Plate diameter 14 cm",ur:"پلیٹ قطر 14 cm"},blurb:{en:"A small plate is 14 cm across through the centre. Find the radius.",ur:"چھوٹی پلیٹ مرکز سے پار 14 cm ہے۔ نصف قطر نکالو۔"},show:"d = 14 cm → r = ?",ask:{en:"What is the radius?",ur:"نصف قطر کتنا ہے؟"},opts:[{id:"a",en:"7 cm",ur:"7 cm"},{id:"b",en:"14 cm",ur:"14 cm"},{id:"c",en:"28 cm",ur:"28 cm"},{id:"d",en:"4 cm",ur:"4 cm"}],correct:"a",hint:{en:"Radius = diameter ÷ 2. 14 ÷ 2 = 7 cm.",ur:"نصف قطر = قطر ÷ 2۔ 14 ÷ 2 = 7 cm۔"},done:{en:"Radius is 7 cm.",ur:"نصف قطر 7 cm ہے۔"},why:{en:"Halve the diameter to get the radius.",ur:"قطر آدھا کرو تو نصف قطر ملتا ہے۔"}},
+{id:"c3",em:"⚽",kind:"dFromR",r:5,d:10,title:{en:"Ball radius 5 cm",ur:"گیند نصف قطر 5 cm"},blurb:{en:"A soft ball for PE has radius 5 cm. What is its diameter?",ur:"کھیلوں کی نرم گیند کا نصف قطر 5 cm ہے۔ اس کا قطر کیا ہے؟"},show:"r = 5 cm → d = ?",ask:{en:"Diameter equals…",ur:"قطر برابر ہے…"},opts:[{id:"a",en:"2.5 cm",ur:"2.5 cm"},{id:"b",en:"5 cm",ur:"5 cm"},{id:"c",en:"10 cm",ur:"10 cm"},{id:"d",en:"15 cm",ur:"15 cm"}],correct:"c",hint:{en:"2 × 5 = 10. Diameter is twice the radius.",ur:"2 × 5 = 10۔ قطر نصف قطر کا دوگنا ہے۔"},done:{en:"Diameter is 10 cm.",ur:"قطر 10 cm ہے۔"},why:{en:"Keep using d = 2r for every circle.",ur:"ہر دائرے پر d = 2r استعمال کرو۔"}},
+{id:"c4",em:"🪙",kind:"rFromD",r:4,d:8,title:{en:"Medal diameter 8 cm",ur:"میڈل قطر 8 cm"},blurb:{en:"School sports medal is 8 cm across. Find the radius.",ur:"اسکول کھیل میڈل پار 8 cm ہے۔ نصف قطر نکالو۔"},show:"d = 8 cm → r = ?",ask:{en:"Radius equals…",ur:"نصف قطر برابر ہے…"},opts:[{id:"a",en:"16 cm",ur:"16 cm"},{id:"b",en:"8 cm",ur:"8 cm"},{id:"c",en:"2 cm",ur:"2 cm"},{id:"d",en:"4 cm",ur:"4 cm"}],correct:"d",hint:{en:"8 ÷ 2 = 4. Radius is half the diameter.",ur:"8 ÷ 2 = 4۔ نصف قطر قطر کا آدھا ہے۔"},done:{en:"Radius is 4 cm.",ur:"نصف قطر 4 cm ہے۔"},why:{en:"r = d ÷ 2 keeps the medal maths neat.",ur:"r = d ÷ 2 میڈل کا حساب صاف رکھتا ہے۔"}}
+];
+
+var SYM=[
+{id:"s1",em:"🪙",fig:"coin",lines:99,title:{en:"Round coin",ur:"گول سکّہ"},blurb:{en:"A round Pakistani coin looks the same when you fold it many ways through the centre.",ur:"گول پاکستانی سکّہ مرکز سے کئی طرح موڑنے پر ایک جیسا لگتا ہے۔"},show:"many fold lines",ask:{en:"Does a round coin have a line of symmetry?",ur:"کیا گول سکّے میں ہم شکلی کی لکیر ہے؟"},opts:[{id:"a",en:"Yes — many lines through the centre",ur:"ہاں — مرکز سے کئی لکیریں"},{id:"b",en:"No — coins never match",ur:"نہیں — سکّے کبھی نہیں ملتے"},{id:"c",en:"Only one line at the bottom",ur:"صرف نیچے ایک لکیر"},{id:"d",en:"Only if it is square",ur:"صرف اگر مربع ہو"}],correct:"a",hint:{en:"A circle can fold on any diameter and halves match. So many lines of symmetry.",ur:"دائرہ کسی بھی قطر پر موڑنے پر حصے ملتے ہیں۔ اس لیے کئی ہم شکلی کی لکیریں۔"},done:{en:"A circle has many lines of symmetry.",ur:"دائرے میں کئی ہم شکلی کی لکیریں ہیں۔"},why:{en:"Every diameter is a mirror line for a circle.",ur:"ہر قطر دائرے کے لیے آئینہ لکیر ہے۔"}},
+{id:"s2",em:"🦋",fig:"butterfly",lines:1,title:{en:"Butterfly wings",ur:"تتلی کے پر"},blurb:{en:"A butterfly sticker in Sara's notebook — left wing mirrors the right.",ur:"سارہ کی کاپی میں تتلی اسٹیکر — بایاں پر دائیں کا آئینہ ہے۔"},show:"1 middle fold",ask:{en:"How many lines of symmetry does this butterfly show?",ur:"اس تتلی میں ہم شکلی کی کتنی لکیریں ہیں؟"},opts:[{id:"a",en:"None",ur:"کوئی نہیں"},{id:"b",en:"One — down the middle",ur:"ایک — بیچ میں نیچے"},{id:"c",en:"Four",ur:"چار"},{id:"d",en:"Unlimited like a circle",ur:"دائرے جیسی لامحدود"}],correct:"b",hint:{en:"Fold on the body line: wings match. A side fold would not match. So one line.",ur:"جسم کی لکیر پر موڑو: پر ملتے ہیں۔ طرف کی موڑ نہیں ملے گی۔ اس لیے ایک لکیر۔"},done:{en:"One line of symmetry.",ur:"ہم شکلی کی ایک لکیر۔"},why:{en:"Matching halves mean symmetry; butterflies usually have one vertical line.",ur:"ملتے حصے مطلب ہم شکلی؛ تتلیوں میں عموماً ایک عمودی لکیر ہوتی ہے۔"}},
+{id:"s3",em:"🍃",fig:"leaf",lines:0,title:{en:"Uneven leaf",ur:"ان برابر پتا"},blurb:{en:"Ali picked a torn leaf — one side has a bite, the other is smooth.",ur:"علی نے پھٹا پتا اٹھایا — ایک طرف کٹا، دوسری ہموار۔"},show:"halves do not match",ask:{en:"Does this uneven leaf have a line of symmetry?",ur:"کیا اس ان برابر پتے میں ہم شکلی کی لکیر ہے؟"},opts:[{id:"a",en:"Yes — many",ur:"ہاں — کئی"},{id:"b",en:"Yes — one always",ur:"ہاں — ہمیشہ ایک"},{id:"c",en:"No — halves do not match",ur:"نہیں — حصے نہیں ملتے"},{id:"d",en:"Only if you colour it green",ur:"صرف اگر سبز رنگ دو"}],correct:"c",hint:{en:"If halves do not match when folded, there is no line of symmetry.",ur:"اگر موڑنے پر حصے نہ ملیں تو ہم شکلی کی لکیر نہیں۔"},done:{en:"No line of symmetry.",ur:"ہم شکلی کی کوئی لکیر نہیں۔"},why:{en:"Symmetry needs matching halves. A torn leaf can break that match.",ur:"ہم شکلی کو ملتے حصے چاہیے۔ پھٹا پتا وہ میل توڑ سکتا ہے۔"}},
+{id:"s4",em:"✏️",fig:"complete",lines:1,title:{en:"Complete the heart",ur:"دل مکمل کرو"},blurb:{en:"Half a heart is drawn on the board. The dashed line is the fold. Which side completes it?",ur:"بورڈ پر آدھا دل کھینچا ہے۔ نقطہ دار لکیر موڑ ہے۔ کون سی طرف اسے مکمل کرتی ہے؟"},show:"mirror the half",ask:{en:"To complete a symmetrical heart you…",ur:"ہم شکل دل مکمل کرنے کے لیے آپ…"},opts:[{id:"a",en:"Copy the same half as a matching mirror",ur:"وہی آدھا آئینہ نقل کے طور پر کاپی کرو"},{id:"b",en:"Draw a square instead",ur:"اس کی جگہ مربع بناؤ"},{id:"c",en:"Erase the fold line only",ur:"صرف موڑ کی لکیر مٹاؤ"},{id:"d",en:"Make the other half a triangle",ur:"دوسرا آدھا مثلث بناؤ"}],correct:"a",hint:{en:"A line of symmetry is a mirror. The missing half must match the given half.",ur:"ہم شکلی کی لکیر آئینہ ہے۔ غائب آدھا دیے گئے آدھے سے ملنا چاہیے۔"},done:{en:"Mirror the half across the fold.",ur:"موڑ کے پار آدھے کا آئینہ بناؤ۔"},why:{en:"Completing symmetrical figures means matching both sides of the fold.",ur:"ہم شکل شکلیں مکمل کرنا مطلب موڑ کے دونوں طرف ملانا۔"}}
+];
+
+var QUIZ=[
+{id:"qrad",pin:true,q:{en:"The radius of a circle goes from…",ur:"دائرے کا نصف قطر جاتا ہے…"},ru:"Circle ka radius kahan se kahan tak jata hai?",opts:[{en:"One edge to the opposite edge only",ur:"صرف ایک کنارے سے مخالف کنارے تک"},{en:"The centre to the boundary",ur:"مرکز سے کنارے تک"},{en:"Around the rim only",ur:"صرف کنارے کے گرد"},{en:"Corner to corner of a square",ur:"مربع کے کونے سے کونے تک"}],correct:1,why:{en:"Radius is the segment from the centre to any point on the circle.",ur:"نصف قطر مرکز سے دائرے کے کسی نقطے تک کا حصہ ہے۔"}},
+{id:"qdia",pin:true,q:{en:"If the radius is 6 cm, the diameter is…",ur:"اگر نصف قطر 6 cm ہو تو قطر ہے…"},ru:"Agar radius 6 cm ho to diameter kitna hai?",opts:[{en:"3 cm",ur:"3 cm"},{en:"6 cm",ur:"6 cm"},{en:"12 cm",ur:"12 cm"},{en:"36 cm",ur:"36 cm"}],correct:2,why:{en:"Diameter = 2 × radius, so 2 × 6 = 12 cm.",ur:"قطر = 2 × نصف قطر، اس لیے 2 × 6 = 12 cm۔"}},
+{id:"qcirc",q:{en:"Circumference means…",ur:"محیط کا مطلب ہے…"},ru:"Circumference ka matlab kya hai?",opts:[{en:"The centre point",ur:"مرکزی نقطہ"},{en:"The perimeter / path around the circle",ur:"محیط / دائرے کے گرد راستہ"},{en:"Half of the diameter",ur:"قطر کا آدھا"},{en:"A square's side",ur:"مربع کی ضلع"}],correct:1,why:{en:"Circumference is the idea of the distance around a circle — its perimeter.",ur:"محیط دائرے کے گرد فاصلے کا خیال ہے — اس کا محیط۔"}},
+{id:"qrhalf",q:{en:"A plate's diameter is 20 cm. Radius is…",ur:"پلیٹ کا قطر 20 cm ہے۔ نصف قطر ہے…"},ru:"Plate ka diameter 20 cm hai. Radius kitna hai?",opts:[{en:"40 cm",ur:"40 cm"},{en:"20 cm",ur:"20 cm"},{en:"10 cm",ur:"10 cm"},{en:"5 cm",ur:"5 cm"}],correct:2,why:{en:"Radius = diameter ÷ 2 → 20 ÷ 2 = 10 cm.",ur:"نصف قطر = قطر ÷ 2 → 20 ÷ 2 = 10 cm۔"}},
+{id:"qsym",q:{en:"A line of symmetry makes…",ur:"ہم شکلی کی لکیر بناتی ہے…"},ru:"Line of symmetry kya banati hai?",opts:[{en:"Two halves that do not match",ur:"دو حصے جو نہیں ملتے"},{en:"Two matching halves like a mirror",ur:"آئینے جیسے دو ملتے حصے"},{en:"Only a radius",ur:"صرف نصف قطر"},{en:"Three unequal parts",ur:"تین ان برابر حصے"}],correct:1,why:{en:"Symmetry folds a shape into matching mirror halves.",ur:"ہم شکلی شکل کو ملتے آئینہ حصوں میں موڑتی ہے۔"}},
+{id:"qbut",q:{en:"A simple butterfly drawing usually has…",ur:"سادہ تتلی کی ڈرائنگ میں عموماً ہوتے ہیں…"},ru:"Simple butterfly drawing mein aksar kitni lines of symmetry hoti hain?",opts:[{en:"No lines of symmetry",ur:"ہم شکلی کی کوئی لکیر نہیں"},{en:"One line down the middle",ur:"بیچ میں ایک لکیر"},{en:"Exactly two only forever",ur:"ہمیشہ بالکل دو ہی"},{en:"Unlimited like every circle",ur:"ہر دائرے جیسی لامحدود"}],correct:1,why:{en:"Wings mirror across the body — usually one vertical line of symmetry.",ur:"پر جسم کے پار آئینہ ہوتے ہیں — عموماً ایک عمودی ہم شکلی کی لکیر۔"}},
+{id:"qcoin",q:{en:"A perfect round coin has…",ur:"بالکل گول سکّے میں ہوتے ہیں…"},ru:"Perfect round coin mein lines of symmetry kitni hoti hain?",opts:[{en:"Zero lines of symmetry",ur:"صفر ہم شکلی کی لکیریں"},{en:"Only one line",ur:"صرف ایک لکیر"},{en:"Many lines through the centre",ur:"مرکز سے کئی لکیریں"},{en:"Exactly three corners",ur:"بالکل تین کونے"}],correct:2,why:{en:"Any diameter of a circle is a line of symmetry — so a round coin has many.",ur:"دائرے کا کوئی بھی قطر ہم شکلی کی لکیر ہے — اس لیے گول سکّے میں کئی ہیں۔"}}
+];
+
+var partsIdx=0,partsDone={};
+var compIdx=0,compDone={};
+var symIdx=0,symDone={};
+var optKey="",optOrder=[],quizSet=[],quizState={};
+
+function award(key,n){if(awarded[key])return;awarded[key]=true;stars+=(n||1);$("starCount").textContent=String(stars)}
+function recountStars(){stars=0;Object.keys(awarded).forEach(function(k){stars+=(k.indexOf("mode-")===0)?2:1});$("starCount").textContent=String(stars)}
+function markWin(prefix,id,doneMap,modeKey,total){if(doneMap[id])return;doneMap[id]=true;award(prefix+"-"+id,1);if(Object.keys(doneMap).length>=total){doneModes[modeKey]=true;award("mode-"+modeKey,2)}tabBadges()}
+function skyHTML(){return '<div class="sky-layer"><div class="sun-ball"></div><div class="cloud c1"></div><div class="cloud c2"></div></div>'}
+function prepScene(){var pad=$("scenePad");pad.innerHTML=skyHTML();var stage=document.createElement("div");stage.className="num-stage";pad.appendChild(stage);return stage}
+function addBlurb(stage,ch){var em=document.createElement("div");em.className="hero-em";em.textContent=ch.em||"⭕";stage.appendChild(em);var box=document.createElement("div");box.className="card-box";setText(box,t(ch.blurb));stage.appendChild(box)}
+function addShow(stage,ch){var h=document.createElement("div");h.className="num-hero";h.textContent=ch.show;stage.appendChild(h)}
+function addPills(stage,ch){if(!ch.pills||!ch.pills.length)return;var row=document.createElement("div");row.className="fact-pills";ch.pills.forEach(function(p){var s=document.createElement("span");s.className="pill";var pl=p.toLowerCase();if(pl.indexOf("radius")>=0||pl.indexOf("نصف")>=0)s.className+=" rad";else if(pl.indexOf("diameter")>=0||pl.indexOf("قطر")>=0&&pl.indexOf("نصف")<0)s.className+=" dia";else if(pl.indexOf("circ")>=0||pl.indexOf("محیط")>=0||pl.indexOf("perimeter")>=0)s.className+=" circ";s.textContent=p;row.appendChild(s)});stage.appendChild(row)}
+function circleSVG(kind){
+  var cx=90,cy=78,r=48;
+  var base='<circle cx="'+cx+'" cy="'+cy+'" r="'+r+'" fill="#fff8e8" stroke="#1e2a1a" stroke-width="3"/>';
+  var centre='<circle cx="'+cx+'" cy="'+cy+'" r="4" fill="#1e2a1a"/>';
+  if(kind==="radius"){
+    return '<svg viewBox="0 0 180 140" aria-hidden="true">'+base+centre+'<line x1="'+cx+'" y1="'+cy+'" x2="'+(cx+r)+'" y2="'+cy+'" stroke="#2f6fb5" stroke-width="3.5" stroke-linecap="round"/><text x="'+(cx+r/2)+'" y="'+(cy-8)+'" text-anchor="middle" font-size="12" font-weight="800" fill="#2f6fb5">r</text><text x="90" y="132" text-anchor="middle" font-size="11" font-weight="800" fill="#1d6b52">radius</text></svg>';
+  }
+  if(kind==="diameter"){
+    return '<svg viewBox="0 0 180 140" aria-hidden="true">'+base+centre+'<line x1="'+(cx-r)+'" y1="'+cy+'" x2="'+(cx+r)+'" y2="'+cy+'" stroke="#d4701f" stroke-width="3.5" stroke-linecap="round"/><text x="'+cx+'" y="'+(cy-8)+'" text-anchor="middle" font-size="12" font-weight="800" fill="#d4701f">d</text><text x="90" y="132" text-anchor="middle" font-size="11" font-weight="800" fill="#1d6b52">diameter</text></svg>';
+  }
+  if(kind==="circ"){
+    return '<svg viewBox="0 0 180 140" aria-hidden="true"><circle cx="'+cx+'" cy="'+cy+'" r="'+r+'" fill="#fff8e8" stroke="#7a4fb5" stroke-width="5"/><circle cx="'+cx+'" cy="'+cy+'" r="'+(r-6)+'" fill="none" stroke="#1e2a1a" stroke-width="2" stroke-dasharray="4 3"/>'+centre+'<text x="90" y="132" text-anchor="middle" font-size="11" font-weight="800" fill="#7a4fb5">circumference</text></svg>';
+  }
+  if(kind==="centre"){
+    return '<svg viewBox="0 0 180 140" aria-hidden="true">'+base+'<circle cx="'+cx+'" cy="'+cy+'" r="7" fill="#c4453a"/><text x="90" y="132" text-anchor="middle" font-size="11" font-weight="800" fill="#1d6b52">centre</text></svg>';
+  }
+  return '<svg viewBox="0 0 180 140" aria-hidden="true">'+base+centre+'<line x1="'+cx+'" y1="'+cy+'" x2="'+(cx+r)+'" y2="'+cy+'" stroke="#2f6fb5" stroke-width="3"/><line x1="'+(cx-r)+'" y1="'+(cy+18)+'" x2="'+(cx+r)+'" y2="'+(cy+18)+'" stroke="#d4701f" stroke-width="3"/><text x="'+(cx+r/2)+'" y="'+(cy-6)+'" font-size="11" font-weight="800" fill="#2f6fb5" text-anchor="middle">r</text><text x="'+cx+'" y="'+(cy+34)+'" font-size="11" font-weight="800" fill="#d4701f" text-anchor="middle">d = 2r</text></svg>';
+}
+function symSVG(kind){
+  if(kind==="coin"){
+    return '<svg viewBox="0 0 180 140" aria-hidden="true"><circle cx="90" cy="70" r="48" fill="#f5d76e" stroke="#1e2a1a" stroke-width="3"/><circle cx="90" cy="70" r="34" fill="none" stroke="#c9a227" stroke-width="2"/><line x1="90" y1="22" x2="90" y2="118" stroke="#1d6b52" stroke-width="2" stroke-dasharray="4 3"/><line x1="42" y1="70" x2="138" y2="70" stroke="#1d6b52" stroke-width="2" stroke-dasharray="4 3"/><line x1="56" y1="36" x2="124" y2="104" stroke="#2f6fb5" stroke-width="1.5" stroke-dasharray="3 3"/><text x="90" y="132" text-anchor="middle" font-size="11" font-weight="800" fill="#1d6b52">many lines</text></svg>';
+  }
+  if(kind==="butterfly"){
+    return '<svg viewBox="0 0 180 140" aria-hidden="true"><ellipse cx="58" cy="55" rx="28" ry="22" fill="#7ab8e8" stroke="#1e2a1a" stroke-width="2"/><ellipse cx="122" cy="55" rx="28" ry="22" fill="#7ab8e8" stroke="#1e2a1a" stroke-width="2"/><ellipse cx="62" cy="88" rx="22" ry="16" fill="#9ad0f5" stroke="#1e2a1a" stroke-width="2"/><ellipse cx="118" cy="88" rx="22" ry="16" fill="#9ad0f5" stroke="#1e2a1a" stroke-width="2"/><rect x="86" y="40" width="8" height="60" rx="4" fill="#1e2a1a"/><line x1="90" y1="28" x2="90" y2="118" stroke="#1d6b52" stroke-width="2.5" stroke-dasharray="4 3"/><circle cx="90" cy="36" r="5" fill="#1e2a1a"/><text x="90" y="132" text-anchor="middle" font-size="11" font-weight="800" fill="#1d6b52">1 line</text></svg>';
+  }
+  if(kind==="leaf"){
+    return '<svg viewBox="0 0 180 140" aria-hidden="true"><path d="M90 28 C120 40 140 70 118 105 C100 120 80 115 70 95 C55 70 60 40 90 28 Z" fill="#8fbf6b" stroke="#1e2a1a" stroke-width="2"/><path d="M118 70 Q145 55 150 40 Q130 50 118 70 Z" fill="#c4453a" opacity=".55"/><line x1="90" y1="30" x2="90" y2="110" stroke="#999" stroke-width="2" stroke-dasharray="3 3"/><text x="90" y="132" text-anchor="middle" font-size="11" font-weight="800" fill="#c4453a">no match</text></svg>';
+  }
+  return '<svg viewBox="0 0 180 140" aria-hidden="true"><path d="M90 105 C70 85 48 70 48 52 C48 38 60 30 72 30 C80 30 86 35 90 42" fill="#f5a0b8" stroke="#1e2a1a" stroke-width="2"/><line x1="90" y1="28" x2="90" y2="115" stroke="#1d6b52" stroke-width="2.5" stroke-dasharray="4 3"/><path d="M90 105 C110 85 132 70 132 52 C132 38 120 30 108 30 C100 30 94 35 90 42" fill="none" stroke="#1e2a1a" stroke-width="2" stroke-dasharray="5 4"/><text x="90" y="132" text-anchor="middle" font-size="11" font-weight="800" fill="#1d6b52">mirror half</text></svg>';
+}
+function addFig(stage,html){var d=document.createElement("div");d.className="fig-wrap";d.innerHTML=html;stage.appendChild(d)}
+function showStep(i,n){setText($("statechip"),(i+1)+" / "+n);$("statechip").className="statechip"+(lang==="ur"?" ur":"")}
+function showWin(msg){setText($("headline"),msg);$("statechip").className="statechip win"+(lang==="ur"?" ur":"");setText($("statechip"),t(T.nice))}
+function showMiss(){setText($("headline"),t(T.oops));$("statechip").className="statechip miss"+(lang==="ur"?" ur":"");setText($("statechip"),t(T.oops))}
+function stableOrder(key,arr){if(optKey!==key){optKey=key;optOrder=shuffle(arr)}return optOrder}
+function clearHint(){$("hintbox").classList.remove("show")}
+
+function renderChoices(ch,doneMap,prefix,modeKey,total,rerender){
+  var box=$("actionBox");box.innerHTML="";
+  var choices=document.createElement("div");choices.className="save-choices";
+  stableOrder(prefix+"-"+ch.id,ch.opts.slice()).forEach(function(opt){
+    var b=document.createElement("button");b.type="button";
+    var en=opt.en||"";
+    if(/^\d/.test(en)&&en.indexOf("cm")>=0&&en.length<=8){b.className="numc";b.textContent=en;b.setAttribute("dir","ltr")}
+    else setText(b,t(opt));
+    if(doneMap[ch.id]&&opt.id===ch.correct)b.classList.add("right");
+    b.disabled=!!doneMap[ch.id];
+    b.addEventListener("click",function(){if(doneMap[ch.id])return;if(opt.id===ch.correct){markWin(prefix,ch.id,doneMap,modeKey,total);rerender()}else{b.classList.add("wrong");showMiss()}});
+    choices.appendChild(b);
+  });
+  box.appendChild(choices);
+}
+
+function renderParts(){
+  var ch=PARTS[partsIdx],stage=prepScene();
+  addBlurb(stage,ch);addShow(stage,ch);addPills(stage,ch);
+  addFig(stage,circleSVG(ch.fig||"radius"));
+  showStep(partsIdx,PARTS.length);setText($("headline"),t(ch.title));
+  setText($("detail"),partsDone[ch.id]?t(ch.why):t(ch.ask));clearHint();
+  if(partsDone[ch.id])showWin(t(ch.done));
+  renderChoices(ch,partsDone,"parts","parts",PARTS.length,renderParts);
+  setText($("prog"),t(T.progParts)+": "+Object.keys(partsDone).length+"/"+PARTS.length);
+}
+function renderCompute(){
+  var ch=COMPUTE[compIdx],stage=prepScene();
+  addBlurb(stage,ch);addShow(stage,ch);
+  var eq=document.createElement("div");eq.className="eqline";
+  if(ch.kind==="dFromR")eq.textContent="d = 2 × "+ch.r+"  →  ?";
+  else eq.textContent="r = "+ch.d+" ÷ 2  →  ?";
+  stage.appendChild(eq);
+  addFig(stage,circleSVG(ch.kind==="dFromR"?"radius":"diameter"));
+  showStep(compIdx,COMPUTE.length);setText($("headline"),t(ch.title));
+  setText($("detail"),compDone[ch.id]?t(ch.why):t(ch.ask));clearHint();
+  if(compDone[ch.id])showWin(t(ch.done));
+  renderChoices(ch,compDone,"comp","compute",COMPUTE.length,renderCompute);
+  setText($("prog"),t(T.progCompute)+": "+Object.keys(compDone).length+"/"+COMPUTE.length);
+}
+function renderSym(){
+  var ch=SYM[symIdx],stage=prepScene();
+  addBlurb(stage,ch);addShow(stage,ch);
+  addFig(stage,symSVG(ch.fig||"coin"));
+  showStep(symIdx,SYM.length);setText($("headline"),t(ch.title));
+  setText($("detail"),symDone[ch.id]?t(ch.why):t(ch.ask));clearHint();
+  if(symDone[ch.id])showWin(t(ch.done));
+  renderChoices(ch,symDone,"sym","sym",SYM.length,renderSym);
+  setText($("prog"),t(T.progSym)+": "+Object.keys(symDone).length+"/"+SYM.length);
+}
+
+function pickQuiz(){
+  var pin=[],rest=[],i;quizState={};
+  for(i=0;i<QUIZ.length;i++){if(QUIZ[i].pin)pin.push(QUIZ[i]);else rest.push(QUIZ[i])}
+  rest=shuffle(rest);quizSet=shuffle(pin.concat(rest.slice(0,5-pin.length)));
+}
+function renderQuiz(){
+  var box=$("quizBox");box.innerHTML="";
+  quizSet.forEach(function(item,qi){
+    var wrap=document.createElement("div");wrap.className="q";
+    var p=document.createElement("p");setText(p,(qi+1)+". "+t(item.q));wrap.appendChild(p);
+    if(lang==="en"&&item.ru){var g=document.createElement("p");g.className="gloss";g.textContent=item.ru;wrap.appendChild(g)}
+    var st=quizState[item.id];
+    item.opts.forEach(function(opt,oi){
+      var b=document.createElement("button");b.type="button";b.className="opt"+(lang==="ur"?" ur":"");setText(b,t(opt));
+      if(st&&oi===item.correct)b.classList.add("right");
+      if(st==="no"&&quizState[item.id+"-pick"]===oi&&oi!==item.correct)b.classList.add("wrong");
+      if(st)b.disabled=true;
+      b.addEventListener("click",function(){
+        if(quizState[item.id])return;
+        quizState[item.id+"-pick"]=oi;
+        if(oi===item.correct){quizState[item.id]="ok";b.classList.add("right");award("quiz-"+item.id,1)}
+        else{quizState[item.id]="no";b.classList.add("wrong");var kids=wrap.querySelectorAll(".opt");if(kids[item.correct])kids[item.correct].classList.add("right")}
+        fb.classList.add("show");
+        var all=wrap.querySelectorAll(".opt"),k;for(k=0;k<all.length;k++)all[k].disabled=true;
+      });
+      wrap.appendChild(b);
+    });
+    var fb=document.createElement("p");fb.className="fb"+(st?" show":"");setText(fb,t(item.why));wrap.appendChild(fb);
+    box.appendChild(wrap);
+  });
+}
+function storyHtml(){if(mode==="parts")return t(T.storyParts);if(mode==="compute")return t(T.storyCompute);return t(T.storySym)}
+function currentTip(){if(mode==="parts")return T.tipParts;if(mode==="compute")return T.tipCompute;return T.tipSym}
+function tabBadges(){
+  function lab(btn,label,key){btn.innerHTML="";var span=document.createElement("span");setText(span,t(label));btn.appendChild(span);if(doneModes[key]){var b=document.createElement("span");b.className="badge";b.textContent=" ★";btn.appendChild(b)}}
+  lab($("tabParts"),T.tabParts,"parts");lab($("tabCompute"),T.tabCompute,"compute");lab($("tabSym"),T.tabSym,"sym");
+  $("tabParts").setAttribute("aria-pressed",mode==="parts"?"true":"false");
+  $("tabCompute").setAttribute("aria-pressed",mode==="compute"?"true":"false");
+  $("tabSym").setAttribute("aria-pressed",mode==="sym"?"true":"false");
+}
+function renderCurrent(){if(mode==="parts")renderParts();else if(mode==="compute")renderCompute();else renderSym()}
+function setMode(m){mode=m;optKey="";renderCurrent();applyChrome()}
+function applyChrome(){
+  setText($("title"),t(T.title));setText($("subtitle"),t(T.sub));
+  $("story").innerHTML=storyHtml();$("story").classList.toggle("ur",lang==="ur");$("story").setAttribute("dir",lang==="ur"?"rtl":"ltr");
+  setText($("ctlHead"),t(T.ctl));setText($("nextBtn"),t(T.next));setText($("hintBtn"),t(T.hint));setText($("resetBtn"),t(T.reset));
+  setText($("quizHead"),t(T.quiz));setText($("newQuiz"),t(T.newQuiz));
+  $("langBtn").textContent=(lang==="en")?"اردو":"EN";$("langBtn").setAttribute("aria-pressed",lang==="ur"?"true":"false");
+  document.body.classList.toggle("urdu",lang==="ur");
+  document.documentElement.lang=(lang==="ur")?"ur":"en";
+  document.documentElement.dir=(lang==="ur")?"rtl":"ltr";
+  document.title=t(T.title)+" | AI4Kids Class 4";
+  tabBadges();
+  var foot=document.querySelector("footer p");
+  if(foot)setText(foot,foot.getAttribute(lang==="ur"?"data-ur":"data-en"));
+}
+function applyLang(){applyChrome();renderCurrent();renderQuiz()}
+function next(){
+  optKey="";
+  if(mode==="parts"){partsIdx=(partsIdx+1)%PARTS.length;renderParts()}
+  else if(mode==="compute"){compIdx=(compIdx+1)%COMPUTE.length;renderCompute()}
+  else{symIdx=(symIdx+1)%SYM.length;renderSym()}
+}
+function showHint(){
+  var h=mode==="parts"?PARTS[partsIdx].hint:(mode==="compute"?COMPUTE[compIdx].hint:SYM[symIdx].hint);
+  var hb=$("hintbox");setText(hb,t(h));hb.classList.add("show");
+}
+function resetMode(){
+  if(mode==="parts"){Object.keys(awarded).forEach(function(k){if(k.indexOf("parts-")===0||k==="mode-parts")delete awarded[k]});partsDone={};partsIdx=0;doneModes.parts=false;recountStars();renderParts()}
+  else if(mode==="compute"){Object.keys(awarded).forEach(function(k){if(k.indexOf("comp-")===0||k==="mode-compute")delete awarded[k]});compDone={};compIdx=0;doneModes.compute=false;recountStars();renderCompute()}
+  else{Object.keys(awarded).forEach(function(k){if(k.indexOf("sym-")===0||k==="mode-sym")delete awarded[k]});symDone={};symIdx=0;doneModes.sym=false;recountStars();renderSym()}
+  optKey="";tabBadges();applyChrome();
+}
+function cleanSpeakText(s){return String(s||"").replace(/<[^>]+>/g," ").replace(/&gt;/g,">").replace(/&lt;/g,"<").replace(/&amp;/g,"&").replace(/\s+/g," ").trim()}
+function buildSpeakText(){
+  var bits=[];bits.push(t(T.title));bits.push(cleanSpeakText(storyHtml()));
+  bits.push(cleanSpeakText(($("headline")&&$("headline").textContent)||""));
+  bits.push(cleanSpeakText(($("detail")&&$("detail").textContent)||""));
+  bits.push(t(currentTip()));return bits.filter(Boolean).join(". ");
+}
+function pickVoice(voices,want){
+  var i,v,L;for(i=0;i<voices.length;i++){v=voices[i];L=(v.lang||"").toLowerCase().replace("_","-");if(L.indexOf(want)===0)return v}
+  for(i=0;i<voices.length;i++){v=voices[i];L=(v.lang||"").toLowerCase().replace("_","-");if(L.indexOf("en")===0)return v}
+  return voices[0]||null;
+}
+function setSpeaking(on){var btn=$("speakBtn");if(!btn)return;btn.setAttribute("aria-pressed",on?"true":"false");btn.style.opacity=on?"0.65":""}
+function doSpeak(text,asLang){
+  var u=new SpeechSynthesisUtterance(text);u.rate=0.92;u.lang=(asLang==="ur")?"ur-PK":"en-US";
+  var voices=window.speechSynthesis.getVoices()||[];var voice=pickVoice(voices,asLang==="ur"?"ur":"en");if(voice)u.voice=voice;
+  u.onstart=function(){setSpeaking(true)};u.onend=function(){setSpeaking(false)};
+  u.onerror=function(){setSpeaking(false);if(asLang==="ur"){var fallback=cleanSpeakText(T.title.en+". "+T.storyParts.en+". "+T.tipParts.en);var u2=new SpeechSynthesisUtterance(fallback);u2.lang="en-US";u2.rate=0.92;var v2=pickVoice(window.speechSynthesis.getVoices()||[],"en");if(v2)u2.voice=v2;u2.onstart=function(){setSpeaking(true)};u2.onend=u2.onerror=function(){setSpeaking(false)};window.speechSynthesis.speak(u2)}};
+  window.speechSynthesis.speak(u);
+}
+if("speechSynthesis" in window){
+  try{window.speechSynthesis.getVoices()}catch(e0){}
+  if(typeof window.speechSynthesis.addEventListener==="function"){window.speechSynthesis.addEventListener("voiceschanged",function(){try{window.speechSynthesis.getVoices()}catch(e1){}})}
+}else{var noBtn=$("speakBtn");if(noBtn){noBtn.disabled=true;noBtn.title="Voice not available on this device"}}
+$("langBtn").addEventListener("click",function(){lang=(lang==="en")?"ur":"en";applyLang()});
+$("tabParts").addEventListener("click",function(){setMode("parts")});
+$("tabCompute").addEventListener("click",function(){setMode("compute")});
+$("tabSym").addEventListener("click",function(){setMode("sym")});
+$("nextBtn").addEventListener("click",next);
+$("hintBtn").addEventListener("click",showHint);
+$("resetBtn").addEventListener("click",resetMode);
+$("newQuiz").addEventListener("click",function(){pickQuiz();renderQuiz()});
+$("speakBtn").addEventListener("click",function(){
+  try{
+    if(!("speechSynthesis" in window))return;
+    var text=buildSpeakText();if(!text)return;
+    if(speakTimer){clearTimeout(speakTimer);speakTimer=null}
+    window.speechSynthesis.cancel();setSpeaking(false);
+    var speakLang=lang;
+    speakTimer=setTimeout(function(){speakTimer=null;doSpeak(text,speakLang)},80);
+  }catch(e){setSpeaking(false)}
+});
+pickQuiz();applyLang();
+})();
+</script>
+</body>
+</html>

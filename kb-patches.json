@@ -503,5 +503,13 @@
       "interactive_file": "interactives/g4-geometry-angles.html",
       "interactive_label": "Khelo - Geometry angles"
     }
+  },
+  {
+    "file": "kb/grade_4/math.json",
+    "match_title": "Circle aur symmetry",
+    "add": {
+      "interactive_file": "interactives/g4-circle-symmetry.html",
+      "interactive_label": "Khelo - Circle aur symmetry"
+    }
   }
 ]
