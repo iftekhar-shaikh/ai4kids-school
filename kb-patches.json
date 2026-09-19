@@ -719,5 +719,13 @@
       "interactive_file": "interactives/g3-haddiyaan-muscles.html",
       "interactive_label": "Khelo - Haddiyaan aur muscles"
     }
+  },
+  {
+    "file": "kb/grade_3/science.json",
+    "match_title": "Sehatmand aadat",
+    "add": {
+      "interactive_file": "interactives/g3-sehatmand-aadat.html",
+      "interactive_label": "Khelo - Sehatmand aadat"
+    }
   }
 ]

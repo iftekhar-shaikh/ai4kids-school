@@ -114,7 +114,9 @@
             "explanation": "Rozana 2-3 litre paani peena sehat ke liye acha hota hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g3-sehatmand-aadat.html",
+      "interactive_label": "Khelo - Sehatmand aadat"
     },
     {
       "title": "Matter: solid liquid gas",

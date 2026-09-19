@@ -1086,6 +1086,7 @@ def render_topic_interactive(subject_key, grade, topic_title):
             (3, "science", "Paani ka safar"): "interactives/g3-paani-ka-safar.html",
             (3, "science", "Matter: solid liquid gas"): "interactives/g3-states-of-matter.html",
     (3, "science", "Haddiyaan aur muscles"): "interactives/g3-haddiyaan-muscles.html",
+    (3, "science", "Sehatmand aadat"): "interactives/g3-sehatmand-aadat.html",
             (4, "science", "Hazam ka nizam"): "interactives/g4-hazam-ka-nizam.html",
             (4, "science", "Taqat aur harkat"): "interactives/g4-taqat-aur-harkat.html",
     (4, "science", "Simple machines"): "interactives/g4-simple-machines.html",

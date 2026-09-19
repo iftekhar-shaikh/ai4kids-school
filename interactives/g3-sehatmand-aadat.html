@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sehatmand aadat | AI4Kids Grade 3 General Science</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ex:#2e9a5c;
+    --ex-deep:#1e6b3f;
+    --sleep:#5b6fd9;
+    --sleep-deep:#3a4aa8;
+    --water:#2a9bb8;
+    --water-deep:#1a6f86;
+    --plate:#c9702e;
+    --plate-deep:#9a5320;
+    --fruit:#e85d75;
+    --veg:#4caf70;
+    --grain:#d4a017;
+    --protein:#c45c3a;
+    --ok:#2e7d4f;
+    --no:#c4453a;
+    --ink:#1f2933;
+    --ink-soft:#4a5661;
+    --paper:#fdfaf3;
+    --line:#ded5c4;
+    --accent:#1a5b8f;
+    --warm:#c9702e;
+    --care:#3d8b6e;
+    --board:#eef3f7;
+    --board-deep:#d9e5ee;
+    --good-bg:#e8f2ed;
+    --bad-bg:#fbeae8;
+
+    --fs-cap:clamp(14px, 3.8vw, 16px);
+    --fs-xs:clamp(16px, 4.2vw, 18px);
+    --fs-sm:clamp(18px, 4.8vw, 20px);
+    --fs-md:clamp(19px, 5.2vw, 22px);
+    --fs-lg:clamp(22px, 6vw, 26px);
+    --fs-xl:clamp(30px, 8vw, 38px);
+    --lh:1.5;
+  }
+  body.urdu{
+    --fs-cap:clamp(15px, 4vw, 17px);
+    --fs-xs:clamp(17px, 4.5vw, 19px);
+    --fs-sm:clamp(19px, 5.2vw, 22px);
+    --fs-md:clamp(21px, 5.6vw, 24px);
+    --fs-lg:clamp(24px, 6.5vw, 28px);
+    --fs-xl:clamp(28px, 7.5vw, 36px);
+    --lh:2.1;
+  }
+
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px;flex-wrap:wrap}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:42px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--warm);outline-offset:2px}
+
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+
+  .tabs{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 14px}
+  .tabs button{
+    flex:1 1 28%;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:9px 6px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:52px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:linear-gradient(180deg,var(--board) 0%,var(--board-deep) 100%);
+    padding:14px;
+  }
+
+  .readout{
+    margin-top:12px;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-cap);font-weight:700;margin-bottom:10px;
+             background:var(--accent)}
+  .statechip.ur{padding:2px 14px 7px}
+  .lead{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+  .lead.ur{line-height:1.95}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+
+  .why-note{
+    margin:12px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.55;
+    border-left:3px solid var(--accent);padding-left:11px;
+  }
+  .why-note b{color:var(--accent);font-weight:800}
+  body.urdu .why-note{
+    border-left:0;border-right:3px solid var(--accent);padding-left:0;padding-right:11px;
+    line-height:var(--lh);
+  }
+
+  .play{
+    width:100%;margin-top:12px;border:3px solid var(--ink);border-radius:18px;
+    background:var(--ink);color:var(--paper);font:inherit;font-weight:800;
+    font-size:var(--fs-md);cursor:pointer;min-height:60px;
+  }
+  .play:active{transform:scale(.98)}
+  .play.alt{background:var(--ex);border-color:var(--ex-deep)}
+  .play:disabled{opacity:.45;cursor:not-allowed}
+
+  .two{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+  .two .play{flex:1;min-width:140px;margin-top:0}
+
+  .card-row{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+  .card{flex:1;min-width:120px;border:3px solid var(--line);border-radius:16px;padding:12px 10px;text-align:center}
+  .card em{display:block;font-style:normal;font-size:var(--fs-cap);color:var(--ink-soft);
+           font-weight:700;margin-bottom:4px}
+  .card b{display:block;font-size:var(--fs-md);font-weight:800;line-height:1.25}
+
+  .panel{margin-top:18px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+
+  .lesson{
+    margin-top:18px;border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+    background:var(--paper);
+  }
+  .lesson .tag{
+    display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+    padding:4px 12px;font-size:var(--fs-cap);font-weight:800;margin-bottom:10px;
+  }
+  .lesson p{margin:0 0 10px;font-size:var(--fs-sm);line-height:1.55}
+  .lesson p:last-child{margin-bottom:0}
+  body.urdu .lesson p{line-height:var(--lh)}
+
+  .habit-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .habit-btn{
+    border:3px solid var(--line);background:var(--paper);border-radius:18px;
+    padding:16px 10px;font:inherit;cursor:pointer;min-height:110px;color:var(--ink);
+    text-align:center;
+  }
+  .habit-btn .emoji{font-size:36px;display:block;margin-bottom:6px}
+  .habit-btn .lbl{font-size:var(--fs-sm);font-weight:800;display:block;line-height:1.3}
+  .habit-btn[aria-pressed="true"]{border-color:var(--ink);box-shadow:0 0 0 3px rgba(26,91,143,.2)}
+  .habit-btn.ex[aria-pressed="true"]{border-color:var(--ex);background:#e8f5ee}
+  .habit-btn.sleep[aria-pressed="true"]{border-color:var(--sleep);background:#eef0fb}
+  .habit-btn.water[aria-pressed="true"]{border-color:var(--water);background:#e6f5f9}
+  .habit-btn.plate[aria-pressed="true"]{border-color:var(--plate);background:#fbf1e8}
+
+  .food-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+  .food-btn{
+    border:3px solid var(--line);background:var(--paper);border-radius:16px;
+    padding:12px 8px;font:inherit;cursor:pointer;min-height:78px;color:var(--ink);
+    text-align:center;
+  }
+  .food-btn .emoji{font-size:28px;display:block;margin-bottom:4px}
+  .food-btn .lbl{font-size:var(--fs-cap);font-weight:800;display:block;line-height:1.25}
+  .food-btn.on{border-color:var(--ink);background:#fff8e8}
+  .food-btn.on.fruit{border-color:var(--fruit);background:#fdecef}
+  .food-btn.on.veg{border-color:var(--veg);background:#eaf6ef}
+  .food-btn.on.grain{border-color:var(--grain);background:#fbf4e0}
+  .food-btn.on.protein{border-color:var(--protein);background:#f9ebe6}
+
+  .thali{
+    margin-top:12px;border:3px dashed var(--plate);border-radius:50%;
+    width:min(280px,80vw);aspect-ratio:1;margin-left:auto;margin-right:auto;
+    background:radial-gradient(circle at 50% 45%,#fff8e8 0%,#f0e0c8 70%,#e0c8a0 100%);
+    display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:6px;
+    padding:28px;position:relative;
+  }
+  .thali .slot{
+    width:42%;height:38%;border-radius:50%;border:2px dashed var(--line);
+    display:flex;align-items:center;justify-content:center;font-size:28px;
+    background:rgba(255,255,255,.45);
+  }
+  .thali .slot.filled{border-style:solid;background:rgba(255,255,255,.85)}
+  .thali-label{
+    text-align:center;font-size:var(--fs-cap);font-weight:700;color:var(--ink-soft);margin-top:8px;
+  }
+
+  .sort-prompt{
+    margin-top:12px;padding:14px 16px;border:2px dashed var(--warm);border-radius:14px;
+    background:#fbf1e8;font-size:var(--fs-sm);font-weight:700;color:#8a4a12;line-height:1.55;
+  }
+  body.urdu .sort-prompt{line-height:var(--lh)}
+
+  .sort-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+  .sort-bin{
+    border:3px solid var(--line);border-radius:16px;padding:12px;min-height:120px;
+    background:var(--paper);
+  }
+  .sort-bin.good{border-color:var(--ok);background:var(--good-bg)}
+  .sort-bin.bad{border-color:var(--no);background:var(--bad-bg)}
+  .sort-bin h3{margin:0 0 8px;font-size:var(--fs-sm);font-weight:800;text-align:center}
+  .sort-bin .drop{min-height:60px;display:flex;flex-direction:column;gap:6px}
+
+  .choice-btn{
+    border:3px solid var(--line);background:var(--paper);border-radius:14px;
+    padding:12px 10px;font:inherit;font-weight:700;font-size:var(--fs-cap);
+    cursor:pointer;min-height:56px;color:var(--ink);text-align:center;width:100%;
+  }
+  .choice-btn .emoji{font-size:22px;margin-right:4px}
+  body.urdu .choice-btn .emoji{margin-right:0;margin-left:4px}
+  .choice-btn.picked-good{border-color:var(--ok);background:var(--good-bg)}
+  .choice-btn.picked-bad{border-color:var(--no);background:var(--bad-bg)}
+  .choice-btn:disabled{opacity:.7;cursor:default}
+
+  .check-list{display:flex;flex-direction:column;gap:10px;margin-top:10px}
+  .check-item{
+    display:flex;align-items:flex-start;gap:12px;border:3px solid var(--line);
+    border-radius:16px;padding:14px 14px;background:var(--paper);cursor:pointer;
+    font:inherit;text-align:left;color:var(--ink);width:100%;
+  }
+  body.urdu .check-item{text-align:right;flex-direction:row-reverse}
+  .check-item .box{
+    flex:0 0 28px;width:28px;height:28px;border:3px solid var(--ink);border-radius:8px;
+    margin-top:2px;display:flex;align-items:center;justify-content:center;
+    font-size:18px;font-weight:800;background:var(--paper);
+  }
+  .check-item[aria-pressed="true"]{border-color:var(--ok);background:var(--good-bg)}
+  .check-item[aria-pressed="true"] .box{background:var(--ok);color:#fff;border-color:var(--ok)}
+  .check-item .txt{flex:1}
+  .check-item .when{display:block;font-size:var(--fs-cap);font-weight:800;color:var(--accent);margin-bottom:2px}
+  .check-item .what{display:block;font-size:var(--fs-sm);font-weight:700;line-height:1.35}
+
+  .progress{
+    margin-top:12px;height:14px;border-radius:999px;background:var(--line);overflow:hidden;
+    border:2px solid var(--ink);
+  }
+  .progress > span{display:block;height:100%;background:var(--ex);width:0%;transition:width .3s}
+
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:52px;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e6f4ec;font-weight:600}
+  .opt.wrong{border-color:var(--no);background:#fbeae4}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none;line-height:1.55}
+  .fb.show{display:block}
+  .score{
+    margin-top:8px;padding:14px 16px;border:3px solid var(--ok);border-radius:16px;
+    background:#eaf4ee;font-size:var(--fs-md);font-weight:800;text-align:center;
+    display:none;
+  }
+  .score.show{display:block}
+
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+
+  .hidden{display:none !important}
+
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;
+      grid-template-columns:1fr 1fr;
+      grid-template-areas:
+        "bar   bar"
+        "head  head"
+        "tabs  tabs"
+        "left  right"
+        "quiz  quiz"
+        "foot  foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar}
+    .head{grid-area:head}
+    .tabs{grid-area:tabs}
+    .left{grid-area:left}
+    .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px}
+    footer{grid-area:foot}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition-duration:.01ms !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Grade 3 · General Science</span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunein">🔊</button>
+  </div>
+
+  <div class="head">
+    <h1 id="title"></h1>
+    <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group" id="tabs">
+    <button type="button" data-tab="hook" aria-pressed="true">Hook</button>
+    <button type="button" data-tab="habits" aria-pressed="false">Habits</button>
+    <button type="button" data-tab="plate" aria-pressed="false">Plate</button>
+    <button type="button" data-tab="sleep" aria-pressed="false">Sleep</button>
+    <button type="button" data-tab="day" aria-pressed="false">Day</button>
+  </div>
+
+  <div class="left" id="leftPane"></div>
+  <div class="right" id="rightPane"></div>
+
+  <div class="quiz">
+    <h2 id="quizHead" style="font-size:var(--fs-lg);font-weight:800;margin:0 0 16px"></h2>
+    <div id="quizBox"></div>
+    <div class="score" id="scoreBox"></div>
+  </div>
+
+  <footer id="foot"></footer>
+</div>
+
+<script>
+(function(){
+  var lang = "en";
+  var tab = "hook";
+  var lastSpoken = "";
+  var selectedHabit = "exercise";
+  var platePicks = {fruit:false, veg:false, grain:false, protein:false};
+  var sleepIndex = 0;
+  var sleepFeedback = "";
+  var sleepPick = null;
+  var dayChecks = [false,false,false,false,false,false];
+  var quizScore = 0;
+  var quizAnswered = 0;
+
+  var T = {
+    brand: {en:"AI4Kids · Grade 3 · General Science", ur:"AI4Kids · جماعت ۳ · جنرل سائنس"},
+    title: {en:"Sehatmand aadat", ur:"صحت مند عادت"},
+    sub: {
+      en:"Exercise, sleep, water, and a balanced plate — tap, build, sort, and check your healthy day!",
+      ur:"ورزش، نیند، پانی اور متوازن پلیٹ — چھوئیں، بنائیں، چُنیں، اور اپنا صحت مند دن چیک کریں!"
+    },
+    tabs: {
+      hook:{en:"Hook", ur:"ہُک"},
+      habits:{en:"Habits", ur:"عادتیں"},
+      plate:{en:"Plate", ur:"پلیٹ"},
+      sleep:{en:"Sleep", ur:"نیند"},
+      day:{en:"Day", ur:"دن"}
+    },
+    quiz: {en:"Quiz — 5 sawaal", ur:"کوئز — ۵ سوال"},
+    scoreLbl: {en:"Your score", ur:"آپ کا اسکور"},
+    of: {en:"out of", ur:"میں سے"},
+    foot: {
+      en:"AI4Kids Islamabad · Grade 3 General Science · Sehatmand aadat",
+      ur:"AI4Kids اسلام آباد · جماعت ۳ جنرل سائنس · صحت مند عادت"
+    },
+    ghaur: {en:"Ghaur karein:", ur:"غور کریں:"}
+  };
+
+  var HOOK = {
+    tag:{en:"HOOK", ur:"ہُک"},
+    p1:{
+      en:"Come kids — imagine your body is a player. Can we expect a great game with no practice? No way! Healthy habits are a big part of life. What do you think we should do to stay sehatmand?",
+      ur:"آؤ بچوں، سوچو اگر ہمارا جسم ایک کھلاڑی ہے۔ کیا ہمیں بغیر پریکٹس کے اچھی گیم کھیلنے کی امید رکھنی چاہیے؟ بالکل نہیں! صحت مند عادتیں ہماری زندگی کا ایک اہم حصہ ہیں۔ تم کیا سمجھتے ہو، صحت مند رہنے کے لیے ہمیں کیا کرنا چاہیے؟"
+    },
+    p2:{
+      en:"In Islamabad parks, kids who run, sleep well, drink water, and eat mixed food feel strong for school and cricket!",
+      ur:"اسلام آباد کے پارکوں میں جو بچے دوڑتے، اچھی نیند لیتے، پانی پیتے اور ملا جلا کھانا کھاتے ہیں، وہ اسکول اور کرکٹ کے لیے مضبوط محسوس کرتے ہیں!"
+    }
+  };
+  var SAMJHAO = {
+    tag:{en:"SAMJHAO", ur:"سمجھاؤ"},
+    p1:{
+      en:"Healthy habits rest on three main things: Exercise, Sleep, and a Balanced Diet. When we exercise, our body gets stronger and we feel better. Play a little every day — cricket, football, or a run with friends in the park.",
+      ur:"صحت مند عادتیں تین اصل چیزوں پر مبنی ہوتی ہیں: ورزش، نیند، اور متوازن خوراک۔ جب ہم ورزش کرتے ہیں، ہمارا جسم طاقتور ہوتا ہے اور ہم بہتر محسوس کرتے ہیں۔ ہر روز تھوڑی دیر کھیل کود کریں — کرکٹ، فٹ بال، یا پارک میں دوستوں کے ساتھ دوڑ۔"
+    },
+    p2:{
+      en:"Sleep is as important as food. Good sleep helps your brain work and helps you learn better at school. Aim for about 8 to 10 hours so your body can recover.",
+      ur:"نیند ہمارے لیے اتنی ہی ضروری ہے جتنی کھانا۔ اچھی نیند سے دماغ ٹھیک کام کرتا ہے اور اسکول میں بہتر سیکھ سکتے ہیں۔ تقریباً ۸ سے ۱۰ گھنٹے کی نیند لیں تاکہ جسم درست ہو۔"
+    },
+    p3:{
+      en:"A balanced diet means every kind of needed food — sabziyan, fruits, daals, and doodh. Mixing them on your plate is always better than only one food.",
+      ur:"متوازن خوراک وہ ہوتی ہے جس میں ہر طرح کی ضرورت کی خوراک ملے — سبزیاں، پھل، دالیں اور دودھ۔ پلیٹ پر سب ملا کر کھانا ہمیشہ بہتر ہوتا ہے۔"
+    }
+  };
+  var MISAAL = {
+    tag:{en:"MISAAL", ur:"مثال"},
+    p1:{
+      en:"At the bazaar you buy biryani — daal, chicken, masala, aroma. But if you eat only biryani and skip sabzi or fruits, your balanced diet slips away. Put every group on your thali!",
+      ur:"بازار میں بریانی خریدتے ہو — دال، چکن، مصالحہ، خوشبو۔ لیکن اگر صرف بریانی کھاؤ اور سبزی یا پھل نہ لو، تو متوازن خوراک ختم ہو جاتی ہے۔ تھالی میں ہر گروپ شامل کرو!"
+    }
+  };
+  var KARO = {
+    tag:{en:"KARO", ur:"کرو"},
+    p1:{
+      en:"Fun activity: plan a Healthy Day at home. Decide healthy foods, how much exercise, and what time you will sleep. Write your plan and watch how your sehat improves!",
+      ur:"مزے کی سرگرمی: گھر پر ایک Healthy Day پلان کرو۔ فیصلہ کرو آج کیا صحت مند کھانا کھاؤ گے، کتنی ورزش کرو گے، اور رات کو کتنے بجے سو جاؤ گے۔ پلان لکھو اور دیکھو صحت کیسے بہتر ہوتی ہے!"
+    }
+  };
+
+  var HABITS = {
+    head:{en:"Daily habits board — tap a tip", ur:"روزانہ عادتوں کا بورڈ — ٹپ چھوئیں"},
+    items:{
+      exercise:{
+        emoji:"🏃",
+        chip:{en:"Exercise", ur:"ورزش"},
+        chipBg:"var(--ex)",
+        name:{en:"Exercise keeps you strong", ur:"ورزش آپ کو مضبوط رکھتی ہے"},
+        desc:{
+          en:"Run, jump, cricket, or football every day. Muscles and heart get stronger — perfect for F-7 parks and school playtime!",
+          ur:"ہر روز دوڑ، چھلانگ، کرکٹ یا فٹ بال۔ مسکلز اور دل مضبوط ہوتے ہیں — ایف۔۷ پارک اور اسکول کھیل کے لیے بہترین!"
+        },
+        tip:{
+          en:"Aim for about 60 minutes of active play — even small games count.",
+          ur:"تقریباً ۶۰ منٹ متحرک کھیل — چھوٹے کھیل بھی شمار ہوتے ہیں۔"
+        }
+      },
+      sleep:{
+        emoji:"😴",
+        chip:{en:"Sleep", ur:"نیند"},
+        chipBg:"var(--sleep)",
+        name:{en:"Sleep recharges your brain", ur:"نیند دماغ کو چارج کرتی ہے"},
+        desc:{
+          en:"Kids need about 8–10 hours. Good sleep helps memory, mood, and energy for tomorrow's class.",
+          ur:"بچوں کو تقریباً ۸–۱۰ گھنٹے چاہیے۔ اچھی نیند یادداشت، موڈ اور کل کی کلاس کے لیے توانائی دیتی ہے۔"
+        },
+        tip:{
+          en:"Same bedtime each night beats late phone scrolling.",
+          ur:"ہر رات ایک جیسا سونے کا وقت فون گھومانے سے بہتر ہے۔"
+        }
+      },
+      water:{
+        emoji:"💧",
+        chip:{en:"Water", ur:"پانی"},
+        chipBg:"var(--water)",
+        name:{en:"Water keeps you going", ur:"پانی آپ کو چلاتا رہتا ہے"},
+        desc:{
+          en:"Drink about 2–3 litres across the day — school bottle, after play, with meals. Water helps body cool and think clearly.",
+          ur:"دن بھر تقریباً ۲–۳ لیٹر پئیں — اسکول کی بوتل، کھیل کے بعد، کھانے کے ساتھ۔ پانی جسم کو ٹھنڈا اور دماغ صاف رکھتا ہے۔"
+        },
+        tip:{
+          en:"If you feel tired after cricket, sip water before more juice or soda.",
+          ur:"کرکٹ کے بعد اگر تھکاوٹ ہو تو جوس سے پہلے پانی پی لو۔"
+        }
+      },
+      plate:{
+        emoji:"🥗",
+        chip:{en:"Balanced plate", ur:"متوازن پلیٹ"},
+        chipBg:"var(--plate)",
+        name:{en:"A mixed thali feeds every need", ur:"ملی جلی تھالی ہر ضرورت پوری کرتی ہے"},
+        desc:{
+          en:"Fruits, veggies, grains (roti/rice), and protein (daal, egg, chicken, doodh) together make a balanced plate.",
+          ur:"پھل، سبزیاں، اناج (روٹی/چاول) اور پروٹین (دال، انڈا، چکن، دودھ) مل کر متوازن پلیٹ بناتے ہیں۔"
+        },
+        tip:{
+          en:"One food alone is not enough — mix colours on your thali!",
+          ur:"صرف ایک کھانا کافی نہیں — تھالی پر رنگ ملاؤ!"
+        }
+      }
+    }
+  };
+
+  var PLATE = {
+    head:{en:"Plate builder — make a balanced thali", ur:"پلیٹ بلڈر — متوازن تھالی بنائیں"},
+    ask:{en:"Tap foods to put them on your thali. Need all four groups!", ur:"کھانے چھو کر تھالی پر رکھو۔ چاروں گروپ چاہیے!"},
+    groups:{
+      fruit:{en:"Fruits", ur:"پھل", emoji:"🍎", eg:{en:"Apple, banana, mango", ur:"سیب، کیلا، آم"}},
+      veg:{en:"Veggies", ur:"سبزیاں", emoji:"🥦", eg:{en:"Palak, carrot, salad", ur:"پالک، گاجر، سلاد"}},
+      grain:{en:"Grains", ur:"اناج", emoji:"🌾", eg:{en:"Roti, rice, daal bread", ur:"روٹی، چاول، نان"}},
+      protein:{en:"Protein", ur:"پروٹین", emoji:"🥚", eg:{en:"Egg, daal, chicken, doodh", ur:"انڈا، دال، چکن، دودھ"}}
+    },
+    empty:{en:"Empty", ur:"خالی"},
+    bal:{
+      en:"Shabash! Your thali has fruits, veggies, grains, and protein — that is a balanced plate.",
+      ur:"شاباش! تھالی میں پھل، سبزیاں، اناج اور پروٹین ہیں — یہی متوازن پلیٹ ہے۔"
+    },
+    need:{
+      en:"Still missing some groups. Add every colour so your body gets full power!",
+      ur:"کچھ گروپ ابھی کم ہیں۔ ہر رنگ شامل کرو تاکہ جسم کو پوری طاقت ملے!"
+    },
+    reset:{en:"Clear thali", ur:"تھالی صاف کرو"},
+    tip:{
+      en:"Biryani alone is tasty, but add salad and fruit for balance — just like the bazaar tip!",
+      ur:"صرف بریانی مزے کی ہے، مگر سلاد اور پھل شامل کرو — بالکل بازار والی مثال کی طرح!"
+    }
+  };
+
+  var SLEEP = {
+    head:{en:"Sleep vs screen — good or bad?", ur:"نیند بمقابلہ اسکرین — اچھا یا برا؟"},
+    promptAsk:{en:"Is this choice good for sleep?", ur:"کیا یہ انتخاب نیند کے لیے اچھا ہے؟"},
+    goodBin:{en:"Good for sleep ✓", ur:"نیند کے لیے اچھا ✓"},
+    badBin:{en:"Bad for sleep ✗", ur:"نیند کے لیے برا ✗"},
+    next:{en:"Next choice", ur:"اگلا انتخاب"},
+    done:{en:"Shabash! You sorted all sleep choices.", ur:"شاباش! آپ نے سب نیند کے انتخاب چُن لیے۔"},
+    items:[
+      {
+        id:"book",
+        ask:{en:"Read a short story book in bed before lights out?", ur:"روشنی بند کرنے سے پہلے بستر پر چھوٹی کہانی پڑھنا؟"},
+        ans:"good",
+        ok:{en:"Good! A calm book helps the brain slow down for sleep.", ur:"اچھا! پرسکون کتاب دماغ کو نیند کے لیے آہستہ کرتی ہے۔"},
+        no:{en:"Actually this is good — calm reading helps sleep.", ur:"دراصل یہ اچھا ہے — پرسکون پڑھنا نیند میں مدد دیتا ہے۔"}
+      },
+      {
+        id:"phone",
+        ask:{en:"Scroll phone or play loud games until midnight?", ur:"آدھی رات تک فون گھومانا یا تیز گیمز کھیلنا؟"},
+        ans:"bad",
+        ok:{en:"Right — bright screens and late games push sleep away.", ur:"درست — روشن اسکرین اور دیر کی گیمز نیند دور کر دیتی ہیں۔"},
+        no:{en:"Hint: late screens make it harder to fall asleep.", ur:"اشارہ: دیر کی اسکرین نیند مشکل بناتی ہے۔"}
+      },
+      {
+        id:"time",
+        ask:{en:"Same bedtime every school night around 9 pm?", ur:"ہر اسکول رات تقریباً ۹ بجے ایک جیسا سونے کا وقت؟"},
+        ans:"good",
+        ok:{en:"Yes! A steady bedtime trains your body clock.", ur:"ہاں! مستقل وقت جسم کی گھڑی کو تربیت دیتا ہے۔"},
+        no:{en:"A steady bedtime is actually good for sleep.", ur:"مستقل سونے کا وقت نیند کے لیے اچھا ہے۔"}
+      },
+      {
+        id:"soda",
+        ask:{en:"Drink cola or energy drink late at night?", ur:"رات کو دیر سے کولا یا انرجی ڈرنک پینا؟"},
+        ans:"bad",
+        ok:{en:"Correct — caffeine and sugar keep you awake.", ur:"درست — کیفین اور چینی جاگتے رکھتی ہیں۔"},
+        no:{en:"Hint: sugary / caffeine drinks fight sleep.", ur:"اشارہ: میٹھے / کیفین والے مشروبات نیند سے لڑتے ہیں۔"}
+      },
+      {
+        id:"dark",
+        ask:{en:"Keep room quiet and a bit dark for sleep?", ur:"سونے کے لیے کمرہ پرسکون اور تھوڑا اندھیرا رکھنا؟"},
+        ans:"good",
+        ok:{en:"Perfect — quiet and dark help deep sleep.", ur:"بہترین — پرسکون اور اندھیرا گہری نیند میں مدد دیتے ہیں۔"},
+        no:{en:"Quiet and dark rooms are good for sleep!", ur:"پرسکون اور اندھیرا کمرہ نیند کے لیے اچھا ہے!"}
+      }
+    ]
+  };
+
+  var DAY = {
+    head:{en:"Mini checklist — healthy day", ur:"منی چیک لسٹ — صحت مند دن"},
+    ask:{en:"Tick each healthy step from morning to night.", ur:"صبح سے رات تک ہر صحت مند قدم پر ٹک لگائیں۔"},
+    items:[
+      {
+        when:{en:"Morning", ur:"صبح"},
+        what:{en:"Drink water and eat a breakfast with egg/daal + roti or fruit.", ur:"پانی پیو اور ناشتہ میں انڈا/دال + روٹی یا پھل کھاؤ۔"}
+      },
+      {
+        when:{en:"School", ur:"اسکول"},
+        what:{en:"Carry a water bottle and move in break time.", ur:"پانی کی بوتل رکھو اور بریک میں حرکت کرو۔"}
+      },
+      {
+        when:{en:"Afternoon", ur:"دوپہر"},
+        what:{en:"Play outside — cricket, run, or park games (~30–60 min).", ur:"باہر کھیلو — کرکٹ، دوڑ یا پارک (~۳۰–۶۰ منٹ)۔"}
+      },
+      {
+        when:{en:"Evening meal", ur:"شام کا کھانا"},
+        what:{en:"Balanced thali: sabzi + grain + protein + a little fruit.", ur:"متوازن تھالی: سبزی + اناج + پروٹین + تھوڑا پھل۔"}
+      },
+      {
+        when:{en:"Screens", ur:"اسکرین"},
+        what:{en:"Stop loud games / bright phone ~1 hour before bed.", ur:"سونے سے ~۱ گھنٹہ پہلے تیز گیم / روشن فون بند۔"}
+      },
+      {
+        when:{en:"Night", ur:"رات"},
+        what:{en:"Lights out for about 8–10 hours of sleep.", ur:"روشنی بند — تقریباً ۸–۱۰ گھنٹے نیند۔"}
+      }
+    ],
+    prog:{en:"Healthy steps done", ur:"صحت مند قدم مکمل"},
+    all:{
+      en:"Shabash! You planned a full healthy day — exercise, water, plate, and sleep.",
+      ur:"شاباش! آپ نے پورا صحت مند دن پلان کیا — ورزش، پانی، پلیٹ اور نیند۔"
+    },
+    tip:{
+      en:"Write this plan on paper at home — that is your KARO activity!",
+      ur:"یہ پلان گھر پر کاغذ پر لکھو — یہی آپ کی کرو سرگرمی ہے!"
+    }
+  };
+
+  /* Quiz exact from brief */
+  var QUIZ = [
+    {
+      q:{en:"Sehatmand aadaton mein se kaun si aadat bahut zaroori hai?", ur:"صحت مند عادتوں میں سے کون سی عادت بہت ضروری ہے؟"},
+      o:[
+        {en:"Rozana warzish karna", ur:"روزانہ ورزش کرنا"},
+        {en:"Sirf TV dekhna", ur:"صرف ٹی وی دیکھنا"},
+        {en:"Siff eitaq zindagi guzarni", ur:"صرف آرام کی زندگی گزارنی"},
+        {en:"Junk food khana", ur:"جنک فوڈ کھانا"}
+      ],
+      a:0,
+      f:{
+        en:"Rozana warzish karna se sehat behtar hoti hai.",
+        ur:"روزانہ ورزش کرنے سے صحت بہتر ہوتی ہے۔"
+      }
+    },
+    {
+      q:{en:"Kitni der neend lena sehat ke liye acha hota hai?", ur:"کتنی دیر نیند لینا صحت کے لیے اچھا ہوتا ہے؟"},
+      o:[
+        {en:"4 ghante", ur:"۴ گھنٹے"},
+        {en:"8 ghante", ur:"۸ گھنٹے"},
+        {en:"10 ghante", ur:"۱۰ گھنٹے"},
+        {en:"12 ghante", ur:"۱۲ گھنٹے"}
+      ],
+      a:1,
+      f:{
+        en:"8 ghante ki neend lena aksar logon ke liye faydemand hota hai.",
+        ur:"۸ گھنٹے کی نیند لینا اکثر لوگوں کے لیے فائدہ مند ہوتا ہے۔"
+      }
+    },
+    {
+      q:{en:"Balanced diet mein kya shamil hota hai?", ur:"متوازن خوراک میں کیا شامل ہوتا ہے؟"},
+      o:[
+        {en:"Sabziyan aur phal", ur:"سبزیاں اور پھل"},
+        {en:"Sirf sweets", ur:"صرف مٹھائیاں"},
+        {en:"Sirf chawal", ur:"صرف چاول"},
+        {en:"Kewal dahi", ur:"صرف دہی"}
+      ],
+      a:2,
+      f:{
+        en:"Balanced diet mein sabziyan, phal, protein aur carbs ki zaroorat hoti hai.",
+        ur:"متوازن خوراک میں سبزیاں، پھل، پروٹین اور کاربز کی ضرورت ہوتی ہے۔"
+      }
+    },
+    {
+      q:{en:"Dayarati khana khana ka fayda kya hai?", ur:"دیہاتی کھانا کھانے کا فائدہ کیا ہے؟"},
+      o:[
+        {en:"Sehat barhata hai", ur:"صحت بڑھاتا ہے"},
+        {en:"Bari bimariyan banta hai", ur:"بڑی بیماریاں بناتا ہے"},
+        {en:"Khud ko kamzor kar deta hai", ur:"خود کو کمزور کر دیتا ہے"},
+        {en:"Acha nahi hai", ur:"اچھا نہیں ہے"}
+      ],
+      a:0,
+      f:{
+        en:"Dayarati khana khane se sehat barhati hai aur taqat milti hai.",
+        ur:"دیہاتی کھانا کھانے سے صحت بڑھتی ہے اور طاقت ملتی ہے۔"
+      }
+    },
+    {
+      q:{en:"Rozana kitna paani peena chahiye?", ur:"روزانہ کتنا پانی پینا چاہیے؟"},
+      o:[
+        {en:"1 litre", ur:"۱ لیٹر"},
+        {en:"2-3 litre", ur:"۲–۳ لیٹر"},
+        {en:"5 litre", ur:"۵ لیٹر"},
+        {en:"0.5 litre", ur:"۰.۵ لیٹر"}
+      ],
+      a:1,
+      f:{
+        en:"Rozana 2-3 litre paani peena sehat ke liye acha hota hai.",
+        ur:"روزانہ ۲–۳ لیٹر پانی پینا صحت کے لیے اچھا ہوتا ہے۔"
+      }
+    }
+  ];
+
+  function $(id){ return document.getElementById(id); }
+  function t(o){ return o[lang]; }
+
+  var LRI = "\u2066", PDI = "\u2069";
+  var LATIN_RUN = /[A-Za-z0-9][A-Za-z0-9 .,+()\/@_°%-]*[A-Za-z0-9°%]|[A-Za-z0-9%]/g;
+  function isolate(s){ return String(s).replace(LATIN_RUN, function(m){ return LRI + m + PDI; }); }
+
+  function setText(el, str){
+    if (!el) return;
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+
+  function plateCount(){
+    var n = 0;
+    if (platePicks.fruit) n++;
+    if (platePicks.veg) n++;
+    if (platePicks.grain) n++;
+    if (platePicks.protein) n++;
+    return n;
+  }
+
+  function dayDone(){
+    var n = 0;
+    for (var i=0;i<dayChecks.length;i++) if (dayChecks[i]) n++;
+    return n;
+  }
+
+  function renderHook(){
+    var L = $("leftPane"), R = $("rightPane");
+    L.innerHTML =
+      '<div class="lesson"><span class="tag" id="tagHook"></span><p id="hook1"></p><p id="hook2"></p></div>' +
+      '<div class="lesson" style="margin-top:12px"><span class="tag" id="tagSam"></span><p id="sam1"></p><p id="sam2"></p><p id="sam3"></p></div>';
+    R.innerHTML =
+      '<div class="lesson"><span class="tag" id="tagMis"></span><p id="mis1"></p></div>' +
+      '<div class="lesson" style="margin-top:12px"><span class="tag" id="tagKar"></span><p id="kar1"></p></div>';
+
+    setText($("tagHook"), t(HOOK.tag));
+    setText($("hook1"), t(HOOK.p1));
+    setText($("hook2"), t(HOOK.p2));
+    setText($("tagSam"), t(SAMJHAO.tag));
+    setText($("sam1"), t(SAMJHAO.p1));
+    setText($("sam2"), t(SAMJHAO.p2));
+    setText($("sam3"), t(SAMJHAO.p3));
+    setText($("tagMis"), t(MISAAL.tag));
+    setText($("mis1"), t(MISAAL.p1));
+    setText($("tagKar"), t(KARO.tag));
+    setText($("kar1"), t(KARO.p1));
+    lastSpoken = t(HOOK.p1) + " " + t(SAMJHAO.p1);
+  }
+
+  function renderHabits(){
+    var L = $("leftPane"), R = $("rightPane");
+    var h = HABITS.items[selectedHabit];
+    var keys = ["exercise","sleep","water","plate"];
+    var cls = {exercise:"ex", sleep:"sleep", water:"water", plate:"plate"};
+
+    L.innerHTML =
+      '<div class="panel"><h2 id="habHead"></h2></div>' +
+      '<div class="habit-grid" id="habGrid"></div>';
+    R.innerHTML =
+      '<div class="readout">' +
+        '<span class="statechip" id="hChip"></span>' +
+        '<p class="lead" id="hName"></p>' +
+        '<p class="detail" id="hDesc"></p>' +
+        '<p class="why-note"><b id="hGhaur"></b> <span id="hTip"></span></p>' +
+      '</div>';
+
+    setText($("habHead"), t(HABITS.head));
+    var grid = $("habGrid");
+    keys.forEach(function(k){
+      var item = HABITS.items[k];
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "habit-btn " + cls[k];
+      b.setAttribute("aria-pressed", k === selectedHabit ? "true" : "false");
+      b.innerHTML = '<span class="emoji">'+item.emoji+'</span><span class="lbl"></span>';
+      setText(b.querySelector(".lbl"), t(item.chip));
+      b.addEventListener("click", function(){
+        selectedHabit = k;
+        renderHabits();
+      });
+      grid.appendChild(b);
+    });
+
+    $("hChip").style.background = h.chipBg;
+    setText($("hChip"), t(h.chip));
+    setText($("hName"), t(h.name));
+    setText($("hDesc"), t(h.desc));
+    $("hGhaur").textContent = t(T.ghaur);
+    setText($("hTip"), t(h.tip));
+    lastSpoken = t(h.name) + ". " + t(h.desc);
+  }
+
+  function renderPlate(){
+    var L = $("leftPane"), R = $("rightPane");
+    var keys = ["fruit","veg","grain","protein"];
+    var n = plateCount();
+    var balanced = n === 4;
+
+    L.innerHTML =
+      '<div class="panel"><h2 id="plHead"></h2></div>' +
+      '<div class="sort-prompt" id="plAsk"></div>' +
+      '<div class="food-grid" id="foodGrid"></div>' +
+      '<button type="button" class="play" id="clearPlate"></button>';
+    R.innerHTML =
+      '<div class="thali" id="thali" aria-label="Thali"></div>' +
+      '<p class="thali-label" id="thaliLbl"></p>' +
+      '<div class="readout">' +
+        '<span class="statechip" id="plChip"></span>' +
+        '<p class="lead" id="plLead"></p>' +
+        '<p class="why-note"><b id="plGhaur"></b> <span id="plTip"></span></p>' +
+      '</div>';
+
+    setText($("plHead"), t(PLATE.head));
+    setText($("plAsk"), t(PLATE.ask));
+    setText($("clearPlate"), t(PLATE.reset));
+
+    var grid = $("foodGrid");
+    keys.forEach(function(k){
+      var g = PLATE.groups[k];
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "food-btn" + (platePicks[k] ? " on " + k : "");
+      b.setAttribute("aria-pressed", platePicks[k] ? "true" : "false");
+      b.innerHTML = '<span class="emoji">'+g.emoji+'</span><span class="lbl"></span>';
+      setText(b.querySelector(".lbl"), t(g));
+      b.addEventListener("click", function(){
+        platePicks[k] = !platePicks[k];
+        renderPlate();
+      });
+      grid.appendChild(b);
+    });
+
+    var thali = $("thali");
+    keys.forEach(function(k){
+      var slot = document.createElement("div");
+      slot.className = "slot" + (platePicks[k] ? " filled" : "");
+      slot.textContent = platePicks[k] ? PLATE.groups[k].emoji : "·";
+      slot.title = t(PLATE.groups[k]);
+      thali.appendChild(slot);
+    });
+
+    setText($("thaliLbl"), n + "/4 " + (lang==="en" ? "food groups" : "خوراک گروپ"));
+
+    if (balanced){
+      $("plChip").style.background = "var(--ok)";
+      setText($("plChip"), lang==="en"?"Balanced!":"متوازن!");
+      setText($("plLead"), t(PLATE.bal));
+      lastSpoken = t(PLATE.bal);
+    } else {
+      $("plChip").style.background = "var(--plate)";
+      setText($("plChip"), lang==="en"?"Building…":"بنا رہے…");
+      setText($("plLead"), t(PLATE.need));
+      lastSpoken = t(PLATE.ask);
+    }
+    $("plGhaur").textContent = t(T.ghaur);
+    setText($("plTip"), t(PLATE.tip));
+
+    $("clearPlate").addEventListener("click", function(){
+      platePicks = {fruit:false, veg:false, grain:false, protein:false};
+      renderPlate();
+    });
+  }
+
+  function renderSleep(){
+    var L = $("leftPane"), R = $("rightPane");
+    var item = SLEEP.items[sleepIndex];
+
+    L.innerHTML =
+      '<div class="panel"><h2 id="slHead"></h2></div>' +
+      '<div class="sort-prompt"><span id="slAsk"></span><br><span id="slJob"></span></div>' +
+      '<div class="two" style="margin-top:12px">' +
+        '<button type="button" class="choice-btn" id="pickGood"><span class="emoji">😴</span></button>' +
+        '<button type="button" class="choice-btn" id="pickBad"><span class="emoji">📱</span></button>' +
+      '</div>' +
+      '<button type="button" class="play" id="nextSleep" style="margin-top:12px"></button>';
+    R.innerHTML =
+      '<div class="sort-grid">' +
+        '<div class="sort-bin good"><h3 id="goodH"></h3><div class="drop" id="goodDrop"></div></div>' +
+        '<div class="sort-bin bad"><h3 id="badH"></h3><div class="drop" id="badDrop"></div></div>' +
+      '</div>' +
+      '<div class="readout">' +
+        '<span class="statechip" id="slChip"></span>' +
+        '<p class="lead" id="slLead"></p>' +
+      '</div>';
+
+    setText($("slHead"), t(SLEEP.head));
+    setText($("slAsk"), t(SLEEP.promptAsk));
+    setText($("slJob"), t(item.ask));
+    setText($("goodH"), t(SLEEP.goodBin));
+    setText($("badH"), t(SLEEP.badBin));
+
+    var goodBtn = $("pickGood");
+    var badBtn = $("pickBad");
+    goodBtn.appendChild(document.createTextNode(lang==="en" ? " Good for sleep" : " نیند کے لیے اچھا"));
+    badBtn.appendChild(document.createTextNode(lang==="en" ? " Bad for sleep" : " نیند کے لیے برا"));
+
+    if (sleepPick === "good"){
+      goodBtn.classList.add(item.ans === "good" ? "picked-good" : "picked-bad");
+      goodBtn.setAttribute("aria-pressed","true");
+    }
+    if (sleepPick === "bad"){
+      badBtn.classList.add(item.ans === "bad" ? "picked-good" : "picked-bad");
+      badBtn.setAttribute("aria-pressed","true");
+    }
+
+    goodBtn.addEventListener("click", function(){
+      sleepPick = "good";
+      sleepFeedback = (item.ans === "good") ? "ok" : "no";
+      renderSleep();
+    });
+    badBtn.addEventListener("click", function(){
+      sleepPick = "bad";
+      sleepFeedback = (item.ans === "bad") ? "ok" : "no";
+      renderSleep();
+    });
+
+    if (sleepFeedback === "ok"){
+      var drop = item.ans === "good" ? $("goodDrop") : $("badDrop");
+      var pill = document.createElement("div");
+      pill.className = "choice-btn " + (item.ans === "good" ? "picked-good" : "picked-bad");
+      pill.style.minHeight = "44px";
+      pill.style.fontSize = "var(--fs-cap)";
+      var label = t(item.ask);
+      pill.textContent = (lang==="ur" ? isolate(label) : label).slice(0, 52) + "…";
+      drop.appendChild(pill);
+
+      setText($("slChip"), lang==="en"?"Correct!":"درست!");
+      $("slChip").style.background = "var(--ok)";
+      setText($("slLead"), t(item.ok));
+      lastSpoken = t(item.ok);
+    } else if (sleepFeedback === "no"){
+      setText($("slChip"), lang==="en"?"Try again":"پھر کوشش");
+      $("slChip").style.background = "var(--no)";
+      setText($("slLead"), t(item.no));
+      lastSpoken = t(item.no);
+    } else {
+      setText($("slChip"), t(SLEEP.promptAsk));
+      $("slChip").style.background = "var(--sleep)";
+      setText($("slLead"), t(item.ask));
+      lastSpoken = t(item.ask);
+    }
+
+    var nextBtn = $("nextSleep");
+    if (sleepIndex >= SLEEP.items.length - 1 && sleepFeedback === "ok"){
+      setText(nextBtn, t(SLEEP.done));
+      nextBtn.disabled = true;
+    } else {
+      setText(nextBtn, t(SLEEP.next));
+      nextBtn.disabled = sleepFeedback !== "ok";
+      nextBtn.addEventListener("click", function(){
+        if (sleepFeedback !== "ok") return;
+        sleepIndex = sleepIndex + 1;
+        if (sleepIndex >= SLEEP.items.length) sleepIndex = SLEEP.items.length - 1;
+        sleepPick = null;
+        sleepFeedback = "";
+        renderSleep();
+      });
+    }
+  }
+
+  function renderDay(){
+    var L = $("leftPane"), R = $("rightPane");
+    var done = dayDone();
+    var pct = Math.round((done / DAY.items.length) * 100);
+
+    L.innerHTML =
+      '<div class="panel"><h2 id="dayHead"></h2></div>' +
+      '<div class="sort-prompt" id="dayAsk"></div>' +
+      '<div class="check-list" id="checkList"></div>';
+    R.innerHTML =
+      '<div class="readout">' +
+        '<span class="statechip" id="dayChip" style="background:var(--care)"></span>' +
+        '<p class="lead" id="dayLead"></p>' +
+        '<p class="detail" id="dayProg"></p>' +
+        '<div class="progress"><span id="dayBar"></span></div>' +
+        '<p class="why-note"><b id="dayGhaur"></b> <span id="dayTip"></span></p>' +
+      '</div>' +
+      '<div class="lesson" style="margin-top:12px"><span class="tag" id="dayKarTag"></span><p id="dayKar"></p></div>';
+
+    setText($("dayHead"), t(DAY.head));
+    setText($("dayAsk"), t(DAY.ask));
+
+    var list = $("checkList");
+    DAY.items.forEach(function(item, i){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "check-item";
+      b.setAttribute("aria-pressed", dayChecks[i] ? "true" : "false");
+      b.innerHTML = '<span class="box">'+(dayChecks[i]?"✓":"")+'</span><span class="txt"><span class="when"></span><span class="what"></span></span>';
+      setText(b.querySelector(".when"), t(item.when));
+      setText(b.querySelector(".what"), t(item.what));
+      b.addEventListener("click", function(){
+        dayChecks[i] = !dayChecks[i];
+        renderDay();
+      });
+      list.appendChild(b);
+    });
+
+    $("dayBar").style.width = pct + "%";
+    setText($("dayProg"), t(DAY.prog) + ": " + done + " / " + DAY.items.length);
+
+    if (done === DAY.items.length){
+      setText($("dayChip"), lang==="en"?"Complete!":"مکمل!");
+      $("dayChip").style.background = "var(--ok)";
+      setText($("dayLead"), t(DAY.all));
+      lastSpoken = t(DAY.all);
+    } else {
+      setText($("dayChip"), lang==="en"?"Your day plan":"آپ کا دن پلان");
+      $("dayChip").style.background = "var(--care)";
+      setText($("dayLead"), t(DAY.ask));
+      lastSpoken = t(DAY.ask);
+    }
+    $("dayGhaur").textContent = t(T.ghaur);
+    setText($("dayTip"), t(DAY.tip));
+    setText($("dayKarTag"), t(KARO.tag));
+    setText($("dayKar"), t(KARO.p1));
+  }
+
+  function renderTab(){
+    if (tab === "hook") renderHook();
+    else if (tab === "habits") renderHabits();
+    else if (tab === "plate") renderPlate();
+    else if (tab === "sleep") renderSleep();
+    else renderDay();
+  }
+
+  function buildQuiz(){
+    var box = $("quizBox");
+    box.innerHTML = "";
+    quizScore = 0;
+    quizAnswered = 0;
+    $("scoreBox").classList.remove("show");
+
+    QUIZ.forEach(function(item, qi){
+      var wrap = document.createElement("div");
+      wrap.className = "q";
+      var q = document.createElement("p");
+      setText(q, (qi+1) + ". " + t(item.q));
+      wrap.appendChild(q);
+      var fb = document.createElement("p");
+      fb.className = "fb";
+      item.o.forEach(function(opt, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt" + (lang === "ur" ? " ur" : "");
+        b.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+        b.textContent = (lang === "ur") ? isolate(t(opt)) : t(opt);
+        b.addEventListener("click", function(){
+          if (wrap.getAttribute("data-done") === "1") return;
+          wrap.setAttribute("data-done","1");
+          quizAnswered++;
+          var correct = (oi === item.a);
+          if (correct) quizScore++;
+          Array.prototype.forEach.call(wrap.querySelectorAll(".opt"), function(x, xi){
+            if (xi === item.a) x.classList.add("right");
+            else if (xi === oi && !correct) x.classList.add("wrong");
+          });
+          setText(fb, t(item.f));
+          fb.classList.add("show");
+          if (quizAnswered === QUIZ.length){
+            var sb = $("scoreBox");
+            setText(sb, t(T.scoreLbl) + ": " + quizScore + " " + t(T.of) + " " + QUIZ.length);
+            sb.classList.add("show");
+          }
+        });
+        wrap.appendChild(b);
+      });
+      wrap.appendChild(fb);
+      box.appendChild(wrap);
+    });
+  }
+
+  function applyLang(){
+    document.body.classList.toggle("urdu", lang === "ur");
+    document.documentElement.lang = (lang === "ur") ? "ur" : "en";
+    document.documentElement.dir = (lang === "ur") ? "rtl" : "ltr";
+
+    var lb = $("langBtn");
+    lb.textContent = (lang === "en") ? "اردو" : "English";
+    lb.setAttribute("aria-pressed", lang === "ur" ? "true" : "false");
+
+    setText($("title"), t(T.title));
+    setText($("subtitle"), t(T.sub));
+    setText($("quizHead"), t(T.quiz));
+    setText($("foot"), t(T.foot));
+
+    Array.prototype.forEach.call(document.querySelectorAll("#tabs button"), function(b){
+      var key = b.getAttribute("data-tab");
+      setText(b, t(T.tabs[key]));
+      b.setAttribute("aria-pressed", key === tab ? "true" : "false");
+    });
+
+    buildQuiz();
+    renderTab();
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll("#tabs button"), function(b){
+    b.addEventListener("click", function(){
+      tab = b.getAttribute("data-tab");
+      Array.prototype.forEach.call(document.querySelectorAll("#tabs button"), function(x){
+        x.setAttribute("aria-pressed", x === b ? "true" : "false");
+      });
+      renderTab();
+    });
+  });
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en";
+    applyLang();
+  });
+
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      window.speechSynthesis.cancel();
+      var u = new SpeechSynthesisUtterance(lastSpoken);
+      u.lang = (lang === "ur") ? "ur-PK" : "en-US";
+      u.rate = 0.92;
+      var voices = window.speechSynthesis.getVoices() || [];
+      for (var i=0;i<voices.length;i++){
+        if (voices[i].lang && voices[i].lang.toLowerCase().indexOf(lang === "ur" ? "ur" : "en") === 0){
+          u.voice = voices[i]; break;
+        }
+      }
+      window.speechSynthesis.speak(u);
+    }catch(e){}
+  });
+
+  applyLang();
+})();
+</script>
+</body>
+</html>
