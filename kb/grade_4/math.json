@@ -260,7 +260,9 @@
             "correct": "a"
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g4-decimals.html",
+      "interactive_label": "Khelo - Decimals"
     },
     {
       "title": "Naap conversions",

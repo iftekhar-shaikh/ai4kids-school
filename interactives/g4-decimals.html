@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Decimals | AI4Kids Class 4</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--board:#e5f3ea;--board-deep:#c9e4d2;--sky:#c5e7f6;--sky2:#6eb0d4;--accent:#1d6b52;--ok:#2e7d4f;--ink:#1e2a1a;--ink-soft:#4a5744;--paper:#fdfaf3;--line:#d5dec8;--gold:#e8b23d;--left:#c4453a;--fs-cap:clamp(12px,3.2vw,13px);--fs-xs:clamp(14px,3.7vw,15px);--fs-sm:clamp(16px,4.2vw,17px);--fs-md:clamp(17px,4.6vw,19px);--fs-lg:clamp(20px,5.4vw,23px);--fs-xl:clamp(27px,7.4vw,33px);--lh:1.5}
+body.urdu{--fs-cap:clamp(13px,3.5vw,15px);--fs-xs:clamp(15px,4.1vw,17px);--fs-sm:clamp(17px,4.7vw,19px);--fs-md:clamp(19px,5.2vw,21px);--fs-lg:clamp(22px,6vw,25px);--fs-xl:clamp(26px,7vw,31px);--lh:2.1}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px}
+.wrap{max-width:560px;margin:0 auto;padding:0 14px}
+.bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+.brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+.chip{border:2px solid var(--ink);background:var(--paper);color:var(--ink);border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;font-size:var(--fs-xs);cursor:pointer;min-height:42px;touch-action:manipulation}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.chip:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.stars{display:flex;align-items:center;gap:6px;font-weight:800;font-size:var(--fs-xs);background:#fff6e2;border:2px solid var(--gold);border-radius:999px;padding:7px 13px}
+h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+.sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+.ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+h1.ur{line-height:1.9}
+.tabs{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
+.tabs button{flex:1 1 28%;min-width:90px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);border-radius:14px;padding:10px 6px;font:inherit;font-weight:800;font-size:var(--fs-cap);cursor:pointer;min-height:54px;line-height:1.2;touch-action:manipulation}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.tabs button .badge{color:var(--gold)}
+.story{background:#fff8ea;border:2px dashed var(--gold);border-radius:16px;padding:13px 15px;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;margin-bottom:14px}
+body.urdu .story{line-height:var(--lh)}
+.story b{color:var(--ink)}
+.scene{position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);background:linear-gradient(180deg,var(--sky) 0%,var(--sky2) 36%,var(--board) 36%,var(--board-deep) 100%);min-height:280px}
+.scene-pad{padding:10px 12px 18px;min-height:260px;position:relative}
+.sky-layer{position:absolute;inset:0 0 58% 0;pointer-events:none;overflow:hidden}
+.sun-ball{position:absolute;top:12px;right:18px;width:36px;height:36px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#ffe9a0,#f5c542 60%,#e0a020);box-shadow:0 0 18px rgba(245,197,66,.45);z-index:1}
+body.urdu .sun-ball{right:auto;left:18px}
+.cloud{position:absolute;background:rgba(255,255,255,.85);border-radius:40px;opacity:.9}
+.cloud:before,.cloud:after{content:"";position:absolute;background:inherit;border-radius:50%}
+.c1{width:48px;height:15px;top:18px;left:12%}
+.c1:before{width:22px;height:22px;top:-12px;left:6px}
+.c1:after{width:18px;height:18px;top:-8px;left:24px}
+.c2{width:34px;height:12px;top:34px;left:55%;opacity:.7}
+.c2:before{width:16px;height:16px;top:-9px;left:4px}
+.c2:after{width:12px;height:12px;top:-5px;left:16px}
+.num-stage{position:relative;z-index:5;padding:62px 8px 8px;text-align:center}
+.hero-em{font-size:34px;line-height:1;margin:0}
+.num-hero{font-weight:800;font-size:clamp(30px,8.4vw,44px);letter-spacing:.5px;direction:ltr;unicode-bidi:isolate;margin:6px 0 2px;line-height:1.1}
+.sayline{font-weight:700;font-size:var(--fs-xs);margin:2px 8px 8px;color:var(--ink)}
+.drow{display:flex;gap:4px;justify-content:center;align-items:flex-end;direction:ltr;margin:6px 0;flex-wrap:wrap}
+.dshow{min-width:36px;padding:4px 2px 6px;font-weight:800;font-size:28px;line-height:1;border-bottom:4px solid rgba(30,42,26,.25);direction:ltr;text-align:center}
+.dshow.dot{border-bottom-color:transparent;min-width:18px;font-size:32px}
+.dshow.hot{background:#fff6d8;border-bottom-color:var(--gold);border-radius:10px}
+.dshow.win{background:#e8f2ed;border-bottom-color:var(--ok);border-radius:10px}
+.dlab{font-size:10px;font-weight:700;color:var(--ink-soft);display:block;margin-top:2px;line-height:1.1}
+.capline{font-size:var(--fs-cap);font-weight:800;color:var(--accent);margin:6px 8px 0;line-height:1.45}
+body.urdu .capline,body.urdu .hintbox,body.urdu .card-box{line-height:var(--lh)}
+.eqline{direction:ltr;unicode-bidi:isolate;font-weight:800;font-size:clamp(18px,5vw,26px);margin:8px 6px 4px;line-height:1.35}
+.card-box{background:rgba(253,250,243,.95);border:2.5px solid var(--ink);border-radius:14px;padding:10px 12px;font-weight:800;font-size:var(--fs-xs);max-width:340px;margin:8px auto 0;line-height:1.4}
+.bank{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:4px}
+.bank.ltrb{direction:ltr}
+.mini-item{border:2px solid var(--ink);border-radius:12px;padding:8px 10px;background:#fff;line-height:1.2;cursor:pointer;min-width:52px;min-height:52px;font-weight:800;font-size:var(--fs-cap);display:flex;align-items:center;justify-content:center;gap:4px;touch-action:manipulation}
+.mini-item.dig{font-size:26px;min-width:58px;min-height:62px}
+.mini-item.right,.save-choices button.right,.opt.right{border-color:var(--ok);background:#e8f2ed}
+.mini-item.wrong,.save-choices button.wrong,.opt.wrong{border-color:var(--left);background:#fbeae8}
+.opt.right{font-weight:600}
+.save-choices{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+.save-choices button{border:2.5px solid var(--ink);background:var(--paper);border-radius:14px;padding:12px 14px;font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;text-align:left;min-height:52px;display:flex;align-items:center;gap:10px;touch-action:manipulation}
+body.urdu .save-choices button{text-align:right}
+.save-choices button.numc{justify-content:center;text-align:center;direction:ltr;font-size:22px}
+.readout{margin-top:-18px;position:relative;z-index:2;background:var(--paper);border:3px solid var(--ink);border-radius:18px;padding:16px 18px}
+.statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+.statechip.ur{padding:2px 14px 7px}
+.statechip.win{background:var(--ok)}
+.statechip.miss{background:var(--left)}
+.headline{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+.headline.ur{line-height:1.95}
+.detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+.hintbox{margin-top:14px;border:2px solid var(--accent);background:#e7f6ef;border-radius:14px;padding:11px 14px;font-size:var(--fs-xs);color:var(--accent);font-weight:700;line-height:1.55;display:none}
+.hintbox.show{display:block}
+.panel{margin-top:22px}
+.panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+.prog{margin:0 0 10px;font-size:var(--fs-xs);font-weight:700;color:var(--ink-soft)}
+.btns{display:flex;gap:9px;margin-top:8px;flex-wrap:wrap}
+.btns button{border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:50px;padding:8px 14px;flex:1;touch-action:manipulation}
+.btns .go{background:var(--ink);color:var(--paper)}
+.btns button:active{transform:scale(.97)}
+.btns button:disabled{opacity:.4;cursor:default}
+.quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+.qhead{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+.qhead h2{font-size:var(--fs-lg);font-weight:800;margin:0;flex:1}
+.q{margin-bottom:26px}
+.q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+.q p.ur{font-weight:400}
+.gloss{margin:-6px 0 12px;font-size:var(--fs-xs);color:var(--ink-soft);font-weight:600;line-height:1.45}
+.opt{display:block;width:100%;text-align:left;margin-bottom:10px;border:2px solid var(--line);background:var(--paper);border-radius:12px;padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);min-height:50px;touch-action:manipulation}
+.opt.ur{text-align:right;line-height:var(--lh)}
+.opt:disabled{cursor:default}
+.fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+.fb.show{display:block}
+footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);font-size:var(--fs-xs);color:var(--ink-soft)}
+@media (min-width:820px){
+.wrap{max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;grid-template-areas:"bar bar" "head head" "tabs tabs" "story story" "left right" "quiz quiz" "foot foot";align-items:start}
+.bar{grid-area:bar}.head{grid-area:head}.tabs{grid-area:tabs}.story{grid-area:story}.left{grid-area:left}.right{grid-area:right}.quiz{grid-area:quiz;margin-top:34px}footer{grid-area:foot}.panel{margin-top:0}
+}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01ms !important;animation:none !important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 4 · Hisaab</span>
+    <span class="stars">⭐ <span id="starCount">0</span></span>
+    <button class="chip" id="langBtn" aria-pressed="false" type="button">اردو</button>
+    <button class="chip" id="speakBtn" type="button" aria-label="Sunlo">🔊</button>
+  </div>
+  <div class="head"><h1 id="title"></h1><p class="sub" id="subtitle"></p></div>
+  <div class="tabs" role="group">
+    <button type="button" id="tabPlace" aria-pressed="true"></button>
+    <button type="button" id="tabConv" aria-pressed="false"></button>
+    <button type="button" id="tabOps" aria-pressed="false"></button>
+  </div>
+  <p class="story" id="story"></p>
+  <div class="left">
+    <div class="scene"><div class="scene-pad" id="scenePad"></div></div>
+    <div class="readout">
+      <span class="statechip" id="statechip"></span>
+      <p class="headline" id="headline"></p>
+      <p class="detail" id="detail"></p>
+      <p class="hintbox" id="hintbox"></p>
+    </div>
+  </div>
+  <div class="right">
+    <div class="panel">
+      <h2 id="ctlHead"></h2>
+      <p class="prog" id="prog"></p>
+      <div id="actionBox"></div>
+      <div class="btns"><button type="button" class="go" id="nextBtn"></button></div>
+      <div class="btns"><button type="button" id="hintBtn"></button><button type="button" id="resetBtn"></button></div>
+    </div>
+  </div>
+  <div class="quiz">
+    <div class="qhead"><h2 id="quizHead"></h2><button type="button" class="chip" id="newQuiz"></button></div>
+    <div id="quizBox"></div>
+  </div>
+  <footer>
+    <p data-en="AI4Kids — Islamabad bilingual school. Offline. WhatsApp 0337 1468899 · Decimals" data-ur="اے آئی فور کڈز — اسلام آباد دو لسانی اسکول۔ آف لائن۔ واٹس ایپ 0337 1468899 · اعشاریہ"></p>
+  </footer>
+</div>
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id)}
+function isolate(s){return "\u2066"+s+"\u2069"}
+function setText(el,str){if(!el)return;el.textContent=(lang==="ur")?isolate(str):str;el.classList.toggle("ur",lang==="ur");el.setAttribute("dir",lang==="ur"?"rtl":"ltr")}
+function t(o){return (o&&o[lang])||(o&&o.en)||""}
+function shuffle(arr){var a=arr.slice(),i,j,tmp;for(i=a.length-1;i>0;i--){j=Math.floor(Math.random()*(i+1));tmp=a[i];a[i]=a[j];a[j]=tmp}return a}
+var lang="en",mode="place",stars=0,awarded={},doneModes={place:false,conv:false,ops:false},speakTimer=null;
+var DEC_PLACES=[{id:"ones",en:"Ones",ur:"اکائی"},{id:"t",en:"Tenths",ur:"دسواں"},{id:"h",en:"Hundredths",ur:"سوواں"},{id:"th",en:"Thousandths",ur:"ہزارواں"}];
+function placeById(id){var i;for(i=0;i<DEC_PLACES.length;i++)if(DEC_PLACES[i].id===id)return DEC_PLACES[i];return DEC_PLACES[1]}
+function placeLabel(p){return t(p)}
+var T={
+title:{en:"Decimals",ur:"اعشاریہ"},
+sub:{en:"Tenths, hundredths, thousandths up to 3 d.p. Fraction ↔ decimal (10, 100, 1000). Compare, order, round. Kid-sized + − × ÷ and percent intro.",ur:"دسواں، سوواں، ہزارواں — 3 اعشاری جگہوں تک۔ کسر ↔ اعشاریہ (10، 100، 1000)۔ موازنہ، ترتیب، راؤنڈ۔ چھوٹے + − × ÷ اور فیصد تعارف۔"},
+tabPlace:{en:"Place value",ur:"مقامی قیمت"},
+tabConv:{en:"Convert & compare",ur:"تبدیل اور موازنہ"},
+tabOps:{en:"Ops & percent",ur:"عمل اور فیصد"},
+storyPlace:{en:"After the <b>decimal point</b>: tenths (1/10), hundredths (1/100), thousandths (1/1000). Tap the digit or name its place. Pakistani prices like <b>Rs 12.75</b> use hundredths (paisa).",ur:"<b>اعشاریہ نقطے</b> کے بعد: دسواں (1/10)، سوواں (1/100)، ہزارواں (1/1000)۔ ہندسہ ٹیپ کرو یا جگہ بتاؤ۔ پاکستانی قیمت جیسے <b>Rs 12.75</b> سوواں (پیسہ) استعمال کرتی ہے۔"},
+storyConv:{en:"Fraction ↔ decimal: 3/10 = 0.3, 25/100 = 0.25, 7/1000 = 0.007. Compare from the left after lining up the points. Round: look at the next digit — 0–4 stay, 5–9 go up.",ur:"کسر ↔ اعشاریہ: 3/10 = 0.3، 25/100 = 0.25، 7/1000 = 0.007۔ نقطے برابر رکھ کر بائیں سے موازنہ۔ راؤنڈ: اگلا ہندسہ دیکھو — 0–4 رہنے دو، 5–9 اوپر۔"},
+storyOps:{en:"Line up decimal points to <b>add</b> or <b>subtract</b>. Multiply, then place the point (count decimal digits). Divide carefully. <b>Percent</b> means parts per hundred: 25% = 25/100 = 0.25.",ur:"جمع یا تفریق کے لیے اعشاریہ نقطے برابر رکھو۔ ضرب کے بعد نقطہ لگاؤ (اعشاری ہندسے گنو)۔ تقسیم احتیاط سے۔ <b>فیصد</b> مطلب سو میں سے حصے: 25% = 25/100 = 0.25۔"},
+ctl:{en:"Your turn — hisaab lab",ur:"تمہاری باری — حساب لیب"},
+next:{en:"Next challenge",ur:"اگلا چیلنج"},
+hint:{en:"Hint",ur:"اشارہ"},
+reset:{en:"Reset",ur:"ری سیٹ"},
+quiz:{en:"Check yourself",ur:"اپنا چیک"},
+newQuiz:{en:"New quiz",ur:"نیا کوئز"},
+nice:{en:"Shabash!",ur:"شاباش!"},
+oops:{en:"Almost — try again",ur:"قریب — دوبارہ آزماؤ"},
+tipPlace:{en:"Ones are left of the point. Right of the point: first digit tenths (1/10), second hundredths (1/100), third thousandths (1/1000). Example: 0.5 = 5/10, 0.05 = 5/100, 0.005 = 5/1000. Money like Rs 12.75 uses hundredths for paisa.",ur:"اکائی نقطے کے بائیں ہیں۔ نقطے کے دائیں: پہلا ہندسہ دسواں (1/10)، دوسرا سوواں (1/100)، تیسرا ہزارواں (1/1000)۔ مثال: 0.5 = 5/10، 0.05 = 5/100، 0.005 = 5/1000۔ رقم جیسے Rs 12.75 میں سوواں پیسے کے لیے۔"},
+tipConv:{en:"Denom 10 → one decimal place. Denom 100 → two places. Denom 1000 → three. Bigger decimal: line up points, compare digit by digit from the left. To round, look at the next place: 0–4 stay, 5–9 go up. Ascending = small to big.",ur:"مخرج 10 → ایک اعشاری جگہ۔ 100 → دو۔ 1000 → تین۔ بڑا اعشاریہ: نقطے برابر، بائیں سے ہندسہ ہندسہ۔ راؤنڈ: اگلی جگہ دیکھو، 0–4 رہنے دو، 5–9 اوپر۔ صعودی = چھوٹے سے بڑا۔"},
+tipOps:{en:"Add/subtract with points lined up (paisa under paisa). Multiply as wholes, then count total decimal digits for the point. Kid-sized ÷ keeps the point careful. Percent = parts per hundred: 25% = 25/100 = 0.25; 50% = 0.5 = 1/2.",ur:"جمع/تفریق میں نقطے برابر (پیسہ کے نیچے پیسہ)۔ ضرب پورے کی طرح، پھر کل اعشاری ہندسے گن کر نقطہ۔ چھوٹی ÷ میں نقطہ احتیاط سے۔ فیصد = سو میں سے حصے: 25% = 25/100 = 0.25؛ 50% = 0.5 = 1/2۔"},
+progPlace:{en:"Place rounds",ur:"مقام راؤنڈ"},
+progConv:{en:"Convert rounds",ur:"تبدیل راؤنڈ"},
+progOps:{en:"Ops rounds",ur:"عمل راؤنڈ"},
+afterDot:{en:"Right of the point: tenths → hundredths → thousandths.",ur:"نقطے کے دائیں: دسواں → سوواں → ہزارواں۔"}
+};
+
+var PLACE=[
+{id:"p1",kind:"digit",em:"🧃",title:{en:"Ayesha's juice",ur:"عائشہ کا جوس"},blurb:{en:"Sugarcane juice cost Rs 0.75 at the school canteen.",ur:"اسکول کینٹین میں گنے کا جوس Rs 0.75۔"},show:"0.75",parts:[{ch:"0",lab:"ones"},{ch:".",lab:""},{ch:"7",lab:"t"},{ch:"5",lab:"h"}],which:"t",ask:{en:"Tap the digit in the tenths place.",ur:"دسویں جگہ والا ہندسہ ٹیپ کرو۔"},hint:{en:"Right after the point is tenths. The first digit after the point is 7. So tenths = 7. The 5 is hundredths (paisa).",ur:"نقطے کے فوراً بعد دسواں ہے۔ پہلا ہندسہ 7 ہے۔ دسواں = 7۔ 5 سوواں (پیسہ) ہے۔"},done:{en:"7 is tenths. Worth 7/10.",ur:"7 دسواں ہے۔ قیمت 7/10۔"},why:{en:"0.75 means 7 tenths and 5 hundredths — like 75 paisa of a rupee. Place value after the point always goes tenths, then hundredths.",ur:"0.75 یعنی 7 دسویں اور 5 سوویں — ایک روپے کے 75 پیسے۔ نقطے کے بعد ہمیشہ دسواں، پھر سوواں۔"}},
+{id:"p2",kind:"digit",em:"🏏",title:{en:"Bilal's bat weight",ur:"بلال کے بیٹ کا وزن"},blurb:{en:"The junior bat is 1.248 kg on the scale.",ur:"جونیئر بیٹ ترازو پر 1.248 کلو ہے۔"},show:"1.248",parts:[{ch:"1",lab:"ones"},{ch:".",lab:""},{ch:"2",lab:"t"},{ch:"4",lab:"h"},{ch:"8",lab:"th"}],which:"th",ask:{en:"Tap the digit in the thousandths place.",ur:"ہزارویں جگہ والا ہندسہ ٹیپ کرو۔"},hint:{en:"Count after the point: 1st = tenths (2), 2nd = hundredths (4), 3rd = thousandths (8). So thousandths digit is 8.",ur:"نقطے کے بعد گنو: پہلا = دسواں (2)، دوسرا = سوواں (4)، تیسرا = ہزارواں (8)۔ ہزارواں ہندسہ 8 ہے۔"},done:{en:"8 is thousandths. Worth 8/1000.",ur:"8 ہزارواں ہے۔ قیمت 8/1000۔"},why:{en:"1.248 = 1 + 2/10 + 4/100 + 8/1000. Class 4 SNC goes up to 3 decimal places — tenths, hundredths, thousandths.",ur:"1.248 = 1 + 2/10 + 4/100 + 8/1000۔ کلاس 4 نصاب تین اعشاری جگہوں تک — دسواں، سوواں، ہزارواں۔"}},
+{id:"p3",kind:"place",em:"🥭",title:{en:"Mango price",ur:"آم کی قیمت"},blurb:{en:"One kilo of Chaunsa is Rs 3.06 at the Friday bazaar.",ur:"جمعہ بازار میں چونسہ کا کلو Rs 3.06۔"},show:"3.06",parts:[{ch:"3",lab:"ones"},{ch:".",lab:""},{ch:"0",lab:"t"},{ch:"6",lab:"h"}],hotLab:"h",ask:{en:"The gold digit is 6. Which place is it in?",ur:"سنہری ہندسہ 6 ہے۔ یہ کس جگہ پر ہے؟"},hint:{en:"After the point: 0 is tenths, 6 is hundredths. Hundredths = 1/100. Zero tenths still holds the place so we write 3.06, not 3.6.",ur:"نقطے کے بعد: 0 دسواں ہے، 6 سوواں۔ سوواں = 1/100۔ صفر دسواں بھی جگہ سنبھالتا ہے، اس لیے 3.06 لکھتے ہیں، 3.6 نہیں۔"},done:{en:"6 is hundredths. Worth 6/100.",ur:"6 سوواں ہے۔ قیمت 6/100۔"},why:{en:"3.06 = 3 + 0/10 + 6/100. Same idea as 3 rupees and 6 paisa.",ur:"3.06 = 3 + 0/10 + 6/100۔ جیسے 3 روپے اور 6 پیسے۔"}},
+{id:"p4",kind:"place",em:"✏️",title:{en:"Pencil length",ur:"پنسل کی لمبائی"},blurb:{en:"Hamza's pencil measures 0.5 cm past 12 cm — written 12.5.",ur:"حمزہ کی پنسل 12 سینٹی سے 0.5 سینٹی آگے — لکھا 12.5۔"},show:"12.5",parts:[{ch:"1",lab:""},{ch:"2",lab:"ones"},{ch:".",lab:""},{ch:"5",lab:"t"}],hotLab:"t",ask:{en:"The gold digit is 5. Which place is it in?",ur:"سنہری ہندسہ 5 ہے۔ یہ کس جگہ پر ہے؟"},hint:{en:"Only one digit after the point means tenths. 5 tenths = 5/10 = 1/2. Not hundredths — that would need two digits like 12.50.",ur:"نقطے کے بعد صرف ایک ہندسہ ہو تو دسواں۔ 5 دسویں = 5/10 = 1/2۔ سوواں نہیں — اس کے لیے دو ہندسے جیسے 12.50۔"},done:{en:"5 is tenths. Worth 5/10.",ur:"5 دسواں ہے۔ قیمت 5/10۔"},why:{en:"12.5 = twelve and five tenths. Same as 12.50 if we add a zero hundredth.",ur:"12.5 = بارہ اور پانچ دسویں۔ صفر سوواں لگانے سے 12.50 بھی برابر۔"}}
+];
+
+var CONV=[
+{id:"c1",kind:"pick",em:"🍕",title:{en:"Fraction to decimal",ur:"کسر سے اعشاریہ"},blurb:{en:"Ali ate 3/10 of a pizza at the school fair.",ur:"علی نے اسکول میلے میں پیزا کا 3/10 کھایا۔"},eq:"3/10 = ?",ask:{en:"What is 3/10 as a decimal?",ur:"3/10 اعشاریہ میں کیا ہے؟"},opts:[{id:"a",en:"0.3",ur:"0.3"},{id:"b",en:"0.03",ur:"0.03"},{id:"c",en:"3.0",ur:"3.0"},{id:"d",en:"0.003",ur:"0.003"}],correct:"a",hint:{en:"Denominator 10 → one digit after the point. 3/10 = 0.3. 0.03 would be 3/100.",ur:"مخرج 10 → نقطے کے بعد ایک ہندسہ۔ 3/10 = 0.3۔ 0.03 تو 3/100 ہوتا۔"},done:{en:"3/10 = 0.3",ur:"3/10 = 0.3"},why:{en:"Tenths place holds the numerator when the denominator is 10.",ur:"مخرج 10 ہو تو صورت دسویں جگہ پر آتی ہے۔"}},
+{id:"c2",kind:"pick",em:"🧃",title:{en:"Hundredths juice",ur:"سوویں جوس"},blurb:{en:"25/100 litre left in the bottle.",ur:"بوتل میں 25/100 لیٹر بچا۔"},eq:"25/100 = ?",ask:{en:"What is 25/100 as a decimal?",ur:"25/100 اعشاریہ میں کیا ہے؟"},opts:[{id:"a",en:"0.25",ur:"0.25"},{id:"b",en:"2.5",ur:"2.5"},{id:"c",en:"0.025",ur:"0.025"},{id:"d",en:"25.0",ur:"25.0"}],correct:"a",hint:{en:"Denominator 100 → two digits after the point. 25/100 = 0.25. Also equal to 1/4.",ur:"مخرج 100 → نقطے کے بعد دو ہندسے۔ 25/100 = 0.25۔ یہ 1/4 کے برابر بھی ہے۔"},done:{en:"25/100 = 0.25",ur:"25/100 = 0.25"},why:{en:"Two decimal places mean hundredths. Same as twenty-five hundredths.",ur:"دو اعشاری جگہیں سوواں ہیں۔ پچیس سوویں۔"}},
+{id:"c3",kind:"pick",em:"⚖️",title:{en:"Which is bigger?",ur:"کون سا بڑا ہے؟"},blurb:{en:"Compare 0.8 and 0.75 from the fruit stall.",ur:"پھل سٹال سے 0.8 اور 0.75 کا موازنہ۔"},eq:"0.8  ?  0.75",ask:{en:"Which number is bigger?",ur:"کون سا نمبر بڑا ہے؟"},opts:[{id:"a",en:"0.8",ur:"0.8"},{id:"b",en:"0.75",ur:"0.75"},{id:"c",en:"They are equal",ur:"دونوں برابر"}],correct:"a",hint:{en:"Write 0.80 and 0.75. Tenths: 8 > 7, so 0.8 is bigger. 0.8 = 8/10 = 80/100.",ur:"لکھو 0.80 اور 0.75۔ دسویں: 8 > 7، اس لیے 0.8 بڑا ہے۔ 0.8 = 8/10 = 80/100۔"},done:{en:"0.8 > 0.75",ur:"0.8 > 0.75"},why:{en:"Line up points and compare place by place from the left.",ur:"نقطے برابر رکھ کر بائیں سے جگہ جگہ موازنہ کرو۔"}},
+{id:"c4",kind:"pick",em:"📏",title:{en:"Round to 1 d.p.",ur:"1 اعشاری جگہ پر راؤنڈ"},blurb:{en:"The ribbon is 2.46 m. Round to 1 decimal place.",ur:"ربن 2.46 میٹر ہے۔ 1 اعشاری جگہ پر گول کرو۔"},eq:"2.46 → ?",ask:{en:"Round 2.46 to 1 decimal place (nearest tenth).",ur:"2.46 کو 1 اعشاری جگہ (قریب ترین دسواں) پر گول کرو۔"},opts:[{id:"a",en:"2.5",ur:"2.5"},{id:"b",en:"2.4",ur:"2.4"},{id:"c",en:"2.0",ur:"2.0"},{id:"d",en:"3.0",ur:"3.0"}],correct:"a",hint:{en:"Keep 1 digit after the point. Look at the next digit (hundredths = 6). 5–9 goes up, so 2.4 becomes 2.5.",ur:"نقطے کے بعد 1 ہندسہ رکھو۔ اگلا ہندسہ (سوواں = 6) دیکھو۔ 5–9 اوپر جاتا ہے، اس لیے 2.4 سے 2.5۔"},done:{en:"2.46 rounds to 2.5",ur:"2.46 راؤنڈ ہو کر 2.5"},why:{en:"Nearest tenth looks at hundredths. Six means round up.",ur:"قریب ترین دسواں سوواں دیکھتا ہے۔ چھ یعنی اوپر۔"}}
+];
+
+var OPS=[
+{id:"o1",kind:"pick",em:"🛒",title:{en:"Add the prices",ur:"قیمتیں جمع کرو"},blurb:{en:"Notebook Rs 2.50 + eraser Rs 0.75.",ur:"کاپی Rs 2.50 + ربڑ Rs 0.75۔"},eq:"2.50 + 0.75 = ?",ask:{en:"What is 2.50 + 0.75?",ur:"2.50 + 0.75 کتنا ہے؟"},opts:[{id:"a",en:"3.25",ur:"3.25"},{id:"b",en:"2.125",ur:"2.125"},{id:"c",en:"3.15",ur:"3.15"},{id:"d",en:"10.25",ur:"10.25"}],correct:"a",hint:{en:"Line up the points. Ones: 2+0=2. Tenths: 5+7=12 → write 2, carry 1. Hundredths: 0+5+1=6. Answer 3.25.",ur:"نقطے برابر رکھو۔ اکائی: 2+0=2۔ دسویں: 5+7=12 → 2 لکھو، 1 لے جاؤ۔ سوویں: 0+5+1=6۔ جواب 3.25۔"},done:{en:"2.50 + 0.75 = 3.25",ur:"2.50 + 0.75 = 3.25"},why:{en:"Adding money: keep paisa under paisa. Total Rs 3.25.",ur:"رقم جمع: پیسہ کے نیچے پیسہ۔ کل Rs 3.25۔"}},
+{id:"o2",kind:"pick",em:"🍬",title:{en:"Subtract sweets",ur:"مٹھائی تفریق"},blurb:{en:"Had 5.6 kg of mithai; sold 2.3 kg.",ur:"5.6 کلو مٹھائی تھی؛ 2.3 کلو بیچی۔"},eq:"5.6 − 2.3 = ?",ask:{en:"What is 5.6 − 2.3?",ur:"5.6 − 2.3 کتنا ہے؟"},opts:[{id:"a",en:"3.3",ur:"3.3"},{id:"b",en:"3.9",ur:"3.9"},{id:"c",en:"2.3",ur:"2.3"},{id:"d",en:"7.9",ur:"7.9"}],correct:"a",hint:{en:"Line up points. Tenths: 6−3=3. Ones: 5−2=3. So 3.3 kg left.",ur:"نقطے برابر۔ دسویں: 6−3=3۔ اکائی: 5−2=3۔ یعنی 3.3 کلو باقی۔"},done:{en:"5.6 − 2.3 = 3.3",ur:"5.6 − 2.3 = 3.3"},why:{en:"Subtract place by place with points lined up.",ur:"نقطے برابر رکھ کر جگہ جگہ تفریق۔"}},
+{id:"o3",kind:"pick",em:"🧃",title:{en:"Multiply juice cups",ur:"جوس کپ ضرب"},blurb:{en:"Each cup is 0.2 L. Four friends each get one.",ur:"ہر کپ 0.2 لیٹر۔ چار دوستوں کو ایک ایک۔"},eq:"0.2 × 4 = ?",ask:{en:"What is 0.2 × 4?",ur:"0.2 × 4 کتنا ہے؟"},opts:[{id:"a",en:"0.8",ur:"0.8"},{id:"b",en:"0.08",ur:"0.08"},{id:"c",en:"8.0",ur:"8.0"},{id:"d",en:"2.4",ur:"2.4"}],correct:"a",hint:{en:"2 × 4 = 8. One decimal digit in 0.2, so put the point one place: 0.8. Four cups = 0.8 L.",ur:"2 × 4 = 8۔ 0.2 میں ایک اعشاری ہندسہ، اس لیے نقطہ ایک جگہ: 0.8۔ چار کپ = 0.8 لیٹر۔"},done:{en:"0.2 × 4 = 0.8",ur:"0.2 × 4 = 0.8"},why:{en:"Multiply, then count total decimal places for the point.",ur:"ضرب کرو، پھر کل اعشاری جگہیں گن کر نقطہ لگاؤ۔"}},
+{id:"o4",kind:"pick",em:"📊",title:{en:"Percent intro",ur:"فیصد تعارف"},blurb:{en:"25% of the class got full marks in hisaab.",ur:"کلاس کے 25% نے حساب میں فل مارکس لیے۔"},eq:"25% = ?",ask:{en:"What is 25% as a decimal?",ur:"25% اعشاریہ میں کیا ہے؟"},opts:[{id:"a",en:"0.25",ur:"0.25"},{id:"b",en:"2.5",ur:"2.5"},{id:"c",en:"0.025",ur:"0.025"},{id:"d",en:"25",ur:"25"}],correct:"a",hint:{en:"Percent means /100. 25% = 25/100 = 0.25. Also equal to 1/4.",ur:"فیصد مطلب /100۔ 25% = 25/100 = 0.25۔ یہ 1/4 کے برابر بھی ہے۔"},done:{en:"25% = 0.25 = 25/100",ur:"25% = 0.25 = 25/100"},why:{en:"Parts per hundred. Move the point two places left: 25 → 0.25. Same as 25/100 or one quarter.",ur:"سو میں سے حصے۔ نقطہ دو جگہ بائیں: 25 → 0.25۔ یہی 25/100 یا ایک چوتھائی۔"}}
+];
+
+var QUIZ=[
+{id:"qtenths",pin:true,q:{en:"In 4.582, which digit is in the tenths place?",ur:"4.582 میں دسویں جگہ کون سا ہندسہ ہے؟"},ru:"4.582 mein tenths place par kaun sa digit hai?",opts:[{en:"4",ur:"4"},{en:"5",ur:"5"},{en:"8",ur:"8"},{en:"2",ur:"2"}],correct:1,why:{en:"After the point: 5 tenths, 8 hundredths, 2 thousandths. Tenths digit is 5.",ur:"نقطے کے بعد: 5 دسواں، 8 سوواں، 2 ہزارواں۔ دسواں ہندسہ 5 ہے۔"}},
+{id:"qfrac",pin:true,q:{en:"Which decimal equals 7/100?",ur:"کون سا اعشاریہ 7/100 کے برابر ہے؟"},ru:"Kaun sa decimal 7/100 ke barabar hai?",opts:[{en:"0.7",ur:"0.7"},{en:"0.07",ur:"0.07"},{en:"7.0",ur:"7.0"},{en:"0.007",ur:"0.007"}],correct:1,why:{en:"Denominator 100 needs two decimal places. 7/100 = 0.07.",ur:"مخرج 100 کو دو اعشاری جگہیں چاہیے۔ 7/100 = 0.07۔"}},
+{id:"qcomp",q:{en:"Which is smaller: 0.9 or 0.89?",ur:"کون سا چھوٹا ہے: 0.9 یا 0.89؟"},ru:"Kaun sa chhota hai: 0.9 ya 0.89?",opts:[{en:"0.9",ur:"0.9"},{en:"0.89",ur:"0.89"},{en:"They are equal",ur:"دونوں برابر"},{en:"Cannot tell",ur:"پتا نہیں چلتا"}],correct:1,why:{en:"0.90 vs 0.89. Tenths equal (9), then hundredths 0 < 9, so 0.89 is smaller.",ur:"0.90 بمقابلہ 0.89۔ دسویں برابر (9)، پھر سوویں 0 < 9، اس لیے 0.89 چھوٹا۔"}},
+{id:"qround",q:{en:"Round 3.141 to 2 decimal places.",ur:"3.141 کو 2 اعشاری جگہوں پر گول کرو۔"},ru:"3.141 ko 2 decimal places par round karo.",opts:[{en:"3.14",ur:"3.14"},{en:"3.15",ur:"3.15"},{en:"3.10",ur:"3.10"},{en:"3.1",ur:"3.1"}],correct:0,why:{en:"Keep two places. Next digit (thousandths) is 1, which is 0–4, so stay: 3.14.",ur:"دو جگہیں رکھو۔ اگلا ہندسہ (ہزارواں) 1 ہے، 0–4، اس لیے رہنے دو: 3.14۔"}},
+{id:"qadd",q:{en:"What is 1.25 + 0.5?",ur:"1.25 + 0.5 کتنا ہے؟"},ru:"1.25 + 0.5 kitna hai?",opts:[{en:"1.30",ur:"1.30"},{en:"1.75",ur:"1.75"},{en:"1.255",ur:"1.255"},{en:"6.25",ur:"6.25"}],correct:1,why:{en:"Write 0.5 as 0.50. Add: 1.25 + 0.50 = 1.75.",ur:"0.5 کو 0.50 لکھو۔ جمع: 1.25 + 0.50 = 1.75۔"}},
+{id:"qpct",q:{en:"50% as a decimal is…",ur:"50% اعشاریہ میں…"},ru:"50% decimal mein kya hai?",opts:[{en:"50",ur:"50"},{en:"5.0",ur:"5.0"},{en:"0.5",ur:"0.5"},{en:"0.05",ur:"0.05"}],correct:2,why:{en:"50% = 50/100 = 0.5. Half of a whole.",ur:"50% = 50/100 = 0.5۔ پورے کا آدھا۔"}},
+{id:"qdiv",q:{en:"What is 0.8 ÷ 2?",ur:"0.8 ÷ 2 کتنا ہے؟"},ru:"0.8 ÷ 2 kitna hai?",opts:[{en:"0.4",ur:"0.4"},{en:"0.04",ur:"0.04"},{en:"4.0",ur:"4.0"},{en:"1.6",ur:"1.6"}],correct:0,why:{en:"Half of 0.8 is 0.4. Or think 8÷2=4, one decimal place stays: 0.4.",ur:"0.8 کا آدھا 0.4۔ یا 8÷2=4، ایک اعشاری جگہ رہتی ہے: 0.4۔"}}
+];
+
+var placeIdx=0,placeDone={};
+var convIdx=0,convDone={};
+var opsIdx=0,opsDone={};
+var optKey="",optOrder=[],quizSet=[],quizState={};
+
+function award(key,n){if(awarded[key])return;awarded[key]=true;stars+=(n||1);$("starCount").textContent=String(stars)}
+function recountStars(){stars=0;Object.keys(awarded).forEach(function(k){stars+=(k.indexOf("mode-")===0)?2:1});$("starCount").textContent=String(stars)}
+function markWin(prefix,id,doneMap,modeKey,total){if(doneMap[id])return;doneMap[id]=true;award(prefix+"-"+id,1);if(Object.keys(doneMap).length>=total){doneModes[modeKey]=true;award("mode-"+modeKey,2)}tabBadges()}
+function skyHTML(){return '<div class="sky-layer"><div class="sun-ball"></div><div class="cloud c1"></div><div class="cloud c2"></div></div>'}
+function prepScene(){var pad=$("scenePad");pad.innerHTML=skyHTML();var stage=document.createElement("div");stage.className="num-stage";pad.appendChild(stage);return stage}
+function addBlurb(stage,ch){var em=document.createElement("div");em.className="hero-em";em.textContent=ch.em||"🔢";stage.appendChild(em);var box=document.createElement("div");box.className="card-box";setText(box,t(ch.blurb));stage.appendChild(box)}
+function addCap(stage,msg){var c=document.createElement("div");c.className="capline";setText(c,msg);stage.appendChild(c)}
+function showStep(i,n){setText($("statechip"),(i+1)+" / "+n);$("statechip").className="statechip"+(lang==="ur"?" ur":"")}
+function showWin(msg){setText($("headline"),msg);$("statechip").className="statechip win"+(lang==="ur"?" ur":"");setText($("statechip"),t(T.nice))}
+function showMiss(){setText($("headline"),t(T.oops));$("statechip").className="statechip miss"+(lang==="ur"?" ur":"");setText($("statechip"),t(T.oops))}
+function stableOrder(key,arr){if(optKey!==key){optKey=key;optOrder=shuffle(arr)}return optOrder}
+function clearHint(){$("hintbox").classList.remove("show")}
+function digitLab(lab){if(!lab)return"";if(lab==="ones")return lang==="en"?"ones":"اکائی";if(lab==="t")return lang==="en"?"10th":"دسواں";if(lab==="h")return lang==="en"?"100th":"سوواں";if(lab==="th")return lang==="en"?"1000th":"ہزارواں";return""}
+function renderDigitRow(stage,ch,done){
+  var row=document.createElement("div");row.className="drow";
+  ch.parts.forEach(function(p){
+    var sp=document.createElement("span");
+    if(p.ch==="."){sp.className="dshow dot";sp.textContent=".";}
+    else{
+      sp.className="dshow";
+      if(ch.kind==="place"&&p.lab===ch.hotLab)sp.className+=" hot";
+      if(done&&ch.kind==="digit"&&p.lab===ch.which)sp.className+=" win";
+      if(done&&ch.kind==="place"&&p.lab===ch.hotLab)sp.className+=" win";
+      sp.textContent=p.ch;
+      var lb=document.createElement("span");lb.className="dlab";lb.textContent=digitLab(p.lab);sp.appendChild(lb);
+    }
+    row.appendChild(sp);
+  });
+  stage.appendChild(row);
+}
+function renderPlace(){
+  var ch=PLACE[placeIdx],stage=prepScene(),done=!!placeDone[ch.id];
+  addBlurb(stage,ch);
+  var hero=document.createElement("div");hero.className="num-hero";hero.textContent=ch.show;stage.appendChild(hero);
+  renderDigitRow(stage,ch,done);
+  addCap(stage,t(T.afterDot));
+  showStep(placeIdx,PLACE.length);setText($("headline"),t(ch.title));
+  setText($("detail"),done?t(ch.why):t(ch.ask));clearHint();
+  if(done)showWin(t(ch.done));
+  var box=$("actionBox");box.innerHTML="";
+  if(ch.kind==="digit"){
+    var bank=document.createElement("div");bank.className="bank ltrb";
+    ch.parts.forEach(function(p){
+      if(p.ch===".")return;
+      var b=document.createElement("button");b.type="button";b.className="mini-item dig";b.textContent=p.ch;b.setAttribute("dir","ltr");
+      if(done&&p.lab===ch.which)b.classList.add("right");b.disabled=done;
+      b.addEventListener("click",function(){if(placeDone[ch.id])return;if(p.lab===ch.which){markWin("place",ch.id,placeDone,"place",PLACE.length);renderPlace()}else{b.classList.add("wrong");showMiss()}});
+      bank.appendChild(b);
+    });
+    box.appendChild(bank);
+  }else{
+    var choices=document.createElement("div");choices.className="save-choices";
+    var order=stableOrder("place-"+ch.id,DEC_PLACES.map(function(p){return p.id}));
+    order.forEach(function(pid){
+      var p=placeById(pid),b=document.createElement("button");b.type="button";setText(b,placeLabel(p));
+      if(done&&pid===ch.hotLab)b.classList.add("right");b.disabled=done;
+      b.addEventListener("click",function(){if(placeDone[ch.id])return;if(pid===ch.hotLab){markWin("place",ch.id,placeDone,"place",PLACE.length);renderPlace()}else{b.classList.add("wrong");showMiss()}});
+      choices.appendChild(b);
+    });
+    box.appendChild(choices);
+  }
+  setText($("prog"),t(T.progPlace)+": "+Object.keys(placeDone).length+"/"+PLACE.length);
+}
+function renderPickMode(list,idx,doneMap,modeKey,progKey,renderFn){
+  var ch=list[idx],stage=prepScene(),done=!!doneMap[ch.id];
+  addBlurb(stage,ch);
+  var eq=document.createElement("div");eq.className="eqline";eq.textContent=ch.eq;stage.appendChild(eq);
+  addCap(stage,lang==="en"?"Pick the correct answer.":"صحیح جواب چنو۔");
+  showStep(idx,list.length);setText($("headline"),t(ch.title));
+  setText($("detail"),done?t(ch.why):t(ch.ask));clearHint();
+  if(done)showWin(t(ch.done));
+  var box=$("actionBox");box.innerHTML="";
+  var choices=document.createElement("div");choices.className="save-choices";
+  stableOrder(modeKey+"-"+ch.id,ch.opts.slice()).forEach(function(opt){
+    var b=document.createElement("button");b.type="button";
+    if(/^[0-9.%\s]+$/.test(t(opt))||opt.en.match(/^[0-9.%=+\-×÷\s?]+$/)){b.className="numc";b.textContent=t(opt);b.setAttribute("dir","ltr")}
+    else setText(b,t(opt));
+    if(done&&opt.id===ch.correct)b.classList.add("right");b.disabled=done;
+    b.addEventListener("click",function(){if(doneMap[ch.id])return;if(opt.id===ch.correct){markWin(modeKey,ch.id,doneMap,modeKey,list.length);renderFn()}else{b.classList.add("wrong");showMiss()}});
+    choices.appendChild(b);
+  });
+  box.appendChild(choices);
+  setText($("prog"),t(progKey)+": "+Object.keys(doneMap).length+"/"+list.length);
+}
+function renderConv(){renderPickMode(CONV,convIdx,convDone,"conv",T.progConv,renderConv)}
+function renderOps(){renderPickMode(OPS,opsIdx,opsDone,"ops",T.progOps,renderOps)}
+function pickQuiz(){
+  var pin=[],rest=[],i;quizState={};
+  for(i=0;i<QUIZ.length;i++){if(QUIZ[i].pin)pin.push(QUIZ[i]);else rest.push(QUIZ[i])}
+  rest=shuffle(rest);quizSet=shuffle(pin.concat(rest.slice(0,5-pin.length)));
+}
+function renderQuiz(){
+  var box=$("quizBox");box.innerHTML="";
+  quizSet.forEach(function(item,qi){
+    var wrap=document.createElement("div");wrap.className="q";
+    var p=document.createElement("p");setText(p,(qi+1)+". "+t(item.q));wrap.appendChild(p);
+    if(lang==="en"&&item.ru){var g=document.createElement("p");g.className="gloss";g.textContent=item.ru;wrap.appendChild(g)}
+    var st=quizState[item.id];
+    item.opts.forEach(function(opt,oi){
+      var b=document.createElement("button");b.type="button";b.className="opt"+(lang==="ur"?" ur":"");setText(b,t(opt));
+      if(st&&oi===item.correct)b.classList.add("right");
+      if(st==="no"&&quizState[item.id+"-pick"]===oi&&oi!==item.correct)b.classList.add("wrong");
+      if(st)b.disabled=true;
+      b.addEventListener("click",function(){
+        if(quizState[item.id])return;
+        quizState[item.id+"-pick"]=oi;
+        if(oi===item.correct){quizState[item.id]="ok";b.classList.add("right");award("quiz-"+item.id,1)}
+        else{quizState[item.id]="no";b.classList.add("wrong");var kids=wrap.querySelectorAll(".opt");if(kids[item.correct])kids[item.correct].classList.add("right")}
+        fb.classList.add("show");
+        var all=wrap.querySelectorAll(".opt"),k;for(k=0;k<all.length;k++)all[k].disabled=true;
+      });
+      wrap.appendChild(b);
+    });
+    var fb=document.createElement("p");fb.className="fb"+(st?" show":"");setText(fb,t(item.why));wrap.appendChild(fb);
+    box.appendChild(wrap);
+  });
+}
+function storyHtml(){if(mode==="place")return t(T.storyPlace);if(mode==="conv")return t(T.storyConv);return t(T.storyOps)}
+function currentTip(){if(mode==="place")return T.tipPlace;if(mode==="conv")return T.tipConv;return T.tipOps}
+function tabBadges(){
+  function lab(btn,label,key){btn.innerHTML="";var span=document.createElement("span");setText(span,t(label));btn.appendChild(span);if(doneModes[key]){var b=document.createElement("span");b.className="badge";b.textContent=" ★";btn.appendChild(b)}}
+  lab($("tabPlace"),T.tabPlace,"place");lab($("tabConv"),T.tabConv,"conv");lab($("tabOps"),T.tabOps,"ops");
+  $("tabPlace").setAttribute("aria-pressed",mode==="place"?"true":"false");
+  $("tabConv").setAttribute("aria-pressed",mode==="conv"?"true":"false");
+  $("tabOps").setAttribute("aria-pressed",mode==="ops"?"true":"false");
+}
+function renderCurrent(){if(mode==="place")renderPlace();else if(mode==="conv")renderConv();else renderOps()}
+function setMode(m){mode=m;renderCurrent();applyChrome()}
+function applyChrome(){
+  setText($("title"),t(T.title));setText($("subtitle"),t(T.sub));
+  $("story").innerHTML=storyHtml();$("story").classList.toggle("ur",lang==="ur");$("story").setAttribute("dir",lang==="ur"?"rtl":"ltr");
+  setText($("ctlHead"),t(T.ctl));setText($("nextBtn"),t(T.next));setText($("hintBtn"),t(T.hint));setText($("resetBtn"),t(T.reset));
+  setText($("quizHead"),t(T.quiz));setText($("newQuiz"),t(T.newQuiz));
+  $("langBtn").textContent=(lang==="en")?"اردو":"EN";$("langBtn").setAttribute("aria-pressed",lang==="ur"?"true":"false");
+  document.body.classList.toggle("urdu",lang==="ur");
+  document.documentElement.lang=(lang==="ur")?"ur":"en";
+  document.documentElement.dir=(lang==="ur")?"rtl":"ltr";
+  document.title=t(T.title)+" | AI4Kids Class 4";
+  tabBadges();
+  var foot=document.querySelector("footer p");
+  if(foot)setText(foot,foot.getAttribute(lang==="ur"?"data-ur":"data-en"));
+}
+function applyLang(){applyChrome();renderCurrent();renderQuiz()}
+function next(){
+  optKey="";
+  if(mode==="place"){placeIdx=(placeIdx+1)%PLACE.length;renderPlace()}
+  else if(mode==="conv"){convIdx=(convIdx+1)%CONV.length;renderConv()}
+  else{opsIdx=(opsIdx+1)%OPS.length;renderOps()}
+}
+function showHint(){
+  var h=mode==="place"?PLACE[placeIdx].hint:(mode==="conv"?CONV[convIdx].hint:OPS[opsIdx].hint);
+  var hb=$("hintbox");setText(hb,t(h));hb.classList.add("show");
+}
+function resetMode(){
+  if(mode==="place"){Object.keys(awarded).forEach(function(k){if(k.indexOf("place-")===0||k==="mode-place")delete awarded[k]});placeDone={};placeIdx=0;doneModes.place=false;recountStars();renderPlace()}
+  else if(mode==="conv"){Object.keys(awarded).forEach(function(k){if(k.indexOf("conv-")===0||k==="mode-conv")delete awarded[k]});convDone={};convIdx=0;doneModes.conv=false;recountStars();renderConv()}
+  else{Object.keys(awarded).forEach(function(k){if(k.indexOf("ops-")===0||k==="mode-ops")delete awarded[k]});opsDone={};opsIdx=0;doneModes.ops=false;recountStars();renderOps()}
+  optKey="";tabBadges();applyChrome();
+}
+function cleanSpeakText(s){return String(s||"").replace(/<[^>]+>/g," ").replace(/&gt;/g,">").replace(/&lt;/g,"<").replace(/&amp;/g,"&").replace(/\s+/g," ").trim()}
+function buildSpeakText(){
+  var bits=[];bits.push(t(T.title));bits.push(cleanSpeakText(storyHtml()));
+  bits.push(cleanSpeakText(($("headline")&&$("headline").textContent)||""));
+  bits.push(cleanSpeakText(($("detail")&&$("detail").textContent)||""));
+  bits.push(t(currentTip()));return bits.filter(Boolean).join(". ");
+}
+function pickVoice(voices,want){
+  var i,v,L;for(i=0;i<voices.length;i++){v=voices[i];L=(v.lang||"").toLowerCase().replace("_","-");if(L.indexOf(want)===0)return v}
+  for(i=0;i<voices.length;i++){v=voices[i];L=(v.lang||"").toLowerCase().replace("_","-");if(L.indexOf("en")===0)return v}
+  return voices[0]||null;
+}
+function setSpeaking(on){var btn=$("speakBtn");if(!btn)return;btn.setAttribute("aria-pressed",on?"true":"false");btn.style.opacity=on?"0.65":""}
+function doSpeak(text,asLang){
+  var u=new SpeechSynthesisUtterance(text);u.rate=0.92;u.lang=(asLang==="ur")?"ur-PK":"en-US";
+  var voices=window.speechSynthesis.getVoices()||[];var voice=pickVoice(voices,asLang==="ur"?"ur":"en");if(voice)u.voice=voice;
+  u.onstart=function(){setSpeaking(true)};u.onend=function(){setSpeaking(false)};
+  u.onerror=function(){setSpeaking(false);if(asLang==="ur"){var fallback=cleanSpeakText(T.title.en+". "+T.storyPlace.en+". "+T.tipPlace.en);var u2=new SpeechSynthesisUtterance(fallback);u2.lang="en-US";u2.rate=0.92;var v2=pickVoice(window.speechSynthesis.getVoices()||[],"en");if(v2)u2.voice=v2;u2.onstart=function(){setSpeaking(true)};u2.onend=u2.onerror=function(){setSpeaking(false)};window.speechSynthesis.speak(u2)}};
+  window.speechSynthesis.speak(u);
+}
+if("speechSynthesis" in window){
+  try{window.speechSynthesis.getVoices()}catch(e0){}
+  if(typeof window.speechSynthesis.addEventListener==="function"){window.speechSynthesis.addEventListener("voiceschanged",function(){try{window.speechSynthesis.getVoices()}catch(e1){}})}
+}else{var noBtn=$("speakBtn");if(noBtn){noBtn.disabled=true;noBtn.title="Voice not available on this device"}}
+$("langBtn").addEventListener("click",function(){lang=(lang==="en")?"ur":"en";applyLang()});
+$("tabPlace").addEventListener("click",function(){setMode("place")});
+$("tabConv").addEventListener("click",function(){setMode("conv")});
+$("tabOps").addEventListener("click",function(){setMode("ops")});
+$("nextBtn").addEventListener("click",next);
+$("hintBtn").addEventListener("click",showHint);
+$("resetBtn").addEventListener("click",resetMode);
+$("newQuiz").addEventListener("click",function(){pickQuiz();renderQuiz()});
+$("speakBtn").addEventListener("click",function(){
+  try{
+    if(!("speechSynthesis" in window))return;
+    var text=buildSpeakText();if(!text)return;
+    if(speakTimer){clearTimeout(speakTimer);speakTimer=null}
+    window.speechSynthesis.cancel();setSpeaking(false);
+    var speakLang=lang;
+    speakTimer=setTimeout(function(){speakTimer=null;doSpeak(text,speakLang)},80);
+  }catch(e){setSpeaking(false)}
+});
+pickQuiz();applyLang();
+})();
+</script>
+</body>
+</html>

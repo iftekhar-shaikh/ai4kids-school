@@ -471,5 +471,13 @@
       "interactive_file": "interactives/g4-fractions-operations.html",
       "interactive_label": "Khelo - Fractions operations"
     }
+  },
+  {
+    "file": "kb/grade_4/math.json",
+    "match_title": "Decimals",
+    "add": {
+      "interactive_file": "interactives/g4-decimals.html",
+      "interactive_label": "Khelo - Decimals"
+    }
   }
 ]
