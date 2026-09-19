@@ -519,5 +519,13 @@
       "interactive_file": "interactives/g4-data-handling.html",
       "interactive_label": "Khelo - Data handling"
     }
+  },
+  {
+    "file": "kb/grade_4/science.json",
+    "match_title": "Simple machines",
+    "add": {
+      "interactive_file": "interactives/g4-simple-machines.html",
+      "interactive_label": "Khelo - Simple machines"
+    }
   }
 ]

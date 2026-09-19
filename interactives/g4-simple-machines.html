@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Simple Machines — Lever, Pulley, Pahiya | AI4Kids Grade 4 General Science</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#eef1f4;
+    --board-deep:#dee3e9;
+    --bar:#8a6a4a;
+    --bar-deep:#5e4630;
+    --load:#c4453a;
+    --effort:#2f6fb5;
+    --effort-deep:#1d4c85;
+    --dist:#c9702e;
+    --ok:#2e7d4f;
+    --ink:#1f2933;
+    --ink-soft:#4a5661;
+    --paper:#fdfaf3;
+    --line:#ded5c4;
+    --accent:#1d4c85;
+    --no:#c4453a;
+
+    --fs-cap:clamp(15px, 3.9vw, 16px);
+    --fs-xs:clamp(16px, 4.2vw, 18px);
+    --fs-sm:clamp(18px, 4.7vw, 19px);
+    --fs-md:clamp(19px, 5.1vw, 21px);
+    --fs-lg:clamp(22px, 5.9vw, 25px);
+    --fs-xl:clamp(28px, 7.6vw, 34px);
+  }
+
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.55;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:44px;
+  }
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--dist);outline-offset:2px}
+
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+
+  .tabs{display:flex;gap:7px;margin:0 0 14px}
+  .tabs button{
+    flex:1;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:9px 6px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:54px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+
+  .scene{
+    position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);
+    background:linear-gradient(180deg,var(--board) 0%,var(--board-deep) 100%);
+  }
+  .scene svg{display:block;width:100%;height:auto}
+  #barG,#pulleyG,#boxG{transition:transform .4s ease}
+
+  .eqn{
+    margin-top:12px;border:3px solid var(--ink);border-radius:16px;background:#fff;
+    padding:13px 12px;text-align:center;
+  }
+  .eqn .lbl{display:block;font-size:var(--fs-cap);font-weight:700;color:var(--ink-soft);
+            margin-bottom:8px}
+  .eqn .line{font-size:var(--fs-md);font-weight:800;line-height:1.7}
+  .eqn .l{color:var(--load)} .eqn .e{color:var(--effort-deep)}
+  .eqn .eq{color:var(--ink);padding:0 6px}
+  .eqn .tot{display:block;margin-top:7px;font-size:var(--fs-cap);font-weight:700;color:var(--ok)}
+  .two{display:flex;gap:10px;margin-top:12px}
+  .card{flex:1;border:3px solid var(--line);border-radius:16px;padding:12px 9px;text-align:center}
+  .card em{display:block;font-style:normal;font-size:var(--fs-cap);color:var(--ink-soft);
+           font-weight:700;margin-bottom:5px}
+  .card b{display:block;font-size:var(--fs-xl);font-weight:800;line-height:1.1}
+  .card span{display:block;font-size:var(--fs-cap);font-weight:700;color:var(--ink-soft);margin-top:3px}
+  .card.l{border-color:var(--load)}    .card.l b{color:var(--load)}
+  .card.e{border-color:var(--effort)}  .card.e b{color:var(--effort-deep)}
+  .card.d{border-color:var(--dist)}    .card.d b{color:var(--dist)}
+
+  .readout{
+    margin-top:12px;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-cap);font-weight:700;margin-bottom:10px}
+  .statechip.ok{background:var(--ok)} .statechip.no{background:var(--no)}
+  .lead{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.4}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+
+  .trade{
+    margin-top:14px;border:2px dashed var(--dist);background:#fbf1e8;border-radius:14px;
+    padding:12px 14px;font-size:var(--fs-xs);font-weight:700;color:#8a4a12;line-height:1.6;
+  }
+  .trade b{background:#fff;border-radius:5px;padding:1px 6px}
+
+  .why-note{
+    margin:12px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;
+    border-left:3px solid var(--accent);padding-left:11px;
+  }
+  .why-note b{color:var(--accent);font-weight:800}
+
+  .panel{margin-top:22px}
+  .panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+  .row{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .row .name{flex:none;width:38%;max-width:170px;font-size:var(--fs-xs);font-weight:700}
+  .stepper{display:flex;align-items:center;gap:9px;flex:1;justify-content:center}
+  .stepper button{
+    width:52px;height:52px;border-radius:14px;border:2px solid var(--ink);background:var(--paper);
+    font:inherit;font-size:var(--fs-lg);font-weight:800;cursor:pointer;color:var(--ink);
+  }
+  .stepper button:disabled{opacity:.3;cursor:default}
+  .stepper .val{min-width:74px;text-align:center;font-size:var(--fs-lg);font-weight:800}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .schip{
+    border:2px solid var(--line);background:var(--paper);border-radius:999px;padding:9px 15px;
+    font:inherit;font-size:var(--fs-cap);font-weight:800;color:var(--ink);cursor:pointer;min-height:46px;
+  }
+  .schip[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:52px;
+  }
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+  .opt.wrong{border-color:var(--no);background:#fbeae8}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none;line-height:1.6}
+  .fb.show{display:block}
+
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
+      grid-template-areas:"bar bar" "head head" "tabs tabs" "left right" "quiz quiz" "foot foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+    .left{grid-area:left} .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+    .panel{margin-top:0}
+  }
+  @media (prefers-reduced-motion:reduce){ *{transition-duration:.01ms !important} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Grade 4 · General Science</span>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+
+  <div class="head">
+  <h1 id="title"></h1>
+  <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="tabs" role="group">
+    <button type="button" id="tabLev" aria-pressed="true">Lever</button>
+    <button type="button" id="tabPul" aria-pressed="false">Pulley</button>
+    <button type="button" id="tabWhl" aria-pressed="false">Pahiya</button>
+  </div>
+
+  <div class="left">
+  <div class="scene">
+    <svg viewBox="0 0 320 210" role="img" id="svg" aria-label="Simple machine ki tasveer"></svg>
+  </div>
+
+  <div class="two" id="two"></div>
+  <div class="eqn" id="eqn"></div>
+
+  <div class="readout">
+    <span class="statechip" id="statechip"></span>
+    <p class="lead" id="lead"></p>
+    <p class="detail" id="detail"></p>
+    <p class="trade" id="trade"></p>
+    <p class="why-note"><b>Ghaur karein:</b> <span id="whyText"></span></p>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="panel">
+    <h2 id="panelHead"></h2>
+    <div id="controls"></div>
+    <div class="chips" id="chips" role="group"></div>
+  </div>
+  </div>
+
+  <div class="quiz">
+    <h2 id="quizHead" style="font-size:var(--fs-lg);font-weight:800;margin:0 0 18px">Apna imtihan lein</h2>
+    <div id="quizBox"></div>
+  </div>
+
+  <footer>
+    <p>AI4Kids — Islamabad ka do zabanon wala AI aur coding school. WhatsApp 0337 1468899</p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var tab="lev";
+  var fulc=50, load=20;          // fulcrum 10..90 cm, load in kg
+  var ropes=1;                   // pulley: kitni rassiyan bojh ko thaame hui hain
+  var wheels=false;              // box on the ground, or on rollers
+
+  var LEV_EXAMPLES=[
+    { n:"See-saw", u:"Fulcrum bilkul beech mein hota hai. Dono taraf barabar, isi liye barabar wazan chahiye." },
+    { n:"Sariya (crowbar)", u:"Fulcrum bojh ke bilkul qareeb rakha jata hai. Isi liye ek aadmi bhari patthar hila leta hai." },
+    { n:"Wheelbarrow", u:"Pahiya hi fulcrum hai, bojh beech mein, aur aap sire se uthate hain." },
+    { n:"Qainchi", u:"Do lever ek saath. Peench (screw) fulcrum hai." }
+  ];
+
+  function effortNeeded(){
+    var a=fulc, b=100-fulc;      // bojh ka bazoo, aur zor ka bazoo
+    return load * a / b;
+  }
+  function distanceRatio(){ return (100-fulc)/fulc; }
+
+  var NS="http://www.w3.org/2000/svg";
+  function mk(tag,a){ var e=document.createElementNS(NS,tag);
+    for (var k in a) e.setAttribute(k,a[k]); return e; }
+  function $(id){ return document.getElementById(id); }
+
+  /* ---------- lever ---------- */
+  function drawLever(){
+    var svg=$("svg"); svg.innerHTML=""; svg.setAttribute("viewBox","0 0 320 210");
+    var g=mk("g",{}); svg.appendChild(g);
+    g.appendChild(mk("rect",{x:0,y:178,width:320,height:32,fill:"#9aa48f"}));
+
+    var X0=26, X1=294, Y=120;
+    var fx = X0 + (X1-X0)*fulc/100;
+    // bar tilts a little, to show which side goes down
+    var tilt = Math.max(-11, Math.min(11, (effortNeeded()-load)*0.35));
+    var bg=mk("g",{id:"barG", transform:"rotate("+tilt+" "+fx+" "+Y+")"});
+    bg.appendChild(mk("rect",{x:X0,y:Y-7,width:X1-X0,height:14,rx:5,
+                              fill:"var(--bar)",stroke:"var(--bar-deep)","stroke-width":2}));
+    // bojh bayen sire par
+    bg.appendChild(mk("rect",{x:X0-4,y:Y-40,width:42,height:34,rx:5,
+                              fill:"var(--load)",stroke:"var(--ink)","stroke-width":2.5}));
+    var lt=mk("text",{x:X0+17,y:Y-18,"text-anchor":"middle","font-size":"15","font-weight":"800",
+                      fill:"#fff","font-family":"Baloo Bhaijaan 2, sans-serif"});
+    lt.textContent=load; bg.appendChild(lt);
+    // zor dayen sire par
+    bg.appendChild(mk("path",{d:"M"+(X1-14)+" "+(Y-46)+" L"+(X1-14)+" "+(Y-14),
+                              stroke:"var(--effort)","stroke-width":6,"stroke-linecap":"round"}));
+    bg.appendChild(mk("path",{d:"M"+(X1-22)+" "+(Y-24)+" L"+(X1-14)+" "+(Y-12)+" L"+(X1-6)+" "+(Y-24),
+                              fill:"none",stroke:"var(--effort)","stroke-width":6,
+                              "stroke-linecap":"round","stroke-linejoin":"round"}));
+    g.appendChild(bg);
+
+    // fulcrum
+    g.appendChild(mk("path",{d:"M"+fx+" "+(Y+8)+" L"+(fx-20)+" "+(Y+58)+" L"+(fx+20)+" "+(Y+58)+" Z",
+                             fill:"#5b6470",stroke:"var(--ink)","stroke-width":2.5}));
+    var ft=mk("text",{x:fx,y:Y+76,"text-anchor":"middle","font-size":"13","font-weight":"800",
+                      fill:"var(--ink-soft)","font-family":"Baloo Bhaijaan 2, sans-serif"});
+    ft.textContent="Fulcrum"; g.appendChild(ft);
+
+    // dono bazuon ki lambai
+    [[X0, fx, "var(--load)", fulc, Y+96],[fx, X1, "var(--effort)", 100-fulc, Y+96]].forEach(function(s){
+      g.appendChild(mk("line",{x1:s[0],y1:s[4],x2:s[1],y2:s[4],stroke:s[2],"stroke-width":4,
+                               "stroke-linecap":"round"}));
+      var tx=mk("text",{x:(s[0]+s[1])/2,y:s[4]-7,"text-anchor":"middle","font-size":"13",
+                        "font-weight":"800",fill:s[2],"font-family":"Baloo Bhaijaan 2, sans-serif"});
+      tx.textContent=s[3]+" cm"; g.appendChild(tx);
+    });
+  }
+
+  /* ---------- pulley ---------- */
+  function drawPulley(){
+    var svg=$("svg"); svg.innerHTML=""; svg.setAttribute("viewBox","0 0 320 210");
+    var g=mk("g",{}); svg.appendChild(g);
+    g.appendChild(mk("rect",{x:0,y:16,width:320,height:12,fill:"#7a828c"}));
+
+    if (ropes===1){
+      g.appendChild(mk("circle",{cx:130,cy:52,r:22,fill:"#c9ccd2",stroke:"var(--ink)","stroke-width":3}));
+      g.appendChild(mk("circle",{cx:130,cy:52,r:5,fill:"var(--ink)"}));
+      g.appendChild(mk("line",{x1:130,y1:28,x2:130,y2:30,stroke:"var(--ink)","stroke-width":3}));
+      g.appendChild(mk("path",{d:"M108 52 L108 140",stroke:"var(--bar-deep)","stroke-width":4}));
+      g.appendChild(mk("path",{d:"M152 52 L152 150",stroke:"var(--bar-deep)","stroke-width":4}));
+      g.appendChild(mk("rect",{x:86,y:140,width:44,height:38,rx:5,
+                               fill:"var(--load)",stroke:"var(--ink)","stroke-width":2.5}));
+      g.appendChild(mk("path",{d:"M152 150 L152 182",stroke:"var(--effort)","stroke-width":7,
+                               "stroke-linecap":"round"}));
+      g.appendChild(mk("path",{d:"M144 170 L152 184 L160 170",fill:"none",stroke:"var(--effort)",
+                               "stroke-width":6,"stroke-linecap":"round","stroke-linejoin":"round"}));
+    } else {
+      [96,190].forEach(function(cx,i){
+        g.appendChild(mk("circle",{cx:cx,cy: i===0?52:108, r:20,
+                                   fill:"#c9ccd2",stroke:"var(--ink)","stroke-width":3}));
+        g.appendChild(mk("circle",{cx:cx,cy: i===0?52:108, r:5, fill:"var(--ink)"}));
+      });
+      g.appendChild(mk("line",{x1:96,y1:28,x2:96,y2:32,stroke:"var(--ink)","stroke-width":3}));
+      g.appendChild(mk("path",{d:"M210 108 L210 40 L76 40 L76 52",fill:"none",
+                               stroke:"var(--bar-deep)","stroke-width":4}));
+      g.appendChild(mk("path",{d:"M170 108 L170 40",fill:"none",stroke:"var(--bar-deep)","stroke-width":4}));
+      g.appendChild(mk("path",{d:"M190 128 L190 146",stroke:"var(--bar-deep)","stroke-width":4}));
+      g.appendChild(mk("rect",{x:168,y:146,width:44,height:38,rx:5,
+                               fill:"var(--load)",stroke:"var(--ink)","stroke-width":2.5}));
+      g.appendChild(mk("path",{d:"M76 52 L76 178",stroke:"var(--effort)","stroke-width":7,
+                               "stroke-linecap":"round"}));
+      g.appendChild(mk("path",{d:"M68 166 L76 180 L84 166",fill:"none",stroke:"var(--effort)",
+                               "stroke-width":6,"stroke-linecap":"round","stroke-linejoin":"round"}));
+    }
+    var lt=mk("text",{x: ropes===1?108:190, y: ropes===1?164:170,"text-anchor":"middle",
+                      "font-size":"15","font-weight":"800",fill:"#fff",
+                      "font-family":"Baloo Bhaijaan 2, sans-serif"});
+    lt.textContent=load; g.appendChild(lt);
+    var nt=mk("text",{x:160,y:202,"text-anchor":"middle","font-size":"13","font-weight":"800",
+                      fill:"var(--ink-soft)","font-family":"Baloo Bhaijaan 2, sans-serif"});
+    nt.textContent = ropes + (ropes===1 ? " rassi bojh ko thaame hui" : " rassiyan bojh ko thaame huin");
+    g.appendChild(nt);
+  }
+
+  /* ---------- pahiya ---------- */
+  function drawWheel(){
+    var svg=$("svg"); svg.innerHTML=""; svg.setAttribute("viewBox","0 0 320 210");
+    var g=mk("g",{}); svg.appendChild(g);
+    g.appendChild(mk("rect",{x:0,y:150,width:320,height:60,fill:"#9aa48f"}));
+    var by = wheels ? 106 : 116;
+    g.appendChild(mk("rect",{x:96,y:by,width:86,height:44,rx:5,
+                             fill:"var(--load)",stroke:"var(--ink)","stroke-width":2.5}));
+    var lt=mk("text",{x:139,y:by+29,"text-anchor":"middle","font-size":"16","font-weight":"800",
+                      fill:"#fff","font-family":"Baloo Bhaijaan 2, sans-serif"});
+    lt.textContent=load; g.appendChild(lt);
+    if (wheels){
+      [112,166].forEach(function(cx){
+        g.appendChild(mk("circle",{cx:cx,cy:150,r:16,fill:"#5b6470",stroke:"var(--ink)","stroke-width":2.5}));
+        g.appendChild(mk("circle",{cx:cx,cy:150,r:5,fill:"#c9ccd2"}));
+      });
+    } else {
+      for (var i=0;i<7;i++)
+        g.appendChild(mk("path",{d:"M"+(100+i*13)+" 160 l6 -8",stroke:"#6d7663","stroke-width":3,
+                                 "stroke-linecap":"round"}));
+    }
+    // kheenchne ka teer, jitna zor utna lamba
+    var pull = wheels ? 34 : 84;
+    g.appendChild(mk("path",{d:"M190 "+(by+22)+" L"+(190+pull)+" "+(by+22),
+                             stroke:"var(--effort)","stroke-width":7,"stroke-linecap":"round"}));
+    g.appendChild(mk("path",{d:"M"+(178+pull)+" "+(by+12)+" L"+(192+pull)+" "+(by+22)+
+                               " L"+(178+pull)+" "+(by+32),
+                             fill:"none",stroke:"var(--effort)","stroke-width":6,
+                             "stroke-linecap":"round","stroke-linejoin":"round"}));
+    var ft=mk("text",{x:56,y:by+28,"text-anchor":"middle","font-size":"13","font-weight":"800",
+                      fill:"var(--dist)","font-family":"Baloo Bhaijaan 2, sans-serif"});
+    ft.textContent = wheels ? "ragar kam" : "ragar zyada";
+    g.appendChild(ft);
+    if (!wheels)
+      for (var j=0;j<4;j++)
+        g.appendChild(mk("path",{d:"M"+(104+j*22)+" 150 l-10 -9",stroke:"var(--dist)",
+                                 "stroke-width":4,"stroke-linecap":"round"}));
+  }
+
+  function equation(label, leftHTML, rightHTML, foot){
+    var e=$("eqn");
+    if (!label){ e.style.display="none"; return; }
+    e.style.display="";
+    e.innerHTML="";
+    var l=document.createElement("span"); l.className="lbl"; l.textContent=label;
+    var ln=document.createElement("div"); ln.className="line";
+    ln.innerHTML = leftHTML + '<span class="eq">=</span>' + rightHTML;
+    e.appendChild(l); e.appendChild(ln);
+    if (foot){
+      var f=document.createElement("span"); f.className="tot"; f.textContent=foot;
+      e.appendChild(f);
+    }
+  }
+
+  function cards(list){
+    var box=$("two"); box.innerHTML="";
+    list.forEach(function(c){
+      var d=document.createElement("div"); d.className="card "+c[3];
+      var em=document.createElement("em"); em.textContent=c[0];
+      var b=document.createElement("b"); b.textContent=c[1];
+      var sp=document.createElement("span"); sp.textContent=c[2];
+      d.appendChild(em); d.appendChild(b); d.appendChild(sp);
+      box.appendChild(d);
+    });
+  }
+
+  function stepperRow(parent, label, value, minus, plus, canMinus, canPlus){
+    var r=document.createElement("div"); r.className="row";
+    var n=document.createElement("span"); n.className="name"; n.textContent=label;
+    var s=document.createElement("div"); s.className="stepper";
+    var m=document.createElement("button"); m.type="button"; m.textContent="\u2212";
+    m.disabled=!canMinus; m.addEventListener("click", minus);
+    var v=document.createElement("span"); v.className="val"; v.textContent=value;
+    var p=document.createElement("button"); p.type="button"; p.textContent="+";
+    p.disabled=!canPlus; p.addEventListener("click", plus);
+    s.appendChild(m); s.appendChild(v); s.appendChild(p);
+    r.appendChild(n); r.appendChild(s); parent.appendChild(r);
+  }
+
+  /* ---------- render ---------- */
+  function render(){
+    ["Lev","Pul","Whl"].forEach(function(x){
+      $("tab"+x).setAttribute("aria-pressed", tab===x.toLowerCase() ? "true":"false");
+    });
+    var ctl=$("controls"), chips=$("chips");
+    ctl.innerHTML=""; chips.innerHTML="";
+    var chip=$("statechip"); chip.className="statechip";
+
+    if (tab==="lev"){
+      drawLever();
+      var E=effortNeeded(), R=distanceRatio();
+      $("title").textContent="Fulcrum hilaayein, aur dekhein zor kitna badalta hai.";
+      $("subtitle").textContent="Bojh wohi rehta hai. Sirf teen-kona (fulcrum) apni jagah badalta hai.";
+      $("panelHead").textContent="Lever chalaayein";
+      var MA = load/E;
+      cards([["Bojh", load+" kg", "hamesha wohi", "l"],
+             ["Aap ka zor", E.toFixed(1)+" kg", E<load ? "bojh se kam" : (E>load ? "bojh se zyada":"barabar"), "e"],
+             ["Machine ki madad", MA.toFixed(1)+"x", MA>1 ? "guna taqat" : (MA<1 ? "ulta nuqsan":"koi madad nahin"), "d"]]);
+      equation("Lever ka qaida \u2014 dono taraf barabar hona chahiye",
+        '<span class="l">' + load + ' kg \u00d7 ' + fulc + ' cm</span>',
+        '<span class="e">' + E.toFixed(1) + ' kg \u00d7 ' + (100-fulc) + ' cm</span>',
+        (load*fulc).toFixed(0) + "  =  " + (E*(100-fulc)).toFixed(0) + "   \u2014 dono taraf ka hisaab barabar");
+      chip.className="statechip" + (E<load ? " ok" : (E>load ? " no":""));
+      chip.textContent = E<load ? "Aasan ho gaya" : (E>load ? "Mushkil ho gaya" : "Barabar");
+      $("lead").textContent = E<load
+        ? "Sirf " + E.toFixed(1) + " kg ka zor kaafi hai."
+        : (E>load ? E.toFixed(1) + " kg zor lagana parega \u2014 bojh se bhi zyada!"
+                  : "Poora " + load + " kg ka zor lagega.");
+      $("detail").textContent = "Fulcrum bojh se " + fulc + " cm door hai, aur aap ke haath se " +
+        (100-fulc) + " cm. Jitna fulcrum bojh ke qareeb, utna kam zor.";
+      $("trade").innerHTML = "Farz karein bojh ko <b>10 cm</b> oopar uthana hai. To aap ka haath <b>" +
+        (10*R).toFixed(0) + " cm</b> neeche jayega \u2014 yaani " + R.toFixed(1) +
+        " guna zyada. Zor kam hua, magar hilana zyada parega.";
+      $("whyText").innerHTML = "Madad ka adad nikalne ka tareeqa aasan hai: <b>bojh \u00f7 zor</b>. Abhi yeh " +
+        load + " \u00f7 " + E.toFixed(1) + " = <b>" + MA.toFixed(1) + "x</b> hai. Aur yehi adad aap ke bazoo ki lambai se bhi nikal aata hai: " +
+        (100-fulc) + " \u00f7 " + fulc + " = " + MA.toFixed(1) + "x. <b>Dono raaste ek hi jawab par le jaate hain</b> \u2014 isi liye sirf fulcrum ki jagah dekh kar bataya ja sakta hai ke madad kitni milegi.";
+      stepperRow(ctl, "Fulcrum ki jagah", fulc+" cm",
+        function(){ fulc=Math.max(10, fulc-10); render(); },
+        function(){ fulc=Math.min(90, fulc+10); render(); },
+        fulc>10, fulc<90);
+      stepperRow(ctl, "Bojh", load+" kg",
+        function(){ load=Math.max(10, load-10); render(); },
+        function(){ load=Math.min(60, load+10); render(); },
+        load>10, load<60);
+      LEV_EXAMPLES.forEach(function(x,i){
+        var b=document.createElement("button"); b.type="button"; b.className="schip";
+        b.textContent=x.n;
+        b.addEventListener("click", function(){
+          $("lead").textContent=x.n;
+          $("detail").textContent=x.u;
+        });
+        chips.appendChild(b);
+      });
+      lastSpoken="Lever";
+      return;
+    }
+
+    if (tab==="pul"){
+      drawPulley();
+      var Ep = load/ropes;
+      $("title").textContent="Pulley: rassi kitni baar bojh ko thaame hui hai?";
+      $("subtitle").textContent="Jitni rassiyan bojh ko uthaa rahi hain, zor utne hisson mein bant jata hai.";
+      $("panelHead").textContent="Pulley chunein";
+      cards([["Bojh", load+" kg", "hamesha wohi", "l"],
+             ["Aap ka zor", Ep.toFixed(0)+" kg", ropes===1 ? "barabar" : "aadha", "e"],
+             ["Machine ki madad", ropes+"x", ropes===1 ? "sirf simt badli" : "guna taqat", "d"]]);
+      equation("Pulley ka qaida \u2014 bojh rassiyon mein bant jata hai",
+        '<span class="l">' + load + ' kg \u00f7 ' + ropes + ' rassi</span>',
+        '<span class="e">' + Ep.toFixed(0) + ' kg har rassi par</span>',
+        "Madad = rassiyon ki tadaad = " + ropes + "x");
+      chip.className="statechip" + (ropes>1 ? " ok":"");
+      chip.textContent = ropes===1 ? "Sirf simt badli" : "Zor aadha ho gaya";
+      $("lead").textContent = ropes===1
+        ? "Zor kam nahin hua \u2014 magar ab aap neeche kheench rahe hain."
+        : "Ab sirf " + Ep.toFixed(0) + " kg ka zor kaafi hai.";
+      $("detail").textContent = ropes===1
+        ? "Ek jami hui (fixed) pulley zor kam nahin karti. Woh sirf simt badalti hai: oopar uthane ke bajaye neeche kheenchna. Neeche kheenchna aasan hai kyunki aap apna wazan bhi laga sakte hain."
+        : "Do rassiyan mil kar bojh thaame hui hain, to har rassi par aadha bojh aata hai.";
+      $("trade").innerHTML = ropes===1
+        ? "Yahan koi sauda nahin hua \u2014 bojh <b>1 meter</b> uthana ho to rassi bhi <b>1 meter</b> hi kheenchni paregi."
+        : "Magar rassi <b>do guna</b> lambi kheenchni paregi. Bojh <b>1 meter</b> uthana ho to rassi <b>2 meter</b> kheenchni hogi.";
+      $("whyText").innerHTML = ropes===1
+        ? "Ginne ka tareeqa: <b>dekhein ke bojh ko kitni rassiyan thaame hui hain</b>. Yahan sirf ek hai, to madad 1x \u2014 yaani taqat ka koi faida nahin. Faida sirf <b>aasani</b> ka hai: oopar uthane ke bajaye neeche kheenchna, jis mein aap apna wazan bhi laga sakte hain."
+        : "Wahi ginti phir kaam aayi: bojh ko <b>do</b> rassiyan thaame hui hain, to madad <b>2x</b> aur zor aadha. Char rassiyan hon to madad 4x ho jati hai. Cranes mein isi liye kai pulley ek saath lagi hoti hain \u2014 har rassi bojh ka ek hissa uthati hai.";
+      [[1,"Ek pulley (fixed)"],[2,"Do pulley"]].forEach(function(r){
+        var b=document.createElement("button"); b.type="button"; b.className="schip";
+        b.textContent=r[1];
+        b.setAttribute("aria-pressed", ropes===r[0] ? "true":"false");
+        b.addEventListener("click", function(){ ropes=r[0]; render(); });
+        chips.appendChild(b);
+      });
+      stepperRow(ctl, "Bojh", load+" kg",
+        function(){ load=Math.max(10, load-10); render(); },
+        function(){ load=Math.min(60, load+10); render(); },
+        load>10, load<60);
+      lastSpoken="Pulley";
+      return;
+    }
+
+    drawWheel();
+    var Ew = wheels ? load*0.2 : load*0.9;
+    $("title").textContent="Pahiya: ragar (friction) ko harane ka tareeqa.";
+    $("subtitle").textContent="Dabba wohi hai, zameen wohi hai. Farq sirf yeh hai ke woh ghisat raha hai ya lurhak raha hai.";
+    $("panelHead").textContent="Dabba kaise hilayein";
+    var MAw = (load*0.9)/Ew;
+    cards([["Bojh", load+" kg", "hamesha wohi", "l"],
+           ["Kheenchne ka zor", Ew.toFixed(0)+" kg", wheels ? "bohot kam":"bohot zyada", "e"],
+           ["Kitna aasan hua", wheels ? MAw.toFixed(1)+"x" : "1x", wheels ? "guna aasan":"koi madad nahin", "d"]]);
+    equation("Pahiya alag tarah madad karta hai",
+      '<span class="l">Bojh ' + load + ' kg</span>',
+      '<span class="e">' + (wheels ? "sirf " : "") + Ew.toFixed(0) + ' kg ka zor</span>',
+      wheels ? "Bojh kam nahin hua \u2014 ragar kam hui" : "Ragar poori satah par lag rahi hai");
+    chip.className="statechip" + (wheels ? " ok":" no");
+    chip.textContent = wheels ? "Pahiyon par \u2014 aasan" : "Zameen par ghisatna \u2014 mushkil";
+    $("lead").textContent = wheels
+      ? "Sirf " + Ew.toFixed(0) + " kg ka zor kaafi hai."
+      : Ew.toFixed(0) + " kg ka zor lagana parega.";
+    $("detail").textContent = wheels
+      ? "Pahiya zameen ko ghisatta nahin, us par lurhakta hai. Har lamhe sirf ek nuqta zameen ko chhoo raha hota hai, is liye ragar bohot kam ho jati hai."
+      : "Dabbe ki poori neechli satah zameen se ragar kha rahi hai. Yeh ragar aap ke zor ke khilaf kaam karti hai.";
+    $("trade").innerHTML = wheels
+      ? "Yahan machine ne <b>faasla nahin badla</b> \u2014 isne ragar kam ki. Isi liye pahiya insan ki sab se kaam ki ijaad kahi jati hai."
+      : "Ragar hamesha buri nahin hoti. Isi ragar ki wajah se aap chal sakte hain aur gaari ke brake kaam karte hain.";
+    $("whyText").innerHTML = wheels
+      ? "Ghaur karein: lever aur pulley zor ko <b>faasle ke sath badalte</b> hain. Pahiya kuch aur karta hai \u2014 woh us rukawat ko kam karta hai jo pehle se raaste mein thi."
+      : "Suitcase par pahiye lagne se pehle log usay uthate thay. Ek chhoti si tabdeeli ne poori cheez badal di.";
+    [[false,"Zameen par ghisatein"],[true,"Pahiyon par lurhkaayein"]].forEach(function(r){
+      var b=document.createElement("button"); b.type="button"; b.className="schip";
+      b.textContent=r[1];
+      b.setAttribute("aria-pressed", wheels===r[0] ? "true":"false");
+      b.addEventListener("click", function(){ wheels=r[0]; render(); });
+      chips.appendChild(b);
+    });
+    stepperRow(ctl, "Bojh", load+" kg",
+      function(){ load=Math.max(10, load-10); render(); },
+      function(){ load=Math.min(60, load+10); render(); },
+      load>10, load<60);
+    lastSpoken="Pahiya";
+  }
+
+  var lastSpoken="";
+
+  ["Lev","Pul","Whl"].forEach(function(x){
+    $("tab"+x).addEventListener("click", function(){
+      var m=x.toLowerCase();
+      if (tab===m) return;
+      tab=m; render();
+    });
+  });
+
+  var QUIZ=[
+    { q:"Lever mein fulcrum bojh ke qareeb laane se kya hota hai?",
+      o:["Zor zyada lagana parta hai","Zor kam lagana parta hai","Koi farq nahin parta","Bojh bhaari ho jata hai"],
+      a:1,
+      f:"Fulcrum jitna bojh ke qareeb, utna hi bojh ka bazoo chhota aur aap ka bazoo lamba. Isi liye sariya (crowbar) ka sira patthar ke bilkul neeche rakha jata hai." },
+    { q:"Ek fixed pulley kya karti hai?",
+      o:["Zor aadha kar deti hai","Zor chauthai kar deti hai","Zor kam nahin karti, sirf simt badalti hai","Bojh halka kar deti hai"],
+      a:2,
+      f:"Ek jami hui pulley se aap oopar uthane ke bajaye neeche kheenchte hain. Wazan wohi rehta hai \u2014 magar neeche kheenchna aasan hota hai, kyunki aap apna wazan bhi laga sakte hain." },
+    { q:"Do rassiyan bojh ko thaame huin. Zor kitna lagega?",
+      o:["Dugna","Aadha","Wohi","Chauthai"], a:1,
+      f:"Bojh do rassiyon mein bant jata hai, to har rassi par aadha. Magar rassi do guna lambi kheenchni paregi." },
+    { q:"Simple machine ka asal faida kya hai?",
+      o:["Woh kaam khatam kar deti hai","Woh kaam kam kar deti hai","Woh kaam ko aasan shakal mein badal deti hai","Woh bojh ghayab kar deti hai"],
+      a:2,
+      f:"Yeh poori app ka sab se ahem sawal hai. Zor kam hota hai magar faasla barh jata hai. Kaam utna ka utna rehta hai \u2014 bas woh aasan tareeqe se hota hai." },
+    { q:"Pahiya kis cheez ko kam karta hai?",
+      o:["Bojh ko","Ragar (friction) ko","Faasle ko","Wazan ko"], a:1,
+      f:"Pahiya zameen par ghisatta nahin, lurhakta hai. Har lamhe sirf ek nuqta zameen ko chhoota hai, is liye ragar bohot kam ho jati hai. Bojh waisa ka waisa rehta hai." },
+    { q:"Kya ragar hamesha buri cheez hai?",
+      o:["Haan, hamesha","Nahin \u2014 usi se hum chal sakte hain aur brake kaam karte hain","Sirf sardi mein buri hoti hai","Ragar hoti hi nahin"],
+      a:1,
+      f:"Agar ragar na hoti to har qadam par phisal jate, aur gaari kabhi rukti hi nahin. Kabhi hum use kam karte hain (pahiya), aur kabhi barhate hain (tyre ke design)." },
+    { q:"Wheelbarrow mein fulcrum kaunsa hissa hai?",
+      o:["Aap ke haath","Pahiya","Bojh","Dasta (handle)"], a:1,
+      f:"Pahiya hi teen-kona hai. Bojh beech mein hota hai aur aap sire se uthate hain \u2014 is liye poora wazan aap par nahin aata." }
+  ];
+
+  function buildQuiz(){
+    var box=$("quizBox"); box.innerHTML="";
+    QUIZ.forEach(function(item){
+      var wrap=document.createElement("div"); wrap.className="q";
+      var q=document.createElement("p"); q.textContent=item.q; wrap.appendChild(q);
+      var fb=document.createElement("p"); fb.className="fb";
+      item.o.forEach(function(opt,oi){
+        var b=document.createElement("button"); b.type="button"; b.className="opt";
+        b.textContent=opt;
+        b.addEventListener("click", function(){
+          if (wrap.getAttribute("data-done")==="1") return;
+          wrap.setAttribute("data-done","1");
+          Array.prototype.forEach.call(wrap.querySelectorAll(".opt"), function(x,xi){
+            if (xi===item.a) x.classList.add("right");
+            else if (xi===oi) x.classList.add("wrong");
+          });
+          fb.textContent=item.f; fb.classList.add("show");
+        });
+        wrap.appendChild(b);
+      });
+      wrap.appendChild(fb); box.appendChild(wrap);
+    });
+  }
+
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      window.speechSynthesis.cancel();
+      var u=new SpeechSynthesisUtterance($("lead").textContent);
+      u.lang="ur-PK"; u.rate=0.9;
+      window.speechSynthesis.speak(u);
+    }catch(e){ /* no voice available — stay quiet */ }
+  });
+
+  buildQuiz();
+  render();
+})();
+</script>
+</body>
+</html>
