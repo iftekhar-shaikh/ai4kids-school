@@ -342,7 +342,9 @@
             "explanation": "Kyunke essay ka structure hamesha intro, body aur conclusion par mabni hota hai."
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g4-essay-diary.html",
+      "interactive_label": "Khelo - Essay aur diary"
     },
     {
       "title": "Formal letter",

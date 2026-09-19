@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Essay aur diary | AI4Kids Grade 4 English</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#f1f0ea;
+    --board-deep:#e3e1d6;
+    --essay:#2f6fb5;
+    --essay-deep:#1d4c85;
+    --diary:#6b4a8f;
+    --diary-deep:#4a3266;
+    --intro:#2e7d55;
+    --bodyc:#c9702e;
+    --concl:#a8632e;
+    --ink:#241f18;
+    --ink-soft:#554c41;
+    --paper:#fdfaf3;
+    --line:#ded5c4;
+    --accent:#1d4c85;
+    --ok:#2e7d4f;
+    --no:#c4453a;
+    --trap:#c9702e;
+    --fs-cap:clamp(14px, 3.8vw, 16px);
+    --fs-xs:clamp(16px, 4.2vw, 18px);
+    --fs-sm:clamp(18px, 4.8vw, 20px);
+    --fs-md:clamp(19px, 5.2vw, 22px);
+    --fs-lg:clamp(22px, 6vw, 26px);
+    --fs-xl:clamp(30px, 8vw, 38px);
+    --lh:1.55;
+  }
+  body.urdu{
+    --fs-cap:clamp(16px, 4.2vw, 18px);
+    --fs-xs:clamp(18px, 4.7vw, 20px);
+    --fs-sm:clamp(20px, 5.3vw, 22px);
+    --fs-md:clamp(21px, 5.7vw, 24px);
+    --fs-lg:clamp(24px, 6.5vw, 28px);
+    --fs-xl:clamp(28px, 7.5vw, 34px);
+    --lh:2.05;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.55;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:44px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--trap);outline-offset:2px}
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.85}
+  .tabs{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
+  .tabs button{
+    flex:1;min-width:62px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:14px;padding:9px 4px;font:inherit;font-weight:800;
+    font-size:var(--fs-cap);cursor:pointer;min-height:56px;
+  }
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .scene{
+    border-radius:22px;border:3px solid var(--ink);padding:16px 14px;min-height:120px;
+    background:linear-gradient(180deg,var(--board) 0%,var(--board-deep) 100%);
+  }
+  .lesson .block{
+    border:3px solid var(--line);border-radius:16px;padding:14px 16px;margin-bottom:12px;
+    background:var(--paper);
+  }
+  .lesson .tag{
+    display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+    padding:3px 12px;font-size:var(--fs-cap);font-weight:800;margin-bottom:8px;
+  }
+  .lesson .block p{margin:0;font-size:var(--fs-sm);line-height:1.65}
+  .cmp{display:flex;gap:10px;flex-wrap:wrap}
+  .ccard{
+    flex:1 1 200px;border:3px solid var(--line);border-radius:18px;padding:14px 14px;
+    background:var(--paper);
+  }
+  .ccard.essay{border-color:var(--essay)}
+  .ccard.diary{border-color:var(--diary)}
+  .ccard h3{margin:0 0 10px;font-size:var(--fs-lg);font-weight:800}
+  .ccard.essay h3{color:var(--essay-deep)}
+  .ccard.diary h3{color:var(--diary-deep)}
+  .row{margin:0 0 10px;padding-bottom:10px;border-bottom:1px dashed var(--line)}
+  .row:last-child{border:none;margin:0;padding:0}
+  .row em{display:block;font-style:normal;font-size:var(--fs-cap);font-weight:800;
+          color:var(--ink-soft);margin-bottom:3px}
+  .row span{display:block;font-size:var(--fs-sm);font-weight:600;line-height:1.5}
+  .slots{display:flex;flex-direction:column;gap:10px;margin-top:4px}
+  .slot{
+    border:3px dashed var(--line);border-radius:16px;padding:12px 14px;min-height:64px;
+    background:rgba(255,255,255,.55);display:flex;align-items:center;gap:10px;
+  }
+  .slot.filled{border-style:solid;border-color:var(--ink);background:var(--paper)}
+  .slot.ok{border-color:var(--ok);background:#e8f2ec}
+  .slot.bad{border-color:var(--no);background:#fbeae8}
+  .slot .num{
+    flex-shrink:0;width:36px;height:36px;border-radius:50%;background:var(--ink);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:var(--fs-sm);
+  }
+  .slot .ph{color:var(--ink-soft);font-weight:700;font-size:var(--fs-xs)}
+  .bank{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .piece{
+    border:3px solid var(--ink);background:#fff;border-radius:14px;padding:12px 14px;
+    font:inherit;font-weight:800;font-size:var(--fs-sm);cursor:grab;min-height:52px;
+    color:var(--ink);touch-action:manipulation;
+  }
+  .piece:active{cursor:grabbing}
+  .piece.used{opacity:.35;pointer-events:none}
+  .piece.intro{border-color:var(--intro);background:#e8f2ec;color:var(--intro)}
+  .piece.body{border-color:var(--bodyc);background:#fef3e8;color:var(--bodyc)}
+  .piece.concl{border-color:var(--concl);background:#f7ebe0;color:var(--concl)}
+  .checkbtn,.savebtn,.resetbtn{
+    margin-top:12px;border:3px solid var(--ink);background:var(--ink);color:var(--paper);
+    border-radius:14px;padding:12px 18px;font:inherit;font-weight:800;font-size:var(--fs-sm);
+    cursor:pointer;min-height:52px;width:100%;
+  }
+  .resetbtn{background:var(--paper);color:var(--ink);margin-top:8px}
+  .fbbox{
+    margin-top:12px;padding:12px 14px;border-radius:14px;font-weight:700;font-size:var(--fs-sm);
+    display:none;line-height:1.55;
+  }
+  .fbbox.show{display:block}
+  .fbbox.ok{background:#e8f2ec;border:2px solid var(--ok);color:var(--ok)}
+  .fbbox.no{background:#fbeae8;border:2px solid var(--no);color:var(--no)}
+  .dform label{display:block;font-weight:800;font-size:var(--fs-xs);margin:10px 0 4px;color:var(--ink-soft)}
+  .dform input,.dform select,.dform textarea{
+    width:100%;border:2px solid var(--line);border-radius:12px;padding:12px 14px;
+    font:inherit;font-size:var(--fs-sm);background:#fff;color:var(--ink);min-height:48px;
+  }
+  .dform textarea{min-height:72px;resize:vertical;line-height:1.55}
+  .feel{display:flex;flex-wrap:wrap;gap:8px}
+  .feel button{
+    flex:1 1 28%;border:2px solid var(--line);background:var(--paper);border-radius:999px;
+    padding:10px 12px;font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:46px;
+  }
+  .feel button[aria-pressed="true"]{border-color:var(--diary);background:#efe8f6;color:var(--diary-deep)}
+  .essaybox{background:var(--paper);border:3px solid var(--ink);border-radius:18px;padding:16px 16px}
+  .essaybox p{margin:0 0 12px;font-size:var(--fs-sm);line-height:1.7}
+  .essaybox p:last-child{margin:0}
+  .essaybox mark{
+    border-radius:5px;padding:2px 6px;box-shadow:inset 0 -2px 0 rgba(0,0,0,.12);color:inherit;
+  }
+  .essaybox mark.mi{background:#c8e6d4}
+  .essaybox mark.mb{background:#ffe4c4}
+  .essaybox mark.mc{background:#f5d9c0}
+  .legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .legend span{
+    display:inline-flex;align-items:center;gap:6px;font-size:var(--fs-cap);font-weight:800;
+    padding:6px 12px;border-radius:999px;border:2px solid var(--line);
+  }
+  .legend .dot{width:12px;height:12px;border-radius:3px}
+  .legend .di .dot{background:#c8e6d4} .legend .db .dot{background:#ffe4c4} .legend .dc .dot{background:#f5d9c0}
+  .readout{
+    margin-top:12px;background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;padding:16px 18px;
+  }
+  .statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+             padding:4px 14px;font-size:var(--fs-cap);font-weight:700;margin-bottom:10px}
+  .statechip.ok{background:var(--ok)} .statechip.no{background:var(--no)}
+  .lead{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.4}
+  .detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2px solid var(--line);background:var(--paper);border-radius:12px;
+    padding:14px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:54px;
+  }
+  .opt.ur{text-align:right}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e8f2ed;font-weight:600}
+  .opt.wrong{border-color:var(--no);background:#fbeae8}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none;line-height:1.6}
+  .fb.show{display:block}
+  .score{
+    margin-top:8px;padding:14px 16px;border:3px solid var(--ink);border-radius:16px;
+    font-weight:800;font-size:var(--fs-md);text-align:center;display:none;
+  }
+  .score.show{display:block}
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+  @media (min-width:820px){
+    .wrap{
+      max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;
+      grid-template-areas:"bar bar" "head head" "tabs tabs" "left right" "quiz quiz" "foot foot";
+      align-items:start;
+    }
+    .bar{grid-area:bar} .head{grid-area:head} .tabs{grid-area:tabs}
+    .left{grid-area:left} .right{grid-area:right}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+  }
+  @media (prefers-reduced-motion:reduce){ *{transition-duration:.01ms !important} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar">
+    <span class="brand">AI4Kids · Grade 4 · English</span>
+    <button class="chip" id="langBtn" aria-pressed="false">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo">🔊</button>
+  </div>
+  <div class="head">
+    <h1 id="title"></h1>
+    <p class="sub" id="subtitle"></p>
+  </div>
+  <div class="tabs" role="group">
+    <button type="button" id="tabLearn" aria-pressed="true"></button>
+    <button type="button" id="tabCompare" aria-pressed="false"></button>
+    <button type="button" id="tabPlan" aria-pressed="false"></button>
+    <button type="button" id="tabDiary" aria-pressed="false"></button>
+    <button type="button" id="tabSample" aria-pressed="false"></button>
+  </div>
+  <div class="left" id="leftPane"></div>
+  <div class="right" id="rightPane"></div>
+  <div class="quiz">
+    <h2 id="quizHead" style="font-size:var(--fs-lg);font-weight:800;margin:0 0 18px"></h2>
+    <div id="quizBox"></div>
+    <div class="score" id="scoreBox"></div>
+  </div>
+  <footer>
+    <p data-en="AI4Kids — Islamabad's bilingual AI and coding school. WhatsApp 0337 1468899"
+       data-ur="اے آئی فور کڈز — اسلام آباد کا دو زبانوں والا اے آئی اور کوڈنگ سکول۔ واٹس ایپ 0337 1468899"></p>
+  </footer>
+</div>
+<script>
+(function(){
+  "use strict";
+  var lang = "en";
+  var tab = "learn";
+  var quizScore = 0, quizAnswered = 0;
+  var lastSpoken = "";
+  var planOrder = [null, null, null];
+  var planChecked = false;
+  var diaryFeel = "";
+  var LS = "ai4kids_g4_essay_diary_v1";
+
+  var LESSON = {
+    hook:{
+      tag:{en:"HOOK", ur:"ہک"},
+      en:"Have you ever tried writing your thoughts? If you jot down the mood of your day or a special moment, won't it become a memory you keep? Come — today we learn about essays and diary entries!",
+      ur:"کیا آپ نے کبھی اپنے خیالات کو لکھنے کی کوشش کی ہے؟ اگر آپ دن بھر کی مزاج یا کسی خاص لمحے کو قلم کریں، تو کیا وہ آپ کے لیے یادگار نہیں ہوگا؟ چلو، آج ہم essay اور diary entries کے بارے میں سیکھتے ہیں!"
+    },
+    samjhao:{
+      tag:{en:"SAMJHAO — Explain", ur:"سمجھاؤ"},
+      en:"An essay and a diary are different. In an essay you share ideas on a topic — think, plan, and put points in order so a reader can follow. A diary is more personal: you write about your day, feelings, and thoughts, like a private journal. Essays need introduction, body, and conclusion. A diary entry starts with a date and your feelings. Both help writing — but in different ways!",
+      ur:"Essay اور diary الگ الگ چیزیں ہیں۔ Essay میں آپ کسی موضوع پر اپنے خیالات بیان کرتے ہیں — سوچنا، ترتیب دینا، اور reader کے لیے آسان بنانا پڑتا ہے۔ Diary زیادہ ذاتی ہوتی ہے: آپ اپنے دن، جذبات اور سوچ لکھتے ہیں، جیسے ذاتی journal۔ Essay میں introduction، body اور conclusion ہوتے ہیں۔ Diary entry تاریخ کے ساتھ اپنے جذبات لکھتی ہے۔ دونوں writing کے لیے اہم ہیں، مگر طریقے الگ ہیں!"
+    },
+    misaal:{
+      tag:{en:"MISAAL — Example", ur:"مثال"},
+      en:"Imagine an Islamabad bazaar trip with friends. Essay start: \"I love going to the bazaar because so many things are there…\" Then body: biryani smell, chaat joy. Diary: \"Today I went to the bazaar with my friend. Eating biryani made me so happy…\" Same day — two voices!",
+      ur:"سوچیں اسلام آباد بازار کا سفر دوستوں کے ساتھ۔ Essay شروع: «مجھے بازار جانا بہت پسند ہے کیونکہ وہاں بہت سی چیزیں ملتی ہیں…» پھر body: بریانی کی خوشبو، چاٹ کی خوشی۔ Diary: «آج میں بازار گیا تھا اور اپنی دوست کے ساتھ وقت گزارا۔ وہاں بریانی کھانے کا بہت مزا آیا…» ایک ہی دن — دو الگ آوازیں!"
+    },
+    karo:{
+      tag:{en:"KARO — Try it", ur:"کرو"},
+      en:"Pick a special moment from your day. First write a short essay with intro, body, conclusion. Then write a diary entry for the same day — more personal tone. See how your voice changes!",
+      ur:"اپنے دن کے کسی خاص لمحے کو چنیے۔ پہلے مختصر essay لکھیں — intro، body، conclusion کے ساتھ۔ پھر اسی دن کی diary entry لکھیں — زیادہ ذاتی لہجے میں۔ دیکھیں آپ کی آواز کیسے بدلتی ہے!"
+    }
+  };
+
+  var COMPARE = {
+    essay:{
+      title:{en:"Essay", ur:"مضمون / Essay"},
+      purpose:{en:"Share ideas on one topic for a reader.", ur:"ایک موضوع پر خیالات reader کے لیے شیئر کرنا۔"},
+      tone:{en:"Clear, ordered, a bit formal.", ur:"صاف، ترتیب والا، تھوڑا رسمی۔"},
+      structure:{en:"Intro → Body → Conclusion", ur:"شروع → درمیان → اختتام"}
+    },
+    diary:{
+      title:{en:"Diary", ur:"ڈائری / Diary"},
+      purpose:{en:"Keep your day and feelings private.", ur:"اپنا دن اور جذبات ذاتی طور پر رکھنا۔"},
+      tone:{en:"Personal, friendly, like talking to yourself.", ur:"ذاتی، دوستانہ، جیسے خود سے بات۔"},
+      structure:{en:"Date + feelings + what happened", ur:"تاریخ + جذبات + کیا ہوا"}
+    },
+    labels:{purpose:{en:"Purpose",ur:"مقصد"},tone:{en:"Tone",ur:"لہجہ"},structure:{en:"Structure",ur:"ڈھانچہ"}}
+  };
+
+  var PARTS = [
+    {id:"intro", cls:"intro",
+     label:{en:"Introduction — say the topic", ur:"شروع — موضوع بتاؤ"},
+     tip:{en:"Open with your main idea.", ur:"اپنا مرکزی خیال کھول کر لکھیں۔"}},
+    {id:"body", cls:"body",
+     label:{en:"Body — give 2–3 details", ur:"درمیان — ۲–۳ تفصیلات"},
+     tip:{en:"Add examples and reasons.", ur:"مثالیں اور وجوہات لگائیں۔"}},
+    {id:"concl", cls:"concl",
+     label:{en:"Conclusion — wrap it up", ur:"اختتام — بات سمیٹو"},
+     tip:{en:"End with a short closing thought.", ur:"مختصر آخری خیال سے بند کریں۔"}}
+  ];
+  var CORRECT = ["intro","body","concl"];
+
+  var FEELS = [
+    {id:"happy", en:"Happy 😊", ur:"خوش 😊"},
+    {id:"excited", en:"Excited ✨", ur:"پرجوش ✨"},
+    {id:"tired", en:"Tired 😴", ur:"تھکا 😴"},
+    {id:"proud", en:"Proud 🌟", ur:"فخر 🌟"},
+    {id:"sad", en:"Sad 😔", ur:"اداس 😔"},
+    {id:"curious", en:"Curious 🤔", ur:"متجسس 🤔"}
+  ];
+
+  var STARTERS = [
+    {en:"Today I went to…", ur:"آج میں گیا / گئی…"},
+    {en:"I felt… because…", ur:"میں نے محسوس کیا… کیونکہ…"},
+    {en:"The best part was…", ur:"سب سے اچھا حصہ تھا…"}
+  ];
+
+  var SAMPLE = {
+    title:{en:"Sample essay: Fatima Park, Islamabad", ur:"نمونہ مضمون: فاطمہ پارک، اسلام آباد"},
+    intro:{en:"Last Sunday I visited Fatima Park in Islamabad with my family. Parks make weekends special for kids like me.",
+           ur:"پچھلے اتوار میں میں اپنے خاندان کے ساتھ اسلام آباد کے فاطمہ پارک گئی۔ پارکس ہمارے جیسے بچوں کے لیے ہفتے کے آخر کو خاص بناتے ہیں۔"},
+    body:{en:"We walked under tall trees and saw children flying colourful kites. My little brother fed the ducks near the pond, and we shared chips on a sunny bench. The cool breeze made us forget school homework for a while!",
+          ur:"ہم لمبے درختوں کے نیچے چلے اور بچوں کو رنگین پتنگیں اڑاتے دیکھا۔ میرے چھوٹے بھائی نے تالاب کے قریب بطخوں کو دانہ دیا، اور ہم دھوپ والی بینچ پر چپس بانٹی۔ ٹھنڈی ہوا نے کچھ دیر کے لیے اسکول کا ہوم ورک بھلا دیا!"},
+    concl:{en:"That park day taught me that simple outdoor fun keeps a family close. I hope we go again soon.",
+           ur:"اس پارک والے دن نے مجھے سکھایا کہ سادہ باہر کا مزا خاندان کو قریب رکھتا ہے۔ امید ہے ہم جلد دوبارہ جائیں گے۔"}
+  };
+
+  var T = {
+    tabLearn:{en:"Seekho", ur:"سیکھو"},
+    tabCompare:{en:"Farq", ur:"فرق"},
+    tabPlan:{en:"Planner", ur:"پلانر"},
+    tabDiary:{en:"Diary", ur:"ڈائری"},
+    tabSample:{en:"Sample", ur:"نمونہ"},
+    titleLearn:{en:"Essay aur diary", ur:"Essay aur diary"},
+    subLearn:{en:"Short essays & diary entries — Grade 4, Islamabad kids.", ur:"مختصر مضامین اور ڈائری — گریڈ ۴، اسلام آباد کے بچے۔"},
+    titleCompare:{en:"Essay vs Diary — spot the farq", ur:"Essay بمقابلہ Diary — فرق دیکھو"},
+    subCompare:{en:"Purpose, tone, and structure side by side.", ur:"مقصد، لہجہ اور ڈھانچہ ساتھ ساتھ۔"},
+    titlePlan:{en:"Essay planner: put parts in order", ur:"Essay پلانر: حصے ترتیب دو"},
+    subPlan:{en:"Tap (or drag) Intro → Body → Conclusion into the slots.", ur:"Intro → Body → Conclusion کو سلاٹ میں ٹیپ (یا ڈریگ) کرو۔"},
+    titleDiary:{en:"My diary page", ur:"میری ڈائری کا صفحہ"},
+    subDiary:{en:"Date, feeling, and three sentence starters. Saved on this device.", ur:"تاریخ، احساس، اور تین جملے شروع۔ اس ڈیوائس پر محفوظ۔"},
+    titleSample:{en:"Sample essay with structure glow", ur:"نمونہ essay — ڈھانچہ چمکتے رنگوں میں"},
+    subSample:{en:"Islamabad park day — see Intro, Body, Conclusion light up.", ur:"اسلام آباد پارک کا دن — Intro، Body، Conclusion دیکھیں۔"},
+    check:{en:"Check my order", ur:"ترتیب چیک کرو"},
+    reset:{en:"Reset", ur:"ری سیٹ"},
+    planOk:{en:"Shabash! Intro → Body → Conclusion. That is essay order!", ur:"شاباش! Intro → Body → Conclusion۔ یہی essay کی ترتیب ہے!"},
+    planNo:{en:"Almost — remember: start, middle details, then wrap up.", ur:"قریب — یاد رکھو: شروع، درمیان تفصیل، پھر سمیٹنا۔"},
+    slotPh:{en:"Tap a piece below", ur:"نیچے سے حصہ چنو"},
+    date:{en:"Date", ur:"تاریخ"},
+    feeling:{en:"How do you feel?", ur:"آج کیسا محسوس؟"},
+    s1:{en:"Sentence 1", ur:"جملہ ۱"},
+    s2:{en:"Sentence 2", ur:"جملہ ۲"},
+    s3:{en:"Sentence 3", ur:"جملہ ۳"},
+    save:{en:"Save diary", ur:"ڈائری محفوظ کرو"},
+    saved:{en:"Saved on this device!", ur:"اس ڈیوائس پر محفوظ ہو گئی!"},
+    clear:{en:"Clear page", ur:"صفحہ صاف کرو"},
+    legI:{en:"Intro", ur:"شروع"},
+    legB:{en:"Body", ur:"درمیان"},
+    legC:{en:"Conclusion", ur:"اختتام"},
+    quiz:{en:"Essay aur diary Quiz", ur:"Essay aur diary Quiz"},
+    score:{en:"Your score", ur:"تمہارا اسکور"},
+    of:{en:"out of", ur:"میں سے"}
+  };
+
+  /* Quiz — exact from brief; corrects a,c,c,a,c → 0,2,2,0,2 */
+  var QUIZ = [
+    {q:{en:"Kis cheez ka aik aasaan essay likhte hain?",
+        ur:"کس چیز کا ایک آسان essay لکھتے ہیں؟"},
+     o:[{en:"Apne dosto ke sath honay wali masti", ur:"اپنے دوستوں کے ساتھ ہونے والی مستی"},
+        {en:"Kise khaas shakhs ka zindagi ka safar", ur:"کسی خاص شخص کا زندگی کا سفر"},
+        {en:"Apne ghar ka rang", ur:"اپنے گھر کا رنگ"},
+        {en:"Koi bhi khana jo mujhe pasand hai", ur:"کوئی بھی کھانا جو مجھے پسند ہے"}],
+     a:0,
+     f:{en:"Kyunke dosto ke sath masti ka maza sabse zyada hota hai.",
+        ur:"کیونکہ دوستوں کے ساتھ مستی کا مزا سب سے زیادہ ہوتا ہے۔"}},
+    {q:{en:"Diary mein hum kis cheez ka zikr karte hain?",
+        ur:"Diary میں ہم کس چیز کا ذکر کرتے ہیں؟"},
+     o:[{en:"Aane waale kal ki planning", ur:"آنے والے کل کی پلاننگ"},
+        {en:"Ghar ka jumla kharcha", ur:"گھر کا جملہ خرچہ"},
+        {en:"Aam din ki baatein aur jazbat", ur:"عام دن کی باتیں اور جذبات"},
+        {en:"School ka homework", ur:"اسکول کا ہوم ورک"}],
+     a:2,
+     f:{en:"Kyunke diary mein hum apne rozana jazbat aur experiences likhte hain.",
+        ur:"کیونکہ diary میں ہم اپنے روزانہ جذبات اور تجربات لکھتے ہیں۔"}},
+    {q:{en:"Kaun si baat se diary entry zyada behtar hoti hai?",
+        ur:"کون سی بات سے diary entry زیادہ بہتر ہوتی ہے؟"},
+     o:[{en:"Ik soorat ka zikar karna", ur:"ایک صورت کا ذکر کرنا"},
+        {en:"Aam zindagi ke baare mein sochna", ur:"عام زندگی کے بارے میں سوچنا"},
+        {en:"Apne khayalat ka izhar karna", ur:"اپنے خیالات کا اظہار کرنا"},
+        {en:"Kisi film ka plot batana", ur:"کسی فلم کا پلاٹ بتانا"}],
+     a:2,
+     f:{en:"Kyunke diary entry mein apne khayalat ka izhar hona zaroori hai.",
+        ur:"کیونکہ diary entry میں اپنے خیالات کا اظہار ہونا ضروری ہے۔"}},
+    {q:{en:"Aik choti si diary entry mein, kya likha ja sakta hai?",
+        ur:"ایک چھوٹی سی diary entry میں کیا لکھا جا سکتا ہے؟"},
+     o:[{en:"Aj ke din kya kiya aur kya mehsoos kiya", ur:"آج کے دن کیا کیا اور کیا محسوس کیا"},
+        {en:"Ghar ki saaf safai ka plan", ur:"گھر کی صفائی کا پلان"},
+        {en:"School ki fees ka maamla", ur:"اسکول کی فیس کا معاملہ"},
+        {en:"Kisi dost ka janmdin", ur:"کسی دوست کا جنم دن"}],
+     a:0,
+     f:{en:"Kyunke choti si diary entry mein apne din ka tazkira hota hai.",
+        ur:"کیونکہ چھوٹی سی diary entry میں اپنے دن کا تذکرہ ہوتا ہے۔"}},
+    {q:{en:"Aik essay ka structure kya hota hai?",
+        ur:"ایک essay کا structure کیا ہوتا ہے؟"},
+     o:[{en:"Taqreer ka aik hissa", ur:"تقریر کا ایک حصہ"},
+        {en:"Kahaniyon ka collection", ur:"کہانیوں کا مجموعہ"},
+        {en:"Intro, body, aur conclusion", ur:"Intro، body، اور conclusion"},
+        {en:"Aik hi idea ki tafseel", ur:"ایک ہی آئیڈیا کی تفصیل"}],
+     a:2,
+     f:{en:"Kyunke essay ka structure hamesha intro, body aur conclusion par mabni hota hai.",
+        ur:"کیونکہ essay کا structure ہمیشہ intro، body اور conclusion پر مبنی ہوتا ہے۔"}}
+  ];
+
+  function $(id){ return document.getElementById(id); }
+  function t(o){ return o[lang]; }
+  var LRI = "\u2066", PDI = "\u2069";
+  var LATIN_RUN = /[A-Za-z0-9][A-Za-z0-9 .,'\u2019+\-()\/@_-]*[A-Za-z0-9.]|[A-Za-z0-9]/g;
+  function isolate(s){ return String(s).replace(LATIN_RUN, function(m){ return LRI + m + PDI; }); }
+  function setText(el, str){
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+  function partById(id){
+    for (var i=0;i<PARTS.length;i++) if (PARTS[i].id===id) return PARTS[i];
+    return null;
+  }
+
+  function renderLearn(){
+    var left = $("leftPane"); left.innerHTML = "";
+    var box = document.createElement("div"); box.className = "lesson";
+    ["hook","samjhao","misaal","karo"].forEach(function(k){
+      var L = LESSON[k];
+      var d = document.createElement("div"); d.className = "block";
+      var tag = document.createElement("span"); tag.className = "tag";
+      setText(tag, t(L.tag));
+      var p = document.createElement("p"); setText(p, t(L));
+      d.appendChild(tag); d.appendChild(p); box.appendChild(d);
+    });
+    left.appendChild(box);
+    $("rightPane").innerHTML = "";
+    lastSpoken = LESSON.hook.en;
+  }
+
+  function renderCompare(){
+    var left = $("leftPane"); left.innerHTML = "";
+    var wrap = document.createElement("div"); wrap.className = "cmp";
+    ["essay","diary"].forEach(function(kind){
+      var C = COMPARE[kind];
+      var card = document.createElement("div");
+      card.className = "ccard " + kind;
+      var h = document.createElement("h3"); setText(h, t(C.title)); card.appendChild(h);
+      ["purpose","tone","structure"].forEach(function(k){
+        var row = document.createElement("div"); row.className = "row";
+        var em = document.createElement("em"); setText(em, t(COMPARE.labels[k]));
+        var sp = document.createElement("span"); setText(sp, t(C[k]));
+        row.appendChild(em); row.appendChild(sp); card.appendChild(row);
+      });
+      wrap.appendChild(card);
+    });
+    left.appendChild(wrap);
+    $("rightPane").innerHTML = "";
+    lastSpoken = "Essay has intro, body, conclusion. Diary has date and feelings.";
+  }
+
+  function placePart(slotI, partId){
+    if (planChecked) return;
+    var old = planOrder[slotI];
+    for (var i=0;i<3;i++) if (planOrder[i]===partId) planOrder[i]=null;
+    planOrder[slotI] = partId;
+    if (old && old !== partId){ /* freed */ }
+    renderPlan();
+  }
+
+  function renderPlan(){
+    var left = $("leftPane"); left.innerHTML = "";
+    var scene = document.createElement("div"); scene.className = "scene";
+    var slots = document.createElement("div"); slots.className = "slots";
+    for (var i=0;i<3;i++){
+      (function(si){
+        var sl = document.createElement("div");
+        sl.className = "slot" + (planOrder[si] ? " filled" : "");
+        if (planChecked){
+          sl.className += (planOrder[si] === CORRECT[si]) ? " ok" : " bad";
+        }
+        sl.setAttribute("data-slot", String(si));
+        var num = document.createElement("span"); num.className = "num"; num.textContent = String(si+1);
+        sl.appendChild(num);
+        if (planOrder[si]){
+          var p = partById(planOrder[si]);
+          var lab = document.createElement("button");
+          lab.type = "button";
+          lab.className = "piece " + p.cls;
+          lab.style.cssText = "border-width:2px;padding:8px 12px;margin:0;flex:1;text-align:inherit;cursor:pointer";
+          setText(lab, t(p.label));
+          lab.addEventListener("click", function(){
+            if (planChecked) return;
+            planOrder[si] = null;
+            renderPlan();
+          });
+          sl.appendChild(lab);
+        } else {
+          var ph = document.createElement("span"); ph.className = "ph";
+          setText(ph, t(T.slotPh));
+          sl.appendChild(ph);
+        }
+        sl.addEventListener("dragover", function(e){ e.preventDefault(); });
+        sl.addEventListener("drop", function(e){
+          e.preventDefault();
+          var id = e.dataTransfer.getData("text/plain");
+          if (id) placePart(si, id);
+        });
+        slots.appendChild(sl);
+      })(i);
+    }
+    scene.appendChild(slots);
+
+    var bank = document.createElement("div"); bank.className = "bank";
+    PARTS.forEach(function(p){
+      var used = planOrder.indexOf(p.id) !== -1;
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "piece " + p.cls + (used ? " used" : "");
+      b.draggable = !used && !planChecked;
+      setText(b, t(p.label));
+      b.addEventListener("dragstart", function(e){
+        e.dataTransfer.setData("text/plain", p.id);
+      });
+      b.addEventListener("click", function(){
+        if (used || planChecked) return;
+        for (var j=0;j<3;j++){
+          if (planOrder[j] === null){ placePart(j, p.id); return; }
+        }
+      });
+      bank.appendChild(b);
+    });
+    scene.appendChild(bank);
+
+    var chk = document.createElement("button");
+    chk.type = "button"; chk.className = "checkbtn";
+    setText(chk, t(T.check));
+    chk.addEventListener("click", function(){
+      if (planOrder.indexOf(null) !== -1) return;
+      planChecked = true;
+      var good = planOrder[0]==="intro" && planOrder[1]==="body" && planOrder[2]==="concl";
+      lastSpoken = good ? "Shabash! Intro, body, conclusion." : "Try again. Intro, body, conclusion.";
+      renderPlan();
+    });
+    scene.appendChild(chk);
+
+    var rst = document.createElement("button");
+    rst.type = "button"; rst.className = "resetbtn";
+    setText(rst, t(T.reset));
+    rst.addEventListener("click", function(){
+      planOrder = [null,null,null]; planChecked = false; renderPlan();
+    });
+    scene.appendChild(rst);
+
+    if (planChecked){
+      var good = planOrder[0]==="intro" && planOrder[1]==="body" && planOrder[2]==="concl";
+      var fb = document.createElement("div");
+      fb.className = "fbbox show " + (good ? "ok" : "no");
+      setText(fb, good ? t(T.planOk) : t(T.planNo));
+      scene.appendChild(fb);
+    }
+    left.appendChild(scene);
+
+    var right = $("rightPane"); right.innerHTML = "";
+    var ro = document.createElement("div"); ro.className = "readout";
+    var chip = document.createElement("span"); chip.className = "statechip";
+    setText(chip, lang==="en" ? "Tip" : "ٹپ");
+    var lead = document.createElement("p"); lead.className = "lead";
+    setText(lead, lang==="en" ? "Essay order" : "Essay کی ترتیب");
+    var detail = document.createElement("p"); detail.className = "detail";
+    setText(detail, lang==="en"
+      ? "1 Introduction → 2 Body (details) → 3 Conclusion. Tap pieces into empty slots, or drag them."
+      : "۱ شروع → ۲ درمیان (تفصیل) → ۳ اختتام۔ خالی سلاٹ میں ٹیپ کرو، یا ڈریگ کرو۔");
+    ro.appendChild(chip); ro.appendChild(lead); ro.appendChild(detail);
+    right.appendChild(ro);
+    lastSpoken = "Put introduction, body, and conclusion in order.";
+  }
+
+  function loadDiary(){
+    try{
+      var raw = localStorage.getItem(LS);
+      return raw ? JSON.parse(raw) : null;
+    }catch(e){ return null; }
+  }
+  function saveDiary(data){
+    try{ localStorage.setItem(LS, JSON.stringify(data)); }catch(e){}
+  }
+
+  function renderDiary(){
+    var saved = loadDiary() || {};
+    if (!diaryFeel && saved.feel) diaryFeel = saved.feel;
+    var left = $("leftPane"); left.innerHTML = "";
+    var form = document.createElement("div"); form.className = "dform scene";
+
+    var ld = document.createElement("label"); setText(ld, t(T.date));
+    var inpD = document.createElement("input"); inpD.type = "date"; inpD.id = "dDate";
+    inpD.value = saved.date || new Date().toISOString().slice(0,10);
+    form.appendChild(ld); form.appendChild(inpD);
+
+    var lf = document.createElement("label"); setText(lf, t(T.feeling));
+    form.appendChild(lf);
+    var feel = document.createElement("div"); feel.className = "feel";
+    FEELS.forEach(function(f){
+      var b = document.createElement("button");
+      b.type = "button";
+      setText(b, t(f));
+      b.setAttribute("aria-pressed", diaryFeel === f.id ? "true" : "false");
+      b.addEventListener("click", function(){
+        diaryFeel = f.id;
+        Array.prototype.forEach.call(feel.querySelectorAll("button"), function(x){
+          x.setAttribute("aria-pressed","false");
+        });
+        b.setAttribute("aria-pressed","true");
+      });
+      feel.appendChild(b);
+    });
+    form.appendChild(feel);
+
+    var areas = [];
+    STARTERS.forEach(function(st, i){
+      var lab = document.createElement("label");
+      setText(lab, t(T["s"+(i+1)]) + " — " + t(st));
+      var ta = document.createElement("textarea");
+      ta.rows = 2; ta.id = "dS"+i;
+      ta.placeholder = t(st);
+      ta.value = (saved.lines && saved.lines[i]) || "";
+      form.appendChild(lab); form.appendChild(ta);
+      areas.push(ta);
+    });
+
+    var msg = document.createElement("div"); msg.className = "fbbox"; msg.id = "diaryMsg";
+
+    var save = document.createElement("button");
+    save.type = "button"; save.className = "savebtn";
+    setText(save, t(T.save));
+    save.addEventListener("click", function(){
+      var data = {
+        date: inpD.value,
+        feel: diaryFeel,
+        lines: areas.map(function(a){ return a.value; })
+      };
+      saveDiary(data);
+      msg.className = "fbbox show ok";
+      setText(msg, t(T.saved));
+      lastSpoken = "Diary saved.";
+    });
+    form.appendChild(save);
+
+    var clr = document.createElement("button");
+    clr.type = "button"; clr.className = "resetbtn";
+    setText(clr, t(T.clear));
+    clr.addEventListener("click", function(){
+      try{ localStorage.removeItem(LS); }catch(e){}
+      diaryFeel = "";
+      planChecked = planChecked;
+      renderDiary();
+    });
+    form.appendChild(clr);
+    form.appendChild(msg);
+
+    left.appendChild(form);
+    $("rightPane").innerHTML = "";
+    lastSpoken = "Write your diary with date, feeling, and three sentences.";
+  }
+
+  function renderSample(){
+    var left = $("leftPane"); left.innerHTML = "";
+    var box = document.createElement("div"); box.className = "essaybox";
+    var h = document.createElement("p");
+    h.style.fontWeight = "800"; h.style.fontSize = "var(--fs-md)";
+    setText(h, t(SAMPLE.title));
+    box.appendChild(h);
+
+    function para(markCls, text){
+      var p = document.createElement("p");
+      var m = document.createElement("mark"); m.className = markCls;
+      setText(m, text);
+      p.appendChild(m);
+      box.appendChild(p);
+    }
+    para("mi", t(SAMPLE.intro));
+    para("mb", t(SAMPLE.body));
+    para("mc", t(SAMPLE.concl));
+
+    var leg = document.createElement("div"); leg.className = "legend";
+    [
+      {cls:"di", key:"legI"},
+      {cls:"db", key:"legB"},
+      {cls:"dc", key:"legC"}
+    ].forEach(function(x){
+      var s = document.createElement("span"); s.className = x.cls;
+      var d = document.createElement("i"); d.className = "dot";
+      s.appendChild(d);
+      var tspan = document.createElement("b"); setText(tspan, t(T[x.key]));
+      tspan.style.fontWeight = "800";
+      s.appendChild(tspan);
+      leg.appendChild(s);
+    });
+    box.appendChild(leg);
+    left.appendChild(box);
+
+    var right = $("rightPane"); right.innerHTML = "";
+    var ro = document.createElement("div"); ro.className = "readout";
+    var chip = document.createElement("span"); chip.className = "statechip ok";
+    setText(chip, lang==="en" ? "Structure" : "ڈھانچہ");
+    var lead = document.createElement("p"); lead.className = "lead";
+    setText(lead, lang==="en" ? "Three colours = three parts" : "تین رنگ = تین حصے");
+    var detail = document.createElement("p"); detail.className = "detail";
+    setText(detail, lang==="en"
+      ? "Green intro opens the topic. Orange body gives park details. Brown conclusion wraps the feeling."
+      : "سبز شروع موضوع کھولتا ہے۔ نارنجی درمیان پارک کی تفصیل دیتا ہے۔ بھورا اختتام احساس سمیٹتا ہے۔");
+    ro.appendChild(chip); ro.appendChild(lead); ro.appendChild(detail);
+    right.appendChild(ro);
+    lastSpoken = SAMPLE.intro.en + " " + SAMPLE.body.en + " " + SAMPLE.concl.en;
+  }
+
+  function render(){
+    ["Learn","Compare","Plan","Diary","Sample"].forEach(function(x){
+      var id = "tab"+x;
+      var key = x.toLowerCase();
+      $(id).setAttribute("aria-pressed", tab === key ? "true" : "false");
+    });
+    setText($("tabLearn"), t(T.tabLearn));
+    setText($("tabCompare"), t(T.tabCompare));
+    setText($("tabPlan"), t(T.tabPlan));
+    setText($("tabDiary"), t(T.tabDiary));
+    setText($("tabSample"), t(T.tabSample));
+    setText($("quizHead"), t(T.quiz));
+
+    if (tab === "learn"){
+      setText($("title"), t(T.titleLearn));
+      setText($("subtitle"), t(T.subLearn));
+      renderLearn(); return;
+    }
+    if (tab === "compare"){
+      setText($("title"), t(T.titleCompare));
+      setText($("subtitle"), t(T.subCompare));
+      renderCompare(); return;
+    }
+    if (tab === "plan"){
+      setText($("title"), t(T.titlePlan));
+      setText($("subtitle"), t(T.subPlan));
+      renderPlan(); return;
+    }
+    if (tab === "diary"){
+      setText($("title"), t(T.titleDiary));
+      setText($("subtitle"), t(T.subDiary));
+      renderDiary(); return;
+    }
+    setText($("title"), t(T.titleSample));
+    setText($("subtitle"), t(T.subSample));
+    renderSample();
+  }
+
+  ["Learn","Compare","Plan","Diary","Sample"].forEach(function(x){
+    $("tab"+x).addEventListener("click", function(){
+      var m = x.toLowerCase();
+      if (tab === m) return;
+      try{ window.speechSynthesis.cancel(); }catch(e){}
+      tab = m;
+      render();
+    });
+  });
+
+  function buildQuiz(){
+    var box = $("quizBox"); box.innerHTML = "";
+    quizScore = 0; quizAnswered = 0;
+    $("scoreBox").classList.remove("show");
+    QUIZ.forEach(function(item){
+      var wrap = document.createElement("div"); wrap.className = "q";
+      var q = document.createElement("p"); setText(q, t(item.q)); wrap.appendChild(q);
+      var fb = document.createElement("p"); fb.className = "fb";
+      item.o.forEach(function(opt, oi){
+        var bt = document.createElement("button");
+        bt.type = "button"; bt.className = "opt" + (lang === "ur" ? " ur" : "");
+        setText(bt, t(opt));
+        bt.addEventListener("click", function(){
+          if (wrap.getAttribute("data-done") === "1") return;
+          wrap.setAttribute("data-done","1");
+          quizAnswered++;
+          if (oi === item.a) quizScore++;
+          Array.prototype.forEach.call(wrap.querySelectorAll(".opt"), function(x, xi){
+            if (xi === item.a) x.classList.add("right");
+            else if (xi === oi) x.classList.add("wrong");
+          });
+          setText(fb, t(item.f));
+          fb.classList.add("show");
+          if (quizAnswered === QUIZ.length){
+            var sb = $("scoreBox");
+            sb.classList.add("show");
+            setText(sb, t(T.score) + ": " + quizScore + " " + t(T.of) + " " + QUIZ.length);
+          }
+        });
+        wrap.appendChild(bt);
+      });
+      wrap.appendChild(fb); box.appendChild(wrap);
+    });
+  }
+
+  function applyLang(){
+    document.body.classList.toggle("urdu", lang === "ur");
+    var lb = $("langBtn");
+    lb.textContent = (lang === "en") ? "اردو" : "English";
+    lb.setAttribute("aria-pressed", lang === "ur" ? "true" : "false");
+    Array.prototype.forEach.call(document.querySelectorAll("[data-en]"), function(el){
+      setText(el, el.getAttribute(lang === "en" ? "data-en" : "data-ur"));
+    });
+    buildQuiz(); render();
+  }
+
+  $("langBtn").addEventListener("click", function(){
+    lang = (lang === "en") ? "ur" : "en"; applyLang();
+  });
+  $("speakBtn").addEventListener("click", function(){
+    try{
+      if (!("speechSynthesis" in window)) return;
+      window.speechSynthesis.cancel();
+      var u2 = new SpeechSynthesisUtterance(lastSpoken);
+      u2.lang = "en-US"; u2.rate = 0.85;
+      window.speechSynthesis.speak(u2);
+    }catch(e){}
+  });
+
+  applyLang();
+})();
+</script>
+</body>
+</html>

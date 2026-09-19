@@ -671,5 +671,13 @@
       "interactive_file": "interactives/g4-vocabulary.html",
       "interactive_label": "Khelo - Vocabulary"
     }
+  },
+  {
+    "file": "kb/grade_4/english.json",
+    "match_title": "Essay aur diary",
+    "add": {
+      "interactive_file": "interactives/g4-essay-diary.html",
+      "interactive_label": "Khelo - Essay aur diary"
+    }
   }
 ]
