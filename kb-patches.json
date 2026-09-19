@@ -642,22 +642,6 @@
   },
   {
     "file": "kb/grade_4/english.json",
-    "match_title": "Grammar advanced",
-    "add": {
-      "interactive_file": "interactives/g4-grammar-advanced.html",
-      "interactive_label": "Khelo - Prepositions"
-    }
-  },
-  {
-    "file": "kb/grade_4/english.json",
-    "match_title": "Articles a an the",
-    "add": {
-      "interactive_file": "interactives/g4-articles.html",
-      "interactive_label": "Khelo - Articles"
-    }
-  },
-  {
-    "file": "kb/grade_4/english.json",
     "match_title": "Tenses: Present Past Future",
     "add": {
       "interactive_file": "interactives/g4-tenses.html",
@@ -942,6 +926,22 @@
     "add": {
       "interactive_file": "interactives/g3-block-robots.html",
       "interactive_label": "Khelo - Block robots"
+    }
+  },
+  {
+    "file": "kb/grade_4/english.json",
+    "match_title": "Grammar advanced",
+    "add": {
+      "interactive_file": "interactives/g4-grammar-advanced.html",
+      "interactive_label": "Khelo - Prepositions"
+    }
+  },
+  {
+    "file": "kb/grade_4/english.json",
+    "match_title": "Articles a an the",
+    "add": {
+      "interactive_file": "interactives/g4-articles.html",
+      "interactive_label": "Khelo - Articles"
     }
   }
 ]
