@@ -1,0 +1,590 @@
+{
+  "subject": "social",
+  "name": "Social Studies",
+  "teacher": "Social Studies Teacher",
+  "grade": 1,
+  "topics": [
+    {
+      "title": "Mera ghar aur family",
+      "description": "Ghar aur family pehchano",
+      "lesson": "## HOOK\nSadi socho — Mera ghar aur family hamari zindagi se kaise judta hai? Pakistan / Islamabad context mein seekhein!\n\n## SAMJHAO\nMera ghar aur family samjho: yeh Social Studies ka zaroori topic hai. Points: Ghar, Abbu, Ammi, Behan.\n\n## MISAAL\nMisaal Islamabad/Pakistan se: Yeh mera ghar hai. Abbu ghar ki madad karte hain.\n\n## KARO\nActivity: 3 cheezein likho jo Mera ghar aur family se related hon. Ek drawing bhi banao.\n\n## SAWAAL\n1) Mera ghar aur family kya hai?\n2) Ek real-life misaal?\n3) Aap citizen ki tarah kya karoge?\n",
+      "quiz": {
+        "title": "Mera ghar aur family Quiz",
+        "questions": [
+          {
+            "q": "Mera ghar aur family mein 'Ghar' ka sahi khayal kya hai?",
+            "a": "Yeh mera ghar hai.",
+            "b": "Abbu ghar ki madad karte hain.",
+            "c": "Sirf khel",
+            "d": "Kuch nahi",
+            "correct": "a",
+            "explanation": "Sahi: Yeh mera ghar hai.",
+            "question": "Mera ghar aur family mein 'Ghar' ka sahi khayal kya hai?",
+            "options": [
+              "Yeh mera ghar hai.",
+              "Abbu ghar ki madad karte hain.",
+              "Sirf khel",
+              "Kuch nahi"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Kaunsa option 'Abbu' se related hai?",
+            "a": "Abbu ghar ki madad karte hain.",
+            "b": "Bilkul ghalat baat",
+            "c": "Sirf TV",
+            "d": "Kuch mat karo",
+            "correct": "a",
+            "explanation": "Abbu: Abbu ghar ki madad karte hain.",
+            "question": "Kaunsa option 'Abbu' se related hai?",
+            "options": [
+              "Abbu ghar ki madad karte hain.",
+              "Bilkul ghalat baat",
+              "Sirf TV",
+              "Kuch mat karo"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "'Ammi' ke bare mein sahi jumla chuno:",
+            "a": "Ammi pyar se khana banati hain.",
+            "b": "Yeh zaroori nahi",
+            "c": "Sirf bade logon ke liye",
+            "d": "Hamesha ghalat",
+            "correct": "a",
+            "explanation": "Ammi pyar se khana banati hain.",
+            "question": "'Ammi' ke bare mein sahi jumla chuno:",
+            "options": [
+              "Ammi pyar se khana banati hain.",
+              "Yeh zaroori nahi",
+              "Sirf bade logon ke liye",
+              "Hamesha ghalat"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Hum 'Behan' se kya seekhte hain?",
+            "a": "Behan ke saath khelna achha hai.",
+            "b": "Gussa karna",
+            "c": "Jhoot bolna",
+            "d": "Kachra phenkna",
+            "correct": "a",
+            "explanation": "Behan ke saath khelna achha hai.",
+            "question": "Hum 'Behan' se kya seekhte hain?",
+            "options": [
+              "Behan ke saath khelna achha hai.",
+              "Gussa karna",
+              "Jhoot bolna",
+              "Kachra phenkna"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Is sabaq 'Mera ghar aur family' ka best message kya hai?",
+            "a": "Bhai meri madad karta hai.",
+            "b": "Rules todna",
+            "c": "Dusron ko tang karna",
+            "d": "Padhai chhorna",
+            "correct": "a",
+            "explanation": "Bhai meri madad karta hai.",
+            "question": "Is sabaq 'Mera ghar aur family' ka best message kya hai?",
+            "options": [
+              "Bhai meri madad karta hai.",
+              "Rules todna",
+              "Dusron ko tang karna",
+              "Padhai chhorna"
+            ],
+            "answer": 0
+          }
+        ]
+      },
+      "interactive_file": "interactives/g1-social-mera-ghar.html",
+      "interactive_label": "Khelo"
+    },
+    {
+      "title": "Mera school",
+      "description": "School ke log aur jagah",
+      "lesson": "## HOOK\nSadi socho — Mera school hamari zindagi se kaise judta hai? Pakistan / Islamabad context mein seekhein!\n\n## SAMJHAO\nMera school samjho: yeh Social Studies ka zaroori topic hai. Points: School, Teacher, Class, Bag.\n\n## MISAAL\nMisaal Islamabad/Pakistan se: School seekhne ki jagah hai. Teacher humein sikhati hain.\n\n## KARO\nActivity: 3 cheezein likho jo Mera school se related hon. Ek drawing bhi banao.\n\n## SAWAAL\n1) Mera school kya hai?\n2) Ek real-life misaal?\n3) Aap citizen ki tarah kya karoge?\n",
+      "quiz": {
+        "title": "Mera school Quiz",
+        "questions": [
+          {
+            "q": "Mera school mein 'School' ka sahi khayal kya hai?",
+            "a": "School seekhne ki jagah hai.",
+            "b": "Teacher humein sikhati hain.",
+            "c": "Sirf khel",
+            "d": "Kuch nahi",
+            "correct": "a",
+            "explanation": "Sahi: School seekhne ki jagah hai.",
+            "question": "Mera school mein 'School' ka sahi khayal kya hai?",
+            "options": [
+              "School seekhne ki jagah hai.",
+              "Teacher humein sikhati hain.",
+              "Sirf khel",
+              "Kuch nahi"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Kaunsa option 'Teacher' se related hai?",
+            "a": "Teacher humein sikhati hain.",
+            "b": "Bilkul ghalat baat",
+            "c": "Sirf TV",
+            "d": "Kuch mat karo",
+            "correct": "a",
+            "explanation": "Teacher: Teacher humein sikhati hain.",
+            "question": "Kaunsa option 'Teacher' se related hai?",
+            "options": [
+              "Teacher humein sikhati hain.",
+              "Bilkul ghalat baat",
+              "Sirf TV",
+              "Kuch mat karo"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "'Class' ke bare mein sahi jumla chuno:",
+            "a": "Class mein hum parhte hain.",
+            "b": "Yeh zaroori nahi",
+            "c": "Sirf bade logon ke liye",
+            "d": "Hamesha ghalat",
+            "correct": "a",
+            "explanation": "Class mein hum parhte hain.",
+            "question": "'Class' ke bare mein sahi jumla chuno:",
+            "options": [
+              "Class mein hum parhte hain.",
+              "Yeh zaroori nahi",
+              "Sirf bade logon ke liye",
+              "Hamesha ghalat"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Hum 'Bag' se kya seekhte hain?",
+            "a": "Bag mein kitaabein hoti hain.",
+            "b": "Gussa karna",
+            "c": "Jhoot bolna",
+            "d": "Kachra phenkna",
+            "correct": "a",
+            "explanation": "Bag mein kitaabein hoti hain.",
+            "question": "Hum 'Bag' se kya seekhte hain?",
+            "options": [
+              "Bag mein kitaabein hoti hain.",
+              "Gussa karna",
+              "Jhoot bolna",
+              "Kachra phenkna"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Is sabaq 'Mera school' ka best message kya hai?",
+            "a": "School saaf rakhna chahiye.",
+            "b": "Rules todna",
+            "c": "Dusron ko tang karna",
+            "d": "Padhai chhorna",
+            "correct": "a",
+            "explanation": "School saaf rakhna chahiye.",
+            "question": "Is sabaq 'Mera school' ka best message kya hai?",
+            "options": [
+              "School saaf rakhna chahiye.",
+              "Rules todna",
+              "Dusron ko tang karna",
+              "Padhai chhorna"
+            ],
+            "answer": 0
+          }
+        ]
+      },
+      "interactive_file": "interactives/g1-social-mera-school.html",
+      "interactive_label": "Khelo"
+    },
+    {
+      "title": "Neighbourhood helpers",
+      "description": "Mohalle ke madadgaar",
+      "lesson": "## HOOK\nSadi socho — Neighbourhood helpers hamari zindagi se kaise judta hai? Pakistan / Islamabad context mein seekhein!\n\n## SAMJHAO\nNeighbourhood helpers samjho: yeh Social Studies ka zaroori topic hai. Points: Police, Doctor, Firefighter, Postman.\n\n## MISAAL\nMisaal Islamabad/Pakistan se: Police humein safe rakhti hai. Doctor bemar ko theek karta hai.\n\n## KARO\nActivity: 3 cheezein likho jo Neighbourhood helpers se related hon. Ek drawing bhi banao.\n\n## SAWAAL\n1) Neighbourhood helpers kya hai?\n2) Ek real-life misaal?\n3) Aap citizen ki tarah kya karoge?\n",
+      "quiz": {
+        "title": "Neighbourhood helpers Quiz",
+        "questions": [
+          {
+            "q": "Neighbourhood helpers mein 'Police' ka sahi khayal kya hai?",
+            "a": "Police humein safe rakhti hai.",
+            "b": "Doctor bemar ko theek karta hai.",
+            "c": "Sirf khel",
+            "d": "Kuch nahi",
+            "correct": "a",
+            "explanation": "Sahi: Police humein safe rakhti hai.",
+            "question": "Neighbourhood helpers mein 'Police' ka sahi khayal kya hai?",
+            "options": [
+              "Police humein safe rakhti hai.",
+              "Doctor bemar ko theek karta hai.",
+              "Sirf khel",
+              "Kuch nahi"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Kaunsa option 'Doctor' se related hai?",
+            "a": "Doctor bemar ko theek karta hai.",
+            "b": "Bilkul ghalat baat",
+            "c": "Sirf TV",
+            "d": "Kuch mat karo",
+            "correct": "a",
+            "explanation": "Doctor: Doctor bemar ko theek karta hai.",
+            "question": "Kaunsa option 'Doctor' se related hai?",
+            "options": [
+              "Doctor bemar ko theek karta hai.",
+              "Bilkul ghalat baat",
+              "Sirf TV",
+              "Kuch mat karo"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "'Firefighter' ke bare mein sahi jumla chuno:",
+            "a": "Firefighter aag bujhata hai.",
+            "b": "Yeh zaroori nahi",
+            "c": "Sirf bade logon ke liye",
+            "d": "Hamesha ghalat",
+            "correct": "a",
+            "explanation": "Firefighter aag bujhata hai.",
+            "question": "'Firefighter' ke bare mein sahi jumla chuno:",
+            "options": [
+              "Firefighter aag bujhata hai.",
+              "Yeh zaroori nahi",
+              "Sirf bade logon ke liye",
+              "Hamesha ghalat"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Hum 'Postman' se kya seekhte hain?",
+            "a": "Postman khat late hain.",
+            "b": "Gussa karna",
+            "c": "Jhoot bolna",
+            "d": "Kachra phenkna",
+            "correct": "a",
+            "explanation": "Postman khat late hain.",
+            "question": "Hum 'Postman' se kya seekhte hain?",
+            "options": [
+              "Postman khat late hain.",
+              "Gussa karna",
+              "Jhoot bolna",
+              "Kachra phenkna"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Is sabaq 'Neighbourhood helpers' ka best message kya hai?",
+            "a": "Safai wala mohalla saaf rakhta hai.",
+            "b": "Rules todna",
+            "c": "Dusron ko tang karna",
+            "d": "Padhai chhorna",
+            "correct": "a",
+            "explanation": "Safai wala mohalla saaf rakhta hai.",
+            "question": "Is sabaq 'Neighbourhood helpers' ka best message kya hai?",
+            "options": [
+              "Safai wala mohalla saaf rakhta hai.",
+              "Rules todna",
+              "Dusron ko tang karna",
+              "Padhai chhorna"
+            ],
+            "answer": 0
+          }
+        ]
+      },
+      "interactive_file": "interactives/g1-social-helpers.html",
+      "interactive_label": "Khelo"
+    },
+    {
+      "title": "Rules aur manners",
+      "description": "Achhe tareeqe aur qawaid",
+      "lesson": "## HOOK\nSadi socho — Rules aur manners hamari zindagi se kaise judta hai? Pakistan / Islamabad context mein seekhein!\n\n## SAMJHAO\nRules aur manners samjho: yeh Social Studies ka zaroori topic hai. Points: Please, Shukriya, Chup, Line.\n\n## MISAAL\nMisaal Islamabad/Pakistan se: Please kehna achha manners hai. Shukriya zaroor bolo.\n\n## KARO\nActivity: 3 cheezein likho jo Rules aur manners se related hon. Ek drawing bhi banao.\n\n## SAWAAL\n1) Rules aur manners kya hai?\n2) Ek real-life misaal?\n3) Aap citizen ki tarah kya karoge?\n",
+      "quiz": {
+        "title": "Rules aur manners Quiz",
+        "questions": [
+          {
+            "q": "Rules aur manners mein 'Please' ka sahi khayal kya hai?",
+            "a": "Please kehna achha manners hai.",
+            "b": "Shukriya zaroor bolo.",
+            "c": "Sirf khel",
+            "d": "Kuch nahi",
+            "correct": "a",
+            "explanation": "Sahi: Please kehna achha manners hai.",
+            "question": "Rules aur manners mein 'Please' ka sahi khayal kya hai?",
+            "options": [
+              "Please kehna achha manners hai.",
+              "Shukriya zaroor bolo.",
+              "Sirf khel",
+              "Kuch nahi"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Kaunsa option 'Shukriya' se related hai?",
+            "a": "Shukriya zaroor bolo.",
+            "b": "Bilkul ghalat baat",
+            "c": "Sirf TV",
+            "d": "Kuch mat karo",
+            "correct": "a",
+            "explanation": "Shukriya: Shukriya zaroor bolo.",
+            "question": "Kaunsa option 'Shukriya' se related hai?",
+            "options": [
+              "Shukriya zaroor bolo.",
+              "Bilkul ghalat baat",
+              "Sirf TV",
+              "Kuch mat karo"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "'Chup' ke bare mein sahi jumla chuno:",
+            "a": "Library mein chup raho.",
+            "b": "Yeh zaroori nahi",
+            "c": "Sirf bade logon ke liye",
+            "d": "Hamesha ghalat",
+            "correct": "a",
+            "explanation": "Library mein chup raho.",
+            "question": "'Chup' ke bare mein sahi jumla chuno:",
+            "options": [
+              "Library mein chup raho.",
+              "Yeh zaroori nahi",
+              "Sirf bade logon ke liye",
+              "Hamesha ghalat"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Hum 'Line' se kya seekhte hain?",
+            "a": "Line mein raho.",
+            "b": "Gussa karna",
+            "c": "Jhoot bolna",
+            "d": "Kachra phenkna",
+            "correct": "a",
+            "explanation": "Line mein raho.",
+            "question": "Hum 'Line' se kya seekhte hain?",
+            "options": [
+              "Line mein raho.",
+              "Gussa karna",
+              "Jhoot bolna",
+              "Kachra phenkna"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Is sabaq 'Rules aur manners' ka best message kya hai?",
+            "a": "Kachra bin mein dalo.",
+            "b": "Rules todna",
+            "c": "Dusron ko tang karna",
+            "d": "Padhai chhorna",
+            "correct": "a",
+            "explanation": "Kachra bin mein dalo.",
+            "question": "Is sabaq 'Rules aur manners' ka best message kya hai?",
+            "options": [
+              "Kachra bin mein dalo.",
+              "Rules todna",
+              "Dusron ko tang karna",
+              "Padhai chhorna"
+            ],
+            "answer": 0
+          }
+        ]
+      },
+      "interactive_file": "interactives/g1-social-rules.html",
+      "interactive_label": "Khelo"
+    },
+    {
+      "title": "Pakistan mera watan",
+      "description": "Pakistan se mohabbat",
+      "lesson": "## HOOK\nSadi socho — Pakistan mera watan hamari zindagi se kaise judta hai? Pakistan / Islamabad context mein seekhein!\n\n## SAMJHAO\nPakistan mera watan samjho: yeh Social Studies ka zaroori topic hai. Points: Flag, Masjid, Pahad, Khet.\n\n## MISAAL\nMisaal Islamabad/Pakistan se: Hamara jhanda sabz aur white hai. Badshahi Masjid mashhoor hai.\n\n## KARO\nActivity: 3 cheezein likho jo Pakistan mera watan se related hon. Ek drawing bhi banao.\n\n## SAWAAL\n1) Pakistan mera watan kya hai?\n2) Ek real-life misaal?\n3) Aap citizen ki tarah kya karoge?\n",
+      "quiz": {
+        "title": "Pakistan mera watan Quiz",
+        "questions": [
+          {
+            "q": "Pakistan mera watan mein 'Flag' ka sahi khayal kya hai?",
+            "a": "Hamara jhanda sabz aur white hai.",
+            "b": "Badshahi Masjid mashhoor hai.",
+            "c": "Sirf khel",
+            "d": "Kuch nahi",
+            "correct": "a",
+            "explanation": "Sahi: Hamara jhanda sabz aur white hai.",
+            "question": "Pakistan mera watan mein 'Flag' ka sahi khayal kya hai?",
+            "options": [
+              "Hamara jhanda sabz aur white hai.",
+              "Badshahi Masjid mashhoor hai.",
+              "Sirf khel",
+              "Kuch nahi"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Kaunsa option 'Masjid' se related hai?",
+            "a": "Badshahi Masjid mashhoor hai.",
+            "b": "Bilkul ghalat baat",
+            "c": "Sirf TV",
+            "d": "Kuch mat karo",
+            "correct": "a",
+            "explanation": "Masjid: Badshahi Masjid mashhoor hai.",
+            "question": "Kaunsa option 'Masjid' se related hai?",
+            "options": [
+              "Badshahi Masjid mashhoor hai.",
+              "Bilkul ghalat baat",
+              "Sirf TV",
+              "Kuch mat karo"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "'Pahad' ke bare mein sahi jumla chuno:",
+            "a": "Pakistan mein bare pahad hain.",
+            "b": "Yeh zaroori nahi",
+            "c": "Sirf bade logon ke liye",
+            "d": "Hamesha ghalat",
+            "correct": "a",
+            "explanation": "Pakistan mein bare pahad hain.",
+            "question": "'Pahad' ke bare mein sahi jumla chuno:",
+            "options": [
+              "Pakistan mein bare pahad hain.",
+              "Yeh zaroori nahi",
+              "Sirf bade logon ke liye",
+              "Hamesha ghalat"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Hum 'Khet' se kya seekhte hain?",
+            "a": "Kissan khet mein kaam karta hai.",
+            "b": "Gussa karna",
+            "c": "Jhoot bolna",
+            "d": "Kachra phenkna",
+            "correct": "a",
+            "explanation": "Kissan khet mein kaam karta hai.",
+            "question": "Hum 'Khet' se kya seekhte hain?",
+            "options": [
+              "Kissan khet mein kaam karta hai.",
+              "Gussa karna",
+              "Jhoot bolna",
+              "Kachra phenkna"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Is sabaq 'Pakistan mera watan' ka best message kya hai?",
+            "a": "Islamabad hamari capital hai.",
+            "b": "Rules todna",
+            "c": "Dusron ko tang karna",
+            "d": "Padhai chhorna",
+            "correct": "a",
+            "explanation": "Islamabad hamari capital hai.",
+            "question": "Is sabaq 'Pakistan mera watan' ka best message kya hai?",
+            "options": [
+              "Islamabad hamari capital hai.",
+              "Rules todna",
+              "Dusron ko tang karna",
+              "Padhai chhorna"
+            ],
+            "answer": 0
+          }
+        ]
+      },
+      "interactive_file": "interactives/g1-social-pakistan.html",
+      "interactive_label": "Khelo"
+    },
+    {
+      "title": "Tehwar aur mausam",
+      "description": "Tehwar aur mausam",
+      "lesson": "## HOOK\nSadi socho — Tehwar aur mausam hamari zindagi se kaise judta hai? Pakistan / Islamabad context mein seekhein!\n\n## SAMJHAO\nTehwar aur mausam samjho: yeh Social Studies ka zaroori topic hai. Points: Eid, 14 August, Garmi, Barsat.\n\n## MISAAL\nMisaal Islamabad/Pakistan se: Eid pe hum khushi manate hain. Independence Day 14 August hai.\n\n## KARO\nActivity: 3 cheezein likho jo Tehwar aur mausam se related hon. Ek drawing bhi banao.\n\n## SAWAAL\n1) Tehwar aur mausam kya hai?\n2) Ek real-life misaal?\n3) Aap citizen ki tarah kya karoge?\n",
+      "quiz": {
+        "title": "Tehwar aur mausam Quiz",
+        "questions": [
+          {
+            "q": "Tehwar aur mausam mein 'Eid' ka sahi khayal kya hai?",
+            "a": "Eid pe hum khushi manate hain.",
+            "b": "Independence Day 14 August hai.",
+            "c": "Sirf khel",
+            "d": "Kuch nahi",
+            "correct": "a",
+            "explanation": "Sahi: Eid pe hum khushi manate hain.",
+            "question": "Tehwar aur mausam mein 'Eid' ka sahi khayal kya hai?",
+            "options": [
+              "Eid pe hum khushi manate hain.",
+              "Independence Day 14 August hai.",
+              "Sirf khel",
+              "Kuch nahi"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Kaunsa option '14 August' se related hai?",
+            "a": "Independence Day 14 August hai.",
+            "b": "Bilkul ghalat baat",
+            "c": "Sirf TV",
+            "d": "Kuch mat karo",
+            "correct": "a",
+            "explanation": "14 August: Independence Day 14 August hai.",
+            "question": "Kaunsa option '14 August' se related hai?",
+            "options": [
+              "Independence Day 14 August hai.",
+              "Bilkul ghalat baat",
+              "Sirf TV",
+              "Kuch mat karo"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "'Garmi' ke bare mein sahi jumla chuno:",
+            "a": "Garmi mein dhoop tez hoti hai.",
+            "b": "Yeh zaroori nahi",
+            "c": "Sirf bade logon ke liye",
+            "d": "Hamesha ghalat",
+            "correct": "a",
+            "explanation": "Garmi mein dhoop tez hoti hai.",
+            "question": "'Garmi' ke bare mein sahi jumla chuno:",
+            "options": [
+              "Garmi mein dhoop tez hoti hai.",
+              "Yeh zaroori nahi",
+              "Sirf bade logon ke liye",
+              "Hamesha ghalat"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Hum 'Barsat' se kya seekhte hain?",
+            "a": "Barsat mein barish aati hai.",
+            "b": "Gussa karna",
+            "c": "Jhoot bolna",
+            "d": "Kachra phenkna",
+            "correct": "a",
+            "explanation": "Barsat mein barish aati hai.",
+            "question": "Hum 'Barsat' se kya seekhte hain?",
+            "options": [
+              "Barsat mein barish aati hai.",
+              "Gussa karna",
+              "Jhoot bolna",
+              "Kachra phenkna"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Is sabaq 'Tehwar aur mausam' ka best message kya hai?",
+            "a": "Sardi mein sweater pehno.",
+            "b": "Rules todna",
+            "c": "Dusron ko tang karna",
+            "d": "Padhai chhorna",
+            "correct": "a",
+            "explanation": "Sardi mein sweater pehno.",
+            "question": "Is sabaq 'Tehwar aur mausam' ka best message kya hai?",
+            "options": [
+              "Sardi mein sweater pehno.",
+              "Rules todna",
+              "Dusron ko tang karna",
+              "Padhai chhorna"
+            ],
+            "answer": 0
+          }
+        ]
+      },
+      "interactive_file": "interactives/g1-social-tehwar.html",
+      "interactive_label": "Khelo"
+    }
+  ]
+}

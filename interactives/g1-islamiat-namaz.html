@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="ru"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Namaz ka adab | AI4Kids Grade 1</title>
+<style>
+:root{--ink:#17252f;--muted:#526672;--paper:#fffdf7;--line:#d9d2c5;--blue:#176b87;--blue2:#e2f2f5;--orange:#d56f2f;--green:#2e8156;--purple:#72519a;--red:#b94d45;--yellow:#fff0b8;--cap:clamp(1rem,2.8vw,1.15rem);--sm:clamp(1.12rem,3.3vw,1.38rem);--md:clamp(1.28rem,3.8vw,1.65rem);--lg:clamp(1.55rem,4.8vw,2.1rem);--xl:clamp(2rem,7vw,3rem)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Trebuchet MS","Segoe UI",sans-serif;font-size:var(--sm);line-height:1.55;padding-bottom:48px}
+.wrap{max-width:1100px;margin:auto;padding:0 16px}
+.bar{display:flex;align-items:center;gap:9px;flex-wrap:wrap;padding:15px 0 7px}
+.brand{font-weight:900;color:var(--blue);margin-right:auto;font-size:var(--cap)}
+button{font:inherit;color:inherit}
+.chip,.tab{border:2px solid var(--ink);border-radius:999px;background:var(--paper);padding:8px 15px;cursor:pointer;font-weight:800;min-height:45px}
+.chip[aria-pressed=true],.tab[aria-pressed=true]{background:var(--ink);color:#fff}
+h1{font-size:var(--xl);line-height:1.15;margin:12px 0 4px}.sub{color:var(--muted);margin:0 0 16px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}.tab{border-radius:14px;flex:1 1 16%;font-size:var(--cap);min-height:52px}
+.demo{border:3px solid var(--ink);border-radius:23px;background:linear-gradient(140deg,#e7f4f6,#fff1d9);padding:16px;margin-bottom:20px}
+.demo-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.demo-head h2{font-size:var(--lg);margin:0;flex:1}
+.hint{color:var(--muted);margin:4px 0 13px}.stage{background:#fffefa;border:2px solid var(--line);border-radius:17px;padding:13px}
+.play{background:var(--green);border:3px solid #236b45;color:#fff;border-radius:15px;padding:10px 17px;min-height:52px;cursor:pointer;font-weight:900;font-size:var(--md);width:100%;margin-top:12px}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.card{border:3px solid var(--line);background:#fff;border-radius:15px;min-height:93px;padding:10px 8px;cursor:pointer;text-align:center;font-weight:900}
+.card:hover,.card.selected,.card.active{border-color:var(--blue);background:var(--blue2)}
+.emoji{display:block;font-size:2.35rem;line-height:1.1;margin-bottom:4px}
+.demo-msg{border-radius:13px;background:var(--yellow);padding:10px 13px;margin:12px 0 0;font-weight:800}
+.lesson-grid{display:grid;gap:13px}
+.lesson{border:3px solid var(--line);border-radius:18px;background:#fff;padding:15px 17px;scroll-margin-top:12px}
+.lesson .tag{display:inline-block;background:var(--blue);color:#fff;border-radius:999px;padding:3px 13px;font-size:var(--cap);font-weight:900;margin-bottom:9px}
+.lesson.hook .tag{background:var(--orange)}.lesson.misaal .tag{background:var(--green)}.lesson.karo .tag{background:var(--purple)}
+.lesson p{margin:0;font-size:var(--sm);white-space:pre-wrap}
+.quiz{border-top:3px solid var(--ink);margin-top:30px;padding-top:20px}.quiz h2{font-size:var(--lg);margin:0 0 17px}
+.q{margin-bottom:25px}.q-title{font-size:var(--md);font-weight:900;margin:0 0 10px}
+.opt{display:block;width:100%;text-align:left;border:2px solid var(--line);background:#fff;border-radius:12px;padding:11px 14px;margin:8px 0;cursor:pointer;min-height:52px;font-size:var(--sm)}
+.opt.right{border-color:var(--green);background:#e6f4eb;font-weight:900}.opt.wrong{border-color:var(--red);background:#f9e6e1}
+.feedback{display:none;color:var(--muted);font-size:var(--cap);margin:7px 0}.feedback.show{display:block}
+.score{display:none;text-align:center;border:3px solid var(--green);background:#e6f4eb;border-radius:15px;padding:13px;font-size:var(--md);font-weight:900}.score.show{display:block}
+footer{margin-top:31px;border-top:1px solid var(--line);padding-top:15px;color:var(--muted);font-size:var(--cap)}
+@media(min-width:760px){.lesson-grid{grid-template-columns:1fr 1fr}.cards{grid-template-columns:repeat(3,1fr)}.play{width:auto;min-width:190px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style></head><body>
+<div class="wrap">
+<div class="bar"><span class="brand" id="brand"></span>
+<button class="chip" id="langBtn" type="button" aria-pressed="true">English</button>
+<button class="chip" id="speakBtn" type="button" aria-label="Read aloud">🔊</button></div>
+<header><h1 id="title"></h1><p class="sub" id="subtitle"></p></header>
+<nav class="tabs" id="tabs" aria-label="Lesson sections"></nav>
+<section class="demo" id="demo"><div class="demo-head"><h2 id="demoTitle"></h2>
+<button class="chip" id="launch" type="button">Khelo</button></div>
+<p class="hint" id="demoHint"></p><div class="stage" id="stage"></div></section>
+<main class="lesson-grid">
+<article class="lesson hook" id="hook"><span class="tag" id="hookTag"></span><p id="hookText"></p></article>
+<article class="lesson samjhao" id="samjhao"><span class="tag" id="samjhaoTag"></span><p id="samjhaoText"></p></article>
+<article class="lesson misaal" id="misaal"><span class="tag" id="misaalTag"></span><p id="misaalText"></p></article>
+<article class="lesson karo" id="karo"><span class="tag" id="karoTag"></span><p id="karoText"></p></article>
+</main>
+<section class="quiz"><h2 id="quizTitle"></h2><div id="quizBox"></div><div class="score" id="score"></div></section>
+<footer id="foot"></footer>
+</div>
+<script>const D={"file": "g1-islamiat-namaz.html", "title": {"en": "Namaz ka adab", "ru": "Namaz ka adab"}, "desc": {"en": "Namaz ka ehteram", "ru": "Namaz ka ehteram"}, "lesson": {"hook": {"en": "Suno! Aaj hum 'Namaz ka adab' seekhenge — adab aur pyar ke sath.", "ru": "Suno! Aaj hum 'Namaz ka adab' seekhenge — adab aur pyar ke sath."}, "samjhao": {"en": "Grade 1 ke liye asaan baat: Namaz ka adab. Yeh Islam ki khoobsurat taleem hai. Key points: Wuzu, Qayam, Khamoshi, Qibla.", "ru": "Grade 1 ke liye asaan baat: Namaz ka adab. Yeh Islam ki khoobsurat taleem hai. Key points: Wuzu, Qayam, Khamoshi, Qibla."}, "misaal": {"en": "Islamabad / ghar / school mein isay amal mein lao — jaise Wuzu aur Qayam.", "ru": "Islamabad / ghar / school mein isay amal mein lao — jaise Wuzu aur Qayam."}, "karo": {"en": "Aaj ek kaam: Namaz se pehle wuzu karo. Phir family ko batao ke aapne kya seekha.", "ru": "Aaj ek kaam: Namaz se pehle wuzu karo. Phir family ko batao ke aapne kya seekha."}}, "demo": {"type": "cards", "title": {"en": "Khelo — tap cards", "ru": "Khelo — cards par tap karo"}, "hint": {"en": "Tap a card to hear and learn.", "ru": "Seekhne ke liye card par tap karo."}, "items": [{"emoji": "🧼", "name": {"en": "Wuzu", "ru": "Wuzu"}, "line": {"en": "Namaz se pehle wuzu karo.", "ru": "Namaz se pehle wuzu karo."}}, {"emoji": "🧘", "name": {"en": "Qayam", "ru": "Qayam"}, "line": {"en": "Seedhe khade raho.", "ru": "Seedhe khade raho."}}, {"emoji": "🤫", "name": {"en": "Khamoshi", "ru": "Khamoshi"}, "line": {"en": "Namaz mein khamoshi rakho.", "ru": "Namaz mein khamoshi rakho."}}, {"emoji": "🕌", "name": {"en": "Qibla", "ru": "Qibla"}, "line": {"en": "Qibla rukh karo.", "ru": "Qibla rukh karo."}}, {"emoji": "📿", "name": {"en": "Tasbeeh", "ru": "Tasbeeh"}, "line": {"en": "Namaz ke baad zikr karo.", "ru": "Namaz ke baad zikr karo."}}, {"emoji": "⏰", "name": {"en": "Waqt", "ru": "Waqt"}, "line": {"en": "Namaz time par parho.", "ru": "Namaz time par parho."}}]}, "quizTitle": {"en": "Namaz ka adab Quiz", "ru": "Namaz ka adab Quiz"}, "quiz": [{"q": {"en": "Namaz ka adab mein 'Wuzu' ka sahi khayal kya hai?", "ru": "Namaz ka adab mein 'Wuzu' ka sahi khayal kya hai?"}, "opts": [{"en": "Namaz se pehle wuzu karo.", "ru": "Namaz se pehle wuzu karo."}, {"en": "Seedhe khade raho.", "ru": "Seedhe khade raho."}, {"en": "Sirf khel", "ru": "Sirf khel"}, {"en": "Kuch nahi", "ru": "Kuch nahi"}], "ans": 0, "exp": {"en": "Sahi: Namaz se pehle wuzu karo.", "ru": "Sahi: Namaz se pehle wuzu karo."}}, {"q": {"en": "Kaunsa option 'Qayam' se related hai?", "ru": "Kaunsa option 'Qayam' se related hai?"}, "opts": [{"en": "Seedhe khade raho.", "ru": "Seedhe khade raho."}, {"en": "Bilkul ghalat baat", "ru": "Bilkul ghalat baat"}, {"en": "Sirf TV", "ru": "Sirf TV"}, {"en": "Kuch mat karo", "ru": "Kuch mat karo"}], "ans": 0, "exp": {"en": "Qayam: Seedhe khade raho.", "ru": "Qayam: Seedhe khade raho."}}, {"q": {"en": "'Khamoshi' ke bare mein sahi jumla chuno:", "ru": "'Khamoshi' ke bare mein sahi jumla chuno:"}, "opts": [{"en": "Namaz mein khamoshi rakho.", "ru": "Namaz mein khamoshi rakho."}, {"en": "Yeh zaroori nahi", "ru": "Yeh zaroori nahi"}, {"en": "Sirf bade logon ke liye", "ru": "Sirf bade logon ke liye"}, {"en": "Hamesha ghalat", "ru": "Hamesha ghalat"}], "ans": 0, "exp": {"en": "Namaz mein khamoshi rakho.", "ru": "Namaz mein khamoshi rakho."}}, {"q": {"en": "Hum 'Qibla' se kya seekhte hain?", "ru": "Hum 'Qibla' se kya seekhte hain?"}, "opts": [{"en": "Qibla rukh karo.", "ru": "Qibla rukh karo."}, {"en": "Gussa karna", "ru": "Gussa karna"}, {"en": "Jhoot bolna", "ru": "Jhoot bolna"}, {"en": "Kachra phenkna", "ru": "Kachra phenkna"}], "ans": 0, "exp": {"en": "Qibla rukh karo.", "ru": "Qibla rukh karo."}}, {"q": {"en": "Is sabaq 'Namaz ka adab' ka best message kya hai?", "ru": "Is sabaq 'Namaz ka adab' ka best message kya hai?"}, "opts": [{"en": "Namaz ke baad zikr karo.", "ru": "Namaz ke baad zikr karo."}, {"en": "Rules todna", "ru": "Rules todna"}, {"en": "Dusron ko tang karna", "ru": "Dusron ko tang karna"}, {"en": "Padhai chhorna", "ru": "Padhai chhorna"}], "ans": 0, "exp": {"en": "Namaz ke baad zikr karo.", "ru": "Namaz ke baad zikr karo."}}]};</script>
+<script>
+(function(){
+'use strict';
+var lang='ru', selected=0, answered=0, points=0, lastSpoken='';
+
+function ai4kidsSpeak(text, preferLang){
+  if(!('speechSynthesis' in window)) return;
+  try{
+    window.speechSynthesis.cancel();
+    var u=new SpeechSynthesisUtterance(String(text||''));
+    var want=(preferLang||lang)==='en'?'en':'ur';
+    u.rate=0.82;
+    var voices=window.speechSynthesis.getVoices()||[];
+    var pick=null;
+    if(want!=='en'){
+      pick=voices.find(function(v){return /urdu|hindi|ur-PK|hi-IN|hi_IN|ur_PK/i.test(v.lang+' '+v.name);});
+      u.lang=pick?pick.lang:'ur-PK';
+    }else{
+      pick=voices.find(function(v){return /^en/i.test(v.lang);});
+      u.lang=pick?pick.lang:'en-US';
+    }
+    if(pick) u.voice=pick;
+    lastSpoken=String(text||'');
+    window.speechSynthesis.speak(u);
+  }catch(e){}
+}
+window.ai4kidsSpeak=ai4kidsSpeak;
+window.AI4KIDS_TTS={speak:ai4kidsSpeak};
+
+function $(id){return document.getElementById(id)}
+function t(x){return x&&typeof x==='object'?(x[lang]||x.ru||x.en||''):String(x||'')}
+function set(el,x){el.textContent=t(x)}
+function labels(){return{play:{en:'Play',ru:'Khelo'},hook:{en:'HOOK',ru:'HOOK'},samjhao:{en:'SAMJHAO',ru:'SAMJHAO'},misaal:{en:'MISAAL',ru:'MISAAL'},karo:{en:'KARO',ru:'KARO'}}}
+
+function render(){
+  document.documentElement.lang=lang==='en'?'en':'ur';
+  document.title=t(D.title)+' | AI4Kids Grade 1';
+  set($('brand'),{en:'AI4Kids · Grade 1 · Islamiat',ru:'AI4Kids · Grade 1 · Islamiat'});
+  set($('title'),D.title); set($('subtitle'),D.desc);
+  $('langBtn').textContent=lang==='ru'?'English':'Roman Urdu';
+  $('langBtn').setAttribute('aria-pressed', lang==='ru'?'true':'false');
+  var L=labels();
+  [['hook','hookText'],['samjhao','samjhaoText'],['misaal','misaalText'],['karo','karoText']].forEach(function(x){
+    set($(x[0]+'Tag'),L[x[0]]); set($(x[1]),D.lesson[x[0]]);
+  });
+  set($('demoTitle'),D.demo.title); set($('demoHint'),D.demo.hint); set($('launch'),L.play);
+  set($('quizTitle'),D.quizTitle);
+  set($('foot'),{en:'AI4Kids · Grade 1 · Offline lesson',ru:'AI4Kids · Grade 1 · Offline lesson'});
+  var tb=$('tabs'); tb.innerHTML='';
+  ['play','hook','samjhao','misaal','karo'].forEach(function(k){
+    var b=document.createElement('button'); b.className='tab'; b.type='button'; b.textContent=t(L[k]);
+    b.onclick=function(){$(k==='play'?'demo':k).scrollIntoView({behavior:'smooth'})};
+    tb.appendChild(b);
+  });
+  renderDemo(); renderQuiz();
+}
+
+function renderDemo(){
+  var s=$('stage'); s.innerHTML='';
+  var row=document.createElement('div'); row.className='cards';
+  D.demo.items.forEach(function(it,i){
+    var b=document.createElement('button'); b.type='button';
+    b.className='card'+(selected===i?' selected':'');
+    b.innerHTML='<span class="emoji">'+it.emoji+'</span>';
+    b.appendChild(document.createTextNode(t(it.name)));
+    b.onclick=function(){selected=i; renderDemo(); ai4kidsSpeak(t(it.line));};
+    row.appendChild(b);
+  });
+  s.appendChild(row);
+  var msg=document.createElement('div'); msg.className='demo-msg'; msg.textContent=t(D.demo.items[selected].line);
+  s.appendChild(msg);
+}
+
+function renderQuiz(){
+  var box=$('quizBox'); box.innerHTML=''; answered=0; points=0; $('score').classList.remove('show');
+  D.quiz.forEach(function(q,qi){
+    var w=document.createElement('div'); w.className='q';
+    var h=document.createElement('p'); h.className='q-title'; h.textContent=(qi+1)+'. '+t(q.q); w.appendChild(h);
+    q.opts.forEach(function(opt,oi){
+      var b=document.createElement('button'); b.type='button'; b.className='opt';
+      b.textContent=String.fromCharCode(65+oi)+'. '+t(opt);
+      b.onclick=function(){
+        if(w.dataset.done) return; w.dataset.done='1'; answered++;
+        var right=oi===q.ans; if(right) points++;
+        b.classList.add(right?'right':'wrong');
+        w.querySelectorAll('.opt').forEach(function(x,xi){if(xi===q.ans)x.classList.add('right'); x.disabled=true;});
+        var f=w.querySelector('.feedback'); f.textContent=(right?'✓ ':'✗ ')+t(q.exp); f.className='feedback show';
+        if(answered===D.quiz.length){
+          $('score').textContent='Score: '+points+' / 5'; $('score').classList.add('show');
+        }
+      };
+      w.appendChild(b);
+    });
+    var f=document.createElement('p'); f.className='feedback'; w.appendChild(f); box.appendChild(w);
+  });
+}
+
+$('langBtn').onclick=function(){lang=lang==='ru'?'en':'ru'; selected=0; render();};
+$('speakBtn').onclick=function(){ai4kidsSpeak(t(D.title)+'. '+t(D.desc));};
+$('launch').onclick=function(){$('demo').scrollIntoView({behavior:'smooth'}); ai4kidsSpeak(t(D.demo.title));};
+if('speechSynthesis' in window){speechSynthesis.addEventListener('voiceschanged', function(){});}
+render();
+})();
+</script>
+</body></html>

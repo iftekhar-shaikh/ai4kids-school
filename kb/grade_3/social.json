@@ -1,0 +1,590 @@
+{
+  "subject": "social",
+  "name": "Social Studies",
+  "teacher": "Social Studies Teacher",
+  "grade": 3,
+  "topics": [
+    {
+      "title": "Citizenship",
+      "description": "Achha citizen banana",
+      "lesson": "## HOOK\nSadi socho — Citizenship hamari zindagi se kaise judta hai? Pakistan / Islamabad context mein seekhein!\n\n## SAMJHAO\nCitizenship samjho: yeh Social Studies ka zaroori topic hai. Points: Citizen, Haq, Safai, School rules.\n\n## MISAAL\nMisaal Islamabad/Pakistan se: Citizen watan ka hissa. Haqooq aur farz dono.\n\n## KARO\nActivity: 3 cheezein likho jo Citizenship se related hon. Ek drawing bhi banao.\n\n## SAWAAL\n1) Citizenship kya hai?\n2) Ek real-life misaal?\n3) Aap citizen ki tarah kya karoge?\n",
+      "quiz": {
+        "title": "Citizenship Quiz",
+        "questions": [
+          {
+            "q": "Citizenship mein 'Citizen' ka sahi khayal kya hai?",
+            "a": "Citizen watan ka hissa.",
+            "b": "Haqooq aur farz dono.",
+            "c": "Sirf khel",
+            "d": "Kuch nahi",
+            "correct": "a",
+            "explanation": "Sahi: Citizen watan ka hissa.",
+            "question": "Citizenship mein 'Citizen' ka sahi khayal kya hai?",
+            "options": [
+              "Citizen watan ka hissa.",
+              "Haqooq aur farz dono.",
+              "Sirf khel",
+              "Kuch nahi"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Kaunsa option 'Haq' se related hai?",
+            "a": "Haqooq aur farz dono.",
+            "b": "Bilkul ghalat baat",
+            "c": "Sirf TV",
+            "d": "Kuch mat karo",
+            "correct": "a",
+            "explanation": "Haq: Haqooq aur farz dono.",
+            "question": "Kaunsa option 'Haq' se related hai?",
+            "options": [
+              "Haqooq aur farz dono.",
+              "Bilkul ghalat baat",
+              "Sirf TV",
+              "Kuch mat karo"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "'Safai' ke bare mein sahi jumla chuno:",
+            "a": "Mohalla saaf rakho.",
+            "b": "Yeh zaroori nahi",
+            "c": "Sirf bade logon ke liye",
+            "d": "Hamesha ghalat",
+            "correct": "a",
+            "explanation": "Mohalla saaf rakho.",
+            "question": "'Safai' ke bare mein sahi jumla chuno:",
+            "options": [
+              "Mohalla saaf rakho.",
+              "Yeh zaroori nahi",
+              "Sirf bade logon ke liye",
+              "Hamesha ghalat"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Hum 'School rules' se kya seekhte hain?",
+            "a": "School rules follow.",
+            "b": "Gussa karna",
+            "c": "Jhoot bolna",
+            "d": "Kachra phenkna",
+            "correct": "a",
+            "explanation": "School rules follow.",
+            "question": "Hum 'School rules' se kya seekhte hain?",
+            "options": [
+              "School rules follow.",
+              "Gussa karna",
+              "Jhoot bolna",
+              "Kachra phenkna"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Is sabaq 'Citizenship' ka best message kya hai?",
+            "a": "Kamzor ki madad.",
+            "b": "Rules todna",
+            "c": "Dusron ko tang karna",
+            "d": "Padhai chhorna",
+            "correct": "a",
+            "explanation": "Kamzor ki madad.",
+            "question": "Is sabaq 'Citizenship' ka best message kya hai?",
+            "options": [
+              "Kamzor ki madad.",
+              "Rules todna",
+              "Dusron ko tang karna",
+              "Padhai chhorna"
+            ],
+            "answer": 0
+          }
+        ]
+      },
+      "interactive_file": "interactives/g3-social-citizenship.html",
+      "interactive_label": "Khelo"
+    },
+    {
+      "title": "Culture",
+      "description": "Pakistan ki culture",
+      "lesson": "## HOOK\nSadi socho — Culture hamari zindagi se kaise judta hai? Pakistan / Islamabad context mein seekhein!\n\n## SAMJHAO\nCulture samjho: yeh Social Studies ka zaroori topic hai. Points: Libaas, Mausiqi, Truck art, Khana.\n\n## MISAAL\nMisaal Islamabad/Pakistan se: Traditional libaas. Lok mausiqi.\n\n## KARO\nActivity: 3 cheezein likho jo Culture se related hon. Ek drawing bhi banao.\n\n## SAWAAL\n1) Culture kya hai?\n2) Ek real-life misaal?\n3) Aap citizen ki tarah kya karoge?\n",
+      "quiz": {
+        "title": "Culture Quiz",
+        "questions": [
+          {
+            "q": "Culture mein 'Libaas' ka sahi khayal kya hai?",
+            "a": "Traditional libaas.",
+            "b": "Lok mausiqi.",
+            "c": "Sirf khel",
+            "d": "Kuch nahi",
+            "correct": "a",
+            "explanation": "Sahi: Traditional libaas.",
+            "question": "Culture mein 'Libaas' ka sahi khayal kya hai?",
+            "options": [
+              "Traditional libaas.",
+              "Lok mausiqi.",
+              "Sirf khel",
+              "Kuch nahi"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Kaunsa option 'Mausiqi' se related hai?",
+            "a": "Lok mausiqi.",
+            "b": "Bilkul ghalat baat",
+            "c": "Sirf TV",
+            "d": "Kuch mat karo",
+            "correct": "a",
+            "explanation": "Mausiqi: Lok mausiqi.",
+            "question": "Kaunsa option 'Mausiqi' se related hai?",
+            "options": [
+              "Lok mausiqi.",
+              "Bilkul ghalat baat",
+              "Sirf TV",
+              "Kuch mat karo"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "'Truck art' ke bare mein sahi jumla chuno:",
+            "a": "Rang-birangi truck art.",
+            "b": "Yeh zaroori nahi",
+            "c": "Sirf bade logon ke liye",
+            "d": "Hamesha ghalat",
+            "correct": "a",
+            "explanation": "Rang-birangi truck art.",
+            "question": "'Truck art' ke bare mein sahi jumla chuno:",
+            "options": [
+              "Rang-birangi truck art.",
+              "Yeh zaroori nahi",
+              "Sirf bade logon ke liye",
+              "Hamesha ghalat"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Hum 'Khana' se kya seekhte hain?",
+            "a": "Desi khane.",
+            "b": "Gussa karna",
+            "c": "Jhoot bolna",
+            "d": "Kachra phenkna",
+            "correct": "a",
+            "explanation": "Desi khane.",
+            "question": "Hum 'Khana' se kya seekhte hain?",
+            "options": [
+              "Desi khane.",
+              "Gussa karna",
+              "Jhoot bolna",
+              "Kachra phenkna"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Is sabaq 'Culture' ka best message kya hai?",
+            "a": "Eid, 14 Aug, Basant.",
+            "b": "Rules todna",
+            "c": "Dusron ko tang karna",
+            "d": "Padhai chhorna",
+            "correct": "a",
+            "explanation": "Eid, 14 Aug, Basant.",
+            "question": "Is sabaq 'Culture' ka best message kya hai?",
+            "options": [
+              "Eid, 14 Aug, Basant.",
+              "Rules todna",
+              "Dusron ko tang karna",
+              "Padhai chhorna"
+            ],
+            "answer": 0
+          }
+        ]
+      },
+      "interactive_file": "interactives/g3-social-culture.html",
+      "interactive_label": "Khelo"
+    },
+    {
+      "title": "State aur Government",
+      "description": "State aur government",
+      "lesson": "## HOOK\nSadi socho — State aur Government hamari zindagi se kaise judta hai? Pakistan / Islamabad context mein seekhein!\n\n## SAMJHAO\nState aur Government samjho: yeh Social Studies ka zaroori topic hai. Points: Government, Qanoon, Services, Flag.\n\n## MISAAL\nMisaal Islamabad/Pakistan se: Government mulk chalati hai. Qanoon sab ke liye.\n\n## KARO\nActivity: 3 cheezein likho jo State aur Government se related hon. Ek drawing bhi banao.\n\n## SAWAAL\n1) State aur Government kya hai?\n2) Ek real-life misaal?\n3) Aap citizen ki tarah kya karoge?\n",
+      "quiz": {
+        "title": "State aur Government Quiz",
+        "questions": [
+          {
+            "q": "State aur Government mein 'Government' ka sahi khayal kya hai?",
+            "a": "Government mulk chalati hai.",
+            "b": "Qanoon sab ke liye.",
+            "c": "Sirf khel",
+            "d": "Kuch nahi",
+            "correct": "a",
+            "explanation": "Sahi: Government mulk chalati hai.",
+            "question": "State aur Government mein 'Government' ka sahi khayal kya hai?",
+            "options": [
+              "Government mulk chalati hai.",
+              "Qanoon sab ke liye.",
+              "Sirf khel",
+              "Kuch nahi"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Kaunsa option 'Qanoon' se related hai?",
+            "a": "Qanoon sab ke liye.",
+            "b": "Bilkul ghalat baat",
+            "c": "Sirf TV",
+            "d": "Kuch mat karo",
+            "correct": "a",
+            "explanation": "Qanoon: Qanoon sab ke liye.",
+            "question": "Kaunsa option 'Qanoon' se related hai?",
+            "options": [
+              "Qanoon sab ke liye.",
+              "Bilkul ghalat baat",
+              "Sirf TV",
+              "Kuch mat karo"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "'Services' ke bare mein sahi jumla chuno:",
+            "a": "School, hospital services.",
+            "b": "Yeh zaroori nahi",
+            "c": "Sirf bade logon ke liye",
+            "d": "Hamesha ghalat",
+            "correct": "a",
+            "explanation": "School, hospital services.",
+            "question": "'Services' ke bare mein sahi jumla chuno:",
+            "options": [
+              "School, hospital services.",
+              "Yeh zaroori nahi",
+              "Sirf bade logon ke liye",
+              "Hamesha ghalat"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Hum 'Flag' se kya seekhte hain?",
+            "a": "Jhanda izzat do.",
+            "b": "Gussa karna",
+            "c": "Jhoot bolna",
+            "d": "Kachra phenkna",
+            "correct": "a",
+            "explanation": "Jhanda izzat do.",
+            "question": "Hum 'Flag' se kya seekhte hain?",
+            "options": [
+              "Jhanda izzat do.",
+              "Gussa karna",
+              "Jhoot bolna",
+              "Kachra phenkna"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Is sabaq 'State aur Government' ka best message kya hai?",
+            "a": "Islamabad capital.",
+            "b": "Rules todna",
+            "c": "Dusron ko tang karna",
+            "d": "Padhai chhorna",
+            "correct": "a",
+            "explanation": "Islamabad capital.",
+            "question": "Is sabaq 'State aur Government' ka best message kya hai?",
+            "options": [
+              "Islamabad capital.",
+              "Rules todna",
+              "Dusron ko tang karna",
+              "Padhai chhorna"
+            ],
+            "answer": 0
+          }
+        ]
+      },
+      "interactive_file": "interactives/g3-social-government.html",
+      "interactive_label": "Khelo"
+    },
+    {
+      "title": "History",
+      "description": "Chhoti tareekh",
+      "lesson": "## HOOK\nSadi socho — History hamari zindagi se kaise judta hai? Pakistan / Islamabad context mein seekhein!\n\n## SAMJHAO\nHistory samjho: yeh Social Studies ka zaroori topic hai. Points: History, 1947, Quaid, Fatima Jinnah.\n\n## MISAAL\nMisaal Islamabad/Pakistan se: History purani kahani. 1947 mein Pakistan bana.\n\n## KARO\nActivity: 3 cheezein likho jo History se related hon. Ek drawing bhi banao.\n\n## SAWAAL\n1) History kya hai?\n2) Ek real-life misaal?\n3) Aap citizen ki tarah kya karoge?\n",
+      "quiz": {
+        "title": "History Quiz",
+        "questions": [
+          {
+            "q": "History mein 'History' ka sahi khayal kya hai?",
+            "a": "History purani kahani.",
+            "b": "1947 mein Pakistan bana.",
+            "c": "Sirf khel",
+            "d": "Kuch nahi",
+            "correct": "a",
+            "explanation": "Sahi: History purani kahani.",
+            "question": "History mein 'History' ka sahi khayal kya hai?",
+            "options": [
+              "History purani kahani.",
+              "1947 mein Pakistan bana.",
+              "Sirf khel",
+              "Kuch nahi"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Kaunsa option '1947' se related hai?",
+            "a": "1947 mein Pakistan bana.",
+            "b": "Bilkul ghalat baat",
+            "c": "Sirf TV",
+            "d": "Kuch mat karo",
+            "correct": "a",
+            "explanation": "1947: 1947 mein Pakistan bana.",
+            "question": "Kaunsa option '1947' se related hai?",
+            "options": [
+              "1947 mein Pakistan bana.",
+              "Bilkul ghalat baat",
+              "Sirf TV",
+              "Kuch mat karo"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "'Quaid' ke bare mein sahi jumla chuno:",
+            "a": "Quaid-e-Azam rahnuma.",
+            "b": "Yeh zaroori nahi",
+            "c": "Sirf bade logon ke liye",
+            "d": "Hamesha ghalat",
+            "correct": "a",
+            "explanation": "Quaid-e-Azam rahnuma.",
+            "question": "'Quaid' ke bare mein sahi jumla chuno:",
+            "options": [
+              "Quaid-e-Azam rahnuma.",
+              "Yeh zaroori nahi",
+              "Sirf bade logon ke liye",
+              "Hamesha ghalat"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Hum 'Fatima Jinnah' se kya seekhte hain?",
+            "a": "Madar-e-Millat.",
+            "b": "Gussa karna",
+            "c": "Jhoot bolna",
+            "d": "Kachra phenkna",
+            "correct": "a",
+            "explanation": "Madar-e-Millat.",
+            "question": "Hum 'Fatima Jinnah' se kya seekhte hain?",
+            "options": [
+              "Madar-e-Millat.",
+              "Gussa karna",
+              "Jhoot bolna",
+              "Kachra phenkna"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Is sabaq 'History' ka best message kya hai?",
+            "a": "Purani masajid aur qile.",
+            "b": "Rules todna",
+            "c": "Dusron ko tang karna",
+            "d": "Padhai chhorna",
+            "correct": "a",
+            "explanation": "Purani masajid aur qile.",
+            "question": "Is sabaq 'History' ka best message kya hai?",
+            "options": [
+              "Purani masajid aur qile.",
+              "Rules todna",
+              "Dusron ko tang karna",
+              "Padhai chhorna"
+            ],
+            "answer": 0
+          }
+        ]
+      },
+      "interactive_file": "interactives/g3-social-history.html",
+      "interactive_label": "Khelo"
+    },
+    {
+      "title": "Geography",
+      "description": "Geography — zameen aur mausam",
+      "lesson": "## HOOK\nSadi socho — Geography hamari zindagi se kaise judta hai? Pakistan / Islamabad context mein seekhein!\n\n## SAMJHAO\nGeography samjho: yeh Social Studies ka zaroori topic hai. Points: Map, Shimal, Junoob, Maidain.\n\n## MISAAL\nMisaal Islamabad/Pakistan se: Pakistan ka map. Shimal mein pahad.\n\n## KARO\nActivity: 3 cheezein likho jo Geography se related hon. Ek drawing bhi banao.\n\n## SAWAAL\n1) Geography kya hai?\n2) Ek real-life misaal?\n3) Aap citizen ki tarah kya karoge?\n",
+      "quiz": {
+        "title": "Geography Quiz",
+        "questions": [
+          {
+            "q": "Geography mein 'Map' ka sahi khayal kya hai?",
+            "a": "Pakistan ka map.",
+            "b": "Shimal mein pahad.",
+            "c": "Sirf khel",
+            "d": "Kuch nahi",
+            "correct": "a",
+            "explanation": "Sahi: Pakistan ka map.",
+            "question": "Geography mein 'Map' ka sahi khayal kya hai?",
+            "options": [
+              "Pakistan ka map.",
+              "Shimal mein pahad.",
+              "Sirf khel",
+              "Kuch nahi"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Kaunsa option 'Shimal' se related hai?",
+            "a": "Shimal mein pahad.",
+            "b": "Bilkul ghalat baat",
+            "c": "Sirf TV",
+            "d": "Kuch mat karo",
+            "correct": "a",
+            "explanation": "Shimal: Shimal mein pahad.",
+            "question": "Kaunsa option 'Shimal' se related hai?",
+            "options": [
+              "Shimal mein pahad.",
+              "Bilkul ghalat baat",
+              "Sirf TV",
+              "Kuch mat karo"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "'Junoob' ke bare mein sahi jumla chuno:",
+            "a": "Junoob mein samandar.",
+            "b": "Yeh zaroori nahi",
+            "c": "Sirf bade logon ke liye",
+            "d": "Hamesha ghalat",
+            "correct": "a",
+            "explanation": "Junoob mein samandar.",
+            "question": "'Junoob' ke bare mein sahi jumla chuno:",
+            "options": [
+              "Junoob mein samandar.",
+              "Yeh zaroori nahi",
+              "Sirf bade logon ke liye",
+              "Hamesha ghalat"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Hum 'Maidain' se kya seekhte hain?",
+            "a": "Darmiyan maidain.",
+            "b": "Gussa karna",
+            "c": "Jhoot bolna",
+            "d": "Kachra phenkna",
+            "correct": "a",
+            "explanation": "Darmiyan maidain.",
+            "question": "Hum 'Maidain' se kya seekhte hain?",
+            "options": [
+              "Darmiyan maidain.",
+              "Gussa karna",
+              "Jhoot bolna",
+              "Kachra phenkna"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Is sabaq 'Geography' ka best message kya hai?",
+            "a": "Kuch ilaqe sukhe.",
+            "b": "Rules todna",
+            "c": "Dusron ko tang karna",
+            "d": "Padhai chhorna",
+            "correct": "a",
+            "explanation": "Kuch ilaqe sukhe.",
+            "question": "Is sabaq 'Geography' ka best message kya hai?",
+            "options": [
+              "Kuch ilaqe sukhe.",
+              "Rules todna",
+              "Dusron ko tang karna",
+              "Padhai chhorna"
+            ],
+            "answer": 0
+          }
+        ]
+      },
+      "interactive_file": "interactives/g3-social-geography.html",
+      "interactive_label": "Khelo"
+    },
+    {
+      "title": "Economics",
+      "description": "Asaan economics",
+      "lesson": "## HOOK\nSadi socho — Economics hamari zindagi se kaise judta hai? Pakistan / Islamabad context mein seekhein!\n\n## SAMJHAO\nEconomics samjho: yeh Social Studies ka zaroori topic hai. Points: Paise, Dukaan, Produce, Jobs.\n\n## MISAAL\nMisaal Islamabad/Pakistan se: Paise se cheezein milti hain. Dukaan bechti hai.\n\n## KARO\nActivity: 3 cheezein likho jo Economics se related hon. Ek drawing bhi banao.\n\n## SAWAAL\n1) Economics kya hai?\n2) Ek real-life misaal?\n3) Aap citizen ki tarah kya karoge?\n",
+      "quiz": {
+        "title": "Economics Quiz",
+        "questions": [
+          {
+            "q": "Economics mein 'Paise' ka sahi khayal kya hai?",
+            "a": "Paise se cheezein milti hain.",
+            "b": "Dukaan bechti hai.",
+            "c": "Sirf khel",
+            "d": "Kuch nahi",
+            "correct": "a",
+            "explanation": "Sahi: Paise se cheezein milti hain.",
+            "question": "Economics mein 'Paise' ka sahi khayal kya hai?",
+            "options": [
+              "Paise se cheezein milti hain.",
+              "Dukaan bechti hai.",
+              "Sirf khel",
+              "Kuch nahi"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Kaunsa option 'Dukaan' se related hai?",
+            "a": "Dukaan bechti hai.",
+            "b": "Bilkul ghalat baat",
+            "c": "Sirf TV",
+            "d": "Kuch mat karo",
+            "correct": "a",
+            "explanation": "Dukaan: Dukaan bechti hai.",
+            "question": "Kaunsa option 'Dukaan' se related hai?",
+            "options": [
+              "Dukaan bechti hai.",
+              "Bilkul ghalat baat",
+              "Sirf TV",
+              "Kuch mat karo"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "'Produce' ke bare mein sahi jumla chuno:",
+            "a": "Kissan ugata hai.",
+            "b": "Yeh zaroori nahi",
+            "c": "Sirf bade logon ke liye",
+            "d": "Hamesha ghalat",
+            "correct": "a",
+            "explanation": "Kissan ugata hai.",
+            "question": "'Produce' ke bare mein sahi jumla chuno:",
+            "options": [
+              "Kissan ugata hai.",
+              "Yeh zaroori nahi",
+              "Sirf bade logon ke liye",
+              "Hamesha ghalat"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Hum 'Jobs' se kya seekhte hain?",
+            "a": "Log kaam karke kamate.",
+            "b": "Gussa karna",
+            "c": "Jhoot bolna",
+            "d": "Kachra phenkna",
+            "correct": "a",
+            "explanation": "Log kaam karke kamate.",
+            "question": "Hum 'Jobs' se kya seekhte hain?",
+            "options": [
+              "Log kaam karke kamate.",
+              "Gussa karna",
+              "Jhoot bolna",
+              "Kachra phenkna"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Is sabaq 'Economics' ka best message kya hai?",
+            "a": "Thoda bacha kar rakho.",
+            "b": "Rules todna",
+            "c": "Dusron ko tang karna",
+            "d": "Padhai chhorna",
+            "correct": "a",
+            "explanation": "Thoda bacha kar rakho.",
+            "question": "Is sabaq 'Economics' ka best message kya hai?",
+            "options": [
+              "Thoda bacha kar rakho.",
+              "Rules todna",
+              "Dusron ko tang karna",
+              "Padhai chhorna"
+            ],
+            "answer": 0
+          }
+        ]
+      },
+      "interactive_file": "interactives/g3-social-economics.html",
+      "interactive_label": "Khelo"
+    }
+  ]
+}

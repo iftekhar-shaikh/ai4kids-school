@@ -1439,5 +1439,437 @@
       "interactive_file": "interactives/g4-tahrir.html",
       "interactive_label": "Khelo - Tahrir"
     }
+  },
+  {
+    "file": "kb/grade_1/social.json",
+    "match_title": "Mera ghar aur family",
+    "add": {
+      "interactive_file": "interactives/g1-social-mera-ghar.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_1/social.json",
+    "match_title": "Mera school",
+    "add": {
+      "interactive_file": "interactives/g1-social-mera-school.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_1/social.json",
+    "match_title": "Neighbourhood helpers",
+    "add": {
+      "interactive_file": "interactives/g1-social-helpers.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_1/social.json",
+    "match_title": "Rules aur manners",
+    "add": {
+      "interactive_file": "interactives/g1-social-rules.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_1/social.json",
+    "match_title": "Pakistan mera watan",
+    "add": {
+      "interactive_file": "interactives/g1-social-pakistan.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_1/social.json",
+    "match_title": "Tehwar aur mausam",
+    "add": {
+      "interactive_file": "interactives/g1-social-tehwar.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_1/islamiat.json",
+    "match_title": "Allah ek hai",
+    "add": {
+      "interactive_file": "interactives/g1-islamiat-allah.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_1/islamiat.json",
+    "match_title": "Nabi Muhammad ﷺ",
+    "add": {
+      "interactive_file": "interactives/g1-islamiat-nabi.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_1/islamiat.json",
+    "match_title": "Kalma aur iman",
+    "add": {
+      "interactive_file": "interactives/g1-islamiat-kalma.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_1/islamiat.json",
+    "match_title": "Namaz ka adab",
+    "add": {
+      "interactive_file": "interactives/g1-islamiat-namaz.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_1/islamiat.json",
+    "match_title": "Achhe akhlaq",
+    "add": {
+      "interactive_file": "interactives/g1-islamiat-akhlaq.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_1/islamiat.json",
+    "match_title": "Bismillah aur dua",
+    "add": {
+      "interactive_file": "interactives/g1-islamiat-dua.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_1/urdu.json",
+    "match_title": "Alif Bay Pay",
+    "add": {
+      "interactive_file": "interactives/g1-urdu-alif-bay.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_1/urdu.json",
+    "match_title": "Asaan lafz",
+    "add": {
+      "interactive_file": "interactives/g1-urdu-lafz.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_1/urdu.json",
+    "match_title": "Chhoti hamd",
+    "add": {
+      "interactive_file": "interactives/g1-urdu-hamd.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_1/urdu.json",
+    "match_title": "Nazm",
+    "add": {
+      "interactive_file": "interactives/g1-urdu-nazm.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_1/urdu.json",
+    "match_title": "Chhoti kahani",
+    "add": {
+      "interactive_file": "interactives/g1-urdu-kahani.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_1/urdu.json",
+    "match_title": "Imla match",
+    "add": {
+      "interactive_file": "interactives/g1-urdu-imla.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_2/social.json",
+    "match_title": "Community helpers",
+    "add": {
+      "interactive_file": "interactives/g2-social-helpers.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_2/social.json",
+    "match_title": "Map aur direction",
+    "add": {
+      "interactive_file": "interactives/g2-social-map.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_2/social.json",
+    "match_title": "Meri city Islamabad",
+    "add": {
+      "interactive_file": "interactives/g2-social-islamabad.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_2/social.json",
+    "match_title": "Libaas aur khana",
+    "add": {
+      "interactive_file": "interactives/g2-social-culture.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_2/social.json",
+    "match_title": "Rights aur share",
+    "add": {
+      "interactive_file": "interactives/g2-social-rights.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_2/social.json",
+    "match_title": "Transport aur safety",
+    "add": {
+      "interactive_file": "interactives/g2-social-transport.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_2/islamiat.json",
+    "match_title": "Iman ke arkan",
+    "add": {
+      "interactive_file": "interactives/g2-islamiat-iman.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_2/islamiat.json",
+    "match_title": "Ibadat",
+    "add": {
+      "interactive_file": "interactives/g2-islamiat-ibadat.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_2/islamiat.json",
+    "match_title": "Seerat stories",
+    "add": {
+      "interactive_file": "interactives/g2-islamiat-seerat.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_2/islamiat.json",
+    "match_title": "Sachchai aur meherbani",
+    "add": {
+      "interactive_file": "interactives/g2-islamiat-akhlaq.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_2/islamiat.json",
+    "match_title": "Walidain aur buzurg",
+    "add": {
+      "interactive_file": "interactives/g2-islamiat-walidain.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_2/islamiat.json",
+    "match_title": "Halal aadat",
+    "add": {
+      "interactive_file": "interactives/g2-islamiat-halal.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_2/urdu.json",
+    "match_title": "Jumlay",
+    "add": {
+      "interactive_file": "interactives/g2-urdu-jumlay.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_2/urdu.json",
+    "match_title": "Hamd aur Naat",
+    "add": {
+      "interactive_file": "interactives/g2-urdu-hamd-naat.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_2/urdu.json",
+    "match_title": "Kahani",
+    "add": {
+      "interactive_file": "interactives/g2-urdu-kahani.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_2/urdu.json",
+    "match_title": "Asaan muhaware",
+    "add": {
+      "interactive_file": "interactives/g2-urdu-muhawara.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_2/urdu.json",
+    "match_title": "Imla",
+    "add": {
+      "interactive_file": "interactives/g2-urdu-imla.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_2/urdu.json",
+    "match_title": "Chhoti tahrir",
+    "add": {
+      "interactive_file": "interactives/g2-urdu-tahrir.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_3/social.json",
+    "match_title": "Citizenship",
+    "add": {
+      "interactive_file": "interactives/g3-social-citizenship.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_3/social.json",
+    "match_title": "Culture",
+    "add": {
+      "interactive_file": "interactives/g3-social-culture.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_3/social.json",
+    "match_title": "State aur Government",
+    "add": {
+      "interactive_file": "interactives/g3-social-government.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_3/social.json",
+    "match_title": "History",
+    "add": {
+      "interactive_file": "interactives/g3-social-history.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_3/social.json",
+    "match_title": "Geography",
+    "add": {
+      "interactive_file": "interactives/g3-social-geography.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_3/social.json",
+    "match_title": "Economics",
+    "add": {
+      "interactive_file": "interactives/g3-social-economics.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_3/islamiat.json",
+    "match_title": "Iman aur Ibadat",
+    "add": {
+      "interactive_file": "interactives/g3-islamiat-iman-ibadat.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_3/islamiat.json",
+    "match_title": "Seerat stories",
+    "add": {
+      "interactive_file": "interactives/g3-islamiat-seerat.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_3/islamiat.json",
+    "match_title": "Akhlaq aur aadaab",
+    "add": {
+      "interactive_file": "interactives/g3-islamiat-akhlaq.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_3/islamiat.json",
+    "match_title": "Husn-e-muamalat",
+    "add": {
+      "interactive_file": "interactives/g3-islamiat-muamalat.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_3/islamiat.json",
+    "match_title": "Hidayat ke sarchashme",
+    "add": {
+      "interactive_file": "interactives/g3-islamiat-hidayat.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_3/islamiat.json",
+    "match_title": "Islami values aaj",
+    "add": {
+      "interactive_file": "interactives/g3-islamiat-values.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_3/urdu.json",
+    "match_title": "Hamd aur Naat",
+    "add": {
+      "interactive_file": "interactives/g3-urdu-hamd-naat.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_3/urdu.json",
+    "match_title": "Rahmat-e-Aalam aur seerat",
+    "add": {
+      "interactive_file": "interactives/g3-urdu-rahmat.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_3/urdu.json",
+    "match_title": "Qomi tehwar aur watan",
+    "add": {
+      "interactive_file": "interactives/g3-urdu-tehwar.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_3/urdu.json",
+    "match_title": "Kahani aur afsana",
+    "add": {
+      "interactive_file": "interactives/g3-urdu-kahani.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_3/urdu.json",
+    "match_title": "Grammar aur imla",
+    "add": {
+      "interactive_file": "interactives/g3-urdu-grammar.html",
+      "interactive_label": "Khelo"
+    }
+  },
+  {
+    "file": "kb/grade_3/urdu.json",
+    "match_title": "Tahrir",
+    "add": {
+      "interactive_file": "interactives/g3-urdu-tahrir.html",
+      "interactive_label": "Khelo"
+    }
   }
 ]

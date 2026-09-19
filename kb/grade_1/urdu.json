@@ -1,0 +1,590 @@
+{
+  "subject": "urdu",
+  "name": "Urdu",
+  "teacher": "Urdu Teacher",
+  "grade": 1,
+  "topics": [
+    {
+      "title": "Alif Bay Pay",
+      "description": "Urdu huroof seekho",
+      "lesson": "## HOOK\nChalo Urdu ke sath khelein! Topic: Alif Bay Pay.\n\n## SAMJHAO\nIs sabaq mein hum Alif Bay Pay seekhenge. Zaroori lafz: Alif, Bay, Pay, Tay.\n\n## MISAAL\nMisaal: Alif pehla harf hai. Aur: Bay se bakri.\n\n## KARO\nCopy mein 3 jumlay likho aur ek card ka lafz use karo — jaise 'Pay'.\n\n## SAWAAL\n1) 'Alif' ka matlab?\n2) Ek naya jumla banao.\n3) Imla check karo.\n",
+      "quiz": {
+        "title": "Alif Bay Pay Quiz",
+        "questions": [
+          {
+            "q": "Alif Bay Pay mein 'Alif' ka sahi khayal kya hai?",
+            "a": "Alif pehla harf hai.",
+            "b": "Bay se bakri.",
+            "c": "Sirf khel",
+            "d": "Kuch nahi",
+            "correct": "a",
+            "explanation": "Sahi: Alif pehla harf hai.",
+            "question": "Alif Bay Pay mein 'Alif' ka sahi khayal kya hai?",
+            "options": [
+              "Alif pehla harf hai.",
+              "Bay se bakri.",
+              "Sirf khel",
+              "Kuch nahi"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Kaunsa option 'Bay' se related hai?",
+            "a": "Bay se bakri.",
+            "b": "Bilkul ghalat baat",
+            "c": "Sirf TV",
+            "d": "Kuch mat karo",
+            "correct": "a",
+            "explanation": "Bay: Bay se bakri.",
+            "question": "Kaunsa option 'Bay' se related hai?",
+            "options": [
+              "Bay se bakri.",
+              "Bilkul ghalat baat",
+              "Sirf TV",
+              "Kuch mat karo"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "'Pay' ke bare mein sahi jumla chuno:",
+            "a": "Pay se patang.",
+            "b": "Yeh zaroori nahi",
+            "c": "Sirf bade logon ke liye",
+            "d": "Hamesha ghalat",
+            "correct": "a",
+            "explanation": "Pay se patang.",
+            "question": "'Pay' ke bare mein sahi jumla chuno:",
+            "options": [
+              "Pay se patang.",
+              "Yeh zaroori nahi",
+              "Sirf bade logon ke liye",
+              "Hamesha ghalat"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Hum 'Tay' se kya seekhte hain?",
+            "a": "Tay se titli.",
+            "b": "Gussa karna",
+            "c": "Jhoot bolna",
+            "d": "Kachra phenkna",
+            "correct": "a",
+            "explanation": "Tay se titli.",
+            "question": "Hum 'Tay' se kya seekhte hain?",
+            "options": [
+              "Tay se titli.",
+              "Gussa karna",
+              "Jhoot bolna",
+              "Kachra phenkna"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Is sabaq 'Alif Bay Pay' ka best message kya hai?",
+            "a": "Ttay se tomato.",
+            "b": "Rules todna",
+            "c": "Dusron ko tang karna",
+            "d": "Padhai chhorna",
+            "correct": "a",
+            "explanation": "Ttay se tomato.",
+            "question": "Is sabaq 'Alif Bay Pay' ka best message kya hai?",
+            "options": [
+              "Ttay se tomato.",
+              "Rules todna",
+              "Dusron ko tang karna",
+              "Padhai chhorna"
+            ],
+            "answer": 0
+          }
+        ]
+      },
+      "interactive_file": "interactives/g1-urdu-alif-bay.html",
+      "interactive_label": "Khelo"
+    },
+    {
+      "title": "Asaan lafz",
+      "description": "Asaan Urdu alfaz",
+      "lesson": "## HOOK\nChalo Urdu ke sath khelein! Topic: Asaan lafz.\n\n## SAMJHAO\nIs sabaq mein hum Asaan lafz seekhenge. Zaroori lafz: Ghar, School, Kitaab, Paani.\n\n## MISAAL\nMisaal: Ghar — jahan family rehti hai. Aur: School — seekhne ki jagah.\n\n## KARO\nCopy mein 3 jumlay likho aur ek card ka lafz use karo — jaise 'Kitaab'.\n\n## SAWAAL\n1) 'Ghar' ka matlab?\n2) Ek naya jumla banao.\n3) Imla check karo.\n",
+      "quiz": {
+        "title": "Asaan lafz Quiz",
+        "questions": [
+          {
+            "q": "Asaan lafz mein 'Ghar' ka sahi khayal kya hai?",
+            "a": "Ghar — jahan family rehti hai.",
+            "b": "School — seekhne ki jagah.",
+            "c": "Sirf khel",
+            "d": "Kuch nahi",
+            "correct": "a",
+            "explanation": "Sahi: Ghar — jahan family rehti hai.",
+            "question": "Asaan lafz mein 'Ghar' ka sahi khayal kya hai?",
+            "options": [
+              "Ghar — jahan family rehti hai.",
+              "School — seekhne ki jagah.",
+              "Sirf khel",
+              "Kuch nahi"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Kaunsa option 'School' se related hai?",
+            "a": "School — seekhne ki jagah.",
+            "b": "Bilkul ghalat baat",
+            "c": "Sirf TV",
+            "d": "Kuch mat karo",
+            "correct": "a",
+            "explanation": "School: School — seekhne ki jagah.",
+            "question": "Kaunsa option 'School' se related hai?",
+            "options": [
+              "School — seekhne ki jagah.",
+              "Bilkul ghalat baat",
+              "Sirf TV",
+              "Kuch mat karo"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "'Kitaab' ke bare mein sahi jumla chuno:",
+            "a": "Kitaab — parhne ke liye.",
+            "b": "Yeh zaroori nahi",
+            "c": "Sirf bade logon ke liye",
+            "d": "Hamesha ghalat",
+            "correct": "a",
+            "explanation": "Kitaab — parhne ke liye.",
+            "question": "'Kitaab' ke bare mein sahi jumla chuno:",
+            "options": [
+              "Kitaab — parhne ke liye.",
+              "Yeh zaroori nahi",
+              "Sirf bade logon ke liye",
+              "Hamesha ghalat"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Hum 'Paani' se kya seekhte hain?",
+            "a": "Paani — peene ke liye.",
+            "b": "Gussa karna",
+            "c": "Jhoot bolna",
+            "d": "Kachra phenkna",
+            "correct": "a",
+            "explanation": "Paani — peene ke liye.",
+            "question": "Hum 'Paani' se kya seekhte hain?",
+            "options": [
+              "Paani — peene ke liye.",
+              "Gussa karna",
+              "Jhoot bolna",
+              "Kachra phenkna"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Is sabaq 'Asaan lafz' ka best message kya hai?",
+            "a": "Phool — khoobsurat.",
+            "b": "Rules todna",
+            "c": "Dusron ko tang karna",
+            "d": "Padhai chhorna",
+            "correct": "a",
+            "explanation": "Phool — khoobsurat.",
+            "question": "Is sabaq 'Asaan lafz' ka best message kya hai?",
+            "options": [
+              "Phool — khoobsurat.",
+              "Rules todna",
+              "Dusron ko tang karna",
+              "Padhai chhorna"
+            ],
+            "answer": 0
+          }
+        ]
+      },
+      "interactive_file": "interactives/g1-urdu-lafz.html",
+      "interactive_label": "Khelo"
+    },
+    {
+      "title": "Chhoti hamd",
+      "description": "Allah ki tarif — chhoti hamd",
+      "lesson": "## HOOK\nChalo Urdu ke sath khelein! Topic: Chhoti hamd.\n\n## SAMJHAO\nIs sabaq mein hum Chhoti hamd seekhenge. Zaroori lafz: Hamd, Duniya, Noor, Shukr.\n\n## MISAAL\nMisaal: Hamd Allah ki tarif hai. Aur: Allah ne duniya banayi.\n\n## KARO\nCopy mein 3 jumlay likho aur ek card ka lafz use karo — jaise 'Noor'.\n\n## SAWAAL\n1) 'Hamd' ka matlab?\n2) Ek naya jumla banao.\n3) Imla check karo.\n",
+      "quiz": {
+        "title": "Chhoti hamd Quiz",
+        "questions": [
+          {
+            "q": "Chhoti hamd mein 'Hamd' ka sahi khayal kya hai?",
+            "a": "Hamd Allah ki tarif hai.",
+            "b": "Allah ne duniya banayi.",
+            "c": "Sirf khel",
+            "d": "Kuch nahi",
+            "correct": "a",
+            "explanation": "Sahi: Hamd Allah ki tarif hai.",
+            "question": "Chhoti hamd mein 'Hamd' ka sahi khayal kya hai?",
+            "options": [
+              "Hamd Allah ki tarif hai.",
+              "Allah ne duniya banayi.",
+              "Sirf khel",
+              "Kuch nahi"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Kaunsa option 'Duniya' se related hai?",
+            "a": "Allah ne duniya banayi.",
+            "b": "Bilkul ghalat baat",
+            "c": "Sirf TV",
+            "d": "Kuch mat karo",
+            "correct": "a",
+            "explanation": "Duniya: Allah ne duniya banayi.",
+            "question": "Kaunsa option 'Duniya' se related hai?",
+            "options": [
+              "Allah ne duniya banayi.",
+              "Bilkul ghalat baat",
+              "Sirf TV",
+              "Kuch mat karo"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "'Noor' ke bare mein sahi jumla chuno:",
+            "a": "Allah noor ke malik hain.",
+            "b": "Yeh zaroori nahi",
+            "c": "Sirf bade logon ke liye",
+            "d": "Hamesha ghalat",
+            "correct": "a",
+            "explanation": "Allah noor ke malik hain.",
+            "question": "'Noor' ke bare mein sahi jumla chuno:",
+            "options": [
+              "Allah noor ke malik hain.",
+              "Yeh zaroori nahi",
+              "Sirf bade logon ke liye",
+              "Hamesha ghalat"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Hum 'Shukr' se kya seekhte hain?",
+            "a": "Hum shukr karte hain.",
+            "b": "Gussa karna",
+            "c": "Jhoot bolna",
+            "d": "Kachra phenkna",
+            "correct": "a",
+            "explanation": "Hum shukr karte hain.",
+            "question": "Hum 'Shukr' se kya seekhte hain?",
+            "options": [
+              "Hum shukr karte hain.",
+              "Gussa karna",
+              "Jhoot bolna",
+              "Kachra phenkna"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Is sabaq 'Chhoti hamd' ka best message kya hai?",
+            "a": "Hamd adab se parho.",
+            "b": "Rules todna",
+            "c": "Dusron ko tang karna",
+            "d": "Padhai chhorna",
+            "correct": "a",
+            "explanation": "Hamd adab se parho.",
+            "question": "Is sabaq 'Chhoti hamd' ka best message kya hai?",
+            "options": [
+              "Hamd adab se parho.",
+              "Rules todna",
+              "Dusron ko tang karna",
+              "Padhai chhorna"
+            ],
+            "answer": 0
+          }
+        ]
+      },
+      "interactive_file": "interactives/g1-urdu-hamd.html",
+      "interactive_label": "Khelo"
+    },
+    {
+      "title": "Nazm",
+      "description": "Chhoti nazm aur rhythm",
+      "lesson": "## HOOK\nChalo Urdu ke sath khelein! Topic: Nazm.\n\n## SAMJHAO\nIs sabaq mein hum Nazm seekhenge. Zaroori lafz: Nazm, Barish, Chidiya, Chaand.\n\n## MISAAL\nMisaal: Nazm mein sur hota hai. Aur: Barish aayi jhum ke.\n\n## KARO\nCopy mein 3 jumlay likho aur ek card ka lafz use karo — jaise 'Chidiya'.\n\n## SAWAAL\n1) 'Nazm' ka matlab?\n2) Ek naya jumla banao.\n3) Imla check karo.\n",
+      "quiz": {
+        "title": "Nazm Quiz",
+        "questions": [
+          {
+            "q": "Nazm mein 'Nazm' ka sahi khayal kya hai?",
+            "a": "Nazm mein sur hota hai.",
+            "b": "Barish aayi jhum ke.",
+            "c": "Sirf khel",
+            "d": "Kuch nahi",
+            "correct": "a",
+            "explanation": "Sahi: Nazm mein sur hota hai.",
+            "question": "Nazm mein 'Nazm' ka sahi khayal kya hai?",
+            "options": [
+              "Nazm mein sur hota hai.",
+              "Barish aayi jhum ke.",
+              "Sirf khel",
+              "Kuch nahi"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Kaunsa option 'Barish' se related hai?",
+            "a": "Barish aayi jhum ke.",
+            "b": "Bilkul ghalat baat",
+            "c": "Sirf TV",
+            "d": "Kuch mat karo",
+            "correct": "a",
+            "explanation": "Barish: Barish aayi jhum ke.",
+            "question": "Kaunsa option 'Barish' se related hai?",
+            "options": [
+              "Barish aayi jhum ke.",
+              "Bilkul ghalat baat",
+              "Sirf TV",
+              "Kuch mat karo"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "'Chidiya' ke bare mein sahi jumla chuno:",
+            "a": "Chidiya boli chu-chu.",
+            "b": "Yeh zaroori nahi",
+            "c": "Sirf bade logon ke liye",
+            "d": "Hamesha ghalat",
+            "correct": "a",
+            "explanation": "Chidiya boli chu-chu.",
+            "question": "'Chidiya' ke bare mein sahi jumla chuno:",
+            "options": [
+              "Chidiya boli chu-chu.",
+              "Yeh zaroori nahi",
+              "Sirf bade logon ke liye",
+              "Hamesha ghalat"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Hum 'Chaand' se kya seekhte hain?",
+            "a": "Chaand muskuraya.",
+            "b": "Gussa karna",
+            "c": "Jhoot bolna",
+            "d": "Kachra phenkna",
+            "correct": "a",
+            "explanation": "Chaand muskuraya.",
+            "question": "Hum 'Chaand' se kya seekhte hain?",
+            "options": [
+              "Chaand muskuraya.",
+              "Gussa karna",
+              "Jhoot bolna",
+              "Kachra phenkna"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Is sabaq 'Nazm' ka best message kya hai?",
+            "a": "Nazm par taali bajao.",
+            "b": "Rules todna",
+            "c": "Dusron ko tang karna",
+            "d": "Padhai chhorna",
+            "correct": "a",
+            "explanation": "Nazm par taali bajao.",
+            "question": "Is sabaq 'Nazm' ka best message kya hai?",
+            "options": [
+              "Nazm par taali bajao.",
+              "Rules todna",
+              "Dusron ko tang karna",
+              "Padhai chhorna"
+            ],
+            "answer": 0
+          }
+        ]
+      },
+      "interactive_file": "interactives/g1-urdu-nazm.html",
+      "interactive_label": "Khelo"
+    },
+    {
+      "title": "Chhoti kahani",
+      "description": "Chhoti kahani suno aur batao",
+      "lesson": "## HOOK\nChalo Urdu ke sath khelein! Topic: Chhoti kahani.\n\n## SAMJHAO\nIs sabaq mein hum Chhoti kahani seekhenge. Zaroori lafz: Kahani, Lomri, Angoor, Anjam.\n\n## MISAAL\nMisaal: Kahani mein shuruat hoti hai. Aur: Lomri chalaki karti thi.\n\n## KARO\nCopy mein 3 jumlay likho aur ek card ka lafz use karo — jaise 'Angoor'.\n\n## SAWAAL\n1) 'Kahani' ka matlab?\n2) Ek naya jumla banao.\n3) Imla check karo.\n",
+      "quiz": {
+        "title": "Chhoti kahani Quiz",
+        "questions": [
+          {
+            "q": "Chhoti kahani mein 'Kahani' ka sahi khayal kya hai?",
+            "a": "Kahani mein shuruat hoti hai.",
+            "b": "Lomri chalaki karti thi.",
+            "c": "Sirf khel",
+            "d": "Kuch nahi",
+            "correct": "a",
+            "explanation": "Sahi: Kahani mein shuruat hoti hai.",
+            "question": "Chhoti kahani mein 'Kahani' ka sahi khayal kya hai?",
+            "options": [
+              "Kahani mein shuruat hoti hai.",
+              "Lomri chalaki karti thi.",
+              "Sirf khel",
+              "Kuch nahi"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Kaunsa option 'Lomri' se related hai?",
+            "a": "Lomri chalaki karti thi.",
+            "b": "Bilkul ghalat baat",
+            "c": "Sirf TV",
+            "d": "Kuch mat karo",
+            "correct": "a",
+            "explanation": "Lomri: Lomri chalaki karti thi.",
+            "question": "Kaunsa option 'Lomri' se related hai?",
+            "options": [
+              "Lomri chalaki karti thi.",
+              "Bilkul ghalat baat",
+              "Sirf TV",
+              "Kuch mat karo"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "'Angoor' ke bare mein sahi jumla chuno:",
+            "a": "Angoor oonche the.",
+            "b": "Yeh zaroori nahi",
+            "c": "Sirf bade logon ke liye",
+            "d": "Hamesha ghalat",
+            "correct": "a",
+            "explanation": "Angoor oonche the.",
+            "question": "'Angoor' ke bare mein sahi jumla chuno:",
+            "options": [
+              "Angoor oonche the.",
+              "Yeh zaroori nahi",
+              "Sirf bade logon ke liye",
+              "Hamesha ghalat"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Hum 'Anjam' se kya seekhte hain?",
+            "a": "Phir lomri chali gayi.",
+            "b": "Gussa karna",
+            "c": "Jhoot bolna",
+            "d": "Kachra phenkna",
+            "correct": "a",
+            "explanation": "Phir lomri chali gayi.",
+            "question": "Hum 'Anjam' se kya seekhte hain?",
+            "options": [
+              "Phir lomri chali gayi.",
+              "Gussa karna",
+              "Jhoot bolna",
+              "Kachra phenkna"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Is sabaq 'Chhoti kahani' ka best message kya hai?",
+            "a": "Mehnat se kaam lo.",
+            "b": "Rules todna",
+            "c": "Dusron ko tang karna",
+            "d": "Padhai chhorna",
+            "correct": "a",
+            "explanation": "Mehnat se kaam lo.",
+            "question": "Is sabaq 'Chhoti kahani' ka best message kya hai?",
+            "options": [
+              "Mehnat se kaam lo.",
+              "Rules todna",
+              "Dusron ko tang karna",
+              "Padhai chhorna"
+            ],
+            "answer": 0
+          }
+        ]
+      },
+      "interactive_file": "interactives/g1-urdu-kahani.html",
+      "interactive_label": "Khelo"
+    },
+    {
+      "title": "Imla match",
+      "description": "Sahi spelling match karo",
+      "lesson": "## HOOK\nChalo Urdu ke sath khelein! Topic: Imla match.\n\n## SAMJHAO\nIs sabaq mein hum Imla match seekhenge. Zaroori lafz: Imla, Kitaab, Paani, Ghar.\n\n## MISAAL\nMisaal: Imla sahi likhna seekho. Aur: Kitaab — ک ت ا ب.\n\n## KARO\nCopy mein 3 jumlay likho aur ek card ka lafz use karo — jaise 'Paani'.\n\n## SAWAAL\n1) 'Imla' ka matlab?\n2) Ek naya jumla banao.\n3) Imla check karo.\n",
+      "quiz": {
+        "title": "Imla match Quiz",
+        "questions": [
+          {
+            "q": "Imla match mein 'Imla' ka sahi khayal kya hai?",
+            "a": "Imla sahi likhna seekho.",
+            "b": "Kitaab — ک ت ا ب.",
+            "c": "Sirf khel",
+            "d": "Kuch nahi",
+            "correct": "a",
+            "explanation": "Sahi: Imla sahi likhna seekho.",
+            "question": "Imla match mein 'Imla' ka sahi khayal kya hai?",
+            "options": [
+              "Imla sahi likhna seekho.",
+              "Kitaab — ک ت ا ب.",
+              "Sirf khel",
+              "Kuch nahi"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Kaunsa option 'Kitaab' se related hai?",
+            "a": "Kitaab — ک ت ا ب.",
+            "b": "Bilkul ghalat baat",
+            "c": "Sirf TV",
+            "d": "Kuch mat karo",
+            "correct": "a",
+            "explanation": "Kitaab: Kitaab — ک ت ا ب.",
+            "question": "Kaunsa option 'Kitaab' se related hai?",
+            "options": [
+              "Kitaab — ک ت ا ب.",
+              "Bilkul ghalat baat",
+              "Sirf TV",
+              "Kuch mat karo"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "'Paani' ke bare mein sahi jumla chuno:",
+            "a": "Paani — پ ا ن ی.",
+            "b": "Yeh zaroori nahi",
+            "c": "Sirf bade logon ke liye",
+            "d": "Hamesha ghalat",
+            "correct": "a",
+            "explanation": "Paani — پ ا ن ی.",
+            "question": "'Paani' ke bare mein sahi jumla chuno:",
+            "options": [
+              "Paani — پ ا ن ی.",
+              "Yeh zaroori nahi",
+              "Sirf bade logon ke liye",
+              "Hamesha ghalat"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Hum 'Ghar' se kya seekhte hain?",
+            "a": "Ghar — گ ھ ر.",
+            "b": "Gussa karna",
+            "c": "Jhoot bolna",
+            "d": "Kachra phenkna",
+            "correct": "a",
+            "explanation": "Ghar — گ ھ ر.",
+            "question": "Hum 'Ghar' se kya seekhte hain?",
+            "options": [
+              "Ghar — گ ھ ر.",
+              "Gussa karna",
+              "Jhoot bolna",
+              "Kachra phenkna"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Is sabaq 'Imla match' ka best message kya hai?",
+            "a": "Maa — م ا.",
+            "b": "Rules todna",
+            "c": "Dusron ko tang karna",
+            "d": "Padhai chhorna",
+            "correct": "a",
+            "explanation": "Maa — م ا.",
+            "question": "Is sabaq 'Imla match' ka best message kya hai?",
+            "options": [
+              "Maa — م ا.",
+              "Rules todna",
+              "Dusron ko tang karna",
+              "Padhai chhorna"
+            ],
+            "answer": 0
+          }
+        ]
+      },
+      "interactive_file": "interactives/g1-urdu-imla.html",
+      "interactive_label": "Khelo"
+    }
+  ]
+}

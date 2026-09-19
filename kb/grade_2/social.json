@@ -1,0 +1,590 @@
+{
+  "subject": "social",
+  "name": "Social Studies",
+  "teacher": "Social Studies Teacher",
+  "grade": 2,
+  "topics": [
+    {
+      "title": "Community helpers",
+      "description": "Community ke helpers",
+      "lesson": "## HOOK\nSadi socho — Community helpers hamari zindagi se kaise judta hai? Pakistan / Islamabad context mein seekhein!\n\n## SAMJHAO\nCommunity helpers samjho: yeh Social Studies ka zaroori topic hai. Points: Police, Doctor, Teacher, Firefighter.\n\n## MISAAL\nMisaal Islamabad/Pakistan se: Police qanoon rakhti hai. Doctor sehat sambhalte hain.\n\n## KARO\nActivity: 3 cheezein likho jo Community helpers se related hon. Ek drawing bhi banao.\n\n## SAWAAL\n1) Community helpers kya hai?\n2) Ek real-life misaal?\n3) Aap citizen ki tarah kya karoge?\n",
+      "quiz": {
+        "title": "Community helpers Quiz",
+        "questions": [
+          {
+            "q": "Community helpers mein 'Police' ka sahi khayal kya hai?",
+            "a": "Police qanoon rakhti hai.",
+            "b": "Doctor sehat sambhalte hain.",
+            "c": "Sirf khel",
+            "d": "Kuch nahi",
+            "correct": "a",
+            "explanation": "Sahi: Police qanoon rakhti hai.",
+            "question": "Community helpers mein 'Police' ka sahi khayal kya hai?",
+            "options": [
+              "Police qanoon rakhti hai.",
+              "Doctor sehat sambhalte hain.",
+              "Sirf khel",
+              "Kuch nahi"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Kaunsa option 'Doctor' se related hai?",
+            "a": "Doctor sehat sambhalte hain.",
+            "b": "Bilkul ghalat baat",
+            "c": "Sirf TV",
+            "d": "Kuch mat karo",
+            "correct": "a",
+            "explanation": "Doctor: Doctor sehat sambhalte hain.",
+            "question": "Kaunsa option 'Doctor' se related hai?",
+            "options": [
+              "Doctor sehat sambhalte hain.",
+              "Bilkul ghalat baat",
+              "Sirf TV",
+              "Kuch mat karo"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "'Teacher' ke bare mein sahi jumla chuno:",
+            "a": "Teacher taleem deti hain.",
+            "b": "Yeh zaroori nahi",
+            "c": "Sirf bade logon ke liye",
+            "d": "Hamesha ghalat",
+            "correct": "a",
+            "explanation": "Teacher taleem deti hain.",
+            "question": "'Teacher' ke bare mein sahi jumla chuno:",
+            "options": [
+              "Teacher taleem deti hain.",
+              "Yeh zaroori nahi",
+              "Sirf bade logon ke liye",
+              "Hamesha ghalat"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Hum 'Firefighter' se kya seekhte hain?",
+            "a": "Firefighter aag se bachata hai.",
+            "b": "Gussa karna",
+            "c": "Jhoot bolna",
+            "d": "Kachra phenkna",
+            "correct": "a",
+            "explanation": "Firefighter aag se bachata hai.",
+            "question": "Hum 'Firefighter' se kya seekhte hain?",
+            "options": [
+              "Firefighter aag se bachata hai.",
+              "Gussa karna",
+              "Jhoot bolna",
+              "Kachra phenkna"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Is sabaq 'Community helpers' ka best message kya hai?",
+            "a": "Builder ghar banata hai.",
+            "b": "Rules todna",
+            "c": "Dusron ko tang karna",
+            "d": "Padhai chhorna",
+            "correct": "a",
+            "explanation": "Builder ghar banata hai.",
+            "question": "Is sabaq 'Community helpers' ka best message kya hai?",
+            "options": [
+              "Builder ghar banata hai.",
+              "Rules todna",
+              "Dusron ko tang karna",
+              "Padhai chhorna"
+            ],
+            "answer": 0
+          }
+        ]
+      },
+      "interactive_file": "interactives/g2-social-helpers.html",
+      "interactive_label": "Khelo"
+    },
+    {
+      "title": "Map aur direction",
+      "description": "Map aur direction",
+      "lesson": "## HOOK\nSadi socho — Map aur direction hamari zindagi se kaise judta hai? Pakistan / Islamabad context mein seekhein!\n\n## SAMJHAO\nMap aur direction samjho: yeh Social Studies ka zaroori topic hai. Points: Map, North, South, East.\n\n## MISAAL\nMisaal Islamabad/Pakistan se: Map jagah dikhata hai. Uttar — North.\n\n## KARO\nActivity: 3 cheezein likho jo Map aur direction se related hon. Ek drawing bhi banao.\n\n## SAWAAL\n1) Map aur direction kya hai?\n2) Ek real-life misaal?\n3) Aap citizen ki tarah kya karoge?\n",
+      "quiz": {
+        "title": "Map aur direction Quiz",
+        "questions": [
+          {
+            "q": "Map aur direction mein 'Map' ka sahi khayal kya hai?",
+            "a": "Map jagah dikhata hai.",
+            "b": "Uttar — North.",
+            "c": "Sirf khel",
+            "d": "Kuch nahi",
+            "correct": "a",
+            "explanation": "Sahi: Map jagah dikhata hai.",
+            "question": "Map aur direction mein 'Map' ka sahi khayal kya hai?",
+            "options": [
+              "Map jagah dikhata hai.",
+              "Uttar — North.",
+              "Sirf khel",
+              "Kuch nahi"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Kaunsa option 'North' se related hai?",
+            "a": "Uttar — North.",
+            "b": "Bilkul ghalat baat",
+            "c": "Sirf TV",
+            "d": "Kuch mat karo",
+            "correct": "a",
+            "explanation": "North: Uttar — North.",
+            "question": "Kaunsa option 'North' se related hai?",
+            "options": [
+              "Uttar — North.",
+              "Bilkul ghalat baat",
+              "Sirf TV",
+              "Kuch mat karo"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "'South' ke bare mein sahi jumla chuno:",
+            "a": "Junubi — South.",
+            "b": "Yeh zaroori nahi",
+            "c": "Sirf bade logon ke liye",
+            "d": "Hamesha ghalat",
+            "correct": "a",
+            "explanation": "Junubi — South.",
+            "question": "'South' ke bare mein sahi jumla chuno:",
+            "options": [
+              "Junubi — South.",
+              "Yeh zaroori nahi",
+              "Sirf bade logon ke liye",
+              "Hamesha ghalat"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Hum 'East' se kya seekhte hain?",
+            "a": "Mashriq — East.",
+            "b": "Gussa karna",
+            "c": "Jhoot bolna",
+            "d": "Kachra phenkna",
+            "correct": "a",
+            "explanation": "Mashriq — East.",
+            "question": "Hum 'East' se kya seekhte hain?",
+            "options": [
+              "Mashriq — East.",
+              "Gussa karna",
+              "Jhoot bolna",
+              "Kachra phenkna"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Is sabaq 'Map aur direction' ka best message kya hai?",
+            "a": "Maghrib — West.",
+            "b": "Rules todna",
+            "c": "Dusron ko tang karna",
+            "d": "Padhai chhorna",
+            "correct": "a",
+            "explanation": "Maghrib — West.",
+            "question": "Is sabaq 'Map aur direction' ka best message kya hai?",
+            "options": [
+              "Maghrib — West.",
+              "Rules todna",
+              "Dusron ko tang karna",
+              "Padhai chhorna"
+            ],
+            "answer": 0
+          }
+        ]
+      },
+      "interactive_file": "interactives/g2-social-map.html",
+      "interactive_label": "Khelo"
+    },
+    {
+      "title": "Meri city Islamabad",
+      "description": "Islamabad — hamari city",
+      "lesson": "## HOOK\nSadi socho — Meri city Islamabad hamari zindagi se kaise judta hai? Pakistan / Islamabad context mein seekhein!\n\n## SAMJHAO\nMeri city Islamabad samjho: yeh Social Studies ka zaroori topic hai. Points: Capital, Margalla, Faisal Masjid, Parks.\n\n## MISAAL\nMisaal Islamabad/Pakistan se: Islamabad Pakistan ki capital hai. Margalla Hills qareeb hain.\n\n## KARO\nActivity: 3 cheezein likho jo Meri city Islamabad se related hon. Ek drawing bhi banao.\n\n## SAWAAL\n1) Meri city Islamabad kya hai?\n2) Ek real-life misaal?\n3) Aap citizen ki tarah kya karoge?\n",
+      "quiz": {
+        "title": "Meri city Islamabad Quiz",
+        "questions": [
+          {
+            "q": "Meri city Islamabad mein 'Capital' ka sahi khayal kya hai?",
+            "a": "Islamabad Pakistan ki capital hai.",
+            "b": "Margalla Hills qareeb hain.",
+            "c": "Sirf khel",
+            "d": "Kuch nahi",
+            "correct": "a",
+            "explanation": "Sahi: Islamabad Pakistan ki capital hai.",
+            "question": "Meri city Islamabad mein 'Capital' ka sahi khayal kya hai?",
+            "options": [
+              "Islamabad Pakistan ki capital hai.",
+              "Margalla Hills qareeb hain.",
+              "Sirf khel",
+              "Kuch nahi"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Kaunsa option 'Margalla' se related hai?",
+            "a": "Margalla Hills qareeb hain.",
+            "b": "Bilkul ghalat baat",
+            "c": "Sirf TV",
+            "d": "Kuch mat karo",
+            "correct": "a",
+            "explanation": "Margalla: Margalla Hills qareeb hain.",
+            "question": "Kaunsa option 'Margalla' se related hai?",
+            "options": [
+              "Margalla Hills qareeb hain.",
+              "Bilkul ghalat baat",
+              "Sirf TV",
+              "Kuch mat karo"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "'Faisal Masjid' ke bare mein sahi jumla chuno:",
+            "a": "Faisal Masjid mashhoor hai.",
+            "b": "Yeh zaroori nahi",
+            "c": "Sirf bade logon ke liye",
+            "d": "Hamesha ghalat",
+            "correct": "a",
+            "explanation": "Faisal Masjid mashhoor hai.",
+            "question": "'Faisal Masjid' ke bare mein sahi jumla chuno:",
+            "options": [
+              "Faisal Masjid mashhoor hai.",
+              "Yeh zaroori nahi",
+              "Sirf bade logon ke liye",
+              "Hamesha ghalat"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Hum 'Parks' se kya seekhte hain?",
+            "a": "Kai green parks hain.",
+            "b": "Gussa karna",
+            "c": "Jhoot bolna",
+            "d": "Kachra phenkna",
+            "correct": "a",
+            "explanation": "Kai green parks hain.",
+            "question": "Hum 'Parks' se kya seekhte hain?",
+            "options": [
+              "Kai green parks hain.",
+              "Gussa karna",
+              "Jhoot bolna",
+              "Kachra phenkna"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Is sabaq 'Meri city Islamabad' ka best message kya hai?",
+            "a": "Sarakain saaf aur chauri hain.",
+            "b": "Rules todna",
+            "c": "Dusron ko tang karna",
+            "d": "Padhai chhorna",
+            "correct": "a",
+            "explanation": "Sarakain saaf aur chauri hain.",
+            "question": "Is sabaq 'Meri city Islamabad' ka best message kya hai?",
+            "options": [
+              "Sarakain saaf aur chauri hain.",
+              "Rules todna",
+              "Dusron ko tang karna",
+              "Padhai chhorna"
+            ],
+            "answer": 0
+          }
+        ]
+      },
+      "interactive_file": "interactives/g2-social-islamabad.html",
+      "interactive_label": "Khelo"
+    },
+    {
+      "title": "Libaas aur khana",
+      "description": "Pakistan ka libaas aur khana",
+      "lesson": "## HOOK\nSadi socho — Libaas aur khana hamari zindagi se kaise judta hai? Pakistan / Islamabad context mein seekhein!\n\n## SAMJHAO\nLibaas aur khana samjho: yeh Social Studies ka zaroori topic hai. Points: Shalwar kameez, Dupatta, Biryani, Roti.\n\n## MISAAL\nMisaal Islamabad/Pakistan se: Shalwar kameez hamara libaas hai. Dupatta culture ka hissa.\n\n## KARO\nActivity: 3 cheezein likho jo Libaas aur khana se related hon. Ek drawing bhi banao.\n\n## SAWAAL\n1) Libaas aur khana kya hai?\n2) Ek real-life misaal?\n3) Aap citizen ki tarah kya karoge?\n",
+      "quiz": {
+        "title": "Libaas aur khana Quiz",
+        "questions": [
+          {
+            "q": "Libaas aur khana mein 'Shalwar kameez' ka sahi khayal kya hai?",
+            "a": "Shalwar kameez hamara libaas hai.",
+            "b": "Dupatta culture ka hissa.",
+            "c": "Sirf khel",
+            "d": "Kuch nahi",
+            "correct": "a",
+            "explanation": "Sahi: Shalwar kameez hamara libaas hai.",
+            "question": "Libaas aur khana mein 'Shalwar kameez' ka sahi khayal kya hai?",
+            "options": [
+              "Shalwar kameez hamara libaas hai.",
+              "Dupatta culture ka hissa.",
+              "Sirf khel",
+              "Kuch nahi"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Kaunsa option 'Dupatta' se related hai?",
+            "a": "Dupatta culture ka hissa.",
+            "b": "Bilkul ghalat baat",
+            "c": "Sirf TV",
+            "d": "Kuch mat karo",
+            "correct": "a",
+            "explanation": "Dupatta: Dupatta culture ka hissa.",
+            "question": "Kaunsa option 'Dupatta' se related hai?",
+            "options": [
+              "Dupatta culture ka hissa.",
+              "Bilkul ghalat baat",
+              "Sirf TV",
+              "Kuch mat karo"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "'Biryani' ke bare mein sahi jumla chuno:",
+            "a": "Biryani pasandida khana hai.",
+            "b": "Yeh zaroori nahi",
+            "c": "Sirf bade logon ke liye",
+            "d": "Hamesha ghalat",
+            "correct": "a",
+            "explanation": "Biryani pasandida khana hai.",
+            "question": "'Biryani' ke bare mein sahi jumla chuno:",
+            "options": [
+              "Biryani pasandida khana hai.",
+              "Yeh zaroori nahi",
+              "Sirf bade logon ke liye",
+              "Hamesha ghalat"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Hum 'Roti' se kya seekhte hain?",
+            "a": "Roti roz khate hain.",
+            "b": "Gussa karna",
+            "c": "Jhoot bolna",
+            "d": "Kachra phenkna",
+            "correct": "a",
+            "explanation": "Roti roz khate hain.",
+            "question": "Hum 'Roti' se kya seekhte hain?",
+            "options": [
+              "Roti roz khate hain.",
+              "Gussa karna",
+              "Jhoot bolna",
+              "Kachra phenkna"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Is sabaq 'Libaas aur khana' ka best message kya hai?",
+            "a": "Chai Pakistan ki pehchan.",
+            "b": "Rules todna",
+            "c": "Dusron ko tang karna",
+            "d": "Padhai chhorna",
+            "correct": "a",
+            "explanation": "Chai Pakistan ki pehchan.",
+            "question": "Is sabaq 'Libaas aur khana' ka best message kya hai?",
+            "options": [
+              "Chai Pakistan ki pehchan.",
+              "Rules todna",
+              "Dusron ko tang karna",
+              "Padhai chhorna"
+            ],
+            "answer": 0
+          }
+        ]
+      },
+      "interactive_file": "interactives/g2-social-culture.html",
+      "interactive_label": "Khelo"
+    },
+    {
+      "title": "Rights aur share",
+      "description": "Haqooq aur baantna",
+      "lesson": "## HOOK\nSadi socho — Rights aur share hamari zindagi se kaise judta hai? Pakistan / Islamabad context mein seekhein!\n\n## SAMJHAO\nRights aur share samjho: yeh Social Studies ka zaroori topic hai. Points: Bolo, Taleem, Paani, Share.\n\n## MISAAL\nMisaal Islamabad/Pakistan se: Apni baat adab se bolo. Har bachay ko taleem ka haq.\n\n## KARO\nActivity: 3 cheezein likho jo Rights aur share se related hon. Ek drawing bhi banao.\n\n## SAWAAL\n1) Rights aur share kya hai?\n2) Ek real-life misaal?\n3) Aap citizen ki tarah kya karoge?\n",
+      "quiz": {
+        "title": "Rights aur share Quiz",
+        "questions": [
+          {
+            "q": "Rights aur share mein 'Bolo' ka sahi khayal kya hai?",
+            "a": "Apni baat adab se bolo.",
+            "b": "Har bachay ko taleem ka haq.",
+            "c": "Sirf khel",
+            "d": "Kuch nahi",
+            "correct": "a",
+            "explanation": "Sahi: Apni baat adab se bolo.",
+            "question": "Rights aur share mein 'Bolo' ka sahi khayal kya hai?",
+            "options": [
+              "Apni baat adab se bolo.",
+              "Har bachay ko taleem ka haq.",
+              "Sirf khel",
+              "Kuch nahi"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Kaunsa option 'Taleem' se related hai?",
+            "a": "Har bachay ko taleem ka haq.",
+            "b": "Bilkul ghalat baat",
+            "c": "Sirf TV",
+            "d": "Kuch mat karo",
+            "correct": "a",
+            "explanation": "Taleem: Har bachay ko taleem ka haq.",
+            "question": "Kaunsa option 'Taleem' se related hai?",
+            "options": [
+              "Har bachay ko taleem ka haq.",
+              "Bilkul ghalat baat",
+              "Sirf TV",
+              "Kuch mat karo"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "'Paani' ke bare mein sahi jumla chuno:",
+            "a": "Saaf paani zaroori haq.",
+            "b": "Yeh zaroori nahi",
+            "c": "Sirf bade logon ke liye",
+            "d": "Hamesha ghalat",
+            "correct": "a",
+            "explanation": "Saaf paani zaroori haq.",
+            "question": "'Paani' ke bare mein sahi jumla chuno:",
+            "options": [
+              "Saaf paani zaroori haq.",
+              "Yeh zaroori nahi",
+              "Sirf bade logon ke liye",
+              "Hamesha ghalat"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Hum 'Share' se kya seekhte hain?",
+            "a": "Khel aur khana share karo.",
+            "b": "Gussa karna",
+            "c": "Jhoot bolna",
+            "d": "Kachra phenkna",
+            "correct": "a",
+            "explanation": "Khel aur khana share karo.",
+            "question": "Hum 'Share' se kya seekhte hain?",
+            "options": [
+              "Khel aur khana share karo.",
+              "Gussa karna",
+              "Jhoot bolna",
+              "Kachra phenkna"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Is sabaq 'Rights aur share' ka best message kya hai?",
+            "a": "Larkay larkiyan barabar.",
+            "b": "Rules todna",
+            "c": "Dusron ko tang karna",
+            "d": "Padhai chhorna",
+            "correct": "a",
+            "explanation": "Larkay larkiyan barabar.",
+            "question": "Is sabaq 'Rights aur share' ka best message kya hai?",
+            "options": [
+              "Larkay larkiyan barabar.",
+              "Rules todna",
+              "Dusron ko tang karna",
+              "Padhai chhorna"
+            ],
+            "answer": 0
+          }
+        ]
+      },
+      "interactive_file": "interactives/g2-social-rights.html",
+      "interactive_label": "Khelo"
+    },
+    {
+      "title": "Transport aur safety",
+      "description": "Transport aur safety",
+      "lesson": "## HOOK\nSadi socho — Transport aur safety hamari zindagi se kaise judta hai? Pakistan / Islamabad context mein seekhein!\n\n## SAMJHAO\nTransport aur safety samjho: yeh Social Studies ka zaroori topic hai. Points: Bus, Car, Cycle, Signal.\n\n## MISAAL\nMisaal Islamabad/Pakistan se: Bus se school jao. Car mein seatbelt lagao.\n\n## KARO\nActivity: 3 cheezein likho jo Transport aur safety se related hon. Ek drawing bhi banao.\n\n## SAWAAL\n1) Transport aur safety kya hai?\n2) Ek real-life misaal?\n3) Aap citizen ki tarah kya karoge?\n",
+      "quiz": {
+        "title": "Transport aur safety Quiz",
+        "questions": [
+          {
+            "q": "Transport aur safety mein 'Bus' ka sahi khayal kya hai?",
+            "a": "Bus se school jao.",
+            "b": "Car mein seatbelt lagao.",
+            "c": "Sirf khel",
+            "d": "Kuch nahi",
+            "correct": "a",
+            "explanation": "Sahi: Bus se school jao.",
+            "question": "Transport aur safety mein 'Bus' ka sahi khayal kya hai?",
+            "options": [
+              "Bus se school jao.",
+              "Car mein seatbelt lagao.",
+              "Sirf khel",
+              "Kuch nahi"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Kaunsa option 'Car' se related hai?",
+            "a": "Car mein seatbelt lagao.",
+            "b": "Bilkul ghalat baat",
+            "c": "Sirf TV",
+            "d": "Kuch mat karo",
+            "correct": "a",
+            "explanation": "Car: Car mein seatbelt lagao.",
+            "question": "Kaunsa option 'Car' se related hai?",
+            "options": [
+              "Car mein seatbelt lagao.",
+              "Bilkul ghalat baat",
+              "Sirf TV",
+              "Kuch mat karo"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "'Cycle' ke bare mein sahi jumla chuno:",
+            "a": "Cycle par helmet pehno.",
+            "b": "Yeh zaroori nahi",
+            "c": "Sirf bade logon ke liye",
+            "d": "Hamesha ghalat",
+            "correct": "a",
+            "explanation": "Cycle par helmet pehno.",
+            "question": "'Cycle' ke bare mein sahi jumla chuno:",
+            "options": [
+              "Cycle par helmet pehno.",
+              "Yeh zaroori nahi",
+              "Sirf bade logon ke liye",
+              "Hamesha ghalat"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Hum 'Signal' se kya seekhte hain?",
+            "a": "Red light par ruko.",
+            "b": "Gussa karna",
+            "c": "Jhoot bolna",
+            "d": "Kachra phenkna",
+            "correct": "a",
+            "explanation": "Red light par ruko.",
+            "question": "Hum 'Signal' se kya seekhte hain?",
+            "options": [
+              "Red light par ruko.",
+              "Gussa karna",
+              "Jhoot bolna",
+              "Kachra phenkna"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Is sabaq 'Transport aur safety' ka best message kya hai?",
+            "a": "Zebra crossing se paro.",
+            "b": "Rules todna",
+            "c": "Dusron ko tang karna",
+            "d": "Padhai chhorna",
+            "correct": "a",
+            "explanation": "Zebra crossing se paro.",
+            "question": "Is sabaq 'Transport aur safety' ka best message kya hai?",
+            "options": [
+              "Zebra crossing se paro.",
+              "Rules todna",
+              "Dusron ko tang karna",
+              "Padhai chhorna"
+            ],
+            "answer": 0
+          }
+        ]
+      },
+      "interactive_file": "interactives/g2-social-transport.html",
+      "interactive_label": "Khelo"
+    }
+  ]
+}

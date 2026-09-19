@@ -1,0 +1,590 @@
+{
+  "subject": "islamiat",
+  "name": "Islamiat",
+  "teacher": "Islamiat Teacher",
+  "grade": 3,
+  "topics": [
+    {
+      "title": "Iman aur Ibadat",
+      "description": "Iman aur ibadat ka rishta",
+      "lesson": "## HOOK\nSuno! Aaj hum 'Iman aur Ibadat' seekhenge — adab aur pyar ke sath.\n\n## SAMJHAO\nGrade 3 ke liye asaan baat: Iman aur Ibadat. Yeh Islam ki khoobsurat taleem hai. Key points: Iman, Ibadat, Namaz, Quran.\n\n## MISAAL\nIslamabad / ghar / school mein isay amal mein lao — jaise Iman aur Ibadat.\n\n## KARO\nAaj ek kaam: Iman dil mein. Phir family ko batao ke aapne kya seekha.\n\n## SAWAAL\n1) Iman aur Ibadat ka matlab kya hai?\n2) Aap ghar mein isay kaise amal karoge?\n3) Ek misaal do.\n",
+      "quiz": {
+        "title": "Iman aur Ibadat Quiz",
+        "questions": [
+          {
+            "q": "Iman aur Ibadat mein 'Iman' ka sahi khayal kya hai?",
+            "a": "Iman dil mein.",
+            "b": "Ibadat amal mein.",
+            "c": "Sirf khel",
+            "d": "Kuch nahi",
+            "correct": "a",
+            "explanation": "Sahi: Iman dil mein.",
+            "question": "Iman aur Ibadat mein 'Iman' ka sahi khayal kya hai?",
+            "options": [
+              "Iman dil mein.",
+              "Ibadat amal mein.",
+              "Sirf khel",
+              "Kuch nahi"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Kaunsa option 'Ibadat' se related hai?",
+            "a": "Ibadat amal mein.",
+            "b": "Bilkul ghalat baat",
+            "c": "Sirf TV",
+            "d": "Kuch mat karo",
+            "correct": "a",
+            "explanation": "Ibadat: Ibadat amal mein.",
+            "question": "Kaunsa option 'Ibadat' se related hai?",
+            "options": [
+              "Ibadat amal mein.",
+              "Bilkul ghalat baat",
+              "Sirf TV",
+              "Kuch mat karo"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "'Namaz' ke bare mein sahi jumla chuno:",
+            "a": "Namaz iman ko mazboot.",
+            "b": "Yeh zaroori nahi",
+            "c": "Sirf bade logon ke liye",
+            "d": "Hamesha ghalat",
+            "correct": "a",
+            "explanation": "Namaz iman ko mazboot.",
+            "question": "'Namaz' ke bare mein sahi jumla chuno:",
+            "options": [
+              "Namaz iman ko mazboot.",
+              "Yeh zaroori nahi",
+              "Sirf bade logon ke liye",
+              "Hamesha ghalat"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Hum 'Quran' se kya seekhte hain?",
+            "a": "Quran rehnumai.",
+            "b": "Gussa karna",
+            "c": "Jhoot bolna",
+            "d": "Kachra phenkna",
+            "correct": "a",
+            "explanation": "Quran rehnumai.",
+            "question": "Hum 'Quran' se kya seekhte hain?",
+            "options": [
+              "Quran rehnumai.",
+              "Gussa karna",
+              "Jhoot bolna",
+              "Kachra phenkna"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Is sabaq 'Iman aur Ibadat' ka best message kya hai?",
+            "a": "Amal se iman dikhta.",
+            "b": "Rules todna",
+            "c": "Dusron ko tang karna",
+            "d": "Padhai chhorna",
+            "correct": "a",
+            "explanation": "Amal se iman dikhta.",
+            "question": "Is sabaq 'Iman aur Ibadat' ka best message kya hai?",
+            "options": [
+              "Amal se iman dikhta.",
+              "Rules todna",
+              "Dusron ko tang karna",
+              "Padhai chhorna"
+            ],
+            "answer": 0
+          }
+        ]
+      },
+      "interactive_file": "interactives/g3-islamiat-iman-ibadat.html",
+      "interactive_label": "Khelo"
+    },
+    {
+      "title": "Seerat stories",
+      "description": "Seerat se sabaq",
+      "lesson": "## HOOK\nSuno! Aaj hum 'Seerat stories' seekhenge — adab aur pyar ke sath.\n\n## SAMJHAO\nGrade 3 ke liye asaan baat: Seerat stories. Yeh Islam ki khoobsurat taleem hai. Key points: Seerat, Amanat, Aman, Bachay.\n\n## MISAAL\nIslamabad / ghar / school mein isay amal mein lao — jaise Seerat aur Amanat.\n\n## KARO\nAaj ek kaam: Nabi ﷺ ki zindagi. Phir family ko batao ke aapne kya seekha.\n\n## SAWAAL\n1) Seerat stories ka matlab kya hai?\n2) Aap ghar mein isay kaise amal karoge?\n3) Ek misaal do.\n",
+      "quiz": {
+        "title": "Seerat stories Quiz",
+        "questions": [
+          {
+            "q": "Seerat stories mein 'Seerat' ka sahi khayal kya hai?",
+            "a": "Nabi ﷺ ki zindagi.",
+            "b": "Amanatadaari.",
+            "c": "Sirf khel",
+            "d": "Kuch nahi",
+            "correct": "a",
+            "explanation": "Sahi: Nabi ﷺ ki zindagi.",
+            "question": "Seerat stories mein 'Seerat' ka sahi khayal kya hai?",
+            "options": [
+              "Nabi ﷺ ki zindagi.",
+              "Amanatadaari.",
+              "Sirf khel",
+              "Kuch nahi"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Kaunsa option 'Amanat' se related hai?",
+            "a": "Amanatadaari.",
+            "b": "Bilkul ghalat baat",
+            "c": "Sirf TV",
+            "d": "Kuch mat karo",
+            "correct": "a",
+            "explanation": "Amanat: Amanatadaari.",
+            "question": "Kaunsa option 'Amanat' se related hai?",
+            "options": [
+              "Amanatadaari.",
+              "Bilkul ghalat baat",
+              "Sirf TV",
+              "Kuch mat karo"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "'Aman' ke bare mein sahi jumla chuno:",
+            "a": "Aman aur sulah.",
+            "b": "Yeh zaroori nahi",
+            "c": "Sirf bade logon ke liye",
+            "d": "Hamesha ghalat",
+            "correct": "a",
+            "explanation": "Aman aur sulah.",
+            "question": "'Aman' ke bare mein sahi jumla chuno:",
+            "options": [
+              "Aman aur sulah.",
+              "Yeh zaroori nahi",
+              "Sirf bade logon ke liye",
+              "Hamesha ghalat"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Hum 'Bachay' se kya seekhte hain?",
+            "a": "Bachon se pyar.",
+            "b": "Gussa karna",
+            "c": "Jhoot bolna",
+            "d": "Kachra phenkna",
+            "correct": "a",
+            "explanation": "Bachon se pyar.",
+            "question": "Hum 'Bachay' se kya seekhte hain?",
+            "options": [
+              "Bachon se pyar.",
+              "Gussa karna",
+              "Jhoot bolna",
+              "Kachra phenkna"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Is sabaq 'Seerat stories' ka best message kya hai?",
+            "a": "Narmi se baat.",
+            "b": "Rules todna",
+            "c": "Dusron ko tang karna",
+            "d": "Padhai chhorna",
+            "correct": "a",
+            "explanation": "Narmi se baat.",
+            "question": "Is sabaq 'Seerat stories' ka best message kya hai?",
+            "options": [
+              "Narmi se baat.",
+              "Rules todna",
+              "Dusron ko tang karna",
+              "Padhai chhorna"
+            ],
+            "answer": 0
+          }
+        ]
+      },
+      "interactive_file": "interactives/g3-islamiat-seerat.html",
+      "interactive_label": "Khelo"
+    },
+    {
+      "title": "Akhlaq aur aadaab",
+      "description": "Akhlaq aur aadaab",
+      "lesson": "## HOOK\nSuno! Aaj hum 'Akhlaq aur aadaab' seekhenge — adab aur pyar ke sath.\n\n## SAMJHAO\nGrade 3 ke liye asaan baat: Akhlaq aur aadaab. Yeh Islam ki khoobsurat taleem hai. Key points: Akhlaq, Salam, Boli, Gheebat.\n\n## MISAAL\nIslamabad / ghar / school mein isay amal mein lao — jaise Akhlaq aur Salam.\n\n## KARO\nAaj ek kaam: Achha akhlaq zeenat. Phir family ko batao ke aapne kya seekha.\n\n## SAWAAL\n1) Akhlaq aur aadaab ka matlab kya hai?\n2) Aap ghar mein isay kaise amal karoge?\n3) Ek misaal do.\n",
+      "quiz": {
+        "title": "Akhlaq aur aadaab Quiz",
+        "questions": [
+          {
+            "q": "Akhlaq aur aadaab mein 'Akhlaq' ka sahi khayal kya hai?",
+            "a": "Achha akhlaq zeenat.",
+            "b": "Salam pehle bolo.",
+            "c": "Sirf khel",
+            "d": "Kuch nahi",
+            "correct": "a",
+            "explanation": "Sahi: Achha akhlaq zeenat.",
+            "question": "Akhlaq aur aadaab mein 'Akhlaq' ka sahi khayal kya hai?",
+            "options": [
+              "Achha akhlaq zeenat.",
+              "Salam pehle bolo.",
+              "Sirf khel",
+              "Kuch nahi"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Kaunsa option 'Salam' se related hai?",
+            "a": "Salam pehle bolo.",
+            "b": "Bilkul ghalat baat",
+            "c": "Sirf TV",
+            "d": "Kuch mat karo",
+            "correct": "a",
+            "explanation": "Salam: Salam pehle bolo.",
+            "question": "Kaunsa option 'Salam' se related hai?",
+            "options": [
+              "Salam pehle bolo.",
+              "Bilkul ghalat baat",
+              "Sirf TV",
+              "Kuch mat karo"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "'Boli' ke bare mein sahi jumla chuno:",
+            "a": "Narmi ki boli.",
+            "b": "Yeh zaroori nahi",
+            "c": "Sirf bade logon ke liye",
+            "d": "Hamesha ghalat",
+            "correct": "a",
+            "explanation": "Narmi ki boli.",
+            "question": "'Boli' ke bare mein sahi jumla chuno:",
+            "options": [
+              "Narmi ki boli.",
+              "Yeh zaroori nahi",
+              "Sirf bade logon ke liye",
+              "Hamesha ghalat"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Hum 'Gheebat' se kya seekhte hain?",
+            "a": "Gheebat se bachoo.",
+            "b": "Gussa karna",
+            "c": "Jhoot bolna",
+            "d": "Kachra phenkna",
+            "correct": "a",
+            "explanation": "Gheebat se bachoo.",
+            "question": "Hum 'Gheebat' se kya seekhte hain?",
+            "options": [
+              "Gheebat se bachoo.",
+              "Gussa karna",
+              "Jhoot bolna",
+              "Kachra phenkna"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Is sabaq 'Akhlaq aur aadaab' ka best message kya hai?",
+            "a": "Safai pasand.",
+            "b": "Rules todna",
+            "c": "Dusron ko tang karna",
+            "d": "Padhai chhorna",
+            "correct": "a",
+            "explanation": "Safai pasand.",
+            "question": "Is sabaq 'Akhlaq aur aadaab' ka best message kya hai?",
+            "options": [
+              "Safai pasand.",
+              "Rules todna",
+              "Dusron ko tang karna",
+              "Padhai chhorna"
+            ],
+            "answer": 0
+          }
+        ]
+      },
+      "interactive_file": "interactives/g3-islamiat-akhlaq.html",
+      "interactive_label": "Khelo"
+    },
+    {
+      "title": "Husn-e-muamalat",
+      "description": "Logon se ache muamalat",
+      "lesson": "## HOOK\nSuno! Aaj hum 'Husn-e-muamalat' seekhenge — adab aur pyar ke sath.\n\n## SAMJHAO\nGrade 3 ke liye asaan baat: Husn-e-muamalat. Yeh Islam ki khoobsurat taleem hai. Key points: Muamalat, Insaaf, Haath, Soft.\n\n## MISAAL\nIslamabad / ghar / school mein isay amal mein lao — jaise Muamalat aur Insaaf.\n\n## KARO\nAaj ek kaam: Bechna-kharidna sachai se. Phir family ko batao ke aapne kya seekha.\n\n## SAWAAL\n1) Husn-e-muamalat ka matlab kya hai?\n2) Aap ghar mein isay kaise amal karoge?\n3) Ek misaal do.\n",
+      "quiz": {
+        "title": "Husn-e-muamalat Quiz",
+        "questions": [
+          {
+            "q": "Husn-e-muamalat mein 'Muamalat' ka sahi khayal kya hai?",
+            "a": "Bechna-kharidna sachai se.",
+            "b": "Insaaf karo.",
+            "c": "Sirf khel",
+            "d": "Kuch nahi",
+            "correct": "a",
+            "explanation": "Sahi: Bechna-kharidna sachai se.",
+            "question": "Husn-e-muamalat mein 'Muamalat' ka sahi khayal kya hai?",
+            "options": [
+              "Bechna-kharidna sachai se.",
+              "Insaaf karo.",
+              "Sirf khel",
+              "Kuch nahi"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Kaunsa option 'Insaaf' se related hai?",
+            "a": "Insaaf karo.",
+            "b": "Bilkul ghalat baat",
+            "c": "Sirf TV",
+            "d": "Kuch mat karo",
+            "correct": "a",
+            "explanation": "Insaaf: Insaaf karo.",
+            "question": "Kaunsa option 'Insaaf' se related hai?",
+            "options": [
+              "Insaaf karo.",
+              "Bilkul ghalat baat",
+              "Sirf TV",
+              "Kuch mat karo"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "'Haath' ke bare mein sahi jumla chuno:",
+            "a": "Dusron ka haq ada.",
+            "b": "Yeh zaroori nahi",
+            "c": "Sirf bade logon ke liye",
+            "d": "Hamesha ghalat",
+            "correct": "a",
+            "explanation": "Dusron ka haq ada.",
+            "question": "'Haath' ke bare mein sahi jumla chuno:",
+            "options": [
+              "Dusron ka haq ada.",
+              "Yeh zaroori nahi",
+              "Sirf bade logon ke liye",
+              "Hamesha ghalat"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Hum 'Soft' se kya seekhte hain?",
+            "a": "Gussa control.",
+            "b": "Gussa karna",
+            "c": "Jhoot bolna",
+            "d": "Kachra phenkna",
+            "correct": "a",
+            "explanation": "Gussa control.",
+            "question": "Hum 'Soft' se kya seekhte hain?",
+            "options": [
+              "Gussa control.",
+              "Gussa karna",
+              "Jhoot bolna",
+              "Kachra phenkna"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Is sabaq 'Husn-e-muamalat' ka best message kya hai?",
+            "a": "Padosi ka khayal.",
+            "b": "Rules todna",
+            "c": "Dusron ko tang karna",
+            "d": "Padhai chhorna",
+            "correct": "a",
+            "explanation": "Padosi ka khayal.",
+            "question": "Is sabaq 'Husn-e-muamalat' ka best message kya hai?",
+            "options": [
+              "Padosi ka khayal.",
+              "Rules todna",
+              "Dusron ko tang karna",
+              "Padhai chhorna"
+            ],
+            "answer": 0
+          }
+        ]
+      },
+      "interactive_file": "interactives/g3-islamiat-muamalat.html",
+      "interactive_label": "Khelo"
+    },
+    {
+      "title": "Hidayat ke sarchashme",
+      "description": "Hidayat ke sarchashme",
+      "lesson": "## HOOK\nSuno! Aaj hum 'Hidayat ke sarchashme' seekhenge — adab aur pyar ke sath.\n\n## SAMJHAO\nGrade 3 ke liye asaan baat: Hidayat ke sarchashme. Yeh Islam ki khoobsurat taleem hai. Key points: Quran, Sunnat, Sahaba, Ilm.\n\n## MISAAL\nIslamabad / ghar / school mein isay amal mein lao — jaise Quran aur Sunnat.\n\n## KARO\nAaj ek kaam: Quran pehla sarchashma. Phir family ko batao ke aapne kya seekha.\n\n## SAWAAL\n1) Hidayat ke sarchashme ka matlab kya hai?\n2) Aap ghar mein isay kaise amal karoge?\n3) Ek misaal do.\n",
+      "quiz": {
+        "title": "Hidayat ke sarchashme Quiz",
+        "questions": [
+          {
+            "q": "Hidayat ke sarchashme mein 'Quran' ka sahi khayal kya hai?",
+            "a": "Quran pehla sarchashma.",
+            "b": "Sunnat Nabi ﷺ.",
+            "c": "Sirf khel",
+            "d": "Kuch nahi",
+            "correct": "a",
+            "explanation": "Sahi: Quran pehla sarchashma.",
+            "question": "Hidayat ke sarchashme mein 'Quran' ka sahi khayal kya hai?",
+            "options": [
+              "Quran pehla sarchashma.",
+              "Sunnat Nabi ﷺ.",
+              "Sirf khel",
+              "Kuch nahi"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Kaunsa option 'Sunnat' se related hai?",
+            "a": "Sunnat Nabi ﷺ.",
+            "b": "Bilkul ghalat baat",
+            "c": "Sirf TV",
+            "d": "Kuch mat karo",
+            "correct": "a",
+            "explanation": "Sunnat: Sunnat Nabi ﷺ.",
+            "question": "Kaunsa option 'Sunnat' se related hai?",
+            "options": [
+              "Sunnat Nabi ﷺ.",
+              "Bilkul ghalat baat",
+              "Sirf TV",
+              "Kuch mat karo"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "'Sahaba' ke bare mein sahi jumla chuno:",
+            "a": "Sahaba ki misalein.",
+            "b": "Yeh zaroori nahi",
+            "c": "Sirf bade logon ke liye",
+            "d": "Hamesha ghalat",
+            "correct": "a",
+            "explanation": "Sahaba ki misalein.",
+            "question": "'Sahaba' ke bare mein sahi jumla chuno:",
+            "options": [
+              "Sahaba ki misalein.",
+              "Yeh zaroori nahi",
+              "Sirf bade logon ke liye",
+              "Hamesha ghalat"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Hum 'Ilm' se kya seekhte hain?",
+            "a": "Ilm hasil karo.",
+            "b": "Gussa karna",
+            "c": "Jhoot bolna",
+            "d": "Kachra phenkna",
+            "correct": "a",
+            "explanation": "Ilm hasil karo.",
+            "question": "Hum 'Ilm' se kya seekhte hain?",
+            "options": [
+              "Ilm hasil karo.",
+              "Gussa karna",
+              "Jhoot bolna",
+              "Kachra phenkna"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Is sabaq 'Hidayat ke sarchashme' ka best message kya hai?",
+            "a": "Ustaad se poochho.",
+            "b": "Rules todna",
+            "c": "Dusron ko tang karna",
+            "d": "Padhai chhorna",
+            "correct": "a",
+            "explanation": "Ustaad se poochho.",
+            "question": "Is sabaq 'Hidayat ke sarchashme' ka best message kya hai?",
+            "options": [
+              "Ustaad se poochho.",
+              "Rules todna",
+              "Dusron ko tang karna",
+              "Padhai chhorna"
+            ],
+            "answer": 0
+          }
+        ]
+      },
+      "interactive_file": "interactives/g3-islamiat-hidayat.html",
+      "interactive_label": "Khelo"
+    },
+    {
+      "title": "Islami values aaj",
+      "description": "Islami values aaj ki zindagi mein",
+      "lesson": "## HOOK\nSuno! Aaj hum 'Islami values aaj' seekhenge — adab aur pyar ke sath.\n\n## SAMJHAO\nGrade 3 ke liye asaan baat: Islami values aaj. Yeh Islam ki khoobsurat taleem hai. Key points: Imandari, Digital adab, Mahol, Charity.\n\n## MISAAL\nIslamabad / ghar / school mein isay amal mein lao — jaise Imandari aur Digital adab.\n\n## KARO\nAaj ek kaam: School mein imandari. Phir family ko batao ke aapne kya seekha.\n\n## SAWAAL\n1) Islami values aaj ka matlab kya hai?\n2) Aap ghar mein isay kaise amal karoge?\n3) Ek misaal do.\n",
+      "quiz": {
+        "title": "Islami values aaj Quiz",
+        "questions": [
+          {
+            "q": "Islami values aaj mein 'Imandari' ka sahi khayal kya hai?",
+            "a": "School mein imandari.",
+            "b": "Online bhi adab.",
+            "c": "Sirf khel",
+            "d": "Kuch nahi",
+            "correct": "a",
+            "explanation": "Sahi: School mein imandari.",
+            "question": "Islami values aaj mein 'Imandari' ka sahi khayal kya hai?",
+            "options": [
+              "School mein imandari.",
+              "Online bhi adab.",
+              "Sirf khel",
+              "Kuch nahi"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Kaunsa option 'Digital adab' se related hai?",
+            "a": "Online bhi adab.",
+            "b": "Bilkul ghalat baat",
+            "c": "Sirf TV",
+            "d": "Kuch mat karo",
+            "correct": "a",
+            "explanation": "Digital adab: Online bhi adab.",
+            "question": "Kaunsa option 'Digital adab' se related hai?",
+            "options": [
+              "Online bhi adab.",
+              "Bilkul ghalat baat",
+              "Sirf TV",
+              "Kuch mat karo"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "'Mahol' ke bare mein sahi jumla chuno:",
+            "a": "Mahol saaf rakho.",
+            "b": "Yeh zaroori nahi",
+            "c": "Sirf bade logon ke liye",
+            "d": "Hamesha ghalat",
+            "correct": "a",
+            "explanation": "Mahol saaf rakho.",
+            "question": "'Mahol' ke bare mein sahi jumla chuno:",
+            "options": [
+              "Mahol saaf rakho.",
+              "Yeh zaroori nahi",
+              "Sirf bade logon ke liye",
+              "Hamesha ghalat"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Hum 'Charity' se kya seekhte hain?",
+            "a": "Zaroorat-mand madad.",
+            "b": "Gussa karna",
+            "c": "Jhoot bolna",
+            "d": "Kachra phenkna",
+            "correct": "a",
+            "explanation": "Zaroorat-mand madad.",
+            "question": "Hum 'Charity' se kya seekhte hain?",
+            "options": [
+              "Zaroorat-mand madad.",
+              "Gussa karna",
+              "Jhoot bolna",
+              "Kachra phenkna"
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Is sabaq 'Islami values aaj' ka best message kya hai?",
+            "a": "Group mein sach.",
+            "b": "Rules todna",
+            "c": "Dusron ko tang karna",
+            "d": "Padhai chhorna",
+            "correct": "a",
+            "explanation": "Group mein sach.",
+            "question": "Is sabaq 'Islami values aaj' ka best message kya hai?",
+            "options": [
+              "Group mein sach.",
+              "Rules todna",
+              "Dusron ko tang karna",
+              "Padhai chhorna"
+            ],
+            "answer": 0
+          }
+        ]
+      },
+      "interactive_file": "interactives/g3-islamiat-values.html",
+      "interactive_label": "Khelo"
+    }
+  ]
+}
