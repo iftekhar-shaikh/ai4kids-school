@@ -322,14 +322,10 @@ lines.append('''<div id="playStage" style="display:none;padding:8px 4px 24px">
 </div>''')
 
 # JS data + logic
-# Embed interactives so KHELO can play in-place inside Lesson Bank (Streamlit parent nav is blocked)
+# PERF (slow 4G): do NOT base64-embed all interactives into lesson_bank.html
+# (~11MB savings). KHELO loads one app on demand via fetch or Streamlit parent.
 for t in all_topics:
     t["interactive_b64"] = ""
-    rel = t.get("interactive_file") or ""
-    if rel:
-        ip = Path(os.path.dirname(os.path.abspath(__file__))) / rel
-        if ip.exists():
-            t["interactive_b64"] = base64.b64encode(ip.read_bytes()).decode("ascii")
 
 topics_json = json.dumps([{
     "grade": t["grade"],
@@ -568,7 +564,9 @@ function setBrowseVisible(show) {{
 
 function openKheloBelow(t) {{
   try {{ closeModal(); }} catch (e) {{}}
-  if (!t || !t.interactive_b64) {{
+  if (!t) {{ alert('Topic nahi mili.'); return; }}
+  const appFile = t.interactive_file || '';
+  if (!t.interactive_b64 && !appFile) {{
     alert('Is topic ki app file nahi mili.');
     return;
   }}
@@ -597,23 +595,41 @@ function openKheloBelow(t) {{
     if (lessonEl) lessonEl.style.display = 'none';
   }}
 
-  // 2) App in-place (blob iframe inside Lesson Bank — no Streamlit parent needed)
-  try {{
-    if (frame._blobUrl) {{ URL.revokeObjectURL(frame._blobUrl); frame._blobUrl = null; }}
-    const html = b64ToUtf8(t.interactive_b64);
-    const blob = new Blob([html], {{ type: 'text/html;charset=utf-8' }});
-    const url = URL.createObjectURL(blob);
-    frame._blobUrl = url;
-    frame.src = url;
-  }} catch (e) {{
-    frame.replaceWith(frame.cloneNode(false));
-    const f2 = document.getElementById('playFrame');
+  // 2) App on-demand (slow-4G): b64 if present, else fetch file, else Streamlit parent
+  function mountAppHtml(html) {{
     try {{
-      const html = b64ToUtf8(t.interactive_b64);
-      f2.srcdoc = html;
-    }} catch (e2) {{
-      alert('App load nahi hui: ' + e2);
+      if (frame._blobUrl) {{ URL.revokeObjectURL(frame._blobUrl); frame._blobUrl = null; }}
+      const blob = new Blob([html], {{ type: 'text/html;charset=utf-8' }});
+      const url = URL.createObjectURL(blob);
+      frame._blobUrl = url;
+      frame.src = url;
+    }} catch (e) {{
+      try {{ frame.srcdoc = html; }} catch (e2) {{ alert('App load nahi hui: ' + e2); }}
     }}
+  }}
+  function askStreamlitParent(file) {{
+    try {{
+      const u = new URL(window.top.location.href);
+      u.searchParams.set('view_lb', '1');
+      u.searchParams.set('lb_khelo', file);
+      window.top.location.href = u.toString();
+    }} catch (e3) {{
+      alert('App load nahi hui. File: ' + file);
+    }}
+  }}
+  if (t.interactive_b64) {{
+    try {{ mountAppHtml(b64ToUtf8(t.interactive_b64)); }}
+    catch (e) {{ if (appFile) askStreamlitParent(appFile); else alert('App load nahi hui'); }}
+  }} else if (appFile) {{
+    if (frame) {{
+      try {{ frame.srcdoc = '<p style="padding:16px;font:700 1.2rem Segoe UI">App load ho rahi hai…</p>'; }} catch (e) {{}}
+    }}
+    fetch(appFile).then(function(r) {{
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.text();
+    }}).then(mountAppHtml).catch(function() {{
+      askStreamlitParent(appFile);
+    }});
   }}
 
   // 3) Quiz under app

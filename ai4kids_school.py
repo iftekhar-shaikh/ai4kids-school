@@ -2741,7 +2741,7 @@ def render_html_viewers():
             st.session_state.view_lessonbank = True
         _lk = _qp.get("lb_khelo")
         if _lk:
-            st.session_state.lb_topic_key = _lk
+            st.session_state.lb_khelo_file = _lk if isinstance(_lk, str) else (_lk[0] if _lk else None)
     except Exception:
         pass
 
@@ -2757,12 +2757,52 @@ def render_html_viewers():
                 pass
             st.rerun()
 
-        # ORIGINAL grid first — do not move or replace
+        # ORIGINAL grid first — do not move or replace (light HTML, apps on-demand)
         try:
             components.html(open(LESSON_BANK_PATH, encoding="utf-8").read(),
                             height=_embed_height(900), scrolling=True)
         except Exception as e:
             st.error(f"Lesson Bank nahi khul saki: {e}")
+
+        # On-demand Khelo (slow 4G): one interactive file after KHELO tap via ?lb_khelo=
+        _kf = st.session_state.get("lb_khelo_file") or None
+        try:
+            _qkf = st.query_params.get("lb_khelo")
+            if _qkf:
+                _kf = _qkf if isinstance(_qkf, str) else (_qkf[0] if _qkf else _kf)
+        except Exception:
+            pass
+        if _kf:
+            rel = str(_kf).replace("\\", "/").lstrip("/")
+            if ".." in rel or not rel.startswith("interactives/"):
+                st.warning("App path invalid.")
+            else:
+                app_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), rel.replace("/", os.sep))
+                if os.path.isfile(app_path):
+                    st.markdown("---")
+                    st.markdown("### 🎮 Khelo — app")
+                    c_back, _ = st.columns([1, 3])
+                    with c_back:
+                        if st.button("⬅️ Wapas grid", key="lb_khelo_back"):
+                            st.session_state.pop("lb_khelo_file", None)
+                            try:
+                                keep = {k: v for k, v in st.query_params.items() if k != "lb_khelo"}
+                                st.query_params.clear()
+                                for k, v in keep.items():
+                                    st.query_params[k] = v
+                            except Exception:
+                                pass
+                            st.rerun()
+                    try:
+                        components.html(
+                            open(app_path, encoding="utf-8").read(),
+                            height=_embed_height(720),
+                            scrolling=True,
+                        )
+                    except Exception as e:
+                        st.error(f"App nahi khuli: {e}")
+                else:
+                    st.warning(f"Interactive missing: `{rel}`")
 
 
 
