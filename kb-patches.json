@@ -687,5 +687,13 @@
       "interactive_file": "interactives/g4-formal-letter.html",
       "interactive_label": "Khelo - Formal letter"
     }
+  },
+  {
+    "file": "kb/grade_4/urdu.json",
+    "match_title": "Hamd aur Naat",
+    "add": {
+      "interactive_file": "interactives/g4-hamd-naat.html",
+      "interactive_label": "Khelo - Hamd aur Naat"
+    }
   }
 ]

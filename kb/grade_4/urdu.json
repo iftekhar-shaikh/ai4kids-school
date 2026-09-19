@@ -1,0 +1,339 @@
+{
+  "subject": "urdu",
+  "name": "Urdu",
+  "grade": 4,
+  "topics": [
+    {
+      "title": "Hamd aur Naat",
+      "description": "Hamd Allah ki tarif; Naat Nabi ﷺ ki tarif — Class 4",
+      "lesson": "## HOOK\nAllah ki tarif aur Nabi ﷺ ki mohabbat — Urdu shayari ka sab se pyaara hissa!\n\n## SAMJHAO\nHamd = Allah Ta'ala ki tarif aur shukr. Naat = Rasool Allah ﷺ ki sifaat aur mohabbat.\n\nClass 4 mein hum chhote aasan alfaaz samajhte hain: Rabb, Rehman, Rasool, Noor, rehmat. Hamd/Naat padhte waqt adab, dheemi awaz, aur dil se parhna zaroori hai.\n\n## MISAAL\nSchool assembly mein chhoti Naat — bacche mil kar \"Ya Nabi\" ke alfaaz soft bolte hain.\n\n## KARO\nEk Hamd aur ek Naat ka 2-2 misre likho (ya yaad karo). 3 adaab ki list banao.\n\n## SAWAAL\n1. Hamd kis ki tarif hai?\n2. Naat kis ki tarif hai?\n3. Parhte waqt kya zaroori hai?",
+      "quiz": {
+        "title": "Hamd aur Naat Quiz",
+        "questions": [
+          {
+            "q": "Hamd kis ki tarif hoti hai?",
+            "a": "Allah Ta'ala",
+            "b": "Sirf school",
+            "c": "Sirf cricket",
+            "d": "Sirf map",
+            "correct": "a",
+            "explanation": "Hamd Allah ki tarif hai."
+          },
+          {
+            "q": "Naat kis ki mohabbat/tarif hai?",
+            "a": "Nabi ﷺ",
+            "b": "Sirf doston",
+            "c": "Sirf toys",
+            "d": "Sirf games",
+            "correct": "a",
+            "explanation": "Naat Nabi ﷺ ki sifaat hai."
+          },
+          {
+            "q": "Hamd/Naat padhte waqt kya chahiye?",
+            "a": "Adab aur dheemi awaz",
+            "b": "Shor",
+            "c": "Bhagna",
+            "d": "Hansi udana",
+            "correct": "a",
+            "explanation": "Adab zaroori hai."
+          },
+          {
+            "q": "Rehmat ka qareebi matlab?",
+            "a": "Meharbani",
+            "b": "Gussa",
+            "c": "Andhera",
+            "d": "Shor",
+            "correct": "a",
+            "explanation": "Rehmat = meharbani."
+          },
+          {
+            "q": "Assembly mein Naat kyun?",
+            "a": "Mohabbat aur yaad",
+            "b": "Sirf marks",
+            "c": "Sirf noise",
+            "d": "Sirf race",
+            "correct": "a",
+            "explanation": "Mohabbat se parhte hain."
+          }
+        ]
+      },
+      "interactive_file": "interactives/g4-hamd-naat.html",
+      "interactive_label": "Khelo - Hamd aur Naat"
+    },
+    {
+      "title": "Rahmat-e-Aalam aur seerat stories",
+      "description": "Chhoti seerat stories + sawalat — Class 4",
+      "lesson": "## HOOK\nNabi ﷺ ki zindagi ki chhoti kahaniyan — dil ko narm karti hain!\n\n## SAMJHAO\nSeerat = Nabi ﷺ ki zindagi ke waqiyat. Class 4: sachaai, meharbani, bachon se pyaar, janwaron par reham.\n\nHum kahani padhte hain, asaan sawalat ke jawab dete hain, aur moral yaad karte hain.\n\n## MISAAL\nEk bacche ko pyaar se samjhana — jaise Nabi ﷺ ne narmi se sikhaya.\n\n## KARO\nEk seerat story suno/parho aur 3 lines mein likho: kya hua + kya seekha.\n\n## SAWAAL\n1. Seerat kya hai?\n2. Ek achhi adat ka misaal?\n3. Moral kyun zaroori?",
+      "quiz": {
+        "title": "Seerat Quiz",
+        "questions": [
+          {
+            "q": "Seerat kis ki zindagi hai?",
+            "a": "Nabi ﷺ",
+            "b": "Sirf kings",
+            "c": "Sirf robots",
+            "d": "Sirf maps",
+            "correct": "a",
+            "explanation": "Seerat Nabi ﷺ ki life hai."
+          },
+          {
+            "q": "Seerat se kya seekhte hain?",
+            "a": "Achhi adatein",
+            "b": "Sirf games",
+            "c": "Sirf junk food",
+            "d": "Sirf shor",
+            "correct": "a",
+            "explanation": "Sachaai, meharbani, adab."
+          },
+          {
+            "q": "Bachon se pyaar kis ki sunnat hai?",
+            "a": "Nabi ﷺ",
+            "b": "Sirf TV",
+            "c": "Sirf exams",
+            "d": "Sirf noise",
+            "correct": "a",
+            "explanation": "Nabi ﷺ bachon se mohabbat karte thay."
+          },
+          {
+            "q": "Janwaron par reham?",
+            "a": "Achhi adat",
+            "b": "Galat",
+            "c": "Sirf joke",
+            "d": "Sirf ignore",
+            "correct": "a",
+            "explanation": "Reham achhi baat hai."
+          },
+          {
+            "q": "Story ke baad kya poochte hain?",
+            "a": "Kya seekha",
+            "b": "Sirf score ignore",
+            "c": "Sirf delete",
+            "d": "Sirf sleep",
+            "correct": "a",
+            "explanation": "Moral / seekh zaroori hai."
+          }
+        ]
+      }
+    },
+    {
+      "title": "Qomi tehwar aur watan",
+      "description": "Pakistan tehwar, watan se mohabbat — Class 4",
+      "lesson": "## HOOK\n14 August par jhanda, tarana, aur green-white — dil mein watan!\n\n## SAMJHAO\nQomi tehwar: Pakistan Day, Independence Day, Quaid / Iqbal yaad. Alfaaz: watan, azadi, jhanda, tarana, qaum.\n\nHum vocabulary seekhte hain aur chhote jumle banate hain: \"Main Pakistani hoon.\"\n\n## MISAAL\nIslamabad mein school parade — bacche jhanda salami dete hain.\n\n## KARO\n5 watan alfaaz likho + ek chhota paragraph (4 jumle) \"Mera watan\".\n\n## SAWAAL\n1. 14 August kya hai?\n2. Jhande ke rang?\n3. Watan se mohabbat ka ek tarika?",
+      "quiz": {
+        "title": "Watan Quiz",
+        "questions": [
+          {
+            "q": "14 August kya kehlata hai?",
+            "a": "Independence Day / Azadi",
+            "b": "Sirf cricket final",
+            "c": "Sirf picnic",
+            "d": "Sirf rain day",
+            "correct": "a",
+            "explanation": "Azadi ka din."
+          },
+          {
+            "q": "Pakistan ke jhande mein kaun se rang?",
+            "a": "Hara aur safed",
+            "b": "Sirf laal",
+            "c": "Sirf neela",
+            "d": "Sirf black",
+            "correct": "a",
+            "explanation": "Green and white."
+          },
+          {
+            "q": "Tarana kya hai?",
+            "a": "Qomi geet",
+            "b": "Sirf joke",
+            "c": "Sirf ad",
+            "d": "Sirf alarm",
+            "correct": "a",
+            "explanation": "National song."
+          },
+          {
+            "q": "Watan ka matlab?",
+            "a": "Apna mulk",
+            "b": "Sirf school bag",
+            "c": "Sirf WiFi",
+            "d": "Sirf toy",
+            "correct": "a",
+            "explanation": "Apna country."
+          },
+          {
+            "q": "Quaid-e-Azam se kya seekhein?",
+            "a": "Ittihad / mehnat",
+            "b": "Sirf laziness",
+            "c": "Sirf anger",
+            "d": "Sirf litter",
+            "correct": "a",
+            "explanation": "Unity aur hard work."
+          }
+        ]
+      }
+    },
+    {
+      "title": "Kahani aur afsana",
+      "description": "Chhoti kahani comprehension + moral — Class 4",
+      "lesson": "## HOOK\nKahani suno — phir batao: hero kaun? masla kya? seekh kya?\n\n## SAMJHAO\nKahani / afsana: characters, setting, beginning-middle-end, moral.\n\nClass 4: asaan comprehension — kaun, kahan, kya hua, kyun, kya seekha.\n\n## MISAAL\n\"Keelay ki kahani\" ya school library ki chhoti story — moral share karo.\n\n## KARO\nEk chhoti kahani parho aur 5 sawalat ke jawab likho (who/where/what/why/moral).\n\n## SAWAAL\n1. Character kya hota hai?\n2. Moral kya hai?\n3. Beginning-middle-end kyun?",
+      "quiz": {
+        "title": "Kahani Quiz",
+        "questions": [
+          {
+            "q": "Kahani ke log kaun kehlate hain?",
+            "a": "Characters",
+            "b": "Maps only",
+            "c": "Fonts only",
+            "d": "WiFi only",
+            "correct": "a",
+            "explanation": "Characters story ke log."
+          },
+          {
+            "q": "Moral kya hai?",
+            "a": "Seekh / naseehat",
+            "b": "Sirf title fancy",
+            "c": "Sirf page number",
+            "d": "Sirf cover color",
+            "correct": "a",
+            "explanation": "Moral = lesson."
+          },
+          {
+            "q": "Setting kya batati hai?",
+            "a": "Kahan / kab",
+            "b": "Sirf font size",
+            "c": "Sirf WiFi password",
+            "d": "Sirf score",
+            "correct": "a",
+            "explanation": "Place and time."
+          },
+          {
+            "q": "Comprehension mein pehla sawal aksar?",
+            "a": "Kaun / kya hua",
+            "b": "Sirf ignore text",
+            "c": "Sirf delete book",
+            "d": "Sirf sleep",
+            "correct": "a",
+            "explanation": "Who / what happened."
+          },
+          {
+            "q": "End mein kya clear hona chahiye?",
+            "a": "Masla resolve + seekh",
+            "b": "Sirf confusion",
+            "c": "Sirf blank",
+            "d": "Sirf noise",
+            "correct": "a",
+            "explanation": "Clear ending + moral."
+          }
+        ]
+      }
+    },
+    {
+      "title": "Grammar aur imla",
+      "description": "Ism, fail, jumlah, imla — Class 4",
+      "lesson": "## HOOK\nGalat imla se matlab badal sakta hai — sahi likhna power hai!\n\n## SAMJHAO\nClass 4 grammar: ism (noun), fail (verb), sifat (adjective), jumlah (sentence).\n\nImla: common words practice (school, kitab, dost, watan). Muhavare chhote level pe intro.\n\n## MISAAL\n\"Ali cricket khelta hai\" — Ali=ism, khelta=fail.\n\n## KARO\n10 words ka imla test (ghar walon se). 5 jumle banao: ism+fail.\n\n## SAWAAL\n1. Ism kya hai?\n2. Fail kya hai?\n3. Imla kyun zaroori?",
+      "quiz": {
+        "title": "Grammar Imla Quiz",
+        "questions": [
+          {
+            "q": "Ism kis cheez ka naam hai?",
+            "a": "Shakhs / cheez / jagah",
+            "b": "Sirf action",
+            "c": "Sirf color rule",
+            "d": "Sirf number only",
+            "correct": "a",
+            "explanation": "Noun = name."
+          },
+          {
+            "q": "Fail kya batata hai?",
+            "a": "Kaam / action",
+            "b": "Sirf place name",
+            "c": "Sirf color",
+            "d": "Sirf silence",
+            "correct": "a",
+            "explanation": "Verb = action."
+          },
+          {
+            "q": "Sifat kya karti hai?",
+            "a": "Ism ki khasiyat",
+            "b": "Sirf delete noun",
+            "c": "Sirf hide verb",
+            "d": "Sirf map scale",
+            "correct": "a",
+            "explanation": "Adjective describes noun."
+          },
+          {
+            "q": "Imla sahi na ho to?",
+            "a": "Matlab confuse ho sakta",
+            "b": "Hamesha better",
+            "c": "Kabhi farq nahi",
+            "d": "Sirf faster always",
+            "correct": "a",
+            "explanation": "Spelling matters."
+          },
+          {
+            "q": "Jumlah mein hona chahiye?",
+            "a": "Sense / poora khayal",
+            "b": "Sirf ek random letter",
+            "c": "Sirf emoji",
+            "d": "Sirf blank",
+            "correct": "a",
+            "explanation": "Complete thought."
+          }
+        ]
+      }
+    },
+    {
+      "title": "Tahrir",
+      "description": "Paragraph, darkhwast, chhoti kahani — Class 4",
+      "lesson": "## HOOK\nLikhna = apna khayal paper par — chhota paragraph bhi bari baat!\n\n## SAMJHAO\nTahrir types: paragraph, darkhwast (leave application), chhoti kahani.\n\nStructure: shuruat → asl baat → khatma. Saaf khat, simple alfaaz.\n\n## MISAAL\nPrincipal ko leave darkhwast — naam, class, wajah, date.\n\n## KARO\n1 paragraph \"Mera school\" (5 jumle). Ek short darkhwast draft.\n\n## SAWAAL\n1. Paragraph kya hota hai?\n2. Darkhwast kis ko?\n3. Tahrir mein pehla qadam?",
+      "quiz": {
+        "title": "Tahrir Quiz",
+        "questions": [
+          {
+            "q": "Paragraph kya hai?",
+            "a": "Connected jumlon ka group",
+            "b": "Sirf ek word",
+            "c": "Sirf emoji",
+            "d": "Sirf blank page",
+            "correct": "a",
+            "explanation": "Few sentences on one idea."
+          },
+          {
+            "q": "School leave darkhwast aksar kis ko?",
+            "a": "Principal / teacher",
+            "b": "Sirf cricketer",
+            "c": "Sirf shopkeeper only",
+            "d": "Sirf map",
+            "correct": "a",
+            "explanation": "School authority."
+          },
+          {
+            "q": "Tahrir se pehle kya?",
+            "a": "Idea / points socho",
+            "b": "Sirf random scribble",
+            "c": "Sirf panic",
+            "d": "Sirf delete all",
+            "correct": "a",
+            "explanation": "Plan first."
+          },
+          {
+            "q": "Darkhwast mein date kyun?",
+            "a": "Record / clarity",
+            "b": "Sirf decoration",
+            "c": "Sirf hide reason",
+            "d": "Sirf joke",
+            "correct": "a",
+            "explanation": "Date matters."
+          },
+          {
+            "q": "Achhi tahrir ki pehchan?",
+            "a": "Saaf + simple + poora matlab",
+            "b": "Sirf mushkil words",
+            "c": "Sirf shor",
+            "d": "Sirf copy-paste junk",
+            "correct": "a",
+            "explanation": "Clear and simple."
+          }
+        ]
+      }
+    }
+  ]
+}

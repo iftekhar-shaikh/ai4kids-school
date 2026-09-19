@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hamd aur Naat | AI4Kids Grade 4 Urdu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#e8f0ea;--board-deep:#c5d8c8;--sky:#7eb8d4;--sky2:#4a8fb8;
+    --accent:#0d5c3d;--ok:#2e7d4f;--ink:#1a2e22;--ink-soft:#4a5a4e;
+    --paper:#fdfaf3;--line:#d0dcc8;--gold:#d4a017;--no:#c4453a;
+    --hamd:#0d5c3d;--naat:#2f6fb5;
+    --fs-cap:clamp(14px, 3.8vw, 16px);--fs-xs:clamp(16px, 4.2vw, 18px);
+    --fs-sm:clamp(18px, 4.8vw, 20px);--fs-md:clamp(19px, 5.2vw, 22px);
+    --fs-lg:clamp(22px, 6vw, 26px);--fs-xl:clamp(30px, 8vw, 38px);--lh:1.5;
+  }
+  body.urdu{
+    --fs-cap:clamp(15px, 4vw, 17px);--fs-xs:clamp(17px, 4.5vw, 19px);
+    --fs-sm:clamp(19px, 5.2vw, 22px);--fs-md:clamp(21px, 5.6vw, 24px);
+    --fs-lg:clamp(24px, 6.5vw, 28px);--fs-xl:clamp(28px, 7.5vw, 36px);--lh:2.1;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;
+    font-size:var(--fs-sm);line-height:1.55;padding:0 0 40px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px;flex-wrap:wrap}
+  .brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+  .chip{
+    border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+    border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;
+    font-size:var(--fs-xs);cursor:pointer;min-height:44px;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .chip:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+  .sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+  .ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+  h1.ur{line-height:1.9}
+  .sec{margin-top:22px}
+  .sec h2{
+    font-size:var(--fs-lg);font-weight:800;margin:0 0 10px;color:var(--accent);
+    display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+  }
+  .tag{
+    display:inline-block;background:var(--accent);color:#fff;border-radius:999px;
+    padding:3px 12px;font-size:var(--fs-cap);font-weight:700;letter-spacing:.02em;
+  }
+  .story{
+    background:#fff8ea;border:2px dashed var(--gold);border-radius:16px;padding:14px 16px;
+    font-size:var(--fs-sm);color:var(--ink-soft);line-height:1.65;margin-bottom:4px;
+  }
+  body.urdu .story{line-height:var(--lh)}
+  .story b{color:var(--ink)}
+  .compare{display:flex;gap:10px;margin-top:12px}
+  .ccard{
+    flex:1;border:3px solid var(--ink);border-radius:18px;padding:14px 12px;text-align:center;
+    background:var(--paper);cursor:pointer;min-height:140px;
+    transition:transform .12s ease, box-shadow .12s ease;
+  }
+  .ccard:active{transform:scale(.98)}
+  .ccard.hamd{border-color:var(--hamd);background:linear-gradient(180deg,#e8f5ec,#fdfaf3)}
+  .ccard.naat{border-color:var(--naat);background:linear-gradient(180deg,#e8f0f8,#fdfaf3)}
+  .ccard.open{box-shadow:0 0 0 3px rgba(13,92,61,.25)}
+  .ccard .em{font-size:42px;line-height:1;display:block;margin-bottom:6px}
+  .ccard h3{margin:0 0 6px;font-size:var(--fs-md);font-weight:800}
+  .ccard p{margin:0;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.45}
+  body.urdu .ccard p{line-height:var(--lh)}
+  .ccard .who{
+    display:inline-block;margin-top:10px;background:var(--ink);color:#fff;
+    border-radius:999px;padding:4px 12px;font-size:var(--fs-cap);font-weight:700;
+  }
+  .ccard.hamd .who{background:var(--hamd)}
+  .ccard.naat .who{background:var(--naat)}
+  .checklist{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+  .citem{
+    display:flex;align-items:center;gap:12px;border:2.5px solid var(--line);
+    background:var(--paper);border-radius:14px;padding:12px 14px;cursor:pointer;
+    font:inherit;font-weight:700;font-size:var(--fs-sm);text-align:left;color:var(--ink);
+    min-height:56px;
+  }
+  body.urdu .citem{text-align:right;flex-direction:row-reverse}
+  .citem .box{
+    width:28px;height:28px;border:3px solid var(--ink);border-radius:8px;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;font-size:16px;background:#fff;
+  }
+  .citem[aria-pressed="true"]{border-color:var(--ok);background:#e8f2ed}
+  .citem[aria-pressed="true"] .box{background:var(--ok);border-color:var(--ok);color:#fff}
+  .citem .cem{font-size:26px;flex-shrink:0}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+  .vchip{
+    border:2.5px solid var(--line);background:var(--paper);border-radius:999px;
+    padding:10px 16px;font:inherit;font-size:var(--fs-sm);font-weight:800;
+    color:var(--ink);cursor:pointer;min-height:48px;
+  }
+  .vchip[aria-pressed="true"]{border-color:var(--accent);background:#e8f5ec;color:var(--accent)}
+  .vmean{
+    margin-top:12px;border:3px solid var(--ink);border-radius:16px;padding:14px 16px;
+    background:linear-gradient(180deg,#fff8ea,#fdfaf3);display:none;
+  }
+  .vmean.show{display:block}
+  .vmean .vem{font-size:36px;display:block;margin-bottom:4px}
+  .vmean .vw{font-weight:800;font-size:var(--fs-lg);margin:0 0 4px}
+  .vmean .vm{margin:0;color:var(--ink-soft);font-size:var(--fs-sm);line-height:1.5}
+  body.urdu .vmean .vm{line-height:var(--lh)}
+  .lines{display:flex;flex-direction:column;gap:10px;margin-top:10px}
+  .lbox{
+    border:2.5px dashed var(--gold);border-radius:16px;padding:14px 14px;
+    background:rgba(253,250,243,.98);cursor:pointer;
+  }
+  .lbox.hamd{border-color:var(--hamd);border-style:solid}
+  .lbox.naat{border-color:var(--naat);border-style:solid}
+  .lbox .lab{
+    display:inline-block;font-size:var(--fs-cap);font-weight:800;border-radius:999px;
+    padding:2px 10px;margin-bottom:8px;color:#fff;
+  }
+  .lbox.hamd .lab{background:var(--hamd)}
+  .lbox.naat .lab{background:var(--naat)}
+  .lbox .ll{font-weight:800;font-size:var(--fs-md);margin:0;line-height:1.5}
+  body.urdu .lbox .ll{line-height:var(--lh)}
+  .lbox .hint{margin:6px 0 0;font-size:var(--fs-xs);color:var(--ink-soft)}
+  .karo{
+    margin-top:10px;border:3px solid var(--accent);background:#e8f5ec;border-radius:16px;
+    padding:14px 16px;font-size:var(--fs-sm);font-weight:700;color:var(--accent);line-height:1.6;
+  }
+  body.urdu .karo{line-height:var(--lh)}
+  .karo ol{margin:8px 0 0;padding-inline-start:1.4em}
+  .karo li{margin-bottom:6px}
+  .misaal{
+    margin-top:10px;background:#eef2f8;border:2px solid var(--naat);border-radius:14px;
+    padding:12px 14px;font-size:var(--fs-xs);font-weight:700;color:var(--naat);line-height:1.6;
+  }
+  body.urdu .misaal{line-height:var(--lh)}
+  .quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+  .qhead{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+  .qhead h2{font-size:var(--fs-lg);font-weight:800;margin:0;flex:1}
+  .scorepill{
+    background:#fff6e2;border:2px solid var(--gold);border-radius:999px;
+    padding:7px 14px;font-weight:800;font-size:var(--fs-xs);
+  }
+  .q{margin-bottom:26px}
+  .q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+  .q p.ur{font-weight:400}
+  .opt{
+    display:block;width:100%;text-align:left;margin-bottom:10px;
+    border:2.5px solid var(--line);background:var(--paper);border-radius:14px;
+    padding:14px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);
+    min-height:56px;font-weight:700;
+  }
+  .opt.ur{text-align:right;line-height:var(--lh)}
+  .opt:hover{border-color:var(--ink)}
+  .opt.right{border-color:var(--ok);background:#e8f2ed}
+  .opt.wrong{border-color:var(--no);background:#fbeae8}
+  .fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none;line-height:1.6}
+  .fb.show{display:block}
+  .donebox{
+    margin-top:14px;border:3px solid var(--ok);background:#e8f2ed;border-radius:16px;
+    padding:16px;text-align:center;display:none;
+  }
+  .donebox.show{display:block}
+  .donebox b{font-size:var(--fs-lg);display:block;margin-bottom:4px}
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:var(--fs-xs);color:var(--ink-soft)}
+  @media (min-width:820px){
+    .wrap{max-width:920px;display:grid;gap:0 28px;grid-template-columns:1fr 1fr;
+      grid-template-areas:"bar bar" "head head" "hook hook" "left right" "lines lines" "karo karo" "quiz quiz" "foot foot";
+      align-items:start}
+    .bar{grid-area:bar}.head{grid-area:head}.hook{grid-area:hook}
+    .left{grid-area:left}.right{grid-area:right}
+    .lines-sec{grid-area:lines}.karo-sec{grid-area:karo}
+    .quiz{grid-area:quiz;margin-top:34px} footer{grid-area:foot}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition-duration:.01ms !important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="brand">AI4Kids · Grade 4 · Urdu</span>
+    <button class="chip" id="langBtn" aria-pressed="false" type="button">اردو</button>
+    <button class="chip" id="speakBtn" aria-label="Sunlo" type="button">🔊</button>
+  </div>
+
+  <div class="head">
+    <h1 id="title"></h1>
+    <p class="sub" id="subtitle"></p>
+  </div>
+
+  <div class="hook sec">
+    <h2><span class="tag" id="hookTag">HOOK</span> <span id="hookHead"></span></h2>
+    <p class="story" id="hookText"></p>
+  </div>
+
+  <div class="left">
+    <div class="sec">
+      <h2><span class="tag" id="samTag">SAMJHAO</span> <span id="samHead"></span></h2>
+      <p class="story" id="samText"></p>
+      <div class="compare" id="compare">
+        <button type="button" class="ccard hamd" id="cardHamd" aria-pressed="false">
+          <span class="em">💚</span>
+          <h3 id="hamdTitle"></h3>
+          <p id="hamdDesc"></p>
+          <span class="who" id="hamdWho"></span>
+        </button>
+        <button type="button" class="ccard naat" id="cardNaat" aria-pressed="false">
+          <span class="em">💙</span>
+          <h3 id="naatTitle"></h3>
+          <p id="naatDesc"></p>
+          <span class="who" id="naatWho"></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="sec">
+      <h2 id="adabHead"></h2>
+      <p class="story" id="adabIntro"></p>
+      <div class="checklist" id="checklist"></div>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="sec">
+      <h2 id="vocabHead"></h2>
+      <p class="story" id="vocabIntro"></p>
+      <div class="chips" id="vocabChips"></div>
+      <div class="vmean" id="vmean">
+        <span class="vem" id="vEm"></span>
+        <p class="vw" id="vWord"></p>
+        <p class="vm" id="vMean"></p>
+      </div>
+    </div>
+
+    <div class="sec">
+      <h2><span class="tag" id="misTag">MISAAL</span> <span id="misHead"></span></h2>
+      <p class="misaal" id="misaalText"></p>
+    </div>
+  </div>
+
+  <div class="lines-sec sec">
+    <h2 id="linesHead"></h2>
+    <p class="story" id="linesIntro"></p>
+    <div class="lines" id="lines"></div>
+  </div>
+
+  <div class="karo-sec sec">
+    <h2><span class="tag" id="karoTag">KARO</span> <span id="karoHead"></span></h2>
+    <div class="karo" id="karoBox"></div>
+  </div>
+
+  <div class="quiz">
+    <div class="qhead">
+      <h2 id="quizHead"></h2>
+      <span class="scorepill" id="scorePill">0 / 5</span>
+      <button type="button" class="chip" id="newQuiz"></button>
+    </div>
+    <div id="quizBox"></div>
+    <div class="donebox" id="doneBox">
+      <b id="doneTitle"></b>
+      <span id="doneDetail"></span>
+    </div>
+  </div>
+
+  <footer>
+    <p id="foot"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  function $(id){ return document.getElementById(id); }
+  function isolate(s){ return "\u2066" + s + "\u2069"; }
+  function setText(el, str){
+    if (!el) return;
+    el.textContent = (lang === "ur") ? isolate(str) : str;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+  function setHTML(el, html){
+    if (!el) return;
+    el.innerHTML = html;
+    el.classList.toggle("ur", lang === "ur");
+    el.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+  }
+  function t(o){ return (o && o[lang]) || (o && o.en) || ""; }
+
+  var lang = "en";
+  var adabDone = {};
+  var vocabSel = null;
+  var quizAnswered = {};
+  var quizScore = 0;
+
+  var T = {
+    title:{en:"Hamd aur Naat", ur:"حمد اور نعت"},
+    sub:{en:"Hamd = Allah ki tarif; Naat = Nabi ﷺ ki tarif — Class 4 ke pyaare alfaaz!",
+         ur:"حمد = اللہ کی تعریف؛ نعت = نبی ﷺ کی تعریف — جماعت ۴ کے پیارے الفاظ!"},
+    hookHead:{en:"Why we love these words", ur:"یہ الفاظ کیوں پیارے ہیں"},
+    hook:{en:"Allah ki tarif aur Nabi ﷺ ki mohabbat — Urdu shayari ka sab se pyaara hissa!",
+          ur:"اللہ کی تعریف اور نبی ﷺ کی محبت — اردو شاعری کا سب سے پیارا حصہ!"},
+    samHead:{en:"What is Hamd? What is Naat?", ur:"حمد کیا؟ نعت کیا؟"},
+    sam:{en:"Hamd = Allah Ta'ala ki tarif aur shukr. Naat = Rasool Allah ﷺ ki sifaat aur mohabbat. Tap the cards!",
+         ur:"حمد = اللہ تعالیٰ کی تعریف اور شکر۔ نعت = رسول اللہ ﷺ کی صفات اور محبت۔ کارڈ ٹیپ کرو!"},
+    hamdTitle:{en:"Hamd", ur:"حمد"},
+    hamdDesc:{en:"Praise and thanks for Allah — the One who made us.",
+              ur:"اللہ کی تعریف اور شکر — جنہوں نے ہمیں بنایا۔"},
+    hamdWho:{en:"Who? Allah Ta'ala", ur:"کس کی؟ اللہ تعالیٰ"},
+    naatTitle:{en:"Naat", ur:"نعت"},
+    naatDesc:{en:"Love and praise for Nabi ﷺ — our beloved Messenger.",
+              ur:"نبی ﷺ کی محبت اور تعریف — ہمارے پیارے رسول۔"},
+    naatWho:{en:"Who? Nabi ﷺ", ur:"کس کی؟ نبی ﷺ"},
+    adabHead:{en:"✅ Adab checklist", ur:"✅ ادب کی فہرست"},
+    adabIntro:{en:"Hamd/Naat padhte waqt yeh 3 adaab yaad rakho. Tap to tick!",
+               ur:"حمد/نعت پڑھتے وقت یہ ۳ آداب یاد رکھو۔ ٹیپ کرو!"},
+    vocabHead:{en:"📚 Word chips — tap for meaning", ur:"📚 الفاظ — معنی کے لیے ٹیپ کرو"},
+    vocabIntro:{en:"Class 4 ke aasan alfaaz: Rabb, Rehman, Rasool, Noor, rehmat.",
+                ur:"جماعت ۴ کے آسان الفاظ: رب، رحمان، رسول، نور، رحمت۔"},
+    linesHead:{en:"📖 Short lines to read", ur:"📖 پڑھنے کی چھوٹی سطریں"},
+    linesIntro:{en:"2 Hamd + 2 Naat — soft voice, dil se. Original short educational lines only.",
+                ur:"۲ حمد + ۲ نعت — نرم آواز، دل سے۔ صرف چھوٹی تعلیمی سطریں۔"},
+    misHead:{en:"In real life", ur:"حقیقی زندگی میں"},
+    misaal:{en:"School assembly mein chhoti Naat — bacche mil kar \"Ya Nabi\" ke alfaaz soft bolte hain.",
+            ur:"اسکول اسمبلی میں چھوٹی نعت — بچے مل کر \"یا نبی\" کے الفاظ نرم بولتے ہیں۔"},
+    karoHead:{en:"Your turn", ur:"تمہاری باری"},
+    karo:{en:"<ol><li>Ek Hamd aur ek Naat ka <b>2-2 misre</b> likho (ya yaad karo).</li><li><b>3 adaab</b> ki list banao (upar checklist dekho!).</li></ol>",
+          ur:"<ol><li>ایک حمد اور ایک نعت کے <b>۲-۲ مصرعے</b> لکھو (یا یاد کرو)۔</li><li><b>۳ آداب</b> کی فہرست بناؤ (اوپر چیک لسٹ دیکھو!)۔</li></ol>"},
+    quiz:{en:"Hamd aur Naat Quiz", ur:"حمد اور نعت کوئز"},
+    newQuiz:{en:"New quiz", ur:"نیا کوئز"},
+    score:{en:"Score", ur:"اسکور"},
+    doneTitle:{en:"Shabash!", ur:"شاباش!"},
+    doneAll:{en:"You finished all 5 — respectful and smart!", ur:"۵وں سوال ہو گئے — باادب اور ہوشیار!"},
+    doneSome:{en:"Keep practising with adab!", ur:"ادب کے ساتھ مشق جاری رکھو!"},
+    foot:{en:"AI4Kids — Islamabad bilingual school. Offline · Grade 4 Urdu · WhatsApp 0337 1468899",
+          ur:"اے آئی فور کڈز — اسلام آباد۔ آف لائن · جماعت ۴ اردو · واٹس ایپ 0337 1468899"}
+  };
+
+  var ADAB = [
+    {id:"soft", em:"🤫", en:"Dheemi awaz — soft, clear voice", ur:"دھیمی آواز — نرم، صاف آواز"},
+    {id:"dil", em:"💚", en:"Dil se — feel love and shukr", ur:"دل سے — محبت اور شکر محسوس کرو"},
+    {id:"ehtram", em:"🙏", en:"Ehtram — sit quietly, no jokes", ur:"احترام — خاموش بیٹھو، مذاق نہیں"}
+  ];
+
+  var VOCAB = [
+    {id:"rabb", em:"🌍", en:"Rabb", ur:"رب",
+     mean:{en:"Our Lord — the One who cares for us.", ur:"ہمارا رب — جو ہماری پرورش کرتے ہیں۔"}},
+    {id:"rehman", em:"☀️", en:"Rehman", ur:"رحمان",
+     mean:{en:"The Most Kind — Allah's beautiful name.", ur:"بہت مہربان — اللہ کا خوبصورت نام۔"}},
+    {id:"rasool", em:"📖", en:"Rasool", ur:"رسول",
+     mean:{en:"Messenger — Nabi ﷺ who brought Allah's message.", ur:"پیغامبر — نبی ﷺ جنہوں نے اللہ کا پیغام لایا۔"}},
+    {id:"noor", em:"✨", en:"Noor", ur:"نور",
+     mean:{en:"Light — guidance and brightness.", ur:"روشنی — ہدایت اور چمک۔"}},
+    {id:"rehmat", em:"🤲", en:"Rehmat", ur:"رحمت",
+     mean:{en:"Meharbani — kindness and mercy.", ur:"مہربانی — رحم اور نرمی۔"}}
+  ];
+
+  var LINES = [
+    {id:"h1", kind:"hamd", lab:{en:"Hamd", ur:"حمد"},
+     en:"Allah is my Rabb — so kind and near.",
+     ur:"اللہ میرا رب ہے — بہت مہربان اور قریب۔"},
+    {id:"h2", kind:"hamd", lab:{en:"Hamd", ur:"حمد"},
+     en:"All shukr to Allah for every bright day.",
+     ur:"ہر روشن دن کا شکر اللہ کا۔"},
+    {id:"n1", kind:"naat", lab:{en:"Naat", ur:"نعت"},
+     en:"Nabi ﷺ taught us soft words and truth.",
+     ur:"نبی ﷺ نے نرم بات اور سچ سکھایا۔"},
+    {id:"n2", kind:"naat", lab:{en:"Naat", ur:"نعت"},
+     en:"We send salam with love for Nabi ﷺ.",
+     ur:"ہم نبی ﷺ کے لیے پیار سے سلام بھیجتے ہیں۔"}
+  ];
+
+  /* Quiz exact from brief — bilingual labels for kids */
+  var QUIZ = [
+    {
+      q:{en:"Hamd kis ki tarif hoti hai?", ur:"حمد کس کی تعریف ہوتی ہے؟"},
+      opts:[
+        {k:"a", en:"Allah Ta'ala", ur:"اللہ تعالیٰ"},
+        {k:"b", en:"Sirf school", ur:"صرف اسکول"},
+        {k:"c", en:"Sirf cricket", ur:"صرف کرکٹ"},
+        {k:"d", en:"Sirf map", ur:"صرف نقشہ"}
+      ],
+      correct:"a",
+      exp:{en:"Hamd Allah ki tarif hai.", ur:"حمد اللہ کی تعریف ہے۔"}
+    },
+    {
+      q:{en:"Naat kis ki mohabbat/tarif hai?", ur:"نعت کس کی محبت/تعریف ہے؟"},
+      opts:[
+        {k:"a", en:"Nabi ﷺ", ur:"نبی ﷺ"},
+        {k:"b", en:"Sirf doston", ur:"صرف دوستوں"},
+        {k:"c", en:"Sirf toys", ur:"صرف کھلونے"},
+        {k:"d", en:"Sirf games", ur:"صرف کھیل"}
+      ],
+      correct:"a",
+      exp:{en:"Naat Nabi ﷺ ki sifaat hai.", ur:"نعت نبی ﷺ کی صفات ہے۔"}
+    },
+    {
+      q:{en:"Hamd/Naat padhte waqt kya chahiye?", ur:"حمد/نعت پڑھتے وقت کیا چاہیے؟"},
+      opts:[
+        {k:"a", en:"Adab aur dheemi awaz", ur:"ادب اور دھیمی آواز"},
+        {k:"b", en:"Shor", ur:"شور"},
+        {k:"c", en:"Bhagna", ur:"بھاگنا"},
+        {k:"d", en:"Hansi udana", ur:"ہنسی اڑانا"}
+      ],
+      correct:"a",
+      exp:{en:"Adab zaroori hai.", ur:"ادب ضروری ہے۔"}
+    },
+    {
+      q:{en:"Rehmat ka qareebi matlab?", ur:"رحمت کا قریبی مطلب؟"},
+      opts:[
+        {k:"a", en:"Meharbani", ur:"مہربانی"},
+        {k:"b", en:"Gussa", ur:"غصہ"},
+        {k:"c", en:"Andhera", ur:"اندھیرا"},
+        {k:"d", en:"Shor", ur:"شور"}
+      ],
+      correct:"a",
+      exp:{en:"Rehmat = meharbani.", ur:"رحمت = مہربانی۔"}
+    },
+    {
+      q:{en:"Assembly mein Naat kyun?", ur:"اسمبلی میں نعت کیوں؟"},
+      opts:[
+        {k:"a", en:"Mohabbat aur yaad", ur:"محبت اور یاد"},
+        {k:"b", en:"Sirf marks", ur:"صرف نمبرز"},
+        {k:"c", en:"Sirf noise", ur:"صرف شور"},
+        {k:"d", en:"Sirf race", ur:"صرف دوڑ"}
+      ],
+      correct:"a",
+      exp:{en:"Mohabbat se parhte hain.", ur:"محبت سے پڑھتے ہیں۔"}
+    }
+  ];
+
+  function paintStatic(){
+    document.title = "Hamd aur Naat | AI4Kids Grade 4 Urdu";
+    setText($("title"), t(T.title));
+    setText($("subtitle"), t(T.sub));
+    setText($("hookTag"), "HOOK");
+    setText($("hookHead"), t(T.hookHead));
+    setText($("hookText"), t(T.hook));
+    setText($("samTag"), "SAMJHAO");
+    setText($("samHead"), t(T.samHead));
+    setText($("samText"), t(T.sam));
+    setText($("hamdTitle"), t(T.hamdTitle));
+    setText($("hamdDesc"), t(T.hamdDesc));
+    setText($("hamdWho"), t(T.hamdWho));
+    setText($("naatTitle"), t(T.naatTitle));
+    setText($("naatDesc"), t(T.naatDesc));
+    setText($("naatWho"), t(T.naatWho));
+    setText($("adabHead"), t(T.adabHead));
+    setText($("adabIntro"), t(T.adabIntro));
+    setText($("vocabHead"), t(T.vocabHead));
+    setText($("vocabIntro"), t(T.vocabIntro));
+    setText($("linesHead"), t(T.linesHead));
+    setText($("linesIntro"), t(T.linesIntro));
+    setText($("misTag"), "MISAAL");
+    setText($("misHead"), t(T.misHead));
+    setText($("misaalText"), t(T.misaal));
+    setText($("karoTag"), "KARO");
+    setText($("karoHead"), t(T.karoHead));
+    setHTML($("karoBox"), t(T.karo));
+    setText($("quizHead"), t(T.quiz));
+    setText($("newQuiz"), t(T.newQuiz));
+    setText($("foot"), t(T.foot));
+    $("langBtn").textContent = lang === "en" ? "اردو" : "EN";
+    $("langBtn").setAttribute("aria-pressed", lang === "ur" ? "true" : "false");
+    document.body.classList.toggle("urdu", lang === "ur");
+    document.body.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+    document.documentElement.lang = lang === "ur" ? "ur" : "en";
+    paintAdab();
+    paintVocab();
+    paintLines();
+    updateScore();
+    if (vocabSel) showVocab(vocabSel);
+    else $("vmean").classList.remove("show");
+  }
+
+  function paintAdab(){
+    var box = $("checklist");
+    box.innerHTML = "";
+    ADAB.forEach(function(a){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "citem";
+      b.setAttribute("aria-pressed", adabDone[a.id] ? "true" : "false");
+      b.innerHTML = '<span class="box">' + (adabDone[a.id] ? "✓" : "") + '</span>' +
+                    '<span class="cem">' + a.em + '</span>' +
+                    '<span></span>';
+      var lab = b.querySelector("span:last-child");
+      setText(lab, t({en:a.en, ur:a.ur}));
+      b.addEventListener("click", function(){
+        adabDone[a.id] = !adabDone[a.id];
+        paintAdab();
+      });
+      box.appendChild(b);
+    });
+  }
+
+  function paintVocab(){
+    var box = $("vocabChips");
+    box.innerHTML = "";
+    VOCAB.forEach(function(v){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "vchip";
+      b.setAttribute("aria-pressed", vocabSel === v.id ? "true" : "false");
+      setText(b, t({en:v.en, ur:v.ur}));
+      b.addEventListener("click", function(){
+        vocabSel = (vocabSel === v.id) ? null : v.id;
+        paintVocab();
+        if (vocabSel) showVocab(vocabSel);
+        else $("vmean").classList.remove("show");
+      });
+      box.appendChild(b);
+    });
+  }
+
+  function showVocab(id){
+    var v = VOCAB.filter(function(x){ return x.id === id; })[0];
+    if (!v) return;
+    $("vEm").textContent = v.em;
+    setText($("vWord"), t({en:v.en, ur:v.ur}));
+    setText($("vMean"), t(v.mean));
+    $("vmean").classList.add("show");
+  }
+
+  function paintLines(){
+    var box = $("lines");
+    box.innerHTML = "";
+    LINES.forEach(function(L){
+      var d = document.createElement("button");
+      d.type = "button";
+      d.className = "lbox " + L.kind;
+      d.innerHTML = '<span class="lab"></span><p class="ll"></p><p class="hint"></p>';
+      setText(d.querySelector(".lab"), t(L.lab));
+      setText(d.querySelector(".ll"), t({en:L.en, ur:L.ur}));
+      setText(d.querySelector(".hint"), lang === "en" ? "Tap to hear 🔊" : "سننے کے لیے ٹیپ 🔊");
+      d.addEventListener("click", function(){
+        doSpeak(t({en:L.en, ur:L.ur}), lang);
+      });
+      box.appendChild(d);
+    });
+  }
+
+  function updateScore(){
+    var n = Object.keys(quizAnswered).length;
+    var s = quizScore;
+    setText($("scorePill"), (lang === "en" ? "Score " : "اسکور ") + s + " / 5");
+    if (n >= 5){
+      $("doneBox").classList.add("show");
+      setText($("doneTitle"), t(T.doneTitle));
+      setText($("doneDetail"), s >= 4 ? t(T.doneAll) : t(T.doneSome) + " (" + s + "/5)");
+    } else {
+      $("doneBox").classList.remove("show");
+    }
+  }
+
+  function paintQuiz(){
+    var box = $("quizBox");
+    box.innerHTML = "";
+    quizAnswered = {};
+    quizScore = 0;
+    QUIZ.forEach(function(item, qi){
+      var div = document.createElement("div");
+      div.className = "q";
+      var p = document.createElement("p");
+      setText(p, (qi + 1) + ". " + t(item.q));
+      div.appendChild(p);
+      item.opts.forEach(function(o){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt";
+        setText(b, o.k.toUpperCase() + ") " + t(o));
+        b.addEventListener("click", function(){
+          if (quizAnswered[qi]) return;
+          quizAnswered[qi] = true;
+          var ok = o.k === item.correct;
+          if (ok) quizScore++;
+          var opts = div.querySelectorAll(".opt");
+          opts.forEach(function(ob, oi){
+            ob.disabled = true;
+            if (item.opts[oi].k === item.correct) ob.classList.add("right");
+            else if (ob === b && !ok) ob.classList.add("wrong");
+          });
+          var fb = document.createElement("p");
+          fb.className = "fb show";
+          setText(fb, (ok ? "✓ " : "→ ") + t(item.exp));
+          div.appendChild(fb);
+          updateScore();
+        });
+        div.appendChild(b);
+      });
+      box.appendChild(div);
+    });
+    updateScore();
+  }
+
+  /* Speak — optional Web Speech */
+  var speakTimer = null;
+  function doSpeak(text, speakLang){
+    if (!window.speechSynthesis) return;
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = speakLang === "ur" ? "ur-PK" : "en-US";
+    u.rate = 0.92;
+    try {
+      var voices = window.speechSynthesis.getVoices() || [];
+      var prefer = speakLang === "ur"
+        ? voices.filter(function(v){ return /ur|hi-IN|hi_IN/i.test(v.lang); })
+        : voices.filter(function(v){ return /^en/i.test(v.lang); });
+      if (prefer[0]) u.voice = prefer[0];
+    } catch (e) {}
+    window.speechSynthesis.speak(u);
+  }
+
+  function speakPage(){
+    var bits = [
+      t(T.title),
+      t(T.hook),
+      t(T.sam),
+      t(T.hamdDesc),
+      t(T.naatDesc)
+    ];
+    doSpeak(bits.join(". "), lang);
+  }
+
+  $("langBtn").addEventListener("click", function(){
+    lang = lang === "en" ? "ur" : "en";
+    if (window.speechSynthesis) window.speechSynthesis.cancel();
+    paintStatic();
+    /* rebuild quiz keeping answers would be complex — re-paint fresh labels on answered state */
+    rebuildQuizLabels();
+  });
+
+  function rebuildQuizLabels(){
+    /* Full re-render loses answers — re-paint quiz fresh is OK for Grade 4 lang flip */
+    var answered = quizAnswered;
+    var score = quizScore;
+    var keys = Object.keys(answered);
+    if (keys.length === 0){ paintQuiz(); return; }
+    /* Keep state: re-draw with locked answers */
+    var box = $("quizBox");
+    box.innerHTML = "";
+    QUIZ.forEach(function(item, qi){
+      var div = document.createElement("div");
+      div.className = "q";
+      var p = document.createElement("p");
+      setText(p, (qi + 1) + ". " + t(item.q));
+      div.appendChild(p);
+      var locked = !!answered[qi];
+      item.opts.forEach(function(o){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt";
+        setText(b, o.k.toUpperCase() + ") " + t(o));
+        if (locked){
+          b.disabled = true;
+          if (o.k === item.correct) b.classList.add("right");
+        } else {
+          b.addEventListener("click", function(){
+            if (quizAnswered[qi]) return;
+            quizAnswered[qi] = true;
+            var ok = o.k === item.correct;
+            if (ok) quizScore++;
+            var opts = div.querySelectorAll(".opt");
+            opts.forEach(function(ob, oi){
+              ob.disabled = true;
+              if (item.opts[oi].k === item.correct) ob.classList.add("right");
+              else if (ob === b && !ok) ob.classList.add("wrong");
+            });
+            var fb = document.createElement("p");
+            fb.className = "fb show";
+            setText(fb, (ok ? "✓ " : "→ ") + t(item.exp));
+            div.appendChild(fb);
+            updateScore();
+          });
+        }
+        div.appendChild(b);
+      });
+      if (locked){
+        var fb = document.createElement("p");
+        fb.className = "fb show";
+        setText(fb, "→ " + t(item.exp));
+        div.appendChild(fb);
+      }
+      box.appendChild(div);
+    });
+    quizScore = score;
+    quizAnswered = answered;
+    updateScore();
+  }
+
+  $("speakBtn").addEventListener("click", function(){
+    if (speakTimer){ clearTimeout(speakTimer); speakTimer = null; }
+    if (window.speechSynthesis && window.speechSynthesis.speaking){
+      window.speechSynthesis.cancel();
+      return;
+    }
+    speakTimer = setTimeout(function(){ speakTimer = null; speakPage(); }, 80);
+  });
+
+  $("cardHamd").addEventListener("click", function(){
+    $("cardHamd").classList.toggle("open");
+    $("cardHamd").setAttribute("aria-pressed",
+      $("cardHamd").classList.contains("open") ? "true" : "false");
+    doSpeak(t(T.hamdTitle) + ". " + t(T.hamdDesc) + ". " + t(T.hamdWho), lang);
+  });
+  $("cardNaat").addEventListener("click", function(){
+    $("cardNaat").classList.toggle("open");
+    $("cardNaat").setAttribute("aria-pressed",
+      $("cardNaat").classList.contains("open") ? "true" : "false");
+    doSpeak(t(T.naatTitle) + ". " + t(T.naatDesc) + ". " + t(T.naatWho), lang);
+  });
+
+  $("newQuiz").addEventListener("click", function(){ paintQuiz(); });
+
+  paintStatic();
+  paintQuiz();
+})();
+</script>
+</body>
+</html>

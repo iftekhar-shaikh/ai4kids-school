@@ -1115,6 +1115,7 @@ def render_topic_interactive(subject_key, grade, topic_title):
     (4, "english", "Vocabulary building"): "interactives/g4-vocabulary.html",
     (4, "english", "Essay aur diary"): "interactives/g4-essay-diary.html",
     (4, "english", "Formal letter"): "interactives/g4-formal-letter.html",
+    (4, "urdu", "Hamd aur Naat"): "interactives/g4-hamd-naat.html",
     (4, "math", "Numbers 99,999 tak"): "interactives/g4-numbers-99999.html",
     (4, "math", "Number operations"): "interactives/g4-number-operations.html",
     (4, "math", "Factors aur multiples"): "interactives/g4-factors-multiples.html",
