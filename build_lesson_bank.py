@@ -544,32 +544,21 @@ function toggleKey() {{
 let __reading = false, __wordSpans = [];
 function cleanForSpeech(s) {{
   if (!s) return '';
-  let t = String(s);
-  // strip markdown headers / bullets for clearer speech
-  t = t.replace(/^#+\s*/gm, '');
-  t = t.replace(/^[-*]\s+/gm, '');
-  t = t.replace(/\*\*?/g, '');
-  t = t.replace(/`+/g, '');
-  // Roman Urdu: expand common abbreviations for TTS
-  const map = [
-    [/\bAI\b/g, 'A I'],
-    [/\b3D\b/g, 'three D'],
-    [/\bkya\b/gi, 'kya'],
-    [/\bhain\b/gi, 'hain'],
-    [/\bhai\b/gi, 'hai'],
-    [/se /gi, 'se '],
-    // help Hindi/Urdu TTS: insert spaces around Latin clumps already spaced
-  ];
-  // Soft pauses after section labels
-  t = t.replace(/\bHOOK\b/gi, 'Hook. ');
-  t = t.replace(/\bSAMJHAO\b/gi, 'Samjhao. ');
-  t = t.replace(/\bMISAAL\b/gi, 'Misaal. ');
-  t = t.replace(/\bKARO\b/gi, 'Karo. ');
-  t = t.replace(/\bSAWAAL\b/gi, 'Sawaal. ');
-  t = t.replace(/\n{2,}/g, '. ');
-  t = t.replace(/\n/g, ' ');
-  t = t.replace(/\s+/g, ' ').trim();
-  return t;
+  let out = String(s);
+  out = out.replace(/^#+\\s*/gm, '');
+  out = out.replace(/^[-*]\\s+/gm, '');
+  out = out.replace(/\\*\\*?/g, '');
+  out = out.replace(/`+/g, '');
+  out = out.replace(/\\bAI\\b/g, 'A I');
+  out = out.replace(/\\b3D\\b/g, 'three D');
+  out = out.replace(/\\bHOOK\\b/gi, 'Hook. ');
+  out = out.replace(/\\bSAMJHAO\\b/gi, 'Samjhao. ');
+  out = out.replace(/\\bMISAAL\\b/gi, 'Misaal. ');
+  out = out.replace(/\\bKARO\\b/gi, 'Karo. ');
+  out = out.replace(/\\bSAWAAL\\b/gi, 'Sawaal. ');
+  out = out.replace(/\\n+/g, '. ');
+  out = out.replace(/\\s+/g, ' ').trim();
+  return out;
 }}
 function escHtml(s) {{ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }}
 function tokenizeRead(text) {{

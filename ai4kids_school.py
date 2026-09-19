@@ -1985,7 +1985,7 @@ def autoplay_tts(text):
             f'''<script>
   (function(){{try{{
     var u = new SpeechSynthesisUtterance("{safe}");
-    u.lang = "hi-IN"; u.rate = 0.9;
+    u.lang = "hi-IN"; u.rate = 0.82;
     window.speechSynthesis.cancel();
     window.speechSynthesis.speak(u);
   }}catch(e){{}}}})();
@@ -2709,7 +2709,7 @@ playBtn.onclick = () => {
   const v = chosenVoice();
   const u = new W.SpeechSynthesisUtterance(clean);
   if (v) { u.voice = v; u.lang = v.lang; }
-  u.rate = 0.88;
+  u.rate = 0.82;
   u.pitch = 1.0;
   playBtn.innerHTML = '&#9654; Bol raha hai...';
   status.textContent = v ? ('Bol raha hai: ' + v.name) : 'Bol raha hai...';
