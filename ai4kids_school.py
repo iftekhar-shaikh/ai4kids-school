@@ -2654,7 +2654,7 @@ def render_html_viewers():
 
     if st.session_state.get("view_lessonbank"):
         st.markdown("#### 📚 Lesson Bank")
-        st.caption("Grid browse. App: neeche topic dabao — Sabaq + Sunlo → App → Quiz.")
+        st.caption("Grid sirf browse. Khelo = pehle modal/grid band, phir neeche Sabaq → App → Quiz.")
         if st.button("✖️ Lesson Bank band karo", key="lb_close_top"):
             st.session_state.view_lessonbank = False
             st.session_state.pop("lb_topic_key", None)

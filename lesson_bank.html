@@ -4699,7 +4699,7 @@ function openModal(i) {
   let html = `<h2>${t.emoji} ${t.title}</h2>
   <p class="meta">${t.subj} • Grade ${t.grade} • ${t.desc}</p>`;
 
-  // 1) Lesson + Sunlo
+  // Lesson + Sunlo only — Khelo is NOT inside the grid modal
   if (t.lesson) {
     window.__lessonRaw = t.lesson;
     html += `<div class="read-bar">
@@ -4711,17 +4711,14 @@ function openModal(i) {
     html += '<p style="color:#999;padding:10px;font-size:1.1rem">Lesson abhi available nahi hai.</p>';
   }
 
-  // 2) Khelo (opens under-grid Streamlit panel — cannot run inside this iframe)
+  // Close grid first, then open under-grid panel (Sabaq → App → Quiz)
   if (t.interactive_file) {
-    const label = t.interactive_label || 'Khelo — interactive';
-    html += `<div class="khelo-top" style="margin-top:14px">
-      <button type="button" class="khelo-go" id="kheloBelowBtn" style="background:#8e44ad;width:100%">🎮 ${label}</button>
-      <span class="hint">App grid ke NEACHE list se topic dabao (Sabaq+Sunlo → App → Quiz). Iframe ke andar app block hoti hai.</span>
-      <div id="kheloStatus" style="margin-top:8px;font-size:1rem;color:#6c3483"></div>
+    html += `<div style="margin-top:14px;padding:12px;background:#f5eef8;border-radius:12px;border-left:4px solid #8e44ad">
+      <p style="margin:0 0 10px;font-size:1.05rem">Khelo grid ke <b>bahar</b> chalta hai. Pehle yeh modal band karo.</p>
+      <button type="button" class="khelo-go" id="kheloBelowBtn" style="background:#8e44ad;width:100%">✖️ Band karo → neeche app kholo</button>
     </div>`;
   }
 
-  // 3) Quiz
   if (t.questions && t.questions.length) {
     window.__curQuestions = t.questions;
     __score = 0; __answered = 0; __keyShown = false;
@@ -4752,12 +4749,16 @@ function openModal(i) {
   document.getElementById('modal-content').innerHTML = html;
   if (t.interactive_file) {
     const bBelow = document.getElementById('kheloBelowBtn');
-    if (bBelow) bBelow.onclick = function() { openKheloBelow(t); };
+    if (bBelow) bBelow.onclick = function() {
+      closeModal();
+      openKheloBelow(t);
+    };
   }
   document.getElementById('modal').classList.add('open');
 }
 
 function openKheloBelow(t) {
+  try { closeModal(); } catch (e) {}
   try {
     localStorage.setItem('ai4kids_lb_khelo', JSON.stringify({
       grade: t.grade, sk: t.sk, title: t.title, ts: Date.now()
@@ -4774,9 +4775,10 @@ function openKheloBelow(t) {
     document.body.appendChild(a);
     a.click();
     a.remove();
-  } catch (e) {}
-  var s = document.getElementById('kheloStatus');
-  if (s) s.textContent = 'Upar Khelo panel mein topic set ho jayega — sabaq ke neeche app dekho.';
+  } catch (e) {
+    var s = document.getElementById('kheloStatus');
+    if (s) s.textContent = 'Modal band. Neeche list se same topic dabao — wahan app chalegi.';
+  }
 }
 
 function closeModal() {
