@@ -2423,6 +2423,165 @@ register = load_register()
 LESSON_BANK_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "lesson_bank.html")
 CURRICULUM_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "curriculum.html")
 
+
+def _lb_load_all_topics():
+    """Flatten kb/grade_*/**.json for Streamlit Lesson Bank (no nested HTML iframe)."""
+    import json as _json
+    rows = []
+    meta = {
+        "ai": ("AI & Technology", "🤖"),
+        "math": ("Hisaab (Math)", "🔢"),
+        "english": ("English", "📚"),
+        "science": ("General Science", "🔬"),
+        "robotics": ("Automation & Robotics", "⚙️"),
+        "social": ("Social Studies", "🌍"),
+        "islamiat": ("Islamiat", "🕌"),
+        "urdu": ("Urdu", "📗"),
+    }
+    root = Path(_app("kb")) if "_app" in globals() else Path(__file__).resolve().parent / "kb"
+    # _app may need string path
+    try:
+        root = Path(_app("kb"))
+    except Exception:
+        root = Path(os.path.dirname(os.path.abspath(__file__))) / "kb"
+    for grade in range(1, 6):
+        for sk, (sname, emo) in meta.items():
+            fp = root / f"grade_{grade}" / f"{sk}.json"
+            if not fp.exists():
+                continue
+            try:
+                data = _json.loads(fp.read_text(encoding="utf-8"))
+            except Exception:
+                continue
+            for topic in data.get("topics", []):
+                quiz = topic.get("quiz") or {}
+                qs = quiz.get("questions") if isinstance(quiz, dict) else quiz
+                if not isinstance(qs, list):
+                    qs = []
+                rows.append({
+                    "grade": grade,
+                    "sk": sk,
+                    "subj": sname,
+                    "emoji": emo,
+                    "title": topic.get("title", ""),
+                    "desc": topic.get("description", ""),
+                    "lesson": topic.get("lesson", "") or "",
+                    "questions": qs,
+                    "interactive_file": topic.get("interactive_file") or "",
+                    "interactive_label": topic.get("interactive_label") or "Khelo",
+                })
+    return rows
+
+
+def render_streamlit_lesson_bank():
+    """In-app Lesson Bank: Khelo via Streamlit components.html (same page, no nested iframe)."""
+    st.markdown("#### 📚 Lesson Bank")
+    st.caption("Khelo yahi khulta hai (nayi window nahi). Font bada · mobile-friendly.")
+    if st.button("✖️ Lesson Bank band karo", key="lb_close_top"):
+        st.session_state.view_lessonbank = False
+        st.session_state.pop("lb_topic_key", None)
+        st.rerun()
+
+    topics = _lb_load_all_topics()
+    c1, c2, c3 = st.columns([1, 1, 2])
+    with c1:
+        grades = ["All"] + [f"Grade {g}" for g in range(1, 6)]
+        gsel = st.selectbox("Grade", grades, key="lb_grade")
+    with c2:
+        subj_opts = ["All"] + sorted({t["subj"] for t in topics})
+        ssel = st.selectbox("Subject", subj_opts, key="lb_subj")
+    with c3:
+        q = st.text_input("Search / تلاش", key="lb_search", placeholder="e.g. 3D, fractions, robot")
+
+    filtered = []
+    for t in topics:
+        if gsel != "All" and f"Grade {t['grade']}" != gsel:
+            continue
+        if ssel != "All" and t["subj"] != ssel:
+            continue
+        blob = f"{t['title']} {t['desc']} {t['subj']}".lower()
+        if q and q.lower() not in blob:
+            continue
+        filtered.append(t)
+
+    st.write(f"**{len(filtered)}** topics")
+
+    # Topic open?
+    sel_key = st.session_state.get("lb_topic_key")
+    if sel_key:
+        # find topic
+        cur = next((t for t in topics if f"{t['grade']}|{t['sk']}|{t['title']}" == sel_key), None)
+        if cur:
+            if st.button("⬅️ Wapas list", key="lb_back"):
+                st.session_state.pop("lb_topic_key", None)
+                st.rerun()
+            st.markdown(
+                f"<h2 style='font-size:1.6rem;margin:0.2rem 0'>{cur['emoji']} {cur['title']}</h2>"
+                f"<p style='font-size:1.1rem;color:#555'>{cur['subj']} · Grade {cur['grade']} · {cur['desc']}</p>",
+                unsafe_allow_html=True,
+            )
+            # KHELO first — Streamlit direct embed (works)
+            st.markdown("### 🎮 Khelo")
+            ok = render_topic_interactive(cur["sk"], cur["grade"], cur["title"])
+            if not ok:
+                if cur.get("interactive_file"):
+                    st.warning(f"Interactive file missing: `{cur['interactive_file']}`")
+                else:
+                    st.info("Is topic par abhi Khelo interactive nahi hai.")
+
+            # Sunlo + lesson
+            st.markdown("### 📖 Sabaq")
+            lesson = cur.get("lesson") or ""
+            if lesson:
+                tts_button(lesson)
+                st.markdown(
+                    f"<div style='font-size:1.25rem;line-height:1.75;padding:14px 16px;"
+                    f"background:#fafafa;border-radius:12px;border:1px solid #eee;"
+                    f"white-space:pre-wrap'>{lesson.replace('<','&lt;')}</div>",
+                    unsafe_allow_html=True,
+                )
+            else:
+                st.caption("Lesson text abhi nahi.")
+
+            # Quiz preview / practice
+            qs = cur.get("questions") or []
+            if qs:
+                st.markdown(f"### 📝 Quiz — {len(qs)} sawaal")
+                for i, qq in enumerate(qs):
+                    stem = qq.get("q") or qq.get("question") or f"Q{i+1}"
+                    st.markdown(f"<p style='font-size:1.15rem;font-weight:700'>Q{i+1}. {stem}</p>", unsafe_allow_html=True)
+                    opts = []
+                    if qq.get("a") is not None:
+                        for letter in "abcd":
+                            if qq.get(letter):
+                                opts.append(f"{letter}) {qq[letter]}")
+                    elif isinstance(qq.get("options"), list):
+                        opts = [f"{chr(97+j)}) {o}" for j, o in enumerate(qq["options"][:4])]
+                    choice = st.radio("Jawāb", opts, key=f"lb_q_{sel_key}_{i}", label_visibility="collapsed")
+                    correct = qq.get("correct")
+                    if correct is None and "answer" in qq:
+                        ai = qq.get("answer")
+                        if isinstance(ai, int):
+                            correct = "abcd"[ai] if 0 <= ai < 4 else None
+                    if choice:
+                        picked = choice[0]
+                        if correct and picked == str(correct).lower()[:1]:
+                            st.success("Sahi!")
+                        elif correct:
+                            st.error(f"Ghalat — sahi: {correct}")
+            return
+
+    # List cards as buttons
+    for t in filtered:
+        key = f"{t['grade']}|{t['sk']}|{t['title']}"
+        label = f"{t['emoji']} {t['title']}  ·  Grade {t['grade']}  ·  {t['subj']}"
+        if t.get("interactive_file"):
+            label += "  ·  🎮 Khelo"
+        if st.button(label, key=f"lb_open_{key}", use_container_width=True):
+            st.session_state.lb_topic_key = key
+            st.rerun()
+
+
 def open_lesson_bank():
     # Cloud par koi desktop browser nahi hota — chup chaap nazarandaz kar do,
     # app phir bhi HTML ko andar iframe mein dikha deta hai.
@@ -2454,15 +2613,17 @@ def render_html_viewers():
         except Exception as e:
             st.error(f"Curriculum nahi khul saki: {e}")
     if st.session_state.get("view_lessonbank"):
-        st.markdown("#### 📚 Lesson Bank")
-        st.caption("Agar Streamlit Fork page dikhe to in-app close / refresh use karein.")
-        if st.button("✖️ Lesson Bank band karo", key="lb_close_top"):
-            st.session_state.view_lessonbank = False; st.rerun()
         try:
-            components.html(open(LESSON_BANK_PATH, encoding="utf-8").read(),
-                            height=900, scrolling=True)
+            render_streamlit_lesson_bank()
         except Exception as e:
             st.error(f"Lesson Bank nahi khul saki: {e}")
+            # Offline HTML fallback (Khelo may be blank inside iframe — prefer native UI above)
+            if st.button("HTML Lesson Bank try karo (purana)", key="lb_html_fallback"):
+                try:
+                    components.html(open(LESSON_BANK_PATH, encoding="utf-8").read(),
+                                    height=_embed_height(900), scrolling=True)
+                except Exception as e2:
+                    st.error(str(e2))
 
 
 # ---------- Curriculum link + topic progress helpers ----------
