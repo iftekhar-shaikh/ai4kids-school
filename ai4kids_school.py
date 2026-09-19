@@ -2549,25 +2549,46 @@ def _lb_load_all_topics():
 
 
 def inject_big_text_css():
-    """Mobile-first readable type for Pakistan phone screens."""
+    """Brand chrome + mobile-first type (see BRAND.md)."""
     st.markdown(
         """<style>
+        :root {
+          --ink:#17252f; --muted:#526672; --paper:#fffdf7; --card:#fff;
+          --line:#d9d2c5; --green:#27ae60; --green-deep:#1e8449; --teal:#1abc9c;
+          --purple:#8e44ad; --orange:#e67e22; --yellow:#fff0b8; --red:#e74c3c;
+          --whatsapp:#25D366; --font:'Segoe UI','Trebuchet MS',Tahoma,sans-serif;
+        }
         html { font-size: 20px !important; }
+        .stApp {
+          background: var(--paper) !important;
+          font-family: var(--font) !important;
+          color: var(--ink) !important;
+        }
         .stApp, .stMarkdown, .stMarkdown p, .stMarkdown li {
           font-size: 1.2rem !important; line-height: 1.6 !important;
         }
-        h1, .stMarkdown h1 { font-size: 2rem !important; }
-        h2, .stMarkdown h2 { font-size: 1.65rem !important; }
+        h1, .stMarkdown h1 { font-size: 2rem !important; color: var(--ink) !important; }
+        h2, .stMarkdown h2 { font-size: 1.65rem !important; color: var(--ink) !important; }
         h3, .stMarkdown h3 { font-size: 1.4rem !important; }
         .stButton > button {
           font-size: 1.2rem !important; min-height: 3.1rem !important;
-          padding: 0.7rem 1.05rem !important;
+          padding: 0.7rem 1.05rem !important; border-radius: 14px !important;
+          font-weight: 700 !important; border: 2px solid var(--ink) !important;
+        }
+        .stButton > button[kind="primary"], .stButton > button[data-testid="baseButton-primary"] {
+          background: var(--green) !important; color: #fff !important; border-color: var(--green-deep) !important;
         }
         .stSelectbox label, .stTextInput label, .stRadio label {
           font-size: 1.15rem !important;
         }
         div[data-testid="stCaptionContainer"] p, .stCaption {
-          font-size: 1.1rem !important;
+          font-size: 1.1rem !important; color: var(--muted) !important;
+        }
+        /* Brand bar under Streamlit header when present */
+        .ai4kids-brandbar {
+          background: linear-gradient(135deg, var(--green), var(--teal));
+          color: #fff; padding: 12px 16px; border-radius: 14px; margin: 0 0 12px;
+          font-weight: 800; font-size: 1.15rem;
         }
         </style>""",
         unsafe_allow_html=True,

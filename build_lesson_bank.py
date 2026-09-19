@@ -112,20 +112,21 @@ lines.append("""<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>AI4Kids.pk — Lesson Bank</title>
 <style>
+:root{--ink:#17252f;--muted:#526672;--paper:#fffdf7;--card:#fff;--line:#d9d2c5;--green:#27ae60;--green-deep:#1e8449;--teal:#1abc9c;--purple:#8e44ad;--orange:#e67e22;--yellow:#fff0b8;--red:#e74c3c;--whatsapp:#25D366;--font:'Segoe UI','Trebuchet MS',Tahoma,sans-serif;--radius:16px;--tap:52px}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f5f5f0;color:#2c3e50}
-.header{background:linear-gradient(135deg,#27ae60,#1abc9c);color:#fff;padding:24px;text-align:center}
+body{font-family:var(--font);background:var(--paper);color:var(--ink)}
+.header{background:linear-gradient(135deg,var(--green),var(--teal));color:#fff;padding:24px;text-align:center}
 .header h1{font-size:clamp(1.4rem,5vw,2rem);margin-bottom:4px}
 .header p{font-size:0.95rem;opacity:0.9}
 .controls{background:#fff;padding:18px 56px 14px 20px;border-bottom:2px solid #eee;
   display:flex;flex-wrap:wrap;gap:10px;align-items:center;position:sticky;top:0;z-index:100}
 .search{flex:1;min-width:200px;padding:8px 14px;border:2px solid #ddd;
   border-radius:20px;font-size:0.95rem;outline:none}
-.search:focus{border-color:#27ae60}
+.search:focus{border-color:var(--green)}
 .filters{display:flex;flex-wrap:wrap;gap:8px;padding-right:8px;align-items:center}
 .filter-btn{padding:5px 12px;border:2px solid #ddd;border-radius:16px;
   background:#fff;cursor:pointer;font-size:0.85rem;transition:all .2s}
-.filter-btn.active{background:#27ae60;color:#fff;border-color:#27ae60}
+.filter-btn.active{background:var(--green);color:#fff;border-color:var(--green)}
 .stats{padding:10px 20px;font-size:0.85rem;color:#666;background:#fffbea;
   border-bottom:1px solid #eee}
 .grid{padding:16px;display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
@@ -157,7 +158,7 @@ body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f5f5f0;color:#2c3e50}
 .modal .meta{font-size:clamp(1rem,3.2vw,1.15rem);color:#555;margin-bottom:16px}
 .lesson-text{font-size:clamp(1.25rem,4.2vw,1.55rem);line-height:1.85;padding:22px 18px;background:#111;color:#f5f5f5;border-radius:14px;border:2px solid #333;min-height:160px;white-space:pre-wrap;margin:10px 0}
 .read-bar{display:flex;align-items:center;gap:12px;margin-bottom:10px}
-.read-btn{display:inline-block;padding:16px 24px;border:none;border-radius:22px;background:#8e44ad;
+.read-btn{display:inline-block;padding:16px 24px;border:none;border-radius:22px;background:var(--purple);
   color:#fff;font-size:clamp(1.2rem,4.2vw,1.45rem);font-weight:800;cursor:pointer;min-height:56px;
   line-height:1.35;white-space:normal}
 .read-btn:hover{background:#7d3c98}
@@ -206,7 +207,7 @@ body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f5f5f0;color:#2c3e50}
 .khelo-top .khelo-go{
   display:block;width:100%;box-sizing:border-box;
   padding:18px 20px;margin:8px 0;border:none;border-radius:16px;
-  background:#8e44ad;color:#fff;font-weight:800;
+  background:var(--purple);color:#fff;font-weight:800;
   font-size:clamp(1.25rem,4.5vw,1.55rem);line-height:1.4;
   cursor:pointer;min-height:64px;text-align:center;
   white-space:normal;word-break:break-word;
@@ -217,7 +218,7 @@ body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f5f5f0;color:#2c3e50}
 .khelo-top .hint{font-size:clamp(0.95rem,3vw,1.05rem);color:#6c3483}
 .khelo-frame-wrap{margin:12px 0 18px;scroll-margin-top:12px}
 .khelo-badge{padding:3px 10px;border-radius:12px;font-size:0.78rem;font-weight:800;
-  background:#8e44ad;color:#fff;letter-spacing:.02em}
+  background:var(--purple);color:#fff;letter-spacing:.02em}
 .tag.has-interactive{background:#8e44ad;color:#fff;font-weight:700}
 
 html{ -webkit-text-size-adjust:100%; }
