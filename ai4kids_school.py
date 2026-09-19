@@ -2549,15 +2549,6 @@ def render_streamlit_lesson_bank():
                 f"<p style='font-size:clamp(1.25rem,4vw,1.45rem);color:#333'>{cur['subj']} · Grade {cur['grade']} · {cur['desc']}</p>",
                 unsafe_allow_html=True,
             )
-            # KHELO first — Streamlit direct embed (works)
-            st.markdown("### 🎮 Khelo")
-            ok = render_topic_interactive(cur["sk"], cur["grade"], cur["title"])
-            if not ok:
-                if cur.get("interactive_file"):
-                    st.warning(f"Interactive file missing: `{cur['interactive_file']}`")
-                else:
-                    st.info("Is topic par abhi Khelo interactive nahi hai.")
-
             # Sunlo + lesson
             st.markdown("### 📖 Sabaq")
             lesson = cur.get("lesson") or ""
@@ -2571,6 +2562,15 @@ def render_streamlit_lesson_bank():
                 )
             else:
                 st.caption("Lesson text abhi nahi.")
+
+            # Khelo UNDER lesson
+            st.markdown("### 🎮 Khelo")
+            ok = render_topic_interactive(cur["sk"], cur["grade"], cur["title"])
+            if not ok:
+                if cur.get("interactive_file"):
+                    st.warning(f"Interactive file missing: `{cur['interactive_file']}`")
+                else:
+                    st.info("Is topic par abhi Khelo interactive nahi hai.")
 
             # Quiz preview / practice
             qs = cur.get("questions") or []
