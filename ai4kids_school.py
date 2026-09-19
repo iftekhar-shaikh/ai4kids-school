@@ -107,11 +107,11 @@ def _data(name):
 
 
 def _embed_height(default=720):
-    """Shorter iframe on phones so Lesson Bank / interactives fit the screen."""
+    """Taller on phone so Khelo text stays readable while scrolling."""
     try:
-        # Streamlit has no built-in width; use a compact default that scrolls inside.
-        # Mobile-first: prefer 70vh-ish via CSS wrapper when possible.
-        return min(default, 560)
+        return min(max(default, 640), 820)
+    except Exception:
+        return default
     except Exception:
         return default
 
@@ -2475,8 +2475,35 @@ def _lb_load_all_topics():
     return rows
 
 
+
+def inject_big_text_css():
+    """Mobile-first readable type for Pakistan phone screens."""
+    st.markdown(
+        """<style>
+        html { font-size: 20px !important; }
+        .stApp, .stMarkdown, .stMarkdown p, .stMarkdown li {
+          font-size: 1.2rem !important; line-height: 1.6 !important;
+        }
+        h1, .stMarkdown h1 { font-size: 2rem !important; }
+        h2, .stMarkdown h2 { font-size: 1.65rem !important; }
+        h3, .stMarkdown h3 { font-size: 1.4rem !important; }
+        .stButton > button {
+          font-size: 1.2rem !important; min-height: 3.1rem !important;
+          padding: 0.7rem 1.05rem !important;
+        }
+        .stSelectbox label, .stTextInput label, .stRadio label {
+          font-size: 1.15rem !important;
+        }
+        div[data-testid="stCaptionContainer"] p, .stCaption {
+          font-size: 1.1rem !important;
+        }
+        </style>""",
+        unsafe_allow_html=True,
+    )
+
 def render_streamlit_lesson_bank():
     """In-app Lesson Bank: Khelo via Streamlit components.html (same page, no nested iframe)."""
+    inject_big_text_css()
     st.markdown("#### 📚 Lesson Bank")
     st.caption("Khelo yahi khulta hai (nayi window nahi). Font bada · mobile-friendly.")
     if st.button("✖️ Lesson Bank band karo", key="lb_close_top"):
@@ -2518,8 +2545,8 @@ def render_streamlit_lesson_bank():
                 st.session_state.pop("lb_topic_key", None)
                 st.rerun()
             st.markdown(
-                f"<h2 style='font-size:1.6rem;margin:0.2rem 0'>{cur['emoji']} {cur['title']}</h2>"
-                f"<p style='font-size:1.1rem;color:#555'>{cur['subj']} · Grade {cur['grade']} · {cur['desc']}</p>",
+                f"<h2 style='font-size:clamp(1.75rem,5.5vw,2.25rem);margin:0.2rem 0'>{cur['emoji']} {cur['title']}</h2>"
+                f"<p style='font-size:clamp(1.25rem,4vw,1.45rem);color:#333'>{cur['subj']} · Grade {cur['grade']} · {cur['desc']}</p>",
                 unsafe_allow_html=True,
             )
             # KHELO first — Streamlit direct embed (works)
@@ -2537,7 +2564,7 @@ def render_streamlit_lesson_bank():
             if lesson:
                 tts_button(lesson)
                 st.markdown(
-                    f"<div style='font-size:1.25rem;line-height:1.75;padding:14px 16px;"
+                    f"<div style='font-size:clamp(1.4rem,4.8vw,1.7rem);line-height:1.85;padding:18px 18px;"
                     f"background:#fafafa;border-radius:12px;border:1px solid #eee;"
                     f"white-space:pre-wrap'>{lesson.replace('<','&lt;')}</div>",
                     unsafe_allow_html=True,
@@ -2551,7 +2578,7 @@ def render_streamlit_lesson_bank():
                 st.markdown(f"### 📝 Quiz — {len(qs)} sawaal")
                 for i, qq in enumerate(qs):
                     stem = qq.get("q") or qq.get("question") or f"Q{i+1}"
-                    st.markdown(f"<p style='font-size:1.15rem;font-weight:700'>Q{i+1}. {stem}</p>", unsafe_allow_html=True)
+                    st.markdown(f"<p style='font-size:clamp(1.3rem,4.2vw,1.5rem);font-weight:700'>Q{i+1}. {stem}</p>", unsafe_allow_html=True)
                     opts = []
                     if qq.get("a") is not None:
                         for letter in "abcd":

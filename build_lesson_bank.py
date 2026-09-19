@@ -152,9 +152,9 @@ body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f5f5f0;color:#2c3e50}
 .modal-close{position:absolute;top:14px;right:16px;font-size:1.5rem;
   cursor:pointer;color:#999;background:none;border:none;line-height:1}
 .modal-close:hover{color:#333}
-.modal h2{font-size:clamp(1.35rem,4.5vw,1.75rem);margin-bottom:4px}
+.modal h2{font-size:clamp(1.55rem,5vw,2rem);margin-bottom:4px}
 .modal .meta{font-size:clamp(1rem,3.2vw,1.15rem);color:#555;margin-bottom:16px}
-.lesson-text{white-space:pre-wrap;font-size:clamp(1.15rem,4vw,1.35rem);line-height:1.75;
+.lesson-text{white-space:pre-wrap;font-size:clamp(1.4rem,4.8vw,1.7rem);line-height:1.85;
   background:#fafafa;border-radius:10px;padding:16px;border:1px solid #eee}
 .read-bar{display:flex;align-items:center;gap:12px;margin-bottom:10px}
 .read-btn{padding:12px 22px;border:none;border-radius:22px;background:#8e44ad;
