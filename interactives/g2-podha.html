@@ -48,4 +48,70 @@ function demoWater(p,r){var scenes=[[bi('Tap is running while you brush.','Brush
 function demoSeasons(p,r){var seasons=[['☀️',bi('Summer','Garmi'),bi('Hot: cool drinks and mangoes.','Garam: thandi drinks aur aam.')],['🧥',bi('Winter','Sardi'),bi('Cold: sweaters and jackets.','Thandi: sweaters aur jackets.')],['☔',bi('Rainy season','Barsat'),bi('Rain: umbrella and water for crops.','Barsat: chhatri aur faslon ke liye paani.')],['🌸',bi('Spring','Bahar'),bi('Flowers and fresh colours.','Phool aur naye rang.')]];var i=demoState.i||0;var q=document.createElement('div');q.className='readout';q.innerHTML='<p class="lead"></p><div class="cards"></div>';set(q.querySelector('.lead'),{en:'Tap a season',ur:'Mausam dabao'});seasons.forEach(function(s,j){q.querySelector('.cards').appendChild(card(s[1],s[0],function(){demoState.i=j;demoSeasons(p,r)},i===j?'ok':''))});var d=document.createElement('div');d.className='panel';set(d,{en:'',ur:''});var h=document.createElement('h3');set(h,seasons[i][1]);d.appendChild(h);var pp=document.createElement('p');set(pp,seasons[i][2]);d.appendChild(pp);q.appendChild(d);p.appendChild(q);set(r.querySelector('.badge'),seasons[i][1]);set(r.querySelector('.lead'),seasons[i][2])}
 function renderLesson(){var L=$("left"),R=$("right");L.innerHTML="";R.innerHTML="";L.appendChild(lessonCard(tab));var d=document.createElement("div");d.className="demo";var h=document.createElement("h2");set(h,DATA.demoTitle);d.appendChild(h);var p=document.createElement("p");set(p,DATA.demoIntro);d.appendChild(p);var b=document.createElement("button");b.className="play alt";b.type="button";set(b,{en:"Go to Play",ur:"Khelo"});b.onclick=function(){tab="play";render()};d.appendChild(b);R.appendChild(d);lastSpoken=t(DATA[tab])}
 var qScore=0,qDone=0;function buildQuiz(){var box=$("quizBox");box.innerHTML="";qScore=0;qDone=0;$("score").classList.remove("show");DATA.quiz.forEach(function(item,qi){var w=document.createElement("div");w.className="q";var qp=document.createElement("p");set(qp,(qi+1)+". "+t(item.q));w.appendChild(qp);var fb=document.createElement("p");fb.className="fb";item.o.forEach(function(opt,oi){var b=document.createElement("button");b.type="button";b.className="opt";b.textContent=String.fromCharCode(65+oi)+". "+t(opt);b.onclick=function(){if(w.dataset.done)return;w.dataset.done="1";qDone++;var ok=oi===item.a;if(ok)qScore++;Array.prototype.forEach.call(w.querySelectorAll(".opt"),function(x,j){if(j===item.a)x.classList.add("right");else if(j===oi)x.classList.add("wrong")});set(fb,item.f);fb.classList.add("show");if(qDone===DATA.quiz.length){set($("score"),{en:"Your score: "+qScore+" out of "+DATA.quiz.length,ur:"Tumhara score: "+qScore+" / "+DATA.quiz.length});$("score").classList.add("show")}};w.appendChild(b)});w.appendChild(fb);box.appendChild(w)})}
-function render(){document.body.classList.toggle("urdu",lang==="ur");document.documentElement.lang="en";$("langBtn").textContent=lang==="en"?"Roman Urdu":"English";$("langBtn").setAttribute("aria-pressed",lang==="ur");set($("brand"),{en:"AI4Kids · Grade 2 · General Science",ur:"AI4Kids · Jamaat 2 · General Science"});set($("title"),DATA.title);set($("subtitle"),DATA.sub);set($("quizTitle"),{en:"Quiz — 5 questions",ur:"Quiz — 5 sawaal"});set($("footer"),{en:"AI4Kids · Grade 2 Science · Learn, play, and think!",ur:"AI4Kids · Jamaat 2 Science · Seekho, khelo aur socho!"});renderTabs();buildQuiz();if(tab==="play")renderPlay();else renderLesson()}$("langBtn").onclick=function(){lang=lang==="en"?"ur":"en";render()};$("speakBtn").onclick=function(){try{if(!speechSynthesis)return;speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(lastSpoken);u.lang=lang==="ur"?"en-PK":"en-US";u.rate=.9;speechSynthesis.speak(u)}catch(e){}};render();})();</script></body></html>
+function render(){document.body.classList.toggle("urdu",lang==="ur");document.documentElement.lang="en";$("langBtn").textContent=lang==="en"?"Roman Urdu":"English";$("langBtn").setAttribute("aria-pressed",lang==="ur");set($("brand"),{en:"AI4Kids · Grade 2 · General Science",ur:"AI4Kids · Jamaat 2 · General Science"});set($("title"),DATA.title);set($("subtitle"),DATA.sub);set($("quizTitle"),{en:"Quiz — 5 questions",ur:"Quiz — 5 sawaal"});set($("footer"),{en:"AI4Kids · Grade 2 Science · Learn, play, and think!",ur:"AI4Kids · Jamaat 2 Science · Seekho, khelo aur socho!"});renderTabs();buildQuiz();if(tab==="play")renderPlay();else renderLesson()}$("langBtn").onclick=function(){lang=lang==="en"?"ur":"en";render()};$("speakBtn").onclick=function(){try{if(!speechSynthesis)return;speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(lastSpoken);var __v=window.ai4kidsPickVoice&&ai4kidsPickVoice();if(__v){u.voice=__v;u.lang=((__v.lang||'').toLowerCase().indexOf('ur')===0)?'ur-PK':'hi-IN';}else{u.lang='hi-IN';}u.rate=.82;speechSynthesis.speak(u)}catch(e){}};render();})();</script><script>
+/* AI4KIDS_TTS */
+(function(){
+  if (window.ai4kidsSpeak) return;
+  function clean(s){
+    if(!s) return '';
+    var out=String(s);
+    out=out.replace(/^#+\s*/gm,'');
+    out=out.replace(/^[-*]\s+/gm,'');
+    out=out.replace(/\*\*?/g,'');
+    out=out.replace(/`+/g,'');
+    out=out.replace(/\[([^\]]*)\]\([^)]*\)/g,'$1');
+    out=out.replace(/https?:\/\/\S+/g,' ');
+    out=out.replace(/\bAI\b/g,'A I');
+    out=out.replace(/\b3D\b/g,'three D');
+    out=out.replace(/\bHOOK\b/gi,'Shuru. ');
+    out=out.replace(/\bSHURU\b/gi,'Shuru. ');
+    out=out.replace(/\bSAMJHAO\b/gi,'Samjhao. ');
+    out=out.replace(/\bMISAAL\b/gi,'Misaal. ');
+    out=out.replace(/\bKARO\b/gi,'Karo. ');
+    out=out.replace(/\bSAWAAL\b/gi,'Sawaal. ');
+    out=out.replace(/\n+/g,'. ');
+    out=out.replace(/\s+/g,' ').trim();
+    return out;
+  }
+  function pickVoice(){
+    var voices=(window.speechSynthesis&&speechSynthesis.getVoices())||[];
+    var best=null, bestS=-1;
+    for (var i=0;i<voices.length;i++){
+      var v=voices[i];
+      var n=((v.lang||'')+' '+(v.name||'')).toLowerCase();
+      var s=0;
+      if (n.indexOf('ur-pk')>=0 || n.indexOf('ur_pk')>=0) s+=100;
+      if (n.indexOf('urdu')>=0) s+=90;
+      if (n.indexOf('ur-')===0) s+=85;
+      if (n.indexOf('hi-in')>=0 || n.indexOf('hindi')>=0) s+=70;
+      if (n.indexOf('google')>=0 && (n.indexOf('hindi')>=0 || n.indexOf('urdu')>=0)) s+=20;
+      if (n.indexOf('female')>=0 || n.indexOf('neural')>=0 || n.indexOf('natural')>=0) s+=5;
+      if (s>bestS){ bestS=s; best=v; }
+    }
+    return best;
+  }
+  window.ai4kidsCleanSpeech=clean;
+  window.ai4kidsPickVoice=pickVoice;
+  window.ai4kidsSpeak=function(text){
+    if (!('speechSynthesis' in window)) return;
+    try { speechSynthesis.cancel(); } catch(e) {}
+    var u=new SpeechSynthesisUtterance(clean(text));
+    var v=pickVoice();
+    if (v) {
+      u.voice=v;
+      var L=(v.lang||'').toLowerCase();
+      u.lang = L.indexOf('ur')===0 ? 'ur-PK' : 'hi-IN';
+    } else {
+      u.lang='hi-IN';
+    }
+    u.rate=0.82; u.pitch=1.0;
+    speechSynthesis.speak(u);
+  };
+  if ('speechSynthesis' in window) {
+    try { speechSynthesis.getVoices(); } catch(e) {}
+    speechSynthesis.onvoiceschanged=function(){ try{ speechSynthesis.getVoices(); }catch(e){} };
+  }
+})();
+/* /AI4KIDS_TTS */
+</script>
+</body></html>

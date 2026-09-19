@@ -1981,13 +1981,31 @@ def autoplay_tts(text):
             height=0,
         )
     else:
-        # Fallback: browser speech synthesis (Hindi voice reads Roman Urdu well)
+        # Fallback: browser speech synthesis (Urdu-first, else Hindi for Roman Urdu)
         safe = (text or "").replace("\\", " ").replace('"', " ").replace("\n", " ")
         components.html(
             f'''<script>
   (function(){{try{{
+    function pick(){{
+      var vs=speechSynthesis.getVoices()||[], best=null, bestS=-1;
+      for (var i=0;i<vs.length;i++){{
+        var v=vs[i], n=((v.lang||"")+" "+(v.name||"")).toLowerCase(), s=0;
+        if (n.indexOf("ur-pk")>=0 || n.indexOf("urdu")>=0) s+=100;
+        if (n.indexOf("hi-in")>=0 || n.indexOf("hindi")>=0) s+=70;
+        if (s>bestS){{ bestS=s; best=v; }}
+      }}
+      return best;
+    }}
+    try{{ speechSynthesis.getVoices(); }}catch(e){{}}
     var u = new SpeechSynthesisUtterance("{safe}");
-    u.lang = "hi-IN"; u.rate = 0.82;
+    var v = pick();
+    if (v){{
+      u.voice = v;
+      u.lang = ((v.lang||"").toLowerCase().indexOf("ur")===0) ? "ur-PK" : "hi-IN";
+    }} else {{
+      u.lang = "hi-IN";
+    }}
+    u.rate = 0.82; u.pitch = 1.0;
     window.speechSynthesis.cancel();
     window.speechSynthesis.speak(u);
   }}catch(e){{}}}})();
@@ -2840,8 +2858,7 @@ TTS_HTML = r"""
 </div>
 <script>
 const raw = __TEXT__;
-const clean = raw.replace(/[#*_`>|]/g, ' ').replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')  // noqa
-                 .replace(/https?:\/\/\S+/g, ' ').replace(/\s+/g, ' ').trim();
+const clean = (function(r){let o=String(r||'');o=o.replace(/^#+\s*/gm,'').replace(/^[-*]\s+/gm,'');o=o.replace(/\*\*?/g,'').replace(/`+/g,'');o=o.replace(/\[([^\]]*)\]\([^)]*\)/g,'$1');o=o.replace(/https?:\/\/\S+/g,' ');o=o.replace(/\bAI\b/g,'A I').replace(/\b3D\b/g,'three D');o=o.replace(/\bHOOK\b/gi,'Shuru. ').replace(/\bSHURU\b/gi,'Shuru. ');o=o.replace(/\bSAMJHAO\b/gi,'Samjhao. ').replace(/\bMISAAL\b/gi,'Misaal. ');o=o.replace(/\bKARO\b/gi,'Karo. ').replace(/\bSAWAAL\b/gi,'Sawaal. ');return o.replace(/\n+/g,'. ').replace(/\s+/g,' ').trim();})(raw);
 let W = window;
 try { if (window.parent && window.parent.speechSynthesis) W = window.parent; } catch (e) {}
 const synth = W.speechSynthesis;

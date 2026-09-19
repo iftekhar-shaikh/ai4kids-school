@@ -728,7 +728,8 @@ function cleanForSpeech(s) {{
   out = out.replace(/`+/g, '');
   out = out.replace(/\\bAI\\b/g, 'A I');
   out = out.replace(/\\b3D\\b/g, 'three D');
-  out = out.replace(/\\bHOOK\\b/gi, 'Hook. ');
+  out = out.replace(/\\bHOOK\\b/gi, 'Shuru. ');
+  out = out.replace(/\\bSHURU\\b/gi, 'Shuru. ');
   out = out.replace(/\\bSAMJHAO\\b/gi, 'Samjhao. ');
   out = out.replace(/\\bMISAAL\\b/gi, 'Misaal. ');
   out = out.replace(/\\bKARO\\b/gi, 'Karo. ');

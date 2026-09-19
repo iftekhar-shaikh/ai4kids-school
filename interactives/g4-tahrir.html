@@ -55,4 +55,70 @@ const fields=['name','klass','reason','date'];function update(){let n=document.q
 const qs=[['Paragraph kya hai?',['Connected jumlon ka group','Sirf ek word','Sirf emoji','Sirf blank page'],'A','Few sentences on one idea.'],['School leave darkhwast aksar kis ko?',['Principal / teacher','Sirf cricketer','Sirf shopkeeper only','Sirf map'],'A','School authority.'],['Tahrir se pehle kya?',['Idea / points socho','Sirf random scribble','Sirf panic','Sirf delete all'],'A','Plan first.'],['Darkhwast mein date kyun?',['Record / clarity','Sirf decoration','Sirf hide reason','Sirf joke'],'A','Date matters.'],['Achhi tahrir ki pehchan?',['Saaf + simple + poora matlab','Sirf mushkil words','Sirf shor','Sirf copy-paste junk'],'A','Clear and simple.']];let quiz=document.querySelector('#quiz'),answered=0,score=0;qs.forEach((x,i)=>{let d=document.createElement('div');d.className='q';d.innerHTML='<p>'+(i+1)+'. '+x[0]+'</p>'+x[1].map((o,j)=>`<button class="opt" data-q="${i}" data-c="${String.fromCharCode(65+j)}">${String.fromCharCode(65+j)}) ${o}</button>`).join('')+`<div class="feedback" id="fb${i}">${x[3]}</div>`;quiz.append(d)});quiz.addEventListener('click',e=>{if(!e.target.matches('.opt')||e.target.disabled)return;let b=e.target,i=+b.dataset.q,bs=[...quiz.querySelectorAll(`[data-q="${i}"]`)];bs.forEach(x=>x.disabled=true);if(b.dataset.c==='A'){b.classList.add('right');score++}else{b.classList.add('wrong');bs[0].classList.add('right')}answered++;document.querySelector('#fb'+i).classList.add('show');document.querySelector('#score').textContent=score+' / 5';if(answered===5){let d=document.querySelector('#done');d.textContent=score===5?'Shabash! Perfect score — 5 / 5.':'Well done! Tum ne '+score+' / 5 sahi kiye.';d.classList.add('show')}});
 function speak(t){if('speechSynthesis'in window){speechSynthesis.cancel();speechSynthesis.speak(new SpeechSynthesisUtterance(t))}}document.querySelectorAll('.play').forEach(b=>b.onclick=()=>speak(b.dataset.say||document.querySelector('#preview').textContent));document.querySelector('#playAll').onclick=()=>speak('Tahrir. Paragraph, darkhwast aur chhoti kahani likhte waqt shuruat, asal baat aur khatma yaad rakho.');document.querySelector('#playLetter').onclick=()=>speak(document.querySelector('#preview').textContent);document.querySelector('#lang').onclick=e=>{let on=document.body.classList.toggle('roman');e.currentTarget.setAttribute('aria-pressed',on)};
 </script>
+<script>
+/* AI4KIDS_TTS */
+(function(){
+  if (window.ai4kidsSpeak) return;
+  function clean(s){
+    if(!s) return '';
+    var out=String(s);
+    out=out.replace(/^#+\s*/gm,'');
+    out=out.replace(/^[-*]\s+/gm,'');
+    out=out.replace(/\*\*?/g,'');
+    out=out.replace(/`+/g,'');
+    out=out.replace(/\[([^\]]*)\]\([^)]*\)/g,'$1');
+    out=out.replace(/https?:\/\/\S+/g,' ');
+    out=out.replace(/\bAI\b/g,'A I');
+    out=out.replace(/\b3D\b/g,'three D');
+    out=out.replace(/\bHOOK\b/gi,'Shuru. ');
+    out=out.replace(/\bSHURU\b/gi,'Shuru. ');
+    out=out.replace(/\bSAMJHAO\b/gi,'Samjhao. ');
+    out=out.replace(/\bMISAAL\b/gi,'Misaal. ');
+    out=out.replace(/\bKARO\b/gi,'Karo. ');
+    out=out.replace(/\bSAWAAL\b/gi,'Sawaal. ');
+    out=out.replace(/\n+/g,'. ');
+    out=out.replace(/\s+/g,' ').trim();
+    return out;
+  }
+  function pickVoice(){
+    var voices=(window.speechSynthesis&&speechSynthesis.getVoices())||[];
+    var best=null, bestS=-1;
+    for (var i=0;i<voices.length;i++){
+      var v=voices[i];
+      var n=((v.lang||'')+' '+(v.name||'')).toLowerCase();
+      var s=0;
+      if (n.indexOf('ur-pk')>=0 || n.indexOf('ur_pk')>=0) s+=100;
+      if (n.indexOf('urdu')>=0) s+=90;
+      if (n.indexOf('ur-')===0) s+=85;
+      if (n.indexOf('hi-in')>=0 || n.indexOf('hindi')>=0) s+=70;
+      if (n.indexOf('google')>=0 && (n.indexOf('hindi')>=0 || n.indexOf('urdu')>=0)) s+=20;
+      if (n.indexOf('female')>=0 || n.indexOf('neural')>=0 || n.indexOf('natural')>=0) s+=5;
+      if (s>bestS){ bestS=s; best=v; }
+    }
+    return best;
+  }
+  window.ai4kidsCleanSpeech=clean;
+  window.ai4kidsPickVoice=pickVoice;
+  window.ai4kidsSpeak=function(text){
+    if (!('speechSynthesis' in window)) return;
+    try { speechSynthesis.cancel(); } catch(e) {}
+    var u=new SpeechSynthesisUtterance(clean(text));
+    var v=pickVoice();
+    if (v) {
+      u.voice=v;
+      var L=(v.lang||'').toLowerCase();
+      u.lang = L.indexOf('ur')===0 ? 'ur-PK' : 'hi-IN';
+    } else {
+      u.lang='hi-IN';
+    }
+    u.rate=0.82; u.pitch=1.0;
+    speechSynthesis.speak(u);
+  };
+  if ('speechSynthesis' in window) {
+    try { speechSynthesis.getVoices(); } catch(e) {}
+    speechSynthesis.onvoiceschanged=function(){ try{ speechSynthesis.getVoices(); }catch(e){} };
+  }
+})();
+/* /AI4KIDS_TTS */
+</script>
 </body></html>

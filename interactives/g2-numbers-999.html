@@ -79,8 +79,74 @@ function bindDemo(type){
  if(type==='fractions'){function paint(){var names={2:{en:'One of 2 equal parts is one half.',ur:'2 barabar hisson mein se ek hissa adha hai.'},3:{en:'One of 3 equal parts is one-third.',ur:'3 barabar hisson mein se ek hissa ek tehayi hai.'},4:{en:'One of 4 equal parts is one quarter.',ur:'4 barabar hisson mein se ek hissa chaarma hai.'}};$('fractionShape').className='fraction-shape '+(fractionParts===2?'two':fractionParts===3?'three':'four');$('fractionShape').innerHTML=Array.from({length:fractionParts},function(_,i){return '<div class="slice">'+(i===0?'1/'+fractionParts:'')+'</div>'}).join('');$('fractionOut').textContent=t(names[fractionParts]);document.querySelectorAll('.fracPick').forEach(function(b){b.classList.toggle('active',Number(b.dataset.n)===fractionParts)})}document.querySelectorAll('.fracPick').forEach(function(b){b.onclick=function(){fractionParts=Number(b.dataset.n);paint()}});paint()}
 }
 function renderQuiz(){var box=$('quizBox');box.innerHTML='';answered=0;score=0;DATA.quiz.forEach(function(q,qi){var wrap=document.createElement('section');wrap.className='q';var p=document.createElement('p');p.textContent=(qi+1)+'. '+t(q.q);p.dir=lang==='ur'?'rtl':'ltr';wrap.appendChild(p);['a','b','c','d'].forEach(function(k){var b=document.createElement('button');b.className='opt';b.type='button';b.textContent=k.toUpperCase()+'. '+t(q[k]);b.dir=lang==='ur'?'rtl':'ltr';b.onclick=function(){if(wrap.dataset.done)return;wrap.dataset.done='1';answered++;var ok=k===q.correct;b.classList.add(ok?'right':'wrong');if(!ok)wrap.querySelectorAll('.opt').forEach(function(x){if(x.textContent.indexOf(q.correct.toUpperCase()+'.')===0)x.classList.add('right')});if(ok)score++;var fb=wrap.querySelector('.feedback');fb.textContent=(ok?'✓ ':'✗ ')+t(q.explanation);fb.classList.add('show');fb.dir=lang==='ur'?'rtl':'ltr';wrap.querySelectorAll('button').forEach(function(x){x.disabled=true});if(answered===DATA.quiz.length){$('scoreBox').textContent=t({en:'Score: '+score+' / 5 — '+(score===5?'Excellent!':'Good practice!'),ur:'Score: '+score+' / 5 — '+(score===5?'Shabash!':'Achi practice!')});$('scoreBox').classList.add('show')}};wrap.appendChild(b)});var fb=document.createElement('div');fb.className='feedback';wrap.appendChild(fb);box.appendChild(wrap)});$('scoreBox').classList.remove('show');setText($('quizHead'),DATA.quizTitle)}
-$('langBtn').onclick=function(){lang=lang==='en'?'ur':'en';render()};$('speakBtn').onclick=function(){var text=(document.querySelector('.stage')||document.body).innerText;if('speechSynthesis' in window){speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(text);u.lang=lang==='en'?'en-US':'ur-PK';speechSynthesis.speak(u)}};render();
+$('langBtn').onclick=function(){lang=lang==='en'?'ur':'en';render()};$('speakBtn').onclick=function(){var text=(document.querySelector('.stage')||document.body).innerText;if('speechSynthesis' in window){speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(text);((window.ai4kidsPickVoice&&(__v=ai4kidsPickVoice()))?(u.voice=__v,u.lang=((__v.lang||'').toLowerCase().indexOf('ur')===0)?'ur-PK':'hi-IN'):(u.lang='hi-IN'));speechSynthesis.speak(u)}};render();
 })();
+</script>
+<script>
+/* AI4KIDS_TTS */
+(function(){
+  if (window.ai4kidsSpeak) return;
+  function clean(s){
+    if(!s) return '';
+    var out=String(s);
+    out=out.replace(/^#+\s*/gm,'');
+    out=out.replace(/^[-*]\s+/gm,'');
+    out=out.replace(/\*\*?/g,'');
+    out=out.replace(/`+/g,'');
+    out=out.replace(/\[([^\]]*)\]\([^)]*\)/g,'$1');
+    out=out.replace(/https?:\/\/\S+/g,' ');
+    out=out.replace(/\bAI\b/g,'A I');
+    out=out.replace(/\b3D\b/g,'three D');
+    out=out.replace(/\bHOOK\b/gi,'Shuru. ');
+    out=out.replace(/\bSHURU\b/gi,'Shuru. ');
+    out=out.replace(/\bSAMJHAO\b/gi,'Samjhao. ');
+    out=out.replace(/\bMISAAL\b/gi,'Misaal. ');
+    out=out.replace(/\bKARO\b/gi,'Karo. ');
+    out=out.replace(/\bSAWAAL\b/gi,'Sawaal. ');
+    out=out.replace(/\n+/g,'. ');
+    out=out.replace(/\s+/g,' ').trim();
+    return out;
+  }
+  function pickVoice(){
+    var voices=(window.speechSynthesis&&speechSynthesis.getVoices())||[];
+    var best=null, bestS=-1;
+    for (var i=0;i<voices.length;i++){
+      var v=voices[i];
+      var n=((v.lang||'')+' '+(v.name||'')).toLowerCase();
+      var s=0;
+      if (n.indexOf('ur-pk')>=0 || n.indexOf('ur_pk')>=0) s+=100;
+      if (n.indexOf('urdu')>=0) s+=90;
+      if (n.indexOf('ur-')===0) s+=85;
+      if (n.indexOf('hi-in')>=0 || n.indexOf('hindi')>=0) s+=70;
+      if (n.indexOf('google')>=0 && (n.indexOf('hindi')>=0 || n.indexOf('urdu')>=0)) s+=20;
+      if (n.indexOf('female')>=0 || n.indexOf('neural')>=0 || n.indexOf('natural')>=0) s+=5;
+      if (s>bestS){ bestS=s; best=v; }
+    }
+    return best;
+  }
+  window.ai4kidsCleanSpeech=clean;
+  window.ai4kidsPickVoice=pickVoice;
+  window.ai4kidsSpeak=function(text){
+    if (!('speechSynthesis' in window)) return;
+    try { speechSynthesis.cancel(); } catch(e) {}
+    var u=new SpeechSynthesisUtterance(clean(text));
+    var v=pickVoice();
+    if (v) {
+      u.voice=v;
+      var L=(v.lang||'').toLowerCase();
+      u.lang = L.indexOf('ur')===0 ? 'ur-PK' : 'hi-IN';
+    } else {
+      u.lang='hi-IN';
+    }
+    u.rate=0.82; u.pitch=1.0;
+    speechSynthesis.speak(u);
+  };
+  if ('speechSynthesis' in window) {
+    try { speechSynthesis.getVoices(); } catch(e) {}
+    speechSynthesis.onvoiceschanged=function(){ try{ speechSynthesis.getVoices(); }catch(e){} };
+  }
+})();
+/* /AI4KIDS_TTS */
 </script>
 </body>
 </html>
