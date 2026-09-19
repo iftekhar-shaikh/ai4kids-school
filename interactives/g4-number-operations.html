@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Number operations | AI4Kids Class 4</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--board:#e5f3ea;--board-deep:#c9e4d2;--sky:#c5e7f6;--sky2:#6eb0d4;--accent:#1d6b52;--ok:#2e7d4f;--ink:#1e2a1a;--ink-soft:#4a5744;--paper:#fdfaf3;--line:#d5dec8;--gold:#e8b23d;--left:#c4453a;--fs-cap:clamp(12px,3.2vw,13px);--fs-xs:clamp(14px,3.7vw,15px);--fs-sm:clamp(16px,4.2vw,17px);--fs-md:clamp(17px,4.6vw,19px);--fs-lg:clamp(20px,5.4vw,23px);--fs-xl:clamp(27px,7.4vw,33px);--lh:1.5}
+body.urdu{--fs-cap:clamp(13px,3.5vw,15px);--fs-xs:clamp(15px,4.1vw,17px);--fs-sm:clamp(17px,4.7vw,19px);--fs-md:clamp(19px,5.2vw,21px);--fs-lg:clamp(22px,6vw,25px);--fs-xl:clamp(26px,7vw,31px);--lh:2.1}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px}
+.wrap{max-width:560px;margin:0 auto;padding:0 14px}
+.bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+.brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+.chip{border:2px solid var(--ink);background:var(--paper);color:var(--ink);border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;font-size:var(--fs-xs);cursor:pointer;min-height:42px;touch-action:manipulation}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.chip:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.stars{display:flex;align-items:center;gap:6px;font-weight:800;font-size:var(--fs-xs);background:#fff6e2;border:2px solid var(--gold);border-radius:999px;padding:7px 13px}
+h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+.sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+.ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+h1.ur{line-height:1.9}
+.tabs{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
+.tabs button{flex:1 1 28%;min-width:90px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);border-radius:14px;padding:10px 6px;font:inherit;font-weight:800;font-size:var(--fs-cap);cursor:pointer;min-height:54px;line-height:1.2;touch-action:manipulation}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.tabs button .badge{color:var(--gold)}
+.story{background:#fff8ea;border:2px dashed var(--gold);border-radius:16px;padding:13px 15px;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;margin-bottom:14px}
+body.urdu .story{line-height:var(--lh)}
+.story b{color:var(--ink)}
+.scene{position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);background:linear-gradient(180deg,var(--sky) 0%,var(--sky2) 36%,var(--board) 36%,var(--board-deep) 100%);min-height:280px}
+.scene-pad{padding:10px 12px 18px;min-height:260px;position:relative}
+.sky-layer{position:absolute;inset:0 0 58% 0;pointer-events:none;overflow:hidden}
+.sun-ball{position:absolute;top:12px;right:18px;width:36px;height:36px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#ffe9a0,#f5c542 60%,#e0a020);box-shadow:0 0 18px rgba(245,197,66,.45);z-index:1}
+body.urdu .sun-ball{right:auto;left:18px}
+.cloud{position:absolute;background:rgba(255,255,255,.85);border-radius:40px;opacity:.9}
+.cloud:before,.cloud:after{content:"";position:absolute;background:inherit;border-radius:50%}
+.c1{width:48px;height:15px;top:18px;left:12%}
+.c1:before{width:22px;height:22px;top:-12px;left:6px}
+.c1:after{width:18px;height:18px;top:-8px;left:24px}
+.c2{width:34px;height:12px;top:34px;left:55%;opacity:.7}
+.c2:before{width:16px;height:16px;top:-9px;left:4px}
+.c2:after{width:12px;height:12px;top:-5px;left:16px}
+.num-stage{position:relative;z-index:5;padding:62px 8px 8px;text-align:center}
+.hero-em{font-size:34px;line-height:1;margin:0}
+.num-hero{font-weight:800;font-size:clamp(30px,8.4vw,44px);letter-spacing:.5px;direction:ltr;unicode-bidi:isolate;margin:6px 0 2px;line-height:1.1}
+.sayline{font-weight:700;font-size:var(--fs-xs);margin:2px 8px 8px;color:var(--ink)}
+.drow{display:flex;gap:4px;justify-content:center;direction:ltr;margin:6px 0}
+.dshow{min-width:42px;padding:4px 2px 6px;font-weight:800;font-size:30px;line-height:1;border-bottom:4px solid rgba(30,42,26,.25);direction:ltr}
+.dshow.hot{background:#fff6d8;border-bottom-color:var(--gold);border-radius:10px}
+.dshow.win{background:#e8f2ed;border-bottom-color:var(--ok);border-radius:10px}
+.capline{font-size:var(--fs-cap);font-weight:800;color:var(--accent);margin:6px 8px 0;line-height:1.45}
+body.urdu .capline,body.urdu .hintbox,body.urdu .card-box{line-height:var(--lh)}
+.eqline{direction:ltr;unicode-bidi:isolate;font-weight:800;font-size:var(--fs-sm);margin:8px 6px 4px;line-height:1.35}
+.eqline.big{font-size:clamp(18px,5.2vw,26px)}
+.blank{display:inline-block;min-width:28px;text-align:center;padding:0 6px;margin:0 1px;border-bottom:4px solid var(--gold);background:#fff6d8;border-radius:8px;color:var(--accent)}
+.blank.win{background:#e8f2ed;border-bottom-color:var(--ok);color:var(--ok)}
+.op-hero{font-weight:800;font-size:clamp(32px,8vw,46px);letter-spacing:6px;direction:ltr;unicode-bidi:isolate;margin:8px 0 2px;line-height:1.1}
+.roman-big{font-size:68px;font-weight:800;letter-spacing:3px;line-height:1;margin:8px 0 4px;direction:ltr;unicode-bidi:isolate}
+.card-box{background:rgba(253,250,243,.95);border:2.5px solid var(--ink);border-radius:14px;padding:10px 12px;font-weight:800;font-size:var(--fs-xs);max-width:420px;margin:8px auto 0;line-height:1.4}
+.bank{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:4px}
+.bank.ltrb{direction:ltr}
+.mini-item{border:2px solid var(--ink);border-radius:12px;padding:8px 10px;background:#fff;line-height:1.2;cursor:pointer;min-width:52px;min-height:52px;font-weight:800;font-size:var(--fs-cap);display:flex;align-items:center;justify-content:center;gap:4px;touch-action:manipulation}
+.mini-item.dig{font-size:26px;min-width:58px;min-height:62px}
+.mini-item.tile{direction:ltr;font-size:16px;min-width:78px}
+.mini-item.used{opacity:.35;pointer-events:none}
+.mini-item.right,.save-choices button.right,.match-opts button.right,.opt.right{border-color:var(--ok);background:#e8f2ed}
+.mini-item.wrong,.save-choices button.wrong,.match-opts button.wrong,.opt.wrong{border-color:var(--left);background:#fbeae8}
+.opt.right{font-weight:600}
+.save-choices{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+.save-choices button{border:2.5px solid var(--ink);background:var(--paper);border-radius:14px;padding:12px 14px;font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;text-align:left;min-height:52px;display:flex;align-items:center;gap:10px;touch-action:manipulation}
+body.urdu .save-choices button{text-align:right}
+.save-choices button.numc{justify-content:center;text-align:center;direction:ltr;font-size:22px}
+.match-grid{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+.match-row{display:flex;align-items:center;gap:8px;background:rgba(253,250,243,.95);border:2px solid var(--ink);border-radius:14px;padding:10px 12px;font-weight:800;font-size:var(--fs-xs)}
+.match-row .sym{font-size:26px;min-width:42px;direction:ltr;unicode-bidi:isolate;text-align:center}
+.match-opts{display:flex;flex-wrap:wrap;gap:4px;margin-left:auto}
+body.urdu .match-opts{margin-left:0;margin-right:auto}
+.match-opts button{border:2px solid var(--ink);border-radius:10px;padding:6px 10px;background:#fff;font:inherit;font-weight:800;font-size:14px;cursor:pointer;min-height:40px;direction:ltr;touch-action:manipulation}
+.match-opts button.pick{box-shadow:0 0 0 2px var(--accent)}
+.chk{margin-top:10px;width:100%;border:2px solid var(--ink);border-radius:14px;background:var(--ink);color:var(--paper);font:inherit;font-weight:800;min-height:48px;cursor:pointer;touch-action:manipulation}
+.readout{margin-top:-18px;position:relative;z-index:2;background:var(--paper);border:3px solid var(--ink);border-radius:18px;padding:16px 18px}
+.statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+.statechip.ur{padding:2px 14px 7px}
+.statechip.win{background:var(--ok)}
+.statechip.miss{background:var(--left)}
+.headline{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+.headline.ur{line-height:1.95}
+.detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+.hintbox{margin-top:14px;border:2px solid var(--accent);background:#e7f6ef;border-radius:14px;padding:11px 14px;font-size:var(--fs-xs);color:var(--accent);font-weight:700;line-height:1.55;display:none}
+.hintbox.show{display:block}
+.panel{margin-top:22px}
+.panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+.prog{margin:0 0 10px;font-size:var(--fs-xs);font-weight:700;color:var(--ink-soft)}
+.btns{display:flex;gap:9px;margin-top:8px;flex-wrap:wrap}
+.btns button{border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:50px;padding:8px 14px;flex:1;touch-action:manipulation}
+.btns .go{background:var(--ink);color:var(--paper)}
+.btns button:active{transform:scale(.97)}
+.btns button:disabled{opacity:.4;cursor:default}
+.quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+.qhead{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+.qhead h2{font-size:var(--fs-lg);font-weight:800;margin:0;flex:1}
+.q{margin-bottom:26px}
+.q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+.q p.ur{font-weight:400}
+.gloss{margin:-6px 0 12px;font-size:var(--fs-xs);color:var(--ink-soft);font-weight:600;line-height:1.45}
+.opt{display:block;width:100%;text-align:left;margin-bottom:10px;border:2px solid var(--line);background:var(--paper);border-radius:12px;padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);min-height:50px;touch-action:manipulation}
+.opt.ur{text-align:right;line-height:var(--lh)}
+.opt:disabled{cursor:default}
+.fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+.fb.show{display:block}
+footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);font-size:var(--fs-xs);color:var(--ink-soft)}
+@media (min-width:820px){
+.wrap{max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;grid-template-areas:"bar bar" "head head" "tabs tabs" "story story" "left right" "quiz quiz" "foot foot";align-items:start}
+.bar{grid-area:bar}.head{grid-area:head}.tabs{grid-area:tabs}.story{grid-area:story}.left{grid-area:left}.right{grid-area:right}.quiz{grid-area:quiz;margin-top:34px}footer{grid-area:foot}.panel{margin-top:0}
+}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01ms !important;animation:none !important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 4 · Hisaab</span>
+    <span class="stars">⭐ <span id="starCount">0</span></span>
+    <button class="chip" id="langBtn" aria-pressed="false" type="button">اردو</button>
+    <button class="chip" id="speakBtn" type="button" aria-label="Sunlo">🔊</button>
+  </div>
+  <div class="head"><h1 id="title"></h1><p class="sub" id="subtitle"></p></div>
+  <div class="tabs" role="group">
+    <button type="button" id="tabAdd" aria-pressed="true"></button>
+    <button type="button" id="tabMul" aria-pressed="false"></button>
+    <button type="button" id="tabWord" aria-pressed="false"></button>
+  </div>
+  <p class="story" id="story"></p>
+  <div class="left">
+    <div class="scene"><div class="scene-pad" id="scenePad"></div></div>
+    <div class="readout">
+      <span class="statechip" id="statechip"></span>
+      <p class="headline" id="headline"></p>
+      <p class="detail" id="detail"></p>
+      <p class="hintbox" id="hintbox"></p>
+    </div>
+  </div>
+  <div class="right">
+    <div class="panel">
+      <h2 id="ctlHead"></h2>
+      <p class="prog" id="prog"></p>
+      <div id="actionBox"></div>
+      <div class="btns"><button type="button" class="go" id="nextBtn"></button></div>
+      <div class="btns"><button type="button" id="hintBtn"></button><button type="button" id="resetBtn"></button></div>
+    </div>
+  </div>
+  <div class="quiz">
+    <div class="qhead"><h2 id="quizHead"></h2><button type="button" class="chip" id="newQuiz"></button></div>
+    <div id="quizBox"></div>
+  </div>
+  <footer>
+    <p data-en="AI4Kids — Islamabad bilingual school. Offline. WhatsApp 0337 1468899 · Number operations" data-ur="اے آئی فور کڈز — اسلام آباد دو لسانی اسکول۔ آف لائن۔ واٹس ایپ 0337 1468899 · حسابی اعمال"></p>
+  </footer>
+</div>
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id)}
+function isolate(s){return "\u2066"+s+"\u2069"}
+function setText(el,str){if(!el)return;el.textContent=(lang==="ur")?isolate(str):str;el.classList.toggle("ur",lang==="ur");el.setAttribute("dir",lang==="ur"?"rtl":"ltr")}
+function t(o){return (o&&o[lang])||(o&&o.en)||""}
+function shuffle(arr){var a=arr.slice(),i,j,tmp;for(i=a.length-1;i>0;i--){j=Math.floor(Math.random()*(i+1));tmp=a[i];a[i]=a[j];a[j]=tmp}return a}
+function fmt(n){var s=String(Math.abs(n|0)),out="";while(s.length>3){out=","+s.slice(-3)+out;s=s.slice(0,-3)}return s+out}
+var lang="en",mode="add",stars=0,awarded={},doneModes={add:false,mul:false,word:false},speakTimer=null;
+var T={
+title:{en:"Number operations",ur:"حسابی اعمال"},
+sub:{en:"Add and subtract up to 5 digits. Multiply and divide up to 4 digits. Pick the right sign.",ur:"پانچ ہندسوں تک جمع اور تفریق۔ چار ہندسوں تک ضرب اور تقسیم۔ صحیح نشان چنو۔"},
+tabAdd:{en:"Add & subtract",ur:"جمع اور تفریق"},
+tabMul:{en:"Multiply & divide",ur:"ضرب اور تقسیم"},
+tabWord:{en:"Which operation?",ur:"کون سا عمل؟"},
+storyAdd:{en:"Add and subtract up to <b>5-digit</b> numbers, with and without regrouping. <b>Estimate</b> first, then check the exact answer. In addition, 10 or more in a column means a carry. In subtraction, a bigger digit underneath means a borrow. Stay inside 5-digit work.",ur:"<b>پانچ ہندسوں</b> تک جمع اور تفریق، ہاتھ کے ساتھ اور بغیر ہاتھ۔ پہلے <b>اندازہ</b>، پھر صحیح جواب چیک کرو۔ جمع میں کالم 10 یا زیادہ ہو تو ہاتھ۔ تفریق میں نیچے بڑا ہندسہ ہو تو ادھار۔ پانچ ہندسوں کے اندر رہو۔"},
+storyMul:{en:"Multiply a number up to <b>4 digits</b> by 1 digit or 2 digits. Divide a number up to <b>4 digits</b> by 1 digit or 2 digits. Split 24 as 20 + 4. Check division by multiplying back. Estimate first so a wild answer stands out.",ur:"<b>چار ہندسوں</b> تک نمبر کو 1 یا 2 ہندسے سے ضرب دو۔ <b>چار ہندسوں</b> تک نمبر کو 1 یا 2 ہندسے پر تقسیم کرو۔ 24 کو 20 + 4 سمجھ۔ تقسیم کو ضرب سے چیک کرو۔ پہلے اندازہ، تاکہ عجیب جواب نظر آ جائے۔"},
+storyWord:{en:"School and bazaar stories. <b>Altogether</b> or both days means add. <b>Left</b> or remain means subtract. <b>Each</b> with equal groups means multiply. <b>Equal boxes</b> or shared equally means divide. Pick the sign first.",ur:"اسکول اور بازار کی کہانیاں۔ <b>ملا کر</b> یا دونوں دن جمع ہے۔ <b>بچے</b> یا رہ گئی تفریق ہے۔ <b>ہر</b> اور برابر گروہ ضرب ہے۔ <b>برابر ڈبے</b> یا برابر بانٹ تقسیم ہے۔ پہلے نشان چنو۔"},
+ctl:{en:"Your turn — hisaab lab",ur:"تمہاری باری — حساب لیب"},
+next:{en:"Next challenge",ur:"اگلا چیلنج"},
+hint:{en:"Hint",ur:"اشارہ"},
+reset:{en:"Reset",ur:"ری سیٹ"},
+quiz:{en:"Check yourself",ur:"اپنا چیک"},
+newQuiz:{en:"New quiz",ur:"نیا کوئز"},
+nice:{en:"Shabash!",ur:"شاباش!"},
+oops:{en:"Almost — try again",ur:"قریب — دوبارہ آزماؤ"},
+tipAdd:{en:"Line the places up: ones under ones, tens under tens. Estimate to the nearest thousand by looking at the hundreds: 0 to 4 stay, 5 to 9 go up. Then find the exact answer. Carry when a column is 10 or more. Borrow when the top digit is smaller. Check a sum by subtracting, and a difference by adding.",ur:"جگہیں سیدھ میں رکھو: اکائی کے نیچے اکائی، دہائی کے نیچے دہائی۔ قریب ترین ہزار کے لیے سینکڑا دیکھو: 0 سے 4 رہنے دو، 5 سے 9 اوپر لے جاؤ۔ پھر صحیح جواب نکالو۔ کالم 10 یا زیادہ ہو تو ہاتھ۔ اوپر والا ہندسہ چھوٹا ہو تو ادھار۔ جمع کو تفریق سے چیک کرو، اور تفریق کو جمع سے۔"},
+tipMul:{en:"For a 2-digit multiply, break it into tens and ones, multiply each part, then add. For division, multiply your answer by the divisor to check. If the answer is far from the estimate, try again. Class 4 multiplies and divides numbers up to 4 digits here.",ur:"دو ہندسوں کی ضرب کو دہائی اور اکائی میں توڑو، ہر حصہ ضرب دو، پھر جمع کرو۔ تقسیم میں جواب کو تقسیم کنندہ سے ضرب دے کر چیک کرو۔ اگر جواب اندازے سے بہت دور ہو تو دوبارہ سوچو۔ کلاس 4 یہاں چار ہندسوں تک ضرب اور تقسیم کرتی ہے۔"},
+tipWord:{en:"Do not rush to compute. Find the action. Together, total, both: add. Left, remain, gave away: subtract. Each, every, same-size groups: multiply. Share equally, how many boxes, how many groups: divide.",ur:"جلدی سے حساب نہ کرو۔ عمل پہچانو۔ ملا کر، کل، دونوں: جمع۔ بچے، رہ گئے، دے دیے: تفریق۔ ہر، برابر گروہ: ضرب۔ برابر بانٹ، کتنے ڈبے، کتنے گروہ: تقسیم۔"},
+progAdd:{en:"Add & subtract",ur:"جمع اور تفریق"},
+progMul:{en:"Multiply & divide",ur:"ضرب اور تقسیم"},
+progWord:{en:"Word signs",ur:"کہانی کے نشان"},
+opCap:{en:"Read the clue words. Then pick the sign.",ur:"اشارہ والے الفاظ پڑھو۔ پھر نشان چنو۔"},
+places:{en:"Work from the ones place, on the right, toward the ten thousands.",ur:"دائیں اکائی سے شروع کرو، دس ہزار کی طرف جاؤ۔"}
+};
+var OPS=[
+{id:"add",en:"Add   +",ur:"جمع   +"},
+{id:"sub",en:"Subtract   −",ur:"تفریق   −"},
+{id:"mul",en:"Multiply   ×",ur:"ضرب   ×"},
+{id:"div",en:"Divide   ÷",ur:"تقسیم   ÷"}
+];
+var ADD=[
+{id:"a1",kind:"pick",em:"📚",
+title:{en:"Ayesha's book drive",ur:"عائشہ کا کتاب فنڈ"},
+blurb:{en:"The Islamabad school collected 12,340 rupees on Monday and 21,250 on Tuesday. No column reaches 10.",ur:"اسلام آباد کے اسکول نے پیر کو 12,340 روپے اور منگل کو 21,250 روپے جمع کیے۔ کوئی کالم 10 تک نہیں پہنچا۔"},
+eq:"12,340 + 21,250",
+est:{en:"Estimate first: 12,000 + 21,000 is about 33,000. Then check.",ur:"پہلے اندازہ: 12,000 + 21,000 تقریباً 33,000۔ پھر چیک کرو۔"},
+ask:{en:"Pick the exact sum. The estimate is not the answer.",ur:"صحیح جمع چنو۔ اندازہ جواب نہیں ہے۔"},
+opts:[{id:"a",n:33590},{id:"b",n:33000},{id:"c",n:34590},{id:"d",n:33500}],
+correct:"a",
+hint:{en:"Start at the ones. 0+0=0, 4+5=9, 3+2=5, 2+1=3, 1+2=3. No carry. The exact sum is 33,590. 33,000 was only the estimate.",ur:"اکائی سے شروع کرو۔ 0+0=0، 4+5=9، 3+2=5، 2+1=3، 1+2=3۔ ہاتھ نہیں۔ صحیح جمع 33,590 ہے۔ 33,000 صرف اندازہ تھا۔"},
+done:{en:"33,590. The estimate 33,000 was close.",ur:"33,590۔ اندازہ 33,000 قریب تھا۔"},
+why:{en:"Without regrouping, every column stays under 10. Check by subtracting: 33,590 − 21,250 = 12,340.",ur:"بغیر ہاتھ کے ہر کالم 10 سے چھوٹا رہتا ہے۔ چیک تفریق سے: 33,590 − 21,250 = 12,340۔"}},
+{id:"a2",kind:"pick",em:"🏏",
+title:{en:"Bilal's cricket fund",ur:"بلال کا کرکٹ فنڈ"},
+blurb:{en:"Last month 26,748 rupees, this month 18,579 rupees. Some columns need a carry.",ur:"پچھلے مہینے 26,748 روپے، اس مہینے 18,579 روپے۔ کچھ کالموں میں ہاتھ لگے گا۔"},
+eq:"26,748 + 18,579",
+est:{en:"Nearest thousand: 27,000 + 19,000 is about 46,000. Then check.",ur:"قریب ترین ہزار: 27,000 + 19,000 تقریباً 46,000۔ پھر چیک کرو۔"},
+ask:{en:"Pick the exact sum, after the carries.",ur:"ہاتھ کے بعد صحیح جمع چنو۔"},
+opts:[{id:"a",n:45327},{id:"b",n:46000},{id:"c",n:44327},{id:"d",n:45317}],
+correct:"a",
+hint:{en:"Ones 8+9=17, write 7 carry 1. Tens 4+7+1=12, write 2 carry 1. Hundreds 7+5+1=13, write 3 carry 1. Thousands 6+8+1=15, write 5 carry 1. Ten thousands 2+1+1=4. Exact sum 45,327. 46,000 is the estimate.",ur:"اکائی 8+9=17، 7 لکھو ہاتھ 1۔ دہائی 4+7+1=12، 2 لکھو ہاتھ 1۔ سینکڑا 7+5+1=13، 3 لکھو ہاتھ 1۔ ہزار 6+8+1=15، 5 لکھو ہاتھ 1۔ دس ہزار 2+1+1=4۔ صحیح جمع 45,327 ہے۔ 46,000 اندازہ ہے۔"},
+done:{en:"45,327. The last carry made the ten thousands 4.",ur:"45,327۔ آخری ہاتھ نے دس ہزار کو 4 بنایا۔"},
+why:{en:"Regrouping means write the ones digit and carry the ten. Check: 45,327 − 18,579 = 26,748.",ur:"ہاتھ کا مطلب اکائی لکھنا اور دہائی اگلی جگہ دینا ہے۔ چیک: 45,327 − 18,579 = 26,748۔"}},
+{id:"a3",kind:"miss",em:"📖",
+title:{en:"Hamza's cupboard",ur:"حمزہ کی الماری"},
+blurb:{en:"The library had 75,864 books. 32,451 moved to the new room. No borrowing.",ur:"لائبریری میں 75,864 کتابیں تھیں۔ 32,451 نئے کمرے میں گئیں۔ ادھار نہیں چاہیے۔"},
+left:"75,864 − 32,451 = 4",
+right:",413",
+want:"3",
+digits:["3","2","5","4"],
+est:{en:"Estimate: 76,000 − 32,000 is about 44,000. The blank is the thousands place.",ur:"اندازہ: 76,000 − 32,000 تقریباً 44,000۔ خالی جگہ ہزار کی ہے۔"},
+ask:{en:"Which digit fills the thousands blank in 4_,413?",ur:"4_,413 میں ہزار کی خالی جگہ کون سا ہندسہ بھرتا ہے؟"},
+hint:{en:"Each top digit is bigger, so no borrow. Thousands: 5 − 2 = 3. Ones 4, tens 1, hundreds 4, thousands 3, ten thousands 4. The number is 43,413.",ur:"ہر اوپر والا ہندسہ بڑا ہے، اس لیے ادھار نہیں۔ ہزار: 5 − 2 = 3۔ اکائی 4، دہائی 1، سینکڑا 4، ہزار 3، دس ہزار 4۔ نمبر 43,413 ہے۔"},
+done:{en:"The thousands digit is 3. Answer 43,413.",ur:"ہزار کا ہندسہ 3 ہے۔ جواب 43,413۔"},
+why:{en:"No regrouping here. 75,864 − 32,451 = 43,413. The estimate 44,000 was close, not exact.",ur:"یہاں ہاتھ یا ادھار نہیں۔ 75,864 − 32,451 = 43,413۔ اندازہ 44,000 قریب تھا، بالکل نہیں۔"}},
+{id:"a4",kind:"miss",em:"🍊",
+title:{en:"Fatima's Friday stall",ur:"فاطمہ کا جمعہ سٹال"},
+blurb:{en:"Fatima had 52,314 oranges and sold 18,627. Some columns need a borrow.",ur:"فاطمہ کے پاس 52,314 مالٹے تھے۔ 18,627 بکے۔ کچھ کالموں میں ادھار چاہیے۔"},
+left:"52,314 − 18,627 = 33,6",
+right:"7",
+want:"8",
+digits:["8","7","0","2"],
+est:{en:"Estimate: 52,000 − 19,000 is about 33,000. The blank is the tens place.",ur:"اندازہ: 52,000 − 19,000 تقریباً 33,000۔ خالی جگہ دہائی کی ہے۔"},
+ask:{en:"Which digit fills the tens blank in 33,6_7?",ur:"33,6_7 میں دہائی کی خالی جگہ کون سا ہندسہ بھرتا ہے؟"},
+hint:{en:"Ones: 4 is smaller than 7, so borrow. 14 − 7 = 7. Tens were left as 0, so borrow again: 10 − 2 = 8. The missing tens digit is 8. Full answer 33,687.",ur:"اکائی: 4، 7 سے چھوٹا ہے، اس لیے ادھار۔ 14 − 7 = 7۔ دہائی 0 رہ گئی، پھر ادھار: 10 − 2 = 8۔ خالی دہائی 8 ہے۔ پورا جواب 33,687۔"},
+done:{en:"The tens digit is 8. Answer 33,687.",ur:"دہائی کا ہندسہ 8 ہے۔ جواب 33,687۔"},
+why:{en:"Borrow means take 10 from the next place. Check by adding: 18,627 + 33,687 = 52,314. About 33,000 was a fair estimate.",ur:"ادھار کا مطلب اگلی جگہ سے 10 لینا ہے۔ چیک جمع سے: 18,627 + 33,687 = 52,314۔ تقریباً 33,000 ٹھیک اندازہ تھا۔"}}
+];
+var MUL=[
+{id:"m1",kind:"pick",em:"✏️",
+title:{en:"Sana's colour pencils",ur:"ثنا کے رنگین پنسل"},
+blurb:{en:"2,135 children each get 4 colour pencils. This is a 4-digit number times 1 digit.",ur:"2,135 بچوں کو 4 رنگین پنسل ملتی ہیں۔ یہ چار ہندسے ضرب ایک ہندسہ ہے۔"},
+eq:"2,135 × 4",
+est:{en:"Estimate: 2,000 × 4 = 8,000. Then check the exact product.",ur:"اندازہ: 2,000 × 4 = 8,000۔ پھر صحیح حاصل ضرب چیک کرو۔"},
+ask:{en:"Pick the exact product. Do not stop at the estimate.",ur:"صحیح حاصل ضرب چنو۔ اندازے پر مت رکو۔"},
+opts:[{id:"a",n:8540},{id:"b",n:8000},{id:"c",n:2139},{id:"d",n:8520}],
+correct:"a",
+hint:{en:"5×4=20, write 0 carry 2. 3×4+2=14, write 4 carry 1. 1×4+1=5. 2×4=8. Product 8,540. Adding 4 would make 2,139, which is the wrong operation. 8,000 is only the estimate.",ur:"5×4=20، 0 لکھو ہاتھ 2۔ 3×4+2=14، 4 لکھو ہاتھ 1۔ 1×4+1=5۔ 2×4=8۔ حاصل 8,540۔ 4 جمع کرنے سے 2,139 بنتا، وہ غلط عمل ہے۔ 8,000 صرف اندازہ ہے۔"},
+done:{en:"8,540 pencils. Close to 8,000.",ur:"8,540 پنسل۔ 8,000 کے قریب۔"},
+why:{en:"Check by dividing: 8,540 ÷ 4 = 2,135. A 4-digit number times 1 digit can still be 4 digits.",ur:"چیک تقسیم سے: 8,540 ÷ 4 = 2,135۔ چار ہندسوں کی ایک ہندسے سے ضرب چار ہندسے بھی رہ سکتی ہے۔"}},
+{id:"m2",kind:"pick",em:"🍊",
+title:{en:"Ali's orange tokri",ur:"علی کے مالٹوں کی ٹوکری"},
+blurb:{en:"24 baskets, with 1,250 oranges in each. A 4-digit number times 2 digits.",ur:"24 ٹوکریاں، ہر ایک میں 1,250 مالٹے۔ چار ہندسے ضرب دو ہندسے۔"},
+eq:"1,250 × 24",
+est:{en:"Split 24 as 20 + 4. 1,250 × 20 = 25,000. Do not forget the 4.",ur:"24 کو 20 + 4 سمجھو۔ 1,250 × 20 = 25,000۔ 4 مت بھولو۔"},
+ask:{en:"How many oranges in all 24 baskets?",ur:"24 ٹوکریوں میں کل کتنے مالٹے؟"},
+opts:[{id:"a",n:30000},{id:"b",n:25000},{id:"c",n:5000},{id:"d",n:3000}],
+correct:"a",
+hint:{en:"1,250 × 20 = 25,000. 1,250 × 4 = 5,000. Add the parts: 30,000. 25,000 forgot the 4. 5,000 forgot the 20. 3,000 dropped a zero.",ur:"1,250 × 20 = 25,000۔ 1,250 × 4 = 5,000۔ دونوں جمع: 30,000۔ 25,000 میں 4 کا حصہ نہیں۔ 5,000 میں 20 کا حصہ نہیں۔ 3,000 میں ایک صفر گر گیا۔"},
+done:{en:"30,000 oranges. Both parts added.",ur:"30,000 مالٹے۔ دونوں حصے جمع ہو گئے۔"},
+why:{en:"Check: 30,000 ÷ 24 = 1,250. The product is a 5-digit number, still inside Class 4 addition range, from a 4-digit factor.",ur:"چیک: 30,000 ÷ 24 = 1,250۔ حاصل ضرب پانچ ہندسے ہیں، کلاس 4 کی جمع کی حد میں، اور ضرب چار ہندسوں سے شروع ہوئی۔"}},
+{id:"m3",kind:"pick",em:"📚",
+title:{en:"Six class libraries",ur:"چھ کلاسوں کی لائبریری"},
+blurb:{en:"7,236 story books are shared equally among 6 classes. A 4-digit number divided by 1 digit.",ur:"7,236 کہانی کی کتابیں 6 کلاسوں میں برابر بانٹی جاتی ہیں۔ چار ہندسے تقسیم ایک ہندسہ۔"},
+eq:"7,236 ÷ 6",
+est:{en:"Estimate: 7,200 ÷ 6 = 1,200. Then check the remainder of the estimate.",ur:"اندازہ: 7,200 ÷ 6 = 1,200۔ پھر اندازے کا بچا ہوا حصہ چیک کرو۔"},
+ask:{en:"How many books does each class get?",ur:"ہر کلاس کو کتنی کتابیں ملتی ہیں؟"},
+opts:[{id:"a",n:1206},{id:"b",n:1200},{id:"c",n:1260},{id:"d",n:1106}],
+correct:"a",
+hint:{en:"6 × 1,200 = 7,200. Books left: 36. 6 × 6 = 36. So 1,200 + 6 = 1,206. The estimate 1,200 missed the last 36. Check: 6 × 1,206 = 7,236.",ur:"6 × 1,200 = 7,200۔ کتابیں بچیں 36۔ 6 × 6 = 36۔ اس لیے 1,200 + 6 = 1,206۔ اندازہ 1,200 آخری 36 بھول گیا۔ چیک: 6 × 1,206 = 7,236۔"},
+done:{en:"1,206 books each. The extra 36 made 6 more.",ur:"ہر کلاس 1,206 کتابیں۔ بچے 36 نے 6 اور بن جائیں۔"},
+why:{en:"Division is the reverse of multiplication. Equal sharing means each class gets the same number, 1,206.",ur:"تقسیم ضرب کا الٹ ہے۔ برابر بانٹ کا مطلب ہر کلاس کو ایک جیسی گنتی، 1,206۔"}},
+{id:"m4",kind:"miss",em:"🎀",
+title:{en:"Usman's friendship bands",ur:"عثمان کے دوستی والے کنگن"},
+blurb:{en:"4,816 beads. Each friendship band uses 16 beads. A 4-digit number divided by 2 digits.",ur:"4,816 موتی ہیں۔ ہر دوستی والے کنگن پر 16 موتی۔ چار ہندسے تقسیم دو ہندسے۔"},
+left:"4,816 ÷ 16 = 30",
+right:"",
+want:"1",
+digits:["1","0","6","8"],
+est:{en:"Estimate: 4,800 ÷ 16 = 300. The blank is the ones digit.",ur:"اندازہ: 4,800 ÷ 16 = 300۔ خالی جگہ اکائی کی ہے۔"},
+ask:{en:"Which ones digit completes 30_ bands?",ur:"30_ کنگن میں اکائی کا کون سا ہندسہ آئے؟"},
+hint:{en:"16 × 300 = 4,800. Beads left: 16, which is one more band. 300 + 1 = 301. The ones digit is 1, not 0. Check: 16 × 301 = 4,816.",ur:"16 × 300 = 4,800۔ موتی بچے 16، یعنی ایک اور کنگن۔ 300 + 1 = 301۔ اکائی 1 ہے، 0 نہیں۔ چیک: 16 × 301 = 4,816۔"},
+done:{en:"The ones digit is 1. There are 301 bands.",ur:"اکائی 1 ہے۔ 301 کنگن بنتے ہیں۔"},
+why:{en:"A 2-digit divisor is checked the same way: multiply back. 301 is one more than the estimate 300.",ur:"دو ہندسوں والا تقسیم کنندہ بھی اسی طرح چیک ہوتا ہے: واپس ضرب۔ 301 اندازے 300 سے ایک زیادہ ہے۔"}}
+];
+var WORD=[
+{id:"w1",kind:"op",em:"🥟",correct:"add",sym:"+",
+title:{en:"Zara's two days",ur:"زارا کے دو دن"},
+blurb:{en:"The school canteen sold 1,860 samosas on Friday and 1,245 on Saturday. How many samosas in both days?",ur:"اسکول کینٹین نے جمعہ کو 1,860 سموسے اور ہفتہ کو 1,245 سموسے بیچے۔ دونوں دن ملا کر کتنے سموسے؟"},
+ask:{en:"Which operation matches “both days”?",ur:"“دونوں دن” کے لیے کون سا عمل ہے؟"},
+result:"1,860 + 1,245 = 3,105",
+hint:{en:"Both days together means add, not multiply the two days. 1,860 + 1,245 = 3,105. Ones 0+5=5. Tens 6+4=10, write 0 carry 1. Hundreds 8+2+1=11, write 1 carry 1. Thousands 1+1+1=3.",ur:"دونوں دن ملا کر جمع ہے، دو دنوں کی ضرب نہیں۔ 1,860 + 1,245 = 3,105۔ اکائی 5۔ دہائی 6+4=10، 0 لکھو ہاتھ 1۔ سینکڑا 8+2+1=11، 1 لکھو ہاتھ 1۔ ہزار 1+1+1=3۔"},
+done:{en:"Add. 3,105 samosas in both days.",ur:"جمع۔ دونوں دن 3,105 سموسے۔"},
+why:{en:"Clue words: both, altogether, in all. We join the two amounts. Check: 3,105 − 1,245 = 1,860.",ur:"اشارہ: دونوں، ملا کر، کل۔ ہم دو مقداروں کو جوڑتے ہیں۔ چیک: 3,105 − 1,245 = 1,860۔"}},
+{id:"w2",kind:"op",em:"🏃",correct:"sub",sym:"−",
+title:{en:"Ropes left",ur:"رسیاں باقی"},
+blurb:{en:"The sports room had 9,480 skipping ropes. Classes took 2,365 for sports day. How many are left?",ur:"کھیل کے کمرے میں 9,480 کودنے کی رسیاں تھیں۔ کلاسوں نے کھیل کے دن 2,365 لے لیں۔ کتنی بچیں؟"},
+ask:{en:"Which operation matches “how many are left”?",ur:"“کتنی بچیں” کے لیے کون سا عمل ہے؟"},
+result:"9,480 − 2,365 = 7,115",
+hint:{en:"Left or remain means subtract what went away. 9,480 − 2,365 = 7,115. We do not multiply the ropes by the classes.",ur:"بچیں یا رہ گئیں کا مطلب جو چلا گیا اسے گھٹاؤ۔ 9,480 − 2,365 = 7,115۔ رسیوں کو کلاسوں سے ضرب نہیں دیتے۔"},
+done:{en:"Subtract. 7,115 ropes are left.",ur:"تفریق۔ 7,115 رسیاں بچیں۔"},
+why:{en:"Clue words: left, remain, gave away, took. Check by adding: 2,365 + 7,115 = 9,480.",ur:"اشارہ: بچیں، رہ گئیں، دے دیے، لے لیے۔ چیک جمع سے: 2,365 + 7,115 = 9,480۔"}},
+{id:"w3",kind:"op",em:"📒",correct:"mul",sym:"×",
+title:{en:"Notebooks for every child",ur:"ہر بچے کی کاپی"},
+blurb:{en:"There are 1,248 children. Each child gets 3 notebooks. How many notebooks does the school need?",ur:"1,248 بچے ہیں۔ ہر بچے کو 3 کاپیاں ملتی ہیں۔ اسکول کو کتنی کاپیاں چاہئیں؟"},
+ask:{en:"Which operation matches “each child gets 3”?",ur:"“ہر بچے کو 3” کے لیے کون سا عمل ہے؟"},
+result:"1,248 × 3 = 3,744",
+hint:{en:"The same number in each equal group means multiply. 1,248 groups of 3. 1,248 × 3 = 3,744. Adding 3 once would be far too small.",ur:"ہر برابر گروہ میں ایک جیسی گنتی ضرب ہے۔ 1,248 گروہ، ہر ایک میں 3۔ 1,248 × 3 = 3,744۔ ایک بار 3 جمع کرنا بہت چھوٹا رہ جاتا۔"},
+done:{en:"Multiply. The school needs 3,744 notebooks.",ur:"ضرب۔ اسکول کو 3,744 کاپیاں چاہئیں۔"},
+why:{en:"Clue words: each, every, rows of the same size. Check: 3,744 ÷ 3 = 1,248.",ur:"اشارہ: ہر، سب، ایک جیسے گروہ۔ چیک: 3,744 ÷ 3 = 1,248۔"}},
+{id:"w4",kind:"op",em:"🥭",correct:"div",sym:"÷",
+title:{en:"Mango boxes",ur:"آم کے ڈبے"},
+blurb:{en:"A Sunday bazaar stall has 2,460 mangoes. They pack 15 mangoes in each box. How many boxes?",ur:"اتوار بازار کے سٹال پر 2,460 آم ہیں۔ ہر ڈبے میں 15 آم بھرتے ہیں۔ کتنے ڈبے؟"},
+ask:{en:"Which operation finds how many equal boxes?",ur:"برابر ڈبوں کی گنتی کون سا عمل بتاتا ہے؟"},
+result:"2,460 ÷ 15 = 164",
+hint:{en:"Packing into equal groups of 15 means divide, not subtract 15 only once. 2,460 ÷ 15 = 164. Check: 15 × 164 = 2,460.",ur:"15 کے برابر گروہ بنانا تقسیم ہے، صرف ایک بار 15 گھٹانا نہیں۔ 2,460 ÷ 15 = 164۔ چیک: 15 × 164 = 2,460۔"},
+done:{en:"Divide. 164 boxes.",ur:"تقسیم۔ 164 ڈبے۔"},
+why:{en:"Clue words: each box, shared equally, how many groups. Division asks how many equal groups fit inside.",ur:"اشارہ: ہر ڈبہ، برابر بانٹ، کتنے گروہ۔ تقسیم پوچھتی ہے اندر کتنے برابر گروہ بنتے ہیں۔"}}
+];
+var QUIZ=[
+{id:"qEst",pin:true,
+q:{en:"Estimate 41,260 + 27,815 to the nearest thousand. Which estimate should you check against?",ur:"41,260 + 27,815 کا قریب ترین ہزار پر اندازہ لگاؤ۔ کس اندازے سے چیک کرو گے؟"},
+ru:"41,260 + 27,815 ka nearest thousand estimate kaun sa hai?",
+opts:[{en:"69,000",ur:"69,000"},{en:"68,000",ur:"68,000"},{en:"70,000",ur:"70,000"},{en:"60,000",ur:"60,000"}],
+correct:0,
+why:{en:"Nearest thousand looks at hundreds. 41,260 has hundreds 2, so it stays 41,000. 27,815 has hundreds 8, so it goes up to 28,000. 41,000 + 28,000 = 69,000. The exact sum is 69,075, close to the estimate.",ur:"قریب ترین ہزار کے لیے سینکڑا دیکھو۔ 41,260 کا سینکڑا 2 ہے، اس لیے 41,000 رہتا ہے۔ 27,815 کا سینکڑا 8 ہے، اس لیے 28,000 بنتا ہے۔ 41,000 + 28,000 = 69,000۔ صحیح جمع 69,075 ہے، اندازے کے قریب۔"}},
+{id:"qCarry",pin:true,
+q:{en:"Sana adds 4,567 + 2,845. The ones digits are 7 and 5. What should she do?",ur:"ثنا 4,567 + 2,845 جمع کر رہی ہے۔ اکائی 7 اور 5 ہیں۔ اسے کیا کرنا چاہیے؟"},
+ru:"Sana 4,567 + 2,845 jor rahi hai. Ones 7 aur 5 hain. Woh kya kare?",
+opts:[
+{en:"Write 2 and carry 1",ur:"2 لکھو اور 1 ہاتھ دو"},
+{en:"Write 12 in the ones place",ur:"اکائی کی جگہ 12 لکھ دو"},
+{en:"Write 1 and carry 2",ur:"1 لکھو اور 2 ہاتھ دو"},
+{en:"Skip ones and jump to tens",ur:"اکائی چھوڑ کر دہائی پر جاؤ"}
+],
+correct:0,
+why:{en:"7 + 5 = 12. That is 1 ten and 2 ones. Write 2 and carry 1 to the tens. The full sum is 7,412.",ur:"7 + 5 = 12۔ یہ 1 دہائی اور 2 اکائی ہے۔ 2 لکھو اور 1 ہاتھ دہائی کو دو۔ پوری جمع 7,412 ہے۔"}},
+{id:"qAdd",
+q:{en:"What is 31,204 + 12,561? No column is 10 or more.",ur:"31,204 + 12,561 کتنا ہے؟ کوئی کالم 10 یا زیادہ نہیں۔"},
+ru:"31,204 + 12,561 kitna hai? Koi column 10 ya zyada nahi.",
+opts:[{en:"43,765",ur:"43,765"},{en:"43,675",ur:"43,675"},{en:"44,765",ur:"44,765"},{en:"33,765",ur:"33,765"}],
+correct:0,
+why:{en:"Add each place. Ones 4+1=5, tens 0+6=6, hundreds 2+5=7, thousands 1+2=3, ten thousands 3+1=4. Sum 43,765. No regrouping.",ur:"ہر جگہ الگ جمع کرو۔ اکائی 5، دہائی 6، سینکڑا 7، ہزار 3، دس ہزار 4۔ جمع 43,765 ہے۔ ہاتھ نہیں۔"}},
+{id:"qSub",
+q:{en:"What is 40,305 − 12,148? Estimate about 28,000, then pick the exact difference.",ur:"40,305 − 12,148 کتنا ہے؟ اندازہ تقریباً 28,000، پھر صحیح فرق چنو۔"},
+ru:"40,305 minus 12,148 kitna hai? Estimate lagbhag 28,000.",
+opts:[{en:"28,157",ur:"28,157"},{en:"28,257",ur:"28,257"},{en:"32,157",ur:"32,157"},{en:"28,167",ur:"28,167"}],
+correct:0,
+why:{en:"Ones 5 is smaller than 8, and the tens digit is 0, so the borrow comes from further left. The difference is 28,157. Check: 12,148 + 28,157 = 40,305.",ur:"اکائی 5، 8 سے چھوٹی ہے اور دہائی 0 ہے، اس لیے ادھار مزید بائیں سے آتا ہے۔ فرق 28,157 ہے۔ چیک: 12,148 + 28,157 = 40,305۔"}},
+{id:"qMul",
+q:{en:"What is 1,406 × 5?",ur:"1,406 × 5 کتنا ہے؟"},
+ru:"1,406 ko 5 se multiply karo. Jawab kya hai?",
+opts:[{en:"7,030",ur:"7,030"},{en:"7,300",ur:"7,300"},{en:"5,030",ur:"5,030"},{en:"7,003",ur:"7,003"}],
+correct:0,
+why:{en:"5×6=30, write 0 carry 3. Tens digit is 0, so the carry 3 stays. 5×4=20, write 0 carry 2. 5×1+2=7. Answer 7,030. Estimate 1,400 × 5 = 7,000.",ur:"5×6=30، 0 لکھو ہاتھ 3۔ دہائی 0 ہے، اس لیے ہاتھ 3 رہتا ہے۔ 5×4=20، 0 لکھو ہاتھ 2۔ 5×1+2=7۔ جواب 7,030۔ اندازہ 1,400 × 5 = 7,000 تھا۔"}},
+{id:"qDiv",
+q:{en:"What is 2,688 ÷ 12?",ur:"2,688 ÷ 12 کتنا ہے؟"},
+ru:"2,688 ko 12 se divide karo. Jawab kya hai?",
+opts:[{en:"224",ur:"224"},{en:"214",ur:"214"},{en:"240",ur:"240"},{en:"22",ur:"22"}],
+correct:0,
+why:{en:"12 × 200 = 2,400. Left over 288. 12 × 24 = 288. So 224. Check: 12 × 224 = 2,688.",ur:"12 × 200 = 2,400۔ بچے 288۔ 12 × 24 = 288۔ اس لیے 224۔ چیک: 12 × 224 = 2,688۔"}},
+{id:"qSign",
+q:{en:"A stall has 3,600 ladoos. The shopkeeper packs 15 in each box. Which operation finds how many boxes?",ur:"سٹال پر 3,600 لڈو ہیں۔ دکاندار ہر ڈبے میں 15 رکھتا ہے۔ ڈبوں کی گنتی کون سا عمل بتائے گا؟"},
+ru:"Stall par 3,600 ladoo hain. Har box mein 15. Boxes ginne ka operation kaun sa hai?",
+opts:[{en:"Divide  ÷",ur:"تقسیم  ÷"},{en:"Multiply  ×",ur:"ضرب  ×"},{en:"Subtract  −",ur:"تفریق  −"},{en:"Add  +",ur:"جمع  +"}],
+correct:0,
+why:{en:"Equal packs of 15 means divide. 3,600 ÷ 15 = 240 boxes. Check by multiplying: 15 × 240 = 3,600.",ur:"15 کے برابر ڈبے تقسیم ہیں۔ 3,600 ÷ 15 = 240 ڈبے۔ چیک ضرب سے: 15 × 240 = 3,600۔"}}
+];
+var addIdx=0,addDone={},mulIdx=0,mulDone={},wordIdx=0,wordDone={};
+var optKey="",optOrder=[],quizSet=[],quizState={};
+function award(key,n){if(awarded[key])return;awarded[key]=true;stars+=(n||1);$("starCount").textContent=String(stars)}
+function recountStars(){stars=0;Object.keys(awarded).forEach(function(k){stars+=(k.indexOf("mode-")===0)?2:1});$("starCount").textContent=String(stars)}
+function markWin(prefix,id,doneMap,modeKey,total){if(doneMap[id])return;doneMap[id]=true;award(prefix+"-"+id,1);if(Object.keys(doneMap).length>=total){doneModes[modeKey]=true;award("mode-"+modeKey,2)}tabBadges()}
+function skyHTML(){return '<div class="sky-layer"><div class="sun-ball"></div><div class="cloud c1"></div><div class="cloud c2"></div></div>'}
+function prepScene(){var pad=$("scenePad");pad.innerHTML=skyHTML();var stage=document.createElement("div");stage.className="num-stage";pad.appendChild(stage);return stage}
+function addBlurb(stage,ch){var em=document.createElement("div");em.className="hero-em";em.textContent=ch.em||"🔢";stage.appendChild(em);var box=document.createElement("div");box.className="card-box";setText(box,t(ch.blurb));stage.appendChild(box)}
+function addEq(stage,text){var eq=document.createElement("div");eq.className="eqline big";eq.textContent=text;stage.appendChild(eq)}
+function addCap(stage,msg){var c=document.createElement("div");c.className="capline";setText(c,msg);stage.appendChild(c)}
+function addMissing(stage,ch,solved){
+  var eq=document.createElement("div");eq.className="eqline big";eq.setAttribute("dir","ltr");
+  eq.appendChild(document.createTextNode(ch.left));
+  var b=document.createElement("span");b.className="blank"+(solved?" win":"");b.textContent=solved?ch.want:"?";
+  eq.appendChild(b);
+  if(ch.right)eq.appendChild(document.createTextNode(ch.right));
+  stage.appendChild(eq);
+}
+function showStep(i,n){setText($("statechip"),(i+1)+" / "+n);$("statechip").className="statechip"+(lang==="ur"?" ur":"")}
+function showWin(msg){setText($("headline"),msg);$("statechip").className="statechip win"+(lang==="ur"?" ur":"");setText($("statechip"),t(T.nice))}
+function showMiss(){setText($("headline"),t(T.oops));$("statechip").className="statechip miss"+(lang==="ur"?" ur":"");setText($("statechip"),t(T.oops))}
+function stableOrder(key,arr){if(optKey!==key){optKey=key;optOrder=shuffle(arr)}return optOrder}
+function clearHint(){$("hintbox").classList.remove("show")}
+function renderList(list,idx,doneMap,prefix,modeKey,progLabel){
+  var ch=list[idx],stage=prepScene(),solved=!!doneMap[ch.id];
+  addBlurb(stage,ch);
+  if(ch.kind==="miss"){addMissing(stage,ch,solved);if(ch.est)addCap(stage,t(ch.est));addCap(stage,t(T.places))}
+  else if(ch.kind==="op"){
+    var hero=document.createElement("div");hero.className="op-hero";hero.textContent=solved?ch.sym:"+    −    ×    ÷";stage.appendChild(hero);
+    if(solved)addEq(stage,ch.result);else addCap(stage,t(T.opCap));
+  }else{addEq(stage,ch.eq);if(ch.est)addCap(stage,t(ch.est))}
+  showStep(idx,list.length);setText($("headline"),t(ch.title));
+  setText($("detail"),solved?t(ch.why):t(ch.ask));clearHint();
+  if(solved)showWin(t(ch.done));
+  var box=$("actionBox");box.innerHTML="";
+  if(ch.kind==="miss"){
+    var bank=document.createElement("div");bank.className="bank ltrb";
+    stableOrder("miss-"+ch.id,ch.digits.slice()).forEach(function(d){
+      var b=document.createElement("button");b.type="button";b.className="mini-item dig";b.textContent=d;b.setAttribute("dir","ltr");
+      if(solved&&d===ch.want)b.classList.add("right");b.disabled=solved;
+      b.addEventListener("click",function(){if(doneMap[ch.id])return;if(d===ch.want){markWin(prefix,ch.id,doneMap,modeKey,list.length);rerender(modeKey)}else{b.classList.add("wrong");showMiss()}});
+      bank.appendChild(b);
+    });
+    box.appendChild(bank);
+  }else if(ch.kind==="op"){
+    var choices=document.createElement("div");choices.className="save-choices";
+    stableOrder("op-"+ch.id,OPS.slice()).forEach(function(op){
+      var b=document.createElement("button");b.type="button";setText(b,t(op));
+      if(solved&&op.id===ch.correct)b.classList.add("right");b.disabled=solved;
+      b.addEventListener("click",function(){if(doneMap[ch.id])return;if(op.id===ch.correct){markWin(prefix,ch.id,doneMap,modeKey,list.length);rerender(modeKey)}else{b.classList.add("wrong");showMiss()}});
+      choices.appendChild(b);
+    });
+    box.appendChild(choices);
+  }else{
+    var picks=document.createElement("div");picks.className="save-choices";
+    stableOrder("pick-"+ch.id,ch.opts.slice()).forEach(function(opt){
+      var b=document.createElement("button");b.type="button";b.className="numc";b.textContent=fmt(opt.n);b.setAttribute("dir","ltr");
+      if(solved&&opt.id===ch.correct)b.classList.add("right");b.disabled=solved;
+      b.addEventListener("click",function(){if(doneMap[ch.id])return;if(opt.id===ch.correct){markWin(prefix,ch.id,doneMap,modeKey,list.length);rerender(modeKey)}else{b.classList.add("wrong");showMiss()}});
+      picks.appendChild(b);
+    });
+    box.appendChild(picks);
+  }
+  setText($("prog"),t(progLabel)+": "+Object.keys(doneMap).length+"/"+list.length);
+}
+function renderAdd(){renderList(ADD,addIdx,addDone,"add","add",T.progAdd)}
+function renderMul(){renderList(MUL,mulIdx,mulDone,"mul","mul",T.progMul)}
+function renderWord(){renderList(WORD,wordIdx,wordDone,"word","word",T.progWord)}
+function rerender(modeKey){if(modeKey==="add")renderAdd();else if(modeKey==="mul")renderMul();else renderWord()}
+function pickQuiz(){
+  var pin=[],rest=[],i;quizState={};
+  for(i=0;i<QUIZ.length;i++){if(QUIZ[i].pin)pin.push(QUIZ[i]);else rest.push(QUIZ[i])}
+  rest=shuffle(rest);quizSet=shuffle(pin.concat(rest.slice(0,5-pin.length)));
+}
+function renderQuiz(){
+  var box=$("quizBox");box.innerHTML="";
+  quizSet.forEach(function(item,qi){
+    var wrap=document.createElement("div");wrap.className="q";
+    var p=document.createElement("p");setText(p,(qi+1)+". "+t(item.q));wrap.appendChild(p);
+    if(lang==="en"&&item.ru){var g=document.createElement("p");g.className="gloss";g.textContent=item.ru;wrap.appendChild(g)}
+    var st=quizState[item.id];
+    item.opts.forEach(function(opt,oi){
+      var b=document.createElement("button");b.type="button";b.className="opt"+(lang==="ur"?" ur":"");setText(b,t(opt));
+      if(st&&oi===item.correct)b.classList.add("right");
+      if(st==="no"&&quizState[item.id+"-pick"]===oi&&oi!==item.correct)b.classList.add("wrong");
+      if(st)b.disabled=true;
+      b.addEventListener("click",function(){
+        if(quizState[item.id])return;
+        quizState[item.id+"-pick"]=oi;
+        if(oi===item.correct){quizState[item.id]="ok";b.classList.add("right");award("quiz-"+item.id,1)}
+        else{quizState[item.id]="no";b.classList.add("wrong");var kids=wrap.querySelectorAll(".opt");if(kids[item.correct])kids[item.correct].classList.add("right")}
+        fb.classList.add("show");
+        var all=wrap.querySelectorAll(".opt"),k;for(k=0;k<all.length;k++)all[k].disabled=true;
+      });
+      wrap.appendChild(b);
+    });
+    var fb=document.createElement("p");fb.className="fb"+(st?" show":"");setText(fb,t(item.why));wrap.appendChild(fb);
+    box.appendChild(wrap);
+  });
+}
+function storyHtml(){if(mode==="add")return t(T.storyAdd);if(mode==="mul")return t(T.storyMul);return t(T.storyWord)}
+function currentTip(){if(mode==="add")return T.tipAdd;if(mode==="mul")return T.tipMul;return T.tipWord}
+function tabBadges(){
+  function lab(btn,label,key){btn.innerHTML="";var span=document.createElement("span");setText(span,t(label));btn.appendChild(span);if(doneModes[key]){var b=document.createElement("span");b.className="badge";b.textContent=" ★";btn.appendChild(b)}}
+  lab($("tabAdd"),T.tabAdd,"add");lab($("tabMul"),T.tabMul,"mul");lab($("tabWord"),T.tabWord,"word");
+  $("tabAdd").setAttribute("aria-pressed",mode==="add"?"true":"false");
+  $("tabMul").setAttribute("aria-pressed",mode==="mul"?"true":"false");
+  $("tabWord").setAttribute("aria-pressed",mode==="word"?"true":"false");
+}
+function renderCurrent(){if(mode==="add")renderAdd();else if(mode==="mul")renderMul();else renderWord()}
+function setMode(m){mode=m;renderCurrent();applyChrome()}
+function applyChrome(){
+  setText($("title"),t(T.title));setText($("subtitle"),t(T.sub));
+  $("story").innerHTML=storyHtml();$("story").classList.toggle("ur",lang==="ur");$("story").setAttribute("dir",lang==="ur"?"rtl":"ltr");
+  setText($("ctlHead"),t(T.ctl));setText($("nextBtn"),t(T.next));setText($("hintBtn"),t(T.hint));setText($("resetBtn"),t(T.reset));
+  setText($("quizHead"),t(T.quiz));setText($("newQuiz"),t(T.newQuiz));
+  $("langBtn").textContent=(lang==="en")?"اردو":"EN";$("langBtn").setAttribute("aria-pressed",lang==="ur"?"true":"false");
+  $("speakBtn").setAttribute("aria-label",lang==="ur"?"سنو":"Listen");
+  document.body.classList.toggle("urdu",lang==="ur");
+  document.documentElement.lang=(lang==="ur")?"ur":"en";
+  document.documentElement.dir=(lang==="ur")?"rtl":"ltr";
+  document.title=t(T.title)+" | AI4Kids Class 4";
+  tabBadges();
+  var foot=document.querySelector("footer p");
+  if(foot)setText(foot,foot.getAttribute(lang==="ur"?"data-ur":"data-en"));
+}
+function applyLang(){applyChrome();renderCurrent();renderQuiz()}
+function next(){
+  optKey="";
+  if(mode==="add"){addIdx=(addIdx+1)%ADD.length;renderAdd()}
+  else if(mode==="mul"){mulIdx=(mulIdx+1)%MUL.length;renderMul()}
+  else{wordIdx=(wordIdx+1)%WORD.length;renderWord()}
+}
+function showHint(){
+  var h=mode==="add"?ADD[addIdx].hint:(mode==="mul"?MUL[mulIdx].hint:WORD[wordIdx].hint);
+  var hb=$("hintbox");setText(hb,t(h));hb.classList.add("show");
+}
+function resetMode(){
+  if(mode==="add"){Object.keys(awarded).forEach(function(k){if(k.indexOf("add-")===0||k==="mode-add")delete awarded[k]});addDone={};addIdx=0;doneModes.add=false;recountStars();renderAdd()}
+  else if(mode==="mul"){Object.keys(awarded).forEach(function(k){if(k.indexOf("mul-")===0||k==="mode-mul")delete awarded[k]});mulDone={};mulIdx=0;doneModes.mul=false;recountStars();renderMul()}
+  else{Object.keys(awarded).forEach(function(k){if(k.indexOf("word-")===0||k==="mode-word")delete awarded[k]});wordDone={};wordIdx=0;doneModes.word=false;recountStars();renderWord()}
+  optKey="";tabBadges();applyChrome();
+}
+function cleanSpeakText(s){return String(s||"").replace(/<[^>]+>/g," ").replace(/&gt;/g,">").replace(/&lt;/g,"<").replace(/&amp;/g,"&").replace(/\s+/g," ").trim()}
+function buildSpeakText(){
+  var bits=[];bits.push(t(T.title));bits.push(cleanSpeakText(storyHtml()));
+  bits.push(cleanSpeakText(($("headline")&&$("headline").textContent)||""));
+  bits.push(cleanSpeakText(($("detail")&&$("detail").textContent)||""));
+  bits.push(t(currentTip()));return bits.filter(Boolean).join(". ");
+}
+function pickVoice(voices,want){
+  var i,v,L;for(i=0;i<voices.length;i++){v=voices[i];L=(v.lang||"").toLowerCase().replace("_","-");if(L.indexOf(want)===0)return v}
+  for(i=0;i<voices.length;i++){v=voices[i];L=(v.lang||"").toLowerCase().replace("_","-");if(L.indexOf("en")===0)return v}
+  return voices[0]||null;
+}
+function setSpeaking(on){var btn=$("speakBtn");if(!btn)return;btn.setAttribute("aria-pressed",on?"true":"false");btn.style.opacity=on?"0.65":""}
+function doSpeak(text,asLang){
+  var u=new SpeechSynthesisUtterance(text);u.rate=0.92;u.lang=(asLang==="ur")?"ur-PK":"en-US";
+  var voices=window.speechSynthesis.getVoices()||[];var voice=pickVoice(voices,asLang==="ur"?"ur":"en");if(voice)u.voice=voice;
+  u.onstart=function(){setSpeaking(true)};u.onend=function(){setSpeaking(false)};
+  u.onerror=function(){setSpeaking(false);if(asLang==="ur"){var fb=cleanSpeakText(T.title.en+". "+(mode==="mul"?T.storyMul.en:mode==="word"?T.storyWord.en:T.storyAdd.en)+". "+(mode==="mul"?T.tipMul.en:mode==="word"?T.tipWord.en:T.tipAdd.en));var u2=new SpeechSynthesisUtterance(fb);u2.lang="en-US";u2.rate=0.92;var v2=pickVoice(window.speechSynthesis.getVoices()||[],"en");if(v2)u2.voice=v2;u2.onstart=function(){setSpeaking(true)};u2.onend=u2.onerror=function(){setSpeaking(false)};window.speechSynthesis.speak(u2)}};
+  window.speechSynthesis.speak(u);
+}
+if("speechSynthesis" in window){
+  try{window.speechSynthesis.getVoices()}catch(e0){}
+  if(typeof window.speechSynthesis.addEventListener==="function"){window.speechSynthesis.addEventListener("voiceschanged",function(){try{window.speechSynthesis.getVoices()}catch(e1){}})}
+}else{var noBtn=$("speakBtn");if(noBtn){noBtn.disabled=true;noBtn.title="Voice not available on this device"}}
+$("langBtn").addEventListener("click",function(){lang=(lang==="en")?"ur":"en";applyLang()});
+$("tabAdd").addEventListener("click",function(){setMode("add")});
+$("tabMul").addEventListener("click",function(){setMode("mul")});
+$("tabWord").addEventListener("click",function(){setMode("word")});
+$("nextBtn").addEventListener("click",next);
+$("hintBtn").addEventListener("click",showHint);
+$("resetBtn").addEventListener("click",resetMode);
+$("newQuiz").addEventListener("click",function(){pickQuiz();renderQuiz()});
+$("speakBtn").addEventListener("click",function(){
+  try{
+    if(!("speechSynthesis" in window))return;
+    var text=buildSpeakText();if(!text)return;
+    if(speakTimer){clearTimeout(speakTimer);speakTimer=null}
+    window.speechSynthesis.cancel();setSpeaking(false);
+    var speakLang=lang;
+    speakTimer=setTimeout(function(){speakTimer=null;doSpeak(text,speakLang)},80);
+  }catch(e){setSpeaking(false)}
+});
+pickQuiz();applyLang();
+})();
+</script>
+</body>
+</html>

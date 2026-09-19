@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title>Numbers 99,999 tak | AI4Kids Class 4</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--board:#e5f3ea;--board-deep:#c9e4d2;--sky:#c5e7f6;--sky2:#6eb0d4;--accent:#1d6b52;--ok:#2e7d4f;--ink:#1e2a1a;--ink-soft:#4a5744;--paper:#fdfaf3;--line:#d5dec8;--gold:#e8b23d;--left:#c4453a;--fs-cap:clamp(12px,3.2vw,13px);--fs-xs:clamp(14px,3.7vw,15px);--fs-sm:clamp(16px,4.2vw,17px);--fs-md:clamp(17px,4.6vw,19px);--fs-lg:clamp(20px,5.4vw,23px);--fs-xl:clamp(27px,7.4vw,33px);--lh:1.5}
+body.urdu{--fs-cap:clamp(13px,3.5vw,15px);--fs-xs:clamp(15px,4.1vw,17px);--fs-sm:clamp(17px,4.7vw,19px);--fs-md:clamp(19px,5.2vw,21px);--fs-lg:clamp(22px,6vw,25px);--fs-xl:clamp(26px,7vw,31px);--lh:2.1}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:"Baloo Bhaijaan 2",-apple-system,"Segoe UI",sans-serif;font-size:var(--fs-sm);line-height:1.5;padding:0 0 40px}
+.wrap{max-width:560px;margin:0 auto;padding:0 14px}
+.bar{display:flex;align-items:center;gap:8px;padding:14px 0 4px}
+.brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}
+.chip{border:2px solid var(--ink);background:var(--paper);color:var(--ink);border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;font-size:var(--fs-xs);cursor:pointer;min-height:42px;touch-action:manipulation}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.chip:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.stars{display:flex;align-items:center;gap:6px;font-weight:800;font-size:var(--fs-xs);background:#fff6e2;border:2px solid var(--gold);border-radius:999px;padding:7px 13px}
+h1{font-size:var(--fs-xl);line-height:1.2;font-weight:800;margin:8px 0 4px}
+.sub{color:var(--ink-soft);font-size:var(--fs-sm);margin:0 0 14px}
+.ur{font-family:"Noto Nastaliq Urdu",serif;line-height:var(--lh)}
+h1.ur{line-height:1.9}
+.tabs{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
+.tabs button{flex:1 1 28%;min-width:90px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);border-radius:14px;padding:10px 6px;font:inherit;font-weight:800;font-size:var(--fs-cap);cursor:pointer;min-height:54px;line-height:1.2;touch-action:manipulation}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.tabs button .badge{color:var(--gold)}
+.story{background:#fff8ea;border:2px dashed var(--gold);border-radius:16px;padding:13px 15px;font-size:var(--fs-xs);color:var(--ink-soft);line-height:1.6;margin-bottom:14px}
+body.urdu .story{line-height:var(--lh)}
+.story b{color:var(--ink)}
+.scene{position:relative;border-radius:22px;overflow:hidden;border:3px solid var(--ink);background:linear-gradient(180deg,var(--sky) 0%,var(--sky2) 36%,var(--board) 36%,var(--board-deep) 100%);min-height:280px}
+.scene-pad{padding:10px 12px 18px;min-height:260px;position:relative}
+.sky-layer{position:absolute;inset:0 0 58% 0;pointer-events:none;overflow:hidden}
+.sun-ball{position:absolute;top:12px;right:18px;width:36px;height:36px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#ffe9a0,#f5c542 60%,#e0a020);box-shadow:0 0 18px rgba(245,197,66,.45);z-index:1}
+body.urdu .sun-ball{right:auto;left:18px}
+.cloud{position:absolute;background:rgba(255,255,255,.85);border-radius:40px;opacity:.9}
+.cloud:before,.cloud:after{content:"";position:absolute;background:inherit;border-radius:50%}
+.c1{width:48px;height:15px;top:18px;left:12%}
+.c1:before{width:22px;height:22px;top:-12px;left:6px}
+.c1:after{width:18px;height:18px;top:-8px;left:24px}
+.c2{width:34px;height:12px;top:34px;left:55%;opacity:.7}
+.c2:before{width:16px;height:16px;top:-9px;left:4px}
+.c2:after{width:12px;height:12px;top:-5px;left:16px}
+.num-stage{position:relative;z-index:5;padding:62px 8px 8px;text-align:center}
+.hero-em{font-size:34px;line-height:1;margin:0}
+.num-hero{font-weight:800;font-size:clamp(30px,8.4vw,44px);letter-spacing:.5px;direction:ltr;unicode-bidi:isolate;margin:6px 0 2px;line-height:1.1}
+.sayline{font-weight:700;font-size:var(--fs-xs);margin:2px 8px 8px;color:var(--ink)}
+.drow{display:flex;gap:4px;justify-content:center;direction:ltr;margin:6px 0}
+.dshow{min-width:42px;padding:4px 2px 6px;font-weight:800;font-size:30px;line-height:1;border-bottom:4px solid rgba(30,42,26,.25);direction:ltr}
+.dshow.hot{background:#fff6d8;border-bottom-color:var(--gold);border-radius:10px}
+.dshow.win{background:#e8f2ed;border-bottom-color:var(--ok);border-radius:10px}
+.capline{font-size:var(--fs-cap);font-weight:800;color:var(--accent);margin:6px 8px 0;line-height:1.45}
+body.urdu .capline,body.urdu .hintbox,body.urdu .card-box{line-height:var(--lh)}
+.eqline{direction:ltr;unicode-bidi:isolate;font-weight:800;font-size:var(--fs-sm);margin:8px 6px 4px;line-height:1.35}
+.roman-big{font-size:68px;font-weight:800;letter-spacing:3px;line-height:1;margin:8px 0 4px;direction:ltr;unicode-bidi:isolate}
+.card-box{background:rgba(253,250,243,.95);border:2.5px solid var(--ink);border-radius:14px;padding:10px 12px;font-weight:800;font-size:var(--fs-xs);max-width:340px;margin:8px auto 0;line-height:1.4}
+.bank{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:4px}
+.bank.ltrb{direction:ltr}
+.mini-item{border:2px solid var(--ink);border-radius:12px;padding:8px 10px;background:#fff;line-height:1.2;cursor:pointer;min-width:52px;min-height:52px;font-weight:800;font-size:var(--fs-cap);display:flex;align-items:center;justify-content:center;gap:4px;touch-action:manipulation}
+.mini-item.dig{font-size:26px;min-width:58px;min-height:62px}
+.mini-item.tile{direction:ltr;font-size:16px;min-width:78px}
+.mini-item.used{opacity:.35;pointer-events:none}
+.mini-item.right,.save-choices button.right,.match-opts button.right,.opt.right{border-color:var(--ok);background:#e8f2ed}
+.mini-item.wrong,.save-choices button.wrong,.match-opts button.wrong,.opt.wrong{border-color:var(--left);background:#fbeae8}
+.opt.right{font-weight:600}
+.save-choices{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+.save-choices button{border:2.5px solid var(--ink);background:var(--paper);border-radius:14px;padding:12px 14px;font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;text-align:left;min-height:52px;display:flex;align-items:center;gap:10px;touch-action:manipulation}
+body.urdu .save-choices button{text-align:right}
+.save-choices button.numc{justify-content:center;text-align:center;direction:ltr;font-size:22px}
+.match-grid{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+.match-row{display:flex;align-items:center;gap:8px;background:rgba(253,250,243,.95);border:2px solid var(--ink);border-radius:14px;padding:10px 12px;font-weight:800;font-size:var(--fs-xs)}
+.match-row .sym{font-size:26px;min-width:42px;direction:ltr;unicode-bidi:isolate;text-align:center}
+.match-opts{display:flex;flex-wrap:wrap;gap:4px;margin-left:auto}
+body.urdu .match-opts{margin-left:0;margin-right:auto}
+.match-opts button{border:2px solid var(--ink);border-radius:10px;padding:6px 10px;background:#fff;font:inherit;font-weight:800;font-size:14px;cursor:pointer;min-height:40px;direction:ltr;touch-action:manipulation}
+.match-opts button.pick{box-shadow:0 0 0 2px var(--accent)}
+.chk{margin-top:10px;width:100%;border:2px solid var(--ink);border-radius:14px;background:var(--ink);color:var(--paper);font:inherit;font-weight:800;min-height:48px;cursor:pointer;touch-action:manipulation}
+.readout{margin-top:-18px;position:relative;z-index:2;background:var(--paper);border:3px solid var(--ink);border-radius:18px;padding:16px 18px}
+.statechip{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;padding:4px 14px;font-size:var(--fs-xs);font-weight:700;margin-bottom:10px}
+.statechip.ur{padding:2px 14px 7px}
+.statechip.win{background:var(--ok)}
+.statechip.miss{background:var(--left)}
+.headline{font-weight:800;font-size:var(--fs-lg);margin:0 0 6px;line-height:1.35}
+.headline.ur{line-height:1.95}
+.detail{margin:0;color:var(--ink-soft);font-size:var(--fs-sm)}
+.hintbox{margin-top:14px;border:2px solid var(--accent);background:#e7f6ef;border-radius:14px;padding:11px 14px;font-size:var(--fs-xs);color:var(--accent);font-weight:700;line-height:1.55;display:none}
+.hintbox.show{display:block}
+.panel{margin-top:22px}
+.panel h2{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;color:var(--ink-soft)}
+.prog{margin:0 0 10px;font-size:var(--fs-xs);font-weight:700;color:var(--ink-soft)}
+.btns{display:flex;gap:9px;margin-top:8px;flex-wrap:wrap}
+.btns button{border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);font:inherit;font-weight:800;font-size:var(--fs-xs);cursor:pointer;min-height:50px;padding:8px 14px;flex:1;touch-action:manipulation}
+.btns .go{background:var(--ink);color:var(--paper)}
+.btns button:active{transform:scale(.97)}
+.btns button:disabled{opacity:.4;cursor:default}
+.quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}
+.qhead{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+.qhead h2{font-size:var(--fs-lg);font-weight:800;margin:0;flex:1}
+.q{margin-bottom:26px}
+.q p{font-weight:600;margin:0 0 12px;font-size:var(--fs-md)}
+.q p.ur{font-weight:400}
+.gloss{margin:-6px 0 12px;font-size:var(--fs-xs);color:var(--ink-soft);font-weight:600;line-height:1.45}
+.opt{display:block;width:100%;text-align:left;margin-bottom:10px;border:2px solid var(--line);background:var(--paper);border-radius:12px;padding:13px 16px;font:inherit;font-size:var(--fs-sm);cursor:pointer;color:var(--ink);min-height:50px;touch-action:manipulation}
+.opt.ur{text-align:right;line-height:var(--lh)}
+.opt:disabled{cursor:default}
+.fb{margin:10px 0 0;font-size:var(--fs-xs);color:var(--ink-soft);display:none}
+.fb.show{display:block}
+footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);font-size:var(--fs-xs);color:var(--ink-soft)}
+@media (min-width:820px){
+.wrap{max-width:1000px;display:grid;gap:0 32px;grid-template-columns:1fr 1fr;grid-template-areas:"bar bar" "head head" "tabs tabs" "story story" "left right" "quiz quiz" "foot foot";align-items:start}
+.bar{grid-area:bar}.head{grid-area:head}.tabs{grid-area:tabs}.story{grid-area:story}.left{grid-area:left}.right{grid-area:right}.quiz{grid-area:quiz;margin-top:34px}footer{grid-area:foot}.panel{margin-top:0}
+}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01ms !important;animation:none !important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar">
+    <span class="brand">AI4Kids · Class 4 · Hisaab</span>
+    <span class="stars">⭐ <span id="starCount">0</span></span>
+    <button class="chip" id="langBtn" aria-pressed="false" type="button">اردو</button>
+    <button class="chip" id="speakBtn" type="button" aria-label="Sunlo">🔊</button>
+  </div>
+  <div class="head"><h1 id="title"></h1><p class="sub" id="subtitle"></p></div>
+  <div class="tabs" role="group">
+    <button type="button" id="tabPlace" aria-pressed="true"></button>
+    <button type="button" id="tabComp" aria-pressed="false"></button>
+    <button type="button" id="tabRoman" aria-pressed="false"></button>
+  </div>
+  <p class="story" id="story"></p>
+  <div class="left">
+    <div class="scene"><div class="scene-pad" id="scenePad"></div></div>
+    <div class="readout">
+      <span class="statechip" id="statechip"></span>
+      <p class="headline" id="headline"></p>
+      <p class="detail" id="detail"></p>
+      <p class="hintbox" id="hintbox"></p>
+    </div>
+  </div>
+  <div class="right">
+    <div class="panel">
+      <h2 id="ctlHead"></h2>
+      <p class="prog" id="prog"></p>
+      <div id="actionBox"></div>
+      <div class="btns"><button type="button" class="go" id="nextBtn"></button></div>
+      <div class="btns"><button type="button" id="hintBtn"></button><button type="button" id="resetBtn"></button></div>
+    </div>
+  </div>
+  <div class="quiz">
+    <div class="qhead"><h2 id="quizHead"></h2><button type="button" class="chip" id="newQuiz"></button></div>
+    <div id="quizBox"></div>
+  </div>
+  <footer>
+    <p data-en="AI4Kids — Islamabad bilingual school. Offline. WhatsApp 0337 1468899 · Numbers 99,999 tak" data-ur="اے آئی فور کڈز — اسلام آباد دو لسانی اسکول۔ آف لائن۔ واٹس ایپ 0337 1468899 · نمبر 99,999 تک"></p>
+  </footer>
+</div>
+<script>
+
+(function(){
+"use strict";
+function $(id){return document.getElementById(id)}
+function isolate(s){return "\u2066"+s+"\u2069"}
+function setText(el,str){if(!el)return;el.textContent=(lang==="ur")?isolate(str):str;el.classList.toggle("ur",lang==="ur");el.setAttribute("dir",lang==="ur"?"rtl":"ltr")}
+function t(o){return (o&&o[lang])||(o&&o.en)||""}
+function shuffle(arr){var a=arr.slice(),i,j,tmp;for(i=a.length-1;i>0;i--){j=Math.floor(Math.random()*(i+1));tmp=a[i];a[i]=a[j];a[j]=tmp}return a}
+function fmt(n){var s=String(Math.abs(n|0)),out="";while(s.length>3){out=","+s.slice(-3)+out;s=s.slice(0,-3)}return s+out}
+function enWords(n){
+  var ones=["zero","one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen"];
+  var tensw=["","","twenty","thirty","forty","fifty","sixty","seventy","eighty","ninety"];
+  function u100(x){if(x<20)return ones[x];var ten=tensw[Math.floor(x/10)],o=x%10;return o?(ten+"-"+ones[o]):ten}
+  function u1000(x){if(x<100)return u100(x);var h=ones[Math.floor(x/100)]+" hundred",r=x%100;return r?(h+" "+u100(r)):h}
+  n=n|0;if(n<1000)return u1000(n);var th=Math.floor(n/1000),rest=n%1000,s=u1000(th)+" thousand";if(rest)s+=" "+u1000(rest);return s
+}
+var READ_UR={"45382":"پینتالیس ہزار تین سو بیاسی","70619":"ستر ہزار چھ سو انیس","81940":"اکیاسی ہزار نو سو چالیس","25403":"پچیس ہزار چار سو تین","39215":"انتالیس ہزار دو سو پندرہ","39512":"انتالیس ہزار پانچ سو بارہ","15008":"پندرہ ہزار آٹھ","15080":"پندرہ ہزار اسی","15800":"پندرہ ہزار آٹھ سو","23847":"تئیس ہزار آٹھ سو سینتالیس","23850":"تئیس ہزار آٹھ سو پچاس","48274":"اڑتالیس ہزار دو سو چوہتر","48000":"اڑتالیس ہزار","99999":"ننانوے ہزار نو سو ننانوے"};
+function readOf(n){if(lang==="ur")return READ_UR[String(n)]||fmt(n);return enWords(n)}
+var lang="en",mode="place",stars=0,awarded={},doneModes={place:false,compare:false,roman:false},speakTimer=null;
+var PLACES=[{id:"tt",en:"Ten thousands",ur:"دس ہزار",mult:10000},{id:"th",en:"Thousands",ur:"ہزار",mult:1000},{id:"h",en:"Hundreds",ur:"سینکڑا",mult:100},{id:"t",en:"Tens",ur:"دہائی",mult:10},{id:"o",en:"Ones",ur:"اکائی",mult:1}];
+function placeById(id){var i;for(i=0;i<PLACES.length;i++)if(PLACES[i].id===id)return PLACES[i];return PLACES[0]}
+function placeIndex(id){var i;for(i=0;i<PLACES.length;i++)if(PLACES[i].id===id)return i;return 0}
+function digitsOf(n){var s=String(n);while(s.length<5)s="0"+s;return s.split("")}
+function placeLabel(p){return t(p)+" ("+fmt(p.mult)+")"}
+var T={
+title:{en:"Numbers 99,999 tak",ur:"نمبر 99,999 تک"},
+sub:{en:"Read and write up to 99,999. Places, compare, round, and Roman to 100.",ur:"99,999 تک پڑھو اور لکھو۔ جگہ، موازنہ، راؤنڈ، اور رومن 100 تک۔"},
+tabPlace:{en:"Place value",ur:"مقامی قیمت"},
+tabComp:{en:"Compare & round",ur:"موازنہ اور راؤنڈ"},
+tabRoman:{en:"Roman 100",ur:"رومن 100"},
+storyPlace:{en:"Tap the digit for its place, or build the <b>expanded form</b>. Left to right: ten thousands, thousands, hundreds, tens, ones. Class 4 maximum is <b>99,999</b> — not 1 lakh.",ur:"ہندسہ ٹیپ کرو اور اس کی جگہ بتاؤ، یا <b>پھیلی شکل</b> بناؤ۔ بائیں سے دائیں: دس ہزار، ہزار، سینکڑا، دہائی، اکائی۔ کلاس 4 کی حد <b>99,999</b> ہے — 1 lakh نہیں۔"},
+storyCompare:{en:"Pick the <b>bigger</b> or <b>smaller</b> number. Use &gt;, &lt;, =. Small to big is ascending; big to small is descending. To round, look at the next digit: 0–4 stay, 5–9 go up. Nearest 10 looks at ones, nearest 100 at tens, nearest 1,000 at hundreds, nearest 10,000 at thousands. Try 64,260: nearest 100 is 64,300; nearest 10,000 is 60,000.",ur:"<b>بڑا</b> یا <b>چھوٹا</b> نمبر چنو۔ &gt; ، &lt; ، = استعمال کرو۔ چھوٹے سے بڑا صعودی ترتیب ہے، بڑے سے چھوٹا نزولی ترتیب۔ راؤنڈ: اگلا ہندسہ دیکھو، 0–4 رہنے دو، 5–9 اوپر لے جاؤ۔ قریب ترین 10 اکائی دیکھتی ہے، 100 دہائی، 1,000 سینکڑا، 10,000 ہزار۔ مثال 64,260: قریب ترین 100 پر 64,300، قریب ترین 10,000 پر 60,000۔"},
+storyRoman:{en:"Roman numbers up to <b>100</b>: <b>I</b> = 1, <b>V</b> = 5, <b>X</b> = 10, <b>L</b> = 50, <b>C</b> = 100. A smaller symbol after means add (XI, XX). A smaller symbol before means subtract (XL).",ur:"رومن نمبر <b>100</b> تک: <b>I</b> = 1، <b>V</b> = 5، <b>X</b> = 10، <b>L</b> = 50، <b>C</b> = 100۔ چھوٹا نشان بعد میں ہو تو جمع (XI، XX)۔ چھوٹا نشان پہلے ہو تو تفریق (XL)۔"},
+ctl:{en:"Your turn — hisaab lab",ur:"تمہاری باری — حساب لیب"},
+next:{en:"Next challenge",ur:"اگلا چیلنج"},
+hint:{en:"Hint",ur:"اشارہ"},
+reset:{en:"Reset",ur:"ری سیٹ"},
+quiz:{en:"Check yourself",ur:"اپنا چیک"},
+newQuiz:{en:"New quiz",ur:"نیا کوئز"},
+nice:{en:"Shabash!",ur:"شاباش!"},
+oops:{en:"Almost — try again",ur:"قریب — دوبارہ آزماؤ"},
+tipPlace:{en:"A 5-digit number has ten thousands, thousands, hundreds, tens, and ones. Place value is the digit times its place. 99,999 is 90,000 plus 9,000 plus 900 plus 90 plus 9. Class 4 stops at 99,999, not 1 lakh.",ur:"پانچ ہندسوں کے نمبر میں دس ہزار، ہزار، سینکڑا، دہائی اور اکائی ہوتی ہے۔ مقامی قیمت ہندسے کو اس کی جگہ سے ضرب دینا ہے۔ 99,999 یعنی 90,000 جمع 9,000 جمع 900 جمع 90 جمع 9۔ کلاس 4 99,999 پر رکتی ہے، 1 lakh نہیں۔"},
+tipCompare:{en:"Compare from the left. Ascending means small to big. Descending means big to small. To round, 0 to 4 stay and 5 to 9 go up. Nearest 10 looks at ones, nearest 100 at tens, nearest 1,000 at hundreds, nearest 10,000 at thousands.",ur:"بائیں سے موازنہ کرو۔ صعودی مطلب چھوٹے سے بڑا۔ نزولی مطلب بڑے سے چھوٹا۔ راؤنڈ میں 0 سے 4 رہنے دو اور 5 سے 9 اوپر لے جاؤ۔ قریب ترین 10 اکائی، 100 دہائی، 1,000 سینکڑا، 10,000 ہزار دیکھتی ہے۔"},
+tipRoman:{en:"I is 1, V is 5, X is 10, L is 50, C is 100. Smaller after means add: XI is 11 and XX is 20. Smaller before means subtract: XL is 50 minus 10, which is 40.",ur:"I ایک ہے، V پانچ، X دس، L پچاس، C سو۔ چھوٹا بعد میں ہو تو جمع: XI گیارہ ہے اور XX بیس۔ چھوٹا پہلے ہو تو تفریق: XL پچاس منفی دس، یعنی چالیس۔"},
+progPlace:{en:"Place rounds",ur:"مقام راؤنڈ"},
+progCompare:{en:"Compare rounds",ur:"موازنہ راؤنڈ"},
+progRoman:{en:"Roman rounds",ur:"رومن راؤنڈ"},
+leftBig:{en:"Left = bigger place. Right = ones.",ur:"بائیں = بڑی جگہ۔ دائیں = اکائی۔"},
+equal:{en:"They are equal  =",ur:"دونوں برابر ہیں  ="},
+check:{en:"Check matches",ur:"میچ چیک کرو"}
+};
+
+var PLACE=[
+{id:"p1",kind:"digit",em:"🏫",title:{en:"Ayesha's library",ur:"عائشہ کی لائبریری"},blurb:{en:"Islamabad school library has 45,382 books.",ur:"اسلام آباد کی اسکول لائبریری میں 45,382 کتابیں ہیں۔"},n:45382,which:"tt",ask:{en:"Tap the digit in the ten-thousands place.",ur:"دس ہزار کی جگہ والا ہندسہ ٹیپ کرو۔"},hint:{en:"In a 5-digit number the left-most digit is ten thousands. Here that digit is 4, and 4 × 10,000 = 40,000.",ur:"پانچ ہندسوں میں سب سے بایاں ہندسہ دس ہزار ہوتا ہے۔ یہاں وہ 4 ہے، اور 4 × 10,000 = 40,000۔"},done:{en:"4 is ten thousands. Worth 40,000.",ur:"4 دس ہزار ہے۔ قیمت 40,000۔"},why:{en:"We read 45,382 as forty-five thousand three hundred eighty-two. The digit 4 is worth 40,000 because of its place.",ur:"45,382 کو پینتالیس ہزار تین سو بیاسی پڑھتے ہیں۔ ہندسہ 4 کی قیمت 40,000 ہے کیونکہ وہ دس ہزار کی جگہ پر ہے۔"}},
+{id:"p2",kind:"digit",em:"🏏",title:{en:"Bilal's stand",ur:"بلال کا اسٹینڈ"},blurb:{en:"The cricket stand counted 81,940 fans — still under 99,999.",ur:"کرکٹ اسٹینڈ میں 81,940 شائقین گنے — اب بھی 99,999 سے کم۔"},n:81940,which:"t",ask:{en:"Tap the digit in the tens place.",ur:"دہائی کی جگہ والا ہندسہ ٹیپ کرو۔"},hint:{en:"Count from the right: ones, then tens. The tens digit is 4, so its worth is 4 × 10 = 40. The last 0 is ones — keep it, or 81,940 would look like 8,194.",ur:"دائیں سے گنو: اکائی، پھر دہائی۔ دہائی کا ہندسہ 4 ہے، قیمت 4 × 10 = 40۔ آخری 0 اکائی ہے — اسے رکھو، ورنہ 81,940 پتہ 8,194 لگے گا۔"},done:{en:"4 is tens. Worth 40.",ur:"4 دہائی ہے۔ قیمت 40۔"},why:{en:"81,940 is eighty-one thousand nine hundred forty. A zero still holds a place.",ur:"81,940 اکیاسی ہزار نو سو چالیس ہے۔ صفر بھی جگہ سنبھالتا ہے۔"}},
+{id:"p3",kind:"place",em:"🍊",title:{en:"Ali's bazaar stall",ur:"علی کا بازار سٹال"},blurb:{en:"Sunday bazaar counted 70,619 oranges.",ur:"اتوار بازار میں 70,619 مالٹے گنے۔"},n:70619,hot:2,ask:{en:"The gold digit is 6. Which place is it in?",ur:"سنہری ہندسہ 6 ہے۔ یہ کس جگہ پر ہے؟"},hint:{en:"From the right the places are ones, tens, hundreds. 6 is the third digit from the right, so hundreds. 6 × 100 = 600. The 0 holds thousands: we still say seventy thousand, not seven thousand.",ur:"دائیں سے جگہیں: اکائی، دہائی، سینکڑا۔ 6 دائیں سے تیسرا ہندسہ ہے، یعنی سینکڑا۔ 6 × 100 = 600۔ 0 ہزار کی جگہ سنبھالتا ہے: ہم ستر ہزار کہتے ہیں، سات ہزار نہیں۔"},done:{en:"6 is hundreds. Worth 600.",ur:"6 سینکڑا ہے۔ قیمت 600۔"},why:{en:"70,619 is seventy thousand six hundred nineteen. Expanded: 70,000 + 600 + 10 + 9.",ur:"70,619 ستر ہزار چھ سو انیس ہے۔ پھیلی شکل: 70,000 + 600 + 10 + 9۔"}},
+{id:"p4",kind:"expand",em:"🎟️",title:{en:"Hamza's fair tickets",ur:"حمزہ کے میلے کے ٹکٹ"},blurb:{en:"The school fair sold 25,403 tickets. Build the expanded form. Skip the zero tens.",ur:"اسکول میلے کے 25,403 ٹکٹ بکے۔ پھیلی شکل بناؤ۔ صفر دہائی چھوڑ دو۔"},n:25403,parts:[20000,5000,400,3],traps:[2000,40,30000,500],ask:{en:"Tap the parts from the biggest place to the smallest.",ur:"سب سے بڑی جگہ سے چھوٹی جگہ تک حصے ٹیپ کرو۔"},hint:{en:"2 is ten thousands so 20,000. 5 is thousands so 5,000. 4 is hundreds so 400. Tens are 0, skip them. 3 is ones so 3. Not 2,000 and not 40.",ur:"2 دس ہزار ہے تو 20,000۔ 5 ہزار ہے تو 5,000۔ 4 سینکڑا ہے تو 400۔ دہائی 0 ہے، چھوڑ دو۔ 3 اکائی ہے تو 3۔ 2,000 نہیں اور 40 نہیں۔"},done:{en:"25,403 = 20,000 + 5,000 + 400 + 3",ur:"25,403 = 20,000 + 5,000 + 400 + 3"},why:{en:"Expanded form writes the worth of each digit and skips a zero place. Twenty-five thousand four hundred three.",ur:"پھیلی شکل ہر ہندسے کی قیمت لکھتی ہے اور صفر والی جگہ چھوڑ دیتی ہے۔ پچیس ہزار چار سو تین۔"}}
+];
+var COMP=[
+{id:"c1",kind:"pick",em:"🏫",title:{en:"Which school is bigger?",ur:"کون سا اسکول بڑا ہے؟"},blurb:{en:"City count: School A 39,215 children. School B 39,512 children.",ur:"شہر کی گنتی: اسکول A میں 39,215 بچے، اسکول B میں 39,512 بچے۔"},n:39512,ask:{en:"Which number is bigger?",ur:"کون سا نمبر بڑا ہے؟"},opts:[{id:"a",n:39215},{id:"b",n:39512},{id:"e",eq:true}],correct:"b",hint:{en:"Compare from the left. Ten thousands and thousands match (3 and 9). Hundreds: 5 is more than 2, so 39,512 is bigger. Write 39,512 > 39,215. They are not equal.",ur:"بائیں سے موازنہ کرو۔ دس ہزار اور ہزار برابر ہیں (3 اور 9)۔ سینکڑے میں 5، 2 سے بڑا ہے، اس لیے 39,512 بڑا ہے۔ لکھو 39,512 > 39,215۔ وہ برابر نہیں۔"},done:{en:"39,512 is bigger. 39,512 > 39,215.",ur:"39,512 بڑا ہے۔ 39,512 > 39,215۔"},why:{en:"Thirty-nine thousand five hundred twelve is more than thirty-nine thousand two hundred fifteen.",ur:"انتالیس ہزار پانچ سو بارہ، انتالیس ہزار دو سو پندرہ سے بڑا ہے۔"}},
+{id:"c2",kind:"pick",em:"📚",title:{en:"Which bundle is smaller?",ur:"کون سا گٹھا چھوٹا ہے؟"},blurb:{en:"Book bundles: 15,008, 15,080, and 15,800.",ur:"کتابوں کے گٹھے: 15,008، 15,080، اور 15,800۔"},n:15008,ask:{en:"Which number is smaller?",ur:"کون سا نمبر چھوٹا ہے؟"},opts:[{id:"a",n:15008},{id:"b",n:15080},{id:"c",n:15800}],correct:"a",hint:{en:"Thousands match. 15,800 has hundreds 8, so it is the biggest. Between 15,008 and 15,080, the tens digit 0 is smaller than 8. Smallest is 15,008. Ascending: 15,008 < 15,080 < 15,800.",ur:"ہزار برابر ہیں۔ 15,800 کے سینکڑے 8 ہیں، وہ سب سے بڑا ہے۔ 15,008 اور 15,080 میں دہائی 0، 8 سے چھوٹی ہے۔ سب سے چھوٹا 15,008 ہے۔ صعودی: 15,008 < 15,080 < 15,800۔"},done:{en:"15,008 is smaller. Ascending: 15,008 < 15,080 < 15,800. Descending is the reverse.",ur:"15,008 چھوٹا ہے۔ صعودی: 15,008 < 15,080 < 15,800۔ نزولی اس کا الٹ ہے۔"},why:{en:"Ascending means small to big. Descending means big to small: 15,800 > 15,080 > 15,008.",ur:"صعودی ترتیب چھوٹے سے بڑا ہے۔ نزولی ترتیب بڑے سے چھوٹا: 15,800 > 15,080 > 15,008۔"}},
+{id:"c3",kind:"round",em:"🥭",title:{en:"Nearest 10 mangoes",ur:"قریب ترین 10 آم"},blurb:{en:"Ayesha counted 23,847 mangoes at the Friday bazaar.",ur:"عائشہ نے جمعہ بازار میں 23,847 آم گنے۔"},n:23847,step:10,answer:23850,ask:{en:"Round 23,847 to the nearest 10.",ur:"23,847 کو قریب ترین 10 پر گول کرو۔"},opts:[{id:"a",n:23840},{id:"b",n:23850},{id:"c",n:23800},{id:"d",n:24000}],correct:"b",hint:{en:"Nearest 10 looks at the ones digit. Ones is 7, and 5 to 9 goes up, so 23,847 becomes 23,850. 23,800 would be nearest 100 (tens digit is 4). 24,000 would be nearest 1,000.",ur:"قریب ترین 10 اکائی دیکھتی ہے۔ اکائی 7 ہے، اور 5 سے 9 اوپر جاتا ہے، اس لیے 23,847 سے 23,850۔ 23,800 قریب ترین 100 ہوتا (دہائی 4 ہے)۔ 24,000 قریب ترین 1,000 ہوتا۔"},done:{en:"Nearest 10 is 23,850.",ur:"قریب ترین 10 پر 23,850۔"},why:{en:"Twenty-three thousand eight hundred forty-seven rounds to twenty-three thousand eight hundred fifty.",ur:"تئیس ہزار آٹھ سو سینتالیس، تئیس ہزار آٹھ سو پچاس بن جاتا ہے۔"}},
+{id:"c4",kind:"round",em:"🎪",title:{en:"Nearest 1,000 at the fair",ur:"میلہ، قریب ترین 1,000"},blurb:{en:"48,274 people came to the school fair.",ur:"اسکول میلے میں 48,274 لوگ آئے۔"},n:48274,step:1000,answer:48000,ask:{en:"Round 48,274 to the nearest 1,000.",ur:"48,274 کو قریب ترین 1,000 پر گول کرو۔"},opts:[{id:"a",n:48000},{id:"b",n:49000},{id:"c",n:48300},{id:"d",n:50000}],correct:"a",hint:{en:"Nearest 1,000 looks at the hundreds digit. Hundreds is 2, and 0 to 4 stays, so 48,274 becomes 48,000. 48,300 would be nearest 100. 50,000 would be nearest 10,000 because the thousands digit is 8.",ur:"قریب ترین 1,000 سینکڑا دیکھتی ہے۔ سینکڑا 2 ہے، 0 سے 4 رہتا ہے، اس لیے 48,274 سے 48,000۔ 48,300 قریب ترین 100 ہوتا۔ 50,000 قریب ترین 10,000 ہوتا کیونکہ ہزار کا ہندسہ 8 ہے۔"},done:{en:"Nearest 1,000 is 48,000.",ur:"قریب ترین 1,000 پر 48,000۔"},why:{en:"Forty-eight thousand two hundred seventy-four rounds to forty-eight thousand when we look at hundreds.",ur:"اڑتالیس ہزار دو سو چوہتر، سینکڑا دیکھ کر اڑتالیس ہزار بنتا ہے۔"}}
+];
+
+var ROMAN=[
+{id:"r1",kind:"match",em:"🏛️",title:{en:"Meet I, V, X",ur:"I، V، X سے ملو"},blurb:{en:"Match each Roman symbol to its number.",ur:"ہر رومن نشان کو اس کے نمبر سے ملاؤ۔"},ask:{en:"Match the symbol, then check.",ur:"نشان ملاؤ، پھر چیک کرو۔"},rows:[{id:"a",sym:"I",val:1},{id:"b",sym:"V",val:5},{id:"c",sym:"X",val:10}],choices:[1,5,10,50],hint:{en:"I = 1, V = 5, X = 10. L = 50 is not in this row.",ur:"I = 1، V = 5، X = 10۔ L = 50 اس قطار میں نہیں۔"},done:{en:"I, V, and X are matched.",ur:"I، V اور X مل گئے۔"},why:{en:"These three are the small Roman friends: 1, 5, and 10.",ur:"یہ تین چھوٹے رومن دوست ہیں: 1، 5، اور 10۔"}},
+{id:"r2",kind:"match",em:"🏛️",title:{en:"L, C, and XX",ur:"L، C، اور XX"},blurb:{en:"L and C are big. XX is two tens.",ur:"L اور C بڑے ہیں۔ XX دو دس ہیں۔"},ask:{en:"Match L, C, and XX.",ur:"L، C، اور XX ملاؤ۔"},rows:[{id:"a",sym:"L",val:50},{id:"b",sym:"C",val:100},{id:"c",sym:"XX",val:20}],choices:[20,50,100,15],hint:{en:"L = 50. C = 100, the Class 4 Roman limit. XX = 10 + 10 = 20.",ur:"L = 50۔ C = 100، یہ کلاس 4 کی رومن حد ہے۔ XX = 10 + 10 = 20۔"},done:{en:"L = 50, C = 100, XX = 20.",ur:"L = 50، C = 100، XX = 20۔"},why:{en:"Same symbol twice means add: X and X make 20. C is one hundred, not more.",ur:"ایک ہی نشان دو بار ہو تو جمع: X اور X بیس بناتے ہیں۔ C سو ہے، اس سے زیادہ نہیں۔"}},
+{id:"r3",kind:"pick",em:"⛵",title:{en:"XI paper boats",ur:"XI کاغذی کشتیاں"},blurb:{en:"Class 4 folded XI paper boats.",ur:"کلاس 4 نے XI کاغذی کشتیاں بنائیں۔"},show:"XI",ask:{en:"What is XI?",ur:"XI کتنا ہے؟"},opts:[{id:"a",en:"11 — ten add one",ur:"11 — دس جمع ایک"},{id:"b",en:"9 — ten minus one",ur:"9 — دس منفی ایک"},{id:"c",en:"6",ur:"6"},{id:"d",en:"15",ur:"15"}],correct:"a",hint:{en:"I comes after X, so add: 10 + 1 = 11. If I came before X (IX) it would be 9. We want XI, which is 11.",ur:"I، X کے بعد ہے، اس لیے جمع: 10 + 1 = 11۔ اگر I، X سے پہلے ہوتا (IX) تو 9 ہوتا۔ ہمیں XI چاہیے، یعنی 11۔"},done:{en:"XI = 11.",ur:"XI = 11۔"},why:{en:"Smaller symbol after the bigger one means add. XI is eleven.",ur:"چھوٹا نشان بڑے کے بعد ہو تو جمع۔ XI گیارہ ہے۔"}},
+{id:"r4",kind:"pick",em:"🎀",title:{en:"XL ribbon",ur:"XL ربن"},blurb:{en:"The fair ribbon is XL centimetres long.",ur:"میلے کا ربن XL سینٹی میٹر لمبا ہے۔"},show:"XL",ask:{en:"What is XL?",ur:"XL کتنا ہے؟"},opts:[{id:"a",en:"40 — fifty minus ten",ur:"40 — پچاس منفی دس"},{id:"b",en:"60",ur:"60"},{id:"c",en:"15",ur:"15"},{id:"d",en:"90",ur:"90"}],correct:"a",hint:{en:"X comes before L, so subtract: 50 − 10 = 40. XX is 20. L alone is 50. C is 100. XL is 40.",ur:"X، L سے پہلے ہے، اس لیے تفریق: 50 − 10 = 40۔ XX بیس ہے۔ اکیلا L پچاس ہے۔ C سو ہے۔ XL چالیس ہے۔"},done:{en:"XL = 40.",ur:"XL = 40۔"},why:{en:"Smaller symbol before the bigger one means subtract. Forty centimetres.",ur:"چھوٹا نشان بڑے سے پہلے ہو تو تفریق۔ چالیس سینٹی میٹر۔"}}
+];
+var QUIZ=[
+{id:"qmax",pin:true,q:{en:"In Class 4 we read and write numbers up to 99,999, not 1 lakh. Which is our biggest Class 4 number?",ur:"کلاس 4 میں ہم 99,999 تک پڑھتے اور لکھتے ہیں، 1 lakh نہیں۔ ہمارا سب سے بڑا کلاس 4 نمبر کون سا ہے؟"},ru:"Class 4 mein hum numbers 99,999 tak parhte aur likhte hain, 1 lakh nahi. Sab se bara Class 4 number kaun sa hai?",opts:[{en:"9,999",ur:"9,999"},{en:"10,000 only",ur:"صرف 10,000"},{en:"99,999",ur:"99,999"},{en:"1 lakh (100,000)",ur:"1 lakh (100,000)"}],correct:2,why:{en:"99,999 is the biggest number in Class 4. 1 lakh means 100,000, which is past 99,999, so it is not our target.",ur:"99,999 کلاس 4 کا سب سے بڑا نمبر ہے۔ 1 lakh یعنی 100,000، جو 99,999 سے آگے ہے، اس لیے ہمارا ہدف نہیں۔"}},
+{id:"qxl",pin:true,q:{en:"Which Roman number means 40?",ur:"کون سا رومن نمبر 40 ہے؟"},ru:"Kaun sa Roman number 40 ke barabar hai?",opts:[{en:"XL",ur:"XL"},{en:"LX",ur:"LX"},{en:"XX",ur:"XX"},{en:"XC",ur:"XC"}],correct:0,why:{en:"X before L means 50 minus 10 = 40, so XL = 40. XX is 20. L is 50 and C is 100. We stop at 100.",ur:"X، L سے پہلے ہو تو 50 منفی 10 = 40، اس لیے XL = 40۔ XX بیس ہے۔ L پچاس ہے اور C سو۔ ہم 100 پر رک جاتے ہیں۔"}},
+{id:"qplace",q:{en:"In 64,029, which place is the digit 4 in?",ur:"64,029 میں ہندسہ 4 کس جگہ پر ہے؟"},ru:"64,029 mein digit 4 kis place par hai?",opts:[{en:"Ten thousands",ur:"دس ہزار"},{en:"Thousands",ur:"ہزار"},{en:"Hundreds",ur:"سینکڑا"},{en:"Ones",ur:"اکائی"}],correct:1,why:{en:"64,029 has 6 ten thousands, 4 thousands, 0 hundreds, 2 tens, 9 ones. The 4 is worth 4,000.",ur:"64,029 میں 6 دس ہزار، 4 ہزار، 0 سینکڑے، 2 دہائی، 9 اکائی ہیں۔ 4 کی قیمت 4,000 ہے۔"}},
+{id:"qexp",q:{en:"Which is the expanded form of 40,208?",ur:"40,208 کی پھیلی شکل کون سی ہے؟"},ru:"40,208 ki expanded form kaun si hai?",opts:[{en:"40,000 + 200 + 8",ur:"40,000 + 200 + 8"},{en:"4,000 + 200 + 8",ur:"4,000 + 200 + 8"},{en:"40,000 + 2,000 + 8",ur:"40,000 + 2,000 + 8"},{en:"40,000 + 20 + 8",ur:"40,000 + 20 + 8"}],correct:0,why:{en:"4 is ten thousands (40,000), 0 thousands is skipped, 2 is hundreds (200), 0 tens is skipped, 8 is ones.",ur:"4 دس ہزار ہے (40,000)، 0 ہزار چھوڑ دو، 2 سینکڑا ہے (200)، 0 دہائی چھوڑ دو، 8 اکائی ہے۔"}},
+{id:"qeq",q:{en:"Which sign is correct?  81,450 ___ 81,450",ur:"صحیح نشان کون سا ہے؟  81,450 ___ 81,450"},ru:"81,450 aur 81,450 ke darmiyan sahi nishan kaun sa hai?",opts:[{en:">",ur:">"},{en:"<",ur:"<"},{en:"+",ur:"+"},{en:"=",ur:"="}],correct:3,why:{en:"The same number on both sides means equal. We write 81,450 = 81,450. Bigger uses > and smaller uses <.",ur:"دونوں طرف ایک ہی نمبر ہو تو برابر۔ ہم لکھتے ہیں 81,450 = 81,450۔ بڑے کے لیے > اور چھوٹے کے لیے <۔"}},
+{id:"qord",q:{en:"Which list is ascending (small to big)?",ur:"صعودی ترتیب (چھوٹے سے بڑا) کون سی ہے؟"},ru:"Ascending (chhote se bara) kaun si line hai?",opts:[{en:"2,910 ; 2,190 ; 2,019",ur:"2,910 ; 2,190 ; 2,019"},{en:"2,190 ; 2,019 ; 2,910",ur:"2,190 ; 2,019 ; 2,910"},{en:"2,019 ; 2,190 ; 2,910",ur:"2,019 ; 2,190 ; 2,910"},{en:"2,019 ; 2,910 ; 2,190",ur:"2,019 ; 2,910 ; 2,190"}],correct:2,why:{en:"Ascending is small to big: 2,019 < 2,190 < 2,910. Descending is the opposite, big to small.",ur:"صعودی چھوٹے سے بڑا ہے: 2,019 < 2,190 < 2,910۔ نزولی اس کا الٹ ہے، بڑے سے چھوٹا۔"}},
+{id:"q10k",q:{en:"Round 64,800 to the nearest 10,000.",ur:"64,800 کو قریب ترین 10,000 پر گول کرو۔"},ru:"64,800 ko nearest 10,000 par round karo.",opts:[{en:"65,000",ur:"65,000"},{en:"60,000",ur:"60,000"},{en:"70,000",ur:"70,000"},{en:"64,000",ur:"64,000"}],correct:1,why:{en:"Nearest 10,000 looks at the thousands digit. Thousands is 4, and 0 to 4 stays, so 64,800 becomes 60,000. The answer is still under 99,999.",ur:"قریب ترین 10,000 ہزار کا ہندسہ دیکھتی ہے۔ ہزار 4 ہے، 0 سے 4 رہتا ہے، اس لیے 64,800 سے 60,000۔ جواب اب بھی 99,999 سے کم ہے۔"}}
+];
+var placeIdx=0,placeDone={},expandBuilt=[],tileFor="",tileOrder=[];
+var compIdx=0,compDone={};
+var romIdx=0,romDone={},romMap={};
+var optKey="",optOrder=[],quizSet=[],quizState={};
+
+function award(key,n){if(awarded[key])return;awarded[key]=true;stars+=(n||1);$("starCount").textContent=String(stars)}
+function recountStars(){stars=0;Object.keys(awarded).forEach(function(k){stars+=(k.indexOf("mode-")===0)?2:1});$("starCount").textContent=String(stars)}
+function markWin(prefix,id,doneMap,modeKey,total){if(doneMap[id])return;doneMap[id]=true;award(prefix+"-"+id,1);if(Object.keys(doneMap).length>=total){doneModes[modeKey]=true;award("mode-"+modeKey,2)}tabBadges()}
+function skyHTML(){return '<div class="sky-layer"><div class="sun-ball"></div><div class="cloud c1"></div><div class="cloud c2"></div></div>'}
+function prepScene(){var pad=$("scenePad");pad.innerHTML=skyHTML();var stage=document.createElement("div");stage.className="num-stage";pad.appendChild(stage);return stage}
+function addBlurb(stage,ch){var em=document.createElement("div");em.className="hero-em";em.textContent=ch.em||"🔢";stage.appendChild(em);var box=document.createElement("div");box.className="card-box";setText(box,t(ch.blurb));stage.appendChild(box)}
+function addHero(stage,n){var h=document.createElement("div");h.className="num-hero";h.textContent=fmt(n);stage.appendChild(h);var s=document.createElement("p");s.className="sayline";setText(s,readOf(n));stage.appendChild(s)}
+function addCap(stage,msg){var c=document.createElement("div");c.className="capline";setText(c,msg);stage.appendChild(c)}
+function showStep(i,n){setText($("statechip"),(i+1)+" / "+n);$("statechip").className="statechip"+(lang==="ur"?" ur":"")}
+function showWin(msg){setText($("headline"),msg);$("statechip").className="statechip win"+(lang==="ur"?" ur":"");setText($("statechip"),t(T.nice))}
+function showMiss(){setText($("headline"),t(T.oops));$("statechip").className="statechip miss"+(lang==="ur"?" ur":"");setText($("statechip"),t(T.oops))}
+function stableOrder(key,arr){if(optKey!==key){optKey=key;optOrder=shuffle(arr)}return optOrder}
+function clearHint(){$("hintbox").classList.remove("show")}
+function renderPlace(){
+  var ch=PLACE[placeIdx],stage=prepScene();
+  addBlurb(stage,ch);
+  if(ch.kind==="expand"){
+    var eq=document.createElement("div");eq.className="eqline";var bits=[],i;
+    var src=placeDone[ch.id]?ch.parts.map(function(v){return{v:v}}):expandBuilt;for(i=0;i<ch.parts.length;i++)bits.push(src[i]?fmt(src[i].v):"___");
+    eq.textContent=fmt(ch.n)+"  =  "+bits.join("  +  ");stage.appendChild(eq);
+    addCap(stage,lang==="en"?"Skip a zero place. Biggest value first.":"صفر والی جگہ چھوڑ دو۔ پہلے سب سے بڑی قیمت۔");
+  }else{
+    addHero(stage,ch.n);
+    var row=document.createElement("div");row.className="drow";
+    var ds=digitsOf(ch.n),wi=(ch.kind==="digit")?placeIndex(ch.which):-1;
+    ds.forEach(function(d,di){var sp=document.createElement("span");sp.className="dshow";if(ch.kind==="place"&&di===ch.hot)sp.className+=" hot";if(placeDone[ch.id]&&ch.kind==="digit"&&di===wi)sp.className+=" win";sp.textContent=d;row.appendChild(sp)});
+    stage.appendChild(row);addCap(stage,t(T.leftBig));
+  }
+  showStep(placeIdx,PLACE.length);setText($("headline"),t(ch.title));
+  setText($("detail"),placeDone[ch.id]?t(ch.why):t(ch.ask));clearHint();
+  if(placeDone[ch.id])showWin(t(ch.done));
+  var box=$("actionBox");box.innerHTML="";
+  if(ch.kind==="digit"){
+    var bank=document.createElement("div");bank.className="bank ltrb";
+    var digs=digitsOf(ch.n),want=placeIndex(ch.which);
+    digs.forEach(function(d,di){
+      var b=document.createElement("button");b.type="button";b.className="mini-item dig";b.textContent=d;b.setAttribute("dir","ltr");
+      if(placeDone[ch.id]&&di===want)b.classList.add("right");b.disabled=!!placeDone[ch.id];
+      b.addEventListener("click",function(){if(placeDone[ch.id])return;if(di===want){markWin("place",ch.id,placeDone,"place",PLACE.length);renderPlace()}else{b.classList.add("wrong");showMiss()}});
+      bank.appendChild(b);
+    });
+    box.appendChild(bank);
+  }else if(ch.kind==="place"){
+    var choices=document.createElement("div");choices.className="save-choices";
+    var order=stableOrder("place-"+ch.id,PLACES.map(function(p){return p.id}));
+    var hotPlace=["tt","th","h","t","o"][ch.hot];
+    order.forEach(function(pid){
+      var p=placeById(pid),b=document.createElement("button");b.type="button";setText(b,placeLabel(p));
+      if(placeDone[ch.id]&&pid===hotPlace)b.classList.add("right");b.disabled=!!placeDone[ch.id];
+      b.addEventListener("click",function(){if(placeDone[ch.id])return;if(pid===hotPlace){markWin("place",ch.id,placeDone,"place",PLACE.length);renderPlace()}else{b.classList.add("wrong");showMiss()}});
+      choices.appendChild(b);
+    });
+    box.appendChild(choices);
+  }else{
+    if(tileFor!==ch.id){tileFor=ch.id;var tiles=[];ch.parts.forEach(function(v,i){tiles.push({v:v,k:"g"+i})});ch.traps.forEach(function(v,i){tiles.push({v:v,k:"t"+i})});tileOrder=shuffle(tiles);expandBuilt=[]}
+    var tbank=document.createElement("div");tbank.className="bank ltrb";
+    tileOrder.forEach(function(tile){
+      var used=false,ui;if(placeDone[ch.id]){if(tile.k.charAt(0)==="g")used=true}else{for(ui=0;ui<expandBuilt.length;ui++)if(expandBuilt[ui].k===tile.k)used=true}
+      var b=document.createElement("button");b.type="button";b.className="mini-item tile"+(used?" used":"")+(placeDone[ch.id]&&tile.k.charAt(0)==="g"?" right":"");b.textContent=fmt(tile.v);b.disabled=used||!!placeDone[ch.id];
+      b.addEventListener("click",function(){if(placeDone[ch.id]||used)return;var expect=ch.parts[expandBuilt.length];if(tile.v===expect){expandBuilt.push({k:tile.k,v:tile.v});if(expandBuilt.length===ch.parts.length)markWin("place",ch.id,placeDone,"place",PLACE.length);renderPlace()}else{b.classList.add("wrong");showMiss()}});
+      tbank.appendChild(b);
+    });
+    box.appendChild(tbank);
+  }
+  setText($("prog"),t(T.progPlace)+": "+Object.keys(placeDone).length+"/"+PLACE.length);
+}
+function renderCompare(){
+  var ch=COMP[compIdx],stage=prepScene();addBlurb(stage,ch);
+  if(ch.kind==="round"){
+    addHero(stage,ch.n);
+    var badge=document.createElement("div");badge.className="capline";setText(badge,(lang==="en"?"Nearest ":"قریب ترین ")+fmt(ch.step));stage.appendChild(badge);
+  }else{
+    var row=document.createElement("div");row.className="eqline";
+    var nums=[];ch.opts.forEach(function(o){if(o.n)nums.push(fmt(o.n))});
+    row.textContent=nums.join("   ·   ");stage.appendChild(row);
+    addCap(stage,lang==="en"?"Compare from the left. Same digits, then look at the next place.":"بائیں سے دیکھو۔ ایک جیسے ہندسے چھوڑ کر اگلی جگہ دیکھو۔");
+  }
+  showStep(compIdx,COMP.length);setText($("headline"),t(ch.title));setText($("detail"),compDone[ch.id]?t(ch.why):t(ch.ask));clearHint();if(compDone[ch.id])showWin(t(ch.done));
+  var box=$("actionBox");box.innerHTML="";var choices=document.createElement("div");choices.className="save-choices";
+  stableOrder("comp-"+ch.id,ch.opts.slice()).forEach(function(opt){
+    var b=document.createElement("button");b.type="button";
+    if(opt.eq){setText(b,t(T.equal))}else{b.className="numc";b.textContent=fmt(opt.n);b.setAttribute("dir","ltr")}
+    if(compDone[ch.id]&&opt.id===ch.correct)b.classList.add("right");b.disabled=!!compDone[ch.id];
+    b.addEventListener("click",function(){if(compDone[ch.id])return;if(opt.id===ch.correct){markWin("comp",ch.id,compDone,"compare",COMP.length);renderCompare()}else{b.classList.add("wrong");showMiss()}});
+    choices.appendChild(b);
+  });
+  box.appendChild(choices);
+  setText($("prog"),t(T.progCompare)+": "+Object.keys(compDone).length+"/"+COMP.length);
+}
+
+function renderRoman(){
+  var ch=ROMAN[romIdx],stage=prepScene();addBlurb(stage,ch);
+  var big=document.createElement("div");big.className="roman-big";
+  big.textContent=(ch.kind==="pick")?ch.show:ch.rows.map(function(r){return r.sym}).join("  ");
+  stage.appendChild(big);
+  showStep(romIdx,ROMAN.length);setText($("headline"),t(ch.title));setText($("detail"),romDone[ch.id]?t(ch.why):t(ch.ask));clearHint();if(romDone[ch.id])showWin(t(ch.done));
+  var box=$("actionBox");box.innerHTML="";
+  if(ch.kind==="match"){
+    var grid=document.createElement("div");grid.className="match-grid";
+    ch.rows.forEach(function(row){
+      var div=document.createElement("div");div.className="match-row";
+      var sym=document.createElement("span");sym.className="sym";sym.textContent=row.sym;div.appendChild(sym);
+      var opts=document.createElement("span");opts.className="match-opts";
+      ch.choices.forEach(function(val){
+        var b=document.createElement("button");b.type="button";b.textContent=String(val);
+        if(romDone[ch.id]&&val===row.val)b.classList.add("right");
+        else if(!romDone[ch.id]&&romMap[row.id]===val)b.classList.add("pick");
+        b.disabled=!!romDone[ch.id];
+        b.addEventListener("click",function(){if(romDone[ch.id])return;romMap[row.id]=val;renderRoman()});
+        opts.appendChild(b);
+      });
+      div.appendChild(opts);grid.appendChild(div);
+    });
+    box.appendChild(grid);
+    if(!romDone[ch.id]){
+      var chk=document.createElement("button");chk.type="button";chk.className="chk";setText(chk,t(T.check));
+      chk.addEventListener("click",function(){
+        var ok=true,i;for(i=0;i<ch.rows.length;i++)if(romMap[ch.rows[i].id]!==ch.rows[i].val)ok=false;
+        if(ok){markWin("rom",ch.id,romDone,"roman",ROMAN.length);renderRoman()}else showMiss();
+      });
+      box.appendChild(chk);
+    }
+  }else{
+    var choices=document.createElement("div");choices.className="save-choices";
+    stableOrder("rom-"+ch.id,ch.opts.slice()).forEach(function(opt){
+      var b=document.createElement("button");b.type="button";setText(b,t(opt));
+      if(romDone[ch.id]&&opt.id===ch.correct)b.classList.add("right");b.disabled=!!romDone[ch.id];
+      b.addEventListener("click",function(){if(romDone[ch.id])return;if(opt.id===ch.correct){markWin("rom",ch.id,romDone,"roman",ROMAN.length);renderRoman()}else{b.classList.add("wrong");showMiss()}});
+      choices.appendChild(b);
+    });
+    box.appendChild(choices);
+  }
+  setText($("prog"),t(T.progRoman)+": "+Object.keys(romDone).length+"/"+ROMAN.length);
+}
+function pickQuiz(){
+  var pin=[],rest=[],i;quizState={};
+  for(i=0;i<QUIZ.length;i++){if(QUIZ[i].pin)pin.push(QUIZ[i]);else rest.push(QUIZ[i])}
+  rest=shuffle(rest);quizSet=shuffle(pin.concat(rest.slice(0,5-pin.length)));
+}
+function renderQuiz(){
+  var box=$("quizBox");box.innerHTML="";
+  quizSet.forEach(function(item,qi){
+    var wrap=document.createElement("div");wrap.className="q";
+    var p=document.createElement("p");setText(p,(qi+1)+". "+t(item.q));wrap.appendChild(p);
+    if(lang==="en"&&item.ru){var g=document.createElement("p");g.className="gloss";g.textContent=item.ru;wrap.appendChild(g)}
+    var st=quizState[item.id];
+    item.opts.forEach(function(opt,oi){
+      var b=document.createElement("button");b.type="button";b.className="opt"+(lang==="ur"?" ur":"");setText(b,t(opt));
+      if(st&&oi===item.correct)b.classList.add("right");
+      if(st==="no"&&quizState[item.id+"-pick"]===oi&&oi!==item.correct)b.classList.add("wrong");
+      if(st)b.disabled=true;
+      b.addEventListener("click",function(){
+        if(quizState[item.id])return;
+        quizState[item.id+"-pick"]=oi;
+        if(oi===item.correct){quizState[item.id]="ok";b.classList.add("right");award("quiz-"+item.id,1)}
+        else{quizState[item.id]="no";b.classList.add("wrong");var kids=wrap.querySelectorAll(".opt");if(kids[item.correct])kids[item.correct].classList.add("right")}
+        fb.classList.add("show");
+        var all=wrap.querySelectorAll(".opt"),k;for(k=0;k<all.length;k++)all[k].disabled=true;
+      });
+      wrap.appendChild(b);
+    });
+    var fb=document.createElement("p");fb.className="fb"+(st?" show":"");setText(fb,t(item.why));wrap.appendChild(fb);
+    box.appendChild(wrap);
+  });
+}
+function storyHtml(){if(mode==="place")return t(T.storyPlace);if(mode==="compare")return t(T.storyCompare);return t(T.storyRoman)}
+function currentTip(){if(mode==="place")return T.tipPlace;if(mode==="compare")return T.tipCompare;return T.tipRoman}
+function tabBadges(){
+  function lab(btn,label,key){btn.innerHTML="";var span=document.createElement("span");setText(span,t(label));btn.appendChild(span);if(doneModes[key]){var b=document.createElement("span");b.className="badge";b.textContent=" ★";btn.appendChild(b)}}
+  lab($("tabPlace"),T.tabPlace,"place");lab($("tabComp"),T.tabComp,"compare");lab($("tabRoman"),T.tabRoman,"roman");
+  $("tabPlace").setAttribute("aria-pressed",mode==="place"?"true":"false");
+  $("tabComp").setAttribute("aria-pressed",mode==="compare"?"true":"false");
+  $("tabRoman").setAttribute("aria-pressed",mode==="roman"?"true":"false");
+}
+function renderCurrent(){if(mode==="place")renderPlace();else if(mode==="compare")renderCompare();else renderRoman()}
+function setMode(m){mode=m;renderCurrent();applyChrome()}
+function applyChrome(){
+  setText($("title"),t(T.title));setText($("subtitle"),t(T.sub));
+  $("story").innerHTML=storyHtml();$("story").classList.toggle("ur",lang==="ur");$("story").setAttribute("dir",lang==="ur"?"rtl":"ltr");
+  setText($("ctlHead"),t(T.ctl));setText($("nextBtn"),t(T.next));setText($("hintBtn"),t(T.hint));setText($("resetBtn"),t(T.reset));
+  setText($("quizHead"),t(T.quiz));setText($("newQuiz"),t(T.newQuiz));
+  $("langBtn").textContent=(lang==="en")?"اردو":"EN";$("langBtn").setAttribute("aria-pressed",lang==="ur"?"true":"false");
+  document.body.classList.toggle("urdu",lang==="ur");
+  document.documentElement.lang=(lang==="ur")?"ur":"en";
+  document.documentElement.dir=(lang==="ur")?"rtl":"ltr";
+  document.title=t(T.title)+" | AI4Kids Class 4";
+  tabBadges();
+  var foot=document.querySelector("footer p");
+  if(foot)setText(foot,foot.getAttribute(lang==="ur"?"data-ur":"data-en"));
+}
+function applyLang(){applyChrome();renderCurrent();renderQuiz()}
+function next(){
+  optKey="";
+  if(mode==="place"){placeIdx=(placeIdx+1)%PLACE.length;tileFor="";expandBuilt=[];renderPlace()}
+  else if(mode==="compare"){compIdx=(compIdx+1)%COMP.length;renderCompare()}
+  else{romIdx=(romIdx+1)%ROMAN.length;romMap={};renderRoman()}
+}
+function showHint(){
+  var h=mode==="place"?PLACE[placeIdx].hint:(mode==="compare"?COMP[compIdx].hint:ROMAN[romIdx].hint);
+  var hb=$("hintbox");setText(hb,t(h));hb.classList.add("show");
+}
+function resetMode(){
+  if(mode==="place"){Object.keys(awarded).forEach(function(k){if(k.indexOf("place-")===0||k==="mode-place")delete awarded[k]});placeDone={};placeIdx=0;tileFor="";expandBuilt=[];doneModes.place=false;recountStars();renderPlace()}
+  else if(mode==="compare"){Object.keys(awarded).forEach(function(k){if(k.indexOf("comp-")===0||k==="mode-compare")delete awarded[k]});compDone={};compIdx=0;doneModes.compare=false;recountStars();renderCompare()}
+  else{Object.keys(awarded).forEach(function(k){if(k.indexOf("rom-")===0||k==="mode-roman")delete awarded[k]});romDone={};romIdx=0;romMap={};doneModes.roman=false;recountStars();renderRoman()}
+  optKey="";tabBadges();applyChrome();
+}
+function cleanSpeakText(s){return String(s||"").replace(/<[^>]+>/g," ").replace(/&gt;/g,">").replace(/&lt;/g,"<").replace(/&amp;/g,"&").replace(/\s+/g," ").trim()}
+function buildSpeakText(){
+  var bits=[];bits.push(t(T.title));bits.push(cleanSpeakText(storyHtml()));
+  bits.push(cleanSpeakText(($("headline")&&$("headline").textContent)||""));
+  bits.push(cleanSpeakText(($("detail")&&$("detail").textContent)||""));
+  bits.push(t(currentTip()));return bits.filter(Boolean).join(". ");
+}
+function pickVoice(voices,want){
+  var i,v,L;for(i=0;i<voices.length;i++){v=voices[i];L=(v.lang||"").toLowerCase().replace("_","-");if(L.indexOf(want)===0)return v}
+  for(i=0;i<voices.length;i++){v=voices[i];L=(v.lang||"").toLowerCase().replace("_","-");if(L.indexOf("en")===0)return v}
+  return voices[0]||null;
+}
+function setSpeaking(on){var btn=$("speakBtn");if(!btn)return;btn.setAttribute("aria-pressed",on?"true":"false");btn.style.opacity=on?"0.65":""}
+function doSpeak(text,asLang){
+  var u=new SpeechSynthesisUtterance(text);u.rate=0.92;u.lang=(asLang==="ur")?"ur-PK":"en-US";
+  var voices=window.speechSynthesis.getVoices()||[];var voice=pickVoice(voices,asLang==="ur"?"ur":"en");if(voice)u.voice=voice;
+  u.onstart=function(){setSpeaking(true)};u.onend=function(){setSpeaking(false)};
+  u.onerror=function(){setSpeaking(false);if(asLang==="ur"){var fallback=cleanSpeakText(T.title.en+". "+T.storyPlace.en+". "+T.tipPlace.en);var u2=new SpeechSynthesisUtterance(fallback);u2.lang="en-US";u2.rate=0.92;var v2=pickVoice(window.speechSynthesis.getVoices()||[],"en");if(v2)u2.voice=v2;u2.onstart=function(){setSpeaking(true)};u2.onend=u2.onerror=function(){setSpeaking(false)};window.speechSynthesis.speak(u2)}};
+  window.speechSynthesis.speak(u);
+}
+if("speechSynthesis" in window){
+  try{window.speechSynthesis.getVoices()}catch(e0){}
+  if(typeof window.speechSynthesis.addEventListener==="function"){window.speechSynthesis.addEventListener("voiceschanged",function(){try{window.speechSynthesis.getVoices()}catch(e1){}})}
+}else{var noBtn=$("speakBtn");if(noBtn){noBtn.disabled=true;noBtn.title="Voice not available on this device"}}
+$("langBtn").addEventListener("click",function(){lang=(lang==="en")?"ur":"en";applyLang()});
+$("tabPlace").addEventListener("click",function(){setMode("place")});
+$("tabComp").addEventListener("click",function(){setMode("compare")});
+$("tabRoman").addEventListener("click",function(){setMode("roman")});
+$("nextBtn").addEventListener("click",next);
+$("hintBtn").addEventListener("click",showHint);
+$("resetBtn").addEventListener("click",resetMode);
+$("newQuiz").addEventListener("click",function(){pickQuiz();renderQuiz()});
+$("speakBtn").addEventListener("click",function(){
+  try{
+    if(!("speechSynthesis" in window))return;
+    var text=buildSpeakText();if(!text)return;
+    if(speakTimer){clearTimeout(speakTimer);speakTimer=null}
+    window.speechSynthesis.cancel();setSpeaking(false);
+    var speakLang=lang;
+    speakTimer=setTimeout(function(){speakTimer=null;doSpeak(text,speakLang)},80);
+  }catch(e){setSpeaking(false)}
+});
+pickQuiz();applyLang();
+})();
+</script>
+</body>
+</html>

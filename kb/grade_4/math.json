@@ -52,7 +52,9 @@
             "correct": "a"
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g4-numbers-99999.html",
+      "interactive_label": "Khelo - Numbers 99,999 tak"
     },
     {
       "title": "Number operations",
@@ -102,7 +104,9 @@
             "correct": "a"
           }
         ]
-      }
+      },
+      "interactive_file": "interactives/g4-number-operations.html",
+      "interactive_label": "Khelo - Number operations"
     },
     {
       "title": "Factors aur multiples",

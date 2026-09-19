@@ -439,5 +439,21 @@
       "interactive_file": "interactives/g4-fiction-nonfiction.html",
       "interactive_label": "Khelo - Fiction aur non-fiction"
     }
+  },
+  {
+    "file": "kb/grade_4/math.json",
+    "match_title": "Numbers 99,999 tak",
+    "add": {
+      "interactive_file": "interactives/g4-numbers-99999.html",
+      "interactive_label": "Khelo - Numbers 99,999 tak"
+    }
+  },
+  {
+    "file": "kb/grade_4/math.json",
+    "match_title": "Number operations",
+    "add": {
+      "interactive_file": "interactives/g4-number-operations.html",
+      "interactive_label": "Khelo - Number operations"
+    }
   }
 ]
