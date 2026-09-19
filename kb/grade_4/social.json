@@ -8,7 +8,6 @@
       "description": "Citizen, rights, responsibilities, civic sense",
       "lesson": "## HOOK\nIslamabad ke park mein agar koi litter phenke, to aap kya karenge? Chhote se kaam se shehar clean reh sakta hai!\n\n## SAMJHAO\nCitizen woh shakhs hai jo kisi mulk ka hissa ho. Global citizen duniya ke logon ka khayal rakhta hai. Digital citizen internet par bhi tameez aur safety rakhta hai.\n\nRights (huqooq) jaise taleem aur khayal-rakhna — aur responsibilities (zimmedariyan) jaise qanoon manna, dusron ka ehtram, aur gandagi na phenkna.\n\nCivic sense: line mein khade hona, zor se shor na karna, aur madad karna.\n\n## MISAAL\nSchool bus mein seat dena, traffic light wait karna, aur WhatsApp pe jhooti khabar forward na karna — yeh sab achhe citizen ke kaam hain.\n\n## KARO\nGhar mein 3 rights aur 3 responsibilities ki list banao. Ek digital safety rule likho.\n\n## SAWAAL\n1. Citizen ka matlab kya hai?\n2. Ek responsibility ka misaal do.\n3. Digital citizen kya karta hai?",
       "quiz": {
-        "title": "Quiz",
         "questions": [
           {
             "q": "Citizen kis cheez ka hissa hota hai?",
@@ -17,7 +16,15 @@
             "c": "Sirf park",
             "d": "Sirf mobile",
             "correct": "a",
-            "explanation": "Citizen mulk aur community ka hissa hota hai."
+            "explanation": "Citizen mulk aur community ka hissa hota hai.",
+            "question": "Citizen kis cheez ka hissa hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Litter na phenkna kis tarah ki baat hai?",
@@ -26,7 +33,15 @@
             "c": "Sirf fashion",
             "d": "Sirf holiday",
             "correct": "a",
-            "explanation": "Saaf rehna zimmedari hai."
+            "explanation": "Saaf rehna zimmedari hai.",
+            "question": "Litter na phenkna kis tarah ki baat hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Digital citizen internet par kya rakhta hai?",
@@ -35,7 +50,15 @@
             "c": "Sirf photos",
             "d": "Sirf jokes",
             "correct": "a",
-            "explanation": "Digital citizen safe aur respectful rehta hai."
+            "explanation": "Digital citizen safe aur respectful rehta hai.",
+            "question": "Digital citizen internet par kya rakhta hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Line mein khade hona kis cheez ki misaal hai?",
@@ -44,7 +67,15 @@
             "c": "Drone flight",
             "d": "Cooking",
             "correct": "a",
-            "explanation": "Line manners civic sense hain."
+            "explanation": "Line manners civic sense hain.",
+            "question": "Line mein khade hona kis cheez ki misaal hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Jhooti khabar forward karna?",
@@ -53,7 +84,15 @@
             "c": "Sirf raat ko theek",
             "d": "Teacher ko mat batao",
             "correct": "a",
-            "explanation": "Pehle verify karo, phir share."
+            "explanation": "Pehle verify karo, phir share.",
+            "question": "Jhooti khabar forward karna?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           }
         ]
       },
@@ -65,7 +104,6 @@
       "description": "Pakistan cultures, languages, festivals, diversity",
       "lesson": "## HOOK\nPunjabi, Pashto, Sindhi, Balochi, Urdu — itni zubanein ek mulk mein! Yeh diversity Pakistan ki khubsurati hai.\n\n## SAMJHAO\nCulture = logon ke tarike: zabaan, khana, libaas, festivals, aur riwayat. Nation = log jo ek mulk se judte hain.\n\nPakistan mein kai ethnic groups aur mazahib mil kar rehte hain. Interfaith harmony matlab ek dusre ka ehtram.\n\nCommunication (baat-cheet): bolna, likhna, phone, TV — fayde aur nuqsan dono hain.\n\n## MISAAL\nEid, Christmas, Diwali — dost mil kar khushi manate hain. Islamabad ke Melas mein alag dresses dikhte hain.\n\n## KARO\nApne ghar ka ek festival aur ek favourite dish likho. Ek dost ki culture se ek nayi baat poochho.\n\n## SAWAAL\n1. Culture mein kya shamil hota hai?\n2. Diversity ka fayda kya hai?\n3. Interfaith harmony kya hai?",
       "quiz": {
-        "title": "Quiz",
         "questions": [
           {
             "q": "Culture mein kya aata hai?",
@@ -74,7 +112,15 @@
             "c": "Sirf WiFi password",
             "d": "Sirf homework",
             "correct": "a",
-            "explanation": "Culture riwayat aur lifestyle hai."
+            "explanation": "Culture riwayat aur lifestyle hai.",
+            "question": "Culture mein kya aata hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Pakistan mein kai zubanein hona kya kehlata hai?",
@@ -83,7 +129,15 @@
             "c": "Sirf confusion",
             "d": "Sirf error",
             "correct": "a",
-            "explanation": "Diversity mulk ki taqat hai."
+            "explanation": "Diversity mulk ki taqat hai.",
+            "question": "Pakistan mein kai zubanein hona kya kehlata hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Dusre mazhab ka ehtram?",
@@ -92,7 +146,15 @@
             "c": "Ladai",
             "d": "Chhupaana",
             "correct": "a",
-            "explanation": "Ehtram se aman banta hai."
+            "explanation": "Ehtram se aman banta hai.",
+            "question": "Dusre mazhab ka ehtram?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "TV / phone se communication ka ek fayda?",
@@ -101,7 +163,15 @@
             "c": "Kabhi kaam nahi",
             "d": "Sirf noise",
             "correct": "a",
-            "explanation": "Jaldi rabta fayda hai — lekin verify karo."
+            "explanation": "Jaldi rabta fayda hai — lekin verify karo.",
+            "question": "TV / phone se communication ka ek fayda?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Eid kis cheez ki misaal hai?",
@@ -110,7 +180,15 @@
             "c": "Robot part",
             "d": "Map scale",
             "correct": "a",
-            "explanation": "Festival culture ka hissa hai."
+            "explanation": "Festival culture ka hissa hai.",
+            "question": "Eid kis cheez ki misaal hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           }
         ]
       },
@@ -122,7 +200,6 @@
       "description": "State vs government, elections, good leader",
       "lesson": "## HOOK\nSchool ka principal badal sakta hai, lekin school ki building aur rules rehte hain — thoda aisa hi state aur government ka farq hai!\n\n## SAMJHAO\nState = mulk (zameen, log, qanoon). Government = woh log / nizam jo mulk chalate hain (thori der ke liye chuney jate hain).\n\nConstitution = bunyadi qanoon ki kitab. General Elections = log vote dekar leaders chunte hain.\n\nAchha leader: sachcha, madadgar, sunne wala, aur sab ke liye insaaf.\n\n## MISAAL\nClass monitor chunna — vote, phir zimmedari. Wahi chhoti si election ki practice.\n\n## KARO\n3 qualities of a good leader likho. Ghar walon se poochho: vote kya hota hai?\n\n## SAWAAL\n1. State aur government mein farq?\n2. Constitution kya hai?\n3. Achhe leader ki ek quality?",
       "quiz": {
-        "title": "Quiz",
         "questions": [
           {
             "q": "State zyada qareeb kis se hai?",
@@ -131,7 +208,15 @@
             "c": "Sirf ek shop",
             "d": "Sirf ek app",
             "correct": "a",
-            "explanation": "State mulk ka nizam hai."
+            "explanation": "State mulk ka nizam hai.",
+            "question": "State zyada qareeb kis se hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Government kya karti hai?",
@@ -140,7 +225,15 @@
             "c": "Sirf cartoons",
             "d": "Sirf cooking",
             "correct": "a",
-            "explanation": "Government rules aur services chalati hai."
+            "explanation": "Government rules aur services chalati hai.",
+            "question": "Government kya karti hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Vote dena kis process ka hissa hai?",
@@ -149,7 +242,15 @@
             "c": "Homework copy",
             "d": "Drone race",
             "correct": "a",
-            "explanation": "Election mein log vote dete hain."
+            "explanation": "Election mein log vote dete hain.",
+            "question": "Vote dena kis process ka hissa hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Constitution kya hai?",
@@ -158,7 +259,15 @@
             "c": "Ek game",
             "d": "Ek map",
             "correct": "a",
-            "explanation": "Constitution mulk ke bunyadi rules hain."
+            "explanation": "Constitution mulk ke bunyadi rules hain.",
+            "question": "Constitution kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Achhe leader mein kya hona chahiye?",
@@ -167,7 +276,15 @@
             "c": "Sirf anger",
             "d": "Sirf laziness",
             "correct": "a",
-            "explanation": "Achha leader sunta aur insaaf karta hai."
+            "explanation": "Achha leader sunta aur insaaf karta hai.",
+            "question": "Achhe leader mein kya hona chahiye?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           }
         ]
       },
@@ -179,7 +296,6 @@
       "description": "Early people, Indus Valley, old stories of land",
       "lesson": "## HOOK\nPakistan ki zameen bohot purani hai — yahan Indus Valley jaisi qadeem civilization thi!\n\n## SAMJHAO\nHistory = guzray waqt ki kahani (sources: books, ruins, coins, stories).\n\nAncient civilizations: Indus Valley (Harappa, Mohenjo-daro) — planned streets, wells, seals. Mehrgarh jaisi purani bastiyan bhi is ilaqe se judti hain.\n\nHum seekhte hain ke log kaise rehte they, kya banate they, aur kyun tabdeeli aayi.\n\n## MISAAL\nMuseum mein purani mitti ke bartan dekhna — woh bhi history ka source hai.\n\n## KARO\nEk timeline banao: pehle → phir → aaj. Indus Valley ki 2 baatein yaad karo (streets, wells).\n\n## SAWAAL\n1. History kya hai?\n2. Indus Valley ki ek khas baat?\n3. History ka ek source?",
       "quiz": {
-        "title": "Quiz",
         "questions": [
           {
             "q": "History kis cheez ki kahani hai?",
@@ -188,7 +304,15 @@
             "c": "Sirf weather",
             "d": "Sirf WiFi",
             "correct": "a",
-            "explanation": "History past ko samjhati hai."
+            "explanation": "History past ko samjhati hai.",
+            "question": "History kis cheez ki kahani hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Harappa / Mohenjo-daro kis civilization se?",
@@ -197,7 +321,15 @@
             "c": "Sirf Amazon forest",
             "d": "Sirf Arctic",
             "correct": "a",
-            "explanation": "Yeh Indus Valley sites hain."
+            "explanation": "Yeh Indus Valley sites hain.",
+            "question": "Harappa / Mohenjo-daro kis civilization se?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Indus Valley mein kya famous tha?",
@@ -206,7 +338,15 @@
             "c": "Sirf smartphones",
             "d": "Sirf rockets",
             "correct": "a",
-            "explanation": "Planned cities unki pehchan thin."
+            "explanation": "Planned cities unki pehchan thin.",
+            "question": "Indus Valley mein kya famous tha?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Purani coin / ruin history ka kya hai?",
@@ -215,7 +355,15 @@
             "c": "Homework error",
             "d": "Map legend only",
             "correct": "a",
-            "explanation": "Objects past ke evidence hote hain."
+            "explanation": "Objects past ke evidence hote hain.",
+            "question": "Purani coin / ruin history ka kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Mehrgarh kis se juda hai?",
@@ -224,7 +372,15 @@
             "c": "Sirf mall",
             "d": "Sirf airport",
             "correct": "a",
-            "explanation": "Mehrgarh early settlement se juda hai."
+            "explanation": "Mehrgarh early settlement se juda hai.",
+            "question": "Mehrgarh kis se juda hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           }
         ]
       },
@@ -236,7 +392,6 @@
       "description": "Maps, directions, Pakistan land and climate basics",
       "lesson": "## HOOK\nBina map ke nayi gali mein kho jana asaan hai — map humein rasta dikhata hai!\n\n## SAMJHAO\nMap essentials (BOLTS): Border, Orientation (north), Legend, Title, Scale.\n\nDirections: North South East West. Globe zameen ka model hai.\n\nPakistan: mountains, plains, desert, coast — alag ilaqe. Weather short-term; climate long-term pattern. Population = kitne log rehte hain.\n\n## MISAAL\nIslamabad se Murree — map par north/east check karo. School map par class rooms dhundo.\n\n## KARO\nApne kamre ka chhota map banao (door, window, table). North mark karo.\n\n## SAWAAL\n1. BOLTS mein L kis liye?\n2. Scale kis kaam aata hai?\n3. Climate aur weather mein farq?",
       "quiz": {
-        "title": "Quiz",
         "questions": [
           {
             "q": "Map par North dikhana kis se related hai?",
@@ -245,7 +400,15 @@
             "c": "Sirf quiz",
             "d": "Sirf song",
             "correct": "a",
-            "explanation": "Orientation direction batati hai."
+            "explanation": "Orientation direction batati hai.",
+            "question": "Map par North dikhana kis se related hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Legend map par kya batata hai?",
@@ -254,7 +417,15 @@
             "c": "Sirf score",
             "d": "Sirf password",
             "correct": "a",
-            "explanation": "Legend symbols explain karta hai."
+            "explanation": "Legend symbols explain karta hai.",
+            "question": "Legend map par kya batata hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Scale kis liye hota hai?",
@@ -263,7 +434,15 @@
             "c": "Sirf erase",
             "d": "Sirf zoom joke",
             "correct": "a",
-            "explanation": "Scale real distance batata hai."
+            "explanation": "Scale real distance batata hai.",
+            "question": "Scale kis liye hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Pakistan mein desert ki misaal?",
@@ -272,7 +451,15 @@
             "c": "Sirf Amazon",
             "d": "Sirf moon",
             "correct": "a",
-            "explanation": "Pakistan mein desert regions hain."
+            "explanation": "Pakistan mein desert regions hain.",
+            "question": "Pakistan mein desert ki misaal?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Climate kya hai?",
@@ -281,7 +468,15 @@
             "c": "Sirf ek cloud",
             "d": "Sirf AC setting",
             "correct": "a",
-            "explanation": "Climate long-term pattern hai."
+            "explanation": "Climate long-term pattern hai.",
+            "question": "Climate kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           }
         ]
       },
@@ -293,7 +488,6 @@
       "description": "Goods, services, money, needs vs wants, banks",
       "lesson": "## HOOK\nRoti zaroori hai — naya toy aksar want hota hai. Needs aur wants ka farq samajhna smart money ka pehla qadam!\n\n## SAMJHAO\nGoods = cheezein (kitab, fruit). Services = madad / kaam (doctor, teacher, barber).\n\nMoney se asani se exchange hota hai. Bank paisa mehfuz rakhta hai aur kabhi savings help karta hai.\n\nResources limited hoti hain — is liye choose karna parta hai (scarcity). Trade = dena-lena.\n\n## MISAAL\nKachay bazaron se sabzi (goods); doctor check-up (service). Pocket money save karna bank / gilty piggy bank se shuru.\n\n## KARO\n5 needs aur 5 wants likho. Ek goods aur ek service ki misaal do.\n\n## SAWAAL\n1. Goods aur services mein farq?\n2. Bank ka ek kaam?\n3. Need ki misaal?",
       "quiz": {
-        "title": "Quiz",
         "questions": [
           {
             "q": "Apple / kitab kis tarah ki cheez hai?",
@@ -302,7 +496,15 @@
             "c": "Map legend",
             "d": "Election",
             "correct": "a",
-            "explanation": "Tangible cheez good hoti hai."
+            "explanation": "Tangible cheez good hoti hai.",
+            "question": "Apple / kitab kis tarah ki cheez hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Doctor ka ilaaj?",
@@ -311,7 +513,15 @@
             "c": "Desert",
             "d": "Festival",
             "correct": "a",
-            "explanation": "Service ek kaam / madad hai."
+            "explanation": "Service ek kaam / madad hai.",
+            "question": "Doctor ka ilaaj?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Pani / khana zyada tar?",
@@ -320,7 +530,15 @@
             "c": "Sirf game",
             "d": "Sirf fashion",
             "correct": "a",
-            "explanation": "Zaroori cheezein needs hain."
+            "explanation": "Zaroori cheezein needs hain.",
+            "question": "Pani / khana zyada tar?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Bank ka ek kaam?",
@@ -329,7 +547,15 @@
             "c": "Sirf painting",
             "d": "Sirf skipping",
             "correct": "a",
-            "explanation": "Banks money safe rakhte hain."
+            "explanation": "Banks money safe rakhte hain.",
+            "question": "Bank ka ek kaam?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Resources kam hon to kya hota hai?",
@@ -338,7 +564,15 @@
             "c": "Map bigadta hai",
             "d": "Vote band",
             "correct": "a",
-            "explanation": "Scarcity choices mangti hai."
+            "explanation": "Scarcity choices mangti hai.",
+            "question": "Resources kam hon to kya hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           }
         ]
       },

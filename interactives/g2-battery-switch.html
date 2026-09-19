@@ -5,6 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Battery aur switch | AI4Kids Grade 2 Robotics</title>
 <style>
+/* AI4KIDS_FS_SCALE */
+
+:root{
+  --fs-cap: clamp(0.85rem, 2.2vw, 1.05rem);
+  --fs-xs: clamp(1rem, 2.6vw, 1.2rem);
+  --fs-sm: clamp(1.15rem, 3vw, 1.4rem);
+  --fs-md: clamp(1.3rem, 3.4vw, 1.65rem);
+  --fs-lg: clamp(1.55rem, 4vw, 2rem);
+  --fs-xl: clamp(1.9rem, 5vw, 2.5rem);
+}
+
+/* /AI4KIDS_FS_SCALE */
+
 :root{
  --ink:#1f2933;--soft:#506070;--paper:#fffdf7;--line:#d7cdbb;--accent:#215c8f;--accent2:#d47731;--ok:#247a4b;--bad:#bd3f35;--board:#eaf2f7;--board2:#d7e6ef;--good:#e7f4eb;--badbg:#fbe9e7;
  --fs-cap:clamp(0.85rem, 2.2vw, 1.05rem);
@@ -15,7 +28,19 @@
  --fs-xl:clamp(1.9rem, 5vw, 2.5rem);
 }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html,body{margin:0;padding:0}body{background:var(--paper);color:var(--ink);font-family:Arial,"Trebuchet MS",sans-serif;font-size:var(--fs-sm);line-height:1.5;padding:0 0 42px}.wrap{max-width:1080px;margin:auto;padding:0 16px}.bar{display:flex;align-items:center;gap:9px;padding:15px 0 5px;flex-wrap:wrap}.brand{font-weight:800;font-size:var(--fs-xs);color:var(--accent);margin-right:auto}.chip,.tabs button,.play,.choice,.opt,.part{font:inherit;cursor:pointer}.chip{border:2px solid var(--ink);background:var(--paper);color:var(--ink);border-radius:999px;padding:8px 15px;font-size:var(--fs-xs);font-weight:700;min-height:44px}.chip[aria-pressed=true],.tabs button[aria-pressed=true]{background:var(--ink);color:var(--paper)}button:focus-visible{outline:3px solid var(--accent2);outline-offset:2px}h1{font-size:var(--fs-xl);line-height:1.2;margin:8px 0 5px}h2{font-size:var(--fs-lg);margin:0 0 12px}.sub{margin:0 0 16px;color:var(--soft);font-size:var(--fs-sm)}.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}.tabs button{flex:1 1 18%;border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);padding:10px 6px;min-height:52px;font-size:var(--fs-cap);font-weight:800}.grid{display:grid;gap:12px}.lesson-grid{display:grid;gap:12px}.lesson{border:3px solid var(--line);border-radius:18px;padding:16px;background:#fffefa}.lesson .tag{display:inline-block;color:#fff;background:var(--accent);border-radius:999px;padding:4px 12px;font-size:var(--fs-cap);font-weight:800;margin-bottom:8px}.lesson.hook .tag{background:var(--accent2)}.lesson.misaal .tag{background:var(--ok)}.lesson.karo .tag{background:#70488d}.lesson p{font-size:var(--fs-sm);margin:0;line-height:1.6}.demo{margin-top:22px;border:3px solid var(--ink);border-radius:22px;padding:16px;background:linear-gradient(180deg,var(--board),var(--board2))}.demo-head{display:flex;align-items:center;gap:10px}.demo-head .big{font-size:2.5rem}.demo-head h2{margin:0}.demo-instruction{color:var(--soft);margin:0 0 12px;font-size:var(--fs-xs)}.play{width:100%;border:3px solid var(--ink);border-radius:16px;background:var(--ink);color:#fffdf7;min-height:60px;padding:10px 14px;font-weight:800;font-size:var(--fs-md);margin:10px 0}.play.alt{background:var(--ok);border-color:var(--ok)}.demo-output{margin-top:12px;border:3px solid var(--ink);border-radius:16px;background:var(--paper);padding:15px;text-align:center;min-height:90px}.status{display:inline-block;background:var(--accent);color:white;border-radius:999px;padding:4px 12px;font-size:var(--fs-cap);font-weight:800}.output-title{font-size:var(--fs-lg);font-weight:800;margin:6px 0 2px}.output-text{color:var(--soft);margin:0;font-size:var(--fs-sm)}.choice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}.choice{border:3px solid var(--line);background:var(--paper);border-radius:15px;padding:12px 8px;min-height:110px;color:var(--ink);font-weight:800;font-size:var(--fs-xs)}.choice .icon{display:block;font-size:34px;margin-bottom:4px}.choice.active{border-color:var(--accent);background:#e6eff8;box-shadow:0 0 0 3px #bed3e4}.machine-anim{display:inline-block;font-size:48px;transition:transform .5s}.machine-anim.go{transform:rotate(360deg) scale(1.12)}.remote-tv{font-size:56px;display:inline-block}.remote-tv.signal{animation:pulse .55s 2}.battery-scene{display:flex;align-items:center;justify-content:center;gap:22px;font-size:54px;min-height:75px}.switch{width:62px;height:34px;border-radius:20px;border:3px solid var(--ink);background:#777;position:relative;display:inline-block}.switch:after{content:"";position:absolute;width:24px;height:24px;background:#fff;border-radius:50%;left:3px;top:2px;transition:left .25s}.switch.on{background:var(--ok)}.switch.on:after{left:29px}.light.off{filter:grayscale(1);opacity:.45}.gear-scene{height:125px;display:flex;align-items:center;justify-content:center;gap:0}.gear{font-size:72px;display:inline-block}.gear.spin{animation:spin 1s linear}.gear.small{font-size:52px}.rope{height:78px;border-left:5px dashed var(--accent);margin-left:16px}.cup{font-size:40px;transition:transform .6s}.cup.up{transform:translateY(-28px)}.robot-scene{min-height:120px;text-align:center}.robot-face{font-size:82px;display:inline-block}.robot-face.move{animation:wiggle .7s 2}.paper-stage{min-height:140px;display:flex;align-items:center;justify-content:center;gap:4px;flex-wrap:wrap}.paper-part{border:3px dashed var(--accent);padding:10px;border-radius:10px;background:#e9f2ff;font-size:34px;transition:transform .3s}.paper-part.added{border-style:solid;background:#fff4d8;transform:scale(1.05)}@keyframes spin{to{transform:rotate(360deg)}}@keyframes pulse{50%{transform:scale(1.18);filter:drop-shadow(0 0 8px #f3bd35)}}@keyframes wiggle{50%{transform:rotate(6deg) translateY(-5px)}}.quiz{margin-top:30px;border-top:3px solid var(--ink);padding-top:20px}.q{margin-bottom:25px}.q p{font-size:var(--fs-md);font-weight:800;margin:0 0 10px}.opt{display:block;width:100%;text-align:left;margin:8px 0;border:2px solid var(--line);background:var(--paper);border-radius:12px;padding:12px 15px;color:var(--ink);font-size:var(--fs-sm);min-height:52px}.opt.right{border-color:var(--ok);background:var(--good);font-weight:800}.opt.wrong{border-color:var(--bad);background:var(--badbg)}.fb{display:none;color:var(--soft);font-size:var(--fs-xs);margin:8px 0}.fb.show{display:block}.score{display:none;border:3px solid var(--ok);background:var(--good);border-radius:16px;padding:14px;text-align:center;font-weight:800;font-size:var(--fs-md)}.score.show{display:block}footer{border-top:1px solid var(--line);margin-top:30px;padding-top:16px;color:var(--soft);font-size:var(--fs-cap)}.hidden{display:none!important}@media(min-width:800px){.lesson-grid{grid-template-columns:1fr 1fr}.demo{max-width:740px;margin-left:auto;margin-right:auto}.quiz{max-width:900px;margin-left:auto;margin-right:auto}}
-</style>
+
+/* AI4KIDS_MOBILE_FLEX */
+html { -webkit-text-size-adjust: 100%; }
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; max-width: 100vw; overflow-x: hidden; }
+img, svg, canvas, video { max-width: 100%; height: auto; }
+button, .btn, .opt, [role=button] { min-height: 44px; min-width: 44px; }
+@media (max-width: 480px) {
+  main, .wrap, .container, .app { padding-left: 12px !important; padding-right: 12px !important; }
+  button, .btn { width: 100%; }
+}
+/* /AI4KIDS_MOBILE_FLEX */
+\n\1
 </head>
 <body>
 <div class="wrap">

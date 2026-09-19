@@ -9,7 +9,6 @@
       "description": "Washing machine, mixer, iron",
       "lesson": "## HOOK\nKya aapko pata hai ke aaj kal humare gharon mein kaise kaise machines kaam karti hain? Acha socho, agar aapki maa washing machine ke bajaye haath se kapre dho rahi hoti, toh kya hota? Bahut zyada time aur mehnat lagti na?\n\n## SAMJHAO\nGhar ki machines humari zindagi ko bohot asan bana deti hain. Jab bhi aapko kapre dhoone hote hain, aap washing machine ko chalu karte hain. Yeh machine paani aur detergent ka istemal karke aapke kapron ko dho deti hai, bina kisi mehnat ke. Yeh kaam itna asan hai ke aap sirf button dabate hain aur woh kaam shuru ho jata hai.\n\nPhir aati hai mixer machine. Jab aap kisi cheez ko peesna chahte hain, jaise ke doodh mein cheeni milana ya chutney banana, toh aap mixer ka istemal karte hain. Yeh machine khud hi sab kuch milti hai, jisse humein haath se krna nahi padta. Aap sirf ingredients daalte hain aur mixer ko chalu karte hain.\n\nAb baat karte hain iron ki. Jab aapke school ka uniform ya ghar ke kapre jhunjhunah ho jaate hain, toh aap iron ka istemal karke unhe theek karte hain. Yeh machine garam hoti hai aur is se kapre seedhe aur saaf nazar aate hain. Is se humein behtareen look milti hai bina kisi mushkilat ke.\n\nHar machine ka kaam alag hota hai, lekin sab ka maksad yeh hai ke humari zindagi ko aasaan banaya ja sake. Machines nahi hoti toh humari everyday tasks kitni mushkil hoti!\n\n## MISAAL\nDosto, jab aap bazaar jaate hain aur wahan bazaar ke bude bhaiya ke paas mixer dekhte hain, toh aapko samajh aata hai ke uski madad se kaise masalay ya sabziyan asani se banai ja sakti hain. Humare sheheron mein cooking aur khanay ki cheezein prepare karne mein yeh machines bohat madadgar hoti hain. \n\n## KARO\nAb chalo, ek choti si activity karte hain! Aapke ghar mein jo machines hain, unke naam likho. Jaise: \n1. Washing Machine\n2. Mixer\n3. Iron\n\nPhir, kisi ek machine ko use karo. Agar washing machine hai, toh kapre dho kar dekho. Agar mixer hai, toh apne liye ek smoothie ya chutney banana seekho. Aur agar iron hai, toh apna uniform ya koi kapra theek karo!\n\n## SAWAAL\n1. Washing machine ka kya kaam hai?\n2. Aap mixer kaiste istemal karte hain?\n3. Iron kis cheez ke liye istemal hoti hai?\n\nRobotics Ustaad.",
       "quiz": {
-        "title": "Ghar ki machines Quiz",
         "questions": [
           {
             "q": "Washing machine ka kya kaam hai?",
@@ -18,7 +17,15 @@
             "c": "Kapre silai karna",
             "d": "Kapre rangna",
             "correct": "a",
-            "explanation": "Washing machine kapron ko dhone ke liye istemal hoti hai."
+            "explanation": "Washing machine kapron ko dhone ke liye istemal hoti hai.",
+            "question": "Washing machine ka kya kaam hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Mixer ka istemal kis kaam ke liye hota hai?",
@@ -27,7 +34,15 @@
             "c": "Machli pakana",
             "d": "Chirayion ko khilana",
             "correct": "b",
-            "explanation": "Mixer khanay ki cheezon ko mix karne ke liye istemal hota hai."
+            "explanation": "Mixer khanay ki cheezon ko mix karne ke liye istemal hota hai.",
+            "question": "Mixer ka istemal kis kaam ke liye hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Iron ka kya kaam hai?",
@@ -36,7 +51,15 @@
             "c": "Kapre rangna",
             "d": "Kapre katna",
             "correct": "b",
-            "explanation": "Iron ka istemal kapron ko press karne ke liye hota hai taake wo seedhe ho jain."
+            "explanation": "Iron ka istemal kapron ko press karne ke liye hota hai taake wo seedhe ho jain.",
+            "question": "Iron ka kya kaam hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Washing machine kaunse machine ka hissa hai?",
@@ -45,7 +68,15 @@
             "c": "Gari",
             "d": "Computer",
             "correct": "a",
-            "explanation": "Washing machine ghar ki ek automation machine hai."
+            "explanation": "Washing machine ghar ki ek automation machine hai.",
+            "question": "Washing machine kaunse machine ka hissa hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Mixer kis cheez ko jaldi banata hai?",
@@ -54,7 +85,15 @@
             "c": "Chai",
             "d": "Dahi",
             "correct": "b",
-            "explanation": "Mixer raita jaldi banane ke liye istemal hota hai."
+            "explanation": "Mixer raita jaldi banane ke liye istemal hota hai.",
+            "question": "Mixer kis cheez ko jaldi banata hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           }
         ]
       },
@@ -90,7 +129,6 @@
       "description": "Remote kaise kaam karta hai",
       "lesson": "## HOOK\nKya aapne kabhi socha hai ke remote control se ghar ke gadgets kaise chalte hain? Jaiye dekhte hain ke TV, toy car ya ceiling fan remote se kis tarah kaam karte hain. Aaj hum is mazeedaar topic ko jaanenge!\n\n## SAMJHAO\nRemote control ek aisa device hai jo hamein door se kisi cheez ko control karne ki ijazat deta hai. Jab hum remote ka button dabate hain, toh wo ek signal bhejta hai. Ye signal electronic devices ko batata hai ke unhe kya karna hai, jaise ke TV ko on ya off karna.\n\nRemote mein aksar infrared light ka istemal hota hai, jo aankh ke liye nazar nahi aata. Jab aap remote ka button dabate hain, toh ye light ek sensor tak pohanchti hai jo aapke TV ya kisi aur gadget ke andar hoti hai. Jaise hi sensor ye signal leta hai, waise hi device jawab deta hai.\n\nRemote control ka istemal sirf TV tak mehdood nahi hai; aap isse toy cars, garage doors, aur even drones bhi control kar sakte hain. Har remote ka design thora alag hota hai, lekin unka kaam asal mein wahi hota hai — signal bhejna aur control karna.\n\nIs tarah se, remote control hamare liye bohat asaan tareeqa hai cheezon ko control karne ka, bina unke paas jaaye. Yani humein hamesha paas nahi jaana padta kisi cheez ke liye! \n\n## MISAAL\nAgar aapne kabhi rickshaw hire kiya hai, toh rickshaw wala aapko bulaane ke liye apne remote ka istemal karta hai, jo sirf ek button dabane se rickshaw ko start ya off karta hai. Yaad rakhna, rickshaw ka signal milne par woh aapki taraf aata hai, bas bilkul waise jaise remote control devices kaam karte hain!\n\n## KARO\nAaj aap ghar pe aik mazeedaar activity karen; ek simple remote control toy car khareedain. Dekhein ke jab aap remote control se car ko chalate hain toh kaise wo aapki commands ko follow karti hai. Aap alag alag buttons dabake dekhein ke kaunsa button kya karta hai. Is tarah aap signal kaise kaam karta hai, yeh samajh jaenge!\n\n## SAWAAL\n1. Remote control kya hai aur ye kis tarah kaam karta hai?\n2. Kiya aap ek aisi cheez samla sakte hain jo remote se kaam karti ho?\n3. Remote mein kya cheez hoti hai jo signal bhejti hai?\n\nApna dimaag chalaiye aur in sawalon ke jawab dijiye! \n\nRobotics Ustaad",
       "quiz": {
-        "title": "Remote control Quiz",
         "questions": [
           {
             "q": "Remote control ka kaam kya hai?",
@@ -99,7 +137,15 @@
             "c": "Khud se chalna",
             "d": "Chhoti chhoti cheezain banana",
             "correct": "a",
-            "explanation": "Remote control ghar ke devices jaise TV ya air conditioner ko behtareen taur par control karta hai."
+            "explanation": "Remote control ghar ke devices jaise TV ya air conditioner ko behtareen taur par control karta hai.",
+            "question": "Remote control ka kaam kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Remote control kis technology ka istemal karta hai?",
@@ -108,7 +154,15 @@
             "c": "Bluetooth technology",
             "d": "Sabhi",
             "correct": "d",
-            "explanation": "Remote control mein infrared, radio waves aur kabhi kabhi Bluetooth technology ka istemal hota hai."
+            "explanation": "Remote control mein infrared, radio waves aur kabhi kabhi Bluetooth technology ka istemal hota hai.",
+            "question": "Remote control kis technology ka istemal karta hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 3
           },
           {
             "q": "Agar remote control ka battery khatam ho jaye, to kya hota hai?",
@@ -117,7 +171,15 @@
             "c": "Remote khud ba khud chalne lagega",
             "d": "Remote ka sound aayega",
             "correct": "a",
-            "explanation": "Battery khatam hone par remote control kaam nahi karega aur aapko naya battery dalna padega."
+            "explanation": "Battery khatam hone par remote control kaam nahi karega aur aapko naya battery dalna padega.",
+            "question": "Agar remote control ka battery khatam ho jaye, to kya hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Kya hum remote control ka istemal TV ke alawa kisi aur cheez ke liye kar sakte hain?",
@@ -126,7 +188,15 @@
             "c": "Sirf mobile phone ke liye",
             "d": "Sirf computer ke liye",
             "correct": "a",
-            "explanation": "Remote control ka istemal sirf TV hi nahi balki air conditioner, fan aur aur bhi devices ke liye hota hai."
+            "explanation": "Remote control ka istemal sirf TV hi nahi balki air conditioner, fan aur aur bhi devices ke liye hota hai.",
+            "question": "Kya hum remote control ka istemal TV ke alawa kisi aur cheez ke liye kar sakte hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Remote control se device ko kaise control karte hain?",
@@ -135,7 +205,15 @@
             "c": "Dosey device se",
             "d": "Aankhein band kar ke",
             "correct": "a",
-            "explanation": "Remote control se device ko button daba kar hi control kiya jata hai."
+            "explanation": "Remote control se device ko button daba kar hi control kiya jata hai.",
+            "question": "Remote control se device ko kaise control karte hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           }
         ]
       },
@@ -171,7 +249,6 @@
       "description": "Battery se bijli, switch se control",
       "lesson": "## HOOK\nStudent, kya aap ne kabhi socha hai ke jo lights humare ghar mein chamakti hain, unhe kaise on aur off kiya jaata hai? Aur kya aap jaante hain ke battery ka kya role hota hai in lights aur devices mein? \n\n## SAMJHAO\nAaj hum baat karenge \"Battery\" aur \"Switch\" ki. Battery ek aisi cheez hai jo bijli store karti hai. Jab hum battery ko kisi device se jodte hain, to wo bijli provide karti hai. Jaise aapka khilona ya remote control. Yeh battery theek waise hi kaam karti hai jaise ek paani ki tanki, jo paani ko store karti hai jab tak hum use nahi karte.\n\nAb baat karte hain \"Switch\" ki. Switch ek tarah ka control hai jisse hum battery se aane wali bijli ko on ya off karte hain. Jab hum switch ko on karte hain, to switch bijli ko device tak pahunchata hai. Aur jab hum ise off karte hain, to bijli band ho jaati hai. \n\nYani battery se bijli aati hai aur switch se hum us bijli ko control karte hain. Yeh dono cheezein milkar kaam karti hain taake humare devices sahi se kaam kar sakein. \n\nAb samjhiye ke agar aapke ghar mein kisi gadget ki battery khatam ho jaati hai, to wo kaam nahi karega jab tak aap nayi battery nahi lagaate. Aur jab aap switch ko off karte hain to wo gadget band ho jaata hai, chahe battery kitni bhi achi ho. \n\n## MISAAL\nChaliye, sochte hain bazaar ki. Jab bhi hum bazaar se koi LED light kharidte hain, wo hamesha battery se kaam karti hai. Aur hote hain kuch lights jo switch se chalu hoti hain. Jab bhi aap switch ko dabaate hain, light on ho jaati hai. Aur jab aap switch ko band karte hain, light off ho jaati hai — yeh sab isliye hota hai ke battery aur switch saath mein kaam karte hain.\n\n## KARO\nStudent, aap ghar par ek choti si activity kar sakte hain. Ek purani flashlight uthaiye jisme battery hoti hai. Dekhiye kaise aap switch ko dabaakar us flashlight ki light on aur off kar sakte hain. Aap switch ko on karke dekhiye ke battery kis tarah se kaam kar rahi hai. Phir switch ko off kar ke dekhiyega ke flashlight kaise band ho jaati hai. Is se aap samjhenge ke battery aur switch kaise ek dusre se milkar kaam karte hain.\n\n## SAWAAL\n1. Battery kya karti hai aur kis tarah se kaam karti hai?\n2. Switch ko on aur off karne se kya hota hai?\n3. Aapne apne ghar ya school mein kabhi battery aur switch ka use kya hai?\n\nRobotics Ustaad.",
       "quiz": {
-        "title": "Battery aur switch Quiz",
         "questions": [
           {
             "q": "Battery kis cheez se bijli faraham karti hai?",
@@ -180,7 +257,15 @@
             "c": "Dhoondh se",
             "d": "Hawa se",
             "correct": "a",
-            "explanation": "Battery chemical reactions se bijli banati hai."
+            "explanation": "Battery chemical reactions se bijli banati hai.",
+            "question": "Battery kis cheez se bijli faraham karti hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Switch ka kya kaam hai?",
@@ -189,7 +274,15 @@
             "c": "Chalti gaadi ko rukna",
             "d": "Pani dena",
             "correct": "a",
-            "explanation": "Switch bijli ko rokne ya chalane ka kaam karta hai."
+            "explanation": "Switch bijli ko rokne ya chalane ka kaam karta hai.",
+            "question": "Switch ka kya kaam hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Kya aap switch ko bina battery ke istemal kar sakte hain?",
@@ -198,7 +291,15 @@
             "c": "Kabhi kabhi",
             "d": "Sirf din mein",
             "correct": "b",
-            "explanation": "Switch ko kaam karne ke liye battery ki zaroorat hoti hai."
+            "explanation": "Switch ko kaam karne ke liye battery ki zaroorat hoti hai.",
+            "question": "Kya aap switch ko bina battery ke istemal kar sakte hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Pakistan mein kis device mein battery aur switch istemal hota hai?",
@@ -207,7 +308,15 @@
             "c": "Khazana",
             "d": "Ghar",
             "correct": "a",
-            "explanation": "Torch mein battery aur switch ka istemal hota hai."
+            "explanation": "Torch mein battery aur switch ka istemal hota hai.",
+            "question": "Pakistan mein kis device mein battery aur switch istemal hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Kya battery ka andar kuch hota hai?",
@@ -216,7 +325,15 @@
             "c": "Paani",
             "d": "Khaali",
             "correct": "a",
-            "explanation": "Battery ke andar chemicals hote hain jo bijli banate hain."
+            "explanation": "Battery ke andar chemicals hote hain jo bijli banate hain.",
+            "question": "Kya battery ka andar kuch hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           }
         ]
       },
@@ -252,7 +369,6 @@
       "description": "Gears se taqat badhao",
       "lesson": "## HOOK\nBachon, kya aap ne kabhi socha hai ke aapka rickshaw kaise chal raha hota hai? Yeh sirf engine se nahi, balki gears aur pulleys ki madad se bhi hota hai! Aaj hum in chhote lekin mazedaar machines ke bare mein jaanenge!\n\n## SAMJHAO\nGears wo circular disks hote hain jinke andar teeth hote hain. Jab ek gear ghoomta hai, toh doosra gear bhi ghoomta hai. Yeh sab gears ek dusre se jure hote hain. Gears ka istemal tarah-tarah ki machines mein hota hai, jese ke TV ki remote, paani ka purana pump, ya toys.\n\nPulleys ek aise system hote hain jahan ek circular wheel hota hai jiske aas-paas ek rope ghusati hai. Jab hum rope ko kheechte hain, toh pulley se attached object upar uthta hai. Yeh kaam aasan banata hai, jaise ke balti ko pyaale se bahar nikalna.\n\nGears aur pulleys ka istemal aasan tareeke se taqat badhane ke liye hota hai. Jab aap chhote gears ko bade gears ke sath jurtay hain, toh aap zyadah taqat hasil karte hain. Is tarah chhoti machines ko bade kaamon ke liye istemal kiya ja sakta hai!\n\nYani yeh keh sakte hain ke agar aap gears aur pulleys ka acha istemal karo, toh aap apni machines ki taqat ko badha sakte hain aur unhein behtar bana sakte hain.\n\n## MISAAL\nSochiye, jab aap bazaar mein jaate hain aur fruit vendor ko dekhtay hain. Uski fruit ka dabba trolley ke liye pulley system hota hai. Jab wo rope kheechta hai, toh saare phal asaani se upar uth jaate hain. Is se uski mehnat bhi kam hoti hai aur kaam bhi jaldi hota hai!\n\n## KARO\nAap logon ke liye ek mazedaar activity! Ghar par ek chhoti pulley system banayein. Ek khali cardboard box ko lein, ek chhoti plastic ya wooden wheel lein, aur ek strong string ya dhaaga. Us wheel ko box ke sath jodain aur string ko loop karke kheenchain. Dekhein kaise box upar uthta hai. Is activity se aap gears aur pulleys ke concept ko ache se samjhenge!\n\n## SAWAAL\n1. Gears kis cheez ki madad se ghoomte hain?\n2. Pulley ka istemal kis liye hota hai?\n3. Gears aur pulleys ka kya faida hai?\n\nRobotics Ustaad.",
       "quiz": {
-        "title": "Gears aur pulleys Quiz",
         "questions": [
           {
             "q": "Gears ka kya kaam hota hai?",
@@ -261,7 +377,15 @@
             "c": "Power ka istemal khatm karna",
             "d": "Aulaad peda karna",
             "correct": "a",
-            "explanation": "Gears ka basic kaam taqat ko barhawa dena hai."
+            "explanation": "Gears ka basic kaam taqat ko barhawa dena hai.",
+            "question": "Gears ka kya kaam hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Pulleys kis cheez ke liye istemal hoti hain?",
@@ -270,7 +394,15 @@
             "c": "Dost banana",
             "d": "Khilone banane ke liye",
             "correct": "a",
-            "explanation": "Pulleys ka istemal chadar ya koi bhari cheez khinchne ke liye hota hai."
+            "explanation": "Pulleys ka istemal chadar ya koi bhari cheez khinchne ke liye hota hai.",
+            "question": "Pulleys kis cheez ke liye istemal hoti hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Kya gear aur pulley dono mil kar kaam kar sakte hain?",
@@ -279,7 +411,15 @@
             "c": "Haan, lekin sirf ek kaam ke liye",
             "d": "Nahi, inka koi taluq nahi",
             "correct": "b",
-            "explanation": "Gear aur pulley mil kar ek doosre ki taqat barhane ki salahiyat ko badhate hain."
+            "explanation": "Gear aur pulley mil kar ek doosre ki taqat barhane ki salahiyat ko badhate hain.",
+            "question": "Kya gear aur pulley dono mil kar kaam kar sakte hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Gears kis cheez se banaye jaate hain?",
@@ -288,7 +428,15 @@
             "c": "Rassi",
             "d": "Khilona",
             "correct": "a",
-            "explanation": "Gears aam tor par plastic ya metal se banaye jaate hain taake woh mazboot ho."
+            "explanation": "Gears aam tor par plastic ya metal se banaye jaate hain taake woh mazboot ho.",
+            "question": "Gears kis cheez se banaye jaate hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Agar choti gear ko badi gear se jodega, to kya hoga?",
@@ -297,7 +445,15 @@
             "c": "Koi farq nahi padega",
             "d": "Dono gear bandh ho jayengi",
             "correct": "a",
-            "explanation": "Choti gear badi gear se jodne par choti gear tez chalti hai kyunki woh chhoti hoti hai."
+            "explanation": "Choti gear badi gear se jodne par choti gear tez chalti hai kyunki woh chhoti hoti hai.",
+            "question": "Agar choti gear ko badi gear se jodega, to kya hoga?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           }
         ]
       },
@@ -333,7 +489,6 @@
       "description": "Motor, sensor, body, brain",
       "lesson": "## HOOK  \nKya aapne kabhi socha hai ke aaj kal ke robots kis kis cheez se mil kar banay jaate hain? Jab aap bazaar mein jaate hain aur dekhte hain ke robot keh raha hai \"Good morning!\" to aap sochte hain ke yeh aakhir kaise kaam karta hai?\n\n## SAMJHAO  \nAaj hum sikhenge ke ek robot ke kuch important hisson ka kya kaam hota hai. Pehla hissa hai **Motor**. Motor woh part hai jo robot ko chalata hai. Jab motor kaam karta hai, tab robot move karta hai. Jaise jitne bhi khilaadi cricket mein hain, woh apne pairon se move karte hain, waise hi robot bhi motor ki madad se move karta hai.\n\nDusra hissa hai **Sensor**. Sensors robot ke liye aankhein aur kaan banate hain. Yeh sensors robot ko yeh batate hain ke aas-paas kya ho raha hai. Jaise agar aapki teacher aap ko bulati hain, to aap sun kar unki taraf jaate hain. Robot bhi sensors ki madad se cheezon ko dekh sakta hai aur mehsoos kar sakta hai.\n\nTeesra hissa hai **Body**. Robot ki body uski shakal hoti hai, jisse woh dekhne mein aata hai. Jaise insaanon ka ek jism hota hai, waise hi robot ki body bhi hoti hai. Iss body ke andar motor aur sensors hote hain jo saara kaam karte hain. \n\nAakhri hissa hai **Brain**. Robot ka brain uska CPU hota hai, jo sab kuch control karta hai. Yeh brain hi decide karta hai ke robot ko kya karna hai. Jaise aapka dimaag aapko batata hai ke aapko kis cheez se door rehna hai ya kis cheez ka istemal karna hai, waise hi robot ka brain bhi usse samjhaata hai ke kya karna hai.\n\n## MISAAL  \nAgar aapne kabhi bazaar mein robots dekhe hain jo shopping mein madad karte hain, to unme yeh chaar hise hote hain. Jaise kisi robot mein motor hoga jo usse chalne ki taaqat dega, sensors honge jo usko samjhaenge ke kis taraf chalna hai, body hogi jo uska shape banayegi, aur brain hoga jo sab kuch control karega.\n\n## KARO  \nAap is activity ko ghar ya school mein kar sakte hain: Ek cardboard box lein aur usse robot ki body banayein. Usmein kuch buttons lagayein jo motor ki tarah kaam karein (aap toy car ke motor istemal kar sakte hain). Fir kuch sensors (jese simple lights ya sound outputs) bhi add karein. Aakhir mein, robot ko decorate karein aur sochein ke aapka robot kya kaam kar sakta hai!\n\n## SAWAAL  \n1. Robot ke kin chaar hisson ka naam batayein?  \n2. Motor ka kaam kya hota hai?  \n3. Sensors robot ki madad kaise karte hain?  \n\nApna ye lesson acche se samjhein aur robots ke bare mein aur jaankari hasil karte rahein.  \nRobotics Ustaad",
       "quiz": {
-        "title": "Robot ke hisse Quiz",
         "questions": [
           {
             "q": "Robot ka wo hissa kya hai jo usay chalata hai?",
@@ -342,7 +497,15 @@
             "c": "Body",
             "d": "Brain",
             "correct": "a",
-            "explanation": "Motor robot ko chalne aur move karne mein madad karti hai."
+            "explanation": "Motor robot ko chalne aur move karne mein madad karti hai.",
+            "question": "Robot ka wo hissa kya hai jo usay chalata hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Robot ka wo hissa kya hai jo usay aas-paas ki cheezon ko mehsoos karne mein madad deta hai?",
@@ -351,7 +514,15 @@
             "c": "Body",
             "d": "Brain",
             "correct": "b",
-            "explanation": "Sensor robot ko surroundings jaanne mein madad karta hai."
+            "explanation": "Sensor robot ko surroundings jaanne mein madad karta hai.",
+            "question": "Robot ka wo hissa kya hai jo usay aas-paas ki cheezon ko mehsoos karne mein madad deta hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Robot ka wo hissa kya hai jo robot ki soch aur decision lene ki salahiyat rakhta hai?",
@@ -360,7 +531,15 @@
             "c": "Body",
             "d": "Brain",
             "correct": "d",
-            "explanation": "Brain robot ki soch aur instructions ko process karta hai."
+            "explanation": "Brain robot ki soch aur instructions ko process karta hai.",
+            "question": "Robot ka wo hissa kya hai jo robot ki soch aur decision lene ki salahiyat rakhta hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 3
           },
           {
             "q": "Robot ka wo hissa kya hai jo uska physical structure banata hai?",
@@ -369,7 +548,15 @@
             "c": "Sensor",
             "d": "Brain",
             "correct": "b",
-            "explanation": "Body robot ka wo hissa hai jo usay ek form deta hai."
+            "explanation": "Body robot ka wo hissa hai jo usay ek form deta hai.",
+            "question": "Robot ka wo hissa kya hai jo uska physical structure banata hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Kaunsa hissa robot ki movement ko control karta hai?",
@@ -378,7 +565,15 @@
             "c": "Body",
             "d": "Motor",
             "correct": "d",
-            "explanation": "Motor robot ki movement ko control karti hai aur usay chalne ke liye energy deti hai."
+            "explanation": "Motor robot ki movement ko control karti hai aur usay chalne ke liye energy deti hai.",
+            "question": "Kaunsa hissa robot ki movement ko control karta hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 3
           }
         ]
       },
@@ -414,7 +609,6 @@
       "description": "Kagaz ka robot design karo",
       "lesson": "## HOOK\nKya aapne kabhi socha hai ke agar aapka robot aapke liye sirf kagaz se banta, toh wo kaisa hota? Aap kaise bana sakte hain ek mazaidar kagaz ka robot jo chal sakta hai? Aao, hum is par kaam karte hain!\n\n## SAMJHAO\nDoston, aaj hum seekhenge ke kaise hum kagaz se ek chhota sa robot bana sakte hain. Ye robot sirf kagaz ka hoga, lekin is mein creativity aur imagination ki zaroorat hai. Aapko is robot mein kuch basic cheezein shamil karni hain jese aankhein, haath aur legs, jo isay chalne mein madad karengi. \n\nSab se pehle, aapko kuch kagaz ki zaroorat hogi. Aap different rangon ke kagaz ka istemal kar sakte hain, jise aapka robot aur bhi khubsurat lagega! Aap scissors, glue aur markers bhi lein, taake aap apne robot ko aur bhi behtar banayein. \n\nAb baari hai design karne ki. Aap apne robot ke liye ek achha design sochiye. Agar aapko inspiration chahiye toh apne aas paas dekh sakte hain. Aapka robot kaisa dikh sakta hai? Wo kya kar sakta hai? Aisi soch aapko achhe ideas degi.\n\nAur sab akhri mein, jab aap apna robot bana chuke hain, toh isay aam zindagi mein istemal karne ki sochiye. Kya aap ka robot aapko kaam karne mein madad karega? Ya phir ye sirf khilona hoga? Is se aapko automation ke bare mein bhi samajh aayega!\n\n## MISAAL\nAapne bazar mein dekha hoga ke kaise hawai jahaz ya rickshaw drivers automation tools ka istemal karte hain, jaise ke GPS ya speedometers. Ye cheezein unhe safar ko asaan banati hain, bilkul waise hi jaise humara kagaz ka robot humari madad kar sakta hai kisi aur kaam mein!\n\n## KARO\nAb time hai fun activity ka! Ghar ya school mein, aapko in cheezon ki zaroorat hai:\n1. Kagaz (different colors)\n2. Scissors\n3. Glue\n4. Markers \n\nStep 1: Pehle, ek  rectangle ka kagaz ka tukra kaatain jo aapka robot ka jism hoga.  \nStep 2: Phir, do chhoti strips kaatain jo haath honge.  \nStep 3: Ab do chhoti circles kaatain jo aankhein banayenge.  \nStep 4: Aankhein aur haath glue se chipkain.  \nStep 5: Ab, apne robot ko saaf aur khubsurat banane ke liye markers se design karein.  \n\nAakhir mein, agar aap chahein, toh aap is robot ko chalane ke liye kuch aur cheezein soch sakte hain, jaise legs banane ke liye additional strips.\n\n## SAWAAL\n1. Aapke robot ke liye kaunsa rang ka kagaz aapne chuna aur kyu?  \n2. Kya aapko lagta hai ke robot aapki madad kar sakta hai? Agar haan, toh kaise?  \n3. Aap next time kis cheez par automation apply karne ka soch rahe hain?  \n\nRobotics Ustaad",
       "quiz": {
-        "title": "Paper robot banao Quiz",
         "questions": [
           {
             "q": "Kagaz ka robot bananay ke liye aapko sabse pehle kya chahiye?",
@@ -423,7 +617,15 @@
             "c": "Dhoondh",
             "d": "Batteries",
             "correct": "a",
-            "explanation": "Kagaz ka robot banane ke liye sabse pehle kagaz ki zaroorat hoti hai."
+            "explanation": "Kagaz ka robot banane ke liye sabse pehle kagaz ki zaroorat hoti hai.",
+            "question": "Kagaz ka robot bananay ke liye aapko sabse pehle kya chahiye?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Kya cheez aap kagaz ka robot banane mein istemal kar sakte hain?",
@@ -432,7 +634,15 @@
             "c": "Pencil",
             "d": "Naag",
             "correct": "b",
-            "explanation": "Robot ke liye aap khilone part bhi istemal kar sakte hain."
+            "explanation": "Robot ke liye aap khilone part bhi istemal kar sakte hain.",
+            "question": "Kya cheez aap kagaz ka robot banane mein istemal kar sakte hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Aap apne kagaz ka robot ko kaise sajayenge?",
@@ -441,7 +651,15 @@
             "c": "Gom se",
             "d": "Light se",
             "correct": "a",
-            "explanation": "Kagaz ke robot ko rangon se sajana behtareen hota hai."
+            "explanation": "Kagaz ke robot ko rangon se sajana behtareen hota hai.",
+            "question": "Aap apne kagaz ka robot ko kaise sajayenge?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Robot ka kis hissa se chalna shuru hota hai?",
@@ -450,7 +668,15 @@
             "c": "Sir se",
             "d": "Kandho se",
             "correct": "d",
-            "explanation": "Robot ke kandhe hi iski mobility ko control karte hain."
+            "explanation": "Robot ke kandhe hi iski mobility ko control karte hain.",
+            "question": "Robot ka kis hissa se chalna shuru hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 3
           },
           {
             "q": "Kagaz ka robot banane ka maqsad kya hai?",
@@ -459,7 +685,15 @@
             "c": "Dost banana",
             "d": "Samaan bechna",
             "correct": "b",
-            "explanation": "Kagaz ka robot banana bachon ki taleem aur creativity ko barhata hai."
+            "explanation": "Kagaz ka robot banana bachon ki taleem aur creativity ko barhata hai.",
+            "question": "Kagaz ka robot banane ka maqsad kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           }
         ]
       },

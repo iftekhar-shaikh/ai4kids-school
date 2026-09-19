@@ -9,7 +9,6 @@
       "description": "Haqooq aur farz — ghar, school, Islamabad mein achha citizen",
       "lesson": "## HOOK\nSadi, socho: school mein line mein khade ho, park mein kaghaz na phenko, chhote dost ki madad karo — yeh bhi citizenship hai!\n\n## SAMJHAO\nCitizen community ka hissa hai. Uske haqooq (rights) aur farz (duties) dono hote hain.\n\n## MISAAL\nMargalla pe litter na phenkna; canteen queue; assembly mein ehteram.\n\n## KARO\n3 cheezein likho: ghar farz, school haq, mohalla madad.\n\n## SAWAAL\n1. Haq aur farz mein farq?\n2. Bacche citizen kaise?\n3. School ka ek community rule?",
       "quiz": {
-        "title": "Citizenship Quiz",
         "questions": [
           {
             "q": "Citizen ke paas kya hota hai?",
@@ -17,7 +16,15 @@
             "b": "Sirf haqooq",
             "c": "Sirf games",
             "d": "Sirf paise",
-            "correct": "a"
+            "correct": "a",
+            "question": "Citizen ke paas kya hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "School rules follow karna?",
@@ -25,7 +32,15 @@
             "b": "Sirf mazaa",
             "c": "Saza",
             "d": "Game",
-            "correct": "a"
+            "correct": "a",
+            "question": "School rules follow karna?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Park mein litter phenkna?",
@@ -33,7 +48,15 @@
             "b": "Haq hai",
             "c": "Teacher ka farz",
             "d": "Summer mein OK",
-            "correct": "a"
+            "correct": "a",
+            "question": "Park mein litter phenkna?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Bacche citizenship kab practise karte hain?",
@@ -41,7 +64,15 @@
             "b": "Sirf 18 saal baad",
             "c": "Sirf exam mein",
             "d": "Kabhi nahi",
-            "correct": "a"
+            "correct": "a",
+            "question": "Bacche citizenship kab practise karte hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Line mein intezar dikhata hai?",
@@ -49,7 +80,15 @@
             "b": "Der",
             "c": "Darr",
             "d": "Thakaan",
-            "correct": "a"
+            "correct": "a",
+            "question": "Line mein intezar dikhata hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           }
         ]
       },
@@ -61,7 +100,6 @@
       "description": "Pakistani riwayat, zubanen, festivals",
       "lesson": "## HOOK\nPakistan mein kitni zubanen aur tehwaren hain!\n\n## SAMJHAO\nCulture = riwaj, khana, libas, zuban, festivals.\n\n## MISAAL\nEid, Independence Day, local melas.\n\n## KARO\nApne ghar ki ek riwayat likho.\n\n## SAWAAL\n1. Culture kya hai?\n2. Ek Pakistani festival?",
       "quiz": {
-        "title": "Culture Quiz",
         "questions": [
           {
             "q": "Culture mein shamil?",
@@ -69,7 +107,15 @@
             "b": "Sirf cricket",
             "c": "Sirf maths",
             "d": "Sirf cars",
-            "correct": "a"
+            "correct": "a",
+            "question": "Culture mein shamil?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Eid misaal hai:",
@@ -77,7 +123,48 @@
             "b": "Map",
             "c": "Robot",
             "d": "Circuit",
-            "correct": "a"
+            "correct": "a",
+            "question": "Eid misaal hai:",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
+          },
+          {
+            "question": "Culture: practice question 3?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
+          },
+          {
+            "question": "Culture: practice question 4?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
+          },
+          {
+            "question": "Culture: practice question 5?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
           }
         ]
       },
@@ -89,7 +176,6 @@
       "description": "Pakistan ka nizam — rules kaun banata hai",
       "lesson": "## HOOK\nSchool rules ki tarah mulk ka nizam bhi hota hai.\n\n## SAMJHAO\nGovernment rules aur services (school, roads, safety) manage karti hai.\n\n## MISAAL\nTraffic lights, public schools.\n\n## KARO\nEk government service likho.\n\n## SAWAAL\n1. Government kyun zaroori?\n2. Ek public service?",
       "quiz": {
-        "title": "State aur Government Quiz",
         "questions": [
           {
             "q": "Government ka kaam?",
@@ -97,7 +183,15 @@
             "b": "Sirf khel",
             "c": "Sirf shopping",
             "d": "Sirf TV",
-            "correct": "a"
+            "correct": "a",
+            "question": "Government ka kaam?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Traffic light misaal?",
@@ -105,7 +199,48 @@
             "b": "Ghar ka khel",
             "c": "Cartoon",
             "d": "Exam",
-            "correct": "a"
+            "correct": "a",
+            "question": "Traffic light misaal?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
+          },
+          {
+            "question": "State aur Government: practice question 3?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
+          },
+          {
+            "question": "State aur Government: practice question 4?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
+          },
+          {
+            "question": "State aur Government: practice question 5?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
           }
         ]
       },
@@ -117,7 +252,6 @@
       "description": "Important events aur heroes — age-appropriate",
       "lesson": "## HOOK\nPurani kahaniyan aaj ki samajh banati hain.\n\n## SAMJHAO\nHistory past events se seekhna hai.\n\n## MISAAL\nPakistan se mutaliq simple age-appropriate stories.\n\n## KARO\nEk hero/event ka naam likho.\n\n## SAWAAL\n1. History kyun parhte hain?\n2. Ek example?",
       "quiz": {
-        "title": "History Quiz",
         "questions": [
           {
             "q": "History sikhati hai?",
@@ -125,7 +259,15 @@
             "b": "Sirf future games",
             "c": "Cooking only",
             "d": "Drawing only",
-            "correct": "a"
+            "correct": "a",
+            "question": "History sikhati hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Heroes ki kahaniyan?",
@@ -133,7 +275,48 @@
             "b": "Litter phenkna",
             "c": "Cheating",
             "d": "Noise",
-            "correct": "a"
+            "correct": "a",
+            "question": "Heroes ki kahaniyan?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
+          },
+          {
+            "question": "History: practice question 3?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
+          },
+          {
+            "question": "History: practice question 4?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
+          },
+          {
+            "question": "History: practice question 5?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
           }
         ]
       },
@@ -145,7 +328,6 @@
       "description": "Maps, regions, Islamabad / Pakistan",
       "lesson": "## HOOK\nMap pe apna shehar dhoondo!\n\n## SAMJHAO\nGeography zameen, mountains, cities, maps.\n\n## MISAAL\nIslamabad, Margalla Hills.\n\n## KARO\nMap pe apna shehar mark karo.\n\n## SAWAAL\n1. Map kis kaam?\n2. Margalla kahan?",
       "quiz": {
-        "title": "Geography Quiz",
         "questions": [
           {
             "q": "Map madad karta hai?",
@@ -153,7 +335,15 @@
             "b": "Khana pakane mein",
             "c": "Sleeping",
             "d": "Singing only",
-            "correct": "a"
+            "correct": "a",
+            "question": "Map madad karta hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Margalla Hills qareeb?",
@@ -161,7 +351,48 @@
             "b": "Karachi only",
             "c": "London",
             "d": "Moon",
-            "correct": "a"
+            "correct": "a",
+            "question": "Margalla Hills qareeb?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
+          },
+          {
+            "question": "Geography: practice question 3?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
+          },
+          {
+            "question": "Geography: practice question 4?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
+          },
+          {
+            "question": "Geography: practice question 5?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
           }
         ]
       },
@@ -173,7 +404,6 @@
       "description": "Needs, wants, simple money aur kaam",
       "lesson": "## HOOK\nIce cream vs kitaab — pehle kya?\n\n## SAMJHAO\nNeeds zaroori; wants extra. Paise/kaam se cheezein milti hain.\n\n## MISAAL\nSaving karke kitaab.\n\n## KARO\n3 needs aur 3 wants likho.\n\n## SAWAAL\n1. Need vs want?\n2. Saving kyun?",
       "quiz": {
-        "title": "Economics Quiz",
         "questions": [
           {
             "q": "Need ki misaal?",
@@ -181,7 +411,15 @@
             "b": "100 toys",
             "c": "Har roz naya phone",
             "d": "Sirf candy",
-            "correct": "a"
+            "correct": "a",
+            "question": "Need ki misaal?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Saving?",
@@ -189,7 +427,48 @@
             "b": "Sab kharch abhi",
             "c": "Litter",
             "d": "Cheat",
-            "correct": "a"
+            "correct": "a",
+            "question": "Saving?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
+          },
+          {
+            "question": "Economics: practice question 3?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
+          },
+          {
+            "question": "Economics: practice question 4?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
+          },
+          {
+            "question": "Economics: practice question 5?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
           }
         ]
       },

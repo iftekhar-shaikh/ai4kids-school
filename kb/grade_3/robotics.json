@@ -9,7 +9,6 @@
       "description": "Battery, wire, bulb — circuit banao",
       "lesson": "## HOOK\nAao student, socho agar tumhara ghar andhera ho aur ek button dabate hi sab kuch roshni se bhar jaye, toh kaisa hoga? Kya tumne kabhi socha hai ke yeh roshni kaise aati hai?\n\n## SAMJHAO\nAaj hum seekhenge \"Simple Circuits\" ke bare mein. Simple Circuit ka matlab hai kuch aise cheezon ka milna jo mil kar kaam karti hain. Isme teen main cheezen hoti hain: Battery, Wire, aur Bulb.\n\nPehli cheez hai Battery. Battery ek chhoti si cheez hoti hai jo energy ko store karti hai. Jab tum battery ko kisi circuit se jodte ho, toh yeh electrical energy ko istemal karti hai.\n\nDusri cheez hai Wire. Wire metal se bana hota hai aur iska kaam electricity ko ek jagah se doosri jagah tak le jaana hota hai. Jab tum wire ko battery aur bulb se jodte ho, toh woh electricity ko pass karne lagta hai.\n\nTeesri cheez hai Bulb. Bulb ko hum raat mein roshni ke liye istemal karte hain. Jab electricity bulb tak pahunchti hai, toh yeh roshni produce karta hai. Is tarah se ye teen cheezen mil kar ek circuit banati hain.\n\nAgar hum in teenon cheezon ko sahi tarah se jodte hain, toh hum ek complete circuit banate hain jisse bulb jalta hai. Isko samajhna bahut asaan hai!\n\n## MISAAL\nChalo, ab hum ek misaal lete hain. Jab hum bazaar jaate hain aur wahan ek electrical shop par jaake ek bulb kharidte hain. Wahan par agar koi dealer battery aur wires bhi dea kar circuit bana deta hai, toh jab hum us bulb ko on karte hain, toh kaise wo roshni deta hai? Yeh bhi ek simple circuit ka example hai!\n\n## KARO\nAab tum ghar ya school mein ek simple circuit bana sakte ho. Iske liye tumhe chahiye 1 battery, 2 wires, aur 1 bulb. \n\n1. Battery ko table par rakho. \n2. Ek wire ka ek end battery ke positive terminal se jodo aur doosra end bulb se jodo.\n3. Dusri wire ka ek end battery ke negative terminal se jodo aur doosra end bhi bulb se milao.\n4. Agar sab kuch sahi hai toh ab bulb jalna shuru ho jayega!\n\nDekhna, kitna maza aata hai jab tum khud se circuit banao!\n\n## SAWAAL\n1. Simple circuit banane ke liye kaun kaun si cheezen chahiye hoti hain?\n2. Wire ka kya kaam hota hai circuit mein?\n3. Agar bulb jal gaya hai toh iska kya matlab hai?\n\nRobotics Ustaad",
       "quiz": {
-        "title": "Simple circuits Quiz",
         "questions": [
           {
             "q": "Ek choti si circuit kis cheez se banta hai?",
@@ -18,7 +17,15 @@
             "c": "Wire, motor aur bulb",
             "d": "Battery aur resistor",
             "correct": "a",
-            "explanation": "Circuit ka asal buniyadi hissa battery, wire aur bulb hote hain."
+            "explanation": "Circuit ka asal buniyadi hissa battery, wire aur bulb hote hain.",
+            "question": "Ek choti si circuit kis cheez se banta hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Jab bulb jalta hai to iska matlab kya hai?",
@@ -27,7 +34,15 @@
             "c": "Battery khatam ho gayi hai",
             "d": "Wire tooti hai",
             "correct": "b",
-            "explanation": "Jab bulb jalta hai to iska matlab hai ke circuit band hai aur electric current flow kar raha hai."
+            "explanation": "Jab bulb jalta hai to iska matlab hai ke circuit band hai aur electric current flow kar raha hai.",
+            "question": "Jab bulb jalta hai to iska matlab kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Agar wire mein koi kharabi ho jaye to kya hoga?",
@@ -36,7 +51,15 @@
             "c": "Battery khatam ho jayegi",
             "d": "Circuit khul jayega",
             "correct": "b",
-            "explanation": "Wire mein kharabi hone par circuit band ho jata hai, isliye bulb nahi jalega."
+            "explanation": "Wire mein kharabi hone par circuit band ho jata hai, isliye bulb nahi jalega.",
+            "question": "Agar wire mein koi kharabi ho jaye to kya hoga?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Kaun si cheez circuit ko tawajjo deti hai?",
@@ -45,7 +68,15 @@
             "c": "Wire",
             "d": "Sab",
             "correct": "d",
-            "explanation": "Circuit ka har hissa, yani bulb, battery aur wire, mujhe kaam karne ke liye zaruri hai."
+            "explanation": "Circuit ka har hissa, yani bulb, battery aur wire, mujhe kaam karne ke liye zaruri hai.",
+            "question": "Kaun si cheez circuit ko tawajjo deti hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 3
           },
           {
             "q": "Kaise jaan sakte hain ke battery khatam ho gayi hai?",
@@ -54,7 +85,15 @@
             "c": "Wire tooti hai",
             "d": "Circuit band hai",
             "correct": "b",
-            "explanation": "Agar bulb nahi jal raha to yeh signal hai ke battery khatam ho gayi hai."
+            "explanation": "Agar bulb nahi jal raha to yeh signal hai ke battery khatam ho gayi hai.",
+            "question": "Kaise jaan sakte hain ke battery khatam ho gayi hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           }
         ]
       },
@@ -66,7 +105,6 @@
       "description": "Washing machine kaise sochti hai",
       "lesson": "## HOOK\nBachay, kabhi socha hai ke washing machine kaise kaam karti hai? Kya aapne kabhi yeh mehsoos kiya ke woh kis tarah se kapro ko dho kar saaf kar deti hai? Aaj hum dekhenge ke washing machine kis tarah se samajhti hai ke usay kya karna hai!\n\n## SAMJHAO\nWashing machine ek automatic machine hai. Iska matlab hai ke yeh khud se kaam karti hai jab hum isay start karte hain. Jab aap washing machine ko chalu karte hain, toh yeh apne andar sensors istemal karti hai. Sensors ek tarah se aankhein hain jo yeh dekhti hain ke kapde kitne gande hain aur kitna paani chahiye.\n\nSab se pehle, washing machine paani bharti hai. Yeh check karti hai ke kitna paani chahiye aur phir apne aap paani ko tanki se uthakar drum mein daalti hai. Jab paani bhar jata hai, tab yeh motor chalu hoti hai jo kapdon ko ghoomti hai. Yeh ghoomna kapdon ko achhi tarah se dhoone mein madad karta hai.\n\nJab dhoonai ho jati hai, toh washing machine detergent (safai ka saamaan) ko bhi istemal karti hai. Yeh detergent gande kapdon ko saaf karne ke liye istemal hota hai. Machine phir se ghoomti hai taki detergent achhi tarah se kapdon par lage.\n\nAakhir mein, jab saari kaam ho jata hai, washing machine paani ko bahar nikaal deti hai. Yeh bhi khud karne ki samajh rakhti hai. Jab sab kuch khatam ho jata hai, toh machine khud hi band ho jati hai aur aapke kapde dho kar saaf tayaar hote hain!\n\n## MISAAL\nChalo, hum bazaar ki misaal lete hain. Jaise aap bazaar jaate hain aur apni kharidari karte hain, waisa hi washing machine bhi sochti hai ke usay kya karna hai. Jab aap bazaar mein maawaaslat karte hain, toh aapche se pehle yeh samajhate hain ke aap ko kya chahiye. Washing machine bhi isi tarah ke processes se guzar kar kaam karti hai.\n\n## KARO\nAap ghar par ek chhoti si activity kar sakte hain. Ghar ke chhote se kapron ko le kar unhein ek daal mein paani aur detergent daal kar dhoone ki koshish karein. Samaan ko ghoomne do jaise washing machine karti hai. Is se aapko samajh aayega ke asli washing machine kis tarah se kaam karti hai.\n\n## SAWAAL\n1. Washing machine paani kyun bharti hai?\n2. Detergent ka kya kaam hota hai washing machine mein?\n3. Washing machine kaise jaanti hai ke kab kaam khatam hua?\n\nShukriya, aur milte hain agle lesson mein!  \n- Robotics Ustaad",
       "quiz": {
-        "title": "Automatic machines Quiz",
         "questions": [
           {
             "q": "Washing machine ka kaam kya hai?",
@@ -75,7 +113,15 @@
             "c": "Kapray bechna",
             "d": "Kapray silai karna",
             "correct": "a",
-            "explanation": "Washing machine ka kaam kapray dhoona hai."
+            "explanation": "Washing machine ka kaam kapray dhoona hai.",
+            "question": "Washing machine ka kaam kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Washing machine ka dimaag kaise kaam karta hai?",
@@ -84,7 +130,15 @@
             "c": "Sirf ghoomta hai",
             "d": "Na garm kar sakta hai na ghoom sakta hai",
             "correct": "a",
-            "explanation": "Washing machine pani ko garm kar ke dhoota hai."
+            "explanation": "Washing machine pani ko garm kar ke dhoota hai.",
+            "question": "Washing machine ka dimaag kaise kaam karta hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Washing machine kis cheez se chalti hai?",
@@ -93,7 +147,15 @@
             "c": "Hawa se",
             "d": "Dast se",
             "correct": "a",
-            "explanation": "Washing machine bijli se chalti hai."
+            "explanation": "Washing machine bijli se chalti hai.",
+            "question": "Washing machine kis cheez se chalti hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Washing machine mein kapray kab daale jate hain?",
@@ -102,7 +164,15 @@
             "c": "Bina khol kar",
             "d": "Kabhi nahi",
             "correct": "a",
-            "explanation": "Washing machine mein kapray pehle se tayyar karke daale jate hain."
+            "explanation": "Washing machine mein kapray pehle se tayyar karke daale jate hain.",
+            "question": "Washing machine mein kapray kab daale jate hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Washing machine ka sabse khaas hissa kya hai?",
@@ -111,7 +181,15 @@
             "c": "Dastana",
             "d": "Soap",
             "correct": "a",
-            "explanation": "Washing machine ka sabse khaas hissa motor hai jo usay chalata hai."
+            "explanation": "Washing machine ka sabse khaas hissa motor hai jo usay chalata hai.",
+            "question": "Washing machine ka sabse khaas hissa kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           }
         ]
       },
@@ -123,7 +201,6 @@
       "description": "Sensors — touch, light, sound",
       "lesson": "## HOOK\nAao jumla socho, kya tumne kabhi socha hai ke robot ki aankhein kaise kaam karti hain? Agar robot ka dosto se milne ka moka mile, tou wo kaise samjhe ga ke kaun sa dost hai? \n\n## SAMJHAO\nRobotics mein, sensors robot ki aankhein hoti hain. Ye sensors unhein duniya se samajhne mein madad karte hain. Sabse pehle baat karte hain \"Touch Sensor\" ki. Ye sensor jab kisi cheez ko chhota hai tou robot ko pata chal jata hai ke usay kis taraf jaana hai. Jaise ke tumhare haath ka touch, agar tumhe koi cheez garam lagay tou tumhaare haath usay jaldi hata lete hain.\n\nAb baat karte hain \"Light Sensor\" ki. Ye sensor roshni ki pehchan karta hai. Jab bahaar dhoondh hoti hai tou light sensor se pata mehsoos hota hai ke kitni roshni hai. Jab ek robot is sensor ka istemal karta hai, tou wo andheray ya roshni walay ilaqe ka pata laga sakta hai, jaise ek phool ko dekhne ke liye.\n\nAb aate hain \"Sound Sensor\" ki taraf. Ye sensor awazon ko sunta hai. Agar koi cheez zordar awaaz karti hai tou sound sensor isay mehsoos karta hai. Jaise shout ya kisi ka bulana, tou robot us taraf ja sakta hai. Ye sab sensors ek saath milkar robot ko behtar tarah se kaam karne mein madad karte hain.\n\nIn sensors ki wajah se, robots ko kaafi cheezen seekhne ka moka milta hai. Ye insensitive nahin hain. Aaj kal ke robots, jaise kuch acha nahi karte to unhein pata hota hai aur wo apne kaam ko behtar karte hain.\n\n## MISAAL\nChalo ab hum ek bazaar ki misaal lete hain. Tumne dekha hoga ke kuch achi kharidari ya sale ke liye robots kaise use hote hain. Samjho ek robot bazaar mein chalta hai, agar wo kisi cheez ko chootta hai to touch sensor kaam karta hai. Agar koi shop pe roshni zyada hai tou light sensor reflect karta hai, aur jab koi customer bulata hai to sound sensor react karta hai. Aise hi bazaar mein koi bhi robot apne sensors ka istemal kar ke behtar tarike se kaam kar raha hota hai!\n\n## KARO\nAb tumhare liye ek activity hai. Ghar par ek cardboard box le lo aur is par chhote chhote stickers ya drawings bana lo. Phir apne phones mein \"flashlight\" ka istemal kar ke dekho ke kaise roshni in stickers tak pahunchegi. Jab tum kisi sticker ko chhote ho tou dekho ke tumhara touch sensor kaise kaam karta hai. Ye dekho ke kaise tumhara robot agar sensors ke paas hota, tou wo yeh sab kaise mehsoos karta.\n\n## SAWAAL\n1. Touch sensor kya karta hai?\n2. Light sensor kis liye hota hai?\n3. Sound sensor se robot kaise react karta hai?\n\nKhuda Hafiz,  \nRobotics Ustaad",
       "quiz": {
-        "title": "Robot ki aankhein Quiz",
         "questions": [
           {
             "q": "Robot ki aankhein ka kaam kya hota hai?",
@@ -132,7 +209,15 @@
             "c": "Sirf mehsoos karna",
             "d": "Kuch nahi",
             "correct": "a",
-            "explanation": "Robot ki aankhein deekhne aur mehsoos karne ka kaam karti hain."
+            "explanation": "Robot ki aankhein deekhne aur mehsoos karne ka kaam karti hain.",
+            "question": "Robot ki aankhein ka kaam kya hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Touch sensor ka istemal kis liye hota hai?",
@@ -141,7 +226,15 @@
             "c": "Chizoon ko sunne ke liye",
             "d": "Chizoon ko hilane ke liye",
             "correct": "b",
-            "explanation": "Touch sensor chizoon ko mehsoos karne ke liye istemal hota hai."
+            "explanation": "Touch sensor chizoon ko mehsoos karne ke liye istemal hota hai.",
+            "question": "Touch sensor ka istemal kis liye hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Light sensor ka kaam kya hota hai?",
@@ -150,7 +243,15 @@
             "c": "Taizi se mehsoos karna",
             "d": "Garmi ko mehsoos karna",
             "correct": "a",
-            "explanation": "Light sensor roshni ko mehsoos karta hai."
+            "explanation": "Light sensor roshni ko mehsoos karta hai.",
+            "question": "Light sensor ka kaam kya hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Sound sensor kis liye istemal hota hai?",
@@ -159,7 +260,15 @@
             "c": "Mehsoos karne ke liye",
             "d": "Khud ko chalane ke liye",
             "correct": "a",
-            "explanation": "Sound sensor awaaz ko sunne ke liye istemal hota hai."
+            "explanation": "Sound sensor awaaz ko sunne ke liye istemal hota hai.",
+            "question": "Sound sensor kis liye istemal hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Kon sa sensor roshni ki wajah se kaam karta hai?",
@@ -168,7 +277,15 @@
             "c": "Temperature sensor",
             "d": "Light sensor",
             "correct": "d",
-            "explanation": "Light sensor roshni ki wajah se kaam karta hai."
+            "explanation": "Light sensor roshni ki wajah se kaam karta hai.",
+            "question": "Kon sa sensor roshni ki wajah se kaam karta hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 3
           }
         ]
       },
@@ -180,7 +297,6 @@
       "description": "Robot movement types",
       "lesson": "## HOOK\nKya aapne kabhi socha hai ke robots kaise har jagah move karte hain? Aaj hum dekhenge ke kuch robots wheels se chalte hain aur kuch legs se. Kya aapko pata hai ke aapke aas-paas kaun se robots wheels ya legs ka istemal karte hain?\n\n## SAMJHAO\nRobots alag alag tarikon se move karte hain. Sabse pehla tarika hai wheels. Wheels wale robots aksar zameen par asani se move kar sakte hain. Inka balance acha hota hai aur ye seedha raste par chalte hain, jaise ke cars aur rickshaws. \n\nDoosra tarika hai legs. Legs wala robot, insaan ya jaanwar ki tarah chal sakta hai. Ye uneven surfaces par asanai se move kar sakte hain. Jaise robots, jo moonh se larte hain ya fir kuch tareeqon se khud ko adjust karte hain.\n\nWheels wale robots speed mein tez hote hain, lekin agar zameen khud aise hai jaise gaddhey ya dher hai, to ye thodi mushkil face karte hain. Lekin legs wale robots in difficult areas par bhi move kar sakte hain. Isliye, har tarah ke robots ka apna ek khaas maqsad hota hai.\n\nAakhir mein, aaj kal bohot se research ki ja rahi hai taake robots ko behtar aur zyada efficient banaya ja sake, jaise ke aise robots jo legs aur wheels dono ka istemal karte hain!\n\n## MISAAL\nAgar aap bazaar jatay hain, to aapko bohot saare vehicles dikhai dain ge jo wheels ka istemal karte hain, jese ke rickshaws aur motorcycles. Lekin agar aap cricket khelte hain, to aap dekhenge ke players legs se chal kar ball ko catch ya hit karte hain. Ye dono exemplos dikhate hain ke wheels aur legs kaise alag alag situations mein behtar kaam karte hain.\n\n## KARO\nAap ek simple activity kar sakte hain! Ghar mein kuch cardboard boxes ya paper ka istemal kar ke ek chhota robot banayein. Ek portion ko wheels banane ke liye circle cut karein aur doosra portion ko legs banane ke liye stick karein. Phir dekhein ke aapka robot kis tarah se zameen par move karta hai. Kya ye wheels se tez chal raha hai ya legs se zyada balance kar raha hai?\n\n## SAWAAL\n1. Wheels wale robots kis tarah se move karte hain?\n2. Legs wale robots kis situation mein kaam aate hain?\n3. Aapke aas paas kis tarah ke robots hain jo wheels ya legs ka istemal karte hain?\n\nRobotics Ustaad",
       "quiz": {
-        "title": "Wheels vs legs Quiz",
         "questions": [
           {
             "q": "Robot kis tarah se chal sakta hai?",
@@ -189,7 +305,15 @@
             "c": "Donon se nahi",
             "d": "Koi aur tareeqa",
             "correct": "a",
-            "explanation": "Wheels se robot tez chalta hai aur aasaani se raste par chalta hai."
+            "explanation": "Wheels se robot tez chalta hai aur aasaani se raste par chalta hai.",
+            "question": "Robot kis tarah se chal sakta hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Kya legs wale robots zameen par behtar control dete hain?",
@@ -198,7 +322,15 @@
             "c": "Sirf dekhnay mein",
             "d": "Koi nahi",
             "correct": "a",
-            "explanation": "Legs wale robots zameen par behtar control aur stability dete hain."
+            "explanation": "Legs wale robots zameen par behtar control aur stability dete hain.",
+            "question": "Kya legs wale robots zameen par behtar control dete hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Kaunsa robot zyada mushkil jagahon par chal sakta hai?",
@@ -207,7 +339,15 @@
             "c": "Koi bhi nahi",
             "d": "Dono",
             "correct": "b",
-            "explanation": "Legged robots mushkil jagahon jaise rocks aur kheton par behtar tarah se chal sakte hain."
+            "explanation": "Legged robots mushkil jagahon jaise rocks aur kheton par behtar tarah se chal sakte hain.",
+            "question": "Kaunsa robot zyada mushkil jagahon par chal sakta hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Wheels wale robots kaise banti hain?",
@@ -216,7 +356,15 @@
             "c": "Jhatey maar kar",
             "d": "Raste change kar ke",
             "correct": "a",
-            "explanation": "Wheels wale robots ghoom kar aasani se raste par chal sakte hain."
+            "explanation": "Wheels wale robots ghoom kar aasani se raste par chal sakte hain.",
+            "question": "Wheels wale robots kaise banti hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Kya aap ne kabhi legs wale robot dekha hai?",
@@ -225,7 +373,15 @@
             "c": "Dekhne ki zaroorat nahi",
             "d": "Saare kuch same hain",
             "correct": "a",
-            "explanation": "Haan, robots jaise Boston Dynamics ka Spot legs wale robot hai."
+            "explanation": "Haan, robots jaise Boston Dynamics ka Spot legs wale robot hai.",
+            "question": "Kya aap ne kabhi legs wale robot dekha hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           }
         ]
       },
@@ -237,7 +393,6 @@
       "description": "Assembly line kya hai",
       "lesson": "## HOOK  \nKya aapne kabhi socha hai ke bazaar mein jo cheezen itni jaldi aur asaani se mil jaati hain, unhein kaise banaya jata hai? Chalo aaj hum seekhte hain ke factory mein machines kaise kaam karti hain! \n\n## SAMJHAO  \nFactory mein machines bahut zaroori hoti hain. Yahan par kaam ko aasaan aur tezi se karne ke liye machines ka istemal kiya jata hai. Jab hum Factory ki baat karte hain, to humein \"Assembly line\" bhi samajhni chahiye.  \n\nAssembly line ek aisi jagah hai jahan cheezen step-by-step banayi jati hain. Pehle ek machine ek kaam karti hai, phir doosri machine us cheez ko agle kaam ke liye tayar karti hai. Is tarah se, har machine apne specialized kaam ko karti hai aur baad mein saari cheezen mil jati hain!  \n\nJaisa ke jab aap apne favourite toys ko dekhtay hain, unki assembly line par har part separately banakar, baad mein unhein mila kar ek toy tayar kiya jata hai. Is process se kaam jaldi hota hai aur quality bhi behtar hoti hai.  \n\nPakistan ki factories mein, is tarah ke automated machines ka istemal hota hai. Jaise ke cycle ya phir khaana pakane ke liye machines tarteeb se kaam karti hain. \n\n## MISAAL  \nAap socho, jab aap biryani khate ho to usay kaise banaya jata hai? Biryani ke liye pehle rice ko ek machine se wash kiya jata hai, phir dosri machine par meat aur spices ko achi tarah mix kiya jata hai. Yahan kuch machines alag alag kaam kar rahi hoti hain, aur last mein sab mil kar ek tasty biryani ban gayi!  \n\n## KARO  \nAap ghar par bhi choti-moti assembly line bana sakte hain! Kuch fruits ya vegetables le lo, jaise ke aam aur kheera. Pehle aam ko chop karo, phir kheere ko alag se chop karo. Uske baad sab ko milao aur ek tasty salad banao! Jo aapne kuch steps follow kiye, wahi assembly line ka concept hai. \n\n## SAWAAL  \n1. Assembly line kya hoti hai?  \n2. Factory mein machines ka kya kaam hota hai?  \n3. Kya aapne ghar par assembly line ka concept apply kiya? Kaise?  \n\nRobotics Ustaad",
       "quiz": {
-        "title": "Factory mein machines Quiz",
         "questions": [
           {
             "q": "Assembly line kya hai?",
@@ -246,7 +401,15 @@
             "c": "Ek tarah ka khana jo factory mein banta hai.",
             "d": "Ek machine jo sirf kisi ek cheez ko banati hai.",
             "correct": "a",
-            "explanation": "Assembly line ka matlab hai kaam ko choti hisson mein baant kar jaldi se tayar karna."
+            "explanation": "Assembly line ka matlab hai kaam ko choti hisson mein baant kar jaldi se tayar karna.",
+            "question": "Assembly line kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Pakistan mein assembler machines ka istemal kis cheez ke liye hota hai?",
@@ -255,7 +418,15 @@
             "c": "Ghar ke kaam ke liye.",
             "d": "Sabzi uganay ke liye.",
             "correct": "b",
-            "explanation": "Pakistan mein kapray banane mein assembler machines ka istemal hota hai."
+            "explanation": "Pakistan mein kapray banane mein assembler machines ka istemal hota hai.",
+            "question": "Pakistan mein assembler machines ka istemal kis cheez ke liye hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Automation ka kya matlab hai?",
@@ -264,7 +435,15 @@
             "c": "Sirf machines chalti hain.",
             "d": "Sab kuch ruk jaata hai.",
             "correct": "a",
-            "explanation": "Automation ka matlab hai ke machines kaam ko khud kar leti hain."
+            "explanation": "Automation ka matlab hai ke machines kaam ko khud kar leti hain.",
+            "question": "Automation ka kya matlab hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Kis tarah ke machines assembly line mein istemal hoti hain?",
@@ -273,7 +452,15 @@
             "c": "Teez se chalne wale gaadiyan.",
             "d": "Khaas dawaiyan.",
             "correct": "a",
-            "explanation": "Assembly line mein welding machines aam tor par istemal hoti hain."
+            "explanation": "Assembly line mein welding machines aam tor par istemal hoti hain.",
+            "question": "Kis tarah ke machines assembly line mein istemal hoti hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Factory ki productivity kaise barhti hai?",
@@ -282,7 +469,15 @@
             "c": "Sab kuch manually karke.",
             "d": "Bajay automation ke doston par bharosa karke.",
             "correct": "a",
-            "explanation": "Zyada machines istemal karne se factory ki productivity barhti hai."
+            "explanation": "Zyada machines istemal karne se factory ki productivity barhti hai.",
+            "question": "Factory ki productivity kaise barhti hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           }
         ]
       },
@@ -294,7 +489,6 @@
       "description": "LEGO/blocks se robot banao",
       "lesson": "## HOOK\nAik din Student ne dekha ke uska dosto ka robot kitna mazedaar hai jo LEGO blocks se bana tha. Kya aap kabhi soch rahe hain ke aap khud bhi aisa robot bana sakte hain? Chalo, aaj seekhte hain ke \"Block robots\" kya hote hain!\n\n## SAMJHAO\nRobot ek aisa machine hai jo kaam karta hai. \"Block robots\" woh robots hote hain jo blocks ya LEGO jese pieces se banaye jate hain. Yeh blocks alag-alag shapes aur sizes mein hote hain, aur inhe jor kar aap apna khud ka robot bana sakte hain. Block robots ko chalaane ke liye hum inhe programming karte hain.\n\nJab aap blocks ko jorhte hain, to sochna hota hai ke aapka robot kaisa dikhega aur kya kaam karega. Jaise ke agar aap ka robot ek rickshaw jese dikhna chahte hain, to aapko usay us hisaab se assemble karna padega. Block robots mai aapko thoda creative hona padega, taki aap naye designs bana sakein.\n\nYeh bhi zaroori hai ke aap blocks ko aise arrange karein ke aapka robot mazboot ho. Koi bhi robot chota ya bada ho sakta hai, lekin agar woh achi tarah se jora gaya ho, to woh behtar kaam karega. Programming software ki madad se aap robot ko movements de sakte hain.\n\nBlocks ke sath khelne se aapko engineering aur design ke bare mein bhi knowledge hota hai. Is tarah, aap maza karte hue seekte hain aur naye ideas tayyar karte hain!\n\n## MISAAL\nChalo sochte hain ke aap apna khud ka \"Biryani Maker Robot\" banate hain. Aik robot jo biryani ki recipes ko follow kar sake aur ingredients ko mix kar sake. Aap is robot ko is tarah design kar sakte hain ke ye rice ko paani mein dal sake aur masalay mix kar sake! Jab aap is robot ko market mein khareedne wale logon ke liye yummy biryani banane ke liye use karte hain, to sab ko pasand aata hai.\n\n## KARO\nAb jab aapko \"Block robots\" ka idea clear ho gaya hai, to chaliye aap ghar pe ek chota sa project karte hain. Aap apni purani LEGO blocks ya kisi bhi chote pieces ko lein. Ab sochiye ke aapka robot kya kar sakta hai? \n\n1. Aap apne blocks ko kisi bhi design mein assemble karein. \n2. Sochiye ke aapka robot kahan jaayega aur kya karega.\n3. Apne robot ke liye ek chhota sa naam rakhein, jaise \"Biryani Robot\" ya \"Rickshaw Robot\".\n\nJab aap apna robot bana len, to apne friends ya family ko dikhayein aur unse bataiyein ke aapne kis tarah se design kiya!\n\n## SAWAAL\n1. Block robots kya hote hain?\n2. Aapka robot kis cheez ke liye design kiya ja sakta hai?\n3. Block robots banane ka sabse acha hissa kya hota hai?\n\nRobotics Ustaad",
       "quiz": {
-        "title": "Block robots Quiz",
         "questions": [
           {
             "q": "Robot banane ke liye sab se pehle hume kya chahiye?",
@@ -303,7 +497,15 @@
             "c": "Khilone",
             "d": "Kuch nahi",
             "correct": "a",
-            "explanation": "Robot banane ke liye hume blocks ki zaroorat hoti hai."
+            "explanation": "Robot banane ke liye hume blocks ki zaroorat hoti hai.",
+            "question": "Robot banane ke liye sab se pehle hume kya chahiye?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "LEGO blocks kis cheez ke liye istemal hote hain?",
@@ -312,7 +514,15 @@
             "c": "Khilaune bnane ke liye",
             "d": "Dost bnane ke liye",
             "correct": "b",
-            "explanation": "LEGO blocks ka sab se zyada istemal robots aur machino ko bnane mein hota hai."
+            "explanation": "LEGO blocks ka sab se zyada istemal robots aur machino ko bnane mein hota hai.",
+            "question": "LEGO blocks kis cheez ke liye istemal hote hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Chhote robots kis tarah se kaam karte hain?",
@@ -321,7 +531,15 @@
             "c": "Program kiye jaate hain",
             "d": "Khilone ki tarah",
             "correct": "c",
-            "explanation": "Chhote robots ko program kiya jata hai taake wo specific tasks perform kar sakein."
+            "explanation": "Chhote robots ko program kiya jata hai taake wo specific tasks perform kar sakein.",
+            "question": "Chhote robots kis tarah se kaam karte hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 2
           },
           {
             "q": "Block robot banane mein sab se mushkil kya hota hai?",
@@ -330,7 +548,15 @@
             "c": "Sahi rang chunna",
             "d": "Kahin jaana",
             "correct": "a",
-            "explanation": "Design banana sab se mushkil kaam hota hai kyun ke is mein creativity aur planning ki zaroorat hoti hai."
+            "explanation": "Design banana sab se mushkil kaam hota hai kyun ke is mein creativity aur planning ki zaroorat hoti hai.",
+            "question": "Block robot banane mein sab se mushkil kya hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Robot ko chalane ke liye hume kya chahiye?",
@@ -339,7 +565,15 @@
             "c": "Khilona",
             "d": "Dost",
             "correct": "a",
-            "explanation": "Robot ko chalane ke liye power ki zaroorat hoti hai jo battery se milti hai."
+            "explanation": "Robot ko chalane ke liye power ki zaroorat hoti hai jo battery se milti hai.",
+            "question": "Robot ko chalane ke liye hume kya chahiye?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           }
         ]
       },

@@ -9,7 +9,6 @@
       "description": "Camera se computer kaise dekhta hai",
       "lesson": "## HOOK\nKya aapne kabhi socha hai ke camera kaise dekh sakta hai? Jaise ke bazaar mein jab aap apne dost ki tasveer lete hain, kya aap ko maloom hai ke woh tasveer camera kis tarah capture karta hai? \n\n## SAMJHAO\nAaj hum baat karte hain \"AI ki aankh\" yaani camera aur computer ke beech ke rishtay par. Jab hum camera se koi cheez dekhte hain, to wo actually aik tasveer banata hai. Ye tasveer pixels mein hoti hai, jo choti-choti points hain jo milkar ek image banate hain.\n\nAI jab camera se tasveer leta hai, to wo is image ko samajhne ke liye algorithms ka istemal karta hai. Ye algorithms computer ko yeh samjhne mein madad karte hain ke image mein kya hai, jaise ke log, gaadiyaan ya phir koi aur cheez. Is tarah se camera ki aankhen AI ko dekhne ki salahiyat deti hain.\n\nJab camera koi cheez record karta hai, to wo AI ko data deta hai. AI phir is data ko analyze karta hai aur samajhne ki koshish karta hai ke is picture mein kya ho raha hai. Jaise, khudai khidmatgah ya traffic signal par camera dekhta hai ke wahan par log ya gaadiyaan kitni hain.\n\nAI kaamaal karte hue is information ko salahiyat banata hai. Is tarah, jab aap koi photo lete hain, to sirf ek tasveer nahi milti, balki AI us tasveer se bohot saari malomat bhi ikattha karta hai.\n\n## MISAAL\nAgar aap bazaar jayein, to aap dekhte hain ke wahan cameras kis tarah kaam karte hain. Jaise ke ek bazaar ka camera dekh sakta hai ke kitne log wahaan hain, aur is data ko shop walon ko bhejta hai taake wo apne samaan ko bechne ka bhi plan kar sakein.\n\n## KARO\nApne ghar par ya school mein, ek chhoti activity karein. Apne mobile phone ka camera kholein aur kisi cheez ki tasveer lein, jaise ek khel ka samaan ya apni favorite kitaab. Phir dekhain ke AI app ya software us tasveer ko kaise samajhta hai. Koshish karein ke different angles se tasveer lein aur dekhein ke results kaise aate hain. \n\n## SAWAAL\n1. Camera aur computer ke beech ka rishta kya hai?\n2. AI kaise camera se milne wali tasveer ko samajhta hai?\n3. Aap bazaar mein cameras kis tarah se istemal hota dekh sakte hain?\n\nUstaad Ji.",
       "quiz": {
-        "title": "AI ki aankh Quiz",
         "questions": [
           {
             "q": "Camera ki madad se computer kis cheez ko dekh sakta hai?",
@@ -18,7 +17,15 @@
             "c": "Awaaz",
             "d": "Khushboo",
             "correct": "a",
-            "explanation": "Camera tasveerain record karta hai jo computer dekh sakta hai."
+            "explanation": "Camera tasveerain record karta hai jo computer dekh sakta hai.",
+            "question": "Camera ki madad se computer kis cheez ko dekh sakta hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Computer AI ki madad se tasveer ka kya kar sakta hai?",
@@ -27,7 +34,15 @@
             "c": "Usay khila sakta hai",
             "d": "Usay mehsoos kar sakta hai",
             "correct": "a",
-            "explanation": "AI tasveer ko samajhne ke liye use analyze karta hai."
+            "explanation": "AI tasveer ko samajhne ke liye use analyze karta hai.",
+            "question": "Computer AI ki madad se tasveer ka kya kar sakta hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Camera kis technology ka hissa hai?",
@@ -36,7 +51,15 @@
             "c": "Gaming",
             "d": "Aam ghalat fehmi",
             "correct": "a",
-            "explanation": "Camera AI aur technology ka ek important hissa hai."
+            "explanation": "Camera AI aur technology ka ek important hissa hai.",
+            "question": "Camera kis technology ka hissa hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Computer camera se li gayi tasveerin kis cheez ko dikhati hain?",
@@ -45,7 +68,15 @@
             "c": "Khiladiyon ki games",
             "d": "Aawaaz",
             "correct": "a",
-            "explanation": "Camera haqeeqat ko record karta hai jo computer dikhata hai."
+            "explanation": "Camera haqeeqat ko record karta hai jo computer dikhata hai.",
+            "question": "Computer camera se li gayi tasveerin kis cheez ko dikhati hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Kyun AI ko tasveerain samajhne ki zarurat hoti hai?",
@@ -54,7 +85,15 @@
             "c": "Sirf ghamgeen logon ke liye",
             "d": "Sirf khush logon ke liye",
             "correct": "d",
-            "explanation": "AI ko tasveerain samajhne se khush logon ki tasavirain milti hain."
+            "explanation": "AI ko tasveerain samajhne se khush logon ki tasavirain milti hain.",
+            "question": "Kyun AI ko tasveerain samajhne ki zarurat hoti hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 3
           }
         ]
       },
@@ -90,7 +129,6 @@
       "description": "Voice recognition — computer sunti hai",
       "lesson": "## HOOK\nKya aapne kabhi socha hai ke jab aap apne mobile par kuch bolte hain to wo kaise samajh leta hai? Aaj hum jaanenge ke AI kaise sunaayi deta hai aur aapka computer ya mobile aapki awaz ko kaise pehchaanta hai!\n\n## SAMJHAO\nAI yaani Artificial Intelligence, wo technology hai jo machines ko insaan ki tarah sochne aur samajhne ki salahiyat deti hai. Jab hum kisi computer ya mobile se baat karte hain, to wo hamari awaz ko sunta hai aur samajhta hai. Yeh process jehri ‘Voice Recognition’ kehlata hai.\n\nVoice Recognition mein sab se pehle computer aapki awaaz ko sunta hai. Jab aap bolte hain, to aapki awaaz ko microphone ke zariye computer tak pohnchaya jata hai. Phir yeh computer is awaaz ko digital signals mein tabdeel karta hai.\n\nUske baad, yeh digital signals ko AI algorithms samajhte hain. Yeh algorithms aik tarah se computer ko yeh batate hain ke aap kya keh rahe hain. Jab aapka matlab samajh liya jata hai, to computer aapko woh jawab ya action de sakta hai jo aapne maanga tha.\n\nAik misaal yeh hai ke jab aap apne mobile par “Ok Google” bolte hain, to aapka phone is awaaz ko samajhta hai aur us par amal karta hai. Is tarah, machines aapki awaaz ko sun kar kaam karti hain!\n\n## MISAAL\nChalo ab aik example lete hain bazaar ki. Jab aap kisi rickshaw driver se kehte hain, “Bhai, Mujhe Saddar le chalo”, to wo aapki baat ko sunta hai aur samajhta hai. Uske baad wo aapko Saddar le jata hai. Yeh bilkul waise hi hai jaise AI aapki baat ko sun kar samajhkar response deta hai.\n\n## KARO\nAb aap ko aik activity karni hai. Apne ghar ke kisi member se bolo ke unhe aapki kisi harqat ka jawab dena hai, lekin unhe sirf aapki aawaaz sunn kar samajhna hai. Jaise, aap keh sakte hain “Mujhe pani do” ya “TV on karo”. Dekhein ke wo aapki awaaz ko kaise samajhte hain!\n\n## SAWAAL\n1. AI kya hota hai aur iska kya kam hai?\n2. Voice Recognition kya hai?\n3. Jab aap kisi se baat karte hain, unka kaam kya hota hai?\n\nUstaad Ji.",
       "quiz": {
-        "title": "AI ke kaan Quiz",
         "questions": [
           {
             "q": "AI ka kya matlab hai?",
@@ -99,7 +137,15 @@
             "c": "Amazing Ideas",
             "d": "Advanced Information",
             "correct": "a",
-            "explanation": "AI ka matlab hai Artificial Intelligence, jo computer ko sochne aur samajhne ki salahiyat deta hai."
+            "explanation": "AI ka matlab hai Artificial Intelligence, jo computer ko sochne aur samajhne ki salahiyat deta hai.",
+            "question": "AI ka kya matlab hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Voice recognition ka kya kaam hai?",
@@ -108,7 +154,15 @@
             "c": "Videos banana",
             "d": "Sab kuch manage karna",
             "correct": "a",
-            "explanation": "Voice recognition ka kaam hai awaazon ko pehchanna aur unhein samajhna."
+            "explanation": "Voice recognition ka kaam hai awaazon ko pehchanna aur unhein samajhna.",
+            "question": "Voice recognition ka kya kaam hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Computer ko awaaz sunahne ke liye kya chahiye?",
@@ -117,7 +171,15 @@
             "c": "Keyboard",
             "d": "Screen",
             "correct": "a",
-            "explanation": "Computer ko awaaz sunne ke liye microphone ki zaroorat hoti hai."
+            "explanation": "Computer ko awaaz sunne ke liye microphone ki zaroorat hoti hai.",
+            "question": "Computer ko awaaz sunahne ke liye kya chahiye?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Pakistan mein kis app ka istemal voice recognition ke liye hota hai?",
@@ -126,7 +188,15 @@
             "c": "Calculator",
             "d": "Notepad",
             "correct": "a",
-            "explanation": "Google Assistant ek popular app hai jo voice recognition ka istemal karta hai."
+            "explanation": "Google Assistant ek popular app hai jo voice recognition ka istemal karta hai.",
+            "question": "Pakistan mein kis app ka istemal voice recognition ke liye hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "AI voice recognition kis cheez ki madad karta hai?",
@@ -135,7 +205,15 @@
             "c": "Drawing karne mein",
             "d": "Writing karne mein",
             "correct": "a",
-            "explanation": "AI voice recognition baatcheet karne mein madad karta hai, jaise phone par baat karna."
+            "explanation": "AI voice recognition baatcheet karne mein madad karta hai, jaise phone par baat karna.",
+            "question": "AI voice recognition kis cheez ki madad karta hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           }
         ]
       },
@@ -171,7 +249,6 @@
       "description": "Cheezein arrange karna",
       "lesson": "## HOOK  \nBachon, socho agar tumhare paas bahut sari khilauniyan hain aur tumhe unhein arrange karna hai — kya tumhe pata hai kaise? Chalo, aaj hum seekhenge kaise cheezein sort ki jaati hain. Socho agar tumhara favorite toys ka collection ho, aur tumhein unhein ache se arrange karna ho, to kya karoge?\n\n## SAMJHAO  \nSab se pehle, sorting ka matlab hai cheezein ek tarah se arrange karna. Jaise agar tumhare paas colors ki crayons hain, to tum unhein rangon ke hisaab se arrange kar sakte ho — peela, neela, laal! Is tarah se tumhe dekh kar samajh aayega ke konsi color pehle hai aur konsi baad mein.\n\nAb socho agar tumhare paas kuch books hain. Tum inhein unke naam ke hisaab se ya phir unki reading age ke hisaab se sort kar sakte ho. Yeh bahut asaan hai! Jab cheezein achi tarah sort hoti hain, to humein unhein dhoondhna asaan hota hai.\n\nAgar tumhare paas chhote chhote toys hain, to tum inhein size ke hisaab se bhi arrange kar sakte ho. Chhote, beech aur bade toys! Zaroori hai ke hum cheezein theek se sort karen, taake humara kamra ya khoj bhi khula rahe.\n\nSorting sirf toys ya books tak nahi, balki khana bhi sort kar sakte hain. Jaise biryani mein tumhare paas meat, rice aur salan hain — tum inhein plate mein ache se arrange kar sakte ho taake dekhne mein acha lage.\n\n## MISAAL  \nChalo ab aik example lete hain bazaar ka. Jab tum bazaar jaate ho to wahan fruits hote hain. Fruits ko kis tarah se arrange kiya hota hai? Aam, seb, kela — sabko ek tarah se sort kiya jata hai, taake log asaani se dekh sakein aur apni pasand ke fruit choose kar saken. Agar fruits mix hote, to kharidna mushkil ho jata!\n\n## KARO  \nAb tumhein ghar par ek chhoti si activity karni hai. Apne khilaune ya khud ki books ko le lo. Unhein apne pasand ke hisaab se sort karo — ya to rangon ke hisaab se, ya size ke hisaab se, ya unki kahaniyon ke naam ke hisaab se. Tumhare dost ya bhai behen bhi tumhare sath milkar yeh kar sakte hain. Dekho kaise cheezein sorted karke bahut asaan hoti hain!\n\n## SAWAAL  \n1. Tum kis tarah se cheezein sort kar sakte ho?  \n2. Kya tumne apne khilaune ko sort kiya? Tumne kaise kiya?  \n3. Sorting kyun zaroori hai?  \n\nIshaara karte hain, maza aaya hoga! Phir milte hain agle lesson mein.  \nUstaad Ji",
       "quiz": {
-        "title": "Sorting seekho Quiz",
         "questions": [
           {
             "q": "Aam, Kela, Seb, Angoor ko kis tarah arrange karna chahiye?",
@@ -180,7 +257,15 @@
             "c": "Angoor, Kela, Aam, Seb",
             "d": "Aam, Angoor, Seb, Kela",
             "correct": "a",
-            "explanation": "Yeh fruits unki alphabetical order mein hain."
+            "explanation": "Yeh fruits unki alphabetical order mein hain.",
+            "question": "Aam, Kela, Seb, Angoor ko kis tarah arrange karna chahiye?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Toys ko kis tarah arrange kiya jaye? Jaise Car, Ghar, Ball, Billi.",
@@ -189,7 +274,15 @@
             "c": "Car, Ball, Ghar, Billi",
             "d": "Billi, Car, Ghar, Ball",
             "correct": "b",
-            "explanation": "Yeh toys unki type ke hisaab se arrange kiye gaye hain."
+            "explanation": "Yeh toys unki type ke hisaab se arrange kiye gaye hain.",
+            "question": "Toys ko kis tarah arrange kiya jaye? Jaise Car, Ghar, Ball, Billi.",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Kitabain ko kaise arrange karein? Jaise Science, Urdu, Maths, English.",
@@ -198,7 +291,15 @@
             "c": "English, Urdu, Science, Maths",
             "d": "Urdu, Maths, Science, English",
             "correct": "c",
-            "explanation": "Yeh subjects unki importance ke hisaab se arrange kiye gaye hain."
+            "explanation": "Yeh subjects unki importance ke hisaab se arrange kiye gaye hain.",
+            "question": "Kitabain ko kaise arrange karein? Jaise Science, Urdu, Maths, English.",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 2
           },
           {
             "q": "Khushbu dar darz hain: Gulab, Jasmine, Chandan, Laban. Inhein kis tarah arrange karein?",
@@ -207,7 +308,15 @@
             "c": "Chandan, Gulab, Laban, Jasmine",
             "d": "Laban, Jasmine, Chandan, Gulab",
             "correct": "a",
-            "explanation": "Yeh khushbu unki popularity mein hain."
+            "explanation": "Yeh khushbu unki popularity mein hain.",
+            "question": "Khushbu dar darz hain: Gulab, Jasmine, Chandan, Laban. Inhein kis tarah arrange karein?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Kahan ka khana ko kis tarah arrange karna? Biryani, nihari, Chicken karahi, Seekh kebab.",
@@ -216,7 +325,15 @@
             "c": "Seekh kebab, Chicken karahi, Biryani, Nihari",
             "d": "Nihari, Biryani, Chicken karahi, Seekh kebab",
             "correct": "d",
-            "explanation": "Yeh khanay unki piyaas ke hisaab se arrange kiye gaye hain."
+            "explanation": "Yeh khanay unki piyaas ke hisaab se arrange kiye gaye hain.",
+            "question": "Kahan ka khana ko kis tarah arrange karna? Biryani, nihari, Chicken karahi, Seekh kebab.",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 3
           }
         ]
       },
@@ -252,7 +369,6 @@
       "description": "Computer kaise faisla karti hai",
       "lesson": "## HOOK\nAao bachon, socho agar aapke paas ek robot ho jo aap se keh raha ho, \"Kya tumhe chaat khana hai?\" Tumhe sirf \"Haan\" ya \"Nahin\" mein jawab dena hai. Toh aap kya kahenge? \n\n## SAMJHAO\nAaj hum seekhenge ke computers kaise \"Yes/No decisions\" karte hain. Jab computer ko koi kaam karna hota hai, toh wo pehle kuch sawalat karta hai. Jaise agar aap chaat khane ka keh rahe ho, toh computer pehle yeh jaana chahega ke kya aapko chaat pasand hai.\n\nDosto, jab computer ko koi decision lena hota hai, toh wo ek tarika istemal karta hai jise \"if-else\" kehte hain. Matlab agar koi cheez sahi ho, toh ek kaam karega, nahi toh doosra. Jaise agar tumhare paas paisay hain, toh tum Biryani khareed sakte ho, warna nahi.\n\nIs faisle ko samajhne ke liye, sochu ke jese bazaar mein kuch cheezon ki wajah se aap khareedte ho. Agar daam sahi hai, toh aap kharidte ho; agar nahi, toh nahi kharidte. Yeh decision bhi computers waise hi lete hain.\n\nAakhir mein, computers ke liye yeh decisions hona easy hota hai, kyunki unhein sirf programming hoti hai jo unhein batati hai ke kya karna hai jab koi \"yes\" ya \"no\" ka jawab aata hai.\n\n## MISAAL\nSocho, aap bazaar gaye ho aur aapko sayeeda ka tarbooz kharidna hai. Aapke dimaag mein ek sawal hai: \"Kya iska daam 100 rupay se kam hai?\" Agar jawab \"Haan\" hai, toh aap tarbooz kharid lo, lekin agar \"Nahin\" hai, toh aap kuch aur kharidne chale jaoge, jaise chaat ya khatti mithai.\n\n## KARO\nGhar par ya school mein tum ek decision-making game khel sakte ho! Do ya teen sawalat banao jo \"Yes\" ya \"No\" mein hon. Jaise \"Kya tum parachute jump karna chahte ho?\" Phir dosto se pocho, aur unke jawab suno. Dekho kaise har jawab se alag faislay nikalte hain!\n\n## SAWAAL\n1. Computers kaise decision lete hain?\n2. \"If-else\" kya hota hai?\n3. Aapne kis example se seekha ke bazaar mein decisions kaise kie jaate hain?\n\nUstaad Ji.",
       "quiz": {
-        "title": "Yes/No decisions Quiz",
         "questions": [
           {
             "q": "Kya computer insan ki tarah sochta hai?",
@@ -261,7 +377,15 @@
             "c": "Haan, woh emotions mehsoos karta hai",
             "d": "Nahi, woh sirf numbers samajhta hai",
             "correct": "b",
-            "explanation": "Computer sirf instructions follow karta hai aur soch nahi sakta."
+            "explanation": "Computer sirf instructions follow karta hai aur soch nahi sakta.",
+            "question": "Kya computer insan ki tarah sochta hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Kya AI computer ke liye azmood ka amal hai?",
@@ -270,7 +394,15 @@
             "c": "Nahi, yeh sirf data analysis hai",
             "d": "Haan, yeh computer ko behtar bana sakta hai",
             "correct": "d",
-            "explanation": "AI se computer decision lene mein behtari aati hai."
+            "explanation": "AI se computer decision lene mein behtari aati hai.",
+            "question": "Kya AI computer ke liye azmood ka amal hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 3
           },
           {
             "q": "Kya computer choices banane mein madad le sakta hai?",
@@ -279,7 +411,15 @@
             "c": "Haan, woh algorithms istemal karta hai",
             "d": "Nahi, yeh sirf images dekh sakta hai",
             "correct": "c",
-            "explanation": "Computer algorithms ke zariye soch samajh kar decisions leta hai."
+            "explanation": "Computer algorithms ke zariye soch samajh kar decisions leta hai.",
+            "question": "Kya computer choices banane mein madad le sakta hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 2
           },
           {
             "q": "Kya computer do choices ke darmiyan faisla kar sakta hai?",
@@ -288,7 +428,15 @@
             "c": "Haan, lekin har waqt sahi nahi hota",
             "d": "Nahi, yeh sirf data ko copy karta hai",
             "correct": "a",
-            "explanation": "Computer do choices ke darmiyan faisla kar sakta hai jab use sahi tarah se program kiya gaya ho."
+            "explanation": "Computer do choices ke darmiyan faisla kar sakta hai jab use sahi tarah se program kiya gaya ho.",
+            "question": "Kya computer do choices ke darmiyan faisla kar sakta hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Kya AI se computer ko khud sochne ki salahiyat milti hai?",
@@ -297,7 +445,15 @@
             "c": "Haan, woh sochta hai lekin sirf kuch had tak",
             "d": "Nahi, woh insan ki tarah nahi soch sakta",
             "correct": "c",
-            "explanation": "AI se computer kuch had tak sochne ki salahiyat hasil karti hai lekin insan ki tarah nahi."
+            "explanation": "AI se computer kuch had tak sochne ki salahiyat hasil karti hai lekin insan ki tarah nahi.",
+            "question": "Kya AI se computer ko khud sochne ki salahiyat milti hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 2
           }
         ]
       },
@@ -333,7 +489,6 @@
       "description": "AI se tasveerein banana",
       "lesson": "## HOOK\nKya aapne kabhi socha hai ke aapki soch ko computer kaise tasveer mein badalte hain? Socho agar aap aik aise dost se milte jo aapki tasveer bana sakta hai sirf aapke khayalon se. Yeh mumkin hai AI se!\n\n## SAMJHAO\nAI ka matlab hai Artificial Intelligence. Yeh aik technology hai jo computers aur machines ko insaanon ki tarah sochne aur kaam karne ki salahiyat deti hai. Jab hum AI drawings ki baat karte hain, to iska matlab hai ke hum aik software ya program ka istemal karte hain jo humein tasveerein banakar deta hai.\n\nAI drawings mein hum apni socho ko words mein likhte hain, aur phir AI un words ko samajh kar unka aik tasveer banata hai. Misaal ke taur par, agar aap likhte hain \"aik pyara sa bandar chaatay par,\" to AI aap ke liye usi tasveer ko banata hai.\n\nYeh AI technology aksar online hoti hai aur kuch websites ya apps hain jo humein AI drawings karne ki sahulat deti hain. Aap sirf apni description type karte hain aur AI instant tasveer bana deta hai. Yeh aik nayi technology hai jo har kisi ko artist bana sakti hai!\n\nAI drawings sirf mazay ki baat nahi hai, balki yeh humare khayalon ko zinda karne ka aik zariya bhi hai. Agar aapki koi khaas khwab hai, to aap woh khwab AI se tasveer bana kar dekh sakte hain.\n\n## MISAAL\nAgar aapko biryani ka bohat shauq hai, to sochiye agar aap AI se keh sakte hain, \"mujhe aik khubsurat biryani ki tasveer chahiye jismein chicken ho aur us par hara dhaniya ho.\" AI is description ko sun kar, aap ke liye aik badi hi khoobsurat biryani ki tasveer bana dega. Yeh aapki soch ko haqiqat mein badal deta hai!\n\n## KARO\nGhar par ya school mein aap AI drawings banane ka tajurba le sakte hain. Pehle, ek khayal sochiye, jaise \"aik ghar jo peechay ek bagicha hai.\" Phir, kisi AI drawing website par jaeye, jaise DALL-E ya DeepAI, aur apne khayal ko text mein likhiye. Dekhiye AI aapki soch ko kaise tasveer mein tabdeel karta hai! Agar aapke paas internet nahi hai, to khayal zaroor sochiye aur uski tasveer paper par khud bana sakte hain.\n\n## SAWAAL\n1. AI drawings kya hoti hain?\n2. Aap apne khayalon ko AI se kaise tasveer mein tabdeel kar sakte hain?\n3. Aapne kis misaal ke zariye AI drawings ka istemal kiya?\n\nUstaad Ji.",
       "quiz": {
-        "title": "AI drawings Quiz",
         "questions": [
           {
             "q": "AI se tasveerein banane ke liye kis cheez ki zaroorat hoti hai?",
@@ -342,7 +497,15 @@
             "c": "Khaas akshar",
             "d": "Doodh",
             "correct": "a",
-            "explanation": "AI ko tasveer banane ke liye ek device ki zaroorat hoti hai jaise ke computer ya mobile."
+            "explanation": "AI ko tasveer banane ke liye ek device ki zaroorat hoti hai jaise ke computer ya mobile.",
+            "question": "AI se tasveerein banane ke liye kis cheez ki zaroorat hoti hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "AI drawings kis technology par kaam karti hain?",
@@ -351,7 +514,15 @@
             "c": "Khaana banana",
             "d": "Khud ki tasveer khinchna",
             "correct": "b",
-            "explanation": "AI drawings Machine Learning par kaam karti hain jahan machines ko seekhne ki salahiyat hoti hai."
+            "explanation": "AI drawings Machine Learning par kaam karti hain jahan machines ko seekhne ki salahiyat hoti hai.",
+            "question": "AI drawings kis technology par kaam karti hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Pakistan mein AI tasveeron ka istemal kis cheez ke liye hota hai?",
@@ -360,7 +531,15 @@
             "c": "Tareekh likhna",
             "d": "Khaana pakana",
             "correct": "b",
-            "explanation": "AI tasveeron ka istemal art aur design mein hota hai."
+            "explanation": "AI tasveeron ka istemal art aur design mein hota hai.",
+            "question": "Pakistan mein AI tasveeron ka istemal kis cheez ke liye hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "AI drawings ko kaun si website par dekha ja sakta hai?",
@@ -369,7 +548,15 @@
             "c": "Facebook",
             "d": "Twitter",
             "correct": "a",
-            "explanation": "DALL-E aik mashhoor website hai jahan log AI se tasveerein dekh sakte hain."
+            "explanation": "DALL-E aik mashhoor website hai jahan log AI se tasveerein dekh sakte hain.",
+            "question": "AI drawings ko kaun si website par dekha ja sakta hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "AI drawings kaise banai jati hain?",
@@ -378,7 +565,15 @@
             "c": "Kisi ki tasveer copy karke",
             "d": "Khilaf shayari likh kar",
             "correct": "a",
-            "explanation": "AI drawings ko text ya khayalat ke zariye banaya jata hai, jahan machine un concepts ko samajhti hai."
+            "explanation": "AI drawings ko text ya khayalat ke zariye banaya jata hai, jahan machine un concepts ko samajhti hai.",
+            "question": "AI drawings kaise banai jati hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           }
         ]
       },
@@ -414,7 +609,6 @@
       "description": "Washing machine, AC, TV mein AI",
       "lesson": "## HOOK\nKya aapne kabhi socha hai ke aaj kal humare gharon mein aise cheezen hain jo khud sochti hain? Jaise ki AC, washing machine, ya TV. Yeh sab AI (Artificial Intelligence) ki wajah se hota hai!\n\n## SAMJHAO\nAI yaani Artificial Intelligence ek technology hai jo machines ko aisa banati hai ke wo insano ki tarah soch sakti hain. Jab aap apne TV par koi show dekhte hain, to kabhi kabhi yeh aapki pasand ki cheezein aapko suggest karta hai. Yeh sab AI ki wajah se hota hai!\n\nWashing machine bhi AI se chalti hai. Aaj kal ki washing machines ko pata hota hai ke kapre kis tarah se dhone hain. Kya unhe zyada garm paani chahiye ya thoda sa? Yeh sab AI ki madad se hota hai.\n\nAC bhi AI ka istemal karta hai. Jab aap AC ko set karte hain, to yeh khud temperate ko samajhta hai aur aapko comfortable rakhne ke liye kaam karta hai. Agar bahar bohot garmi hai to yeh zyada thanda karne lagta hai.\n\nIs tarah se, AI hamare gharon ki cheezein ko intelligent banati hai. Yeh technology hamare liye zindagi ko asan aur comfortable banati hai.\n\n## MISAAL\nJab aap bazaar jaate hain aur aapke paas smartphone hai, to aap grocery list banate hain. Aaj kal ke smartphones AI use karte hain jo aapki habits ko samajhkar aapko suggest karte hain ke aapko kya cheezen kharidni chahiye. Jaise agar aap aksar daal kharidte hain to yeh aapko yaad dilata hai ke daal kharidna mat bhooliye!\n\n## KARO\nAapke ghar mein jo bhi devices hain, unka AI se kaise taluq hai yeh jaanne ki koshish karein. Har device ko dekhein aur is par sochain ke wo kaise kaam karta hai. Aap apne ghar ki washing machine, AC, aur TV ke features ke baare mein apne maa baap se baat kar sakte hain. Koi choti se cheez note karein jo aapko AI ka istemal lagta hai.\n\n## SAWAAL\n1. AI kya hai aur yeh kis tarah se hamare gharon mein istemal hota hai?\n2. Aapke ghar mein kis device mein AI ka istemal hota hai?\n3. Aapko AI ki kaun si feature sabse zyada pasand hai aur kyun?\n\nUstaad Ji",
       "quiz": {
-        "title": "AI hamare ghar mein Quiz",
         "questions": [
           {
             "q": "Washing machine mein AI ka kya kirdar hai?",
@@ -423,7 +617,15 @@
             "c": "Dhoondti hai saamaan",
             "d": "Ghar mein safai karti hai",
             "correct": "a",
-            "explanation": "Washing machine AI se samajhti hai ke kab aur kis tareeqe se kapray wash karne hain."
+            "explanation": "Washing machine AI se samajhti hai ke kab aur kis tareeqe se kapray wash karne hain.",
+            "question": "Washing machine mein AI ka kya kirdar hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "AC mein AI ka kya faida hai?",
@@ -432,7 +634,15 @@
             "c": "Raat ko jagana",
             "d": "Khud se khulta hai",
             "correct": "a",
-            "explanation": "AC AI se samajhta hai ke kis temperature par rakhna behtar hai."
+            "explanation": "AC AI se samajhta hai ke kis temperature par rakhna behtar hai.",
+            "question": "AC mein AI ka kya faida hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "TV mein AI ka istemal kis liye hota hai?",
@@ -441,7 +651,15 @@
             "c": "Ghar ke lights control karna",
             "d": "Khud se band hona",
             "correct": "c",
-            "explanation": "AI TV ko yeh samajhne mein madad karta hai ke kab aur kis show ko recommend karna hai."
+            "explanation": "AI TV ko yeh samajhne mein madad karta hai ke kab aur kis show ko recommend karna hai.",
+            "question": "TV mein AI ka istemal kis liye hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 2
           },
           {
             "q": "AI ghar ki kis cheez ko behtar banata hai?",
@@ -450,7 +668,15 @@
             "c": "Ghar ki deewar",
             "d": "Ghar ka zameen",
             "correct": "a",
-            "explanation": "Smart speakers AI se kaam karte hain jo humein aasani se commands samajhte hain."
+            "explanation": "Smart speakers AI se kaam karte hain jo humein aasani se commands samajhte hain.",
+            "question": "AI ghar ki kis cheez ko behtar banata hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "AI ke zariye AC kis tarah se shor kam karta hai?",
@@ -459,7 +685,15 @@
             "c": "Rozana saaf karna",
             "d": "Waqt par band karna",
             "correct": "b",
-            "explanation": "AI se AC shor ko samajh kar apne fan ki speed adjust karta hai."
+            "explanation": "AI se AC shor ko samajh kar apne fan ki speed adjust karta hai.",
+            "question": "AI ke zariye AC kis tarah se shor kam karta hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           }
         ]
       },

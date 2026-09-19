@@ -2,24 +2,138 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Grammar aur Imla | AI4Kids Grade 4 Urdu</title>
-<style>
-:root{--bg:#f7fbff;--paper:#fff;--ink:#19304a;--muted:#52677d;--blue:#1769aa;--teal:#087f73;--gold:#e5a52b;--line:#cfe0ed;--good:#217a4b;--bad:#b63c3c;--fs-cap:clamp(14px,3.6vw,16px);--fs-xs:clamp(16px,4.1vw,18px);--fs-sm:clamp(18px,4.8vw,21px);--fs-md:clamp(20px,5.4vw,24px);--fs-lg:clamp(24px,6.5vw,30px);--fs-xl:clamp(31px,8vw,42px)}
-*{box-sizing:border-box}body{margin:0;background:linear-gradient(145deg,#eef8ff,#fff9ed);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:var(--fs-sm);line-height:1.5}button,input,textarea{font:inherit}button{cursor:pointer}.wrap{max-width:980px;margin:auto;padding:14px 16px 44px}.top{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.brand{font-weight:800;color:var(--blue);margin-right:auto;font-size:var(--fs-xs)}.pill{border:2px solid var(--ink);border-radius:999px;padding:8px 13px;background:#fff;color:var(--ink);font-weight:800;min-height:44px}.pill:hover,.pill:focus-visible{background:#e6f3ff}.hero{margin:18px 0 22px;background:var(--ink);color:#fff;border-radius:24px;padding:20px 20px 22px;box-shadow:0 8px 0 #b8d5e7}.hero h1{font-size:var(--fs-xl);line-height:1.16;margin:0 0 7px}.hero p{margin:0;color:#e1f2ff}.tag{display:inline-block;border-radius:999px;padding:3px 11px;font-size:var(--fs-cap);background:var(--gold);color:#342300;font-weight:900;vertical-align:middle}.sec{margin:25px 0}.sec h2{font-size:var(--fs-lg);color:var(--blue);margin:0 0 9px}.card{background:var(--paper);border:2px solid var(--line);border-radius:18px;padding:16px;box-shadow:0 3px 0 #dceaf3}.hook{border-color:#f2c55f;background:#fff9e9}.story{margin:0;color:var(--muted)}.split{display:grid;grid-template-columns:1fr 1fr;gap:14px}.mini{background:#f1f8ff;border:2px solid #a9cdea;border-radius:16px;padding:14px}.mini h3{margin:0 0 4px;font-size:var(--fs-md);color:var(--teal)}.mini p{margin:0;color:var(--muted);font-size:var(--fs-xs)}.demo{border:3px solid var(--teal);background:#edfbf7;border-radius:20px;padding:16px}.demo h3{margin:0 0 8px;color:var(--teal);font-size:var(--fs-md)}.wordbank,.choices{display:flex;flex-wrap:wrap;gap:8px;margin:11px 0}.word,.choice{border:2px solid var(--blue);border-radius:12px;background:#fff;padding:9px 13px;color:var(--ink);font-weight:800;min-height:44px}.word:hover,.choice:hover{background:#e8f5ff}.sentence{min-height:56px;border:2px dashed var(--teal);border-radius:12px;background:#fff;padding:10px;margin:10px 0;font-weight:800}.sentence span{display:inline-block;background:#d9f3ea;color:#075e55;border-radius:8px;padding:3px 8px;margin:3px}.result{margin:9px 0 0;font-weight:800;color:var(--teal);min-height:27px}.reset{border:0;border-radius:10px;background:var(--teal);color:#fff;padding:10px 14px;font-weight:800}.imla-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}.imla{border:2px solid var(--line);background:#fff;border-radius:13px;padding:11px 6px;font-weight:800;color:var(--ink)}.imla.correct{border-color:var(--good);background:#e5f6ea}.imla.wrong{border-color:var(--bad);background:#fff0f0}.play{display:inline-flex;align-items:center;gap:6px;border:2px solid var(--blue);background:#fff;color:var(--blue);border-radius:999px;padding:8px 13px;font-weight:900;margin-top:12px}.karo{background:#fff8e7;border:3px solid var(--gold);border-radius:18px;padding:16px;color:#5d4810}.karo ol{margin:6px 0 0;padding-left:25px}.karo li{margin:5px 0}.quiz{border-top:4px solid var(--ink);padding-top:20px;margin-top:32px}.q{margin:0 0 23px}.q p{font-weight:850;margin:0 0 9px}.opt{display:block;width:100%;text-align:left;background:#fff;border:2px solid var(--line);border-radius:12px;padding:11px 13px;margin:7px 0;color:var(--ink);font-weight:700}.opt.right{border-color:var(--good);background:#e9f7ed}.opt.wrong{border-color:var(--bad);background:#fff0f0}.feedback{color:var(--muted);font-size:var(--fs-xs);display:none}.feedback.show{display:block}.score{background:#fff4d5;border:2px solid var(--gold);border-radius:999px;padding:6px 12px;font-weight:900;font-size:var(--fs-xs);float:right}.done{display:none;background:#e5f6ea;border:2px solid var(--good);border-radius:14px;padding:13px;text-align:center;font-weight:900}.done.show{display:block}footer{border-top:1px solid var(--line);margin-top:28px;padding-top:16px;color:var(--muted);font-size:var(--fs-cap)}body.roman .en,body:not(.roman) .roman{display:none}.roman-text{font-weight:700}.rtl{text-align:right}@media(max-width:620px){.split{grid-template-columns:1fr}.imla-row{grid-template-columns:repeat(2,1fr)}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+<style>:root{--ink:#19304a;--muted:#52677d;--paper:#fff;--bg:#f7fbff;--blue:#1769aa;--teal:#087f73;--gold:#e5a52b;--line:#cfe0ed;--good:#217a4b;--bad:#b63c3c;--orange:#e07a32;--fs-cap:clamp(0.9rem, 2.4vw, 1.1rem);--fs-xs:clamp(1.1rem, 2.8vw, 1.3rem);--fs-sm:clamp(1.25rem, 3.2vw, 1.5rem);--fs-md:clamp(1.4rem, 3.6vw, 1.75rem);--fs-lg:clamp(1.7rem, 4.2vw, 2.15rem);--fs-xl:clamp(2.05rem, 5.2vw, 2.7rem);--pad:clamp(12px,3.5vw,20px)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{max-width:100%;overflow-x:hidden}
+body{margin:0;background:linear-gradient(145deg,#eef8ff,#fff9ed);color:var(--ink);font-family:"Trebuchet MS","Segoe UI",system-ui,sans-serif;font-size:var(--fs-sm);line-height:1.5;padding:0 0 48px;max-width:100%;overflow-x:hidden;width:100%}
+button{font:inherit;cursor:pointer;color:inherit;max-width:100%}
+.wrap{width:100%;max-width:min(980px,100%);margin:auto;padding:14px var(--pad) 44px}
+.top{display:flex;gap:8px;align-items:center;flex-wrap:wrap;width:100%}
+.brand{font-weight:900;color:var(--blue);margin-right:auto;font-size:var(--fs-xs);min-width:0;flex:1 1 auto}
+.pill{border:2px solid var(--ink);border-radius:999px;padding:8px 14px;background:#fff;font-weight:800;min-height:44px}
+.pill[aria-pressed=true]{background:var(--ink);color:#fff}
+.hero{margin:16px 0;border:3px solid var(--ink);border-radius:clamp(14px,3vw,22px);overflow:hidden;background:#19304a;color:#fff;box-shadow:0 6px 0 #b8d5e7;width:100%;max-width:100%}
+.hero-inner{padding:var(--pad)}
+.hero h1{font-size:var(--fs-xl);margin:0 0 6px;line-height:1.15;overflow-wrap:anywhere}
+.hero p{margin:0 0 10px;color:#d6ebf8;font-size:var(--fs-sm)}
+.hero svg,.scene svg{display:block;width:100%;height:auto;max-width:100%;max-height:50vh}
+.tag{display:inline-block;border-radius:999px;padding:4px 12px;font-size:var(--fs-cap);background:var(--gold);color:#342300;font-weight:900}
+.sec{margin:24px 0;width:100%}
+.sec h2{font-size:var(--fs-lg);color:var(--blue);margin:0 0 10px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.card{background:var(--paper);border:2px solid var(--line);border-radius:18px;padding:var(--pad);box-shadow:0 3px 0 #dceaf3;width:100%;max-width:100%}
+.hook{border-color:#f2c55f;background:#fff9e9}
+.split{display:grid;grid-template-columns:1fr;gap:12px;width:100%}
+.mini{background:#f1f8ff;border:2px solid #a9cdea;border-radius:16px;padding:14px;min-height:110px;width:100%}
+.mini .ico{width:min(52px,18vw);height:auto;aspect-ratio:1;margin-bottom:6px}
+.mini .ico svg{width:100%;height:auto}
+.mini h3{margin:0 0 4px;font-size:var(--fs-md);color:var(--teal)}
+.mini p{margin:0;color:var(--muted);font-size:var(--fs-xs)}
+.demo{border:3px solid var(--teal);background:#edfbf7;border-radius:20px;padding:var(--pad);width:100%;max-width:100%}
+.demo h3{margin:0 0 8px;color:var(--teal);font-size:var(--fs-md)}
+.scene{border:3px solid var(--ink);border-radius:16px;overflow:hidden;margin:10px 0 14px;background:#fff;width:100%}
+.wordbank,.choices{display:flex;flex-wrap:wrap;gap:8px;margin:11px 0;width:100%}
+.word,.choice,.imla{border:2px solid var(--blue);border-radius:12px;background:#fff;padding:10px 14px;font-weight:800;min-height:46px}
+.sentence{min-height:56px;border:2px dashed var(--teal);border-radius:12px;background:#fff;padding:12px;margin:10px 0;font-weight:800;font-size:var(--fs-md);width:100%;overflow-wrap:anywhere}
+.sentence span{display:inline-block;background:#d9f3ea;color:#075e55;border-radius:8px;padding:4px 10px;margin:3px}
+.result{margin:9px 0 0;font-weight:800;color:var(--teal);min-height:28px;font-size:var(--fs-sm)}
+.reset{border:0;border-radius:12px;background:var(--teal);color:#fff;padding:12px 16px;font-weight:800;min-height:48px;width:100%}
+.imla-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:8px;width:100%}
+.imla{width:100%}
+.imla.correct{border-color:var(--good);background:#e5f6ea}
+.imla.wrong{border-color:var(--bad);background:#fff0f0}
+.play{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:2px solid var(--blue);background:#fff;color:var(--blue);border-radius:999px;padding:10px 14px;font-weight:900;margin-top:10px;min-height:46px;width:100%}
+.karo{background:#fff8e7;border:3px solid var(--gold);border-radius:18px;padding:var(--pad);color:#5d4810;font-size:var(--fs-sm);width:100%}
+.karo ol{margin:6px 0 0;padding-left:25px}
+.quiz{border-top:4px solid var(--ink);padding-top:20px;margin-top:32px;width:100%}
+.quiz h2{font-size:var(--fs-lg);margin:0 0 14px;overflow:hidden}
+.q{margin:0 0 23px}
+.q p{font-weight:850;margin:0 0 9px;font-size:var(--fs-md);overflow-wrap:anywhere}
+.opt{display:block;width:100%;max-width:100%;text-align:left;background:#fff;border:2px solid var(--line);border-radius:12px;padding:12px 14px;margin:7px 0;font-weight:700;min-height:52px;font-size:var(--fs-sm);overflow-wrap:anywhere}
+.opt.right{border-color:var(--good);background:#e9f7ed}
+.opt.wrong{border-color:var(--bad);background:#fff0f0}
+.feedback{color:var(--muted);font-size:var(--fs-xs);display:none}
+.feedback.show{display:block}
+.score{background:#fff4d5;border:2px solid var(--gold);border-radius:999px;padding:6px 12px;font-weight:900;font-size:var(--fs-xs);float:right}
+.done{display:none;background:#e5f6ea;border:2px solid var(--good);border-radius:14px;padding:13px;text-align:center;font-weight:900;font-size:var(--fs-md);width:100%}
+.done.show{display:block}
+footer{border-top:1px solid var(--line);margin-top:28px;padding-top:16px;color:var(--muted);font-size:var(--fs-cap)}
+body.roman .en,body:not(.roman) .roman{display:none}
+@media(max-width:480px){.pill,.reset,.play,.opt,.word,.imla{width:100%}.top{flex-direction:column;align-items:stretch}.top .pill{width:100%;text-align:center}.wordbank .word{flex:1 1 calc(50% - 8px);text-align:center}}
+@media(min-width:620px){.split{grid-template-columns:1fr 1fr}.reset,.play{width:auto}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+/* AI4KIDS_MOBILE_FLEX */
+html { -webkit-text-size-adjust: 100%; }
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; max-width: 100vw; overflow-x: hidden; }
+img, svg, canvas, video { max-width: 100%; height: auto; }
+button, .btn, .opt, [role=button] { min-height: 44px; min-width: 44px; }
+@media (max-width: 480px) {
+  main, .wrap, .container, .app { padding-left: 12px !important; padding-right: 12px !important; }
+  button, .btn { width: 100%; }
+}
+/* /AI4KIDS_MOBILE_FLEX */
+
 </style>
 </head>
 <body>
 <div class="wrap">
-<header class="top"><span class="brand">AI4Kids · Grade 4 · Urdu</span><button class="pill" id="lang" type="button" aria-pressed="false">Roman Urdu ↔ English</button><button class="pill" id="playAll" type="button">🔊 Play</button></header>
-<section class="hero"><h1><span class="en">Grammar aur Imla</span><span class="roman">Grammar aur Imla</span></h1><p><span class="en">Grade 4 Urdu: learn words, actions, sentences, and correct spelling.</span><span class="roman">Class 4 Urdu: ism, fail, jumlah aur sahi imla ko mazedar tareeqe se seekho.</span></p></section>
-<section class="sec"><h2><span class="tag">HOOK</span> <span class="en">Small spelling, big meaning!</span><span class="roman">Chhoti si ghalati, matlab mein bara farq!</span></h2><div class="card hook"><span class="en">If we spell a word incorrectly, our reader may understand a different thing. Correct writing is a superpower.</span><span class="roman">Agar lafz ghalat likhen to parhne wala ghalat matlab samajh sakta hai. Sahi likhna ek superpower hai!</span></div></section>
-<section class="sec"><h2><span class="tag">SAMJHAO</span> <span class="en">Four useful grammar friends</span><span class="roman">Grammar ke chaar dost</span></h2><div class="split"><div class="mini"><h3>Ism — Noun</h3><p><span class="en">A name of a person, place, animal, or thing.</span><span class="roman">Kisi shakhs, jagah, janwar ya cheez ka naam.</span></p></div><div class="mini"><h3>Fail — Verb</h3><p><span class="en">An action or work.</span><span class="roman">Koi kaam ya harkat.</span></p></div><div class="mini"><h3>Sifat — Adjective</h3><p><span class="en">A word that tells an ism's quality.</span><span class="roman">Jo lafz ism ki khoobi ya khasiyat bataye.</span></p></div><div class="mini"><h3>Jumlah — Sentence</h3><p><span class="en">Words joined to give a complete thought.</span><span class="roman">Aise alfaaz ka majmua jo poora khayal de.</span></p></div></div></section>
-<section class="sec"><h2><span class="tag">MISAAL</span> <span class="en">See a sentence in action</span><span class="roman">Jumlay ko samjho</span></h2><div class="card"><p><strong>Ali cricket khelta hai.</strong> <span class="en">Ali = noun; khelta = verb; cricket = thing/noun.</span><span class="roman">Ali = ism; khelta = fail; cricket = cheez ka ism.</span></p><button class="play" data-say="Ali cricket khelta hai. Ali ism hai aur khelta fail hai.">🔊 <span class="en">Play example</span><span class="roman">Misaal suno</span></button></div></section>
-<section class="sec"><h2><span class="tag">PLAY</span> <span class="en">Build a complete jumlah</span><span class="roman">Poora jumlah banao</span></h2><div class="demo"><h3><span class="en">Tap words in the right order.</span><span class="roman">Alfaaz ko sahi tartib se tap karo.</span></h3><div class="wordbank" id="bank"></div><div class="sentence" id="sentence"><span class="en">Your sentence will appear here.</span><span class="roman">Tumhara jumlah yahan nazar aayega.</span></div><div class="result" id="buildResult"></div><button class="reset" id="resetBuild" type="button"><span class="en">Reset</span><span class="roman">Dobara</span></button></div></section>
-<section class="sec"><h2><span class="tag">PLAY</span> <span class="en">Imla check</span><span class="roman">Imla ka imtihan</span></h2><div class="demo"><p><span class="en">Choose the correct spelling for each word.</span><span class="roman">Har lafz ki sahi spelling chuno.</span></p><div id="imlaDemo"></div><div class="result" id="imlaResult"></div></div></section>
-<section class="sec"><h2><span class="tag">KARO</span> <span class="en">Your turn</span><span class="roman">Ab tum karo</span></h2><div class="karo"><ol><li><span class="en">Ask someone at home to give you a 10-word imla test: school, kitab, dost, watan, qalam, bagh, khirki, ustad, khushi, subah.</span><span class="roman">Ghar mein kisi se 10 lafzon ka imla test lo: school, kitab, dost, watan, qalam, bagh, khirki, ustad, khushi, subah.</span></li><li><span class="en">Write five sentences using ism + fail.</span><span class="roman">Ism + fail istemal karke paanch jumle likho.</span></li><li><span class="en">Circle the sifat in: “Meetha aam mez par hai.”</span><span class="roman">Is jumlay mein sifat dhoondo: “Meetha aam mez par hai.”</span></li></ol></div></section>
-<section class="quiz"><h2><span class="en">Grammar Imla Quiz</span><span class="roman">Grammar aur Imla Quiz</span> <span class="score" id="score">0 / 5</span></h2><div id="quiz"></div><div class="done" id="done"></div></section>
+<header class="top"><span class="brand">AI4Kids · Grade 4 · Urdu</span>
+<button class="pill" id="lang" type="button" aria-pressed="false">Roman Urdu ↔ English</button>
+<button class="pill" id="playAll" type="button">🔊 Play</button></header>
+
+<section class="hero">
+<div class="hero-inner">
+<h1><span class="en">Grammar aur Imla</span><span class="roman">Grammar aur Imla</span></h1>
+<p><span class="en">Grade 4 Urdu: learn words, actions, sentences, and correct spelling.</span><span class="roman">Class 4 Urdu: ism, fail, jumlah aur sahi imla ko mazedar tareeqe se seekho.</span></p>
+</div>
+<svg viewBox="0 0 360 130" role="img" aria-label="Grammar friends"><rect width="360" height="130" fill="#2a4a6a"/><rect x="20" y="30" width="70" height="55" rx="10" fill="#7ec8e3" stroke="#fff" stroke-width="2"/><text x="55" y="64" text-anchor="middle" fill="#19304a" font-size="14" font-weight="900" font-family="sans-serif">Ism</text><rect x="105" y="30" width="70" height="55" rx="10" fill="#a8e6cf" stroke="#fff" stroke-width="2"/><text x="140" y="64" text-anchor="middle" fill="#19304a" font-size="14" font-weight="900" font-family="sans-serif">Fail</text><rect x="190" y="30" width="70" height="55" rx="10" fill="#fff0bd" stroke="#fff" stroke-width="2"/><text x="225" y="64" text-anchor="middle" fill="#19304a" font-size="13" font-weight="900" font-family="sans-serif">Sifat</text><rect x="275" y="30" width="70" height="55" rx="10" fill="#e8d5f5" stroke="#fff" stroke-width="2"/><text x="310" y="64" text-anchor="middle" fill="#19304a" font-size="11" font-weight="900" font-family="sans-serif">Jumlah</text><text x="180" y="110" text-anchor="middle" fill="#fff0bd" font-size="13" font-weight="800" font-family="sans-serif">Sahi imla = superpower!</text></svg>
+<div class="scene"><svg viewBox="0 0 360 120" role="img" aria-label="Imla tip board"><rect width="360" height="120" fill="#fff4d5"/><rect x="16" y="16" width="72" height="44" rx="8" fill="#7ec8e3" stroke="#19304a" stroke-width="2"/><text x="52" y="44" text-anchor="middle" font-size="14" font-weight="900" fill="#19304a" font-family="sans-serif">Ism</text><rect x="100" y="16" width="72" height="44" rx="8" fill="#a8e6cf" stroke="#19304a" stroke-width="2"/><text x="136" y="44" text-anchor="middle" font-size="14" font-weight="900" fill="#19304a" font-family="sans-serif">Fail</text><rect x="184" y="16" width="72" height="44" rx="8" fill="#fff0bd" stroke="#19304a" stroke-width="2"/><text x="220" y="44" text-anchor="middle" font-size="13" font-weight="900" fill="#19304a" font-family="sans-serif">Sifat</text><rect x="268" y="16" width="76" height="44" rx="8" fill="#e8d5f5" stroke="#19304a" stroke-width="2"/><text x="306" y="44" text-anchor="middle" font-size="12" font-weight="900" fill="#19304a" font-family="sans-serif">Jumlah</text><text x="180" y="82" text-anchor="middle" font-size="15" font-weight="900" fill="#19304a" font-family="sans-serif">Sahi imla = clear matlab</text><text x="180" y="104" text-anchor="middle" font-size="13" font-weight="700" fill="#087f73" font-family="sans-serif">Chhoti ghalati, bara farq — practice daily!</text></svg></div>
+</section>
+
+<section class="sec"><h2><span class="tag">HOOK</span> <span class="en">Small spelling, big meaning!</span><span class="roman">Chhoti si ghalati, matlab mein bara farq!</span></h2>
+<div class="card hook"><span class="en">If we spell a word incorrectly, our reader may understand a different thing. Correct writing is a superpower.</span><span class="roman">Agar lafz ghalat likhen to parhne wala ghalat matlab samajh sakta hai. Sahi likhna ek superpower hai!</span></div></section>
+
+<section class="sec"><h2><span class="tag">SAMJHAO</span> <span class="en">Four useful grammar friends</span><span class="roman">Grammar ke chaar dost</span></h2>
+<div class="split">
+<div class="mini"><div class="ico"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="10" y="14" width="44" height="36" rx="6" fill="#e6f3f6" stroke="#1e2a33" stroke-width="2.5"/><text x="32" y="38" text-anchor="middle" font-size="18" font-weight="900" fill="#176b87" font-family="sans-serif">Ism</text></svg></div><h3>Ism — Noun</h3><p><span class="en">A name of a person, place, animal, or thing.</span><span class="roman">Kisi shakhs, jagah, janwar ya cheez ka naam.</span></p></div>
+<div class="mini"><div class="ico"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="10" y="14" width="44" height="36" rx="6" fill="#e8f5e9" stroke="#1e2a33" stroke-width="2.5"/><text x="32" y="38" text-anchor="middle" font-size="16" font-weight="900" fill="#2e7d4f" font-family="sans-serif">Fail</text></svg></div><h3>Fail — Verb</h3><p><span class="en">An action or work.</span><span class="roman">Koi kaam ya harkat.</span></p></div>
+<div class="mini"><div class="ico"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="10" y="14" width="44" height="36" rx="6" fill="#fff0bd" stroke="#1e2a33" stroke-width="2.5"/><text x="32" y="38" text-anchor="middle" font-size="14" font-weight="900" fill="#e07a32" font-family="sans-serif">Sifat</text></svg></div><h3>Sifat — Adjective</h3><p><span class="en">A word that tells an ism's quality.</span><span class="roman">Jo lafz ism ki khoobi ya khasiyat bataye.</span></p></div>
+<div class="mini"><div class="ico"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="6" y="18" width="52" height="28" rx="6" fill="#f3e8ff" stroke="#1e2a33" stroke-width="2.5"/><text x="32" y="38" text-anchor="middle" font-size="12" font-weight="900" fill="#7652a5" font-family="sans-serif">Jumlah</text></svg></div><h3>Jumlah — Sentence</h3><p><span class="en">Words joined to give a complete thought.</span><span class="roman">Aise alfaaz ka majmua jo poora khayal de.</span></p></div>
+</div></section>
+
+<section class="sec"><h2><span class="tag">MISAAL</span> <span class="en">See a sentence in action</span><span class="roman">Jumlay ko samjho</span></h2>
+<div class="card"><p><strong>Ali cricket khelta hai.</strong> <span class="en">Ali = noun; khelta = verb; cricket = thing/noun.</span><span class="roman">Ali = ism; khelta = fail; cricket = cheez ka ism.</span></p>
+<button class="play" data-say="Ali cricket khelta hai. Ali ism hai aur khelta fail hai.">🔊 <span class="en">Play example</span><span class="roman">Misaal suno</span></button></div></section>
+
+<section class="sec"><h2><span class="tag">PLAY</span> <span class="en">Build a complete jumlah</span><span class="roman">Poora jumlah banao</span></h2>
+<div class="demo">
+<div class="scene"><svg viewBox="0 0 360 100" role="img" aria-label="Sentence building blocks"><rect width="360" height="100" fill="#e8f8f3"/><rect x="15" y="30" width="70" height="40" rx="8" fill="#d9f3ea" stroke="#087f73" stroke-width="2"/><text x="50" y="55" text-anchor="middle" font-size="13" font-weight="900" fill="#087f73" font-family="sans-serif">Ali</text><rect x="100" y="30" width="70" height="40" rx="8" fill="#d9f3ea" stroke="#087f73" stroke-width="2"/><text x="135" y="55" text-anchor="middle" font-size="13" font-weight="900" fill="#087f73" font-family="sans-serif">kitab</text><rect x="185" y="30" width="75" height="40" rx="8" fill="#d9f3ea" stroke="#087f73" stroke-width="2"/><text x="222" y="55" text-anchor="middle" font-size="12" font-weight="900" fill="#087f73" font-family="sans-serif">parhta</text><rect x="275" y="30" width="55" height="40" rx="8" fill="#d9f3ea" stroke="#087f73" stroke-width="2"/><text x="302" y="55" text-anchor="middle" font-size="13" font-weight="900" fill="#087f73" font-family="sans-serif">hai</text><path d="M85 50h10M170 50h10M260 50h10" stroke="#19304a" stroke-width="2"/></svg></div>
+<h3><span class="en">Tap words in the right order.</span><span class="roman">Alfaaz ko sahi tartib se tap karo.</span></h3>
+<div class="wordbank" id="bank"></div>
+<div class="sentence" id="sentence"><span class="en">Your sentence will appear here.</span><span class="roman">Tumhara jumlah yahan nazar aayega.</span></div>
+<div class="result" id="buildResult"></div>
+<button class="reset" id="resetBuild" type="button"><span class="en">Reset</span><span class="roman">Dobara</span></button>
+</div></section>
+
+<section class="sec"><h2><span class="tag">PLAY</span> <span class="en">Imla check</span><span class="roman">Imla ka imtihan</span></h2>
+<div class="demo">
+<div class="scene"><svg viewBox="0 0 360 90" role="img" aria-label="Spelling check"><rect width="360" height="90" fill="#fff9e9"/><text x="180" y="40" text-anchor="middle" font-size="18" font-weight="900" fill="#e5a52b" font-family="sans-serif">school · kitab · dost · watan</text><text x="180" y="68" text-anchor="middle" font-size="13" font-weight="700" fill="#19304a" font-family="sans-serif">Sahi spelling chuno!</text></svg></div>
+<p><span class="en">Choose the correct spelling for each word.</span><span class="roman">Har lafz ki sahi spelling chuno.</span></p>
+<div id="imlaDemo"></div>
+<div class="result" id="imlaResult"></div>
+</div></section>
+
+<section class="sec"><h2><span class="tag">KARO</span> <span class="en">Your turn</span><span class="roman">Ab tum karo</span></h2>
+<div class="karo"><ol>
+<li><span class="en">Ask someone at home to give you a 10-word imla test: school, kitab, dost, watan, qalam, bagh, khirki, ustad, khushi, subah.</span><span class="roman">Ghar mein kisi se 10 lafzon ka imla test lo: school, kitab, dost, watan, qalam, bagh, khirki, ustad, khushi, subah.</span></li>
+<li><span class="en">Write five sentences using ism + fail.</span><span class="roman">Ism + fail istemal karke paanch jumle likho.</span></li>
+<li><span class="en">Circle the sifat in: &ldquo;Meetha aam mez par hai.&rdquo;</span><span class="roman">Is jumlay mein sifat dhoondo: &ldquo;Meetha aam mez par hai.&rdquo;</span></li>
+</ol></div></section>
+
+<section class="quiz"><h2><span class="en">Grammar Imla Quiz</span><span class="roman">Grammar aur Imla Quiz</span> <span class="score" id="score">0 / 5</span></h2>
+<div id="quiz"></div><div class="done" id="done"></div></section>
 <footer><span class="en">Offline lesson · No account or internet needed.</span><span class="roman">Offline sabaq · Account ya internet ki zaroorat nahi.</span></footer>
 </div>
 <script>
@@ -32,8 +146,15 @@ const qs=[
 let answered=0,score=0;const quiz=document.querySelector('#quiz');
 qs.forEach((x,i)=>{let q=document.createElement('div');q.className='q';q.innerHTML='<p>'+(i+1)+'. '+x[0]+'</p>'+x[1].map((o,j)=>`<button class="opt" data-q="${i}" data-c="${j===0?'a':'bc'[j-1]}">${String.fromCharCode(97+j)}) ${o}</button>`).join('')+`<div class="feedback" id="fb${i}">${x[3]}</div>`;quiz.append(q)});
 quiz.addEventListener('click',e=>{if(!e.target.matches('.opt')||e.target.disabled)return;let b=e.target,i=+b.dataset.q;let buttons=[...quiz.querySelectorAll(`[data-q="${i}"]`)];buttons.forEach(x=>x.disabled=true);if(b.dataset.c==='a'){b.classList.add('right');score++}else{b.classList.add('wrong');buttons[0].classList.add('right')}answered++;document.querySelector('#fb'+i).classList.add('show');document.querySelector('#score').textContent=score+' / 5';if(answered===5){let d=document.querySelector('#done');d.textContent=score===5?'Shabash! Perfect score — 5 / 5.':'Well done! Tum ne '+score+' / 5 sahi kiye.';d.classList.add('show')}});
-const words=['Ali','kitab','parhta','hai'];let built=[];const bank=document.querySelector('#bank'),sentence=document.querySelector('#sentence'),buildResult=document.querySelector('#buildResult');function drawBuild(){bank.innerHTML='';words.forEach((w,i)=>{if(!built.includes(i)){let b=document.createElement('button');b.className='word';b.textContent=w;b.onclick=()=>{built.push(i);drawBuild()};bank.append(b)}});sentence.innerHTML=built.length?built.map(i=>'<span>'+words[i]+'</span>').join(''):'<span class="en">Your sentence will appear here.</span><span class="roman">Tumhara jumlah yahan nazar aayega.</span>';if(built.length===4){let ok=built.map(i=>words[i]).join(' ')==='Ali kitab parhta hai';buildResult.textContent=ok?'✅ Shabash! Ism + ism + fail + helping word = complete jumlah.':'Try again: jumla “Ali kitab parhta hai” banao.'}else buildResult.textContent=''}drawBuild();document.querySelector('#resetBuild').onclick=()=>{built=[];drawBuild()};
-const imlas=[['school','school','skool'],['kitab','kitaab','ketab'],['dost','dost','doost'],['watan','watan','vatun']];let imlaRight=0;let imlaRoot=document.querySelector('#imlaDemo');imlas.forEach((a,n)=>{let row=document.createElement('div');row.innerHTML='<b>'+ (n+1)+'. '+a[0]+'</b>';let box=document.createElement('div');box.className='imla-row';a.slice(1).forEach((o,j)=>{let b=document.createElement('button');b.className='imla';b.textContent=o;b.onclick=()=>{if(b.dataset.done)return;box.querySelectorAll('button').forEach(x=>x.dataset.done=1);if(j===0){b.classList.add('correct');imlaRight++}else{b.classList.add('wrong');box.children[0].classList.add('correct')}document.querySelector('#imlaResult').textContent=imlaRight===4?'✅ Wah! Sabhi spellings sahi hain.': 'Sahi jawab milne tak koshish jaari rakho.'};box.append(b)});row.append(box);imlaRoot.append(row)});
-function speak(t){if('speechSynthesis'in window){speechSynthesis.cancel();speechSynthesis.speak(new SpeechSynthesisUtterance(t))}}document.querySelectorAll('.play').forEach(b=>b.onclick=()=>speak(b.dataset.say));document.querySelector('#playAll').onclick=()=>speak('Grammar aur imla. Ism naam hota hai. Fail kaam batata hai. Sifat khasiyat batati hai. Jumlah poora khayal deta hai.');document.querySelector('#lang').onclick=e=>{let on=document.body.classList.toggle('roman');e.currentTarget.setAttribute('aria-pressed',on);};
+const words=['Ali','kitab','parhta','hai'];let built=[];const bank=document.querySelector('#bank'),sentence=document.querySelector('#sentence'),buildResult=document.querySelector('#buildResult');
+function drawBuild(){bank.innerHTML='';words.forEach((w,i)=>{if(!built.includes(i)){let b=document.createElement('button');b.className='word';b.textContent=w;b.onclick=()=>{built.push(i);drawBuild()};bank.append(b)}});sentence.innerHTML=built.length?built.map(i=>'<span>'+words[i]+'</span>').join(''):'<span class="en">Your sentence will appear here.</span><span class="roman">Tumhara jumlah yahan nazar aayega.</span>';if(built.length===4){let ok=built.map(i=>words[i]).join(' ')==='Ali kitab parhta hai';buildResult.textContent=ok?'✅ Shabash! Ism + ism + fail + helping word = complete jumlah.':'Try again: jumla "Ali kitab parhta hai" banao.'}else buildResult.textContent=''}
+drawBuild();document.querySelector('#resetBuild').onclick=()=>{built=[];drawBuild()};
+const imlas=[['school','school','skool'],['kitab','kitaab','ketab'],['dost','dost','doost'],['watan','watan','vatun']];let imlaRight=0;let imlaRoot=document.querySelector('#imlaDemo');
+imlas.forEach((a,n)=>{let row=document.createElement('div');row.innerHTML='<b style="font-size:var(--fs-sm)">'+(n+1)+'. '+a[0]+'</b>';let box=document.createElement('div');box.className='imla-row';a.slice(1).forEach((o,j)=>{let b=document.createElement('button');b.className='imla';b.textContent=o;b.onclick=()=>{if(b.dataset.done)return;box.querySelectorAll('button').forEach(x=>x.dataset.done=1);if(j===0){b.classList.add('correct');imlaRight++}else{b.classList.add('wrong');box.children[0].classList.add('correct')}document.querySelector('#imlaResult').textContent=imlaRight===4?'✅ Wah! Sabhi spellings sahi hain.':'Sahi jawab milne tak koshish jaari rakho.';};box.append(b)});row.append(box);imlaRoot.append(row)});
+function speak(t){if('speechSynthesis'in window){speechSynthesis.cancel();speechSynthesis.speak(new SpeechSynthesisUtterance(t))}}
+document.querySelectorAll('.play').forEach(b=>b.onclick=()=>speak(b.dataset.say));
+document.querySelector('#playAll').onclick=()=>speak('Grammar aur imla. Ism naam hota hai. Fail kaam batata hai. Sifat khasiyat batati hai. Jumlah poora khayal deta hai.');
+document.querySelector('#lang').onclick=e=>{let on=document.body.classList.toggle('roman');e.currentTarget.setAttribute('aria-pressed',on);};
 </script>
-</body></html>
+</body>
+</html>

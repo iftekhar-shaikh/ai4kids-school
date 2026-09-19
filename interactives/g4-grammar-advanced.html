@@ -8,6 +8,19 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
+/* AI4KIDS_FS_SCALE */
+
+:root{
+  --fs-cap: clamp(0.85rem, 2.2vw, 1.05rem);
+  --fs-xs: clamp(1rem, 2.6vw, 1.2rem);
+  --fs-sm: clamp(1.15rem, 3vw, 1.4rem);
+  --fs-md: clamp(1.3rem, 3.4vw, 1.65rem);
+  --fs-lg: clamp(1.55rem, 4vw, 2rem);
+  --fs-xl: clamp(1.9rem, 5vw, 2.5rem);
+}
+
+/* /AI4KIDS_FS_SCALE */
+
   :root{
     --board:#eef2f0;
     --board-deep:#dde4e1;
@@ -156,7 +169,19 @@
     #catG{transition:none}
     *{transition-duration:.01ms !important}
   }
-</style>
+
+/* AI4KIDS_MOBILE_FLEX */
+html { -webkit-text-size-adjust: 100%; }
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; max-width: 100vw; overflow-x: hidden; }
+img, svg, canvas, video { max-width: 100%; height: auto; }
+button, .btn, .opt, [role=button] { min-height: 44px; min-width: 44px; }
+@media (max-width: 480px) {
+  main, .wrap, .container, .app { padding-left: 12px !important; padding-right: 12px !important; }
+  button, .btn { width: 100%; }
+}
+/* /AI4KIDS_MOBILE_FLEX */
+\n\1
 </head>
 <body>
 <div class="wrap">

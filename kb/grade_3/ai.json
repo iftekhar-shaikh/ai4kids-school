@@ -9,7 +9,6 @@
       "description": "AI patterns kaise dhundhti hai",
       "lesson": "## HOOK\nAgar aap kisi bazaar mein jaayein aur wahan har tarah ki cheezen dekhein, to aapko pata chalega ke wahan kuch patterns hain. Jaise kai rangon ke khilone ya ek jaise kapde! Kya aapne kabhi socha hai ke AI bhi aise patterns dhundh sakta hai?\n\n## SAMJHAO\nAI (Artificial Intelligence) ek aisi technology hai jo machines ko samajhne aur seekhne ki salahiyat deti hai. Patterns wo cheezen hain jo bar bar hoti hain. Jaise agar aapne sahar ki taraf dekha, to aapko aam ke darakht aur unke phal dekhne ko milenge jo ek pattern mein hain. \n\nAI bhi patterns ko dhundhta hai. Jaise jab aap kisi image ko dikhate hain, to AI dekh raha hota hai ke us image mein kya hai aur kya aisa hi kuch aur hai. Ye patterns dekh kar, AI seekhta hai aur agle waqt mein behtar tayoonata hai. \n\nIs tarah, AI data ko analyze karta hai aur usme se patterns dhoondta hai. Ye patterns use kar ke AI cheezein predict kar sakta hai, jaise ke aapka favorite khel ya khana. Isliye, jab aap online shopping karte hain aur aapko kuch similar cheezen dikhai deti hain, to waisa hi hota hai.\n\nPatterns sirf AI ka kaam nahi hain, humari daily life mein bhi hote hain. Jab aap cricket khelte hain aur aap baar baar same ball ko hit karte hain, to aap actually ek pattern follow kar rahe hain.\n\n## MISAAL\nChalo ek misal lete hain! Aapko yaad hai jab aap kisi biryani ki dukan par jate hain, to agar aap doodh aur masale ko ache se dekhte hain, to aapko pata chalega ke kuch masale hamesha saath mein hote hain. Jaise biryani mein zeera, laung aur dalchini, ye sab ek pattern hain jo acchi biryani banate hain. AI bhi isi tarah se data mein patterns dhoondta hai.\n\n## KARO\nAap ghar ya school mein ek choti si activity kar sakte hain. Apne aas paas ke masnoon (objects) ko dekhein aur unmein patterns dhoondhein. Jaise aap apne khiloneon ya kitabein ek jagah rakhein aur dekhein ke kaun se khilone ya kitabain aapas mein similar hain. Aap patterns ko draw bhi kar sakte hain ya notes mein likh sakte hain.\n\n## SAWAAL\n1. AI patterns ko kyun dhoondhta hai?\n2. Aapko apne aas paas kaun se patterns nazar aaye?\n3. Ek real-life example batao jahan aapne patterns dekhe.\n\nUstaad Ji.",
       "quiz": {
-        "title": "Patterns dhundho Quiz",
         "questions": [
           {
             "q": "AI kis tarah se patterns dhundhti hai?",
@@ -18,7 +17,15 @@
             "c": "Kuch nahi karti",
             "d": "Khilone se",
             "correct": "a",
-            "explanation": "AI data ka tajziya karke patterns ko samajhti hai."
+            "explanation": "AI data ka tajziya karke patterns ko samajhti hai.",
+            "question": "AI kis tarah se patterns dhundhti hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Pakistan mein kaun si cheez AI ko pattern dhundhne mein madad karti hai?",
@@ -27,7 +34,15 @@
             "c": "Bachon ka homework",
             "d": "Dostana",
             "correct": "a",
-            "explanation": "Weather data AI ko mosam ke patterns samajhne mein madad deti hai."
+            "explanation": "Weather data AI ko mosam ke patterns samajhne mein madad deti hai.",
+            "question": "Pakistan mein kaun si cheez AI ko pattern dhundhne mein madad karti hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "AI kis tarah se aawazon ke patterns ko samajhti hai?",
@@ -36,7 +51,15 @@
             "c": "Chat karte hue",
             "d": "Aik hi baar mein samajh kar",
             "correct": "b",
-            "explanation": "AI aawazon ko record karke aur unhein analyse karke patterns samajhti hai."
+            "explanation": "AI aawazon ko record karke aur unhein analyse karke patterns samajhti hai.",
+            "question": "AI kis tarah se aawazon ke patterns ko samajhti hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "AI patterns ka istemal kis cheez mein karti hai?",
@@ -45,7 +68,15 @@
             "c": "Mausam aur safar",
             "d": "Sabziyon ka bazaar",
             "correct": "c",
-            "explanation": "AI patterns ka istemal mausam aur safar ki information ka tajziya karne ke liye karti hai."
+            "explanation": "AI patterns ka istemal mausam aur safar ki information ka tajziya karne ke liye karti hai.",
+            "question": "AI patterns ka istemal kis cheez mein karti hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 2
           },
           {
             "q": "AI kis cheez ka pattern dhundhne ke liye machine learning ka istemal karti hai?",
@@ -54,7 +85,15 @@
             "c": "Games",
             "d": "Cooking recipes",
             "correct": "a",
-            "explanation": "AI photos ka pattern dhundhne ke liye machine learning ka istemal karti hai."
+            "explanation": "AI photos ka pattern dhundhne ke liye machine learning ka istemal karti hai.",
+            "question": "AI kis cheez ka pattern dhundhne ke liye machine learning ka istemal karti hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           }
         ]
       },
@@ -66,7 +105,6 @@
       "description": "Data matlab information",
       "lesson": "## HOOK\nAap kabhi sochte hain ke aapke phone ya computer par jo bhi cheezein hain, wo kaise aati hain? Aur kya aapne kabhi socha hai ke wo sab cheezein “Data” kehlati hain? Aaj hum dekhenge ke “Data” kya hota hai!\n\n## SAMJHAO\nData asal mein information hoti hai. Jab hum kisi cheez ke baray mein kuch jaante hain ya sochte hain, to wo data ban jata hai. Jaise, agar aapko yeh pata ho ke aapke school mein kitne students hain, to yeh bhi data hai.\n\nData har jagah hai — jaise jab aap koi khana khate hain, to aapko pata hota hai ke aapne kitna khana khaya. Yeh bhi data hai. Hum jab cricket dekhte hain, toh players ki performance ke baare mein jo scores hote hain, wo bhi data hain. Aik baar agar aap apne dost se koi khabar sunte hain, to wo bhi information hai, jo ke data ban jata hai.\n\nData ko samajhna bohot zaroori hai, kyunki aaj kal sab kuch technology par chalta hai. Aap jab apne teachers ko e-mails bhejte hain, toh wo data hota hai. Jab aap kisi game mein scorecard dekhte hain, toh usme bhi data hota hai. \n\nHar cheez jo aap dekhte hain aur jaan'te hain, wo data kehlati hai. Aaj kal har ghar mein computer ya smartphone hote hain, jahan hum important data rakhtay hain. Data ki wajah se aaj ki technology itni aasan ho gayi hai!\n\n## MISAAL\nChalo, ek example lete hain Pakistani bazaar ka. Jab aap bazaar jaate hain aur kuch khareedte hain, toh wahan ka har price, like daal ya chawal ka, wo data hai. Agar aap ne dekha ke daal ka daam 200 rupees hai aur chawal ka daam 100 rupees hai, toh yeh bhi data hai. Aap is data ki madad se decide karte hain ke aap kya kharidna chahte hain. Yeh data bazaar ki economy ko samajne mein bhi madad karta hai!\n\n## KARO\nAb aap ghar par yeh activity kar sakte hain. Apne family members ke saath milkar ek chhoti si “Data Collection” activity karo. Aap sab milkar yeh check karo ke ghar mein har shakhs ka favorite khana kya hai. Ek list banao aur ismein har shakhs ka naam aur unka favorite khana likho. Yeh bhi data hai! Phir dekho ke kis khane ko sabse zyada pasand kiya gaya.\n\n## SAWAAL\n1. Data kya hota hai?\n2. Kya aap bazaar se kharidi gayi cheezon ka data samajh sakte hain? Kaise?\n3. Aapne kis activity mein data collect kiya aur wo kaisi thi?\n\nUstaad Ji.",
       "quiz": {
-        "title": "Data kya hai? Quiz",
         "questions": [
           {
             "q": "Data kya hai?",
@@ -75,7 +113,15 @@
             "c": "Kisi ki tasveer",
             "d": "Koi khudai ka kaam",
             "correct": "a",
-            "explanation": "Data ka matlab hai wo maloomat jo humein pata hoti hai."
+            "explanation": "Data ka matlab hai wo maloomat jo humein pata hoti hai.",
+            "question": "Data kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Data kis cheez ka hissa hota hai?",
@@ -84,7 +130,15 @@
             "c": "Maloomat",
             "d": "Doston ki baatein",
             "correct": "c",
-            "explanation": "Data maloomat ka hissa hai jo humein kisi topic par jaanne mein madad karta hai."
+            "explanation": "Data maloomat ka hissa hai jo humein kisi topic par jaanne mein madad karta hai.",
+            "question": "Data kis cheez ka hissa hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 2
           },
           {
             "q": "Kya data ko hum records mein rakh sakte hain?",
@@ -93,7 +147,15 @@
             "c": "Haan, computers mein",
             "d": "Sirf doston ke liye",
             "correct": "c",
-            "explanation": "Haan, data ko computers ya records mein asaani se rakha ja sakta hai."
+            "explanation": "Haan, data ko computers ya records mein asaani se rakha ja sakta hai.",
+            "question": "Kya data ko hum records mein rakh sakte hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 2
           },
           {
             "q": "Data ka istemal kis liye hota hai?",
@@ -102,7 +164,15 @@
             "c": "Sirf doston ke saath masti karne ke liye",
             "d": "Khudai kaam karne ke liye",
             "correct": "b",
-            "explanation": "Data ka istemal maloomat ko ikattha karne aur samajhne ke liye hota hai."
+            "explanation": "Data ka istemal maloomat ko ikattha karne aur samajhne ke liye hota hai.",
+            "question": "Data ka istemal kis liye hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Data ko kaise dikhaya ja sakta hai?",
@@ -111,7 +181,15 @@
             "c": "Aankhein band kar ke",
             "d": "Kisi aur ki kahani sun kar",
             "correct": "a",
-            "explanation": "Data ko graphs aur charts ke zariye asaani se dikhaya ja sakta hai."
+            "explanation": "Data ko graphs aur charts ke zariye asaani se dikhaya ja sakta hai.",
+            "question": "Data ko kaise dikhaya ja sakta hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           }
         ]
       },
@@ -123,7 +201,6 @@
       "description": "Steps ka plan — biryani ki recipe",
       "lesson": "## HOOK\nKya aapne kabhi socha hai ke biryani kaise banti hai? Kisi din tayyari karte waqt aap ne dekha hoga ke kisi bhi dish ko banane ke liye ek khas plan hota hai. Aaj hum seekhenge ke yeh plan, jo hain \"Algorithm\", kis tarah se kaam karta hai.\n\n## SAMJHAO\nAlgorithm asal mein ek step-by-step tareeqa hai jo kisi bhi kaam ko karne ke liye istemal hota hai. Jaise agar aapne biryani banani hai, to aapko pehle sochna hoga ke aapko kya chahiye — chawal, meat, masalay aur paani. \n\nPhir aapko yeh tay karna hoga ke aap in saari cheezon ko kaise milayenge. Har step ek acha result dene ke liye zaroori hai. Aam zindagi mein aap kis tarah se aise plans banate hain, isay samajhna bohot zaroori hai.\n\nAlgorithm ka concept aise bhi samjha ja sakta hai ke yeh aik recipe ki tarah hai. Har recipe mein specific steps hote hain jinhe follow karke aap khana banate hain. Agar aap kisi step ko chhor dete hain, to aapka khaana acha nahi banega. \n\nIsi liye, jab aap biryani banate hain, aap ek algorithm ko follow kar rahe hain, jo aapko step-by-step guide karega ke aap ko kya karna hai.\n\n## MISAAL\nChalo, ek bazaar ka misaal lete hain. Jab aap kisi samaan ko kharidne jaate hain, to aapka ek plan hota hai. Pehle aap sochte hain ke aap ko kya kharidna hai, phir aap bazaar jaate hain, lekin yahan aapko yeh dekhna hai ke kis dukan par aap ko kya samajh aata hai. Yeh bhi aik algorithm hai — har step ko follow karte hue aap apna maqsad haasil karte hain.\n\n## KARO\nAb aap apne ghar par aik biryani ki recipe ka algorithm banaen. Aap apne maa ya baji se poochein ke biryani banane ke liye kya kya cheezen chahiye hoti hain aur phir unhe likhein. Har step ko likhne ke liye yeh dhiyan dein ke pehle kis cheez ko karna hai, phir kis cheez ko add karna hai. Is tareeqay se aap apne Algorithm banayenge!\n\n## SAWAAL\n1. Algorithm kya hai aur yeh kis cheez ko samajhata hai?  \n2. Biryani banane ka ek step kaunsa hai jo bohot zaroori hai?  \n3. Bazaar mein kharidari karte waqt aap kis tarah ka plan banate hain?  \n\nUstaad Ji",
       "quiz": {
-        "title": "Algorithm Quiz",
         "questions": [
           {
             "q": "Biryani bananay ke liye sabse pehla qadam kya hai?",
@@ -132,7 +209,15 @@
             "c": "Daal pakaana",
             "d": "Meat kaatna",
             "correct": "a",
-            "explanation": "Chawal ko bhigo dena zaroori hai taake woh achhe se pak jaye."
+            "explanation": "Chawal ko bhigo dena zaroori hai taake woh achhe se pak jaye.",
+            "question": "Biryani bananay ke liye sabse pehla qadam kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Biryani mein masalay kab milaye jaate hain?",
@@ -141,7 +226,15 @@
             "c": "Nahi milate",
             "d": "Chawal se pehle",
             "correct": "b",
-            "explanation": "Masale meat pakne ke baad milate hain taake inka flavor meat mein achhe se ghul jaye."
+            "explanation": "Masale meat pakne ke baad milate hain taake inka flavor meat mein achhe se ghul jaye.",
+            "question": "Biryani mein masalay kab milaye jaate hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Biryani ko kaise serve kiya jata hai?",
@@ -150,7 +243,15 @@
             "c": "Bina kisi side dish ke",
             "d": "Biscuit ke saath",
             "correct": "a",
-            "explanation": "Biryani ko hamesha garam garam serve karna chahiye taake iska maza barqarar rahe."
+            "explanation": "Biryani ko hamesha garam garam serve karna chahiye taake iska maza barqarar rahe.",
+            "question": "Biryani ko kaise serve kiya jata hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Biryani mein sabziyan kab dalte hain?",
@@ -159,7 +260,15 @@
             "c": "Nahi dalte",
             "d": "Chawal ke saath",
             "correct": "a",
-            "explanation": "Sabziyan pak jane ke baad milana zaroori hai taake wo masalewali ban jaye."
+            "explanation": "Sabziyan pak jane ke baad milana zaroori hai taake wo masalewali ban jaye.",
+            "question": "Biryani mein sabziyan kab dalte hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Biryani ko kyun masale se bhara jata hai?",
@@ -168,7 +277,15 @@
             "c": "Meat ko bhurgi banane ke liye",
             "d": "Kuch aur nahi",
             "correct": "d",
-            "explanation": "Masale is liye bhare jate hain taake biryani ka taste zyada acha ho jaye."
+            "explanation": "Masale is liye bhare jate hain taake biryani ka taste zyada acha ho jaye.",
+            "question": "Biryani ko kyun masale se bhara jata hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 3
           }
         ]
       },
@@ -180,7 +297,6 @@
       "description": "DRS, Hawk-Eye",
       "lesson": "## HOOK\nAapne kabhi socha hai ke cricket mein jab umpire koi faisla karta hai, to kya woh faisla sirf apne nazar par hi rely karta hai? Kya aapne DRS suna hai? Chalo, aaj hum yeh dekhte hain ke AI kaise cricket ko aur behtar banata hai!\n\n## SAMJHAO\nAI yaani Artificial Intelligence, ek technology hai jo kitaabain nahi hoti, lekin sochne aur samajhne ki koshish karti hai. Cricket mein DRS (Decision Review System) ek aisa system hai jo AI par based hai. Jab umpire koi faisla (jaise ke out ya not out) karta hai, toh players is faislay ko challenge kar sakte hain. Phir DRS ke through wo faisla dobara check kiya jata hai.\n\nHawk-Eye ek AI technique hai jo ball ki trajectory ko track karti hai. Jab ball bowler se chhuti hai aur woh batsman se takraati hai, Hawk-Eye ball ke raaste ko samajhti hai. Isse pata chalta hai ke ball kis taraf jaa rahi thi aur kya woh agar ye out hoti, toh aise nazar aata.\n\nYani, jab aap TV par cricket dekhte hain aur aapko DRS ka graphic nazar aata hai, toh yeh sab AI ki wajah se hai. Is technology ki wajah se players ko fair chances milte hain aur cricket ko aur interesting banata hai.\n\nPakistan ki cricket team bhi DRS ka istemal karti hai. Jazbaat ke saath humare cricketers DRS ke zariye apne faislay sahi karte hain. Aisa nahi hai ke sirf international matches mein iska istemal hota hai, balki domestic cricket mein bhi DRS ka istemal ho raha hai.\n\n## MISAAL\nAapne dekha hoga ke Pakistan ke cricket matches mein jab kisi shot pe shor machta hai, tab log kehte hain \"DRS le lo!\" Yeh teen dost, Babar, Shaheen, aur Hasan mil kar DRS ka istemal karte hain jab Babar ka LBW ka faisla challenge karte hain. DRS se yeh jaan lete hain ke kya ball paon se pehle zameen ko choo gayi thi ya nahi!\n\n## KARO\nGhar ya school mein aap ek chhoti si game khel sakte hain. Ek dost ko umpire banayein aur doosre doston ko players. Aap ek ball (ya tennis ball) ko maar ke, out hone ka faisla karen. Phir agar aapko lagta hai ke aap sahi out nahi hue, to aap DRS mango. Apne dost ko kahen ke wo ball ke trajectory ko track karein aur batayein ke aap kaise out ya not out hote!\n\n## SAWAAL\n1. DRS ka kya matlab hai?\n2. Hawk-Eye ka kaam kya hai?\n3. Pakistan ki cricket team DRS ka istemal kab karti hai?\n\nUstaad Ji.",
       "quiz": {
-        "title": "AI aur cricket Quiz",
         "questions": [
           {
             "q": "DRS ka full form kya hai?",
@@ -189,7 +305,15 @@
             "c": "Direct Review System",
             "d": "Data Review System",
             "correct": "a",
-            "explanation": "DRS ka full form Decision Review System hai."
+            "explanation": "DRS ka full form Decision Review System hai.",
+            "question": "DRS ka full form kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Hawk-Eye technology kis cheez ke liye istemal hoti hai?",
@@ -198,7 +322,15 @@
             "c": "Player ki fitness jaanchne ke liye",
             "d": "Khiladiyon ki salary tay karne ke liye",
             "correct": "b",
-            "explanation": "Hawk-Eye technology ball ki trajectory track karne ke liye istemal hoti hai."
+            "explanation": "Hawk-Eye technology ball ki trajectory track karne ke liye istemal hoti hai.",
+            "question": "Hawk-Eye technology kis cheez ke liye istemal hoti hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "AI cricket mein kis tarah se madad karti hai?",
@@ -207,7 +339,15 @@
             "c": "Umpires ko bhangra sikhane mein",
             "d": "Khiladiyon ka doston se baat karne mein",
             "correct": "a",
-            "explanation": "AI video analysis se umpire ke faisle mein madad karti hai."
+            "explanation": "AI video analysis se umpire ke faisle mein madad karti hai.",
+            "question": "AI cricket mein kis tarah se madad karti hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "DRS ka istemal kis faislay ke liye hota hai?",
@@ -216,7 +356,15 @@
             "c": "Ground ki condition check karne ke liye",
             "d": "Match ka schedule tay karne ke liye",
             "correct": "a",
-            "explanation": "DRS umpire ke faisle ko check karne aur tasdeeq karne ke liye istemal hota hai."
+            "explanation": "DRS umpire ke faisle ko check karne aur tasdeeq karne ke liye istemal hota hai.",
+            "question": "DRS ka istemal kis faislay ke liye hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Hawk-Eye ka kaam kya hota hai?",
@@ -225,7 +373,15 @@
             "c": "Players ki performance record karna",
             "d": "Match ka score batana",
             "correct": "b",
-            "explanation": "Hawk-Eye ball ki gati aur trajectory ko track karta hai."
+            "explanation": "Hawk-Eye ball ki gati aur trajectory ko track karta hai.",
+            "question": "Hawk-Eye ka kaam kya hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           }
         ]
       },
@@ -237,7 +393,6 @@
       "description": "Computer ko instructions dena",
       "lesson": "## HOOK\nAik dafa ka zikar hai, jab Amir ne socha ke woh apne computer se khelne wale games banayega. Lekin usay samajh nahi aata tha ke computer ko kaise samjhaaye ke kya karna hai! Aap kabhi sochte hain ke Computer ko instructions kaise di jaati hain?\n\n## SAMJHAO\nCoding asal mein ek tarika hai jisse hum computer ko samjhate hain ke humein kya karna hai. Jaise jab aap apni maa se kehte hain ke \"Mujhe halwa banao,\" to maa samajh jaati hain ke aap kis cheez ki khwahish rakhte hain. Bilkul aise hi, agar hum computer ko sahi instructions den, to woh bhi humein woh cheez de sakta hai jo hum chahte hain.\n\nCoding ke different languages hoti hain, jaise Python, Java, ya Scratch. Har language ka apna style hota hai. Jaise Urdu aur English mein farq hai, waise hi coding languages mein bhi farq hota hai. Coding ki madad se hum games, apps, aur websites bana sakte hain.\n\nCoding sirf ek technical kaam nahi, balki ye sochne ki salahiyat bhi badhata hai. Jab aap instructions dete hain, to aapko sochna padta hai ke aapko kya karwana hai aur kis tarah se karwana hai. Yani, coding aapko problem-solving skills bhi sikhaata hai.\n\nAaj kal schoolon mein bachay coding seekh rahe hain, taake woh future mein technology mein aage barh saken. Agar aap coding seekh lenge, to aap apna game ya app khud bana sakte hain!\n\n## MISAAL\nJab aap bazaar jaate hain aur apni maa se kehte hain ke \"Aloo aur tamatar kharid lo,\" to aap unhein instructions de rahe hain. Ghar aake jab aap khana banatay hain, to agar aap abhi taq aise hi instructions dena nahi seekhe hote, to aap kabhi acha khana nahi bana sakte! Bilkul isi tarah, computer ko bhi aapko precise instructions deni padhti hain taake woh aapka kaam kare.\n\n## KARO\nAapke liye ek asan activity hai! Apne dost ya behan bhai ke sath milkar ek simple game banayein. For example, aap ek drawing app ka istemal karte hue ek game bana sakte hain jahan aapko kahin jaana hai ya kisi chiz ko chhuna hai. Aap unhein instructions de sakte hain jaise \"Aage badho,\" \"Dayanay ghooma do,\" ya \"Ruk jao.\" Yeh dekhna achha hoga ke aapke diye gaye instructions ke zariye unki movement kaise hoti hai!\n\n## SAWAAL\n1. Coding kya hoti hai aur isay kyun seekhna zaroori hai?\n2. Aapne coding kaise sochne ki salahiyat ko behtar banati hai?\n3. Apne paisay ke liye computer ko instruction dene ki ek misaal do.\n\nUstaad Ji.",
       "quiz": {
-        "title": "Coding intro Quiz",
         "questions": [
           {
             "q": "Computer ko instructions denay ka kya matlab hai?",
@@ -246,7 +401,15 @@
             "c": "Likhai karna",
             "d": "Ghar ka kaam karna",
             "correct": "a",
-            "explanation": "Computer ko instructions denay ka matlab hai ke unhe kaam karne ke liye kehna."
+            "explanation": "Computer ko instructions denay ka matlab hai ke unhe kaam karne ke liye kehna.",
+            "question": "Computer ko instructions denay ka kya matlab hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Programming languages ka istemal kis liye hota hai?",
@@ -255,7 +418,15 @@
             "c": "Videos dekhne ke liye",
             "d": "Rang bharey drawings banane ke liye",
             "correct": "b",
-            "explanation": "Programming languages ka istemal computer ko samjhane ke liye hota hai ke unhein kya karna hai."
+            "explanation": "Programming languages ka istemal computer ko samjhane ke liye hota hai ke unhein kya karna hai.",
+            "question": "Programming languages ka istemal kis liye hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Kaun sa tool coding seekhne ke liye istemal hota hai?",
@@ -264,7 +435,15 @@
             "c": "Word",
             "d": "Excel",
             "correct": "b",
-            "explanation": "Scratch ek aisa tool hai jo bachon ko coding seekhne mein madad karta hai."
+            "explanation": "Scratch ek aisa tool hai jo bachon ko coding seekhne mein madad karta hai.",
+            "question": "Kaun sa tool coding seekhne ke liye istemal hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Algorithm kya hota hai?",
@@ -273,7 +452,15 @@
             "c": "Ghar ka naqsha",
             "d": "Khel ka jadoo",
             "correct": "a",
-            "explanation": "Algorithm ek aisa silsila hai jo computer ko batata hai ke kis tarah se kaam karna hai."
+            "explanation": "Algorithm ek aisa silsila hai jo computer ko batata hai ke kis tarah se kaam karna hai.",
+            "question": "Algorithm kya hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Coding seekhne se kya faida hota hai?",
@@ -282,7 +469,15 @@
             "c": "Aam dosti banane ka mauqa",
             "d": "Sirf zyada computer chalana",
             "correct": "b",
-            "explanation": "Coding seekhna hume computers ko behtar samajhne mein madad karta hai."
+            "explanation": "Coding seekhna hume computers ko behtar samajhne mein madad karta hai.",
+            "question": "Coding seekhne se kya faida hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           }
         ]
       },
@@ -294,7 +489,6 @@
       "description": "Internet safety",
       "lesson": "## HOOK\nAao, socho! Agar aapka dost aapko keh de ke internet par ek nayi game hai jo sirf ek click mein aapko millionaires bana sakti hai, to aap kya karenge? Kya aap use trust karenge? Chalo, seekhte hain ke kaise AI aur Internet ka safe istemal karna hai!\n\n## SAMJHAO\nAaj ke is lesson mein hum AI aur internet ka safe istemal seekhenge. Jab aap internet par hote hain, to wahan bahut saari information hoti hai. Lekin hamesha yaad rakho, sab kuch jo aap dekhte ho, wo sach nahi hota. Is liye, aapko soch samajh kar hi kisi cheez par click karna chahiye.\n\nJaise ke, agar aapko koi email ya message aata hai jo bahut hi interesting hai, to pehle check karo ke kya wo sach hai ya sirf fake. Bahut se log aise messages bhejte hain jise hum \"scams\" kehte hain. Ye scams aapki personal information le sakte hain, jaise aapka naam, address, ya password!\n\nEk aur zaroori baat hai ke hamesha apne passwords ko strong rakho. Password ko aisa banao ke ise koi asaani se guess na kar sake. Password mein letters, numbers, aur special characters use karo. Yeh aapki online safety ke liye bahut zaroori hai.\n\nLastly, agar aap online games ya social media use karte hain, to kabhi bhi apne personal details share mat karo. Yeh aapke liye khatarnaak ho sakta hai. Aapko hamesha apne parents se puchna chahiye agar aap kisi nai cheez se unsure hain.\n\n## MISAAL\nJaise ke, aap socho ke aap bazaar gaye ho aur aapne ek bhola-bhala dukan dar dekha jo sirf aik rupay mein biryani de raha hai. Kya aap use kharidne ka sochenge? Shayad na, kyuki itni sasti biryani ke peechay koi na koi chakkar hai. Bilkul waise hi, agar internet par koi cheez bahut achi lag rahi hai, to aapko sochna chahiye ke kya yah sach hai.\n\n## KARO\nAaj ghar ya school mein ek activity karni hai. Aap apne doston ke sath ek chhoti si play banayein jisme aap internet safety par role play karte huye dikhayein ke kaise scams se bacha ja sakta hai. Koshish karein ke har ek dost ek different role play kare. Is se aapko asal life situations mein apne aapko kaise safe rakhna hai, ye samajh aayega!\n\n## SAWAAL\n1. Kya aapko hamesha internet par apne personal information share karna chahiye? \n2. Scams ka matlab kya hota hai?\n3. Kya strong password mein sirf letters hone chahiye ya aur bhi kuch?\n\nKhush raho aur seekte raho!\n\nUstaad Ji",
       "quiz": {
-        "title": "AI safe istemal Quiz",
         "questions": [
           {
             "q": "Internet par apni personal maloomat kis tarah se mehfooz rakhein?",
@@ -303,7 +497,15 @@
             "c": "Sirf doston se share karain",
             "d": "Kisi bhi website par share karain",
             "correct": "a",
-            "explanation": "Yeh sahi hai kyunki personal maloomat share karne se aap khud ko khatar mein daal sakte hain."
+            "explanation": "Yeh sahi hai kyunki personal maloomat share karne se aap khud ko khatar mein daal sakte hain.",
+            "question": "Internet par apni personal maloomat kis tarah se mehfooz rakhein?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Agar aapko koi ajeeb email mile jo aap se maloomat maangta hai toh aap kya karein?",
@@ -312,7 +514,15 @@
             "c": "Email ko forward karein",
             "d": "Us link par click karein",
             "correct": "a",
-            "explanation": "Yeh sahi hai kyunki ajeeb emails aksar fraud hote hain."
+            "explanation": "Yeh sahi hai kyunki ajeeb emails aksar fraud hote hain.",
+            "question": "Agar aapko koi ajeeb email mile jo aap se maloomat maangta hai toh aap kya karein?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Internet par kis tarah ki website dekhna chahiye?",
@@ -321,7 +531,15 @@
             "c": "Illegal websites",
             "d": "Bakwas websites",
             "correct": "a",
-            "explanation": "Yeh sahi hai kyunki sirf trusted sources se information hasil karna behtar hota hai."
+            "explanation": "Yeh sahi hai kyunki sirf trusted sources se information hasil karna behtar hota hai.",
+            "question": "Internet par kis tarah ki website dekhna chahiye?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Agar aap kisi game ya app ka istemal kar rahe hain, toh aapko kya check karna chahiye?",
@@ -330,7 +548,15 @@
             "c": "Uska naam",
             "d": "Uska price",
             "correct": "a",
-            "explanation": "Yeh sahi hai kyunki privacy policy aapko batata hai ke aapki maloomat kaise istemal hogi."
+            "explanation": "Yeh sahi hai kyunki privacy policy aapko batata hai ke aapki maloomat kaise istemal hogi.",
+            "question": "Agar aap kisi game ya app ka istemal kar rahe hain, toh aapko kya check karna chahiye?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Agar aapko koi online dosti hoti hai, toh aapko kis cheez ka khayal rakhna chahiye?",
@@ -339,7 +565,15 @@
             "c": "Uski ahmiyat samjhein",
             "d": "Uski maloomat lene ki koshish karen",
             "correct": "d",
-            "explanation": "Yeh sahi hai kyunki online dosti mein aapko hamesha doosre ki suraksha ka khayal rakhna chahiye."
+            "explanation": "Yeh sahi hai kyunki online dosti mein aapko hamesha doosre ki suraksha ka khayal rakhna chahiye.",
+            "question": "Agar aapko koi online dosti hoti hai, toh aapko kis cheez ka khayal rakhna chahiye?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 3
           }
         ]
       },

@@ -9,7 +9,6 @@
       "description": "AI kya hota hai? Simple intro",
       "lesson": "## HOOK\nKya aapne kabhi socha hai ke koi machine khud se soch sakti hai? Jaise ke aapka dost chaand wala mobile phone, jo aapko aakhir waqt par mehfooz rakhne mein madad karta hai! Chalain, is duniya ko thoda samjhte hain.\n\n## SAMJHAO\nAI, yaani Artificial Intelligence, woh technology hai jo machines aur computers ko sochne aur samajhne ki salahiyat deti hai. Bilkul aise jaise aap school mein naye naye cheezain seekhte hain, waise hi AI ko bhi seekhne ki zarurat hoti hai. \n\nAI se machines apne aas paas ki duniya ko samajh sakti hain. Jab aap kisi app mein koi sawal karte hain aur wo jaldi se jawab de deta hai, to wo AI ka kaam hota hai. Aapko yaad hai jab aapne apne mobile par voice assistant ko \"Hello\" kaha tha aur usne jawab diya? Yeh sab AI ke kaam hain!\n\nHaal hi mein, kuch universities mein AI ka istemal students ko padhai mein madad karne ke liye ho raha hai. AI yeh dekh sakta hai ke kis bachay ko kis subject mein madad chahiye. Is tarah se, har student ko unki zarurat ke mutabiq padhai mein support mil raha hai.\n\nAI sirf students ko madad nahin karta, balki bazaar mein bhi istemal hota hai. Jaise ke aap jab online shopping karte hain, wo website aapke pasand aur kharidari ke ittefaq par aapko sujhaaw deti hai. Yeh bhi AI ka hi kaam hai!\n\n## MISAAL\nAgar aap kabhi bhi rickshaw book karte hain, to aapko yaad hoga ke kaise kuch apps aapki location ko samajhkar sabse nazdeek rickshaw ko bulati hain. Yeh AI ka hi kaam hai, jo aapki madad karta hai taake aapko jaldi waqiaat ka pata chal sake.\n\n## KARO\nGhar ya school mein aap AI ka thoda practice kar sakte hain. Aap ek simple game banayein jisme aapko kisi sawal ka jawab milne par \"Yes\" ya \"No\" kehna hoga. Aap apne dost se bhi is game ko khel sakte hain. Har wajah se koshish karein ke wo sahi jawab de sake.\n\n## SAWAAL\n1. AI ka matlab kya hai?\n2. AI ka ek example kya hai jo aapne suna hai?\n3. Aap AI ka istemal kaise dekhte hain apne roz marra mein?\n\nUstaad Ji.",
       "quiz": {
-        "title": "AI kya hai? Quiz",
         "questions": [
           {
             "q": "AI kya hota hai?",
@@ -18,7 +17,15 @@
             "c": "Ek mobile app.",
             "d": "Ek khel.",
             "correct": "a",
-            "explanation": "AI wo technology hai jo machines ko sochne aur samajhne ki salahiyat deti hai."
+            "explanation": "AI wo technology hai jo machines ko sochne aur samajhne ki salahiyat deti hai.",
+            "question": "AI kya hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Ai ka istemal kahan hota hai?",
@@ -27,7 +34,15 @@
             "c": "Dastakhat karne mein.",
             "d": "Ghar ke kaamon mein.",
             "correct": "a",
-            "explanation": "AI ka istemal aksar roboton mein hota hai jo insaano ki tarah kaam karte hain."
+            "explanation": "AI ka istemal aksar roboton mein hota hai jo insaano ki tarah kaam karte hain.",
+            "question": "Ai ka istemal kahan hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "AI ka sab se asan maqsad kya hai?",
@@ -36,7 +51,15 @@
             "c": "Gham khush karna.",
             "d": "Song sunana.",
             "correct": "a",
-            "explanation": "AI ka maqsad insaano ki madad aur unke liye kaamon ko aasan banana hai."
+            "explanation": "AI ka maqsad insaano ki madad aur unke liye kaamon ko aasan banana hai.",
+            "question": "AI ka sab se asan maqsad kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Pakistan mein AI ka istemal kis cheez ke liye ho raha hai?",
@@ -45,7 +68,15 @@
             "c": "Sirf movies banane ke liye.",
             "d": "Maamuli kaamon ke liye.",
             "correct": "a",
-            "explanation": "Pakistan mein AI ka istemal taleemi tools mein hota hai jo bachon ko behtar sikhne mein madad dete hain."
+            "explanation": "Pakistan mein AI ka istemal taleemi tools mein hota hai jo bachon ko behtar sikhne mein madad dete hain.",
+            "question": "Pakistan mein AI ka istemal kis cheez ke liye ho raha hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "AI ki madad se kaunsa kam aasan hota hai?",
@@ -54,7 +85,15 @@
             "c": "Dost banana.",
             "d": "Battiyan bharna.",
             "correct": "a",
-            "explanation": "AI ghar ke kaamon ko automate karne ki wajah se aasan banata hai."
+            "explanation": "AI ghar ke kaamon ko automate karne ki wajah se aasan banata hai.",
+            "question": "AI ki madad se kaunsa kam aasan hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           }
         ]
       },
@@ -90,7 +129,6 @@
       "description": "Robots hamare madadgaar",
       "lesson": "## HOOK\nKya aap ne kabhi socha hai ke agar aapka ek robot dost hota, to aap kitne mazeedaar kaam kar sakte the? Jaise karachi ki galiyon mein khelna ya phir school ke homework mein madad lena!\n\n## SAMJHAO\nAaj hum baat kareinge robots ke baare mein. Robots woh machines hain jo insaan ki tarah kaam kar sakte hain, aur humein madad de sakte hain. Har din humhare aas paas robots ka istemal hota hai. Aapko yaad hai jab aapki Maa bazaar jaati hain aur robot se malomaat leti hain? Waisa hi kuch hota hai!\n\nRobots alag-alag kaam karte hain. Kuch robots factories mein hote hain jo cheezen banate hain, aur kuch robots gharon mein madad karte hain jaise vacuum cleaner robots. Ye robots fast aur accurate kaam karte hain, jo humein zyada waqt deti hain.\n\nAaj kal hospitals mein bhi robots hain jo doctors ki madad karte hain. Jaise ke operation ke doran, robots doctors ko madad dete hain taake wo behtareen kaam kar sakein. Ye sab kehna hai ke robots hamesha insaan ki madad ke liye hain.\n\nAur kya aap jaante hain ke kuch robots to educate bhi karte hain? Schools mein aise robots hain jo bachon ko maths ya science samjhate hain. Is tarah se, robots hamare dost ban jaate hain!\n\n## MISAAL\nJaise ke aap sab ko pata hoga, Pakistan ke kuch shehron mein rickshaw mein ek smart system laga hota hai. Ye robots khaas tarah se chalay jaate hain jab unhein customer ka signal milta hai. Is se rickshaw walay ko madad milti hai aur humari safar ko behtar banata hai. Yani in rickshaws mein is technology ka istemal hota hai jo humein madad karta hai!\n\n## KARO\nAap apne ghar ya school mein ek chhoti si activity kar sakte hain. Ek cardboard ya paper se robot ka design banao. Isko rang do, aur socho ke ye robot aap ki kis kis cheez mein madad kar sakta hai. Jab aapka design tayar ho jaye, apne dost aur family ko dikhao aur unhein batayein ke aapka robot kya karega!\n\n## SAWAAL\n1. Robot kya hai aur ye kaise madad karte hain?\n2. Aapke khayal mein robots kaise schools mein istemal kiye ja sakte hain?\n3. Kya aapne kabhi kisi robot ko dekha hai? Agar haan, to wo kaunsa tha aur kya karta tha?\n\nUstaad Ji",
       "quiz": {
-        "title": "Robot dost Quiz",
         "questions": [
           {
             "q": "Robot kya hota hai?",
@@ -99,7 +137,15 @@
             "c": "Ek insaan",
             "d": "Ek khilona",
             "correct": "a",
-            "explanation": "Robot ek machine hota hai jo humari madad karta hai."
+            "explanation": "Robot ek machine hota hai jo humari madad karta hai.",
+            "question": "Robot kya hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Khudkar kuch kaam karne wale robots kis cheez ka hissa hain?",
@@ -108,7 +154,15 @@
             "c": "Ghar ke samaan",
             "d": "Khaana",
             "correct": "a",
-            "explanation": "AI aur technology robots ko khud kaam karne ke laayak banate hain."
+            "explanation": "AI aur technology robots ko khud kaam karne ke laayak banate hain.",
+            "question": "Khudkar kuch kaam karne wale robots kis cheez ka hissa hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Robot dost kis kaam mein humari madad karte hain?",
@@ -117,7 +171,15 @@
             "c": "Khelna",
             "d": "Sab kuch",
             "correct": "d",
-            "explanation": "Robots har tarah ke kaamon mein madad kar sakte hain."
+            "explanation": "Robots har tarah ke kaamon mein madad kar sakte hain.",
+            "question": "Robot dost kis kaam mein humari madad karte hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 3
           },
           {
             "q": "Pakistan mein kaun sa robot kisam ka mashhoor hai?",
@@ -126,7 +188,15 @@
             "c": "Mango Robot",
             "d": "Kaptaan Robot",
             "correct": "a",
-            "explanation": "Bolo Robot Pakistan mein mashhoor hai jo bachon se baatcheet kar sakta hai."
+            "explanation": "Bolo Robot Pakistan mein mashhoor hai jo bachon se baatcheet kar sakta hai.",
+            "question": "Pakistan mein kaun sa robot kisam ka mashhoor hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Robot ka sabse bada faida kya hai?",
@@ -135,7 +205,15 @@
             "c": "Zinda rehna",
             "d": "Safar karna",
             "correct": "b",
-            "explanation": "Robot ka kaam karne ki tezi insaan ki madad karti hai."
+            "explanation": "Robot ka kaam karne ki tezi insaan ki madad karti hai.",
+            "question": "Robot ka sabse bada faida kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           }
         ]
       },
@@ -171,7 +249,6 @@
       "description": "Kaunsi machine smart hai?",
       "lesson": "## HOOK\nKya aap ne kabhi socha hai ke ghar mein aise machines hain jo humein madad karti hain, lekin sab machines aisi nahi hoti. Jaise ke, ek khush numaya rickshaw driver aur ek beep beep karti smart car — in dono mein kya farq hai, Student?\n\n## SAMJHAO\nChalo, samajhte hain ke smart aur silly machines ka kya matlab hai. Pehli baat, silly machines wo hain jo sirf hamare kehne par hi kaam karti hain. Jaise ke ek purani washing machine. Usay chalonay k liye sirf button dabana hota hai, kyunki wo sirf ek kaam karti hai — kapray dhona. \n\nLekin, smart machines wo hain jo soch sakti hain aur kuch decision le sakti hain. Jaise ke aik modern vacuum cleaner jo khud ghar ke kone kone ko safai karta hai aur agar koi rukawat aaye to wo apne aap se usse bachke nikal jata hai. \n\nYani ke, smart machines ko technology ka istemal karna aata hai. Unhe kuch sikhaaya ja sakta hai aur wo waqt ke sath behtar hoti jaati hain. Jaise ke, smart phones jo aapse baatein karte hain aur aapki zaroorat ke mutabiq kaam karte hain.\n\nIs ka matlab ye hai ke jab ek machine apne aap se kuch kar sakti hai ya aapke sawalon ka jawab de sakti hai, to wo smart hai. Aur jab wo sirf simple kaam karti hai bina kisi soch-vichar ke, to wo silly hai.\n\n## MISAAL\nChalo ab bazaar ki misaal lete hain. Jab aap fresh sabzi khareedne jaate hain, to aapko wo sabzi dikhana waala shopkeeper ek simple machine ki tarah hai — wo sirf aapko dikhata hai aur aapko sabzi dene ke liye ready hai. Lekin jab aap online grocery khareedte hain, to wo website ek smart machine hai. Wo aapke liye aapki pasand ki cheezein dikhati hai aur aapke order ko dhyaan se manage karti hai.\n\n## KARO\nChalo ab aik activity karte hain! Ghar mein jaake dekho ke kaun kaun si machines hain. Kuch machines ko likho jo aapko sirf ek kaam karti hain (silly machines), jaise ke ek fan ya toaster. Aur phir kuch aisi machines ki misaal do jo aapko smarter feel karwati hain, jaise ke aapka smartphone ya smart TV. Is list ko apne dost ke sath share karo aur dekho ke kaun zyada smart machines dikhata hai!\n\n## SAWAAL\n1. Kya aapko pata hai ke silly machine kya hai? Ek misaal do.\n2. Smart machine kaise hoti hai? Uski kuch khasiyat batao.\n3. Aapki nazar mein aapke ghar ki sabse smart machine kaun si hai? Kyun?\n\nUstaad Ji",
       "quiz": {
-        "title": "Smart vs Silly machine Quiz",
         "questions": [
           {
             "q": "Kaunsi machine smart hai jo akele logo ki madad kar sakti hai?",
@@ -180,7 +257,15 @@
             "c": "Khilona",
             "d": "Farsh",
             "correct": "a",
-            "explanation": "Computer ek smart machine hai jo kaam karne aur sochne ki salahiyat rakhta hai."
+            "explanation": "Computer ek smart machine hai jo kaam karne aur sochne ki salahiyat rakhta hai.",
+            "question": "Kaunsi machine smart hai jo akele logo ki madad kar sakti hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Kya ghar mein istemal hone wali RGB LED light smart hai?",
@@ -189,7 +274,15 @@
             "c": "Sirf din mein",
             "d": "Sirf raat mein",
             "correct": "a",
-            "explanation": "RGB LED light ko control karna aur rang badalna smart machine ki misaal hai."
+            "explanation": "RGB LED light ko control karna aur rang badalna smart machine ki misaal hai.",
+            "question": "Kya ghar mein istemal hone wali RGB LED light smart hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Kaunsi machine khud se chalein aur madad karein?",
@@ -198,7 +291,15 @@
             "c": "Khilone ki gaadi",
             "d": "Pencil",
             "correct": "a",
-            "explanation": "Electric car self-driving technology ki wajah se smart machinery ki misal hai."
+            "explanation": "Electric car self-driving technology ki wajah se smart machinery ki misal hai.",
+            "question": "Kaunsi machine khud se chalein aur madad karein?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Kya smartphone smart machine hai?",
@@ -207,7 +308,15 @@
             "c": "Sirf call ke liye",
             "d": "Notebook",
             "correct": "a",
-            "explanation": "Smartphone mein apps hain jo humein alag alag kaam karne ki salahiyat dete hain."
+            "explanation": "Smartphone mein apps hain jo humein alag alag kaam karne ki salahiyat dete hain.",
+            "question": "Kya smartphone smart machine hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Kaunsi machine sirf ek kaam karti hai?",
@@ -216,7 +325,15 @@
             "c": "Robot",
             "d": "AC",
             "correct": "a",
-            "explanation": "Toast maker sirf toast banata hai isliye yeh silly machine hai."
+            "explanation": "Toast maker sirf toast banata hai isliye yeh silly machine hai.",
+            "question": "Kaunsi machine sirf ek kaam karti hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           }
         ]
       },
@@ -252,7 +369,6 @@
       "description": "Computer ke hisse — screen, keyboard, mouse",
       "lesson": "## HOOK\nKya aapne kabhi socha hai ke computer kaise kaam karta hai? Aur kya aapne dekha hai ke hum isay kis kis tarah se istemal karte hain? Aaj hum janenge ke computer kya hai aur is ke hisson ko pehchaanenge!\n\n## SAMJHAO\nComputer ek aise machine hai jo sab kuch quickly kar sakta hai. Hum isay kaam, khel aur seekhne ke liye istemal karte hain. Jaise hi aap school jate hain, aap dekhte hain ke aapke teachers bhi kabhi kabhi computer istemal karte hain.\n\nComputer ke kuch zaroori hissa hain: Screen, Keyboard aur Mouse. Screen wo hissa hai jahan aap sab kuch dekhte hain. Jab aap cartoon dekhte hain ya video dekhte hain, wo sab screen par dikhai deta hai. \n\nKeyboard wo tool hai jisse aap typing karte hain. Is par keys hoti hain jinko aap daba kar letters aur numbers likhte hain. Jab aap khud se programs ya games bana rahe hote hain, to aap keyboard ka istemal karte hain.\n\nMouse ek choti si device hai jo aapke haath se chalti hai. Isay aap screen par cheezen chune ke liye istemal karte hain. Jab aap koi icon ya file click karte hain, to aap mouse ka istemal karte hain. Ye teen hisson ka istemal karke hum computer se kaam karte hain.\n\n## MISAAL\nSochiye, jab aap bazaar jate hain, wahan sabzi wala aapko sabzi dikhata hai. Wo aise hi hai jaise computer ki screen hai. Aap khud sabzi kaise chunti hain? Aap dekhte hain aur phir kehate hain, \"Mujhe ye seb chahiye!\" Ye bilkul waise hai jaise aap mouse se kisi cheez ko chunte hain. \n\n## KARO\nAb aap ghar par ya school mein ek activity kar sakte hain. Apne ghar ke kisi kamray mein jayein aur use computer ka pretend game khelain. Screen ka role kuch aur bachay ada karein, keyboard ka role aap karen aur mouse ki tarah haath chalakar kisi cheez ko chunein! Yeh sab ki alag roles ko samajhne ka acha tareeqa hai.\n\n## SAWAAL\n1. Computer ke teen hisson ka naam kya hain?\n2. Keyboard ka kya kaam hai?\n3. Aap mouse kaise istemal karte hain?\n\nUstaad Ji",
       "quiz": {
-        "title": "Computer pehchano Quiz",
         "questions": [
           {
             "q": "Computer ke kis hissa ko screen kehte hain?",
@@ -261,7 +377,15 @@
             "c": "Jis se hum computer chalatay hain",
             "d": "Jis se hum printer ko jor'tay hain",
             "correct": "a",
-            "explanation": "Screen wahi hoti hai jise hum tasveer dekhne ke liye istemal karte hain."
+            "explanation": "Screen wahi hoti hai jise hum tasveer dekhne ke liye istemal karte hain.",
+            "question": "Computer ke kis hissa ko screen kehte hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Keyboard kis cheez ke liye istemal hota hai?",
@@ -270,7 +394,15 @@
             "c": "Pasandi data save karne ke liye",
             "d": "Computer ko on/off karne ke liye",
             "correct": "a",
-            "explanation": "Keyboard par hum type karte hain, jismein numbers aur letters dono hotay hain."
+            "explanation": "Keyboard par hum type karte hain, jismein numbers aur letters dono hotay hain.",
+            "question": "Keyboard kis cheez ke liye istemal hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Mouse kis kaam ke liye istemal hota hai?",
@@ -279,7 +411,15 @@
             "c": "Games khelne ke liye",
             "d": "Internet chalane ke liye",
             "correct": "a",
-            "explanation": "Mouse se hum screen par pointer ko move kar sakte hain."
+            "explanation": "Mouse se hum screen par pointer ko move kar sakte hain.",
+            "question": "Mouse kis kaam ke liye istemal hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "In mein se kaunsa hissa print karne mein madad nahi karta?",
@@ -288,7 +428,15 @@
             "c": "Mouse",
             "d": "Printer",
             "correct": "a",
-            "explanation": "Screen printing ke liye istemal nahi hoti, balki woh sirf dikhane ke liye hoti hai."
+            "explanation": "Screen printing ke liye istemal nahi hoti, balki woh sirf dikhane ke liye hoti hai.",
+            "question": "In mein se kaunsa hissa print karne mein madad nahi karta?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Keyboard par sab se zyada kaunse button hote hain?",
@@ -297,7 +445,15 @@
             "c": "Shapes ke liye",
             "d": "Colors ke liye",
             "correct": "b",
-            "explanation": "Keyboard par sabse zyada letters ke button hote hain, jise hum typing ke liye istemal karte hain."
+            "explanation": "Keyboard par sabse zyada letters ke button hote hain, jise hum typing ke liye istemal karte hain.",
+            "question": "Keyboard par sab se zyada kaunse button hote hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           }
         ]
       },
@@ -333,7 +489,6 @@
       "description": "Alexa, Siri — computer kaise bolta hai?",
       "lesson": "## HOOK\nAik din, Student ne ghar par apne baap se kaha, \"Abbu, kya computer baat kar sakta hai?\" Abbu ne muskurate hue jawab diya, \"Bilkul, buddhu! Computer hamesha hamaari madad karne ke liye tayyar hai!\" \n\n## SAMJHAO\nJab hum \"Bolta Computer\" ki baat karte hain, to hamara matlab hai aise computers ya devices jo humse baatein karte hain. Yeh devices, jaise ke Alexa aur Siri, voice assistant kehlate hain. Yeh hamari awaaz ko sunte hain, samajhte hain, aur phir jawab dete hain.\n\nComputer kis tarah se bolta hai? Sab se pehle, jab hum kuch kehte hain, to woh hamari awaaz ko microphones ke zariye sunte hain. Uske baad, yeh speech recognition technology ka istemal karke hamare shabdon ko samajhte hain. Yeh technology bahut tezi se kaam karti hai aur humein turant jawab deti hai.\n\nIsi tarah, jab hum farman dete hain, jaise \"Hey Siri, weather kaisa hai?\" to Siri apne data ka istemal karti hai aur humare liye mausam ka haal bata deti hai. Woh internet se information la kar humein batati hai.\n\nEk aur khaas baat yeh hai ke yeh computers sirf bolte nahi, balki humein sochne ka mauka dete hain. Hamari zaruraton ke mutabiq, yeh hamesha hamari madad karte rahte hain.\n\n## MISAAL\nAgar aap bazaar gaye hain aur aapko kisi cheez ki zarurat hai, to aap Alexa se keh sakte hain, \"Alexa, mujhe sabzi chahiye.\" Vo phir aapko sabzi kharidne ke liye mashwara de sakti hai, ya aapko online kuch cheezein dikhate hue batayegi. Yeh kisi dosto se madad lene jaisa hai!\n\n## KARO\nAb aap ghar ya school mein yeh activity kar sakte hain: Aap apne dost ya parivaar ke sath milkar ek \"Speech Assistant\" banane ki koshish kar sakte hain. Ek paper par kuch commands likhein, jaise \"Mujhe paani do,\" \"Mausam kya hai?\" ya \"Mujhe kahani sunao.\" Phir apne dosto se kehna, \"Mujhe in commands par jawab dene wala Assistant banana hai!\" Is tarah se aapko samajh aayega ke computers kaise kaam karte hain!\n\n## SAWAAL\n1. Computer bolta kaise hai?\n2. Alexa aur Siri kya karte hain?\n3. Aap apne friends se \"Speech Assistant\" banane ki activity mein kya seekhe?\n\nUstaad Ji",
       "quiz": {
-        "title": "Bolta computer Quiz",
         "questions": [
           {
             "q": "Alexa aur Siri kya hain?",
@@ -342,7 +497,15 @@
             "c": "Aik video player",
             "d": "Aik software update",
             "correct": "a",
-            "explanation": "Kyun sahi hai: Alexa aur Siri computer ka bolne wala hissa hain jo humein jawab dete hain."
+            "explanation": "Kyun sahi hai: Alexa aur Siri computer ka bolne wala hissa hain jo humein jawab dete hain.",
+            "question": "Alexa aur Siri kya hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Computer kis tarah bolta hai?",
@@ -351,7 +514,15 @@
             "c": "Light ke zariye",
             "d": "Text ke zariye",
             "correct": "a",
-            "explanation": "Kyun sahi hai: Computer audio ke zariye bolta hai jaise hum sunte hain."
+            "explanation": "Kyun sahi hai: Computer audio ke zariye bolta hai jaise hum sunte hain.",
+            "question": "Computer kis tarah bolta hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Agar aap bolte hain, \"Hey Siri!\", toh Siri kya karti hai?",
@@ -360,7 +531,15 @@
             "c": "Hansi chupati hai",
             "d": "Khaas koi kaam nahi karti",
             "correct": "a",
-            "explanation": "Kyun sahi hai: Siri aapki baat samajhti hai aur jawab deti hai."
+            "explanation": "Kyun sahi hai: Siri aapki baat samajhti hai aur jawab deti hai.",
+            "question": "Agar aap bolte hain, \"Hey Siri!\", toh Siri kya karti hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Kya computer sirf logo ki aawaz samajhta hai?",
@@ -369,7 +548,15 @@
             "c": "Haan, sirf akele ki aawaz",
             "d": "Nahi, ye sirf gaane sunta hai",
             "correct": "a",
-            "explanation": "Kyun sahi hai: Computer har insani aawaz ko samajhne ki koshish karta hai."
+            "explanation": "Kyun sahi hai: Computer har insani aawaz ko samajhne ki koshish karta hai.",
+            "question": "Kya computer sirf logo ki aawaz samajhta hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Computer ko kaise instruct karte hain?",
@@ -378,7 +565,15 @@
             "c": "Sirf likh kar",
             "d": "Khush hoke",
             "correct": "d",
-            "explanation": "Kyun sahi hai: Computer ko hamesha khushi se instructions deni chahiye."
+            "explanation": "Kyun sahi hai: Computer ko hamesha khushi se instructions deni chahiye.",
+            "question": "Computer ko kaise instruct karte hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 3
           }
         ]
       },
@@ -414,7 +609,6 @@
       "description": "Video games mein AI kaise khelti hai",
       "lesson": "## HOOK  \nKya aapne kabhi socha hai ke aapka favourite video game kaisa khelta hai? Acha zara sochiye, agar aap aksar jeet te hain, toh kya yeh asli dosto ki wajah se hai ya phir koi khaas technology ki wajah se? Chaliye, aaj is baare mein jaan'te hain!\n\n## SAMJHAO  \nAI ka matlab hai Artificial Intelligence, yani masnoi aqal. Jab aap video games khelte hain, toh game mein jo characters aur enemies hote hain, woh actually AI ki madad se chalte hain. Misaal ke taur par, jab aap FPS (First Person Shooter) game khelte hain, toh enemies aapko dekh kar move karte hain aur aap ki position ko samajhte hain. Ye sab AI ki wajah se hota hai.\n\nAI ki madad se games mein algorithms bante hain jo characters ko smart banate hain. Ye characters aapka khayal rakhte hain aur game ko challenging banate hain. Agar aap ek hide and seek game khel rahe hain, toh AI aapke movements ko track karta hai aur us hisaab se aapko dhoondta hai. Yeh hi AI ka magic hai!\n\nJab aap koi puzzle game khelte hain, toh AI aapko different levels par challenges de kar aapki soch ko bhee badhaata hai. Yani, AI sirf games ko chalay nahi raha, balki aapki learning mein bhi madad karta hai. \n\nYaad rakhiye, jab aap gaming karte hain, toh aap sirf mazeed mazeed khelne ka maza nahi le rahe hote, balki AI ka istemal bhi dekh rahe hote hain! AI games ko aur bhi mazedar aur interactive banata hai.\n\n## MISAAL  \nSochiye, jab aap cricket khelte hain aur kisi doosre team se muqabla karte hain, toh aap kaise unke skills ki jaanch karte hain aur apne strategy banate hain. Bilkul waise hi, video games mein AI bhi players ko track karta hai aur unki strategy ko samajhta hai. Misal ke taur par, agar aap \"Cricket 22\" khel rahe hain, toh AI aapke khilaf achi strategy banata hai, jisse aapko harana aur bhi mushkil ho jata hai!\n\n## KARO  \nAaj hum ek chhoti si activity karte hain. Aapko apne khud ke ek mini game ki design karni hai. Sochiye ke aap ek simple game bana rahe hain jismein kuch characters hain jo kise chase kar rahe hain. Aap decide karein ke AI in characters ko kaise chalaye ga. Unka movement aur strategy kya hogi? Apne friends se share karein aur dekhein ke kaun sa idea sabse behtareen hai!\n\n## SAWAAL  \n1. AI ka kya matlab hai?  \n2. Games mein AI kis tarah se kaam karta hai?  \n3. Aapki favorite video game mein AI kaise use hota hai?\n\nChaliye, ab aap is knowledge ko use karein aur video games ki duniya mein mazeed explore karein!  \nUstaad Ji",
       "quiz": {
-        "title": "AI games mein Quiz",
         "questions": [
           {
             "q": "Video games mein AI ka kaam kya hai?",
@@ -423,7 +617,15 @@
             "c": "Sirf graphics improve karna",
             "d": "Players ko cheat karna",
             "correct": "a",
-            "explanation": "AI video games mein players ki madad karte hain taake unka experience behtar ho."
+            "explanation": "AI video games mein players ki madad karte hain taake unka experience behtar ho.",
+            "question": "Video games mein AI ka kaam kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Kis game mein AI opponents hote hain?",
@@ -432,7 +634,15 @@
             "c": "GTA V",
             "d": "Need for Speed",
             "correct": "c",
-            "explanation": "GTA V mein AI opponents players ke khilaf khelte hain, jo game ko challenging banata hai."
+            "explanation": "GTA V mein AI opponents players ke khilaf khelte hain, jo game ko challenging banata hai.",
+            "question": "Kis game mein AI opponents hote hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 2
           },
           {
             "q": "AI ki madad se kis tarah se game ka difficulty badalta hai?",
@@ -441,7 +651,15 @@
             "c": "Game ka size badhakar",
             "d": "Sound effects se",
             "correct": "b",
-            "explanation": "AI player ke skills ko samajh kar game ki difficulty ko adjust karte hain."
+            "explanation": "AI player ke skills ko samajh kar game ki difficulty ko adjust karte hain.",
+            "question": "AI ki madad se kis tarah se game ka difficulty badalta hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "AI kaise players ki strategies ko seekhti hai?",
@@ -450,7 +668,15 @@
             "c": "Game ka end dekh kar",
             "d": "Random data se",
             "correct": "a",
-            "explanation": "AI players ki actions ko observe kar ke unki strategies ko seekhti hai."
+            "explanation": "AI players ki actions ko observe kar ke unki strategies ko seekhti hai.",
+            "question": "AI kaise players ki strategies ko seekhti hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Kis game mein AI cooperative players ban sakte hain?",
@@ -459,7 +685,15 @@
             "c": "Call of Duty",
             "d": "All of the above",
             "correct": "d",
-            "explanation": "PUBG, FIFA, aur Call of Duty mein AI players ke sath mil kar khel sakte hain."
+            "explanation": "PUBG, FIFA, aur Call of Duty mein AI players ke sath mil kar khel sakte hain.",
+            "question": "Kis game mein AI cooperative players ban sakte hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 3
           }
         ]
       },

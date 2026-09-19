@@ -103,6 +103,17 @@ def _data(name):
     return os.path.join(DATA_DIR, name)
 
 
+
+def _embed_height(default=720):
+    """Shorter iframe on phones so Lesson Bank / interactives fit the screen."""
+    try:
+        # Streamlit has no built-in width; use a compact default that scrolls inside.
+        # Mobile-first: prefer 70vh-ish via CSS wrapper when possible.
+        return min(default, 560)
+    except Exception:
+        return default
+
+
 def _app(name):
     """Sirf parhne wali file ka raasta (hamesha app folder mein)."""
     return os.path.join(APP_DIR, name)
@@ -1274,7 +1285,7 @@ def render_topic_interactive(subject_key, grade, topic_title):
     )
     try:
         html = open(fpath, encoding="utf-8").read()
-        components.html(html, height=720, scrolling=True)
+        components.html(html, height=_embed_height(720), scrolling=True)
         return True
     except Exception as e:
         st.error(f"Interactive nahi khul saki: {e}")
@@ -2385,10 +2396,24 @@ _inside_school = (
     and st.session_state.stu_screen not in ("assembly",)
 )
 if not _inside_school:
-    if os.path.exists(_app("banner.png")):
+    _banner = None
+    for _cand in ("banner-mobile.webp", "banner-desktop.webp", "banner-light.png", "banner.png"):
+        if os.path.exists(_app(_cand)):
+            _banner = _cand
+            break
+    if _banner:
         c1,c2,c3 = st.columns([1,2,1])
-        c2.image(_app("banner.png"), width='stretch')
-        st.markdown('<p style="text-align:center">اسلام آباد کا پہلا اردو AI سکول — Chalo Seekhte Hain!</p>', unsafe_allow_html=True)
+        c2.image(_app(_banner), width='stretch')
+        st.markdown(
+            '<p style="text-align:center;font-size:1.05rem;margin:0.35rem 0 0.15rem">'
+            'اسلام آباد کا پہلا اردو AI سکول — Chalo Seekhte Hain!</p>'
+            '<p style="text-align:center;margin:0 0 0.75rem">'
+            '<a href="https://wa.me/923371468899" target="_blank" rel="noopener" '
+            'style="display:inline-block;background:#25D366;color:#fff;font-weight:700;'
+            'padding:0.55rem 1.1rem;border-radius:999px;text-decoration:none;'
+            'font-size:1rem">WhatsApp: 0337 1468899</a></p>',
+            unsafe_allow_html=True,
+        )
     else:
         st.markdown('<div style="text-align:center"><h1>🐱 AI4Kids.pk</h1><p>اسلام آباد کا پہلا اردو AI سکول</p></div>', unsafe_allow_html=True)
 

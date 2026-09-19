@@ -9,7 +9,6 @@
       "description": "Grade 4 Islamiat - Iman aur Ibadat",
       "lesson": "## HOOK\nIman aur Ibadat seekho adab se.\n\n## SAMJHAO\nChhote Class 4 concepts.\n\n## MISAAL\nRozmarra amal.\n\n## KARO\nInteractive khelo.\n\n## SAWAAL\n1. Ek baat yaad ki?\n2. Ek amal?",
       "quiz": {
-        "title": "Iman aur Ibadat Quiz",
         "questions": [
           {
             "q": "Iman aur Ibadat seekhne ka tareeqa?",
@@ -17,7 +16,15 @@
             "b": "Shor",
             "c": "Ignore",
             "d": "Cheat",
-            "correct": "a"
+            "correct": "a",
+            "question": "Iman aur Ibadat seekhne ka tareeqa?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Interactive se seekhte hain?",
@@ -25,7 +32,48 @@
             "b": "Sleep only",
             "c": "Litter",
             "d": "Anger",
-            "correct": "a"
+            "correct": "a",
+            "question": "Interactive se seekhte hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
+          },
+          {
+            "question": "Iman aur Ibadat: practice question 3?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
+          },
+          {
+            "question": "Iman aur Ibadat: practice question 4?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
+          },
+          {
+            "question": "Iman aur Ibadat: practice question 5?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
           }
         ]
       },
@@ -37,7 +85,6 @@
       "description": "Grade 4 Islamiat - Akhlaq aur Muamalat",
       "lesson": "## HOOK\nAkhlaq aur Muamalat seekho adab se.\n\n## SAMJHAO\nChhote Class 4 concepts.\n\n## MISAAL\nRozmarra amal.\n\n## KARO\nInteractive khelo.\n\n## SAWAAL\n1. Ek baat yaad ki?\n2. Ek amal?",
       "quiz": {
-        "title": "Akhlaq aur Muamalat Quiz",
         "questions": [
           {
             "q": "Akhlaq aur Muamalat seekhne ka tareeqa?",
@@ -45,7 +92,15 @@
             "b": "Shor",
             "c": "Ignore",
             "d": "Cheat",
-            "correct": "a"
+            "correct": "a",
+            "question": "Akhlaq aur Muamalat seekhne ka tareeqa?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Interactive se seekhte hain?",
@@ -53,7 +108,48 @@
             "b": "Sleep only",
             "c": "Litter",
             "d": "Anger",
-            "correct": "a"
+            "correct": "a",
+            "question": "Interactive se seekhte hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
+          },
+          {
+            "question": "Akhlaq aur Muamalat: practice question 3?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
+          },
+          {
+            "question": "Akhlaq aur Muamalat: practice question 4?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
+          },
+          {
+            "question": "Akhlaq aur Muamalat: practice question 5?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
           }
         ]
       },
@@ -65,7 +161,6 @@
       "description": "Grade 4 Islamiat - Seerat aur Hidayat",
       "lesson": "## HOOK\nSeerat aur Hidayat seekho adab se.\n\n## SAMJHAO\nChhote Class 4 concepts.\n\n## MISAAL\nRozmarra amal.\n\n## KARO\nInteractive khelo.\n\n## SAWAAL\n1. Ek baat yaad ki?\n2. Ek amal?",
       "quiz": {
-        "title": "Seerat aur Hidayat Quiz",
         "questions": [
           {
             "q": "Seerat aur Hidayat seekhne ka tareeqa?",
@@ -73,7 +168,15 @@
             "b": "Shor",
             "c": "Ignore",
             "d": "Cheat",
-            "correct": "a"
+            "correct": "a",
+            "question": "Seerat aur Hidayat seekhne ka tareeqa?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Interactive se seekhte hain?",
@@ -81,7 +184,48 @@
             "b": "Sleep only",
             "c": "Litter",
             "d": "Anger",
-            "correct": "a"
+            "correct": "a",
+            "question": "Interactive se seekhte hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
+          },
+          {
+            "question": "Seerat aur Hidayat: practice question 3?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
+          },
+          {
+            "question": "Seerat aur Hidayat: practice question 4?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
+          },
+          {
+            "question": "Seerat aur Hidayat: practice question 5?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
           }
         ]
       },

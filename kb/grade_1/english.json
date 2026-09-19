@@ -9,7 +9,6 @@
       "description": "A-Z upper/lower case, letter sounds",
       "lesson": "## HOOK\nKya aapko pata hai ke A to Z tak ke har akshar ka apna ek khaas sa awaz hoti hai? Aaj hum isi khwab ko sach banane wale hain! Socho agar aap bazaar jaayein aur har akshar ke saath koi jodi cheez dekhein, toh kaisa hoga?\n\n## SAMJHAO\nAaj hum Alphabets yaani ke akshar seekhenge. English mein 26 akshar hain: A se lekar Z tak. Pehle hum inhe upper case aur lower case mein samjhte hain. Upper case ka matlab hai badi akshar, jaise A, B, C. Aur lower case ka matlab hai choti akshar, jaise a, b, c.\n\nHar akshar ki apni awaz hoti hai. Misal ke taur par A ki awaz “aa” hoti hai, B ki awaz “buh” hoti hai, aur C ki awaz “kuh” hoti hai. Jab hum in aksharon ka istemal karte hain, toh hum words banate hain. Words milke sentences banate hain!\n\nAb hum in alphabets ko yaad karne ke liye kuch asan tareeqe istemal kar sakte hain, jaise singing. Jab hum \"A, B, C\" ka song gaate hain, toh na sirf humein akshar yaad rehta hai, balki unki awazein bhi samajh aati hain.\n\nChalo, ab hum in aksharon ki kuch example dekhtay hain. Har akshar ke sath kuch chiziin milao, jaise A ke sath “Apple,” B ke sath “Ball,” aur C ke sath “Cat.”\n\n## MISAAL\nAgar hum bazaar jaaye toh hum A se Aloo, B se Biryani, C se Chamchay dekh sakte hain. Is tarah se humein alphabets aur unki awazain yaad ho jayengi.\n\n## KARO\nApne ghar mein ya school mein ek chhota sa alphabets chart banao. Har akshar ke saath koi chzi likho aur uska drawing banao. Misal ke taur par A ke liye Apple ka drawing, B ke liye Ball ka drawing.\n\n## SAWAAL\n1. English mein kitne akshar hain?\n2. A ka sound kya hai?\n3. B ke saath aap kis khane ki cheez ka naam bata sakte hain?\n\nKhush rahiye aur English seekhte rahiye! \n\nYours,\nEnglish Ma'am",
       "quiz": {
-        "title": "Alphabets aur Phonics Quiz",
         "questions": [
           {
             "q": "A ka sound kya hai?",
@@ -18,7 +17,15 @@
             "c": "Cee",
             "d": "Dee",
             "correct": "a",
-            "explanation": "A ka sound 'Aa' hota hai."
+            "explanation": "A ka sound 'Aa' hota hai.",
+            "question": "A ka sound kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "B ka kaisa sound hai?",
@@ -27,7 +34,15 @@
             "c": "Dee",
             "d": "Eff",
             "correct": "a",
-            "explanation": "B ka sound 'Bee' hota hai."
+            "explanation": "B ka sound 'Bee' hota hai.",
+            "question": "B ka kaisa sound hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "C ka sound kya hai?",
@@ -36,7 +51,15 @@
             "c": "Cee",
             "d": "Dee",
             "correct": "c",
-            "explanation": "C ka sound 'Cee' hota hai."
+            "explanation": "C ka sound 'Cee' hota hai.",
+            "question": "C ka sound kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 2
           },
           {
             "q": "D ka sound kaise hota hai?",
@@ -45,7 +68,15 @@
             "c": "See",
             "d": "Dee",
             "correct": "d",
-            "explanation": "D ka sound 'Dee' hota hai."
+            "explanation": "D ka sound 'Dee' hota hai.",
+            "question": "D ka sound kaise hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 3
           },
           {
             "q": "E ka sound kya hai?",
@@ -54,7 +85,15 @@
             "c": "Cee",
             "d": "Ee",
             "correct": "d",
-            "explanation": "E ka sound 'Ee' hota hai."
+            "explanation": "E ka sound 'Ee' hota hai.",
+            "question": "E ka sound kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 3
           }
         ]
       },
@@ -90,7 +129,6 @@
       "description": "High-frequency words — the, is, am, are",
       "lesson": "## HOOK\nAao bachon, kya aapne kabhi socha hai, jab aap bolte hain \"Mera ghar hai\" ya \"Woh cricket khel rahe hain,\" toh aap kaunse special lafz istemal karte hain? Aaj hum in hi khubsurat lafzon ke baare mein baat kareinge, jinhein hum \"sight words\" kehte hain!\n\n## SAMJHAO\nSight words wo lafz hain jo aksar hum rozana ke zindagi mein istemal karte hain. Ye lafz itne common hain ke aapko inhein dekh kar ya sun kar asaani se samajh aate hain bina sochay samjhay. Aaj hum kuch shandar sight words seekhenge: \"the,\" \"is,\" \"am,\" aur \"are.\"\n\nPehla lafz hai \"the.\" Ye lafz aksar kisi cheez ko specific banata hai, jaise \"the kitaab\" ya \"the khana.\" Ye lafz hamesha yeh batata hai ke hum kis cheez ki baat kar rahe hain.\n\nDusra lafz hai \"is.\" Ye lafz kisi cheez ki maujoodgi dikhata hai. Jaise agar hum kehain \"Woh larki hai,\" toh \"is\" humein batata hai ke ladki maujood hai.\n\nTeesra lafz hai \"am.\" Ye lafz hamesha \"I\" ke saath istemal hota hai. Jaise \"I am student.\" Yani \"Main student hoon.\"\n\nAakhri lafz hai \"are.\" Ye lafz hum tab istemal karte hain jab hum do ya zyada cheezein ya logon ki baat karte hain. Jaise \"They are my friends,\" yaani \"Woh meri dost hain.\"\n\n## MISAAL\nChalo, sochte hain ke aap bazaar gaye hain. Aap dekhte hain \"the chaand,\" jo bech raha hai pakoray. Sab log keh rahe hain \"Is yeh bazaar acha hai?\" Aur aap sochte hain \"I am hungry.\" Aakhir mein jab aap apne doston se milte hain, aap kehte hain \"We are happy.\"\n\n## KARO\nAb hum ek khoobsurat activity karenge. Aap apne ghar par ya school mein ek chhoti si kahani likhein. Us kahani mein \"the,\" \"is,\" \"am,\" aur \"are\" ka istemal zaroor karein. Is kahani ko apne maa baap ya doston ko sunaein. Yeh karke aap apne sight words ko mazid samajh sakte hain!\n\n## SAWAAL\n1. \"Is\" lafz ka kya matlab hai?  \n2. Aap \"I am\" ka istemal kis tarah karenge?  \n3. \"Are\" lafz ko kis situation mein istemal karte hain?  \n\nChalo bachon, sight words seekhne ke liye tayyar hain!  \nLove,  \nEnglish Ma'am",
       "quiz": {
-        "title": "Sight words Quiz",
         "questions": [
           {
             "q": "Kya 'the' ek sight word hai?",
@@ -99,7 +137,15 @@
             "c": "Shaayad",
             "d": "Pata nahin",
             "correct": "a",
-            "explanation": "'The' ek high-frequency word hai jo aksar istemal hota hai."
+            "explanation": "'The' ek high-frequency word hai jo aksar istemal hota hai.",
+            "question": "Kya 'the' ek sight word hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "'Is' ka matlab kya hai?",
@@ -108,7 +154,15 @@
             "c": "Honey wala",
             "d": "Aata",
             "correct": "b",
-            "explanation": "'Is' ka matlab hai 'hai' jo kisi cheez ki halat ya maujoodgi dikhata hai."
+            "explanation": "'Is' ka matlab hai 'hai' jo kisi cheez ki halat ya maujoodgi dikhata hai.",
+            "question": "'Is' ka matlab kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Kya 'am' bhi ek sight word hai?",
@@ -117,7 +171,15 @@
             "c": "Jee haan",
             "d": "Koi nahin",
             "correct": "b",
-            "explanation": "'Am' bhi ek high-frequency word hai jo first person singular ke liye istemal hota hai."
+            "explanation": "'Am' bhi ek high-frequency word hai jo first person singular ke liye istemal hota hai.",
+            "question": "Kya 'am' bhi ek sight word hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "'Are' kahan istemal hota hai?",
@@ -126,7 +188,15 @@
             "c": "Kahin nahi",
             "d": "Sirf kisi cheez ke liye",
             "correct": "a",
-            "explanation": "'Are' ka istemal second person aur plural subjects ke liye hota hai."
+            "explanation": "'Are' ka istemal second person aur plural subjects ke liye hota hai.",
+            "question": "'Are' kahan istemal hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "In mein se konsa word unka jorh hai: 'the', 'is', 'am', 'are'?",
@@ -135,7 +205,15 @@
             "c": "Kya",
             "d": "In mein se koi nahi",
             "correct": "d",
-            "explanation": "Sabhi diye gaye options sight words nahin hain."
+            "explanation": "Sabhi diye gaye options sight words nahin hain.",
+            "question": "In mein se konsa word unka jorh hai: 'the', 'is', 'am', 'are'?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 3
           }
         ]
       },
@@ -171,7 +249,6 @@
       "description": "My family, body parts — simple sentences",
       "lesson": "## HOOK  \nAapko yaad hai jab aapki family aapko first time bazaar lekar gayi thi? Kya aapne apne abbu, ammi, aur behan bhaiyon ka saath enjoy kiya tha? Aaj hum apne ghar aur apni family ke baare mein baat karenge! \n\n## SAMJHAO  \nSab se pehle, humein apne ghar ki tarah dekhte hain. Mera ghar mere liye bahut khaas hai. Is ghar mein meri family hai. Meri family mein meri ammi, abbu, behan aur bhai hain. Ammi humesha khana banati hain aur bhai mere saath khelte hain. \n\nAb chaliye body parts ke baare mein baat karte hain. Humare paas khaas parts hain jo humein help karte hain. Hamare paas sir hai, jismein humara dimaag hota hai. Hamare hath hain, jinke zariye hum cheezein uthane mein madad karte hain. Aur hamari aankhein hain, jinse hum duniya dekhte hain. \n\nJab hum apni family ki baatein karte hain, toh hum unke body parts ke naam bhi use karte hain. Jaise, meri ammi ki aankhein bohot khoobsurat hain. Mera abbu hamesha khush rehta hai aur uski muskurahat meri din ko roshan karti hai. \n\nFamily aur body parts dono hi hamare liye zaruri hain. Apne ghar ka mahol aur apni family ke members ko samajhna humein zindagi mein khush rehne mein madad karta hai. \n\n## MISAAL  \nAaj kal bazaar mein bohot se logon ko family ke sath shopping karte hue dekhte hain. Jab aap apne abbu aur ammi ke sath bazaar jaate hain, toh aap dekhte hain ke unki aankhein kitni khush hoti hain jab aap pasand ki cheezein chunte hain. Aapke chhote bhai ke hath mein woh khilauna hota hai jo usne bohot arse se chaha hota hai. Ye unki family ki khushiyon ka hissa hai!\n\n## KARO  \nGhar mein ya school mein ek drawing activity karen. Apne ghar ki family ka ek sketch banayen. Drawing mein apne har family member ka naam likhein aur unki body parts jaise aankhein, hath, aur sir bhi dikhayen. Phir aap har member ke liye ek chhoti si baat likhein, jaise “Meri ammi ki aankhein khoobsurat hain.” Is tarah se aap apne ghar aur family ko achhe se yaad kar sakte hain!\n\n## SAWAAL  \n1. Aapke ghar mein kaun kaun hai?  \n2. Aapki ammi ka favorite color kya hai?  \n3. Aapke bhai ke paas kaisa khilauna hai?   \n\nShukriya! Aap sab seekhte rahiye!  \nEnglish Ma'am",
       "quiz": {
-        "title": "Mera ghar meri family Quiz",
         "questions": [
           {
             "q": "Mera baap kya karta hai?",
@@ -180,7 +257,15 @@
             "c": "Woh school jata hai.",
             "d": "Woh aksar so raha hota hai.",
             "correct": "a",
-            "explanation": "Kyun sahi hai: Mera baap doctor hai, is liye yeh jawab sahi hai."
+            "explanation": "Kyun sahi hai: Mera baap doctor hai, is liye yeh jawab sahi hai.",
+            "question": "Mera baap kya karta hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Mere ghar mein kitne log hain?",
@@ -189,7 +274,15 @@
             "c": "Teen.",
             "d": "Chaar.",
             "correct": "a",
-            "explanation": "Kyun sahi hai: Mere ghar mein paanch log hain."
+            "explanation": "Kyun sahi hai: Mere ghar mein paanch log hain.",
+            "question": "Mere ghar mein kitne log hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Meri behan ka naam kya hai?",
@@ -198,7 +291,15 @@
             "c": "Zain.",
             "d": "Farah.",
             "correct": "a",
-            "explanation": "Kyun sahi hai: Meri behan ka naam Sana hai."
+            "explanation": "Kyun sahi hai: Meri behan ka naam Sana hai.",
+            "question": "Meri behan ka naam kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Mera dimaag kya karti hai?",
@@ -207,7 +308,15 @@
             "c": "Khana banana.",
             "d": "Ghar saaf karna.",
             "correct": "a",
-            "explanation": "Kyun sahi hai: Mera dimaag sochta hai."
+            "explanation": "Kyun sahi hai: Mera dimaag sochta hai.",
+            "question": "Mera dimaag kya karti hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Mere paas kaun si aankhein hain?",
@@ -216,7 +325,15 @@
             "c": "Hiray.",
             "d": "Badami.",
             "correct": "d",
-            "explanation": "Kyun sahi hai: Mere paas badami aankhein hain."
+            "explanation": "Kyun sahi hai: Mere paas badami aankhein hain.",
+            "question": "Mere paas kaun si aankhein hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 3
           }
         ]
       },
@@ -252,7 +369,6 @@
       "description": "Animals, colors, numbers vocabulary",
       "lesson": "## HOOK\nKya aapne kabhi gher mein ek rang-birangi Tota ya ek chalta phirta Gharwala dekha hai? Pakistan mein is tarah ke animals kaafi hote hain! Aaj hum animals aur unke colors ke baare mein seekhenge.\n\n## SAMJHAO\nAnimals ki duniya bohot rangin aur dilchasp hai. Humare paas kai animals hain, jese ke kutta, billi, aur gaayi. Har animal ka apna rang hota hai. Jaise kutta aksar brown ya white hota hai, aur billi aksar black ya orange hoti hai. \n\nAb baat karte hain colors ki. Colors mein humare paas red, blue, yellow, green, aur orange hain. Ye bhi dekhna bohot mazedaar hoga ke kis animal ka kaunsa rang hai! \n\nJab hum numbers ki baat karte hain, toh ye aur bhi mazedaar ho jata hai. Kya aapne kabhi socha hai ke 1 cow, 2 goats, ya 3 dogs kaise dikhte hain? Numbers se hum ye jaan sakte hain ke kitne animals hain aur unka rang kis tarah ka hai. \n\nAnimals ki ek choti si ginti karte hain! Agar aap ke paas 1 monkey hai, toh wo bohot mazaa karega. 2 ducks bhi hain, jo paani mein koodti hain. Aur 3 cats hain, jo dhoondh rahi hain! \n\n## MISAAL\nChalo sochte hain ke hum bazaar jaate hain. Wahan aapko bohot saare animals dikhai dete hain: ek golden Labrador jo milta hai ya ek beautiful parrot jo rang birangi hai. Jab aap unhe dekhte hain, toh aap sochte hain ke wo animals kitne khubsurat hain, unke rang kitne alag hain!\n\n## KARO\nAap ghar par ya school mein ek choti si activity kar sakte hain. Aapko ek white paper chahiye hoga. Us par aap apne pasandida animal ka drawing karein. Us animal ka rang bhi bharain! Phir apne friends ko batayein ke aapne kaunsa animal aur uska rang kya choose kiya hai. \n\n## SAWAAL\n1. Kya aapke paas ghar par koi animal hai? Uska kya rang hai?\n2. 2 yellow ducks ko kaise dikhate hain? Unka rang kya hai?\n3. Aapke pasandida animal ka naam kya hai aur uska rang kya hai?\n\nMain aapko English seekhne mein mazay karoongi! English Ma'am.",
       "quiz": {
-        "title": "Animals aur colors Quiz",
         "questions": [
           {
             "q": "Kya rang hai ek kachhua ka?",
@@ -261,7 +377,15 @@
             "c": "Blue",
             "d": "Yellow",
             "correct": "a",
-            "explanation": "Kachhuay ka rang aksar hara hota hai."
+            "explanation": "Kachhuay ka rang aksar hara hota hai.",
+            "question": "Kya rang hai ek kachhua ka?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Billi ka rang kya hota hai?",
@@ -270,7 +394,15 @@
             "c": "Both A and B",
             "d": "White",
             "correct": "c",
-            "explanation": "Billi ka rang aksar kala ya bhura hota hai."
+            "explanation": "Billi ka rang aksar kala ya bhura hota hai.",
+            "question": "Billi ka rang kya hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 2
           },
           {
             "q": "Kitne paon hote hain ek kutte ke?",
@@ -279,7 +411,15 @@
             "c": "Two",
             "d": "One",
             "correct": "a",
-            "explanation": "Kutte ke chaar paon hote hain."
+            "explanation": "Kutte ke chaar paon hote hain.",
+            "question": "Kitne paon hote hain ek kutte ke?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Kya rang hai ek gaind ka?",
@@ -288,7 +428,15 @@
             "c": "Purple",
             "d": "Green",
             "correct": "a",
-            "explanation": "Gaind ka rang aksar narangi hota hai."
+            "explanation": "Gaind ka rang aksar narangi hota hai.",
+            "question": "Kya rang hai ek gaind ka?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Ghar mein sab se zyada paaya jane wala jaanwar kaun sa hai?",
@@ -297,7 +445,15 @@
             "c": "Kutta",
             "d": "Ghar ka parinda",
             "correct": "c",
-            "explanation": "Ghar mein aksar kutte paaye jaate hain."
+            "explanation": "Ghar mein aksar kutte paaye jaate hain.",
+            "question": "Ghar mein sab se zyada paaya jane wala jaanwar kaun sa hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 2
           }
         ]
       },
@@ -333,7 +489,6 @@
       "description": "Short stories with pictures",
       "lesson": "## HOOK\nBachon, kya aapne kabhi socha hai ke kahaniyan kaise humain seekhati hain? Jaise Humara Pakistan ka bazaar hai, wahan bohot se rang-birangi kahaniyan hoti hain! Aaj hum ek mazedaaar kahani sunain gay!\n\n## SAMJHAO\nKahaniyan sunana ya parhna bohot mazedaar hota hai. Kahaniyan humari tasavvur ko khulati hain aur humein nai cheezein seekhne ka mauka deti hain. Jab hum ek kahani sunte hain, to hum us kahani ke kirdaron ke sath mahsus karte hain. Kahaniyan hamesha ek shuruwat, beech aur khatam hoti hain.\n\nAksar kahaniyan kisi maqsad ya sabak ke liye hoti hain. Jaise bohot si kahaniyan dosti, imandari aur sabr ke bare mein hoti hain. Yeh sabak humein behtar insaan banne mein madad karte hain. \n\nKahaniyan sirf lafz nahi hoti, balki un ke saath tasveerain bhi hoti hain. Yeh tasveerain kahani ko aur bhi zinda bana deti hain. Jab aap kahaniyan sunte hain, to aap us mein khud ko shamil karte hain, aur yeh aapko pasand aata hai.\n\nAaj hum ek chhoti si kahani sunenge, jo ek chhote se chiriyah ke bare mein hai. Yeh kahani humein dikhayegi ke kaise woh apne doston ke sath mil kar mushkilat ka samna karti hai.\n\n## MISAAL\nSocho ek din, bazaar mein, chhoti chhoti bachiyan apni maa ke sath ja rahi thi. Unhon ne dekha ke ek chiriyah rehti hai jo kisi wajah se udaas hai. Bachiyan sochti hain ke agar woh mil kar madad karengi, to woh chiriyah khush ho jayegi. Yeh dosti ki misaal hai!\n\n## KARO\nAap bhi ghar par ek kahani banao! Apne doston ya parivaar ke sath milkar ek kahani likhein jo ek chiriyah ke bare mein ho. Us kahani ke liye kuch tasveerain banayein, jisse aapki kahani zinda ho jaye. Jab aap yeh karenge, to aapko kahaniyon ki ahmiyat aur tasveeron ka maza aayega!\n\n## SAWAAL\n1. Kahaniyan kyun sunni ya padhni chahiye?\n2. Aapko kis kisam ki kahaniyan pasand hain?\n3. Aaj ki kahani ka sabak kya tha?\n\nAap sab bohot ache hain! Milte hain agle lesson mein!\n\nBest wishes,\nEnglish Ma'am",
       "quiz": {
-        "title": "Story time Quiz",
         "questions": [
           {
             "q": "Kis kirdar ka naam hai jo baarish mein ek chhatri le kar gaya?",
@@ -342,7 +497,15 @@
             "c": "Ahmed",
             "d": "Fatima",
             "correct": "a",
-            "explanation": "Ali baarish se bachne ke liye chhatri le kar gaya."
+            "explanation": "Ali baarish se bachne ke liye chhatri le kar gaya.",
+            "question": "Kis kirdar ka naam hai jo baarish mein ek chhatri le kar gaya?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Kahani mein machhli kis dost ki madad karti hai?",
@@ -351,7 +514,15 @@
             "c": "Ghar ki billi",
             "d": "Ghar ka kutta",
             "correct": "b",
-            "explanation": "Machhli khiladi ki madad karti hai jab usay paani ki zarurat hai."
+            "explanation": "Machhli khiladi ki madad karti hai jab usay paani ki zarurat hai.",
+            "question": "Kahani mein machhli kis dost ki madad karti hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Kahani ke main maqsad kya hai?",
@@ -360,7 +531,15 @@
             "c": "Masti karne ka",
             "d": "Bahut khush rahne ka",
             "correct": "c",
-            "explanation": "Kahani mein kirdar masti karte hain aur saath mil kar khush rehte hain."
+            "explanation": "Kahani mein kirdar masti karte hain aur saath mil kar khush rehte hain.",
+            "question": "Kahani ke main maqsad kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 2
           },
           {
             "q": "Billi kis kaam mein madad karti hai?",
@@ -369,7 +548,15 @@
             "c": "Bacchon ko sone dene mein",
             "d": "Dost banane mein",
             "correct": "a",
-            "explanation": "Billi choohe pakarne mein maharat rakhti hai."
+            "explanation": "Billi choohe pakarne mein maharat rakhti hai.",
+            "question": "Billi kis kaam mein madad karti hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Bacha kis khwab mein udta hai?",
@@ -378,7 +565,15 @@
             "c": "Zameen par",
             "d": "Sitaron ke saath",
             "correct": "d",
-            "explanation": "Bacha khwab mein sitaron ke saath udta hai aur khush rehta hai."
+            "explanation": "Bacha khwab mein sitaron ke saath udta hai aur khush rehta hai.",
+            "question": "Bacha kis khwab mein udta hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 3
           }
         ]
       },
@@ -414,7 +609,6 @@
       "description": "Letters aur words trace karo",
       "lesson": "## HOOK\nAaj hum ek bohot hi mazedar lesson karne wale hain! Kya aap ne kabhi socha hai ke aap apna naam kaise likhte hain? Aur kya aap jaanate hain ke aap chaand ko bhi likh sakte hain? Chalo, shuru karte hain!\n\n## SAMJHAO\nWriting practice bohot zaroori hai. Jab hum letters ya words ko trace karte hain, toh humari handwriting sudharne lagti hai. Yeh humein behtar banata hai jab humein kuch likhna hota hai, jaise school mein ya ghar par.\n\nPehle, hum letters trace karna shuru karte hain. Letters jaise A, B, C, D bohot aasaan hain. Aapko bas unhein seedhe lines ke saath follow karna hai. Jab aap in letters ko trace karte hain, toh aap inhein yaad bhi karte hain.\n\nPhir, hum words ko trace karte hain. Ek simple word lete hain, jaise “dog.” Aap sabse pehle “d” trace karte hain, phir “o” aur phir “g.” Is tarah se aap pura word likhna seekhenge.\n\nYeh practice aapki reading mein bhi madad karegi. Jab aap letters aur words ko likhte hain, toh aap unhein asani se pehchaan paate hain jab aap padhte hain. Toh, writing practice se sab kuch aasaan ho jata hai!\n\n## MISAAL\nChalo, ab ek example lete hain. Kahi baar bazaar mein jaate hain, aur wahan “fruit” likha hota hai. Aap jab “fruit” dekhenge, toh agar aapne isko trace karna seekha hai, toh aap aasaani se is word ko yaad rakhenge. Jaise aap ke paas aam ya kela hota hai, aap yeh words trace karte hue unhein yaad kar sakte hain!\n\n## KARO\nAb aap ghar ya school par ek activity karte hain. Ek plain paper lein aur pencil ya crayons. Paper par kuch letters aur words likhein, jaise A, B, C aur “cat,” “dog.” Phir inhein trace karein! Aap apne parents ya doston se bhi madad le sakte hain. Yeh activity bohot enjoyable hai!\n\n## SAWAAL\n1. Writing practice kyun zaroori hai?\n2. Aapko kon sa word trace karna sabse zyada pasand hai?\n3. Jab aap letters ko trace karte hain, toh aap kya seekhte hain?\n\nEnglish Ma'am",
       "quiz": {
-        "title": "Writing practice Quiz",
         "questions": [
           {
             "q": "Kya lafz hai jo khanay main istemal hota hai?",
@@ -423,7 +617,15 @@
             "c": "Dog",
             "d": "Table",
             "correct": "a",
-            "explanation": "Apple ek khanay wala fruit hai."
+            "explanation": "Apple ek khanay wala fruit hai.",
+            "question": "Kya lafz hai jo khanay main istemal hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Kis lafz se sabziyan hoti hain?",
@@ -432,7 +634,15 @@
             "c": "Sky",
             "d": "Chair",
             "correct": "b",
-            "explanation": "Vegetable sabziyon ka general naam hai."
+            "explanation": "Vegetable sabziyon ka general naam hai.",
+            "question": "Kis lafz se sabziyan hoti hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Kaunsa lafz kuchh seekhne ke liye istemal hota hai?",
@@ -441,7 +651,15 @@
             "c": "Jump",
             "d": "Run",
             "correct": "b",
-            "explanation": "Learn ka matlab seekhna hota hai."
+            "explanation": "Learn ka matlab seekhna hota hai.",
+            "question": "Kaunsa lafz kuchh seekhne ke liye istemal hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Chand kis cheez ko dikhata hai?",
@@ -450,7 +668,15 @@
             "c": "Sun",
             "d": "Star",
             "correct": "a",
-            "explanation": "Chand raat ko dikhai deta hai."
+            "explanation": "Chand raat ko dikhai deta hai.",
+            "question": "Chand kis cheez ko dikhata hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Aik khushbu wala phool ka naam kya hai?",
@@ -459,7 +685,15 @@
             "c": "Tree",
             "d": "Cloud",
             "correct": "a",
-            "explanation": "Rose ek khushbu wala phool hai."
+            "explanation": "Rose ek khushbu wala phool hai.",
+            "question": "Aik khushbu wala phool ka naam kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           }
         ]
       },

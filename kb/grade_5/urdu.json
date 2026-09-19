@@ -9,7 +9,6 @@
       "description": "Hamd Allah ki tarif; Naat Nabi ﷺ ki tarif",
       "lesson": "## HOOK\nPyare alfaaz se Allah aur Nabi ﷺ ki tarif — Hamd aur Naat.\n\n## SAMJHAO\nHamd = Allah ki tarif. Naat = Nabi ﷺ ki sifat o tarif.\n\n## MISAAL\nSoft awaz se sunna, adab se parhna, shukr aur mohabbat ke alfaaz.\n\n## KARO\nEk hamd / naat line soft awaz mein suno aur matlab socho.\n\n## SAWAAL\n1. Hamd kis ki tarif?\n2. Naat kis ki?\n3. Adab se sunna kyun?",
       "quiz": {
-        "title": "Hamd aur Naat Quiz",
         "questions": [
           {
             "q": "Hamd kis ki tarif hai?",
@@ -17,7 +16,15 @@
             "b": "Dost",
             "c": "Game",
             "d": "Map",
-            "correct": "a"
+            "correct": "a",
+            "question": "Hamd kis ki tarif hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Naat kis ki tarif?",
@@ -25,7 +32,15 @@
             "b": "Sirf school",
             "c": "Cartoon",
             "d": "Car",
-            "correct": "a"
+            "correct": "a",
+            "question": "Naat kis ki tarif?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Sunne ka tariqa?",
@@ -33,7 +48,15 @@
             "b": "Shor",
             "c": "Ignore",
             "d": "Laugh only",
-            "correct": "a"
+            "correct": "a",
+            "question": "Sunne ka tariqa?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Shukr ka matlab?",
@@ -41,7 +64,15 @@
             "b": "Gussa",
             "c": "Cheat",
             "d": "Litter",
-            "correct": "a"
+            "correct": "a",
+            "question": "Shukr ka matlab?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Hamd aur Naat dono?",
@@ -49,7 +80,15 @@
             "b": "Math sums",
             "c": "Traffic rules",
             "d": "Shopping list",
-            "correct": "a"
+            "correct": "a",
+            "question": "Hamd aur Naat dono?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           }
         ]
       },
@@ -61,7 +100,6 @@
       "description": "Parhna + sawalat — seerat stories",
       "lesson": "## HOOK\nRehmat wali kahaniyan dil ko narmi deti hain.\n\n## SAMJHAO\nStories se akhlaq seekho.\n\n## MISAAL\nMadad, sachchai, hilm.\n\n## KARO\nEk story ka lesson likho.\n\n## SAWAAL\n1. Story se kya seekha?\n2. Ek amal?",
       "quiz": {
-        "title": "Seerat stories Quiz",
         "questions": [
           {
             "q": "In stories se seekhte hain?",
@@ -69,7 +107,15 @@
             "b": "Cheating",
             "c": "Litter",
             "d": "Anger only",
-            "correct": "a"
+            "correct": "a",
+            "question": "In stories se seekhte hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Rehmat ka matlab qareeb?",
@@ -77,7 +123,48 @@
             "b": "Gussa",
             "c": "Noise",
             "d": "Map",
-            "correct": "a"
+            "correct": "a",
+            "question": "Rehmat ka matlab qareeb?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
+          },
+          {
+            "question": "Rahmat-e-Aalam aur seerat stories: practice question 3?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
+          },
+          {
+            "question": "Rahmat-e-Aalam aur seerat stories: practice question 4?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
+          },
+          {
+            "question": "Rahmat-e-Aalam aur seerat stories: practice question 5?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
           }
         ]
       },
@@ -89,7 +176,6 @@
       "description": "Pakistan themes, vocabulary",
       "lesson": "## HOOK\nWatan aur tehwar — hamari pehchan.\n\n## SAMJHAO\nQomi din aur watan se pyar ke alfaaz.\n\n## MISAAL\n14 August, Pakistan Zindabad.\n\n## KARO\n3 watan words likho.\n\n## SAWAAL\n1. Ek qomi tehwar?\n2. Watan se pyar kaise?",
       "quiz": {
-        "title": "Qomi tehwar Quiz",
         "questions": [
           {
             "q": "14 August?",
@@ -97,7 +183,15 @@
             "b": "Eid only",
             "c": "Sports day",
             "d": "Exam",
-            "correct": "a"
+            "correct": "a",
+            "question": "14 August?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Watan?",
@@ -105,7 +199,48 @@
             "b": "Sirf game",
             "c": "Car",
             "d": "Phone",
-            "correct": "a"
+            "correct": "a",
+            "question": "Watan?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
+          },
+          {
+            "question": "Qomi tehwar aur watan: practice question 3?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
+          },
+          {
+            "question": "Qomi tehwar aur watan: practice question 4?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
+          },
+          {
+            "question": "Qomi tehwar aur watan: practice question 5?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
           }
         ]
       },
@@ -117,7 +252,6 @@
       "description": "Comprehension + morals",
       "lesson": "## HOOK\nKahani suno, matlab samjho.\n\n## SAMJHAO\nCharacters, plot, lesson.\n\n## MISAAL\nChhoti moral story.\n\n## KARO\nStory ka moral likho.\n\n## SAWAAL\n1. Character kaun?\n2. Moral kya?",
       "quiz": {
-        "title": "Kahani Quiz",
         "questions": [
           {
             "q": "Kahani mein hota hai?",
@@ -125,7 +259,15 @@
             "b": "Sirf numbers",
             "c": "Maps only",
             "d": "Code",
-            "correct": "a"
+            "correct": "a",
+            "question": "Kahani mein hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Moral?",
@@ -133,7 +275,48 @@
             "b": "Shor",
             "c": "Cheat",
             "d": "Litter",
-            "correct": "a"
+            "correct": "a",
+            "question": "Moral?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
+          },
+          {
+            "question": "Kahani aur afsana: practice question 3?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
+          },
+          {
+            "question": "Kahani aur afsana: practice question 4?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
+          },
+          {
+            "question": "Kahani aur afsana: practice question 5?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
           }
         ]
       },
@@ -145,7 +328,6 @@
       "description": "Jumlah, sifat, muhavare",
       "lesson": "## HOOK\nSahi jumlah = clear baat.\n\n## SAMJHAO\nIsm, fail, sifat, imla.\n\n## MISAAL\nSimple sentence fix.\n\n## KARO\n3 jumlah likho.\n\n## SAWAAL\n1. Ism kya?\n2. Imla kyun?",
       "quiz": {
-        "title": "Grammar Quiz",
         "questions": [
           {
             "q": "Imla?",
@@ -153,7 +335,15 @@
             "b": "Running",
             "c": "Drawing only",
             "d": "Sleep",
-            "correct": "a"
+            "correct": "a",
+            "question": "Imla?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Jumlah?",
@@ -161,7 +351,48 @@
             "b": "Half noise",
             "c": "Map",
             "d": "Toy",
-            "correct": "a"
+            "correct": "a",
+            "question": "Jumlah?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
+          },
+          {
+            "question": "Grammar aur imla: practice question 3?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
+          },
+          {
+            "question": "Grammar aur imla: practice question 4?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
+          },
+          {
+            "question": "Grammar aur imla: practice question 5?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
           }
         ]
       },
@@ -173,7 +404,6 @@
       "description": "Paragraph, application, chhoti kahani",
       "lesson": "## HOOK\nLikhna seekho — paragraph aur darkhwast.\n\n## SAMJHAO\nShuru, beech, akhir; application format.\n\n## MISAAL\nLeave application.\n\n## KARO\n5 jumlon ka paragraph.\n\n## SAWAAL\n1. Paragraph kya?\n2. Application kis liye?",
       "quiz": {
-        "title": "Tahrir Quiz",
         "questions": [
           {
             "q": "Paragraph?",
@@ -181,7 +411,15 @@
             "b": "One emoji",
             "c": "Only numbers",
             "d": "Silence",
-            "correct": "a"
+            "correct": "a",
+            "question": "Paragraph?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Application?",
@@ -189,7 +427,48 @@
             "b": "Game cheat",
             "c": "Litter note",
             "d": "Map",
-            "correct": "a"
+            "correct": "a",
+            "question": "Application?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
+          },
+          {
+            "question": "Tahrir: practice question 3?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
+          },
+          {
+            "question": "Tahrir: practice question 4?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
+          },
+          {
+            "question": "Tahrir: practice question 5?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
           }
         ]
       },

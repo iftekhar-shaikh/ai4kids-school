@@ -9,7 +9,6 @@
       "description": "Roman numbers I se XX tak",
       "lesson": "## HOOK\nAap kabhi sochte hain ke rickshaw wala ya bazaar mein aapka favourite mithai wala jab number likhte hain, wo kis tarah ke numbers istemal karte hain? Aaj hum Roman numbers ke bare mein seekhenge, jo bahut purany aur dilchasp hain!\n\n## SAMJHAO\nRoman numbers ek tareeqa hai number darust karne ka jo purani Rome mein istemal hota tha. Ye numbers ka system kuch khaas letters par mabni hota hai. Aaj hum I se lekar XX tak ke Roman numbers sikhne wale hain.\n\nRoman numbers kuch is tarah hain:\n- I ka matlab 1 hai.\n- V ka matlab 5 hai.\n- X ka matlab 10 hai.\n- Agar hum I ko V ke peechay likhte hain, to ye 4 banta hai (IV) aur agar hum I ko V ke aage likhte hain, to ye 6 banta hai (VI).\n- Isi tarah agar X ko I ke aage likhte hain, to ye 11 banta hai (XI) aur agar X ke peechay likhte hain, to ye 9 banta hai (IX).\n\nIs tarike se, hum Roman numbers ko milakar bade numbers bhi bana sakte hain. Jaise, XV ka matlab 15 hai aur XX ka matlab 20. Samjha?\n\n## MISAAL\nAayiye sochte hain bazaar ki baat. Jab aap apne favorite mithai ki dukaan se mithai kharidte hain, to shayad mithai wala aap se kehta hai, \"Yeh mithai ki plate 10 rupees ki hai.\" Ab agar wo khud likhne lage, to wo keh sakta hai \"X\". Ab aap dekhte hain ke akser mithai wale ki dukaan par unka kuchh likha hota hai, jaise 'XX mithai ki variety' — iska matlab hai uske pass 20 alag alag mithai hai!\n\n## KARO\nAapko ghar par ek choti si activity karni hai. Apne kisi dost ya family member ko bulayiye aur unhe kaho ke Roman numbers ko sikhaayein. Aap kar sakte hain ke ek paper par Roman numbers I se XX tak likhiye, aur har number ke saath uska khud ka number likhiye, jaise I=1, II=2, III=3, aur aise aage. Is tarah aap apne dost ya parivaar ke dusre members ko Roman numbers sikhaveinge!\n\n## SAWAAL\n1. Roman number \"V\" ka kya matlab hai?\n2. \"XIII\" ko Arabic number (normal number) mein kya kehte hain?\n3. Agar aapka dost kahen ke uske paas XII mithain hain, to wo kitni mithain hain?\n\nShukriya, aur mujhe ummeed hai aapko Roman numbers seekhne mein maza aaya hoga!\n\nHisaab Sir",
       "quiz": {
-        "title": "Roman numbers Quiz",
         "questions": [
           {
             "q": "Roman number 'I' ki value kya hai?",
@@ -18,7 +17,15 @@
             "c": "3",
             "d": "4",
             "correct": "a",
-            "explanation": "'I' ki value 1 hai."
+            "explanation": "'I' ki value 1 hai.",
+            "question": "Roman number 'I' ki value kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Roman number 'V' ki value kya hai?",
@@ -27,7 +34,15 @@
             "c": "6",
             "d": "8",
             "correct": "b",
-            "explanation": "'V' ki value 5 hai."
+            "explanation": "'V' ki value 5 hai.",
+            "question": "Roman number 'V' ki value kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Roman number 'X' ki value kya hai?",
@@ -36,7 +51,15 @@
             "c": "12",
             "d": "15",
             "correct": "b",
-            "explanation": "'X' ki value 10 hai."
+            "explanation": "'X' ki value 10 hai.",
+            "question": "Roman number 'X' ki value kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Roman number 'IV' ki value kya hai?",
@@ -45,7 +68,15 @@
             "c": "2",
             "d": "8",
             "correct": "a",
-            "explanation": "'IV' ka matlab 4 hota hai."
+            "explanation": "'IV' ka matlab 4 hota hai.",
+            "question": "Roman number 'IV' ki value kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Roman number 'XX' ki value kya hai?",
@@ -54,7 +85,15 @@
             "c": "22",
             "d": "24",
             "correct": "b",
-            "explanation": "'XX' ki value 20 hai."
+            "explanation": "'XX' ki value 20 hai.",
+            "question": "Roman number 'XX' ki value kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           }
         ]
       },
@@ -66,7 +105,6 @@
       "description": "Addition/subtraction up to 4-digit",
       "lesson": "## HOOK\nAik din Student ko apne dost se khud ki gaddi ki baat karte suna. Usne kaha, \"Meri gaddi ki price 3,450 rupees hai, lekin jab meri ammi ne dekha, toh wo kehne lagi, 'Yeh toh bohot mehngi hai!' Aakhir kyun?\"\n\n## SAMJHAO\nAaj hum 4-digit numbers par kaam karenge, jismein addition aur subtraction seekhenge. 4-digit numbers wo hote hain jo 1000 se lekar 9999 tak hote hain, jaise 2345 ya 6789. \n\nAddition karne ka tariqa yeh hai ke hum pehle units (ones), phir tens, phir hundreds aur phir thousands ko alag alag jorhte hain. Misaal ke taur par, agar hum 1572 aur 2435 ko jortay hain, toh pehle hum 2 aur 5 ko jorain ge, phir 7 aur 3 ko, phir 5 aur 4 ko, aur aakhir mein 1 aur 2 ko. Is tarah se humara result 4007 aayega.\n\nAb subtraction ki baat karte hain. Agar hum 6245 se 1789 ko ghataain, toh pehle hum units (5 - 9) karne ki koshish karte hain. Lekin yahan 5 se 9 nahi ghata sakte, toh humein borrow lena padega. Is tarah se hum dheere dheere sab digits ko ghata kar apna jawab nikaalte hain.\n\nAaj hum yeh seekhne wale hain ke kaise addition aur subtraction ke zariye hum 4-digit numbers ko aasani se solve kar sakte hain.\n\n## MISAAL\nChalo, ek bazaar ka example lete hain. Aik dukan par 3,752 rupees ki biryani hai, agar hum 1,230 rupees ki do biryani aur kharidte hain. Hum jaanenge ke humein total kitna kharch karna hai. Toh 3,752 mein 1,230 ko jorain gay toh hoga 4,982 rupees. Ab agar humari ammi yeh keh deti hain ke hum sirf 2,000 rupees ka kharch kar sakte hain, toh hum 4,982 se 2,000 ko ghata kar dekhte hain ke kitne paise bachein gay. 4,982 - 2,000 karke humein 2,982 rupees bachte hain.\n\n## KARO\nGhar par ya school mein aap apne dost ke sath milkar ek khilaafi bazaar banayein. Aap apne khilone ya khurak ko 4-digit numbers ke sath pretend karein. Aap alag alag cheezon ka price rakhein, jese 1,250 rupees ka khilauna ya 3,400 rupees ka book. Phir apne dost se poochein ke agar wo do cheezein kharidta hai toh total kaise nikaalna hai. Aur agar wo kisi ek cheez ko return karta hai, toh uska new total kya aayega?\n\n## SAWAAL\n1. 2,345 plus 1,279 ka result kya hai?\n2. 4,562 se 1,788 ko ghataane par kya result milega?\n3. Agar ek dukan par total 5,000 rupees hain aur hum 1,750 rupees kharch karte hain, toh humein kitne paise bachte hain?\n\nHisaab Sir.",
       "quiz": {
-        "title": "4-digit operations Quiz",
         "questions": [
           {
             "q": "Agar Aap ke paas 2345 rupay hain aur aap 1234 rupay kharch karte hain, to aap ke paas kitne rupay bachte hain?",
@@ -75,7 +113,15 @@
             "c": "1300 rupay",
             "d": "1411 rupay",
             "correct": "a",
-            "explanation": "2345 - 1234 = 1111. Is liye sahi jawab 1111 rupay hai."
+            "explanation": "2345 - 1234 = 1111. Is liye sahi jawab 1111 rupay hai.",
+            "question": "Agar Aap ke paas 2345 rupay hain aur aap 1234 rupay kharch karte hain, to aap ke paas kitne rupay bachte hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Agar ek dukaan pe 4520 rupay ka maal hai aur wo 1500 rupay ka maal bech deti hai, to us ke paas kitna maal bacha?",
@@ -84,7 +130,15 @@
             "c": "4000 rupay",
             "d": "1000 rupay",
             "correct": "a",
-            "explanation": "4520 - 1500 = 3020. Is liye sahi jawab 3020 rupay hai."
+            "explanation": "4520 - 1500 = 3020. Is liye sahi jawab 3020 rupay hai.",
+            "question": "Agar ek dukaan pe 4520 rupay ka maal hai aur wo 1500 rupay ka maal bech deti hai, to us ke paas kitna maal bacha?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Agar aap ke paas 6789 rupay hain aur aap 2890 rupay aur 1300 rupay kharch karte hain, to aakhir mein aap ke paas kitne rupay bachte hain?",
@@ -93,7 +147,15 @@
             "c": "2999 rupay",
             "d": "2499 rupay",
             "correct": "c",
-            "explanation": "6789 - 2890 - 1300 = 3599. Is liye sahi jawab 3599 rupay hai."
+            "explanation": "6789 - 2890 - 1300 = 3599. Is liye sahi jawab 3599 rupay hai.",
+            "question": "Agar aap ke paas 6789 rupay hain aur aap 2890 rupay aur 1300 rupay kharch karte hain, to aakhir mein aap ke paas kitne rupay bachte hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 2
           },
           {
             "q": "Agar ek school mein 1450 students hain aur 300 students transfer ho jate hain, to school mein kitne students bachte hain?",
@@ -102,7 +164,15 @@
             "c": "1400 students",
             "d": "1000 students",
             "correct": "a",
-            "explanation": "1450 - 300 = 1150. Is liye sahi jawab 1150 students hai."
+            "explanation": "1450 - 300 = 1150. Is liye sahi jawab 1150 students hai.",
+            "question": "Agar ek school mein 1450 students hain aur 300 students transfer ho jate hain, to school mein kitne students bachte hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Agar aap ne 2367 rupay ka ek gadget kharida aur aap ke paas ab 5000 rupay hain, to aap ke paas ab kitne rupay bache hain?",
@@ -111,7 +181,15 @@
             "c": "2570 rupay",
             "d": "2100 rupay",
             "correct": "d",
-            "explanation": "5000 - 2367 = 2633. Is liye sahi jawab 2633 rupay hai."
+            "explanation": "5000 - 2367 = 2633. Is liye sahi jawab 2633 rupay hai.",
+            "question": "Agar aap ne 2367 rupay ka ek gadget kharida aur aap ke paas ab 5000 rupay hain, to aap ke paas ab kitne rupay bache hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 3
           }
         ]
       },
@@ -123,7 +201,6 @@
       "description": "Multiplication tables 6,7,8,9",
       "lesson": "## HOOK\nBacho! Aaj hum Zarb tables sikhain gay. Kya aapne kabhi socha hai agar aapke paas 6 pakoray hain aur aapke dost aap se 7 baar wo pakore maangtay hain, to aapke paas kitne pakoray honge? Chalo, isay aaj seekhtay hain!\n\n## SAMJHAO\nZarb tables yani multiplication tables aise numbers hain jo jab hum kisi number ko kisi doosre number se multiply karte hain, to miltay hain. Aaj hum tables 6 se 9 ke baare mein baat karein gay.\n\nSab se pehle 6 ka table lein. Jab hum 6 ko 1 se multiply karain to humein 6 milta hai. Agar hum 6 ko 2 se multiply karein to humein 12 milta hai. Is tarah se aagey barhte hain: 6×3=18, 6×4=24, 6×5=30, 6×6=36, 6×7=42, 6×8=48, aur 6×9=54.\n\nAb baat karte hain 7 ke table ki. 7 ko 1 se multiply karain to 7 aata hai. 7×2=14, 7×3=21 aur aise hi aagey: 7×4=28, 7×5=35, 7×6=42, 7×7=49, 7×8=56, aur 7×9=63.\n\nAb agar 8 ka table dekhein. 8×1=8, 8×2=16, 8×3=24, 8×4=32, 8×5=40, 8×6=48, 8×7=56, 8×8=64, aur 8×9=72.\n\nAur akhri table 9 ka. Agar aap 9 ko 1 se multiply karein to wo 9 hoga. 9×2=18, 9×3=27, 9×4=36, 9×5=45, 9×6=54, 9×7=63, 9×8=72, aur 9×9=81.\n\nYeh teen tables bohot ahem hain, aur inhe yaad karna aasan hai agar aap thodi practice karein.\n\n## MISAAL\nChalo ab ek misaal lete hain bazaar ki. Aap ne dekha hoga ke ek dukan par aapko 6 oranges diye ja rahe hain, aur aapke dost ne bola ke wo chaar baar oranges ly gay. Toh aap total oranges kaise jaanen gay? (6×4=24) To aapke paas 24 oranges ho gay. Is tarah se Zarb tables ka istemal karke hum bohot kuch jaan sakte hain!\n\n## KARO\nGhar ya school mein, ek khel kheltein hain. Aapne dost ya behan/bhai ke saath milkar Zarb tables ka chakkar lagayein. Ek doosre se pochain ke 6, 7, 8 aur 9 ka multiplication kya hai. Har sahi jawab par ek chota sa sticker ya point milega. Jis ke paas sabse zyada points honge, wo jeetega!\n\n## SAWAAL\n1. 6×8 ka jawab kya hai?\n2. 7×5 ka hasil kya hoga?\n3. 9×3 ki value kitni hoti hai?\n\nChalo, bacho, ab tum log in sawalon ke jawab do aur Zarb tables ko achhe se yaad karo!\n\nHisaab Sir",
       "quiz": {
-        "title": "Zarb tables 6-9 Quiz",
         "questions": [
           {
             "q": "6 ka 7 se multiplication kitna hai?",
@@ -132,7 +209,15 @@
             "c": "48",
             "d": "54",
             "correct": "a",
-            "explanation": "6 aur 7 ka multiplication 42 hota hai."
+            "explanation": "6 aur 7 ka multiplication 42 hota hai.",
+            "question": "6 ka 7 se multiplication kitna hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "7 ka 8 se multiplication kitna hai?",
@@ -141,7 +226,15 @@
             "c": "54",
             "d": "64",
             "correct": "b",
-            "explanation": "7 aur 8 ka multiplication 56 hota hai."
+            "explanation": "7 aur 8 ka multiplication 56 hota hai.",
+            "question": "7 ka 8 se multiplication kitna hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "8 ka 9 se multiplication kitna hai?",
@@ -150,7 +243,15 @@
             "c": "74",
             "d": "81",
             "correct": "c",
-            "explanation": "8 aur 9 ka multiplication 72 hota hai."
+            "explanation": "8 aur 9 ka multiplication 72 hota hai.",
+            "question": "8 ka 9 se multiplication kitna hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 2
           },
           {
             "q": "9 ka 6 se multiplication kitna hai?",
@@ -159,7 +260,15 @@
             "c": "72",
             "d": "81",
             "correct": "a",
-            "explanation": "9 aur 6 ka multiplication 54 hota hai."
+            "explanation": "9 aur 6 ka multiplication 54 hota hai.",
+            "question": "9 ka 6 se multiplication kitna hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "6 ka 8 se multiplication kitna hai?",
@@ -168,7 +277,15 @@
             "c": "54",
             "d": "36",
             "correct": "d",
-            "explanation": "6 aur 8 ka multiplication 48 hota hai."
+            "explanation": "6 aur 8 ka multiplication 48 hota hai.",
+            "question": "6 ka 8 se multiplication kitna hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 3
           }
         ]
       },
@@ -180,7 +297,6 @@
       "description": "Proper, improper, equivalent fractions",
       "lesson": "## HOOK\nAaj hum talk karenge fractions ke baare mein! Kya aapne kabhi socha hai ke agar aapko apni favorite samosay ki plate mein se sirf kuch part khana ho, to wo kaise hoga? Aayiye, is ka jawab dhoondte hain!\n\n## SAMJHAO\nFractions ka matlab hota hai kisi cheez ka hissa. Jab hum kehte hain 1/2, to iska matlab hai dosri cheez ka ek hissa. Proper fractions wo hote hain jahan numerator (upar wala hissa) denominator (neeche wala hissa) se chhota hota hai. Jaise ke 1/4, jahan 1 is chhota hai 4 se.\n\nImproper fractions woi hote hain jahan numerator, denominator se bada ya barabar hota hai. Jaise 5/3, jahan 5 zyada hai 3 se. \n\nEquivalent fractions wo hote hain jo alag alag dikhte hain lekin unki value ek hi hoti hai. For example, 1/2 aur 2/4, dono ek hi value ko represent karte hain, jo half hai.\n\nIs tarah se, fractions humari zindagi mein hamesha hain. Jab bhi hum kisi cheez ko equal parts mein baant te hain, wahan fractions ka istemal hota hai.\n\n## MISAAL\nSocho, aap bazaar gaye hain aur aapko 1 pizza kharidna hai. Pizza ko jab aap teen log share karte hain, to aap pizza ko 3 barabar hisson mein baant te hain. Har ek ko 1/3 part milta hai. Yahi hai fractions ka magic!\n\n## KARO\nAap ghar par apne dinner ka time lein aur family ke saath fractions ka maza lain. Maan lijiye aapne biryani banayi hai. Us biryani ko alag alag plate mein serve karein. Agar aapne 8 plates banayi hain aur 3 plates aapne khud ka liya, to aap keh sakte hain ke aapne 3/8 biryani khayi. Fractions ko samajhne ka ye ek fun tareeqa hai!\n\n## SAWAAL\n1. Agar aapke paas 4/5 cake hai aur aapne 1/5 cake kha liya, to aap ke paas ab kitna cake bacha?\n2. 6/8 ko equivalent fraction mein kya likha ja sakta hai?\n3. Kya 3/2 ek Proper fraction hai ya Improper fraction? \n\nIs lesson mein aapko fractions ke concept samajhne mein madad mili hogi. Aap in examples se practice karna na bhooliye! \n\nHisaab Sir.",
       "quiz": {
-        "title": "Fractions Quiz",
         "questions": [
           {
             "q": "Agar 3/4 ek proper fraction hai, to 5/4 kya hai?",
@@ -189,7 +305,15 @@
             "c": "Equivalent fraction",
             "d": "Whole number",
             "correct": "a",
-            "explanation": "5/4 mein numerator denominator se zyada hai, isliye yeh improper fraction hai."
+            "explanation": "5/4 mein numerator denominator se zyada hai, isliye yeh improper fraction hai.",
+            "question": "Agar 3/4 ek proper fraction hai, to 5/4 kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "2/6 aur 1/3 mein kya taluq hai?",
@@ -198,7 +322,15 @@
             "c": "Proper fractions",
             "d": "Different fractions",
             "correct": "a",
-            "explanation": "2/6 ko simplify karne par 1/3 milta hai, dono equivalent hain."
+            "explanation": "2/6 ko simplify karne par 1/3 milta hai, dono equivalent hain.",
+            "question": "2/6 aur 1/3 mein kya taluq hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Agar ek pizza ko 8 hisso mein kaata gaya hai aur aap 3 hisse lete hain, to aapka fraction kya hoga?",
@@ -207,7 +339,15 @@
             "c": "5/8",
             "d": "6/8",
             "correct": "a",
-            "explanation": "Aapne 3 hisse liye hain aur total 8 hisse hain, isliye fraction 3/8 hai."
+            "explanation": "Aapne 3 hisse liye hain aur total 8 hisse hain, isliye fraction 3/8 hai.",
+            "question": "Agar ek pizza ko 8 hisso mein kaata gaya hai aur aap 3 hisse lete hain, to aapka fraction kya hoga?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Kya 1/2 aur 2/4 equivalent fractions hain?",
@@ -216,7 +356,15 @@
             "c": "Sirf is case mein",
             "d": "Waqt ke hisaab se",
             "correct": "a",
-            "explanation": "1/2 ko 2/4 se barabar samjha ja sakta hai agar simplify kiya jaye."
+            "explanation": "1/2 ko 2/4 se barabar samjha ja sakta hai agar simplify kiya jaye.",
+            "question": "Kya 1/2 aur 2/4 equivalent fractions hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Agar aapke paas 7/5 puri tarah se hai, to yeh kis type ka fraction hai?",
@@ -225,7 +373,15 @@
             "c": "Equivalent fraction",
             "d": "Mixed number",
             "correct": "a",
-            "explanation": "7/5 mein numerator denominator se zyada hai, isliye yeh improper fraction hai."
+            "explanation": "7/5 mein numerator denominator se zyada hai, isliye yeh improper fraction hai.",
+            "question": "Agar aapke paas 7/5 puri tarah se hai, to yeh kis type ka fraction hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           }
         ]
       },
@@ -237,7 +393,6 @@
       "description": "Kilometer, meter, cm, kg, gram, liter",
       "lesson": "## HOOK\nAik dafa ka zikar hai ke ek chhoti si larki, Fatima, bazaar gayi. Usne dekha ke kuch log kharidari karte waqt \"kg\" aur \"liter\" ka istemal kar rahe they. Woh sochti hai, \"Yeh sab kya hai? Inka kya istemal hota hai?\"\n\n## SAMJHAO\nNaap taul ka matlab hai cheezon ko naapna aur unka wazan ya volume pata karna. Is mein do aham cheezein hoti hain: Length (lambi) aur Mass/Weight (wazan). Length ko hum kilometers, meters, aur centimeters mein naapte hain. Aur wazan ko hum kilograms aur grams mein napte hain. Volume ko hum liters aur milliliters mein naapte hain.\n\nKilometer bohot lambi mesha hai, jise hum zyada dooriyon ke liye istemal karte hain. Jaise ke Lahore se Karachi tak ka safar. Meters thodi chhoti mesha hai, jo hum ghar ya school ki length ke liye istemal karte hain. Centimeters aur bhi chhote hote hain, jo chhoti chhoti cheezein napne ke liye istemal hota hain.\n\nAb baat karte hain wazan ki. Kilogram (kg) waqai mein zyada wazan hota hai, jaise ek daal ka thaala. Grams (g) chhote wazan hai, jaise ek chammach cheeni. Volume ko naapne ke liye liters istemal kiya jaata hai, jaise paani ki bottle.\n\nIn sab cheezein ko samajhne se humein har din ki zindagi mein madad milti hai, jaise khana banaate waqt ingredients ka wazan ya daur ke waqt naapas dekhna.\n\n## MISAAL\nAap jab bazaar jaate hain to dekhte hain ke dukandaar sabziyaan kg ya grams mein bechte hain. Jaise ek kg tamatar khareedte hain ya phir kuch grams mein adrak. Waisa hi, jab aap chai banate hain, to paani ko liter mein napte hain. Aapki ammi jab aap ke liye biryani banati hain, to wo bhi masale ko grams mein mapne hai.\n\n## KARO\nChalo, hum ek chhoti si activity karte hain! Aap aur aapka dost ya behan ghar par kuch cheezein ikathha karen, jaise paani ki bottle, chips, ya daal. Unhe naapne ki koshish karein: Paani ko liters mein, daal ko grams ya kilograms mein, aur chips ko centimeters mein napne ki koshish karein! Dekhein kitne maza aata hai.\n\n## SAWAAL\n1. Kilometer, meter aur centimeter kis liye istemal hotey hain?\n2. 1 kg mein kitne grams hote hain?\n3. Aap ghar par kaunsa chashma naap sakte hain, volume ya length ka?\n\nHisaab Sir",
       "quiz": {
-        "title": "Naap taul Quiz",
         "questions": [
           {
             "q": "1 kilometer mein kitne meter hote hain?",
@@ -246,7 +401,15 @@
             "c": "10 meter",
             "d": "1 meter",
             "correct": "a",
-            "explanation": "1 kilometer mein 1000 meter hote hain."
+            "explanation": "1 kilometer mein 1000 meter hote hain.",
+            "question": "1 kilometer mein kitne meter hote hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "1 kg mein kitne gram hote hain?",
@@ -255,7 +418,15 @@
             "c": "10 gram",
             "d": "10000 gram",
             "correct": "b",
-            "explanation": "1 kg mein 1000 gram hote hain."
+            "explanation": "1 kg mein 1000 gram hote hain.",
+            "question": "1 kg mein kitne gram hote hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "1 liter mein kitne milliliters hote hain?",
@@ -264,7 +435,15 @@
             "c": "10 ml",
             "d": "1 ml",
             "correct": "a",
-            "explanation": "1 liter mein 1000 milliliters hote hain."
+            "explanation": "1 liter mein 1000 milliliters hote hain.",
+            "question": "1 liter mein kitne milliliters hote hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "5 cm ko meter mein kaise likhenge?",
@@ -273,7 +452,15 @@
             "c": "5 meter",
             "d": "50 meter",
             "correct": "a",
-            "explanation": "5 cm ko meter mein 0.05 likha jata hai."
+            "explanation": "5 cm ko meter mein 0.05 likha jata hai.",
+            "question": "5 cm ko meter mein kaise likhenge?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Agar ek kitaab ka wazan 250 gram hai, to 4 kitaabon ka mila jula wazan kya hoga?",
@@ -282,7 +469,15 @@
             "c": "750 gram",
             "d": "250 gram",
             "correct": "a",
-            "explanation": "4 kitaabon ka wazan 4 x 250 gram = 1000 gram hoga."
+            "explanation": "4 kitaabon ka wazan 4 x 250 gram = 1000 gram hoga.",
+            "question": "Agar ek kitaab ka wazan 250 gram hai, to 4 kitaabon ka mila jula wazan kya hoga?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           }
         ]
       },
@@ -294,7 +489,6 @@
       "description": "Carroll diagram, tally chart, picture graph",
       "lesson": "## HOOK\nAik dafa ka zikar hai ke Student ke dost ne kaha, \"Agar hamaray paas 20 toys hain, toh kaise jaan sakte hain ke kis kis type ke toys zyada hain?\" Yeh soch kar Student ne socha ke shayad is ka koi asan tareeqa hoga!\n\n## SAMJHAO\nData handling ka matlab hai maloomat ko ikattha karna aur samajhna. Jab hum kisi cheez ke bare mein sochte hain, toh humein data chahiye hota hai. Aaj hum teen tareeqay seekhenge: Carroll diagram, tally chart, aur picture graph.\n\nCarroll diagram aik grid hota hai. Is mein hum cheezon ko alag-alag categories mein daal dete hain. Jaise agar hum fruits ko categories mein rakhain, toh ek column apples ka hoga aur doosra oranges ka. Is tareeqay se hum dekh sakte hain ke kis category mein zyada fruits hain.\n\nTally chart ek simple tareeqa hai data ko record karne ka. Jab bhi koi cheez hoti hai, toh hum ek line draw karte hain. Agar hum total five lines bana den, toh fir hum fifth line ko ek cross se indicate karte hain. Is tarah se data dekhna asaan ho jata hai.\n\nPicture graph mein hum pictures ka istemal karte hain data ko dikhane ke liye. Har picture kisi specific quantity ka representation hota hai. Agar hum kehte hain ke 5 biryanis hain, toh hum 5 pictures use kar sakte hain jisse sab ko samajh aaye ke kitni biryanis hain.\n\n## MISAAL\nMisaal ke liye, chalo hum bazaar ki taraf chalte hain. Market mein humein fruits ki kayi categories milti hain. Agar hum count karein ke bazaar mein apples, oranges, aur bananas kis kis qadr hain, toh hum inka tally chart bana sakte hain. Agar students ne dekha ke bazaar mein 10 apples hain, 6 oranges hain, aur 8 bananas hain, toh woh inhe tally chart ya picture graph mein asaani se darj kar sakte hain.\n\n## KARO\nAb tumhari baari hai! Ghar ya school mein apne dost ya family ke sath mil kar ek simple data collection activity karo. Tum kisi ek cheez ka tally chart banao, jaise ke favorite snacks. Har shakhs jab apne favorite snack ka naam bataye, toh uska tally chart banao. Jab sab ka data ikattha ho jaye, toh dekho kis snack ka quantity zyada hai. Usko Carroll diagram ya picture graph mein bhi convert kar sakte ho.\n\n## SAWAAL\n1. Carroll diagram kya hota hai aur yeh kaisay kaam karta hai?\n2. Tally chart banao jab koi cheez hoti hai, toh woh kaise madadgar hai?\n3. Picture graph banane ka fayda kya hai?\n\nHisaab Sir",
       "quiz": {
-        "title": "Data handling Quiz",
         "questions": [
           {
             "q": "Carroll diagram kis cheez ko dikhata hai?",
@@ -303,7 +497,15 @@
             "c": "Sirf comparison.",
             "d": "Sirf addition.",
             "correct": "a",
-            "explanation": "Kyun sahi hai: Carroll diagram mein alag alag cheezon ko categories mein rakha jata hai."
+            "explanation": "Kyun sahi hai: Carroll diagram mein alag alag cheezon ko categories mein rakha jata hai.",
+            "question": "Carroll diagram kis cheez ko dikhata hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Tally chart kis liye use hota hai?",
@@ -312,7 +514,15 @@
             "c": "Pictures banane ke liye.",
             "d": "Numbers ko add karne ke liye.",
             "correct": "a",
-            "explanation": "Kyun sahi hai: Tally chart ka istemal data ko asani se count karne ke liye hota hai."
+            "explanation": "Kyun sahi hai: Tally chart ka istemal data ko asani se count karne ke liye hota hai.",
+            "question": "Tally chart kis liye use hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Picture graph mein kya use hota hai?",
@@ -321,7 +531,15 @@
             "c": "Kuch likha nahi hota.",
             "d": "Sirf colors.",
             "correct": "a",
-            "explanation": "Kyun sahi hai: Picture graph mein data ko dikhane ke liye pictures ya images ka istemal kiya jata hai."
+            "explanation": "Kyun sahi hai: Picture graph mein data ko dikhane ke liye pictures ya images ka istemal kiya jata hai.",
+            "question": "Picture graph mein kya use hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Pakistan mein students ko zimmedariyan dikhane ke liye kaunsa chart acha hai?",
@@ -330,7 +548,15 @@
             "c": "Koi chart nahi.",
             "d": "Khana khane ka chart.",
             "correct": "a",
-            "explanation": "Kyun sahi hai: Tally chart students ki zimmedariyan asani se dikhata hai."
+            "explanation": "Kyun sahi hai: Tally chart students ki zimmedariyan asani se dikhata hai.",
+            "question": "Pakistan mein students ko zimmedariyan dikhane ke liye kaunsa chart acha hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Carroll diagram ka istemal kahan hota hai?",
@@ -339,7 +565,15 @@
             "c": "Bills banane mein.",
             "d": "Sketch banane mein.",
             "correct": "d",
-            "explanation": "Kyun sahi hai: Carroll diagram ka istemal cheezon ke comparison ke liye hota hai."
+            "explanation": "Kyun sahi hai: Carroll diagram ka istemal cheezon ke comparison ke liye hota hai.",
+            "question": "Carroll diagram ka istemal kahan hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 3
           }
         ]
       },

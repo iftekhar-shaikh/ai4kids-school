@@ -9,7 +9,6 @@
       "description": "Cheezein internet se baat karti hain.",
       "lesson": "## HOOK  \nSadi, kya aapne kabhi socha hai ke aapke ghar ki chizain aapas mein baat kar rahi hain? Jaise aapka fridge ye jaan raha hai ke doodh khatam ho gaya hai, aur woh apne aap shop ko message bhej raha hai ke doodh kharid lo! \n\n## SAMJHAO  \nInternet of Things (IoT) ka matlab hai ke humari daily life ki chizain, jaise ke gadgets aur devices, internet se connected hain aur ek doosre se communicate kar sakti hain. Iska fayda ye hai ke yeh chizain aapas mein data share karke humein zyada aasani aur behtar tareeqe se jeene mein madad deti hain.\n\nIoT ke kuch smart devices hain jese smart speakers, jaise ke Amazon Echo ya Google Home, jo aapki awaaz par chalein ge. Aap inse keh sakte hain ke music chalayen ya weather ka haal bataen. Yeh devices aapas mein connected hote hain aur information share karte hain.\n\nAb socho agar aapke ghar ka TV bhi internet se connected ho, to kya aap TV dekhte hue kisi aur device ko control kar sakte hain? Haan, aap ek hi waqt mein apne mobile se lights on/off kar sakte hain ya koi aur function chalu kar sakte hain. \n\nPakistan mein bhi IoT aahista aahista har taraf phail raha hai. Aaj kal kayi log smart home devices istemal kar rahe hain. Ye unhein madad dete hain ghar ko behtar tareeqe se manage karne mein, jese lights aur security cameras ko monitor karna.\n\n## MISAAL  \nSadi, socho agar aapke school mein ek smart attendance system ho, jo aapke mobile ya ID card ke zariye attendance le leta hai. Jab aap school aate hain, to yeh system aapka naam automatically register kar leta hai. Is tarah teachers ko attendance lene ka waqt nahi lagta. Yeh chiz humari zindagi ko kitna asan bana sakti hai!\n\n## KARO  \nSadi, is lesson ke liye ek choti si activity karte hain. Ek drawing cheez ka banao jo aapko smart lagti hai, jese ke smart fridge ya smart light bulb. Drawing ke sath sath likho ke yeh device kaise aapki zindagi ko aasan banata hai. Jab aapne drawing complete kar lo, to apne dost se share karo aur unhe bhi batana ke aapne kya banaya hai!\n\n## SAWAAL  \n1. Internet of Things (IoT) kya hota hai?  \n2. Smart devices kis tarah se aapas mein communicate karte hain?  \n3. Aapke khayal mein ek smart device kaise aapki zindagi ko behtar bana sakta hai?",
       "quiz": {
-        "title": "IoT basics Quiz",
         "questions": [
           {
             "q": "Internet of Things (IoT) ka asal maqsad kya hai?",
@@ -18,7 +17,15 @@
             "c": "Internet par sirf video dekhna",
             "d": "Manual kaam karna",
             "correct": "a",
-            "explanation": "IoT ka maqsad devices ko aapas mein connect karna aur data ka adan pradan karna hai."
+            "explanation": "IoT ka maqsad devices ko aapas mein connect karna aur data ka adan pradan karna hai.",
+            "question": "Internet of Things (IoT) ka asal maqsad kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Kya cheez IoT device ki misaal hai?",
@@ -27,7 +34,15 @@
             "c": "Smart bulb",
             "d": "Sofa",
             "correct": "c",
-            "explanation": "Smart bulb ek IoT device hai jo internet se connect hota hai aur remotely control kiya ja sakta hai."
+            "explanation": "Smart bulb ek IoT device hai jo internet se connect hota hai aur remotely control kiya ja sakta hai.",
+            "question": "Kya cheez IoT device ki misaal hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 2
           },
           {
             "q": "Smart devices kis technology ka istemal karte hain?",
@@ -36,7 +51,15 @@
             "c": "Bluetooth",
             "d": "Internet",
             "correct": "d",
-            "explanation": "Smart devices internet ka istemal karte hain taake wo data share kar sakein."
+            "explanation": "Smart devices internet ka istemal karte hain taake wo data share kar sakein.",
+            "question": "Smart devices kis technology ka istemal karte hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 3
           },
           {
             "q": "Pakistan mein IoT ka istemal kis field mein zyada hai?",
@@ -45,7 +68,15 @@
             "c": "Ghar ki decoration",
             "d": "Art",
             "correct": "a",
-            "explanation": "Healthcare mein IoT ka istemal patients ki monitoring ke liye hota hai."
+            "explanation": "Healthcare mein IoT ka istemal patients ki monitoring ke liye hota hai.",
+            "question": "Pakistan mein IoT ka istemal kis field mein zyada hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Kis chiz se smart home devices ka gher ke andar istemal hota hai?",
@@ -54,7 +85,15 @@
             "c": "Internet",
             "d": "Wireless routers",
             "correct": "c",
-            "explanation": "Smart home devices internet ke zariye aapas mein baat karte hain aur control hote hain."
+            "explanation": "Smart home devices internet ke zariye aapas mein baat karte hain aur control hote hain.",
+            "question": "Kis chiz se smart home devices ka gher ke andar istemal hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 2
           }
         ]
       },
@@ -66,7 +105,6 @@
       "description": "3D printer se cheezein banana",
       "lesson": "## HOOK\nSadi, kya tumne kabhi socha hai ke agar tumhare khayal ki koi cheez waqai mein ban sakti hai? Aaj hum 3D printing ki madad se is tarah ki cheezein banana seekhenge, jaise ke hum apna khud ka toy ya kuch aur banayein!\n\n## SAMJHAO\n3D printing ek aisa process hai jisme computer ki madad se kisi cheez ka design tayyar karte hain. Phir yah design ek 3D printer mein bhej dete hain, jo us design ko layer by layer banata hai. Yeh bilkul aise hai jaise tum ek cake bana rahe ho, pehle ek layer rakhte ho, phir uske upar aur layers add karte ho. \n\n3D printer kaam karne ke liye khas material use karta hai, jo aksar plastic ya resin hota hai. Jab 3D printer ka nozzle garmi se plastic ko melt karta hai, toh yeh liquid plastic ko ek pattern mein daal deta hai. Phir jab yeh thoda thanda hota hai, toh ek mazboot structure bana leta hai.\n\nIs technology ki madad se hum bohot si cheezein bana sakte hain, jaise toys, household items, aur hatta ke medical devices. Yeh technology bohot hi useful hai, kyunki isse hum kisi cheez ko jaldi aur asani se bana sakte hain.\n\nPakistan mein bhi kuch companies hain jo 3D printing ka kaam karti hain. Yeh na sirf naye inventions ki taraf barh rahe hain, balki choti choti problems ka solution bhi de rahe hain. Jaise ke 3D printed prosthetic limbs, jo kisi behtareen madad karte hain.\n\n## MISAAL\nChalo ek misaal lete hain. Tumhe yaad hai ke humare bazaar mein kabhi kabhi aise stalls hote hain jahan par unique toys milte hain? Ek dosto ka group hai jo 3D printing se apne unique toys banate hain. Yeh toys market mein bechne ke liye tayyar karte hain. Matlab, woh apne khayalon ko waqai mein tabdeel karte hain aur kuch naya create karte hain!\n\n## KARO\nSadi, ab hum aik choti si activity karte hain! Tumhe apne favorite toy ka design banana hai, ya koyi aise cheez jo tum chahti ho ke banayein. Tum isko pencil aur paper par draw karo. Phir dekhna ke tumhe uska kaunsa feature sabse zyada pasand hai? Kya tumhara design 3D printer se ban sakta hai?\n\n## SAWAAL\n1. 3D printing kis tarah ka process hai?\n2. Tumhare khayal mein 3D printing kis kis cheez ke liye use hoti hai?\n3. Pakistan mein 3D printing se kaun se unique products tayyar kiye jate hain?",
       "quiz": {
-        "title": "3D printing Quiz",
         "questions": [
           {
             "q": "3D printer ki madad se kya cheezay banai ja sakti hain?",
@@ -75,7 +113,15 @@
             "c": "Kapray",
             "d": "Ghar",
             "correct": "a",
-            "explanation": "3D printer se khilone aur choti cheezein asani se banai ja sakti hain."
+            "explanation": "3D printer se khilone aur choti cheezein asani se banai ja sakti hain.",
+            "question": "3D printer ki madad se kya cheezay banai ja sakti hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Pakistan mein 3D printing technology kis field mein zyada istemal hoti hai?",
@@ -84,7 +130,15 @@
             "c": "Machining",
             "d": "Sabzi kaatne",
             "correct": "a",
-            "explanation": "Taleem mein models aur prototypes banane ke liye 3D printing ka istemal hota hai."
+            "explanation": "Taleem mein models aur prototypes banane ke liye 3D printing ka istemal hota hai.",
+            "question": "Pakistan mein 3D printing technology kis field mein zyada istemal hoti hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "3D printing ka kaam kaise hota hai?",
@@ -93,7 +147,15 @@
             "c": "Ek hi baar",
             "d": "Khilone mein",
             "correct": "b",
-            "explanation": "3D printing layer by layer material add karke cheezon ko banata hai."
+            "explanation": "3D printing layer by layer material add karke cheezon ko banata hai.",
+            "question": "3D printing ka kaam kaise hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "3D printer ke liye sabse aam material kya hai?",
@@ -102,7 +164,15 @@
             "c": "Kagam",
             "d": "Sang",
             "correct": "a",
-            "explanation": "3D printing mein sabse ziada plastic ka istemal hota hai."
+            "explanation": "3D printing mein sabse ziada plastic ka istemal hota hai.",
+            "question": "3D printer ke liye sabse aam material kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "3D printing kis tarah ke industries mein istemal hoti hai?",
@@ -111,7 +181,15 @@
             "c": "Khaas kuch industries",
             "d": "Sirf health care",
             "correct": "a",
-            "explanation": "3D printing ka istemal har tarah ki industries mein ho raha hai, jaise manufacturing, health care aur construction."
+            "explanation": "3D printing ka istemal har tarah ki industries mein ho raha hai, jaise manufacturing, health care aur construction.",
+            "question": "3D printing kis tarah ke industries mein istemal hoti hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           }
         ]
       },
@@ -123,7 +201,6 @@
       "description": "Jab AI robot mein aaye — smart robots",
       "lesson": "## HOOK\nKya tumne kabhi socha hai ke agar tumhara robot tumse baat kar sake ya tumhein behter samajh sake? Sadi, socho agar ek din aisa robot tumhari madad kare jo khud se sochta ho — kitna mazedaar hoga!\n\n## SAMJHAO\nAaj hum AI aur Robotics ke bare mein baat karne wale hain. Pehle, AI yaani Artificial Intelligence ka matlab hai ke machines ya computers ko aise banaya jaye ke wo insano ki tarah soch aur samajh sakein. Jab AI ko robotics ke sath mila diya jata hai, to humein smart robots milte hain.\n\nSmart robots woh hote hain jo sirf programmed instructions ko nahi follow karte, balki apne environment se sikhte hain. Jaise ke agar ek robot tumhe kisi kaam mein madad kare, to wo samajh jata hai ke tumhe kis cheez ki zarurat hai aur uss hisaab se apne actions adjust karta hai.\n\nPakistan mein, aaj kal kai companies aise smart robots bana rahi hain jo logon ki zindagi asaan kar rahe hain. Misal ke taur par, kuch smart robots hospitals mein hain jo patients ki health monitor karte hain ya unhein medication yaad dilate hain.\n\nAI aur robotics ka milan sirf industries tak simit nahi, balki yeh humare rozana zindagi ko bhi behter banane ki koshish kar raha hai. Jaise ke khud se chalne wale cars aur drones, in sab mein AI ka istamal hota hai.\n\n## MISAAL\nChalo Sadi, socho agar tumhari khud ki robot ho jaye jo jeeran biryani kaise banani hai, wo tumhe sab kuch samjha sakti hai. Lahore ka biryani chaska to sabko pasand hai! Agar ek smart robot tumhein biryani banate waqt ingredients ki zarurat ya cooking time bataye, to kitna achha hoga na?\n\n## KARO\nAb Sadi, ek choti si activity karte hain. Apne ghar ya school mein ek paper pe ek robot design karo. Us robot ke kamon ko socho ke wo kya kar sakta hai agar usmein AI ho. Kya wo tumhe homework karne mein madad kar sakta hai? Ya tumhare roommate ban sakta hai? Us robot ki kahani likho aur socho ke wo tumhare liye kya kya kar sakta hai.\n\n## SAWAAL\n1. AI ka matlab kya hota hai?\n2. Smart robots kis tarah se insano ki madad karte hain?\n3. Pakistan mein kis kis cheez mein smart robotics ka istemal hota hai? \n\nYeh sab sawaalat tumhare dimaag ko aur khulenge! Sadi, tumhare khayalat kya hain?",
       "quiz": {
-        "title": "AI + Robotics Quiz",
         "questions": [
           {
             "q": "AI ka matlab kya hai?",
@@ -132,7 +209,15 @@
             "c": "Automatic Instruction",
             "d": "Artificial Interaction",
             "correct": "a",
-            "explanation": "AI ka matlab hai Artificial Intelligence, jo machines ko sochne aur samajhne ki salahiyat deti hai."
+            "explanation": "AI ka matlab hai Artificial Intelligence, jo machines ko sochne aur samajhne ki salahiyat deti hai.",
+            "question": "AI ka matlab kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Robotics ka istemal kis cheez ke liye hota hai?",
@@ -141,7 +226,15 @@
             "c": "Sirf scientific research ke liye",
             "d": "Sirf entertainment ke liye",
             "correct": "a",
-            "explanation": "Robotics ka istemal ghar ke kaamon jaise cleaning aur cooking mein hota hai."
+            "explanation": "Robotics ka istemal ghar ke kaamon jaise cleaning aur cooking mein hota hai.",
+            "question": "Robotics ka istemal kis cheez ke liye hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Pakistan mein sab se pehla robot kaunsa tha?",
@@ -150,7 +243,15 @@
             "c": "Chai wala robot",
             "d": "Sundar robot",
             "correct": "c",
-            "explanation": "Pakistan ka pehla chai wala robot 2018 mein Lahore mein banaya gaya tha."
+            "explanation": "Pakistan ka pehla chai wala robot 2018 mein Lahore mein banaya gaya tha.",
+            "question": "Pakistan mein sab se pehla robot kaunsa tha?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 2
           },
           {
             "q": "Smart robots kis cheez par khud decision le sakte hain?",
@@ -159,7 +260,15 @@
             "c": "Random decisions par",
             "d": "Bachon ki baatein sunne par",
             "correct": "a",
-            "explanation": "Smart robots data analysis par khud decision le sakte hain."
+            "explanation": "Smart robots data analysis par khud decision le sakte hain.",
+            "question": "Smart robots kis cheez par khud decision le sakte hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "AI aur robotics ka milan kis cheez ko madad deta hai?",
@@ -168,7 +277,15 @@
             "c": "Movie banane mein",
             "d": "Bachon ki kitaabon mein",
             "correct": "a",
-            "explanation": "AI aur robotics ka milan farming mein automation aur efficiency ko madad deta hai."
+            "explanation": "AI aur robotics ka milan farming mein automation aur efficiency ko madad deta hai.",
+            "question": "AI aur robotics ka milan kis cheez ko madad deta hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           }
         ]
       },
@@ -180,7 +297,6 @@
       "description": "Sensors se road pe chalna.",
       "lesson": "## HOOK\nSadi, kabhi socha hai ke agar gaariyan khud chal sakti hain, to hum kis tarah ka safar karte? Acha, socho agar tumhari gaari khud hi school chalay jaaye, to tumhe kya karna pasand hoga?\n\n## SAMJHAO\nSelf-driving car ya khud chalti gaari ek aisi gaari hai jo bina kisi driver ke chalta hai. Yeh technology sensors, cameras aur artificial intelligence (AI) ka istemal karti hai. In sensors ki madad se gaari apne aas-paas ki cheezon ko samajhti hai, aur smart software ki wajah se yeh decide karti hai ke kab ghoomna hai, kab rukna hai aur kab chalna hai.\n\nIn gaariyon mein GPS bhi hota hai. GPS se yeh pata chalta hai ke gaari kis raaste par hai. Matlab, agar tumhare paas khud chalti gaari ho, to tum sirf apna destination batao, gaari khud chalta shuru kar degi. Sadi, kya tumhe yeh soch kar maza nahi aata ke tumhe sirf padhai ya khel mein focus karna hain aur gaari khud chal rahi ho?\n\nKhud chalti gaariyan bahut saari safety features bhi rakhti hain. Jaise agar koi vyakti road par aa jaaye, to gaari apne aap ruk jaati hai. Is se accidents ka khatara bhi kam ho jata hai. Dimagh mein rakho, in gaariyon ki safety aur technology ke sab advantages hain jo logon ke safar ko asaan aur mazedaar banate hain.\n\nKhud chalti gaariyan abhi abhi development mein hain, lekin kuch mulkon mein yeh chal bhi rahi hain. Humaray mulk Pakistan mein bhi technology ka use badh raha hai, to aane wale wale waqt mein yeh gaariyan humein dekhne ko mil sakti hain.\n\n## MISAAL\nSadi, socho agar tumhare school ka rickshaw khud chalta ho. Tumhe sirf yeh kehna hai ke “school chalo” aur rickshaw bina kisi driver ke tumhe school tak le jaaye! Yeh idea sirf interesting nahi, balki agar safety features ho, to yeh humare children ke liye bhi bohat faida mand hoga. \n\n## KARO\nAb Sadi, tumhare liye ek mazedaar activity hai! Apne ghar ya school ke liye ek khud chalti gaari ka design banao. Koi bhi paper le lo aur gaari ki shape draw karo. Phir ismein wheels aur sensors ka design banane ki koshish karo. Tum chahte ho ke yeh gaari kis tarah se chalayegi? Kuch safety features ya cool gadgets aur add karo, jaise ek music system ya ac! \n\n## SAWAAL\n1. Khud chalti gaari ka kya faida hai?\n2. Kaise sensors gaari ko aage badaane mein madad karte hain?\n3. Tumhara kya khayal hai, agar khud chalti gaari tumhari madad kare to kis tarah se tumhara safar behtar ho sakta hai? \n\nChalo, ab ye sab baatein soch kar explore karo!",
       "quiz": {
-        "title": "Self-driving car Quiz",
         "questions": [
           {
             "q": "Khud chalti gaari ka sab se pehla misaal kis mulk ne diya tha?",
@@ -189,7 +305,15 @@
             "c": "Japan",
             "d": "China",
             "correct": "b",
-            "explanation": "USA ne sab se pehle khud chalti gaari ka experiment shuru kiya."
+            "explanation": "USA ne sab se pehle khud chalti gaari ka experiment shuru kiya.",
+            "question": "Khud chalti gaari ka sab se pehla misaal kis mulk ne diya tha?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Khud chalti gaari kis technology ka istemal karti hai?",
@@ -198,7 +322,15 @@
             "c": "Mechanical Engineering",
             "d": "Human Intuition",
             "correct": "a",
-            "explanation": "Khud chalti gaariyan Artificial Intelligence ka istemal karti hain taake wo sahi faisle kar saken."
+            "explanation": "Khud chalti gaariyan Artificial Intelligence ka istemal karti hain taake wo sahi faisle kar saken.",
+            "question": "Khud chalti gaari kis technology ka istemal karti hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Pakistan mein kis sheher mein khud chalti gaariyon ka tajurba kiya gaya?",
@@ -207,7 +339,15 @@
             "c": "Islamabad",
             "d": "Peshawar",
             "correct": "c",
-            "explanation": "Islamabad mein khud chalti gaariyon ka kuch tajurba kiya gaya hai."
+            "explanation": "Islamabad mein khud chalti gaariyon ka kuch tajurba kiya gaya hai.",
+            "question": "Pakistan mein kis sheher mein khud chalti gaariyon ka tajurba kiya gaya?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 2
           },
           {
             "q": "Khud chalti gaariyon ki sab se badi faida kya hai?",
@@ -216,7 +356,15 @@
             "c": "Faisle lene ki taqat",
             "d": "Sabhi uloom ka milaap",
             "correct": "a",
-            "explanation": "Khud chalti gaariyan traffic jams ko kam karne mein madadgar hain."
+            "explanation": "Khud chalti gaariyan traffic jams ko kam karne mein madadgar hain.",
+            "question": "Khud chalti gaariyon ki sab se badi faida kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Khud chalti gaariyon ko control karne ke liye kis cheez ki zaroorat hoti hai?",
@@ -225,7 +373,15 @@
             "c": "Drivers",
             "d": "Electricity",
             "correct": "a",
-            "explanation": "Khud chalti gaariyan sensors ka istemal karte hain taake wo apne aas paas ke environment ka pata laga saken."
+            "explanation": "Khud chalti gaariyan sensors ka istemal karte hain taake wo apne aas paas ke environment ka pata laga saken.",
+            "question": "Khud chalti gaariyon ko control karne ke liye kis cheez ki zaroorat hoti hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           }
         ]
       },
@@ -237,7 +393,6 @@
       "description": "Space mein kaam karne wale robots.",
       "lesson": "## HOOK\nSadi, kya tumne kabhi socha hai ke Mars par kaun reh raha hai? Kya tumhe pata hai ke wahan robots kaam karte hain jo wahaan ke maqamat ka jaiza lete hain? Aaj hum inhi space robots, khas taur par Mars rovers ke baare mein seekhenge!\n\n## SAMJHAO\nSab se pehle, space robots wo machines hain jo humare liye space mein kaam karti hain. Inka istemal space missions ke dauran hota hai taake hum aasmaan ki khoj kar sakein. Yeh robots bina insaan ke kaam kar sakte hain aur door daraz planets tak pohanch jaate hain.\n\nAb baat karte hain Mars rovers ki. Mars rover ek khas robot hai jo Mars par chalta hai aur wahaan se data ikattha karta hai. Jaise ke humari ek car hoti hai, waisa hi yeh choti si machine hai jo zameen par chalte hue tasaveer aur maloomat bhejti hai.\n\nMars par kaam karne wale kuch mashhoor rovers hain, jaise Curiosity aur Perseverance. In robots ki madad se humein pata chala ke Mars par paani tha aur wahan par zindagi ke nishaan bhi mile hain! Matlab yeh rovers sirf khud nahi chalte, balki nayi nayi discoveries bhi karte hain.\n\nIn rovers ko control karne ke liye scientists computers ka istemal karte hain jo zameen par hote hain. Yeh scientists rovers ko instructions dete hain aur receive karte hain unse data jo Mars par hota hai. Is tarah se humein Mars ke baare mein aur zyada jaanne ko milta hai.\n\n## MISAAL\nSocho Sadi, agar tum school ja rahe ho aur wahan tumhari teacher kehti hain ke “Tumhare paas ek robot hai jo tumhe school ki asal tasvir dikhata hai”, yeh bilkul waise hi hai jaise Mars rovers Mars ki asal tasvirein bhejte hain. Jaise tumhari teacher ka guidance chahiye hota hai, waise hi scientists ki guidance rovers ko bhi chahiye hoti hai takay wo sahi kaam kar sakein.\n\n## KARO\nAb Sadi, chalo ek mazedaar activity karte hain! Ek drawing banao jisme tumhare khayalon ka Mars rover ho. Isme socho ke yeh rover kya kya kaam karega — kya yeh paani ki talaash karega, ya kuch aur naya dhoondhega? Is rover ko aise design karo ke yeh chalta, dekh raha aur data ikattha kar raha ho!\n\n## SAWAAL\n1. Mars rover kya hai aur yeh kya kaam karta hai?\n2. Kya tumhe lagta hai ke space robots insaanon ke liye kitne zaroori hain? Kyun?\n3. Tumhare khayal mein agar tumhe Mars par ek rover banane ka mauka mile, toh tum isko kis tarah design karoge?",
       "quiz": {
-        "title": "Space robots Quiz",
         "questions": [
           {
             "q": "Mars rover 'Curiosity' ko kab launch kiya gaya tha?",
@@ -246,7 +401,15 @@
             "c": "2020",
             "d": "2010",
             "correct": "a",
-            "explanation": "Curiosity rover ko 2011 mein launch kiya gaya tha."
+            "explanation": "Curiosity rover ko 2011 mein launch kiya gaya tha.",
+            "question": "Mars rover 'Curiosity' ko kab launch kiya gaya tha?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Mars rover ka kya kaam hota hai?",
@@ -255,7 +418,15 @@
             "c": "Surveillance karte hain",
             "d": "Ek hi cheez karte hain",
             "correct": "a",
-            "explanation": "Mars rovers paani aur zindagi ki nishaniyan dhoondte hain."
+            "explanation": "Mars rovers paani aur zindagi ki nishaniyan dhoondte hain.",
+            "question": "Mars rover ka kya kaam hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Pakistan ka kaunsa space program Mars missions par kaam kar raha hai?",
@@ -264,7 +435,15 @@
             "c": "Pakistan Space Agency",
             "d": "National Aeronautics and Space Administration (NASA)",
             "correct": "b",
-            "explanation": "SUPARCO Pakistan ka space agency hai jo Mars missions par kaam kar raha hai."
+            "explanation": "SUPARCO Pakistan ka space agency hai jo Mars missions par kaam kar raha hai.",
+            "question": "Pakistan ka kaunsa space program Mars missions par kaam kar raha hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Mars rover 'Opportunity' ne kitne saal tak kaam kiya?",
@@ -273,7 +452,15 @@
             "c": "5 saal",
             "d": "20 saal",
             "correct": "a",
-            "explanation": "Opportunity rover ne 14 saal tak kaam kiya tha, jo bohot lamba waqt hai."
+            "explanation": "Opportunity rover ne 14 saal tak kaam kiya tha, jo bohot lamba waqt hai.",
+            "question": "Mars rover 'Opportunity' ne kitne saal tak kaam kiya?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Mars rover ki battery kaise charge hoti hai?",
@@ -282,7 +469,15 @@
             "c": "Hydroelectric se",
             "d": "Coal se",
             "correct": "a",
-            "explanation": "Mars rovers ki batteries solar panels se charge hoti hain."
+            "explanation": "Mars rovers ki batteries solar panels se charge hoti hain.",
+            "question": "Mars rover ki battery kaise charge hoti hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           }
         ]
       },
@@ -294,7 +489,6 @@
       "description": "Kal ki technology aaj seekho.",
       "lesson": "## HOOK\nSadi, tum nahin sochte ke agar kal koi aisa din aaye jab robot tumhara homework karein ya tumhari biryani banaein? Kya yeh haal sach mein mumkin hai?\n\n## SAMJHAO\nAaj kal technology har jagah hai aur is ka aane wala mustaqbil bhi bahut exciting hai. Automation ka matlab hai kaam ko aise karna jahan insaan ka istemal kam ho ya bilkul na ho. Pakistan mein bhi automation ki wajah se bahut se kaam asan ho sakte hain. \n\nChalo, dekhte hain ke automation kis tarah se humari zindagi ko badalne ja rahi hai. Pehle, factories mein machines ka istemal hota hai jo products banati hain. Yeh machines agar intelligent ho jayein to kaam tez ho sakta hai. Isse factories zyada products produce kar sakti hain.\n\nDusra, agriculture mein automation ka bahut bada role hai. Kisan ab robots ke zariye crops ki dekhbhaal kar sakte hain. Jaise ke kisi khaas crop ki growth ko monitor karne aur usay paani dene ke liye sensors lagaye ja sakte hain. Yeh kisanon ki madad karega ke woh zyada achi tarah se kaam kar sakein.\n\nFurthermore, education sector mein bhi automation kaafi madadgar sabit ho raha hai. Online learning platforms aur interactive tools ki wajah se bachay ghar baith kar bhi quality education le sakte hain. Yeh sirf shehron tak nahi, balke gaon ke bachay bhi fayda utha sakte hain.\n\nAakhir mein, transportation ko bhi automation se badla ja raha hai. Ab self-driving cars aur electric rickshaws aam ho rahi hain. Yeh na sirf traffic issues ko kam karengi balki environment ke liye bhi acchi hongi.\n\n## MISAAL\nSocho Sadi, jab tum bazar jate ho to dekhtay ho ke booth par dukan dar kaam kar rahe hain. Lekin agar wahan ek robot hota jo samose ya biryani banata aur bechta, to kitna acha hota! Yeh robots na sirf samose ko acchi tarah banayenge balki bechnay mein bhi madad karenge. Iss tarah dukan dar zyada customers ki service kar sakte hain.\n\n## KARO\nSadi, aaj tum ek interesting drawing banao. Aise robots design karo jo tumhari zindagi mein madad kar sakte hain. Tum in robots ko school, ghar, ya bazar mein kaam karte hue dikhana! Iske sath hi socho ke unhey kaise control karna hoga aur yeh kis tarah se tumhara din aasaan banayenge.\n\n## SAWAAL\n1. Automation ka kya matlab hai?\n2. Pakistan mein kis sector mein automation ka sab se zyada faida ho raha hai?\n3. Tumhare khayal mein robots kis tarah se tumhari zindagi ko behtar bana sakte hain?",
       "quiz": {
-        "title": "Future tech Quiz",
         "questions": [
           {
             "q": "Pakistan mein automation ka sab se pehla istemal kis field mein hota hai?",
@@ -303,7 +497,15 @@
             "c": "Taleem",
             "d": "Sehat",
             "correct": "a",
-            "explanation": "Kheti mein drones aur sensors ka istemal karke automation ko behtar banaya ja raha hai."
+            "explanation": "Kheti mein drones aur sensors ka istemal karke automation ko behtar banaya ja raha hai.",
+            "question": "Pakistan mein automation ka sab se pehla istemal kis field mein hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Robotics ka istemal kis maqsad ke liye zyada hota hai?",
@@ -312,7 +514,15 @@
             "c": "Taleem ke liye",
             "d": "Sirf research ke liye",
             "correct": "a",
-            "explanation": "Robotics ka istemal mazdoor ki kami ko pura karne aur production ke kaamon mein asani lane ke liye hota hai."
+            "explanation": "Robotics ka istemal mazdoor ki kami ko pura karne aur production ke kaamon mein asani lane ke liye hota hai.",
+            "question": "Robotics ka istemal kis maqsad ke liye zyada hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Pakistan mein kis automation technology ka istemal manufacturing sector mein badh raha hai?",
@@ -321,7 +531,15 @@
             "c": "Biotechnology",
             "d": "Nanotechnology",
             "correct": "a",
-            "explanation": "3D printing se manufacturing process ko aasaan aur sasta banaya ja raha hai."
+            "explanation": "3D printing se manufacturing process ko aasaan aur sasta banaya ja raha hai.",
+            "question": "Pakistan mein kis automation technology ka istemal manufacturing sector mein badh raha hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Automation se kis cheez ka khatara sab se zyada badh raha hai?",
@@ -330,7 +548,15 @@
             "c": "Health",
             "d": "Agriculture",
             "correct": "a",
-            "explanation": "Automation se kuch logon ki jobs khatam hone ka khatara hota hai."
+            "explanation": "Automation se kuch logon ki jobs khatam hone ka khatara hota hai.",
+            "question": "Automation se kis cheez ka khatara sab se zyada badh raha hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Pakistan ki kis company ne robotics mein hamesha pehl kar rakha hai?",
@@ -339,7 +565,15 @@
             "c": "Pakistan Robotics Academy",
             "d": "K Electric",
             "correct": "c",
-            "explanation": "Pakistan Robotics Academy ne robotics aur automation mein kaafi ahem kirdar ada kiya hai."
+            "explanation": "Pakistan Robotics Academy ne robotics aur automation mein kaafi ahem kirdar ada kiya hai.",
+            "question": "Pakistan ki kis company ne robotics mein hamesha pehl kar rakha hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 2
           }
         ]
       },

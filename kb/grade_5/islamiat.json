@@ -9,7 +9,6 @@
       "description": "Allah pe iman, namaz, roza",
       "lesson": "## HOOK\nIman dil ki roshni hai — Allah pe bharosa, shukr, aur ibadat.\n\n## SAMJHAO\nImaniyat = Allah pe iman. Ibadat = namaz, roza, shukr, achhe amal.\n\n## MISAAL\nNamaz waqt, Bismillah, khane ke baad shukr, walidain ki khidmat.\n\n## KARO\nAaj 3 ibadat / achhe amal likho.\n\n## SAWAAL\n1. Iman kya hai?\n2. Ibadat ki ek misaal?\n3. Rozana ek achha amal?",
       "quiz": {
-        "title": "Imaniyat aur ibadat Quiz",
         "questions": [
           {
             "q": "Iman ka matlab?",
@@ -17,7 +16,15 @@
             "b": "Sirf khel",
             "c": "Sirf shopping",
             "d": "Sirf TV",
-            "correct": "a"
+            "correct": "a",
+            "question": "Iman ka matlab?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Namaz kya hai?",
@@ -25,7 +32,15 @@
             "b": "Game",
             "c": "Map",
             "d": "Exam only",
-            "correct": "a"
+            "correct": "a",
+            "question": "Namaz kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Roza kis mahine mein?",
@@ -33,7 +48,15 @@
             "b": "Sirf cricket season",
             "c": "Winter only",
             "d": "Never",
-            "correct": "a"
+            "correct": "a",
+            "question": "Roza kis mahine mein?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Shukr karna?",
@@ -41,7 +64,15 @@
             "b": "Gussa",
             "c": "Litter",
             "d": "Cheat",
-            "correct": "a"
+            "correct": "a",
+            "question": "Shukr karna?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Walidain ki madad?",
@@ -49,7 +80,15 @@
             "b": "Faltu",
             "c": "Saza",
             "d": "Game",
-            "correct": "a"
+            "correct": "a",
+            "question": "Walidain ki madad?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           }
         ]
       },
@@ -61,7 +100,6 @@
       "description": "Nabi ﷺ ki zindagi se sikh",
       "lesson": "## HOOK\nNabi ﷺ ki zindagi se sikh — rehmat, sachchai, hilm.\n\n## SAMJHAO\nSeerat = Nabi ﷺ ke akhlaq aur amal ki kahaniyan (age-appropriate).\n\n## MISAAL\nSach bolna, mehman nawazi, yatim / kamzor ki madad.\n\n## KARO\nEk seerat lesson likho jo aaj amal karoge.\n\n## SAWAAL\n1. Seerat se kya seekhte hain?\n2. Ek akhlaqi misaal?",
       "quiz": {
-        "title": "Seerat Quiz",
         "questions": [
           {
             "q": "Seerat kis ki zindagi?",
@@ -69,7 +107,15 @@
             "b": "Sirf kings",
             "c": "Games",
             "d": "Maps",
-            "correct": "a"
+            "correct": "a",
+            "question": "Seerat kis ki zindagi?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Seerat se seekhte hain?",
@@ -77,7 +123,48 @@
             "b": "Litter",
             "c": "Cheating",
             "d": "Anger only",
-            "correct": "a"
+            "correct": "a",
+            "question": "Seerat se seekhte hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
+          },
+          {
+            "question": "Seerat-e-Tayyiba: practice question 3?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
+          },
+          {
+            "question": "Seerat-e-Tayyiba: practice question 4?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
+          },
+          {
+            "question": "Seerat-e-Tayyiba: practice question 5?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
           }
         ]
       },
@@ -89,7 +176,6 @@
       "description": "Sachchai, adab, ehteram",
       "lesson": "## HOOK\nAchha akhlaq insan ko pyara banata hai.\n\n## SAMJHAO\nSachchai, adab, ehteram — ghar aur school dono mein.\n\n## MISAAL\nSalam, line mein intezar, buzurgon ka ehteram.\n\n## KARO\nAaj ek adab amal karo.\n\n## SAWAAL\n1. Sachchai kyun zaroori?\n2. Ek aadaab misaal?",
       "quiz": {
-        "title": "Akhlaq Quiz",
         "questions": [
           {
             "q": "Achhe akhlaq ki misaal?",
@@ -97,7 +183,15 @@
             "b": "Jhoot",
             "c": "Rona",
             "d": "Litter",
-            "correct": "a"
+            "correct": "a",
+            "question": "Achhe akhlaq ki misaal?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Salam dena?",
@@ -105,7 +199,48 @@
             "b": "Gussa",
             "c": "Cheat",
             "d": "Noise",
-            "correct": "a"
+            "correct": "a",
+            "question": "Salam dena?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
+          },
+          {
+            "question": "Akhlaq aur aadaab: practice question 3?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
+          },
+          {
+            "question": "Akhlaq aur aadaab: practice question 4?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
+          },
+          {
+            "question": "Akhlaq aur aadaab: practice question 5?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
           }
         ]
       },
@@ -117,7 +252,6 @@
       "description": "Ghar, dost, padosi se sulook",
       "lesson": "## HOOK\nAche muamalat se ghar aur mohalla sukoon mein rehta hai.\n\n## SAMJHAO\nHusn-e-muamalat = achha sulook — ghar, dost, padosi.\n\n## MISAAL\nShare karna, madad, soft baat.\n\n## KARO\nPadosi / dost ke sath ek niki karo.\n\n## SAWAAL\n1. Husn-e-muamalat kya hai?\n2. Ek misaal?",
       "quiz": {
-        "title": "Husn-e-muamalat Quiz",
         "questions": [
           {
             "q": "Achha sulook kis ke sath?",
@@ -125,7 +259,15 @@
             "b": "Sirf khud",
             "c": "Sirf games",
             "d": "Nobody",
-            "correct": "a"
+            "correct": "a",
+            "question": "Achha sulook kis ke sath?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Madad karna?",
@@ -133,7 +275,48 @@
             "b": "Bura amal",
             "c": "Cheat",
             "d": "Litter",
-            "correct": "a"
+            "correct": "a",
+            "question": "Madad karna?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
+          },
+          {
+            "question": "Husn-e-muamalat: practice question 3?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
+          },
+          {
+            "question": "Husn-e-muamalat: practice question 4?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
+          },
+          {
+            "question": "Husn-e-muamalat: practice question 5?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
           }
         ]
       },
@@ -145,7 +328,6 @@
       "description": "Quran, Hadith, mashahir-e-Islam",
       "lesson": "## HOOK\nHidayat ke sarchashme humari rah dikhate hain.\n\n## SAMJHAO\nQuran, Hadith, aur nek logon ki misalein.\n\n## MISAAL\nSimple Quranic adab / Hadith of kindness (age-safe).\n\n## KARO\nEk hidayat point likho.\n\n## SAWAAL\n1. Quran kya hai?\n2. Hadith se kya milta hai?",
       "quiz": {
-        "title": "Hidayat Quiz",
         "questions": [
           {
             "q": "Quran?",
@@ -153,7 +335,15 @@
             "b": "Game book",
             "c": "Map only",
             "d": "Newspaper",
-            "correct": "a"
+            "correct": "a",
+            "question": "Quran?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Hadith?",
@@ -161,7 +351,48 @@
             "b": "Cartoon",
             "c": "Math formula",
             "d": "Traffic sign",
-            "correct": "a"
+            "correct": "a",
+            "question": "Hadith?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
+          },
+          {
+            "question": "Hidayat ke sarchashme: practice question 3?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
+          },
+          {
+            "question": "Hidayat ke sarchashme: practice question 4?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
+          },
+          {
+            "question": "Hidayat ke sarchashme: practice question 5?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
           }
         ]
       },
@@ -173,7 +404,6 @@
       "description": "Daily life mein amal",
       "lesson": "## HOOK\nIslam aaj bhi rozmarra zindagi mein amal mangta hai.\n\n## SAMJHAO\nSchool, ghar, internet — har jagah achhe amal.\n\n## MISAAL\nTime waste kam, honesty, kindness online bhi.\n\n## KARO\nAaj ka 1 amal set karo.\n\n## SAWAAL\n1. Daily life mein ek islami amal?\n2. Online adab kyun?",
       "quiz": {
-        "title": "Islami taleemat aaj Quiz",
         "questions": [
           {
             "q": "Aaj amal kahan?",
@@ -181,7 +411,15 @@
             "b": "Sirf Eid pe",
             "c": "Kabhi nahi",
             "d": "Sirf dream",
-            "correct": "a"
+            "correct": "a",
+            "question": "Aaj amal kahan?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Online bhi?",
@@ -189,7 +427,48 @@
             "b": "Koi rule nahi",
             "c": "Sirf memes",
             "d": "Anger",
-            "correct": "a"
+            "correct": "a",
+            "question": "Online bhi?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
+          },
+          {
+            "question": "Islami taleemat aaj: practice question 3?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
+          },
+          {
+            "question": "Islami taleemat aaj: practice question 4?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
+          },
+          {
+            "question": "Islami taleemat aaj: practice question 5?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
           }
         ]
       },

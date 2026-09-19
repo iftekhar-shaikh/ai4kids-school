@@ -9,7 +9,6 @@
       "description": "Human body — bones, muscles, teeth",
       "lesson": "## HOOK\nKya aap ne kabhi socha hai ke jab aap cricket khelte hain, to aapki body kaun si cheezain kaam karti hain? Haddiyaan aur muscles hi toh hain jo humein har movement karne mein madad dete hain! Sochiye, agar aapki haddiyaan aur muscles na hotein, to aap kaisa mehsoos karte?\n\n## SAMJHAO\nHaddiyaan (bones) hamari body ka skeleton banati hain. Yeh sab se mazboot cheezein hoti hain jo humein support karti hain. Hamari body mein lagbhag 206 haddiyaan hoti hain. Haddiyaan ek dusre se judkar joints banati hain, jahan se humari body hilti hai. Jaise humari tangon mein knees hain, waise hi haathon mein bhi joints hain jo humein apne haath move karne mein madad dete hain.\n\nMuscles bhi hamari body mein bahut ahmiyat rakhti hain. Muscles kuch is tarah kaam karti hain ke jab yeh contract hoti hain, toh yeh humein movement deti hain. Jaise jab aap apne haath upar uthate hain, toh aapki muscles ka contract hona zaroori hai. Hamare paas 600 se zyada muscles hain jo har tarahe ke movement mein madad karti hain.\n\nTeeth bhi hamaari body ka ek ahm pehlu hain. Yeh hamari mouths mein hote hain aur khana chabane mein madad karte hain. Teeth ke bina hum khana achhi tarah nahi kha sakte. Teeth bhi alag alag hisse mein hain, jaise canines aur molars, aur har ek ka apna kaam hota hai.\n\nYani, haddiyaan, muscles, aur teeth milkar hamari body ko ek structure dete hain aur humein alag alag activities karne mein madad karte hain. Agar in teeno kaam nahi karte, toh humari daily activities mushkil ho jati hain.\n\n## MISAAL\nSochiye, jab aap bazaar jaate hain aur khud se dukaandaar se jhagra karte hain ya khud se cheezein uthate hain, toh aapki muscles aur haddiyaan kaise kaam kar rahi hoti hain? Jab aap dukaandaar se biryani kharidne jate hain, toh aapki muscles aur haddiyaan aapko madad dete hain khud se chipkane ya khud se chuniye.\n\n## KARO\nAap ghar par ek simple activity kar sakte hain. Aap apne haath se alag alag movements karein. Jaise haath upar uthana, tangain hilana, ya baithna uthna. Yeh dekhna bahut interesting hoga ke kaise aapki muscles is sab kaam mein madad karti hain. Aap apne dost ya family ke sath mil ke is activity ko kar sakte hain.\n\n## SAWAAL\n1. Hamari body mein kitni haddiyaan hoti hain?\n2. Muscles ka kya kaam hota hai?\n3. Teeth ke alag alag types ka kya kaam hota hai?\n\nScience Sir",
       "quiz": {
-        "title": "Haddiyaan aur muscles Quiz",
         "questions": [
           {
             "q": "Insaani jism mein kitni haddiyan hoti hain?",
@@ -18,7 +17,15 @@
             "c": "250",
             "d": "300",
             "correct": "a",
-            "explanation": "Insaani jism mein aam tor par 206 haddiyan hoti hain."
+            "explanation": "Insaani jism mein aam tor par 206 haddiyan hoti hain.",
+            "question": "Insaani jism mein kitni haddiyan hoti hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Kaun si muscle zyada tar body ki hilaqat ke liye responsible hoti hai?",
@@ -27,7 +34,15 @@
             "c": "Smooth muscle",
             "d": "Nerve muscle",
             "correct": "b",
-            "explanation": "Skeletal muscle insaan ki hilaqat aur movement ke liye responsible hoti hai."
+            "explanation": "Skeletal muscle insaan ki hilaqat aur movement ke liye responsible hoti hai.",
+            "question": "Kaun si muscle zyada tar body ki hilaqat ke liye responsible hoti hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Insaan ka kaunsa hissa sab se mazboot hissa hai?",
@@ -36,7 +51,15 @@
             "c": "Aankhein",
             "d": "Kamar",
             "correct": "b",
-            "explanation": "Daant insaani jism ka sab se mazboot hissa hain aur inka kaam khanay cheezon ko chhota karna hai."
+            "explanation": "Daant insaani jism ka sab se mazboot hissa hain aur inka kaam khanay cheezon ko chhota karna hai.",
+            "question": "Insaan ka kaunsa hissa sab se mazboot hissa hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Kaun si muscle dil ko pump karne mein madad karti hai?",
@@ -45,7 +68,15 @@
             "c": "Smooth muscle",
             "d": "Nerve muscle",
             "correct": "a",
-            "explanation": "Cardiac muscle dil mein hoti hai aur iski madad se dil khoon pump karta hai."
+            "explanation": "Cardiac muscle dil mein hoti hai aur iski madad se dil khoon pump karta hai.",
+            "question": "Kaun si muscle dil ko pump karne mein madad karti hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Insaan ke jism mein muscles ki kitni categories hain?",
@@ -54,7 +85,15 @@
             "c": "4",
             "d": "5",
             "correct": "b",
-            "explanation": "Insaan ki muscles teen categories mein aati hain: cardiac, smooth aur skeletal."
+            "explanation": "Insaan ki muscles teen categories mein aati hain: cardiac, smooth aur skeletal.",
+            "question": "Insaan ke jism mein muscles ki kitni categories hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           }
         ]
       },
@@ -66,7 +105,6 @@
       "description": "Exercise, neend, balanced diet",
       "lesson": "## HOOK\nAao bachon, socho agar humara jism ek khiladi hai. Kya humein bina practice ke achhi game khelne ki umeed rakhni chahiye? Bilkul nahi! Sehatmand aadatein humari zindagi ka ek important hissa hain. Tum kya samjhte ho, sehatmand rehne ke liye hamain kya karna chahiye?\n\n## SAMJHAO\nSehatmand aadatein teen asal cheezon par mabni hoti hain: Exercise, Neend, aur Balanced Diet. Pehli baat hai Exercise. Jab hum exercise karte hain, humara jism taqatwar hota hai aur hum behtar mehsoos karte hain. Yeh zaroori hai ke tum har roz thodi der ke liye khel kood karen, jaise cricket, football ya phir park mein doston ke sath daud lagana.\n\nAb baat karte hain Neend ki. Neend humare liye utni hi zaroori hai jitni khana. Achhi neend lene se humara dimaag theek se kaam karta hai aur hum school mein behtar seekh sakte hain. Tumhein roz 8 se 10 ghante ki neend leni chahiye taake tumhara jism theek se kaam kare.\n\nAakhir mein, Balanced Diet ki baat karte hain. Yeh kaise hota hai? Balanced Diet wo hoti hai jis mein humein har tarah ki zaroorat ki khuraak mile. Jaise ke sabziyan, fruits, daalain aur doodh. In sab cheezon ko milakar khana khana hamesha behtar hota hai.\n\n## MISAAL\nChalo ek misaal lete hain. Jab tum bazaar jaate ho aur biryani khareedte ho, kya tumne kabhi socha hai ke is biryani mein kya-kya hai? Us mein daal, chicken, masalay aur khushbu bhi hoti hai. Lekin agar tum sirf biryani khayoge aur sabzi ya fruits nahi loge, to tumhara balanced diet khatam ho jayega. Is liye zaroori hai ke khanay mein har cheez shamil karo.\n\n## KARO\nAb ek fun activity karte hain! Apne ghar par ek \"Healthy Day\" plan karo. Decide karo ke aaj tum kya-kya sehatmand khane khoge, kitna exercise karoge aur raat ko kitne baje so jaoge. Apna plan likho aur dekho ke tumhari sehat kaise behtar hoti hai.\n\n## SAWAAL\n1. Exercise kyun zaroori hai?\n2. Achhi neend humein kya faida deti hai?\n3. Balanced Diet mein kis kis cheez ka shamil hona zaroori hai?\n\nScience Sir",
       "quiz": {
-        "title": "Sehatmand aadat Quiz",
         "questions": [
           {
             "q": "Sehatmand aadaton mein se kaun si aadat bahut zaroori hai?",
@@ -75,7 +113,15 @@
             "c": "Siff eitaq zindagi guzarni",
             "d": "Junk food khana",
             "correct": "a",
-            "explanation": "Rozana warzish karna se sehat behtar hoti hai."
+            "explanation": "Rozana warzish karna se sehat behtar hoti hai.",
+            "question": "Sehatmand aadaton mein se kaun si aadat bahut zaroori hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Kitni der neend lena sehat ke liye acha hota hai?",
@@ -84,7 +130,15 @@
             "c": "10 ghante",
             "d": "12 ghante",
             "correct": "b",
-            "explanation": "8 ghante ki neend lena aksar logon ke liye faydemand hota hai."
+            "explanation": "8 ghante ki neend lena aksar logon ke liye faydemand hota hai.",
+            "question": "Kitni der neend lena sehat ke liye acha hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Balanced diet mein kya shamil hota hai?",
@@ -93,7 +147,15 @@
             "c": "Sirf chawal",
             "d": "Kewal dahi",
             "correct": "c",
-            "explanation": "Balanced diet mein sabziyan, phal, protein aur carbs ki zaroorat hoti hai."
+            "explanation": "Balanced diet mein sabziyan, phal, protein aur carbs ki zaroorat hoti hai.",
+            "question": "Balanced diet mein kya shamil hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 2
           },
           {
             "q": "Dayarati khana khana ka fayda kya hai?",
@@ -102,7 +164,15 @@
             "c": "Khud ko kamzor kar deta hai",
             "d": "Acha nahi hai",
             "correct": "a",
-            "explanation": "Dayarati khana khane se sehat barhati hai aur taqat milti hai."
+            "explanation": "Dayarati khana khane se sehat barhati hai aur taqat milti hai.",
+            "question": "Dayarati khana khana ka fayda kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Rozana kitna paani peena chahiye?",
@@ -111,7 +181,15 @@
             "c": "5 litre",
             "d": "0.5 litre",
             "correct": "b",
-            "explanation": "Rozana 2-3 litre paani peena sehat ke liye acha hota hai."
+            "explanation": "Rozana 2-3 litre paani peena sehat ke liye acha hota hai.",
+            "question": "Rozana kitna paani peena chahiye?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           }
         ]
       },
@@ -123,7 +201,6 @@
       "description": "Thos, maaye, gas",
       "lesson": "## HOOK\nAao bachon, kya aapne kabhi socha hai ke aise kya cheezein hain jo aapko roz marra mein dekhne ko milti hain? Jaise aapki favorite biryani! Kya biryani ek thos hai, ya maayi ya gas? Chalo, dekhtay hain is lesson mein!\n\n## SAMJHAO\nBachon, aaj hum baat karain ge 'Matter' ke bare mein, jo teen forms mein hota hai: solid, liquid, aur gas. \n\nPehla form hai 'Solid' yaani thos. Is ka matlab hai ke ye cheezein apna shape nahi badalti. Jaise aapka school ka bag ya khilaune, ye hamesha waise hi rehte hain, hain na? \n\nAb baat karte hain 'Liquid' yaani maayi ki. Ye cheezein apna shape badal sakti hain, lekin volume wahi rehta hai. Jaise doodh ya pani, jab aap inhein kisi glass mein dalte hain, to ye glass ka shape le leti hain.\n\nTeesra form hai 'Gas'. Gas ka koi definite shape ya volume nahi hota. Ye hawa ki tarah hoti hai, jise aap dekh nahi sakte, lekin mehsoos kar sakte hain. Jaise jab aap khidki kholte hain to hawa andar aati hai, yahi gas hai!\n\n## MISAAL\nChalo ab bazaar ka sochte hain. Jab aap bazaar jate hain, to aapko sabziyan (thos), paani (maayi), aur hawa (gas) dekhne ko milti hain. Aap spinach (palak) ko thos kehlayein ge, kyun ke ye ek solid hai. Aur jab aap chaayein (tea) bante hain to usmein paani hota hai, jo liquid hai. \n\n## KARO\nAb aap ghar par ek chhoti si activity kar sakte hain. Ek glass mein thoda paani daal kar uski level ko dekhein. Phir us glass ko freezer mein rakh dijiye. Thodi dair baad jab aap ise nikaalenge to dekhenge ke paani ka ice ban gaya hai, jo ke thos hai! Iska matlab hai ke liquids ko freeze karne se unka form change hota hai!\n\n## SAWAAL\n1. Solid aur liquid mein kya farq hai?\n2. Gas ko aap kis tarah mehsoos kar sakte hain?\n3. Aik example dein jisme aapko thos, liquid aur gas teenon milte hain.\n\nScience Sir",
       "quiz": {
-        "title": "Matter: solid liquid gas Quiz",
         "questions": [
           {
             "q": "Thos maaye ki misaal kya hai?",
@@ -132,7 +209,15 @@
             "c": "Hawa",
             "d": "Doodh",
             "correct": "a",
-            "explanation": "Loha thos maaye hai kyunki iski shakl aur volume dono sabit hain."
+            "explanation": "Loha thos maaye hai kyunki iski shakl aur volume dono sabit hain.",
+            "question": "Thos maaye ki misaal kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Liquid maaye ki misaal kya hai?",
@@ -141,7 +226,15 @@
             "c": "Kaghaz",
             "d": "Khilona",
             "correct": "a",
-            "explanation": "Ghee ek liquid maaye hai jo container ki shakl le leti hai."
+            "explanation": "Ghee ek liquid maaye hai jo container ki shakl le leti hai.",
+            "question": "Liquid maaye ki misaal kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Gas maaye ka kya khaslat hai?",
@@ -150,7 +243,15 @@
             "c": "Yeh choorti nahi hai.",
             "d": "Yeh break nahi karti.",
             "correct": "b",
-            "explanation": "Gas maaye hawa mein fail kar leti hain aur kisi bhi container ki shakl le leti hain."
+            "explanation": "Gas maaye hawa mein fail kar leti hain aur kisi bhi container ki shakl le leti hain.",
+            "question": "Gas maaye ka kya khaslat hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Sabse pehle kya hota hai jab pani ko ubala jata hai?",
@@ -159,7 +260,15 @@
             "c": "Yeh liquid rehta hai.",
             "d": "Yeh behna shuru karta hai.",
             "correct": "a",
-            "explanation": "Pani ubalne par vapor (gas) mein tabdeel hota hai."
+            "explanation": "Pani ubalne par vapor (gas) mein tabdeel hota hai.",
+            "question": "Sabse pehle kya hota hai jab pani ko ubala jata hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Kaunsa maaye sabse pehle thos banta hai jab thanda hota hai?",
@@ -168,7 +277,15 @@
             "c": "Ice",
             "d": "Salt",
             "correct": "c",
-            "explanation": "Ice pani ka thos roop hai jab woh thanda hota hai."
+            "explanation": "Ice pani ka thos roop hai jab woh thanda hota hai.",
+            "question": "Kaunsa maaye sabse pehle thos banta hai jab thanda hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 2
           }
         ]
       },
@@ -180,7 +297,6 @@
       "description": "Water cycle — evaporation, condensation",
       "lesson": "## HOOK\nKya aapne kabhi socha hai ke paani kis tarah se zameen se aasman tak jaata hai? Kya aapne dekha hai ke baarish kaise hoti hai? Chalo, aaj hum is dilchasp safar ka pata lagate hain!\n\n## SAMJHAO\nPaani ka safar yaani Water Cycle ek aisa process hai jisme paani zameen se aasman tak aur phir wapas zameen par aata hai. Yeh process teen aham marahil main hota hai: Evaporation, Condensation, aur Precipitation.\n\nPehle marahil ko Evaporation kehte hain. Jab dhoop nikalti hai, to paani kaafi garm ho jata hai, jaise ke darya ya saag mein. Yeh garm paani hawa mein udanay lagta hai aur vahan se paani ki boondain hawa mein udas ho jaati hain. Yeh process tab hota hai jab dhoop bahut zyada hoti hai.\n\nDusra marahil hai Condensation. Jab hawa mein paani ki boondain ikatthi ho jaati hain, toh yeh thandi hoti hain aur ek jagah par ikhatta hona shuru hoti hain. Jaise hi yeh thandi hoti hain, tou yeh choti choti boondain banti hain. Yeh boondain aakhir mein clouds (baadal) bana deti hain.\n\nTeesra marahil hai Precipitation. Yeh tab hota hai jab clouds me boondain itni zyada ho jaati hain ke woh wapas zameen par girne lagti hain. Jab yeh boondain girti hain toh hume baarish, baraf, ya fursat pata chalta hai.\n\n## MISAAL\nAb socho jab aap bazaar jaate hain, toh kya aapne dekha hai ke baarish hone ke baad bazaar kitna khubsurat lagta hai? Yahin par paani ka safar kaam karta hai. Pehle paani udta hai, phir baadal bante hain, aur jab bohot saari boondain ikatthi ho jaati hain, toh woh baarish ban ke gir jaati hain, aur bazaar phir se taro-taza ho jata hai!\n\n## KARO\nGhar ya school mein aap ek choti activity kar sakte hain. Ek paani ki thali lijiye aur usmein thoda sa paani daaliye. Phir isay dhoop mein rakhiye. Kuch dino tak dekhiye ke kaise paani dheere dheere ganjha hota hai aur phir evaporate hota hai. Aakhir mein jab aap baad mein check karenge, toh aap dekh sakte hain ke paani kitna kam hua hai!\n\n## SAWAAL\n1. Paani ka pehla marahil kya hota hai?\n2. Jab hawa mein paani ki boondain ikatthi hoti hain, usay kya kehte hain?\n3. Precipitation ka kya matlab hai? \n\nKhush rahiye aur paani ka safar seekhte rahiye!  \nScience Sir",
       "quiz": {
-        "title": "Paani ka safar Quiz",
         "questions": [
           {
             "q": "Paani ke safar ki pehli manzil kya hoti hai?",
@@ -189,7 +305,15 @@
             "c": "Precipitation",
             "d": "Collection",
             "correct": "a",
-            "explanation": "Pehli manzil paani ka udna hota hai, jise evaporation kehte hain."
+            "explanation": "Pehli manzil paani ka udna hota hai, jise evaporation kehte hain.",
+            "question": "Paani ke safar ki pehli manzil kya hoti hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Paani kis tarah se baadon mein badal jata hai?",
@@ -198,7 +322,15 @@
             "c": "Diverting se",
             "d": "Freezing se",
             "correct": "b",
-            "explanation": "Paani jab thanda hota hai to wo baadon mein badal jata hai, isay condensation kehte hain."
+            "explanation": "Paani jab thanda hota hai to wo baadon mein badal jata hai, isay condensation kehte hain.",
+            "question": "Paani kis tarah se baadon mein badal jata hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Kahan paani ikattha hota hai jab wo boond ki shakal mein girta hai?",
@@ -207,7 +339,15 @@
             "c": "Samundar mein",
             "d": "Saray options sahi hain",
             "correct": "d",
-            "explanation": "Paani jitne bhi zakhire hain, un sab mein ikattha hota hai jab wo boond ki shakal mein girta hai."
+            "explanation": "Paani jitne bhi zakhire hain, un sab mein ikattha hota hai jab wo boond ki shakal mein girta hai.",
+            "question": "Kahan paani ikattha hota hai jab wo boond ki shakal mein girta hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 3
           },
           {
             "q": "Kya paani ka safar sirf zameen par hota hai?",
@@ -216,7 +356,15 @@
             "c": "Sirf samundar mein",
             "d": "Sirf daryaon mein",
             "correct": "a",
-            "explanation": "Paani ka safar zameen ke saath saath hawa mein bhi hota hai, jaise evaporation aur condensation."
+            "explanation": "Paani ka safar zameen ke saath saath hawa mein bhi hota hai, jaise evaporation aur condensation.",
+            "question": "Kya paani ka safar sirf zameen par hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Paani ka safar kis cycle ka hissa hai?",
@@ -225,7 +373,15 @@
             "c": "Air cycle",
             "d": "Land cycle",
             "correct": "b",
-            "explanation": "Paani ka safar water cycle ka hissa hai, jo paani ki stages ko samjhaata hai."
+            "explanation": "Paani ka safar water cycle ka hissa hai, jo paani ki stages ko samjhaata hai.",
+            "question": "Paani ka safar kis cycle ka hissa hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           }
         ]
       },
@@ -237,7 +393,6 @@
       "description": "Zameen ghumti hai — din kyun aata hai",
       "lesson": "## HOOK\nKya aap ne kabhi socha hai ke jab aap soye hote hain, to aapke aas paas zameen par din kyun hota hai? Ya jab aap school jaate hain, to kyun raat hoti hai? Chalo, is raaz ko samjhte hain!\n\n## SAMJHAO\nKya aap jaante hain ke zameen apne axis par ghoomti hai? Yani, zameen matb mein ek sike ki tarah hai jo apne ghoomne se din aur raat ka paida karte hai. Jab zameen ghoomti hai, to kuch hissa suraj ki roshni mein aata hai, jis se din hota hai. Jab ke doosra hissa andhere mein hota hai, jis se raat hoti hai.\n\nZameen ka ghoomna itna aasan hai ke hum isse aksar nahi dekhte. Zameen ka ek complete ghoomna, yani ek rotation, 24 ghante mein hota hai. Is waqt ke dauran, hum din aur raat ka anubhav karte hain. Jab bhagwan ki maherbani se suraj chamakta hai, to sab kuch roshan ho jata hai!\n\nPakistan ke har kone mein, subah jab suraj nikalta hai to sab log jagte hain, is waqt se sab kuch jeeta jaaga lagta hai. Lekin jab raat hoti hai, to log soye jaate hain aur sab kuch pur sukhoon ho jata hai.\n\nZameen ka ghoomna hi hai jo humein din aur raat ka ehsaas dilata hai. Aaj hum is khufiya raaz ko samajh kar ye jaan lete hain ke hamara zindagi ka har pal kahan se aata hai.\n\n## MISAAL\nSocho jab aap bazaar jaate hain subah ki roshni mein, to wahan kitna chaand aur masroofiyat hoti hai. Log kharidari kar rahe hote hain, dukanen khuli hoti hain aur har jagah hansi-mazaak hota hai. Lekin jab raat hoti hai to bazaar mein log kum hote hain aur dukanen band ho jati hain. Ye sab kuch zameen ki ghoomne ki wajah se hai!\n\n## KARO\nIs activity ko ghar par ya school mein kar sakte hain: Ek kandeedaar ghoomne wala globe ya kisi ghol cheez ko le kar khud se dikhayein ke zameen ghoom raha hai. Ek flashlight lein, aur jab aap globe ko ghoomayenge to dekhenge ke kis tarah se flashlight ki roshni se ek hissa roshan hota hai (din) aur doosra hissa andhere (raat). Is tarah se aapko zameen ke ghoomne ka asli asar samajh aayega!\n\n## SAWAAL\n1. Zameen din aur raat kaise banati hai?\n2. Ek complete rotation kitne ghanton mein hota hai?\n3. Aap bazaar jaate waqt kahan hote hain, din ya raat?\n\nScience Sir",
       "quiz": {
-        "title": "Din aur raat Quiz",
         "questions": [
           {
             "q": "Zameen din aur raat kyun ghoomti hai?",
@@ -246,7 +401,15 @@
             "c": "Zameen chaand se door hoti hai.",
             "d": "Zameen ka koi aur maqsad hai.",
             "correct": "a",
-            "explanation": "Zameen apne axis par ghoomne se din aur raat ka chakkar banata hai."
+            "explanation": "Zameen apne axis par ghoomne se din aur raat ka chakkar banata hai.",
+            "question": "Zameen din aur raat kyun ghoomti hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Din aur raat ka waqt kitna hota hai?",
@@ -255,7 +418,15 @@
             "c": "36 ghante.",
             "d": "10 ghante.",
             "correct": "a",
-            "explanation": "Din aur raat milakar 24 ghante bante hain."
+            "explanation": "Din aur raat milakar 24 ghante bante hain.",
+            "question": "Din aur raat ka waqt kitna hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Jab Zameen ka ek hissa dhoop mein hota hai, toh kya hota hai?",
@@ -264,7 +435,15 @@
             "c": "Us hissa mein andhera hota hai.",
             "d": "Koi farq nahi hota.",
             "correct": "a",
-            "explanation": "Dhoop wale hissa mein din hota hai jabki baaqi hissa raat mein hota hai."
+            "explanation": "Dhoop wale hissa mein din hota hai jabki baaqi hissa raat mein hota hai.",
+            "question": "Jab Zameen ka ek hissa dhoop mein hota hai, toh kya hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Zameen ka ghoomna kis tarah se sab kuch badalta hai?",
@@ -273,7 +452,15 @@
             "c": "Zameen nahi ghoomti.",
             "d": "Din aur raat ka Zameen se koi taluq nahi.",
             "correct": "a",
-            "explanation": "Zameen ka ghoomna sab mulkon mein din aur raat ka asar dalta hai."
+            "explanation": "Zameen ka ghoomna sab mulkon mein din aur raat ka asar dalta hai.",
+            "question": "Zameen ka ghoomna kis tarah se sab kuch badalta hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Din ki length kab badalti hai?",
@@ -282,7 +469,15 @@
             "c": "Logon ki wajah se.",
             "d": "Kuch nahi badalta.",
             "correct": "a",
-            "explanation": "Din ki length mausam ki badlav se badalti hai, jaise ke summer aur winter."
+            "explanation": "Din ki length mausam ki badlav se badalti hai, jaise ke summer aur winter.",
+            "question": "Din ki length kab badalti hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           }
         ]
       },
@@ -294,7 +489,6 @@
       "description": "Doctor, teacher, farmer, police",
       "lesson": "## HOOK\nAao baccho, socho agar humari duniya mein koi doctor na hota, toh kya hota? Kya aapso soch sakte hain ke jab aap bimar ho jate, toh kaun aapki madad karta? Chalo, aaj hum kuch aise logon ke bare mein seekhte hain jo hamari community ko bht behter banate hain.\n\n## SAMJHAO\nCommunity helpers wo log hain jo hamari madad karte hain aur hamari zindagi ko asaan banate hain. Har shakhs ka apna aik role hota hai. Aayein kuch aham community helpers ke bare mein baat karte hain.\n\nPehla community helper hai doctor. Doctor woh hota hai jo bimar logon ka ilaaj karta hai. Jab aap bimar hotay hain, toh doctor aapko theek karne ke liye dawa dete hain. Pakistan mein har sheher mein hospital aur clinics hain, jahan doctors aapki madad karte hain.\n\nDoosra community helper hai teacher. Teacher hamesha aapko naye aikat aur skills sikhata hai. Wo aapko school mein padhata hai, aur zindagi ke liye taiyaar karta hai. Teachers aapko sochne aur seekhne ka tareeqa dete hain. Pakistan mein bohot se achay teachers hain jo apne students ko behtar banane mein madad kar rahe hain.\n\nTeesra community helper hai farmer. Farmer woh hota hai jo kheti karta hai aur humein khana deta hai. Wo ann-jesay chawal, gehu aur sabziyan ugata hai. Pakistan mein bohot se farmers hain jo desh ki zindagi ke liye zaroori khana ugate hain.\n\nAakhri community helper hai police. Police hamari jaan aur maal ki hifazat karti hai. Jab bhi koi muskil hoti hai ya khatar hota hai, police hamesha wahaan hoti hai. Pakistan ke her sheher mein police station hota hai jo logon ki madad karta hai.\n\n## MISAAL\nAgar aap bazaar jayein aur dekhein ke kis tarah sabziyaan farmers se aati hain, toh aap samjhen ge ke kis tarah farmers apna kaam karte hain. Jaisay aap kisi sabzi vendor se sabzi kharidte hain, wahi farmer ka kam hai jo in sabziyon ko ugata hai aur bechta hai. Aap aksar in sabziyon ka istemal biryani ya kisi aur dish mein karte hain.\n\n## KARO\nAb aapko ghar ya school ke andar ek small role-play activity karni hai. Aap log different community helpers ke roles nibha sakte hain, jaise doctor, teacher, farmer, aur police. Har bachcha apne role ke hisaab se kaam karta hai aur dusre bachon ko yeh batata hai ke wo kya karte hain. Is se aapko in community helpers ke kaam ki samajh aayegi.\n\n## SAWAAL\n1. Doctor kya karte hain?\n2. Teacher ka kya role hai community mein?\n3. Farmer kis cheez ko ugata hai aur humein kya provide karta hai?\n\nAasha hai yeh lesson aapko pasand aaya hoga. Science ke mazeed interesting topics par milte hain. \n\nScience Sir.",
       "quiz": {
-        "title": "Community helpers Quiz",
         "questions": [
           {
             "q": "Doctor kis kaam mein madad karta hai?",
@@ -303,7 +497,15 @@
             "c": "School ka kaam",
             "d": "Police ki madad",
             "correct": "a",
-            "explanation": "Doctor bimaar logon ka ilaaj karte hain."
+            "explanation": "Doctor bimaar logon ka ilaaj karte hain.",
+            "question": "Doctor kis kaam mein madad karta hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Teacher ka asal kaam kya hai?",
@@ -312,7 +514,15 @@
             "c": "Ghar saaf karna",
             "d": "Police ki patrol karna",
             "correct": "b",
-            "explanation": "Teacher ka kaam bachon ko padhana hota hai."
+            "explanation": "Teacher ka kaam bachon ko padhana hota hai.",
+            "question": "Teacher ka asal kaam kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Kisaan kya kaam karta hai?",
@@ -321,7 +531,15 @@
             "c": "Taleem deta hai",
             "d": "Bimaaron ka ilaaj karta hai",
             "correct": "b",
-            "explanation": "Kisaan khet mein farman aur sabziyan ugata hai."
+            "explanation": "Kisaan khet mein farman aur sabziyan ugata hai.",
+            "question": "Kisaan kya kaam karta hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Police kis liye hoti hai?",
@@ -330,7 +548,15 @@
             "c": "Ishtihar dekhna",
             "d": "Hifazat aur qanoon enforce karna",
             "correct": "d",
-            "explanation": "Police ki zimmedari hifazat aur qanoon ki enforcement hai."
+            "explanation": "Police ki zimmedari hifazat aur qanoon ki enforcement hai.",
+            "question": "Police kis liye hoti hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 3
           },
           {
             "q": "Doctor kaun se tools istemal karta hai?",
@@ -339,7 +565,15 @@
             "c": "Khilona",
             "d": "Rang",
             "correct": "b",
-            "explanation": "Doctor stethoscope ka istemal bimariyan sunne ke liye karta hai."
+            "explanation": "Doctor stethoscope ka istemal bimariyan sunne ke liye karta hai.",
+            "question": "Doctor kaun se tools istemal karta hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           }
         ]
       },

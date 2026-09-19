@@ -9,7 +9,6 @@
       "description": "SNC: 1,000,000 tak — multiply/divide by 10,100,1000",
       "lesson": "## HOOK\nSadi, socho agar tumhare paas 10 lakh rupees hon, to tum kya kharidoge? Shayed tumhien ek naya smartphone chahiye ya phir apne dost ko ek bada birthday party dene ka plan banane ka mauqa milega!\n\n## SAMJHAO\nAaj hum \"Numbers 10 lakh tak\" ke baare mein baat karain ge. 10 lakh ko hum 1,000,000 bhi kehte hain. Yeh ek bohot bara number hai aur isay samajhna important hai. \n\nJab hum 10 se multiply karte hain, to kisi bhi number ko 10 guna karte hain. For example, agar tumhare paas 5 hai, to 10 se multiply karne par yeh ban jata hai 50. Magar agar hum 5 lakh ko 10 se multiply karte hain, to hamara jawab hoga 50 lakh!\n\nAb agar hum 100 se multiply karte hain, to kisi bhi number ko 100 guna karte hain. Misaal ke taur par, agar tumhare paas 3 lakh hain, to 100 se multiply karne par tumhare paas 3 crore ban jayega, jo bohot zyada hota hai. \n\nAakhir mein, agar hum 1000 se multiply karte hain, to kisi bhi number ko 1000 guna karte hain. Jaise agar tumhare paas 2,000 hain, to 1000 se multiply karne par yeh ban jayega 20,00,000! \n\nAb jab hum divide karte hain, hum us number ko chhote mein kar dete hain. Agar humara number 1,000,000 hai aur hum ise 10 se divide karte hain, to yeh ban jata hai 100,000. \n\n## MISAAL\nChalo Sadi, sochiye ke agar aapki school ki picnic par 500 students hain aur har student ko 10 rupees ki jarurat hai, to total kitne paisay chahiye honge? Yeh 500 ko 10 se multiply karne par 5000 banega. Lekin agar chaar buses chahiyein jinki har ik bus ki cost 100,000 rupees hai, to total kitne rupees chahiye honge? Yeh hoga 100,000 se 4 ko multiply karne par 400,000 rupees!\n\n## KARO\nSadi, ek activity karte hain! Apne ghar par ek notebook lo aur wahaan pe ek math table banao. Uss table mein 1 se le kar 10 tak ke numbers likho aur unhein 10, 100, aur 1000 se multiply karke dekhna. Phir, jo numbers tumne banaye hain unhein draw karo ya colour karo, taake tumhe yaad rahe ke yeh numbers kitne bade hain.\n\n## SAWAAL\n1. Agar tumhare paas 25,000 hain aur tum ise 10 se multiply karte ho, to kaunsa number milta hai?\n2. Agar ek bus ka fare 200,000 hai aur tum isay 100 se divide karte ho, to kya result milta hai?\n3. Tumhare dost ne 4 lakh ki biryani order ki hai, agar woh ise 10 se divide kare, to woh kitni biryani hasil karega?\n\nAb tum tayyar ho Sadi, chalain numbers ko explore karna shuru karein!",
       "quiz": {
-        "title": "Numbers 10 lakh tak Quiz",
         "questions": [
           {
             "q": "Agar aap 50,000 ko 10 se gunah karte hain to aapko kya hasil hota hai?",
@@ -18,7 +17,15 @@
             "c": "50,000",
             "d": "500",
             "correct": "a",
-            "explanation": "50,000 ko 10 se gunah karne par 5,00,000 milta hai."
+            "explanation": "50,000 ko 10 se gunah karne par 5,00,000 milta hai.",
+            "question": "Agar aap 50,000 ko 10 se gunah karte hain to aapko kya hasil hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "300,000 ko 100 se divide karne par kya milta hai?",
@@ -27,7 +34,15 @@
             "c": "300",
             "d": "3,00,000",
             "correct": "b",
-            "explanation": "300,000 ko 100 se divide karne par 30,000 hasil hota hai."
+            "explanation": "300,000 ko 100 se divide karne par 30,000 hasil hota hai.",
+            "question": "300,000 ko 100 se divide karne par kya milta hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "200,000 ko 1,000 se gunah karne par kya milega?",
@@ -36,7 +51,15 @@
             "c": "200",
             "d": "20,000,000",
             "correct": "d",
-            "explanation": "200,000 ko 1,000 se gunah karne par 20,000,000 milta hai."
+            "explanation": "200,000 ko 1,000 se gunah karne par 20,000,000 milta hai.",
+            "question": "200,000 ko 1,000 se gunah karne par kya milega?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 3
           },
           {
             "q": "Agar aap 70,000 ko 10 se divide karte hain to kya hasil hota hai?",
@@ -45,7 +68,15 @@
             "c": "700",
             "d": "7,00,000",
             "correct": "a",
-            "explanation": "70,000 ko 10 se divide karne par 7,000 hasil hota hai."
+            "explanation": "70,000 ko 10 se divide karne par 7,000 hasil hota hai.",
+            "question": "Agar aap 70,000 ko 10 se divide karte hain to kya hasil hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "5,00,000 ko 1000 se divide karne par kya milega?",
@@ -54,7 +85,15 @@
             "c": "5,000",
             "d": "5,00,000",
             "correct": "c",
-            "explanation": "5,00,000 ko 1000 se divide karne par 5,000 milta hai."
+            "explanation": "5,00,000 ko 1000 se divide karne par 5,000 milta hai.",
+            "question": "5,00,000 ko 1000 se divide karne par kya milega?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 2
           }
         ]
       },
@@ -66,7 +105,6 @@
       "description": "SNC: Prime factorization se HCF/LCM nikalna, real life problems",
       "lesson": "## HOOK\nSadi, kya tumne kabhi socha hai ke jab hum do ya zyada numbers ka HCF ya LCM nikalte hain, to kya hota hai? Aaj hum seekhein ge ke yeh dono kitne important hain, khaas tor par jab tumhare doston se koi competition ho ya school mein project karna ho!\n\n## SAMJHAO\nSab se pehle, HCF ka matlab hai \"Highest Common Factor\". Yeh un sab factors ka sab se bada number hota hai jo do ya zyada numbers ko divide kar sakta hai. Misaal ke tor par, agar humein 12 aur 16 ka HCF nikalna ho, to humein unke factors dekhne honge. \n\nAb, LCM ka matlab hai \"Lowest Common Multiple\". Yeh un multiples ka sab se chhota number hota hai jo do ya zyada numbers se divide ho sakta hai. Jaise agar humein 3 aur 5 ka LCM nikalna hai, to sab se chhota multiple jo 3 aur 5 dono se aata hai, wo hai 15.\n\nHCF aur LCM nikalne ke liye prime factorization ek achi technique hai. Iska matlab hai ke hum kisi number ko prime numbers ke product ke tor par likhte hain. Jaise 12 ko hum 2 x 2 x 3 yaani \\(2^2 \\times 3\\) ke tor par likhte hain. \n\nAgar humein 12 aur 16 ka HCF nikalna hai, to hum inka prime factorization karte hain: \n- 12 = \\(2^2 \\times 3\\)\n- 16 = \\(2^4\\)\n\nAb common prime factors ko lete hain, yahan sirf 2 common hai, aur uski choti power \\(2^2\\) se hai. To HCF hoga \\(2^2 = 4\\).\n\nLCM nikalne ke liye, hum common aur non-common prime factors ko lete hain. In dono examples se, LCM ho jayega \\(2^4 \\times 3 = 48\\).\n\n## MISAAL\nChalo, sochte hain ke Sadi ki cricket team mein 10 players hain, aur uski dosti ki team mein 15 players hain. Agar Sadi ko har team se players ko ek hi tareeqe se line up karna hai, to usne HCF nikalna hai. \n\nHCF nikalne par wo dekhta hai ke dono teams ka HCF kya hai. Yahan 10 (2 x 5) aur 15 (3 x 5) ke factors hain. Toh HCF hai 5. Iska matlab hai, Sadi 5 players ko line up kar sakta hai, iska sab se bada group banakar.\n\nAb LCM nikalne par, 10 aur 15 ka LCM hai 30. Iska matlab hai ke agar Sadi koi match khelta hai, to yahan 30 ka time frame se dono teams ek saath khel sakte hain.\n\n## KARO\nAb tumhare liye ek activity hai! Sadi, apne ghar mein ja kar apne parivar ke numbers le lo, jaise ke unka age ya kisi cheez ki quantity. Har member ke liye inka HCF aur LCM nikaalo. Phir ise ek kaghaz par likho aur dekho ke kya tumhara parivar bhi HCF aur LCM samajhta hai.\n\n## SAWAAL\n1. HCF aur LCM kya hain? Ek line mein batayein.\n2. Agar humein 8 aur 12 ka HCF nikaalna ho, to kya aap uska prime factorization karke chala sakte ho?\n3. 4 aur 6 ka LCM kya hoga? \n\nSadi, yeh sawaal tumhe HCF aur LCM ke bare mein achi tarah samjha dega. Toh chalo, seekhte hain!",
       "quiz": {
-        "title": "HCF aur LCM Quiz",
         "questions": [
           {
             "q": "Teen dosto ke paas kitne aasaan rukn hain: Ali ke paas 12, Sara ke paas 18 aur Bilal ke paas 24. Inka HCF kya hoga?",
@@ -75,7 +113,15 @@
             "c": "18",
             "d": "24",
             "correct": "a",
-            "explanation": "12, 18 aur 24 ka common factor 6 hai, jo inka HCF hai."
+            "explanation": "12, 18 aur 24 ka common factor 6 hai, jo inka HCF hai.",
+            "question": "Teen dosto ke paas kitne aasaan rukn hain: Ali ke paas 12, Sara ke paas 18 aur Bilal ke paas 24. Inka HCF kya hoga?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Ek school mein 40 bachay hain aur dusre school mein 60 bachay hain. Dono groups ko ek group mein milana hai. Inka LCM kya hoga?",
@@ -84,7 +130,15 @@
             "c": "60",
             "d": "40",
             "correct": "a",
-            "explanation": "40 aur 60 ka LCM 120 hai."
+            "explanation": "40 aur 60 ka LCM 120 hai.",
+            "question": "Ek school mein 40 bachay hain aur dusre school mein 60 bachay hain. Dono groups ko ek group mein milana hai. Inka LCM kya hoga?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Areeb ne 30 mithaiyan aur Sadaf ne 45 mithaiyan kharidi hain. Agar wo dono mithaiyon ko equal plate mein share karna chahte hain to wo maximum kitne plates bana sakte hain?",
@@ -93,7 +147,15 @@
             "c": "5",
             "d": "20",
             "correct": "a",
-            "explanation": "30 aur 45 ka HCF 15 hai, isliye wo 15 plates bana sakte hain."
+            "explanation": "30 aur 45 ka HCF 15 hai, isliye wo 15 plates bana sakte hain.",
+            "question": "Areeb ne 30 mithaiyan aur Sadaf ne 45 mithaiyan kharidi hain. Agar wo dono mithaiyon ko equal plate mein share karna chahte hain to wo maximum kitne plates bana sakte hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Agar ek buss 15 minute der se nikalti hai aur doosri 20 minute baad nikalti hai, to dono buses pehli dafa kis waqt ek hi waqt par milengi agar dono 12 baje nikalti hain?",
@@ -102,7 +164,15 @@
             "c": "15 minutes baad",
             "d": "20 minutes baad",
             "correct": "a",
-            "explanation": "15 aur 20 ka LCM 60 minutes hai, to wo 60 minutes baad milengi."
+            "explanation": "15 aur 20 ka LCM 60 minutes hai, to wo 60 minutes baad milengi.",
+            "question": "Agar ek buss 15 minute der se nikalti hai aur doosri 20 minute baad nikalti hai, to dono buses pehli dafa kis waqt ek hi waqt par milengi agar dono 12 baje nikalti hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Maira paas do numbers hain 14 aur 35. Inka HCF kya hai?",
@@ -111,7 +181,15 @@
             "c": "35",
             "d": "21",
             "correct": "a",
-            "explanation": "14 aur 35 ka common factor 7 hai, jo inka HCF hai."
+            "explanation": "14 aur 35 ka common factor 7 hai, jo inka HCF hai.",
+            "question": "Maira paas do numbers hain 14 aur 35. Inka HCF kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           }
         ]
       },
@@ -123,7 +201,6 @@
       "description": "SNC: 3-decimal places, percentage to fraction, real life %",
       "lesson": "## HOOK\nSadi, kya tumhe pata hai agar tumhara dost tumhe 50% discount de raha ho, toh tumhare liye kitna paise bach jayega? Chalo, is ka pata lagate hain aur sath hi decimal aur percentage ke baare mein seekhte hain!\n\n## SAMJHAO\nPehla, chalo samjhte hain kya hai decimals. Decimals ka matlab hai woh numbers jo kisi poore number ke baad chhote hisson me hoti hain. Jaise 2.5 ya 3.75. Yahan, 2 aur 3 poore numbers hain, aur .5 aur .75 unke chhote hisson ki taraf ishara karte hain. \n\nAb baat karte hain percentage ki. Percentage ka matlab hota hai \"har sau me se\". Agar koi cheez 25% hai, toh iska matlab hai 25 hisson me se 25. Ye hamesha 100 ki base par hota hai. \n\nAb in dono ka rishta samajhte hain. Jab hum percentage ko decimal me tabdeel karte hain, toh hum us percentage ko 100 se divide karte hain. Misaal ke taur par, 25% ko decimal me likhna chahte hain, toh ye hoga 25 ÷ 100 = 0.25. Yani, 25% ka MATLAB hai 0.25.\n\nAb thodi dilchasp baatein. Agar tumhare paas koi cheez hai jo 10% kam ho gayi hai, toh tumhare paas jitna bhi asal paise hai, uska 10% jaan kar use kam karna hoga. Is se tumhe yeh samajh aayega ke decimals aur percentages kaise ek doosre se jure hue hain.\n\n## MISAAL\nSchool canteen me socho, ek burger ki keemat 200 rupees hai. Agar mujhe 10% discount milta hai, toh mujhe dekhna hoga 10% kaise calculate karna hai. \n\n10% ka matlab hai 200 ka 10% nikaalna. Pehle, 200 ko 10 se divide karte hain:  \n200 ÷ 10 = 20 rupees. \n\nTo yahan, mujhe 20 rupees ka discount mila, toh ab burger ki asli keemat hogi:  \n200 - 20 = 180 rupees. Ab mujhe burger 180 rupees ka milega.\n\n## KARO\nSadi, tum ghar mein apne maata-pita se pucho ke kya woh tumhare liye kuch cheezon ki prices bata sakte hain, jaise ke fruits ya grocery items. Phir, un prices ka 10% ya 20% discount guess karo aur unka asli price nikaalne ki koshish karo. \n\nAgar tumhare paas calculator hai, toh uska bhi istemal kar sakte ho. Ye ek khaas experiment hai jisse tumhe decimals aur percentages ki achhi samajh hogi!\n\n## SAWAAL\n1. Agar ek kitab ki price 400 rupees hai aur uspe 25% discount hai, toh kitab ki final price kya hogi?\n2. 15% ko decimal me kaise likha jata hai?\n3. Agar koi cheez 300 rupees ki hai aur uspe 40% discount diya gaya hai, toh uski final price kya hogi? \n\nSadi, in sawalon ka jawab socho aur dekho kaise tumne lesson ko samjha!",
       "quiz": {
-        "title": "Decimals aur percentage Quiz",
         "questions": [
           {
             "q": "Agar aapke pas 3.245 kg aata hai, toh isay 2 decimal places tak kaise likhoge?",
@@ -132,7 +209,15 @@
             "c": "3.23 kg",
             "d": "3.20 kg",
             "correct": "b",
-            "explanation": "Isay 2 decimal places tak likhne par hum 3.25 kg likhte hain."
+            "explanation": "Isay 2 decimal places tak likhne par hum 3.25 kg likhte hain.",
+            "question": "Agar aapke pas 3.245 kg aata hai, toh isay 2 decimal places tak kaise likhoge?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Agar ek school ka 60% students girls hain aur total 200 students hain, toh girls ki ta'daad kya hogi?",
@@ -141,7 +226,15 @@
             "c": "80",
             "d": "60",
             "correct": "b",
-            "explanation": "60% ka matlab hai 200 ka 60% jo ke 120 hai."
+            "explanation": "60% ka matlab hai 200 ka 60% jo ke 120 hai.",
+            "question": "Agar ek school ka 60% students girls hain aur total 200 students hain, toh girls ki ta'daad kya hogi?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Agar aapne 2500 rupay ki koi cheez khareedi aur uspar 10% ka discount mila, toh aapne kitne rupay mein khareedi?",
@@ -150,7 +243,15 @@
             "c": "2100",
             "d": "2350",
             "correct": "a",
-            "explanation": "10% discount ka matlab hai 250 rupay kam, toh final price 2250 hai."
+            "explanation": "10% discount ka matlab hai 250 rupay kam, toh final price 2250 hai.",
+            "question": "Agar aapne 2500 rupay ki koi cheez khareedi aur uspar 10% ka discount mila, toh aapne kitne rupay mein khareedi?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Agar ek biscuit packet mein 13.5 biscuits hain, toh yeh kitne decimal places tak hai?",
@@ -159,7 +260,15 @@
             "c": "3",
             "d": "0",
             "correct": "a",
-            "explanation": "Yeh 1 decimal place mein hai, kyunke sirf 1 number decimal ke baad hai."
+            "explanation": "Yeh 1 decimal place mein hai, kyunke sirf 1 number decimal ke baad hai.",
+            "question": "Agar ek biscuit packet mein 13.5 biscuits hain, toh yeh kitne decimal places tak hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Agar aapne 75% marks liye hain aur total 400 marks hain, toh aapki total marks kitni hain?",
@@ -168,7 +277,15 @@
             "c": "325",
             "d": "375",
             "correct": "a",
-            "explanation": "75% ka matlab hai 400 ka 75% jo ke 300 hai."
+            "explanation": "75% ka matlab hai 400 ka 75% jo ke 300 hai.",
+            "question": "Agar aapne 75% marks liye hain aur total 400 marks hain, toh aapki total marks kitni hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           }
         ]
       },
@@ -180,7 +297,6 @@
       "description": "SNC: Different denominators, multiply/divide fractions",
       "lesson": "## HOOK\nSadi, socho agar tumhara dost Ali tumhe kuch biryani khilana chahta hai. Lekin uske paas sirf ½ plate biryani hai aur tumhe ⅓ plate chahiye. Kya tum dono biryani share kar sakte ho? Kaise?\n\n## SAMJHAO\nAaj hum \"Fractions\" ke advanced topics seekhenge, jisme different denominators ko samjhenge aur fractions ko multiply aur divide karna seekhenge.\n\nPehle, fractions ki basic understanding lete hain. Jab hum keh rahe hote hain ½ ya ⅓, toh ye batata hai ke poora chiz kitne hisson mein baanta gaya hai. Lekin agar denominators alag hain, toh fraction ka multiplication ya division karna thoda mushkil ho jata hai. \n\nJab hum different denominators wale fractions ko add ya subtract karte hain, toh humein un dono ka common denominator dhoondhna padta hai. Jaise agar humein ½ aur ⅓ ko add karna hai, toh humein inka common denominator, yani 6, dhoondhna hoga. Phir ½ ko 3/6 aur ⅓ ko 2/6 mein convert karte hain, aur inhe add karte hain.\n\nMultiply karne ke liye humein sirf numerators ko multiply karna hota hai aur denominators ko bhi. Maan lo humein ½ aur ⅓ ko multiply karna hai, toh hum 1 × 1 = 1 karenge aur 2 × 3 = 6 karenge. Iska matlab hai ke ½ × ⅓ = 1/6.\n\nJab hum divide karte hain, toh humein pehle 2nd fraction ko ulta (reciprocal) karna padega. Maan lo humein ½ ko ⅓ se divide karna hai, toh ye ho jayega ½ × 3/1. Is tarah se hum multiplication wale rules ka istemal karke division kar sakte hain.\n\n## MISAAL\nSadi, socho tum bazaar gaye ho aur wahan tumhe ¾ kg seb chahiye. Lekin tumhare paas ½ kg aur ⅓ kg seb hain. Kya tum dono ko combine karke ¾ kg tak pohanch sakte ho? Paheli baat, tumhe common denominator dhoondhna hoga. Agar tum dono ke weights ko add karoge, toh ye fraction ki help se aasan ho jayega.\n\n## KARO\nSadi, ab tum ghar mein kuch fruits lelo, jaise ke apples ya oranges. Tumhe ¾ kg apples hain aur ⅓ kg oranges hain. Pehle toh in dono fruits ko fractions mein likho. Phir inka common denominator dhoondho aur inko add karne ki koshish karo. Tum ye dekho ke kya tum dono fruits ko milakar ek complete kilogram bana sakte ho ya nahi. Is activity se tumhe fractions ka behtar samajh aayega!\n\n## SAWAAL\n1. Agar tumhare paas ⅔ pizza hai aur tumhe ¼ pizza aur chahiye, toh tum dono ko kaise add karoge?\n2. ½ ko ⅓ se divide karo, iska answer kya hoga?\n3. Agar tum ¾ ko ½ se multiply karo, toh kya result milega?",
       "quiz": {
-        "title": "Fractions advanced Quiz",
         "questions": [
           {
             "q": "Agar 1/4 ko 2 se multiply karein to kya milega?",
@@ -189,7 +305,15 @@
             "c": "1/4",
             "d": "1/16",
             "correct": "a",
-            "explanation": "1/4 ka 2 se multiply karne par (1/4) * 2 = 2/4 = 1/2 hota hai."
+            "explanation": "1/4 ka 2 se multiply karne par (1/4) * 2 = 2/4 = 1/2 hota hai.",
+            "question": "Agar 1/4 ko 2 se multiply karein to kya milega?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Agar 3/5 ko 10 se divide karein to kya milega?",
@@ -198,7 +322,15 @@
             "c": "3/10",
             "d": "3/15",
             "correct": "a",
-            "explanation": "3/5 ko 10 se divide karne par (3/5) / 10 = 3/(5*10) = 3/50 hota hai, phir isko simplify karne par 3/2 nayi hoti."
+            "explanation": "3/5 ko 10 se divide karne par (3/5) / 10 = 3/(5*10) = 3/50 hota hai, phir isko simplify karne par 3/2 nayi hoti.",
+            "question": "Agar 3/5 ko 10 se divide karein to kya milega?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "1/3 aur 1/6 ko add karein to kya milega?",
@@ -207,7 +339,15 @@
             "c": "1/6",
             "d": "1/4",
             "correct": "a",
-            "explanation": "1/3 aur 1/6 ko add karne par, common denominator 6 lete hain, to (2/6) + (1/6) = 3/6 = 1/2 hota hai."
+            "explanation": "1/3 aur 1/6 ko add karne par, common denominator 6 lete hain, to (2/6) + (1/6) = 3/6 = 1/2 hota hai.",
+            "question": "1/3 aur 1/6 ko add karein to kya milega?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Agar 5/8 ko 4 se multiply karein to kya milega?",
@@ -216,7 +356,15 @@
             "c": "5/4",
             "d": "20/8",
             "correct": "a",
-            "explanation": "5/8 ka 4 se multiply karne par (5/8) * 4 = 20/8 = 5/2 hota hai."
+            "explanation": "5/8 ka 4 se multiply karne par (5/8) * 4 = 20/8 = 5/2 hota hai.",
+            "question": "Agar 5/8 ko 4 se multiply karein to kya milega?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "3/7 ko 14 se divide karne par kya hasil hota hai?",
@@ -225,7 +373,15 @@
             "c": "6",
             "d": "1/7",
             "correct": "c",
-            "explanation": "3/7 ko 14 se divide karne par (3/7) / 14 = 3/(7*14) = 3/98, lekin isko simplify karne par approximately 6 nayi hoti."
+            "explanation": "3/7 ko 14 se divide karne par (3/7) / 14 = 3/(7*14) = 3/98, lekin isko simplify karne par approximately 6 nayi hoti.",
+            "question": "3/7 ko 14 se divide karne par kya hasil hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 2
           }
         ]
       },
@@ -237,7 +393,6 @@
       "description": "SNC: Triangles, quadrilaterals, symmetry",
       "lesson": "## HOOK\nSadi, kabhi socha hai ke hamari aas-paas ki duniya kis tarah ki shakloun se bhari hui hai? Diwaar par laga aik chashma, ya phir chaand ki surat, sab kuch geometric shapes mein hain! Aao, dekhein ke yeh shapes humari zindagi mein kahan-kahan hain.\n\n## SAMJHAO\nSabse pehle, aao baat karte hain **Triangles** ki. Yeh woh shapes hain jinke teen kone aur teen taraf hote hain. Duniya mein har kahin aapko triangles milenge, jaise ke kisi building ka roof ya phir cricket ground par khaam khada karke ball ko catch karna. Triangles mazboot hote hain aur inka istemal engineering mein bhi hota hai.\n\nAb chalte hain **Quadrilaterals** ki taraf. Yeh aise shapes hain jinmein chaar kone aur chaar taraf hoti hain. Quadrilaterals mein square, rectangle, aur rhombus shamil hain. Jaise jab aap school ki kursi ya desk par dekhte hain, to yeh aksar quadrilaterals ke shapes mein hoti hain. Quadrilaterals ka istemal bhi aasani se hota hai, kyunki yeh zyada stable hote hain.\n\nAb baat karte hain **Symmetry** ki. Jab kisi shape ko do hisso mein baantne par dono hissa ek jese dikhte hain, to usay hum symmetric kehte hain. Jese ek butterfly ya phir ek chamchuri (spoon) ki dikhayi dete hain. Symmetry humari zindagi ka ek aham hissa hai, jo humein khoobsurat shapes ke saath hai.\n\nYeh teen concepts - triangles, quadrilaterals, aur symmetry - milkar humein yeh samajhane mein madad karte hain ke duniya kitni fascinating hai. Har shape ka apna ek khaas maqsad aur function hota hai.\n\n## MISAAL\nSadi, jab tum bazaar mein jaate ho, to dekhte ho ke fruits aur vegetables ke crates aksar rectangle ki shape mein hote hain. Yeh shapes zyada acha arrange kiye jaate hain aur efficient hote hain. Agar tum cricket match dekho, to kisi team ki logo bhi aksar triangles aur circles ka istemal karti hai. Yeh sab tumhe yaad dilata hai ke geometry humari roz marra ki zindagi se kitni tayid hai!\n\n## KARO\nAb Sadi, ghar ya school par ek aasan activity karo. Aik khuli kagzi sheet lo aur different shapes draw karo: ek triangle, ek quadrilateral, aur kuch symmetrical shapes banao. Uske baad dekhna ke kaunsa shape sabse zyada stable hai jab tumhe usay table par rakho. Yeh tumhe yeh samajhne mein madad karega ke kaun se shapes zyada mazboot hain!\n\n## SAWAAL\n1. Triangle ke kitne kone hote hain?\n2. Ek quadrilateral ka example do.\n3. Symmetry ka matlub kya hota hai? \n\nSadi, ummid hai ke tumhe yeh lesson pasand aaya hoga aur tumhe shapes ka asar samajh aaya hoga!",
       "quiz": {
-        "title": "Geometry shapes Quiz",
         "questions": [
           {
             "q": "Ek musallas (triangle) ki total angles ka sum kitna hota hai?",
@@ -246,7 +401,15 @@
             "c": "90 darje",
             "d": "270 darje",
             "correct": "a",
-            "explanation": "Musallas ki tamam angles ka sum hamesha 180 darje hota hai."
+            "explanation": "Musallas ki tamam angles ka sum hamesha 180 darje hota hai.",
+            "question": "Ek musallas (triangle) ki total angles ka sum kitna hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Kis shakal ko chaar corners hote hain aur chaar sides hote hain?",
@@ -255,7 +418,15 @@
             "c": "Daira",
             "d": "Rectangle",
             "correct": "b",
-            "explanation": "Chorassa (quadrilateral) mein chaar corners aur chaar sides hote hain."
+            "explanation": "Chorassa (quadrilateral) mein chaar corners aur chaar sides hote hain.",
+            "question": "Kis shakal ko chaar corners hote hain aur chaar sides hote hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Ek chaturbhuj (quadrilateral) jiski sab sides barabar hain aur angles bhi barabar hain, usay kya kehte hain?",
@@ -264,7 +435,15 @@
             "c": "Square",
             "d": "Trapazium",
             "correct": "c",
-            "explanation": "Aisa chaturbhuj jiski sab sides aur angles barabar hon, usay 'Square' kehte hain."
+            "explanation": "Aisa chaturbhuj jiski sab sides aur angles barabar hon, usay 'Square' kehte hain.",
+            "question": "Ek chaturbhuj (quadrilateral) jiski sab sides barabar hain aur angles bhi barabar hain, usay kya kehte hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 2
           },
           {
             "q": "Ek shakal ka ek hi mirror image hai, isse kya kehte hain?",
@@ -273,7 +452,15 @@
             "c": "Reflection",
             "d": "Rotation",
             "correct": "b",
-            "explanation": "Jis shakal ka ek hi mirror image ho, usay symmetry kehte hain."
+            "explanation": "Jis shakal ka ek hi mirror image ho, usay symmetry kehte hain.",
+            "question": "Ek shakal ka ek hi mirror image hai, isse kya kehte hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Triangle ki ek taraf 5 cm hai, doosri taraf 5 cm hai, aur teesri taraf 8 cm hai. Yeh kaunsa triangle hai?",
@@ -282,7 +469,15 @@
             "c": "Isosceles",
             "d": "Right-angled",
             "correct": "c",
-            "explanation": "Yeh isosceles musallas hai kyunki iski do sides barabar hain."
+            "explanation": "Yeh isosceles musallas hai kyunki iski do sides barabar hain.",
+            "question": "Triangle ki ek taraf 5 cm hai, doosri taraf 5 cm hai, aur teesri taraf 8 cm hai. Yeh kaunsa triangle hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 2
           }
         ]
       },
@@ -294,7 +489,6 @@
       "description": "SNC: Square/rectangle formulas, real life area problems",
       "lesson": "## HOOK  \nSadi, kya tumne kabhi socha hai ke agar tumhara ghar ya tumhara school ka playground ek chaaron taraf se deewaron se ghira ho, to uski taraf se kitni jaga hai? Agar hum uska perimeter aur area jaan le, to hum ye samajh sakte hain ke wahan par kitna khilauna ya kitne bachche khel sakte hain!\n\n## SAMJHAO  \nPerimeter ka matlab hai kisi shape ke chaaron taraf ka faasla. Jab hum square ki baat karte hain, to uska formula hai: Perimeter = 4 × side. Yani agar ek side ka lambai 5 meter hai, to uska perimeter hoga 4 × 5 = 20 meters.  \n\nAb rectangle ka perimeter kabhi kabhi alag hota hai. Rectangle ke liye formula hai: Perimeter = 2 × (length + width). Agar rectangle ki length 8 meters hai aur width 4 meters hai, to iska perimeter hoga 2 × (8 + 4) = 24 meters.  \n\nAb area ki baat karte hain. Square ka area nikalne ka formula hai: Area = side × side. Agar side 5 meter hai, to area hoga 5 × 5 = 25 square meters. Rectangle ke liye area ka formula hai: Area = length × width. Agar length 8 meters aur width 4 meters hai, to area hoga 8 × 4 = 32 square meters.\n\nPerimeter aur area dono concepts bahut zaroori hain, kyunki ye humare aas paas ke environment mein kaam aate hain. Kisi bhi cheez ki lambai aur chaudaai jaan kar, hum samajh sakte hain ke uski jaga kitni hai aur agar hum isi jagah par kuch aur rakhna chahte hain to kya wo possible hai ya nahi.\n\n## MISAAL  \nSadi, socho tumhare school mein ek playground hai jiska naam \"Cricket Ground\" hai. Is playground ka lambai 50 meters hai aur chaudaai 30 meters hai. Agar hum iska perimeter nikalte hain to:  \nPerimeter = 2 × (50 + 30) = 2 × 80 = 160 meters.  \nAur ab agar hum iska area nikalain to:  \nArea = length × width = 50 × 30 = 1500 square meters.  \nYani, tumhare school ka playground bahut bada hai aur wahan par bohot saare bachche khel sakte hain!\n\n## KARO  \nAb tumhare liye ek activity hai. Ghar par ya school mein ek chhota sa drawing bana lo. Pehle ek square banao, phir uski side 4 cm rakho. Us square ka perimeter aur area nikaalo. Phir ek rectangle banao jiska lambai 6 cm aur chaudaai 3 cm ho. Us rectangle ka bhi perimeter aur area nikaalo. Tum in dono shapes ko compare kar sakte ho!\n\n## SAWAAL  \n1. Agar ek square ki side 10 meter hai, to uska perimeter kya hoga?  \n2. Rectangle jiska lambai 12 meters aur chaudaai 5 meters hai, uska area kya hoga?  \n3. Agar tumhara ghar ek square hai aur uski side 8 meters hai, to kya tum bata sakte ho ke ghar ka area kya hoga?",
       "quiz": {
-        "title": "Perimeter aur area Quiz",
         "questions": [
           {
             "q": "Ek chauras ka lambai 5 meter hai. Uska perimeter kya hoga?",
@@ -303,7 +497,15 @@
             "c": "15 meter",
             "d": "10 meter",
             "correct": "a",
-            "explanation": "Chauras ka perimeter 4 x lambai hota hai. Yani 4 x 5 = 20 meter."
+            "explanation": "Chauras ka perimeter 4 x lambai hota hai. Yani 4 x 5 = 20 meter.",
+            "question": "Ek chauras ka lambai 5 meter hai. Uska perimeter kya hoga?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Ek rectangle jiska lambai 8 meter aur chaurai 4 meter hai, uska area kya hoga?",
@@ -312,7 +514,15 @@
             "c": "20 square meter",
             "d": "12 square meter",
             "correct": "a",
-            "explanation": "Area = lambai x chaurai. Yani 8 x 4 = 32 square meter."
+            "explanation": "Area = lambai x chaurai. Yani 8 x 4 = 32 square meter.",
+            "question": "Ek rectangle jiska lambai 8 meter aur chaurai 4 meter hai, uska area kya hoga?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Agar ek bagh ka perimeter 100 meter hai aur lambai 30 meter hai, to bagh ki chaurai kya hogi?",
@@ -321,7 +531,15 @@
             "c": "15 meter",
             "d": "30 meter",
             "correct": "b",
-            "explanation": "Perimeter = 2 x (lambai + chaurai). Yani 100 = 2 x (30 + chaurai), chaurai = 25 meter."
+            "explanation": "Perimeter = 2 x (lambai + chaurai). Yani 100 = 2 x (30 + chaurai), chaurai = 25 meter.",
+            "question": "Agar ek bagh ka perimeter 100 meter hai aur lambai 30 meter hai, to bagh ki chaurai kya hogi?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Ek makaan ki chhat ka area 50 square meter hai. Agar chaurai 5 meter hai, to makaan ki lambai kya hogi?",
@@ -330,7 +548,15 @@
             "c": "8 meter",
             "d": "15 meter",
             "correct": "a",
-            "explanation": "Area = lambai x chaurai, is liye lambai = Area / chaurai = 50 / 5 = 10 meter."
+            "explanation": "Area = lambai x chaurai, is liye lambai = Area / chaurai = 50 / 5 = 10 meter.",
+            "question": "Ek makaan ki chhat ka area 50 square meter hai. Agar chaurai 5 meter hai, to makaan ki lambai kya hogi?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Ek varqa jiska perimeter 36 meter hai, agar har side barabar hai to har side ki lambai kya hogi?",
@@ -339,7 +565,15 @@
             "c": "7 meter",
             "d": "6 meter",
             "correct": "a",
-            "explanation": "Chauras ka perimeter = 4 x lambai, to lambai = perimeter / 4 = 36 / 4 = 9 meter."
+            "explanation": "Chauras ka perimeter = 4 x lambai, to lambai = perimeter / 4 = 36 / 4 = 9 meter.",
+            "question": "Ek varqa jiska perimeter 36 meter hai, agar har side barabar hai to har side ki lambai kya hogi?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           }
         ]
       },

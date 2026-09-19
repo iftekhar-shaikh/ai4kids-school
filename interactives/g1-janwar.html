@@ -1,15 +1,218 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Janwar | AI4Kids Grade 1 Science</title><style>:root{--ink:#202b36;--muted:#526170;--paper:#fffdf7;--line:#d8d1c3;--blue:#216a9b;--blue2:#dcecf6;--orange:#d4752c;--green:#2e8657;--red:#bb4b45;--yellow:#fff0bd;--purple:#79539a;--fs-cap:clamp(.95rem,2.5vw,1.1rem);--fs-sm:clamp(1.18rem,3.2vw,1.5rem);--fs-md:clamp(1.35rem,3.8vw,1.8rem);--fs-lg:clamp(1.6rem,4.5vw,2.25rem);--fs-xl:clamp(2rem,6vw,3rem)}
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:var(--fs-sm);line-height:1.55;padding:0 0 50px}.wrap{max-width:1080px;margin:auto;padding:0 16px}.bar{display:flex;align-items:center;gap:9px;flex-wrap:wrap;padding:15px 0 8px}.brand{font-weight:800;color:var(--blue);margin-right:auto;font-size:var(--fs-cap)}button{font:inherit;color:inherit}.chip,.tab{border:2px solid var(--ink);border-radius:999px;background:var(--paper);padding:8px 15px;cursor:pointer;font-weight:800;min-height:46px}.chip[aria-pressed=true],.tab[aria-pressed=true]{background:var(--ink);color:#fff}.chip:focus-visible,.tab:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-offset:3px}h1{font-size:var(--fs-xl);line-height:1.2;margin:10px 0 3px}.sub{color:var(--muted);margin:0 0 16px}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:15px}.tab{border-radius:14px;flex:1 1 16%;font-size:var(--fs-cap);min-height:53px}.demo-wrap{border:3px solid var(--ink);border-radius:22px;background:linear-gradient(140deg,#e9f4fa,#f9efdb);padding:16px;margin-bottom:20px;scroll-margin-top:10px}.demo-head{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.demo-head h2{font-size:var(--fs-lg);margin:0;flex:1}.demo-instruction{margin:5px 0 12px;color:var(--muted)}.play{background:var(--green);border:3px solid #236b45;color:#fff;border-radius:16px;padding:11px 18px;min-height:55px;cursor:pointer;font-weight:800;font-size:var(--fs-md);width:100%;margin-top:13px}.play:active{transform:scale(.98)}.demo-stage{background:#fffefb;border:2px solid var(--line);border-radius:17px;padding:13px}.demo-msg{border-radius:13px;background:var(--yellow);padding:11px 13px;margin:11px 0 0;font-weight:700}.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.card{border:3px solid var(--line);background:#fff;border-radius:15px;min-height:100px;padding:11px 8px;cursor:pointer;text-align:center;font-weight:800}.card:hover,.card.selected{border-color:var(--blue);background:var(--blue2)}.emoji{display:block;font-size:2.35rem;line-height:1.1;margin-bottom:5px}.card small{display:block;font-size:var(--fs-cap);font-weight:600;color:var(--muted)}.lesson-grid{display:grid;gap:13px}.lesson{border:3px solid var(--line);border-radius:18px;background:#fff;padding:16px 18px;scroll-margin-top:12px}.lesson .tag{display:inline-block;background:var(--blue);color:#fff;border-radius:999px;padding:4px 14px;font-size:var(--fs-cap);font-weight:900;margin-bottom:9px}.lesson.hook .tag{background:var(--orange)}.lesson.misaal .tag{background:var(--green)}.lesson.karo .tag{background:var(--purple)}.lesson p{margin:0;font-size:var(--fs-sm)}.quiz{border-top:3px solid var(--ink);margin-top:30px;padding-top:21px;scroll-margin-top:12px}.quiz h2{font-size:var(--fs-lg);margin:0 0 18px}.q{margin-bottom:27px}.q-title{font-size:var(--fs-md);font-weight:800;margin:0 0 10px}.opt{display:block;width:100%;text-align:left;border:2px solid var(--line);background:#fff;border-radius:12px;padding:12px 14px;margin:8px 0;cursor:pointer;min-height:54px;font-size:var(--fs-sm)}.opt.right{border-color:var(--green);background:#e5f3eb;font-weight:800}.opt.wrong{border-color:var(--red);background:#fae5e1}.feedback{display:none;color:var(--muted);font-size:var(--fs-cap);margin:8px 0}.feedback.show{display:block}.score{display:none;text-align:center;border:3px solid var(--green);background:#e5f3eb;border-radius:15px;padding:13px;font-size:var(--fs-md);font-weight:900}.score.show{display:block}footer{margin-top:31px;border-top:1px solid var(--line);padding-top:15px;color:var(--muted);font-size:var(--fs-cap)}@media(min-width:760px){.lesson-grid{grid-template-columns:1fr 1fr}.demo-wrap{padding:20px}.cards{grid-template-columns:repeat(4,1fr)}.play{width:auto;min-width:190px}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}</style></head><body><div class="wrap"><div class="bar"><span class="brand" id="brand"></span><button class="chip" id="langBtn" type="button" aria-pressed="false">Roman Urdu</button><button class="chip" id="speakBtn" type="button" aria-label="Read title aloud">🔊</button></div><header><h1 id="title"></h1><p class="sub" id="subtitle"></p></header><nav class="tabs" id="tabs" aria-label="Lesson sections"></nav><section class="demo-wrap" id="demo" aria-labelledby="demoTitle"><div class="demo-head"><h2 id="demoTitle"></h2><button class="chip" id="launch" type="button">Play demo</button></div><p class="demo-instruction" id="demoInstruction"></p><div class="demo-stage" id="demoStage"></div></section><main class="lesson-grid"><article class="lesson hook" id="hook"><span class="tag" id="hookTag"></span><p id="hookText"></p></article><article class="lesson samjhao" id="samjhao"><span class="tag" id="samjhaoTag"></span><p id="samjhaoText"></p></article><article class="lesson misaal" id="misaal"><span class="tag" id="misaalTag"></span><p id="misaalText"></p></article><article class="lesson karo" id="karo"><span class="tag" id="karoTag"></span><p id="karoText"></p></article></main><section class="quiz" id="quiz"><h2 id="quizHead"></h2><div id="quizBox"></div><div class="score" id="score"></div></section><footer id="foot"></footer></div><script>const DATA={"file":"g1-janwar.html","title":"Janwar","desc":{"en":"Learn about pets, farm animals, and wild animals.","ru":"Paltoo, khet ke aur jungli janwaron ke bare mein seekho."},"hook":{"en":"A cat may live with us, while a lion lives in the wild. Where do different animals live?","ru":"Aaj hum baat karenge janwaron ki! Kya aapne kabhi socha hai ke aapka paltoo kutta kis kisam ka janwar hai? Aur kya jungl mein rehne wale janwar aapke ghar aane ka soch bhi sakte hain?"},"samjhao":{"en":"Animals are living things. Pets can live with people. Farm animals help people. Wild animals live in nature. We must be kind and never hurt animals.","ru":"Janwar do qisam ke hote hain: Ghar ke janwar aur Junglee janwar. Ghar ke janwar woh hote hain jo hum apne ghar mein rakhte hain, jaise kutte, billi, aur parinday. Inko hum paal kar inke saath waqt guzarate hain. Yeh hamare dost hote hain aur hum inke khyaal rakhte hain. Junglee janwar woh hote hain jo zyada tar jungle ya khuli jagah par rehte hain. Ismein sher, hathi, aur bandar shamil hain. Yeh janwar azad hote hain aur apne natural habitats mein rehte hain. Inka khayal koi nahi rakhta aur yeh apne khud ke liye khana dhoondte hain. Ghar ke janwar aur junglee janwar mein ek aham farq yeh hai ke ghar ke janwar insano ke saath zindagi guzar rahe hote hain jabke junglee janwar apni zindagi khud guzarne ke liye zinda rehte hain. Hamara mulk Pakistan bhi alag-alag tarah ke janwaron se bhara hua hai. Aapko yahan lehrati hui genday, zinda khargosh aur jangalon mein chalte huye sher bhi milte hain. Har janwar ka apna ek ahem kirdar hai."},"misaal":{"en":"A cow can live on a farm and give milk. A lion needs its wild home and should not be a pet.","ru":"Sochiye, jab aap bazaar jaate hain, to aapko milti hain kitne saari chiriyan jo bazaar ke aas-paas udti rehti hain. Yeh chiriyan bazaar ke khane ki kisam kisam ki cheezon par aakar baith jati hain. Bazaar mein khana khareedte waqt aapne inhe dekha hoga, aur yeh bhi samjha hoga ke yeh bhi janwar hain jo hamare aas paas hain."},"karo":{"en":"Draw a safe home for a pet and a natural home for a wild animal. Add one animal to each.","ru":"Chalo, ab hum ek activity karte hain! Aap ghar par ya school mein ek \"Janwar Ka Karta\" banayein. Ek kaghaz lein aur uspe ghar ke janwaron jaise kutte aur billi aur junglee janwaron jaise sher aur hathi ki tasveerain banayen. Is tarah aapko yeh samajh aayega ke har janwar kis kisam ka hota hai aur kahan rehta hai."},"demo":{"type":"cards","title":{"en":"Where does it live?","ru":"Yeh kahan rehta hai?"},"instruction":{"en":"Choose an animal card to see its home.","ru":"Janwar ka card chuno aur us ka ghar dekho."},"items":[{"emoji":"🐱","name":{"en":"Cat","ru":"Billi"},"label":{"en":"Cat: often a home pet.","ru":"Billi: aksar ghar ki paltoo hoti hai."}},{"emoji":"🐶","name":{"en":"Dog","ru":"Kutta"},"label":{"en":"Dog: can be a home pet.","ru":"Kutta: ghar ka paltoo ho sakta hai."}},{"emoji":"🦁","name":{"en":"Lion","ru":"Sher"},"label":{"en":"Lion: a wild animal.","ru":"Sher: jungli janwar hai."}},{"emoji":"🐘","name":{"en":"Elephant","ru":"Hathi"},"label":{"en":"Elephant: lives in the wild.","ru":"Hathi: qudrati ilaqay mein rehta hai."}}]},"quiz":[{"q":{"en":"Which is usually a home pet?","ru":"Aam tor par ghar ka paltoo kaun hai?"},"o":[{"en":"Cat","ru":"Billi"},{"en":"Lion","ru":"Sher"},{"en":"Elephant","ru":"Hathi"},{"en":"Tiger","ru":"Baagh"}],"a":0,"e":{"en":"A cat can live with people as a pet.","ru":"A cat can live with people as a pet."}},{"q":{"en":"Where does a lion belong?","ru":"Sher kahan rehta hai?"},"o":[{"en":"Wild nature","ru":"Jungli qudrat"},{"en":"School bag","ru":"School bag"},{"en":"Fish bowl","ru":"Machhli ka bowl"},{"en":"Kitchen shelf","ru":"Kitchen ki shelf"}],"a":0,"e":{"en":"A lion is a wild animal.","ru":"A lion is a wild animal."}},{"q":{"en":"Which animal can give us milk?","ru":"Kaunsa janwar doodh de sakta hai?"},"o":[{"en":"Cow","ru":"Gaaye"},{"en":"Lion","ru":"Sher"},{"en":"Monkey","ru":"Bandar"},{"en":"Parrot","ru":"Tota"}],"a":0,"e":{"en":"A cow can give us milk.","ru":"A cow can give us milk."}},{"q":{"en":"How should we treat animals?","ru":"Janwaron ke saath kaisa sulook karna chahiye?"},"o":[{"en":"Kindly","ru":"Meharbani se"},{"en":"By hurting them","ru":"Unhein dukh de kar"},{"en":"By teasing","ru":"Unhein chirha kar"},{"en":"By throwing stones","ru":"Pathar maar kar"}],"a":0,"e":{"en":"Kindness keeps animals safe.","ru":"Kindness keeps animals safe."}},{"q":{"en":"Which is a wild animal?","ru":"Kaunsa jungli janwar hai?"},"o":[{"en":"Elephant","ru":"Hathi"},{"en":"Hen","ru":"Murgi"},{"en":"Goat","ru":"Bakri"},{"en":"Cat","ru":"Billi"}],"a":0,"e":{"en":"An elephant is a wild animal.","ru":"An elephant is a wild animal."}}]};
-(function(){'use strict';var lang='en',selected=0,answered=0,score=0;
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Janwar | AI4Kids Grade 1 Science</title>
+<style>:root{--ink:#1e2a33;--muted:#56636c;--paper:#fffdf7;--line:#ded5c4;--blue:#176b87;--blue2:#e6f3f6;--orange:#e07a32;--green:#2e7d4f;--red:#c4453a;--yellow:#fff0bd;--purple:#7652a5;--teal:#0d8a7c;--pink:#d45b8c;--sky:#7ec8e3;--sand:#f4e4bc;--fs-cap:clamp(0.9rem, 2.4vw, 1.1rem);--fs-xs:clamp(1.1rem, 2.8vw, 1.3rem);--fs-sm:clamp(1.25rem, 3.2vw, 1.5rem);--fs-md:clamp(1.4rem, 3.6vw, 1.75rem);--fs-lg:clamp(1.7rem, 4.2vw, 2.15rem);--fs-xl:clamp(2.05rem, 5.2vw, 2.7rem);--pad:clamp(12px,3.5vw,20px);--gap:clamp(8px,2.5vw,12px)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;max-width:100%;overflow-x:hidden}
+body{margin:0;padding:0 0 48px;background:var(--paper);color:var(--ink);font-family:"Trebuchet MS","Segoe UI",system-ui,sans-serif;font-size:var(--fs-sm);line-height:1.5;max-width:100%;overflow-x:hidden;width:100%}
+.wrap{width:100%;max-width:min(980px,100%);margin:auto;padding:0 var(--pad);box-sizing:border-box}
+.bar{display:flex;align-items:center;gap:var(--gap);flex-wrap:wrap;padding:14px 0 6px;width:100%}
+.brand{font-weight:900;color:var(--blue);margin-right:auto;font-size:var(--fs-cap);min-width:0;flex:1 1 auto}
+button{font:inherit;color:inherit;cursor:pointer;max-width:100%}
+.chip,.tab{border:2px solid var(--ink);background:var(--paper);border-radius:999px;padding:8px 15px;min-height:44px;font-weight:900}
+.chip[aria-pressed=true],.tab[aria-pressed=true]{background:var(--ink);color:#fff}
+.chip:focus-visible,.tab:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+h1{font-size:var(--fs-xl);line-height:1.15;margin:10px 0 5px;word-wrap:break-word;overflow-wrap:anywhere}
+.sub{color:var(--muted);margin:0 0 16px;font-size:var(--fs-sm)}
+.tabs{display:flex;gap:var(--gap);flex-wrap:wrap;margin-bottom:16px;width:100%}
+.tab{flex:1 1 calc(33.33% - 8px);border-radius:14px;min-height:48px;font-size:var(--fs-cap);min-width:0}
+.hero{border:3px solid var(--ink);border-radius:clamp(14px,3vw,22px);overflow:hidden;background:linear-gradient(160deg,#d9f0fa 0%,#fff6df 55%,#e8f7e9 100%);margin-bottom:16px;box-shadow:0 6px 0 #c9d5c0;width:100%;max-width:100%}
+.hero svg,.scene svg,.card .ico svg{display:block;width:100%;height:auto;max-width:100%}
+.hero svg{max-height:50vh}
+.demo-wrap{border:3px solid var(--ink);border-radius:clamp(14px,3vw,22px);background:linear-gradient(140deg,#e9f4fa,#f9efdb);padding:var(--pad);margin-bottom:20px;box-shadow:0 5px 0 #cfd8c8;width:100%;max-width:100%}
+.demo-head{display:flex;gap:var(--gap);align-items:center;flex-wrap:wrap;width:100%}
+.demo-head h2{font-size:var(--fs-lg);margin:0;flex:1 1 auto;min-width:0}
+.demo-instruction{color:var(--muted);margin:5px 0 12px}
+.demo-stage{background:#fffefb;border:2px solid var(--line);border-radius:17px;padding:clamp(10px,2.5vw,14px);width:100%;max-width:100%;overflow:hidden}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gap);width:100%}
+.card{border:3px solid var(--line);background:#fff;border-radius:16px;min-height:96px;padding:12px 8px;text-align:center;font-weight:900;font-size:var(--fs-xs);transition:transform .12s ease,border-color .12s;width:100%;max-width:100%}
+.card:active{transform:scale(.97)}
+.card.selected{border-color:var(--blue);background:var(--blue2);box-shadow:0 0 0 3px rgba(23,107,135,.2)}
+.card .ico{display:block;width:min(56px,18vw);height:auto;aspect-ratio:1;margin:0 auto 6px}
+.play{background:var(--green);border:3px solid #236b45;color:#fff;border-radius:15px;padding:12px 18px;min-height:54px;font-weight:900;font-size:var(--fs-md);width:100%;margin-top:12px}
+.play:active{transform:scale(.98)}
+.demo-msg{border-radius:13px;background:var(--yellow);padding:12px 14px;margin-top:12px;font-weight:800;font-size:var(--fs-sm);border:2px solid #e6d48a;min-height:52px;word-wrap:break-word}
+.lesson-grid{display:grid;gap:13px;grid-template-columns:1fr;width:100%}
+.lesson{border:3px solid var(--line);border-radius:18px;background:#fff;padding:clamp(12px,3vw,18px);scroll-margin-top:10px;width:100%;max-width:100%}
+.lesson .tag{display:inline-block;background:var(--blue);color:#fff;border-radius:999px;padding:4px 13px;font-size:var(--fs-cap);font-weight:900;margin-bottom:9px}
+.lesson.hook .tag{background:var(--orange)}
+.lesson.misaal .tag{background:var(--green)}
+.lesson.karo .tag{background:var(--purple)}
+.lesson p{margin:0;font-size:var(--fs-sm);overflow-wrap:anywhere}
+.quiz{border-top:3px solid var(--ink);margin-top:30px;padding-top:20px;width:100%}
+.quiz h2{font-size:var(--fs-lg);margin:0 0 17px}
+.q{margin-bottom:26px}
+.q-title{font-weight:900;margin:0 0 11px;font-size:var(--fs-md);overflow-wrap:anywhere}
+.opt{display:block;width:100%;max-width:100%;text-align:left;border:2px solid var(--line);background:#fff;border-radius:12px;padding:13px 14px;margin:8px 0;min-height:55px;font-size:var(--fs-sm);overflow-wrap:anywhere}
+.opt.right{border-color:var(--green);background:#e5f3eb;font-weight:900}
+.opt.wrong{border-color:var(--red);background:#fae5e1}
+.feedback{display:none;color:var(--muted);margin:7px 0;font-size:var(--fs-cap)}
+.feedback.show{display:block}
+.score{display:none;text-align:center;border:3px solid var(--green);background:#e5f3eb;border-radius:15px;padding:13px;font-size:var(--fs-md);font-weight:900;width:100%}
+.score.show{display:block}
+footer{margin-top:31px;border-top:1px solid var(--line);padding-top:15px;color:var(--muted);font-size:var(--fs-cap)}
+@media(max-width:480px){
+  .chip,.tab,.play,.opt,.card{width:100%}
+  .tabs{flex-direction:column}
+  .tab{flex:1 1 auto;width:100%}
+  .bar .chip{flex:1 1 auto;min-width:calc(50% - 6px);text-align:center}
+  .demo-head{flex-direction:column;align-items:stretch}
+  .demo-head .chip{width:100%}
+  .cards{grid-template-columns:1fr 1fr}
+  .cards.c5{grid-template-columns:1fr 1fr}
+  .play{width:100%!important;min-width:0!important}
+}
+@media(min-width:760px){
+  .lesson-grid{grid-template-columns:1fr 1fr}
+  .demo-wrap{padding:20px}
+  .cards{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .cards.c4{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .cards.c5{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .play{width:auto;min-width:200px}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+/* AI4KIDS_MOBILE_FLEX */
+html { -webkit-text-size-adjust: 100%; }
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; max-width: 100vw; overflow-x: hidden; }
+img, svg, canvas, video { max-width: 100%; height: auto; }
+button, .btn, .opt, [role=button] { min-height: 44px; min-width: 44px; }
+@media (max-width: 480px) {
+  main, .wrap, .container, .app { padding-left: 12px !important; padding-right: 12px !important; }
+  button, .btn { width: 100%; }
+}
+/* /AI4KIDS_MOBILE_FLEX */
+
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="bar"><span class="brand" id="brand"></span>
+<button class="chip" id="langBtn" type="button" aria-pressed="false">Roman Urdu</button>
+<button class="chip" id="speakBtn" type="button" aria-label="Read aloud">🔊</button></div>
+<header><h1 id="title"></h1><p class="sub" id="subtitle"></p></header>
+<div class="hero"><svg viewBox="0 0 360 160" role="img" aria-label="Pets farm and wild animals"><rect width="360" height="160" fill="#eaf6e8"/><rect x="20" y="70" width="90" height="60" fill="#fff0bd" stroke="#1e2a33" stroke-width="2"/><path d="M15 70l50-35 50 35" fill="#e07a32" stroke="#1e2a33" stroke-width="2"/><circle cx="55" cy="100" r="12" fill="#e8c07a" stroke="#1e2a33" stroke-width="2"/><rect x="130" y="85" width="100" height="45" fill="#c4a574" stroke="#1e2a33" stroke-width="2"/><ellipse cx="180" cy="95" rx="20" ry="14" fill="#fff" stroke="#1e2a33" stroke-width="2"/><rect x="250" y="50" width="90" height="80" fill="#4caf70" stroke="#1e2a33" stroke-width="2"/><circle cx="295" cy="95" r="18" fill="#e07a32" stroke="#1e2a33" stroke-width="2"/><circle cx="295" cy="95" r="10" fill="#f4d19a"/><text x="180" y="30" text-anchor="middle" font-size="14" font-weight="900" fill="#2e7d4f" font-family="sans-serif">Ghar · Farm · Jungle</text><circle id="heroAccent" cx="330" cy="20" r="8" fill="#e07a32"/></svg></div>
+<nav class="tabs" id="tabs" aria-label="Lesson sections"></nav>
+<section class="demo-wrap" id="demo">
+<div class="demo-head"><h2 id="demoTitle"></h2><button class="chip" id="launch" type="button">Play</button></div>
+<p class="demo-instruction" id="demoInstruction"></p>
+<div class="scene" id="picScene"><svg viewBox="0 0 360 100" role="img" aria-label="Kind to animals"><rect width="360" height="100" fill="#eaf6e8"/><circle cx="70" cy="50" r="22" fill="#e8c07a" stroke="#1e2a33" stroke-width="2"/><ellipse cx="180" cy="55" rx="28" ry="20" fill="#fff" stroke="#1e2a33" stroke-width="2"/><circle cx="290" cy="50" r="24" fill="#e07a32" stroke="#1e2a33" stroke-width="2"/><circle cx="290" cy="50" r="14" fill="#f4d19a"/><text x="180" y="92" text-anchor="middle" font-size="12" font-weight="800" fill="#2e7d4f" font-family="sans-serif">Mehrbani se pehchano</text></svg></div>
+<div class="demo-stage" id="demoStage"></div>
+</section>
+<main class="lesson-grid">
+<article class="lesson hook" id="hook"><span class="tag" id="hookTag"></span><p id="hookText"></p></article>
+<article class="lesson samjhao" id="samjhao"><span class="tag" id="samjhaoTag"></span><p id="samjhaoText"></p></article>
+<article class="lesson misaal" id="misaal"><span class="tag" id="misaalTag"></span><p id="misaalText"></p></article>
+<article class="lesson karo" id="karo"><span class="tag" id="karoTag"></span><p id="karoText"></p></article>
+</main>
+<section class="quiz"><h2 id="quizHead"></h2><div id="quizBox"></div><div class="score" id="score"></div></section>
+<footer id="foot"></footer>
+</div>
+<script>
+const DATA={"title":{"en":"Janwar","ru":"Janwar"},"desc":{"en":"Learn about pets, farm animals, and wild animals.","ru":"Paltoo, khet ke aur jungli janwaron ke bare mein seekho."},"lesson":{"hook":{"en":"A cat may live with us, while a lion lives in the wild. Where do different animals live?","ru":"Aaj hum baat karenge janwaron ki! Kya aapne kabhi socha hai ke aapka paltoo kutta kis kisam ka janwar hai? Aur kya jungl mein rehne wale janwar aapke ghar aane ka soch bhi sakte hain?"},"samjhao":{"en":"Animals are living things. Pets can live with people. Farm animals help people. Wild animals live in nature. We must be kind and never hurt animals.","ru":"Janwar do qisam ke hote hain: Ghar ke janwar aur Junglee janwar. Ghar ke janwar woh hote hain jo hum apne ghar mein rakhte hain, jaise kutte, billi, aur parinday. Inko hum paal kar inke saath waqt guzarate hain. Yeh hamare dost hote hain aur hum inke khyaal rakhte hain. Junglee janwar woh hote hain jo zyada tar jungle ya khuli jagah par rehte hain. Ismein sher, hathi, aur bandar shamil hain. Yeh janwar azad hote hain aur apne natural habitats mein rehte hain. Inka khayal koi nahi rakhta aur yeh apne khud ke liye khana dhoondte hain. Ghar ke janwar aur junglee janwar mein ek aham farq yeh hai ke ghar ke janwar insano ke saath zindagi guzar rahe hote hain jabke junglee janwar apni zindagi khud guzarne ke liye zinda rehte hain. Hamara mulk Pakistan bhi alag-alag tarah ke janwaron se bhara hua hai. Aapko yahan lehrati hui genday, zinda khargosh aur jangalon mein chalte huye sher bhi milte hain. Har janwar ka apna ek ahem kirdar hai."},"misaal":{"en":"A cow can live on a farm and give milk. A lion needs its wild home and should not be a pet.","ru":"Sochiye, jab aap bazaar jaate hain, to aapko milti hain kitne saari chiriyan jo bazaar ke aas-paas udti rehti hain. Yeh chiriyan bazaar ke khane ki kisam kisam ki cheezon par aakar baith jati hain. Bazaar mein khana khareedte waqt aapne inhe dekha hoga, aur yeh bhi samjha hoga ke yeh bhi janwar hain jo hamare aas paas hain."},"karo":{"en":"Draw a safe home for a pet and a natural home for a wild animal. Add one animal to each.","ru":"Chalo, ab hum ek activity karte hain! Aap ghar par ya school mein ek \"Janwar Ka Karta\" banayein. Ek kaghaz lein aur uspe ghar ke janwaron jaise kutte aur billi aur junglee janwaron jaise sher aur hathi ki tasveerain banayen. Is tarah aapko yeh samajh aayega ke har janwar kis kisam ka hota hai aur kahan rehta hai."}},"demo":{"type":"cards","title":{"en":"Where does it live?","ru":"Yeh kahan rehta hai?"},"instruction":{"en":"Choose an animal card to see its home.","ru":"Janwar ka card chuno aur us ka ghar dekho."},"items":[{"icon":"cat","name":{"en":"Cat","ru":"Billi"},"msg":{"en":"Cat: often a home pet.","ru":"Billi: aksar ghar ki paltoo hoti hai."},"kind":"info"},{"icon":"dog","name":{"en":"Dog","ru":"Kutta"},"msg":{"en":"Dog: can be a home pet.","ru":"Kutta: ghar ka paltoo ho sakta hai."},"kind":"info"},{"icon":"lion","name":{"en":"Lion","ru":"Sher"},"msg":{"en":"Lion: a wild animal.","ru":"Sher: jungli janwar hai."},"kind":"info"},{"icon":"hint","name":{"en":"Elephant","ru":"Hathi"},"msg":{"en":"Elephant: lives in the wild.","ru":"Hathi: qudrati ilaqay mein rehta hai."},"kind":"info"}]},"quiz":[{"q":{"en":"Which is usually a home pet?","ru":"Aam tor par ghar ka paltoo kaun hai?"},"o":[{"en":"Cat","ru":"Billi"},{"en":"Lion","ru":"Sher"},{"en":"Elephant","ru":"Hathi"},{"en":"Tiger","ru":"Baagh"}],"a":0,"e":{"en":"A cat can live with people as a pet.","ru":"A cat can live with people as a pet."}},{"q":{"en":"Where does a lion belong?","ru":"Sher kahan rehta hai?"},"o":[{"en":"Wild nature","ru":"Jungli qudrat"},{"en":"School bag","ru":"School bag"},{"en":"Fish bowl","ru":"Machhli ka bowl"},{"en":"Kitchen shelf","ru":"Kitchen ki shelf"}],"a":0,"e":{"en":"A lion is a wild animal.","ru":"A lion is a wild animal."}},{"q":{"en":"Which animal can give us milk?","ru":"Kaunsa janwar doodh de sakta hai?"},"o":[{"en":"Cow","ru":"Gaaye"},{"en":"Lion","ru":"Sher"},{"en":"Monkey","ru":"Bandar"},{"en":"Parrot","ru":"Tota"}],"a":0,"e":{"en":"A cow can give us milk.","ru":"A cow can give us milk."}},{"q":{"en":"How should we treat animals?","ru":"Janwaron ke saath kaisa sulook karna chahiye?"},"o":[{"en":"Kindly","ru":"Meharbani se"},{"en":"By hurting them","ru":"Unhein dukh de kar"},{"en":"By teasing","ru":"Unhein chirha kar"},{"en":"By throwing stones","ru":"Pathar maar kar"}],"a":0,"e":{"en":"Kindness keeps animals safe.","ru":"Kindness keeps animals safe."}},{"q":{"en":"Which is a wild animal?","ru":"Kaunsa jungli janwar hai?"},"o":[{"en":"Elephant","ru":"Hathi"},{"en":"Hen","ru":"Murgi"},{"en":"Goat","ru":"Bakri"},{"en":"Cat","ru":"Billi"}],"a":0,"e":{"en":"An elephant is a wild animal.","ru":"An elephant is a wild animal."}}],"subject":{"en":"AI4Kids · Grade 1 · Science","ru":"AI4Kids · Jamaat 1 · Science"},"grade_label":"AI4Kids Grade 1 Science"};
+const ICONS={"cat":"<svg viewBox=\"0 0 64 64\" aria-hidden=\"true\"><circle cx=\"32\" cy=\"34\" r=\"16\" fill=\"#e8c07a\" stroke=\"#1e2a33\" stroke-width=\"2\"/><path d=\"M18 22l6 10M46 22l-6 10\" fill=\"#e8c07a\" stroke=\"#1e2a33\" stroke-width=\"2\"/><circle cx=\"26\" cy=\"32\" r=\"2.5\" fill=\"#1e2a33\"/><circle cx=\"38\" cy=\"32\" r=\"2.5\" fill=\"#1e2a33\"/></svg>","dog":"<svg viewBox=\"0 0 64 64\" aria-hidden=\"true\"><ellipse cx=\"32\" cy=\"34\" rx=\"16\" ry=\"14\" fill=\"#c4a574\" stroke=\"#1e2a33\" stroke-width=\"2\"/><ellipse cx=\"14\" cy=\"30\" rx=\"6\" ry=\"10\" fill=\"#a08050\" stroke=\"#1e2a33\" stroke-width=\"2\"/><ellipse cx=\"50\" cy=\"30\" rx=\"6\" ry=\"10\" fill=\"#a08050\" stroke=\"#1e2a33\" stroke-width=\"2\"/><circle cx=\"26\" cy=\"32\" r=\"2.5\" fill=\"#1e2a33\"/><circle cx=\"38\" cy=\"32\" r=\"2.5\" fill=\"#1e2a33\"/></svg>","hint":"<svg viewBox=\"0 0 64 64\" aria-hidden=\"true\"><path d=\"M32 8c-10 0-18 7-18 16 0 6 3 11 8 14v6h20v-6c5-3 8-8 8-14 0-9-8-16-18-16z\" fill=\"#fff0bd\" stroke=\"#1e2a33\" stroke-width=\"2.5\"/><rect x=\"24\" y=\"48\" width=\"16\" height=\"4\" rx=\"2\" fill=\"#e07a32\"/></svg>","lion":"<svg viewBox=\"0 0 64 64\" aria-hidden=\"true\"><circle cx=\"32\" cy=\"32\" r=\"22\" fill=\"#e07a32\" stroke=\"#1e2a33\" stroke-width=\"2\"/><circle cx=\"32\" cy=\"32\" r=\"14\" fill=\"#f4d19a\" stroke=\"#1e2a33\" stroke-width=\"2\"/><circle cx=\"26\" cy=\"30\" r=\"2.5\" fill=\"#1e2a33\"/><circle cx=\"38\" cy=\"30\" r=\"2.5\" fill=\"#1e2a33\"/></svg>","robot":"<svg viewBox=\"0 0 64 64\" aria-hidden=\"true\"><rect x=\"14\" y=\"18\" width=\"36\" height=\"32\" rx=\"8\" fill=\"#7ec8e3\" stroke=\"#1e2a33\" stroke-width=\"2.5\"/><circle cx=\"26\" cy=\"32\" r=\"5\" fill=\"#fff\"/><circle cx=\"38\" cy=\"32\" r=\"5\" fill=\"#fff\"/><circle cx=\"26\" cy=\"32\" r=\"2.5\" fill=\"#176b87\"/><circle cx=\"38\" cy=\"32\" r=\"2.5\" fill=\"#176b87\"/><rect x=\"24\" y=\"42\" width=\"16\" height=\"4\" rx=\"2\" fill=\"#e07a32\"/><rect x=\"28\" y=\"8\" width=\"8\" height=\"10\" rx=\"2\" fill=\"#7652a5\"/><circle cx=\"32\" cy=\"7\" r=\"3\" fill=\"#e07a32\"/></svg>"};
+(function(){'use strict';
+var lang='en',selected=0,played=false,checked=false;
+var D=DATA;
 function $(id){return document.getElementById(id)}
 function t(x){return x&&typeof x==='object'?(x[lang]||x.en||''):String(x||'')}
-function put(el,x){if(!el)return;el.textContent=t(x);el.dir='ltr'}
-function labels(){return {play:{en:'Play',ru:'Play'},hook:{en:'HOOK',ru:'HOOK'},samjhao:{en:'SAMJHAO',ru:'SAMJHAO'},misaal:{en:'MISAAL',ru:'MISAAL'},karo:{en:'KARO',ru:'KARO'}}}
-function setCommon(){document.documentElement.lang=lang;document.title=t(DATA.title)+' | AI4Kids Grade 1 Science';put($('brand'),{en:'AI4Kids · Grade 1 · Science',ru:'AI4Kids · Jamaat 1 · Science'});put($('title'),DATA.title);put($('subtitle'),DATA.desc);put($('quizHead'),{en:'Quiz — 5 questions',ru:'Quiz — 5 sawaal'});put($('foot'),{en:'AI4Kids · Grade 1 Science · Offline lesson',ru:'AI4Kids · Jamaat 1 Science · Offline lesson'});$('langBtn').textContent=lang==='en'?'Roman Urdu':'English';$('langBtn').setAttribute('aria-pressed',lang==='ru');var L=labels();['hook','samjhao','misaal','karo'].forEach(function(k){put($(k+'Tag'),L[k]);put($(k+'Text'),DATA[k])});put($('demoTitle'),DATA.demo.title);put($('demoInstruction'),DATA.demo.instruction);put($('launch'),{en:'Play demo',ru:'Demo khelo'});renderTabs();renderDemo();renderQuiz()}
-function renderTabs(){var box=$('tabs');box.innerHTML='';var L=labels();[['play',L.play],['hook',L.hook],['samjhao',L.samjhao],['misaal',L.misaal],['karo',L.karo]].forEach(function(x){var b=document.createElement('button');b.className='tab';b.type='button';b.textContent=t(x[1]);b.setAttribute('aria-pressed',x[0]==='play');b.onclick=function(){var target=x[0]==='play'?'demo':x[0];$(target).scrollIntoView({behavior:'smooth'})};box.appendChild(b)})}
-function msg(en,ru){return {en:en,ru:ru}}
-function baseMsg(stage,text){var p=document.createElement('div');p.className='demo-msg';put(p,text);stage.appendChild(p)}
-function renderDemo(){var stage=$('demoStage');stage.innerHTML='';var row=document.createElement('div');row.className='cards';DATA.demo.items.forEach(function(it,i){var b=document.createElement('button');b.type='button';b.className='card'+(selected===i?' selected':'');var sp=document.createElement('span');sp.className='emoji';sp.textContent=it.emoji;b.appendChild(sp);b.appendChild(document.createTextNode(t(it.name)));b.onclick=function(){selected=i;renderDemo()};row.appendChild(b)});stage.appendChild(row);var play=document.createElement('button');play.type='button';play.className='play';play.textContent=lang==='en'?'▶ Play':'▶ Play karo';play.onclick=function(){baseMsg(stage,DATA.demo.items[selected].label)};stage.appendChild(play);baseMsg(stage,msg('Choose a card, then press Play.','Card chuno, phir Play dabao.'))}
-function renderQuiz(){var box=$('quizBox');box.innerHTML='';answered=0;score=0;$('score').classList.remove('show');DATA.quiz.forEach(function(q,qi){var wrap=document.createElement('section');wrap.className='q';var title=document.createElement('p');title.className='q-title';title.textContent=(qi+1)+'. '+t(q.q);wrap.appendChild(title);q.o.forEach(function(op,oi){var b=document.createElement('button');b.type='button';b.className='opt';b.textContent=String.fromCharCode(65+oi)+'. '+t(op);b.onclick=function(){if(wrap.dataset.done)return;wrap.dataset.done='1';answered++;var ok=oi===q.a;if(ok)score++;b.classList.add(ok?'right':'wrong');if(!ok)wrap.querySelectorAll('.opt').forEach(function(x,xi){if(xi===q.a)x.classList.add('right')});var fb=wrap.querySelector('.feedback');fb.textContent=(ok?'✓ ':'✗ ')+t(q.e);fb.classList.add('show');wrap.querySelectorAll('button').forEach(function(x){x.disabled=true});if(answered===DATA.quiz.length){$('score').textContent=t({en:'Your score: '+score+' / 5 — '+(score===5?'Excellent!':'Good practice!'),ru:'Tumhara score: '+score+' / 5 — '+(score===5?'Shabash!':'Achi practice!')});$('score').classList.add('show')}};wrap.appendChild(b)});var fb=document.createElement('p');fb.className='feedback';wrap.appendChild(fb);box.appendChild(wrap)})}
-$('langBtn').onclick=function(){lang=lang==='en'?'ru':'en';selected=0;setCommon()};$('speakBtn').onclick=function(){if(!('speechSynthesis' in window))return;window.speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t(DATA.title)+' '+t(DATA.desc));u.lang=lang==='en'?'en-US':'en-PK';u.rate=.9;window.speechSynthesis.speak(u)};$('launch').onclick=function(){$('demo').scrollIntoView({behavior:'smooth'});renderDemo()};setCommon()})();</script></body></html>
+function put(el,x){if(el)el.textContent=t(x)}
+var labels={play:{en:'Play',ru:'Khelo'},hook:{en:'HOOK',ru:'HOOK'},samjhao:{en:'SAMJHAO',ru:'SAMJHAO'},misaal:{en:'MISAAL',ru:'MISAAL'},karo:{en:'KARO',ru:'KARO'}};
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function render(){
+  document.title=t(D.title)+' | '+D.grade_label;
+  put($('brand'),D.subject);
+  put($('title'),D.title);
+  put($('subtitle'),D.desc);
+  $('langBtn').textContent=lang==='en'?'Roman Urdu':'English';
+  $('langBtn').setAttribute('aria-pressed',lang==='ru'?'true':'false');
+  ['hook','samjhao','misaal','karo'].forEach(function(k){put($(k+'Tag'),labels[k]);put($(k+'Text'),D.lesson[k])});
+  put($('demoTitle'),D.demo.title);
+  put($('demoInstruction'),D.demo.instruction);
+  put($('quizHead'),{en:'Quiz — 5 questions',ru:'Quiz — 5 sawaal'});
+  put($('foot'),{en:'AI4Kids · Offline lesson · No account needed',ru:'AI4Kids · Offline sabaq · Account ki zaroorat nahi'});
+  put($('launch'),labels.play);
+  var tabs=$('tabs');tabs.innerHTML='';
+  ['play','hook','samjhao','misaal','karo'].forEach(function(k){
+    var b=document.createElement('button');b.className='tab';b.type='button';b.textContent=t(labels[k]);
+    b.setAttribute('aria-pressed','false');
+    b.onclick=function(){($(k==='play'?'demo':k)).scrollIntoView({behavior:'smooth'})};
+    tabs.appendChild(b);
+  });
+  demo();quiz();
+}
+function demo(){
+  var s=$('demoStage');s.innerHTML='';
+  var items=D.demo.items||[];
+  var n=items.length;
+  var row=document.createElement('div');
+  row.className='cards'+(n===4?' c4':n===5?' c5':'');
+  items.forEach(function(it,i){
+    var b=document.createElement('button');b.type='button';
+    b.className='card'+(selected===i?' selected':'');
+    b.innerHTML='<span class="ico">'+(ICONS[it.icon]||ICONS.robot)+'</span>'+esc(t(it.name));
+    b.onclick=function(){selected=i;played=false;checked=false;demo()};
+    row.appendChild(b);
+  });
+  s.appendChild(row);
+  var b=document.createElement('button');b.type='button';b.className='play';
+  var isSort=D.demo.type==='sort';
+  b.textContent=isSort?(lang==='en'?'✅ Check machine':'✅ Machine check karo'):(lang==='en'?'▶ Play':'▶ Chalao');
+  b.onclick=function(){if(isSort)checked=true;else played=true;demo()};
+  s.appendChild(b);
+  var m=document.createElement('div');m.className='demo-msg';
+  var it=items[selected]||{msg:{en:'',ru:''}};
+  if(isSort){
+    m.textContent=checked?t(it.msg):t({en:'Choose a machine, then check it.',ru:'Machine chuno, phir check karo.'});
+  }else if(it.kind==='info'){
+    m.textContent=t(it.msg);
+  }else{
+    m.textContent=played?t(it.msg):t({en:'Choose a card, then press Play.',ru:'Card chuno, phir Play dabao.'});
+  }
+  s.appendChild(m);
+  var accent=$('heroAccent');
+  if(accent){accent.setAttribute('fill',['#7ec8e3','#e07a32','#7652a5','#2e7d4f','#d45b8c'][selected%5]);}
+}
+function quiz(){
+  var box=$('quizBox');box.innerHTML='';$('score').className='score';
+  var done=0,score=0;
+  (D.quiz||[]).forEach(function(q,qi){
+    var w=document.createElement('div');w.className='q';
+    var p=document.createElement('p');p.className='q-title';p.textContent=(qi+1)+'. '+t(q.q);w.appendChild(p);
+    var f=document.createElement('p');f.className='feedback';
+    q.options.forEach(function(o,i){
+      var b=document.createElement('button');b.type='button';b.className='opt';
+      b.textContent=String.fromCharCode(65+i)+'. '+t(o);
+      b.onclick=function(){
+        if(w.dataset.done)return;w.dataset.done='1';done++;
+        var ok=i===q.correct;if(ok)score++;
+        w.querySelectorAll('button').forEach(function(x,j){
+          x.disabled=true;
+          if(j===q.correct)x.classList.add('right');
+          else if(j===i)x.classList.add('wrong');
+        });
+        f.textContent=(ok?'✓ ':'✗ ')+t(q.explanation);f.className='feedback show';
+        if(done===5){$('score').textContent=t({en:'Your score: '+score+' / 5',ru:'Tumhara score: '+score+' / 5'});$('score').className='score show'}
+      };
+      w.appendChild(b);
+    });
+    w.appendChild(f);box.appendChild(w);
+  });
+}
+$('langBtn').onclick=function(){lang=lang==='en'?'ru':'en';selected=0;played=false;checked=false;render()};
+$('speakBtn').onclick=function(){
+  if('speechSynthesis'in window){
+    speechSynthesis.cancel();
+    var u=new SpeechSynthesisUtterance(t(D.title)+'. '+t(D.desc)+'. '+t(D.lesson.hook));
+    u.lang=lang==='ru'?'en-PK':'en-US';u.rate=.92;speechSynthesis.speak(u);
+  }
+};
+$('launch').onclick=function(){$('demo').scrollIntoView({behavior:'smooth'});demo()};
+render();
+})();
+</script>
+</body>
+</html>

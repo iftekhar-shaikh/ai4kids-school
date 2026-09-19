@@ -9,7 +9,6 @@
       "description": "Arduino — chhota computer",
       "lesson": "## HOOK\nAao bachon, socho agar aapka ek chhota computer ho jo aapko har kaam karne mein madad kar sake! Kya aapne kabhi socha hai ke aisa kaise mumkin hai? Jis tarah se humari zindagi mein technology ne rang bhara hai, waise hi yeh chhota computer, Arduino, humare liye bohot kuch asan kar sakta hai!\n\n## SAMJHAO\nArduino ek chhota sa board hai jo ek computer ki tarah kaam karta hai. Yeh board electronics aur robotics ke projects ke liye istemal hota hai. Iske through, hum sensors, motors aur doosre electronic parts ko control kar sakte hain. Matlab, hum apne khud ke robots bana sakte hain jo cheezein kar sakte hain!\n\nArduino kis tarah kaam karta hai? Yeh ek microcontroller par based hai, jo ek chhota computer hota hai. Isme programming karne ke liye humne ek software ka istemal karna padta hai, jisay \"Arduino IDE\" kehte hain. Isme hum code likhte hain jo Arduino ko batata hai ke kya karna hai. Yani, jab hum sensor se data lete hain toh Arduino us data ko process karta hai aur phir motor ko chalata hai ya kuch aur action perform karta hai.\n\nYeh board ki khasiyat yeh hai ke yeh \"open source\" hai, iska matlab hai ke iska design sab ke liye free hai. Hum iske liye bohot saari libraries aur resources online paa sakte hain, jisse humare projects aur bhi asan ho jaate hain. Pakistan mein, yeh technology school aur universities mein bhi use hoti hai, jahan students innovative projects karte hain.\n\nArduino ki help se hum smart machines bana sakte hain, jaise ke automatic lights ya phir smart irrigation systems jo khud se paani daal sakte hain. Is tarah hum apne daily life ko thoda aur modern bana sakte hain!\n\n## MISAAL\nSocho, agar aapke paas ek Arduino hai aur aap chahte hain ke aapka rickshaw khud se kisi specific jagah jaaye. Aap Arduino ko program kar sakte hain ke jab yeh sensor kisi object ko dekhe, toh yeh rickshaw ruk jaaye ya turn le le. Yeh ek bohot hi accha example hai ke kaise Arduino hamare daily life ko asan bana sakta hai!\n\n## KARO\nAb aap ghar ya school mein ek chhoti si hands-on activity kar sakte hain. Aap ek simple LED light ke saath Arduino ka istemal kar sakte hain. Aapko bas ek Arduino board, ek LED light, aur thodi si connecting wires chahiye hongi. \n\n1. LED light ko Arduino ke pin se connect karein.\n2. Arduino IDE ko open karein aur ek simple code likhein jo LED ko on aur off karke dikhaye. \n3. Jab aap code upload karein, toh aap dekhenge ke kaise aapne ek simple project create kiya!\n\n## SAWAAL\n1. Arduino kya hai aur yeh kis tarah kaam karta hai?\n2. Hum Arduino ka istemal kis kis cheezon ke liye kar sakte hain?\n3. Aap kya sochte hain, ek rickshaw ko Arduino ke zariye kaise smart banaya ja sakta hai?\n\nRobotics Ustaad",
       "quiz": {
-        "title": "Arduino intro Quiz",
         "questions": [
           {
             "q": "Arduino kya hota hai?",
@@ -18,7 +17,15 @@
             "c": "Koi mobile phone",
             "d": "Koi TV",
             "correct": "a",
-            "explanation": "Arduino ek chhota computer hai jo automation aur robotics ke liye use hota hai."
+            "explanation": "Arduino ek chhota computer hai jo automation aur robotics ke liye use hota hai.",
+            "question": "Arduino kya hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Arduino ko kis cheez ke liye design kiya gaya?",
@@ -27,7 +34,15 @@
             "c": "Internet chalane ke liye",
             "d": "Ghar ka kaam karne ke liye",
             "correct": "b",
-            "explanation": "Arduino projects banane ke liye design kiya gaya hai."
+            "explanation": "Arduino projects banane ke liye design kiya gaya hai.",
+            "question": "Arduino ko kis cheez ke liye design kiya gaya?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Arduino ka sab se pehla model kaunsa tha?",
@@ -36,7 +51,15 @@
             "c": "Arduino Nano",
             "d": "Arduino Leonardo",
             "correct": "a",
-            "explanation": "Arduino Uno pehla aur sab se mashhoor model hai."
+            "explanation": "Arduino Uno pehla aur sab se mashhoor model hai.",
+            "question": "Arduino ka sab se pehla model kaunsa tha?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Arduino ko kis language mein program kiya jaata hai?",
@@ -45,7 +68,15 @@
             "c": "Java",
             "d": "JavaScript",
             "correct": "a",
-            "explanation": "Arduino ko C++ language mein program kiya jaata hai."
+            "explanation": "Arduino ko C++ language mein program kiya jaata hai.",
+            "question": "Arduino ko kis language mein program kiya jaata hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Arduino istemal karne ke liye kis cheez ki zarurat hoti hai?",
@@ -54,7 +85,15 @@
             "c": "Mobile app",
             "d": "Bara server",
             "correct": "a",
-            "explanation": "Arduino ko kaam karne ke liye sensors aur actuators ki zarurat hoti hai."
+            "explanation": "Arduino ko kaam karne ke liye sensors aur actuators ki zarurat hoti hai.",
+            "question": "Arduino istemal karne ke liye kis cheez ki zarurat hoti hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           }
         ]
       },
@@ -66,7 +105,6 @@
       "description": "Drone kaise udta hai",
       "lesson": "## HOOK\nAaj kal aapko aasman mein bohot saare drones nazar aate hain, kya aapne kabhi socha hai ke ye drones kaise udte hain? Chalo, Student, aaj hum is ka raaz jaanenge aur dekhenge ke kaise drones humein madad karte hain!\n\n## SAMJHAO\nDrone ek chhota sa aircraft hai jo bina pilot ke udta hai. Isay hum remote control ya phir programming ke zariye control karte hain. Drones ko udane ke liye chaar main cheezein ziada zaroori hoti hain: lift, weight, thrust, aur drag. \n\nLift woh taqat hai jo drone ko upar uthata hai. Isay drone ke propellers produce karte hain jab wo ghoomte hain. Weight sirf drone ka wazan hota hai, jo hamesha usay neeche ki taraf kheenchta hai. Thrust wo taqat hai jo drone ko aage ki taraf le jaata hai. Aur drag woh hawa ki rokawat hai jo drone ke safar ko slow karti hai. \n\nDrones ki design aise hoti hai ke yeh in chaaron forces ko balance karte hain taake wo aasani se ud sakein. Jab lift thrust se zyada hota hai, tab drone upar uthta hai, aur jab drag weight se zyada hota hai, tab drone neeche aata hai.\n\nAaj kal drones farming, delivery aur even search operations mein bhi istemal hote hain. Yeh technology students ke liye bhi bohot exciting hai, kyunki yeh future mein kaafi mazedaar opportunities banata hai.\n\n## MISAAL\nPakistan mein, ek popular example drone ka istemal kaisa hota hai, wo hai faslon ki dekhbhal. Kisan drones ka istemal karte hain taake apne kheton par seeds ya pesticides spray kar sakein. Yeh unki madad karta hai zyada area cover karne mein aur unki mehnaat ko aasan banata hai.\n\n## KARO\nAap ghar ya school mein is activity ko kar sakte hain: ek simple paper glider banayein. Papers ka istemal karte hue, ek chhota sa glider banaayein aur dekhein ke usay kis tarah se udana hai. Jab aap keep your hands steady aur glider ko aachha design karte hain, to wo behtar udta hai. Is se aapko lift, weight aur drag ka concept samajhne mein madad milegi!\n\n## SAWAAL\n1. Drone udne ke liye kon se chaar forces zaroori hote hain?\n2. Kis tarah ka technology Pakistan mein drones ka istemal karne ke liye hoti hai?\n3. Aapne glider banate waqt kya seekha?\n\nRobotics Ustaad.",
       "quiz": {
-        "title": "Drone udaan Quiz",
         "questions": [
           {
             "q": "Drone kaise udta hai?",
@@ -75,7 +113,15 @@
             "c": "Drone chaand par bhi udta hai.",
             "d": "Drone sirf ek taraf udta hai.",
             "correct": "a",
-            "explanation": "Drone ke andar motors hoti hain jo usay hawa mein udaye rakhti hain."
+            "explanation": "Drone ke andar motors hoti hain jo usay hawa mein udaye rakhti hain.",
+            "question": "Drone kaise udta hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Pakistan mein drone ka istemal kis liye hota hai?",
@@ -84,7 +130,15 @@
             "c": "Bus khudai ke liye.",
             "d": "Rehnuma ke liye.",
             "correct": "a",
-            "explanation": "Pakistan mein drones ka istemal kheti aur zameen ki dekhbhal ke liye bohot hota hai."
+            "explanation": "Pakistan mein drones ka istemal kheti aur zameen ki dekhbhal ke liye bohot hota hai.",
+            "question": "Pakistan mein drone ka istemal kis liye hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Drone ka sab se aham hissa kya hota hai?",
@@ -93,7 +147,15 @@
             "c": "Uska body.",
             "d": "Uska GPS system.",
             "correct": "b",
-            "explanation": "Drone ka remote control isay operate karne ke liye sab se aham hissa hota hai."
+            "explanation": "Drone ka remote control isay operate karne ke liye sab se aham hissa hota hai.",
+            "question": "Drone ka sab se aham hissa kya hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Drone ki udaan ke liye kis cheez ki zaroorat hai?",
@@ -102,7 +164,15 @@
             "c": "Khaas khana.",
             "d": "Bus hawa ki zaroorat hai.",
             "correct": "b",
-            "explanation": "Drone ko udne ke liye battery ya fuel ki zaroorat hoti hai."
+            "explanation": "Drone ko udne ke liye battery ya fuel ki zaroorat hoti hai.",
+            "question": "Drone ki udaan ke liye kis cheez ki zaroorat hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Drone ka aakhri destination kis tarah tay kiya jata hai?",
@@ -111,7 +181,15 @@
             "c": "Logon ke kehne par.",
             "d": "Dost ke code se.",
             "correct": "a",
-            "explanation": "Drone ka aakhri destination manually remote control se set kiya jata hai."
+            "explanation": "Drone ka aakhri destination manually remote control se set kiya jata hai.",
+            "question": "Drone ka aakhri destination kis tarah tay kiya jata hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           }
         ]
       },
@@ -123,7 +201,6 @@
       "description": "Factory mein robot",
       "lesson": "## HOOK\nAik din Student ki factory visit ka moqa mila. Jab wo factory gaya, to usne dekha ke robots kaise kaam kar rahe the. Kya aapne kabhi socha hai ke ye robots itne kam waqt mein kaise kaam karte hain?\n\n## SAMJHAO\nFactory robots wo machines hain jo factory mein products ko banaane ya assemble karne ka kaam karti hain. Ye robots jab bhi kisi task ko perform karte hain, to wo bohat tezi se kaam karte hain aur ziada ghaltiyan nahi karte.\n\nInka sabse bara faida ye hai ke ye 24 ghante kaam kar sakte hain bina thake. Jaise kisi factory mein, agar aapko har minute ek product banana pade, to human workers ko takeen ki zaroorat hoti hai, jabke robots ye kaam easy se kar lete hain.\n\nFactory robots different types ke hote hain, jaise welding robots, packing robots, aur painting robots. Har robot apne kaam ke liye design hota hai, jisse wo bohat hi efficient tareeqe se kaam kar sake.\n\nPakistan ki industries mein bhi ab factory robots ka istemal hota ja raha hai. Yeh machines na sirf kaam ko fast karti hain balki quality bhi provide karti hain, jaise textile factories mein cloth ko stitch karne ke liye.\n\n## MISAAL\nJaise Lahore mein ek textile factory hai jo kapde banati hai. Wahan par robots use kiye jate hain jo automatic stitching karte hain. Ye robots itne smart hain ke wo ghaltiyan kam karte hain aur is wajah se textile industry bohat tarakki kar rahi hai.\n\n## KARO\nGhar ya school mein ek choti se activity karen. Aapko chaar ya paanch food items, jaise biscuits, fruits, ya chocklets ko arrange karna hai. Ek table par inhe iss tarah se rakhain ke ek line mein hon. Fir sochiye ke agar ek robot hota, to wo kaise inhe arrange karta? Aap khud bhi try kar sakte hain ke aap kis tarah se jaldi aur behter tareeqe se inhe arrange karte hain.\n\n## SAWAAL\n1. Factory robots kis liye use kiye jate hain?\n2. Ek factory robot kis tarah kaam karta hai?\n3. Pakistan ki kis industry mein robots ka istemal hota hai?\n\nRobotics Ustaad",
       "quiz": {
-        "title": "Factory robot Quiz",
         "questions": [
           {
             "q": "Factory mein robot ka kya kaam hota hai?",
@@ -132,7 +209,15 @@
             "c": "Khana banana",
             "d": "Khelna",
             "correct": "a",
-            "explanation": "Factory robot ka kaam chizain ko sahi tarike se assemble karna hota hai."
+            "explanation": "Factory robot ka kaam chizain ko sahi tarike se assemble karna hota hai.",
+            "question": "Factory mein robot ka kya kaam hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Pakistan ki kisi factory mein robot ka istemal kis liye hota hai?",
@@ -141,7 +226,15 @@
             "c": "School ki kitaabein likhne ke liye",
             "d": "Greens ka khana banana",
             "correct": "a",
-            "explanation": "Pakistan ki factories mein robots ka istemal kapray banane ke liye hota hai."
+            "explanation": "Pakistan ki factories mein robots ka istemal kapray banane ke liye hota hai.",
+            "question": "Pakistan ki kisi factory mein robot ka istemal kis liye hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Robot ko istemal karne ka faida kya hai?",
@@ -150,7 +243,15 @@
             "c": "Zyada waqt lagta hai",
             "d": "Kuch nahi badalta",
             "correct": "a",
-            "explanation": "Robot istemal karne se kaam hone ka waqt kam ho jata hai."
+            "explanation": "Robot istemal karne se kaam hone ka waqt kam ho jata hai.",
+            "question": "Robot ko istemal karne ka faida kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Factory robot kaise kaam karta hai?",
@@ -159,7 +260,15 @@
             "c": "Logon ke kehne par",
             "d": "Dil se soch kar",
             "correct": "a",
-            "explanation": "Factory robot programming ke zariye kaam karta hai."
+            "explanation": "Factory robot programming ke zariye kaam karta hai.",
+            "question": "Factory robot kaise kaam karta hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Robot ki sabse badi khubi kya hai?",
@@ -168,7 +277,15 @@
             "c": "Logo se dosti karna",
             "d": "Ghar ki safai karna",
             "correct": "a",
-            "explanation": "Robot ki sabse badi khubi yeh hai ke yeh waqt par kaam khatam kar sakta hai."
+            "explanation": "Robot ki sabse badi khubi yeh hai ke yeh waqt par kaam khatam kar sakta hai.",
+            "question": "Robot ki sabse badi khubi kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           }
         ]
       },
@@ -180,7 +297,6 @@
       "description": "Line follow karne wala robot",
       "lesson": "## HOOK\nKya aapne kabhi socha hai ke koi robot kis tarah se bina kisi help ke seedhi line par chalta hai? Aaj hum aik aise robot ke baare mein jaanenge jo sirf line ki madad se apni raste tay karta hai, bilkul jaise aap bazaar mein apni gali se nikaalte hain!\n\n## SAMJHAO\nLine follower robot aik aisa robot hai jo sensors ki madad se zameen par bani line ko pehchanta hai. Is robot mein aksar infrared (IR) sensors lagaye jaate hain jo line ko detect karte hain. Jab robot line se hatt jaata hai, to sensors ye information robot ke processor ko bhejte hain.\n\nJab robot ko ye pata chal jaata hai ke wo line se bahar hai, to woh apna direction badalta hai. Yeh process itni tezi se hota hai ke robot ko kisi bhi samasya ka samna nahi karna padta. Is tarah, wo seedhi line par chalta rehta hai aur kabhi ghalat rastay par nahi jata.\n\nLine follower robots ka istemal aksar factories aur gharon mein hota hai. Yeh robots kaam ko asaan karne ke liye design kiye gaye hain. Yeh khud se kisi point se doosre point tak jaa sakte hain, jaise ke aap school se ghar ke liye chalte hain. \n\nIs robot ko develop karne mein programming ka bhi bohot bada kirdar hai. Aam tor par, jab robot ko program kiya jaata hai, to usay bataya jaata hai ke kis tarah se sensors se aane wali information par react karna hai.\n\n## MISAAL\nAam tor par, aapne bazaar mein dekha hoga ke jab koi rickshaw chalta hai, to wo aksar raste par bani line ya rangon ka khayal rakhta hai. Line follower robot bhi isi tarah kaam karta hai, sirf yeh electronic hai. Jaise rickshaw apne raste ko ya kisi marker ko follow karta hai, waise hi yeh robot bhi line ke peechay chalta hai.\n\n## KARO\nAap ghar par aik chhoti si activity kar sakte hain. Ek kaam kijiye, ghar ke raste par ek black tape ya marker line lagaiye. Phir apne dost ke sath mil kar dekhiye ke kaise aap bina dekhe sirf is line ko follow karte hue chal sakte hain. Aap ek aur dost ko is line par rukh badalne ka kaam de sakte hain, taake aapko pata chale ke kaise aapko yeh line follow karni hai!\n\n## SAWAAL\n1. Line follower robot kya hai aur yeh kaise kaam karta hai?\n2. Sensors ka robot ke kaam mein kya role hai?\n3. Aapko kya lagta hai ke yeh technology kis tarah se hamari zindagi mein madadgar sabit ho sakti hai?\n\nRobotics Ustaad",
       "quiz": {
-        "title": "Line follower Quiz",
         "questions": [
           {
             "q": "Line follower robot ka kaam kya hai?",
@@ -189,7 +305,15 @@
             "c": "Cheezon ko uthana",
             "d": "Khud se sochna",
             "correct": "a",
-            "explanation": "Yeh robot khaas tor par line ke sath sath chalne ke liye design kiya gaya hai."
+            "explanation": "Yeh robot khaas tor par line ke sath sath chalne ke liye design kiya gaya hai.",
+            "question": "Line follower robot ka kaam kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Line follower robot ko kaunse sensors ki zaroorat hoti hai?",
@@ -198,7 +322,15 @@
             "c": "Temperature sensors",
             "d": "Sound sensors",
             "correct": "a",
-            "explanation": "Infrared sensors line ko detect karte hain taake robot us par chale."
+            "explanation": "Infrared sensors line ko detect karte hain taake robot us par chale.",
+            "question": "Line follower robot ko kaunse sensors ki zaroorat hoti hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Humare mulk Pakistan mein line follower robot ka istemal kis cheez ke liye hota hai?",
@@ -207,7 +339,15 @@
             "c": "Warehouse mein samaan ka monitor karne ke liye",
             "d": "Khiladiyan dekhne ke liye",
             "correct": "c",
-            "explanation": "Warehouse mein ye robots samaan ko track karne aur manage karne mein madadgar hain."
+            "explanation": "Warehouse mein ye robots samaan ko track karne aur manage karne mein madadgar hain.",
+            "question": "Humare mulk Pakistan mein line follower robot ka istemal kis cheez ke liye hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 2
           },
           {
             "q": "Kya line follower robot sirf ek hi line par chal sakta hai?",
@@ -216,7 +356,15 @@
             "c": "Wo line ke bagair nahi chal sakta",
             "d": "Wo sab kuch kar sakta hai",
             "correct": "b",
-            "explanation": "Kuch advanced line follower robots do ya zyada lines ko follow kar sakte hain."
+            "explanation": "Kuch advanced line follower robots do ya zyada lines ko follow kar sakte hain.",
+            "question": "Kya line follower robot sirf ek hi line par chal sakta hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Kya line follower robots ko programming ki zaroorat hoti hai?",
@@ -225,7 +373,15 @@
             "c": "Inki zaroorat nahi hoti",
             "d": "Inhe sirf on/off karna hota hai",
             "correct": "a",
-            "explanation": "Line follower robots ko unke kaam ke liye programming ki zaroorat hoti hai."
+            "explanation": "Line follower robots ko unke kaam ke liye programming ki zaroorat hoti hai.",
+            "question": "Kya line follower robots ko programming ki zaroorat hoti hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           }
         ]
       },
@@ -237,7 +393,6 @@
       "description": "Automatic darwaza",
       "lesson": "## HOOK\nKya aapne kabhi socha hai ke aisa kya hota agar darwaza khud se khulte ya band hote? Aaj hum baat kareinge ek aise hi \"Automatic Gate\" ke baare mein jo sirf aapke paas aate hi khul jata hai!\n\n## SAMJHAO\nAutomatic gate ek aisa darwaza hai jo kisi bhi insan ki madad ke bina khulta aur band hota hai. Yeh technology sensors aur motors ka istemal karti hai. Jab aap is gate ke paas aate hain, to sensors aapko detect karte hain aur gate khul jata hai. \n\nAam tor par, yeh darwaze gates kaam karne ke liye remote control ya card system ka bhi istemal karte hain. Jaise hi aap remote control ka button press karte hain, gate khul jata hai. Is tarah, aapko darwaza kholne ke liye kisi ko nahi bulana padta. \n\nIs gate ka faida yeh hai ke yeh zyada secure hai. Aap bina kisi stress ke andar aasani se aa sakte hain. Yeh aise logon ke liye bhi acha hai jo kuch zyada chalta-phirta nahi hain, jaise bade log ya maamool ke se log. \n\nAb hum dekhte hain ke is type ke gates ka istemal kis kis jagah par hota hai. Schools, hospitals, aur factories mein iska istemal hota hai. Yani aise places par jahan security aur knight ke hona zaroori hota hai.\n\n## MISAAL\nSochiye, Lahore ke Mall Road par ek bohot bada shopping mall hai. Wahaan par bhi ek automatic gate hai jo khud se khulta hai jab aap uske paas jaate hain. Yeh gate na sirf customers ki aasan entry ke liye hota hai balki security ke liye bhi zaroori hai. Is se logon ko khudse darwaza kholne ki zaroorat nahi hoti.\n\n## KARO\nAap ghar par ek chhoti si activity kar sakte hain. Ek cardboard ka use karein aur ek aisa \"automatic gate\" tayyar karein jo ek chhoti car ko enter karne de. Isme aap ek rubber band aur kuch sensors ka istemal karke dekh sakte hain ke kaise aapka gate khulta hai. Aap is simulation ko ghar ke chhat par ya ghar ke kisi aur place par try kar sakte hain.\n\n## SAWAAL\n1. Automatic gate kaise kaam karta hai?\n2. Kahan kahan automatic gates ka istemal hota hai?\n3. Koi do faide batayein jo automatic gates ke istemal se hote hain?\n\nRobotics Ustaad",
       "quiz": {
-        "title": "Automatic gate Quiz",
         "questions": [
           {
             "q": "Automatic darwaza kis technology par kaam karta hai?",
@@ -246,7 +401,15 @@
             "c": "Pura haath se kholta hai",
             "d": "Koi technology nahi hai",
             "correct": "a",
-            "explanation": "Automatic darwaza sensors aur motors ki madad se khulta hai."
+            "explanation": "Automatic darwaza sensors aur motors ki madad se khulta hai.",
+            "question": "Automatic darwaza kis technology par kaam karta hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Yeh darwaza kis maqam par istemal hota hai?",
@@ -255,7 +418,15 @@
             "c": "Ghar ke andar",
             "d": "School ki classes mein",
             "correct": "a",
-            "explanation": "Yeh darwaza aksar ghar ki entry par istamal hota hai."
+            "explanation": "Yeh darwaza aksar ghar ki entry par istamal hota hai.",
+            "question": "Yeh darwaza kis maqam par istemal hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Automatic darwaza kyu faida mand hai?",
@@ -264,7 +435,15 @@
             "c": "Sirf shadiyon mein istemal hota hai",
             "d": "Gareebon ke liye nahi hai",
             "correct": "a",
-            "explanation": "Yeh waqt ki bachat karta hai aur asani se khulta hai."
+            "explanation": "Yeh waqt ki bachat karta hai aur asani se khulta hai.",
+            "question": "Automatic darwaza kyu faida mand hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "In darwazon ka kaam karne ka tareeqa kya hai?",
@@ -273,7 +452,15 @@
             "c": "Koi zarurat nahi hoti",
             "d": "Koi nahi janta",
             "correct": "a",
-            "explanation": "Yeh remote ya motion sensors se khulte hain."
+            "explanation": "Yeh remote ya motion sensors se khulte hain.",
+            "question": "In darwazon ka kaam karne ka tareeqa kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Pakistan mein kis jagah par automatic darwaza aam hai?",
@@ -282,7 +469,15 @@
             "c": "Kachay gharon mein",
             "d": "Khana khilane wale dabbaon mein",
             "correct": "a",
-            "explanation": "Shopping malls mein automatic darwaze aam tor par dekhe jate hain."
+            "explanation": "Shopping malls mein automatic darwaze aam tor par dekhe jate hain.",
+            "question": "Pakistan mein kis jagah par automatic darwaza aam hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           }
         ]
       },
@@ -294,7 +489,6 @@
       "description": "Haath jaisa robot",
       "lesson": "## HOOK\nKya aapne kabhi socha hai ke agar aapke haath mein sirf ek button dabakar kisi cheez ko uthane ki taqat hoti? Imagine karen ke aap kaise apne khayalon ke robot ko control kar sakte hain! \n\n## SAMJHAO\nRobotic arm ek aisa robot hai jo insani haath ki tarah kaam karta hai. Yeh ek machine hoti hai jisse hum different kaam karne ke liye istemal karte hain, jaise cheezen uthana ya move karna. Isme kayi different parts hote hain, jaise joints aur fingers, jo isay flexibility dete hain.\n\nRobotic arms ka istemal factories mein hota hai, jahan yeh production line par samaan uthate hain. Yeh bahut tez aur accurate hote hain, isliye inka kaam insaan ke kaam se bhi behtar hota hai. Inki madad se zyada kaam kum waqt mein hota hai.\n\nAaj kal humein robotic arms har jagah milte hain, jaise ke hospitals mein surgery karne ke liye, ya phir kuch khelon mein jahan precision zaroori hoti hai. Yeh technology har tarah se insan ki madad kar rahi hai.\n\nRobotic arms ko programming ke zariye control kiya jata hai. Hum inhein kahin bhi istemal kar sakte hain, chahe wo ghar ka kaam ho ya kisi complex mechanical process mein.\n\n## MISAAL\nAgar aap bazaar gaye hon aur dekha ho ke kaise kuch tandoor wale khud kaam karte hain, toh sochiye ke unke paas ek robotic arm hota, jo aate ko uthata, gundo ko banata aur sab kuch bina kisi khud ke effort ke. Aise hi kaam ki wajah se inka kaam asaan hota hai!\n\n## KARO\nAap ghar par ek simple robotic arm banane ki koshish kar sakte hain. Aapko kuch chhoti chhoti cheezen chahiye hongi, jaise cardboard, straws, aur rubber bands. Cardboard se ek base banaiye, straws se fingers banaiye aur unhein rubber bands ki madad se move karne ka mechanism banaiye. Phir dekhiye kaise aapka robot cheezen utha sakta hai!\n\n## SAWAAL\n1. Robotic arm kya hai aur yeh kaise kaam karta hai?\n2. Kahan par hum robotic arms ka istemal dekh sakte hain?\n3. Aap kis cheez ka robotic arm banana chahenge aur kyun?\n\nRobotics Ustaad",
       "quiz": {
-        "title": "Robotic arm Quiz",
         "questions": [
           {
             "q": "Robotic arm kya hai?",
@@ -303,7 +497,15 @@
             "c": "Ek mobile phone",
             "d": "Ek gaadi",
             "correct": "a",
-            "explanation": "Robotic arm ek aisa device hai jo haath ki tarah cheezein utha sakta hai."
+            "explanation": "Robotic arm ek aisa device hai jo haath ki tarah cheezein utha sakta hai.",
+            "question": "Robotic arm kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Pakistan mein robotic arm kis field mein istemal hota hai?",
@@ -312,7 +514,15 @@
             "c": "Taleem",
             "d": "Fashion",
             "correct": "a",
-            "explanation": "Pakistan mein manufacturing industries mein robotic arms ka istemal hota hai taake kaam tez aur achi tarah se kiya ja sake."
+            "explanation": "Pakistan mein manufacturing industries mein robotic arms ka istemal hota hai taake kaam tez aur achi tarah se kiya ja sake.",
+            "question": "Pakistan mein robotic arm kis field mein istemal hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Robotic arm ko control karne ke liye kya istemal hota hai?",
@@ -321,7 +531,15 @@
             "c": "Koi nahi",
             "d": "Sab kuch",
             "correct": "a",
-            "explanation": "Robotic arm ko zyada tar remote control ya software ke zariye control kiya jata hai."
+            "explanation": "Robotic arm ko zyada tar remote control ya software ke zariye control kiya jata hai.",
+            "question": "Robotic arm ko control karne ke liye kya istemal hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Robotic arms ki sabse badi khubi kya hai?",
@@ -330,7 +548,15 @@
             "c": "Dheere chalta hai",
             "d": "Sirf chhoti cheezein utha sakta hai",
             "correct": "a",
-            "explanation": "Robotic arms precise aur accurate movements ke liye jane jate hain."
+            "explanation": "Robotic arms precise aur accurate movements ke liye jane jate hain.",
+            "question": "Robotic arms ki sabse badi khubi kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Robotic arm kis tarah ka technology ka hissa hai?",
@@ -339,7 +565,15 @@
             "c": "Transport",
             "d": "Health",
             "correct": "a",
-            "explanation": "Robotic arms automation aur robotics ka ek aham hissa hain jo kaam ko asaan banate hain."
+            "explanation": "Robotic arms automation aur robotics ka ek aham hissa hain jo kaam ko asaan banate hain.",
+            "question": "Robotic arm kis tarah ka technology ka hissa hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           }
         ]
       },

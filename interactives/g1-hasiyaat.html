@@ -1,15 +1,218 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Paanch hasiyaat | AI4Kids Grade 1 Science</title><style>:root{--ink:#202b36;--muted:#526170;--paper:#fffdf7;--line:#d8d1c3;--blue:#216a9b;--blue2:#dcecf6;--orange:#d4752c;--green:#2e8657;--red:#bb4b45;--yellow:#fff0bd;--purple:#79539a;--fs-cap:clamp(.95rem,2.5vw,1.1rem);--fs-sm:clamp(1.18rem,3.2vw,1.5rem);--fs-md:clamp(1.35rem,3.8vw,1.8rem);--fs-lg:clamp(1.6rem,4.5vw,2.25rem);--fs-xl:clamp(2rem,6vw,3rem)}
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:var(--fs-sm);line-height:1.55;padding:0 0 50px}.wrap{max-width:1080px;margin:auto;padding:0 16px}.bar{display:flex;align-items:center;gap:9px;flex-wrap:wrap;padding:15px 0 8px}.brand{font-weight:800;color:var(--blue);margin-right:auto;font-size:var(--fs-cap)}button{font:inherit;color:inherit}.chip,.tab{border:2px solid var(--ink);border-radius:999px;background:var(--paper);padding:8px 15px;cursor:pointer;font-weight:800;min-height:46px}.chip[aria-pressed=true],.tab[aria-pressed=true]{background:var(--ink);color:#fff}.chip:focus-visible,.tab:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-offset:3px}h1{font-size:var(--fs-xl);line-height:1.2;margin:10px 0 3px}.sub{color:var(--muted);margin:0 0 16px}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:15px}.tab{border-radius:14px;flex:1 1 16%;font-size:var(--fs-cap);min-height:53px}.demo-wrap{border:3px solid var(--ink);border-radius:22px;background:linear-gradient(140deg,#e9f4fa,#f9efdb);padding:16px;margin-bottom:20px;scroll-margin-top:10px}.demo-head{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.demo-head h2{font-size:var(--fs-lg);margin:0;flex:1}.demo-instruction{margin:5px 0 12px;color:var(--muted)}.play{background:var(--green);border:3px solid #236b45;color:#fff;border-radius:16px;padding:11px 18px;min-height:55px;cursor:pointer;font-weight:800;font-size:var(--fs-md);width:100%;margin-top:13px}.play:active{transform:scale(.98)}.demo-stage{background:#fffefb;border:2px solid var(--line);border-radius:17px;padding:13px}.demo-msg{border-radius:13px;background:var(--yellow);padding:11px 13px;margin:11px 0 0;font-weight:700}.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.card{border:3px solid var(--line);background:#fff;border-radius:15px;min-height:100px;padding:11px 8px;cursor:pointer;text-align:center;font-weight:800}.card:hover,.card.selected{border-color:var(--blue);background:var(--blue2)}.emoji{display:block;font-size:2.35rem;line-height:1.1;margin-bottom:5px}.card small{display:block;font-size:var(--fs-cap);font-weight:600;color:var(--muted)}.lesson-grid{display:grid;gap:13px}.lesson{border:3px solid var(--line);border-radius:18px;background:#fff;padding:16px 18px;scroll-margin-top:12px}.lesson .tag{display:inline-block;background:var(--blue);color:#fff;border-radius:999px;padding:4px 14px;font-size:var(--fs-cap);font-weight:900;margin-bottom:9px}.lesson.hook .tag{background:var(--orange)}.lesson.misaal .tag{background:var(--green)}.lesson.karo .tag{background:var(--purple)}.lesson p{margin:0;font-size:var(--fs-sm)}.quiz{border-top:3px solid var(--ink);margin-top:30px;padding-top:21px;scroll-margin-top:12px}.quiz h2{font-size:var(--fs-lg);margin:0 0 18px}.q{margin-bottom:27px}.q-title{font-size:var(--fs-md);font-weight:800;margin:0 0 10px}.opt{display:block;width:100%;text-align:left;border:2px solid var(--line);background:#fff;border-radius:12px;padding:12px 14px;margin:8px 0;cursor:pointer;min-height:54px;font-size:var(--fs-sm)}.opt.right{border-color:var(--green);background:#e5f3eb;font-weight:800}.opt.wrong{border-color:var(--red);background:#fae5e1}.feedback{display:none;color:var(--muted);font-size:var(--fs-cap);margin:8px 0}.feedback.show{display:block}.score{display:none;text-align:center;border:3px solid var(--green);background:#e5f3eb;border-radius:15px;padding:13px;font-size:var(--fs-md);font-weight:900}.score.show{display:block}footer{margin-top:31px;border-top:1px solid var(--line);padding-top:15px;color:var(--muted);font-size:var(--fs-cap)}@media(min-width:760px){.lesson-grid{grid-template-columns:1fr 1fr}.demo-wrap{padding:20px}.cards{grid-template-columns:repeat(4,1fr)}.play{width:auto;min-width:190px}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}</style></head><body><div class="wrap"><div class="bar"><span class="brand" id="brand"></span><button class="chip" id="langBtn" type="button" aria-pressed="false">Roman Urdu</button><button class="chip" id="speakBtn" type="button" aria-label="Read title aloud">🔊</button></div><header><h1 id="title"></h1><p class="sub" id="subtitle"></p></header><nav class="tabs" id="tabs" aria-label="Lesson sections"></nav><section class="demo-wrap" id="demo" aria-labelledby="demoTitle"><div class="demo-head"><h2 id="demoTitle"></h2><button class="chip" id="launch" type="button">Play demo</button></div><p class="demo-instruction" id="demoInstruction"></p><div class="demo-stage" id="demoStage"></div></section><main class="lesson-grid"><article class="lesson hook" id="hook"><span class="tag" id="hookTag"></span><p id="hookText"></p></article><article class="lesson samjhao" id="samjhao"><span class="tag" id="samjhaoTag"></span><p id="samjhaoText"></p></article><article class="lesson misaal" id="misaal"><span class="tag" id="misaalTag"></span><p id="misaalText"></p></article><article class="lesson karo" id="karo"><span class="tag" id="karoTag"></span><p id="karoText"></p></article></main><section class="quiz" id="quiz"><h2 id="quizHead"></h2><div id="quizBox"></div><div class="score" id="score"></div></section><footer id="foot"></footer></div><script>const DATA={"file":"g1-hasiyaat.html","title":"Paanch hasiyaat","desc":{"en":"Use five senses to learn about the world.","ru":"Paanch hasiyaat se duniya ko samjho."},"hook":{"en":"How do you know a lemon is yellow, a bell is loud, or ice is cold? Your senses give you clues!","ru":"Bachon, kabhi socha hai ke humare paas kitni khaas hasiyaat hain jo hume duniya samajhne mein madad deti hain? Jaise jab aap bazaar jaate ho, to aap kasay sabziyon ki rangat aur khushboo kaise mehsoos karte ho? Chalo, aaj hum in paanch hasiyat ka maloom karte hain!"},"samjhao":{"en":"We have five senses: sight with eyes, hearing with ears, smell with nose, taste with tongue, and touch with skin. Never taste an unknown thing.","ru":"Paanch hasiyaat hain: dekhna, sunna, chhoona, chakhna, aur mehsoos karna. In teens ka hissa hum aaj samjhenge: dekhna, sunna, aur chhoona. Dekhna humari ankhon ka kaam hai. Jab aap kuch dekhte ho, jaise ek laal phool ya ek sundar badal, to aap us cheez ki rangat aur shakl ko samajh sakte ho. Aankhein humare liye duniya ko dekhne ka darwaza hain. Sunna, yani awaz sunna. Jab aap doston ke saath khel rahe ho ya cricket ka match dekh rahe ho, aap ball ki awaaz ya doston ki hasi sun sakte ho. Yeh humari kaan ki madad se hota hai. Chhoona, yani kisi cheez ko apne haath se chhuna. Jab aap ek garam roti ko chhote ho ya paani ka thanda glass uthaate ho, aap uski texture aur temperature mehsoos karte ho. Yeh humare haathon ke zariye hota hai."},"misaal":{"en":"You see a red apple, smell it, feel its smooth skin, and taste it only when an adult says it is safe.","ru":"Agar aap bazaar jaate hain, to aap fresh sabziyan dekhte hain — unka rang hamesha chamakdaar hota hai. Aap unhe chhote hain aur mehsoos karte hain ke wo fresh hain. Kisi dukan par aata dekhte hain, uski khushboo bhi mehsoos karte hain, aur jab aap usse sunghte hain to ab aap dekh rahe hain ke ye aata kitna safed hai!"},"karo":{"en":"With an adult, find one safe object. Tell which sense you use to see, hear, smell, taste, or touch it.","ru":"Ghar ya school mein ek chhoti si activity karo. Ek plate mein 3-4 alag alag cheezein rakho — jaise ek laal seb, ek kachumber (salad), aur ek kaep dekhne ke liye! Pehle unhe achhe se dekho, phir unhe chhuno, aur aakhir mein unki khushboo ko mehsoos karo. Phir socho ke yeh cheezein aapko kaisi lagti hain."},"demo":{"type":"cards","title":{"en":"Sense detective","ru":"Hasiyat detective"},"instruction":{"en":"Tap a sense to discover what it helps you notice.","ru":"Hasiyat par tap karke dekho woh kya mehsoos karwati hai."},"items":[{"emoji":"👁️","name":{"en":"Sight","ru":"Dekhna"},"label":{"en":"Sight notices colours and shapes.","ru":"Dekhna rang aur shaklein notice karta hai."}},{"emoji":"👂","name":{"en":"Hearing","ru":"Sunna"},"label":{"en":"Hearing notices sounds.","ru":"Sunna awaazen notice karta hai."}},{"emoji":"👃","name":{"en":"Smell","ru":"Khushboo"},"label":{"en":"Smell notices scents.","ru":"Khushboo lena mukhtalif khushbooyein notice karta hai."}},{"emoji":"👅","name":{"en":"Taste","ru":"Zaiqa"},"label":{"en":"Taste notices flavours.","ru":"Zaiqa mukhtalif maza notice karta hai."}},{"emoji":"🤲","name":{"en":"Touch","ru":"Chhoona"},"label":{"en":"Touch feels hot, cold, hard, or soft.","ru":"Chhoona garam, thanda, sakht ya naram mehsoos karwata hai."}}]},"quiz":[{"q":{"en":"Which sense uses our eyes?","ru":"Aankhen kaunsi hasiyat mein kaam aati hain?"},"o":[{"en":"Sight","ru":"Dekhna"},{"en":"Taste","ru":"Zaiqa"},{"en":"Touch","ru":"Chhoona"},{"en":"Smell","ru":"Khushboo"}],"a":0,"e":{"en":"Eyes help us see.","ru":"Eyes help us see."}},{"q":{"en":"Which sense helps you hear a bell?","ru":"Ghanti sunne ke liye kaunsi hasiyat chahiye?"},"o":[{"en":"Hearing","ru":"Sunna"},{"en":"Sight","ru":"Dekhna"},{"en":"Taste","ru":"Zaiqa"},{"en":"Touch","ru":"Chhoona"}],"a":0,"e":{"en":"Ears help us hear the bell.","ru":"Ears help us hear the bell."}},{"q":{"en":"Which sense helps you know sugar is sweet?","ru":"Cheeni meethi hai, yeh kaunsi hasiyat batati hai?"},"o":[{"en":"Taste","ru":"Zaiqa"},{"en":"Smell","ru":"Khushboo"},{"en":"Sight","ru":"Dekhna"},{"en":"Hearing","ru":"Sunna"}],"a":0,"e":{"en":"Our tongue helps us taste sweet things.","ru":"Our tongue helps us taste sweet things."}},{"q":{"en":"What helps you feel that ice is cold?","ru":"Baraf thandi hai, yeh kis se mehsoos hota hai?"},"o":[{"en":"Touch","ru":"Chhoona"},{"en":"Sight","ru":"Dekhna"},{"en":"Hearing","ru":"Sunna"},{"en":"Taste","ru":"Zaiqa"}],"a":0,"e":{"en":"Skin helps us feel hot and cold.","ru":"Skin helps us feel hot and cold."}},{"q":{"en":"Should you taste an unknown object?","ru":"Kya anjaan cheez ko chakhna chahiye?"},"o":[{"en":"No, ask an adult","ru":"Nahi, baray se pocho"},{"en":"Yes, quickly","ru":"Haan, jaldi se"},{"en":"Always","ru":"Hamesha"},{"en":"Only if bright","ru":"Sirf agar chamakdar ho"}],"a":0,"e":{"en":"Only taste safe food with an adult permission.","ru":"Only taste safe food with an adult permission."}}]};
-(function(){'use strict';var lang='en',selected=0,answered=0,score=0;
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Paanch hasiyaat | AI4Kids Grade 1 Science</title>
+<style>:root{--ink:#1e2a33;--muted:#56636c;--paper:#fffdf7;--line:#ded5c4;--blue:#176b87;--blue2:#e6f3f6;--orange:#e07a32;--green:#2e7d4f;--red:#c4453a;--yellow:#fff0bd;--purple:#7652a5;--teal:#0d8a7c;--pink:#d45b8c;--sky:#7ec8e3;--sand:#f4e4bc;--fs-cap:clamp(0.9rem, 2.4vw, 1.1rem);--fs-xs:clamp(1.1rem, 2.8vw, 1.3rem);--fs-sm:clamp(1.25rem, 3.2vw, 1.5rem);--fs-md:clamp(1.4rem, 3.6vw, 1.75rem);--fs-lg:clamp(1.7rem, 4.2vw, 2.15rem);--fs-xl:clamp(2.05rem, 5.2vw, 2.7rem);--pad:clamp(12px,3.5vw,20px);--gap:clamp(8px,2.5vw,12px)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;max-width:100%;overflow-x:hidden}
+body{margin:0;padding:0 0 48px;background:var(--paper);color:var(--ink);font-family:"Trebuchet MS","Segoe UI",system-ui,sans-serif;font-size:var(--fs-sm);line-height:1.5;max-width:100%;overflow-x:hidden;width:100%}
+.wrap{width:100%;max-width:min(980px,100%);margin:auto;padding:0 var(--pad);box-sizing:border-box}
+.bar{display:flex;align-items:center;gap:var(--gap);flex-wrap:wrap;padding:14px 0 6px;width:100%}
+.brand{font-weight:900;color:var(--blue);margin-right:auto;font-size:var(--fs-cap);min-width:0;flex:1 1 auto}
+button{font:inherit;color:inherit;cursor:pointer;max-width:100%}
+.chip,.tab{border:2px solid var(--ink);background:var(--paper);border-radius:999px;padding:8px 15px;min-height:44px;font-weight:900}
+.chip[aria-pressed=true],.tab[aria-pressed=true]{background:var(--ink);color:#fff}
+.chip:focus-visible,.tab:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+h1{font-size:var(--fs-xl);line-height:1.15;margin:10px 0 5px;word-wrap:break-word;overflow-wrap:anywhere}
+.sub{color:var(--muted);margin:0 0 16px;font-size:var(--fs-sm)}
+.tabs{display:flex;gap:var(--gap);flex-wrap:wrap;margin-bottom:16px;width:100%}
+.tab{flex:1 1 calc(33.33% - 8px);border-radius:14px;min-height:48px;font-size:var(--fs-cap);min-width:0}
+.hero{border:3px solid var(--ink);border-radius:clamp(14px,3vw,22px);overflow:hidden;background:linear-gradient(160deg,#d9f0fa 0%,#fff6df 55%,#e8f7e9 100%);margin-bottom:16px;box-shadow:0 6px 0 #c9d5c0;width:100%;max-width:100%}
+.hero svg,.scene svg,.card .ico svg{display:block;width:100%;height:auto;max-width:100%}
+.hero svg{max-height:50vh}
+.demo-wrap{border:3px solid var(--ink);border-radius:clamp(14px,3vw,22px);background:linear-gradient(140deg,#e9f4fa,#f9efdb);padding:var(--pad);margin-bottom:20px;box-shadow:0 5px 0 #cfd8c8;width:100%;max-width:100%}
+.demo-head{display:flex;gap:var(--gap);align-items:center;flex-wrap:wrap;width:100%}
+.demo-head h2{font-size:var(--fs-lg);margin:0;flex:1 1 auto;min-width:0}
+.demo-instruction{color:var(--muted);margin:5px 0 12px}
+.demo-stage{background:#fffefb;border:2px solid var(--line);border-radius:17px;padding:clamp(10px,2.5vw,14px);width:100%;max-width:100%;overflow:hidden}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gap);width:100%}
+.card{border:3px solid var(--line);background:#fff;border-radius:16px;min-height:96px;padding:12px 8px;text-align:center;font-weight:900;font-size:var(--fs-xs);transition:transform .12s ease,border-color .12s;width:100%;max-width:100%}
+.card:active{transform:scale(.97)}
+.card.selected{border-color:var(--blue);background:var(--blue2);box-shadow:0 0 0 3px rgba(23,107,135,.2)}
+.card .ico{display:block;width:min(56px,18vw);height:auto;aspect-ratio:1;margin:0 auto 6px}
+.play{background:var(--green);border:3px solid #236b45;color:#fff;border-radius:15px;padding:12px 18px;min-height:54px;font-weight:900;font-size:var(--fs-md);width:100%;margin-top:12px}
+.play:active{transform:scale(.98)}
+.demo-msg{border-radius:13px;background:var(--yellow);padding:12px 14px;margin-top:12px;font-weight:800;font-size:var(--fs-sm);border:2px solid #e6d48a;min-height:52px;word-wrap:break-word}
+.lesson-grid{display:grid;gap:13px;grid-template-columns:1fr;width:100%}
+.lesson{border:3px solid var(--line);border-radius:18px;background:#fff;padding:clamp(12px,3vw,18px);scroll-margin-top:10px;width:100%;max-width:100%}
+.lesson .tag{display:inline-block;background:var(--blue);color:#fff;border-radius:999px;padding:4px 13px;font-size:var(--fs-cap);font-weight:900;margin-bottom:9px}
+.lesson.hook .tag{background:var(--orange)}
+.lesson.misaal .tag{background:var(--green)}
+.lesson.karo .tag{background:var(--purple)}
+.lesson p{margin:0;font-size:var(--fs-sm);overflow-wrap:anywhere}
+.quiz{border-top:3px solid var(--ink);margin-top:30px;padding-top:20px;width:100%}
+.quiz h2{font-size:var(--fs-lg);margin:0 0 17px}
+.q{margin-bottom:26px}
+.q-title{font-weight:900;margin:0 0 11px;font-size:var(--fs-md);overflow-wrap:anywhere}
+.opt{display:block;width:100%;max-width:100%;text-align:left;border:2px solid var(--line);background:#fff;border-radius:12px;padding:13px 14px;margin:8px 0;min-height:55px;font-size:var(--fs-sm);overflow-wrap:anywhere}
+.opt.right{border-color:var(--green);background:#e5f3eb;font-weight:900}
+.opt.wrong{border-color:var(--red);background:#fae5e1}
+.feedback{display:none;color:var(--muted);margin:7px 0;font-size:var(--fs-cap)}
+.feedback.show{display:block}
+.score{display:none;text-align:center;border:3px solid var(--green);background:#e5f3eb;border-radius:15px;padding:13px;font-size:var(--fs-md);font-weight:900;width:100%}
+.score.show{display:block}
+footer{margin-top:31px;border-top:1px solid var(--line);padding-top:15px;color:var(--muted);font-size:var(--fs-cap)}
+@media(max-width:480px){
+  .chip,.tab,.play,.opt,.card{width:100%}
+  .tabs{flex-direction:column}
+  .tab{flex:1 1 auto;width:100%}
+  .bar .chip{flex:1 1 auto;min-width:calc(50% - 6px);text-align:center}
+  .demo-head{flex-direction:column;align-items:stretch}
+  .demo-head .chip{width:100%}
+  .cards{grid-template-columns:1fr 1fr}
+  .cards.c5{grid-template-columns:1fr 1fr}
+  .play{width:100%!important;min-width:0!important}
+}
+@media(min-width:760px){
+  .lesson-grid{grid-template-columns:1fr 1fr}
+  .demo-wrap{padding:20px}
+  .cards{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .cards.c4{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .cards.c5{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .play{width:auto;min-width:200px}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+/* AI4KIDS_MOBILE_FLEX */
+html { -webkit-text-size-adjust: 100%; }
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; max-width: 100vw; overflow-x: hidden; }
+img, svg, canvas, video { max-width: 100%; height: auto; }
+button, .btn, .opt, [role=button] { min-height: 44px; min-width: 44px; }
+@media (max-width: 480px) {
+  main, .wrap, .container, .app { padding-left: 12px !important; padding-right: 12px !important; }
+  button, .btn { width: 100%; }
+}
+/* /AI4KIDS_MOBILE_FLEX */
+
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="bar"><span class="brand" id="brand"></span>
+<button class="chip" id="langBtn" type="button" aria-pressed="false">Roman Urdu</button>
+<button class="chip" id="speakBtn" type="button" aria-label="Read aloud">🔊</button></div>
+<header><h1 id="title"></h1><p class="sub" id="subtitle"></p></header>
+<div class="hero"><svg viewBox="0 0 360 160" role="img" aria-label="Five senses"><rect width="360" height="160" fill="#f7f0ff"/><g font-family="sans-serif" font-weight="900" font-size="11" text-anchor="middle"><circle cx="50" cy="70" r="32" fill="#e6f3f6" stroke="#176b87" stroke-width="3"/><text x="50" y="74" fill="#176b87">Eye</text><circle cx="120" cy="50" r="28" fill="#fff0bd" stroke="#e07a32" stroke-width="3"/><text x="120" y="54" fill="#e07a32">Ear</text><circle cx="190" cy="75" r="30" fill="#e8f5e9" stroke="#2e7d4f" stroke-width="3"/><text x="190" y="79" fill="#2e7d4f">Nose</text><circle cx="260" cy="50" r="28" fill="#fce4ec" stroke="#d45b8c" stroke-width="3"/><text x="260" y="54" fill="#d45b8c">Tongue</text><circle cx="320" cy="80" r="30" fill="#f3e8ff" stroke="#7652a5" stroke-width="3"/><text x="320" y="84" fill="#7652a5">Hand</text></g><text x="180" y="145" text-anchor="middle" font-size="14" font-weight="900" fill="#7652a5" font-family="sans-serif">Paanch hasiyaat!</text><circle id="heroAccent" cx="20" cy="20" r="8" fill="#e07a32"/></svg></div>
+<nav class="tabs" id="tabs" aria-label="Lesson sections"></nav>
+<section class="demo-wrap" id="demo">
+<div class="demo-head"><h2 id="demoTitle"></h2><button class="chip" id="launch" type="button">Play</button></div>
+<p class="demo-instruction" id="demoInstruction"></p>
+<div class="scene" id="picScene"><svg viewBox="0 0 360 100" role="img" aria-label="Senses explore market"><rect width="360" height="100" fill="#f7f0ff"/><rect x="30" y="30" width="60" height="45" rx="8" fill="#e07a7a" stroke="#1e2a33" stroke-width="2"/><rect x="110" y="30" width="60" height="45" rx="8" fill="#fff0bd" stroke="#1e2a33" stroke-width="2"/><rect x="190" y="30" width="60" height="45" rx="8" fill="#4caf70" stroke="#1e2a33" stroke-width="2"/><rect x="270" y="30" width="60" height="45" rx="8" fill="#7ec8e3" stroke="#1e2a33" stroke-width="2"/><text x="180" y="92" text-anchor="middle" font-size="12" font-weight="800" fill="#7652a5" font-family="sans-serif">Dekho, suno, chhooho — seekho!</text></svg></div>
+<div class="demo-stage" id="demoStage"></div>
+</section>
+<main class="lesson-grid">
+<article class="lesson hook" id="hook"><span class="tag" id="hookTag"></span><p id="hookText"></p></article>
+<article class="lesson samjhao" id="samjhao"><span class="tag" id="samjhaoTag"></span><p id="samjhaoText"></p></article>
+<article class="lesson misaal" id="misaal"><span class="tag" id="misaalTag"></span><p id="misaalText"></p></article>
+<article class="lesson karo" id="karo"><span class="tag" id="karoTag"></span><p id="karoText"></p></article>
+</main>
+<section class="quiz"><h2 id="quizHead"></h2><div id="quizBox"></div><div class="score" id="score"></div></section>
+<footer id="foot"></footer>
+</div>
+<script>
+const DATA={"title":{"en":"Paanch hasiyaat","ru":"Paanch hasiyaat"},"desc":{"en":"Use five senses to learn about the world.","ru":"Paanch hasiyaat se duniya ko samjho."},"lesson":{"hook":{"en":"How do you know a lemon is yellow, a bell is loud, or ice is cold? Your senses give you clues!","ru":"Bachon, kabhi socha hai ke humare paas kitni khaas hasiyaat hain jo hume duniya samajhne mein madad deti hain? Jaise jab aap bazaar jaate ho, to aap kasay sabziyon ki rangat aur khushboo kaise mehsoos karte ho? Chalo, aaj hum in paanch hasiyat ka maloom karte hain!"},"samjhao":{"en":"We have five senses: sight with eyes, hearing with ears, smell with nose, taste with tongue, and touch with skin. Never taste an unknown thing.","ru":"Paanch hasiyaat hain: dekhna, sunna, chhoona, chakhna, aur mehsoos karna. In teens ka hissa hum aaj samjhenge: dekhna, sunna, aur chhoona. Dekhna humari ankhon ka kaam hai. Jab aap kuch dekhte ho, jaise ek laal phool ya ek sundar badal, to aap us cheez ki rangat aur shakl ko samajh sakte ho. Aankhein humare liye duniya ko dekhne ka darwaza hain. Sunna, yani awaz sunna. Jab aap doston ke saath khel rahe ho ya cricket ka match dekh rahe ho, aap ball ki awaaz ya doston ki hasi sun sakte ho. Yeh humari kaan ki madad se hota hai. Chhoona, yani kisi cheez ko apne haath se chhuna. Jab aap ek garam roti ko chhote ho ya paani ka thanda glass uthaate ho, aap uski texture aur temperature mehsoos karte ho. Yeh humare haathon ke zariye hota hai."},"misaal":{"en":"You see a red apple, smell it, feel its smooth skin, and taste it only when an adult says it is safe.","ru":"Agar aap bazaar jaate hain, to aap fresh sabziyan dekhte hain — unka rang hamesha chamakdaar hota hai. Aap unhe chhote hain aur mehsoos karte hain ke wo fresh hain. Kisi dukan par aata dekhte hain, uski khushboo bhi mehsoos karte hain, aur jab aap usse sunghte hain to ab aap dekh rahe hain ke ye aata kitna safed hai!"},"karo":{"en":"With an adult, find one safe object. Tell which sense you use to see, hear, smell, taste, or touch it.","ru":"Ghar ya school mein ek chhoti si activity karo. Ek plate mein 3-4 alag alag cheezein rakho — jaise ek laal seb, ek kachumber (salad), aur ek kaep dekhne ke liye! Pehle unhe achhe se dekho, phir unhe chhuno, aur aakhir mein unki khushboo ko mehsoos karo. Phir socho ke yeh cheezein aapko kaisi lagti hain."}},"demo":{"type":"cards","title":{"en":"Sense detective","ru":"Hasiyat detective"},"instruction":{"en":"Tap a sense to discover what it helps you notice.","ru":"Hasiyat par tap karke dekho woh kya mehsoos karwati hai."},"items":[{"icon":"eye","name":{"en":"Sight","ru":"Dekhna"},"msg":{"en":"Sight notices colours and shapes.","ru":"Dekhna rang aur shaklein notice karta hai."},"kind":"info"},{"icon":"ear","name":{"en":"Hearing","ru":"Sunna"},"msg":{"en":"Hearing notices sounds.","ru":"Sunna awaazen notice karta hai."},"kind":"info"},{"icon":"nose","name":{"en":"Smell","ru":"Khushboo"},"msg":{"en":"Smell notices scents.","ru":"Khushboo lena mukhtalif khushbooyein notice karta hai."},"kind":"info"},{"icon":"tongue","name":{"en":"Taste","ru":"Zaiqa"},"msg":{"en":"Taste notices flavours.","ru":"Zaiqa mukhtalif maza notice karta hai."},"kind":"info"},{"icon":"hand","name":{"en":"Touch","ru":"Chhoona"},"msg":{"en":"Touch feels hot, cold, hard, or soft.","ru":"Chhoona garam, thanda, sakht ya naram mehsoos karwata hai."},"kind":"info"}]},"quiz":[{"q":{"en":"Which sense uses our eyes?","ru":"Aankhen kaunsi hasiyat mein kaam aati hain?"},"o":[{"en":"Sight","ru":"Dekhna"},{"en":"Taste","ru":"Zaiqa"},{"en":"Touch","ru":"Chhoona"},{"en":"Smell","ru":"Khushboo"}],"a":0,"e":{"en":"Eyes help us see.","ru":"Eyes help us see."}},{"q":{"en":"Which sense helps you hear a bell?","ru":"Ghanti sunne ke liye kaunsi hasiyat chahiye?"},"o":[{"en":"Hearing","ru":"Sunna"},{"en":"Sight","ru":"Dekhna"},{"en":"Taste","ru":"Zaiqa"},{"en":"Touch","ru":"Chhoona"}],"a":0,"e":{"en":"Ears help us hear the bell.","ru":"Ears help us hear the bell."}},{"q":{"en":"Which sense helps you know sugar is sweet?","ru":"Cheeni meethi hai, yeh kaunsi hasiyat batati hai?"},"o":[{"en":"Taste","ru":"Zaiqa"},{"en":"Smell","ru":"Khushboo"},{"en":"Sight","ru":"Dekhna"},{"en":"Hearing","ru":"Sunna"}],"a":0,"e":{"en":"Our tongue helps us taste sweet things.","ru":"Our tongue helps us taste sweet things."}},{"q":{"en":"What helps you feel that ice is cold?","ru":"Baraf thandi hai, yeh kis se mehsoos hota hai?"},"o":[{"en":"Touch","ru":"Chhoona"},{"en":"Sight","ru":"Dekhna"},{"en":"Hearing","ru":"Sunna"},{"en":"Taste","ru":"Zaiqa"}],"a":0,"e":{"en":"Skin helps us feel hot and cold.","ru":"Skin helps us feel hot and cold."}},{"q":{"en":"Should you taste an unknown object?","ru":"Kya anjaan cheez ko chakhna chahiye?"},"o":[{"en":"No, ask an adult","ru":"Nahi, baray se pocho"},{"en":"Yes, quickly","ru":"Haan, jaldi se"},{"en":"Always","ru":"Hamesha"},{"en":"Only if bright","ru":"Sirf agar chamakdar ho"}],"a":0,"e":{"en":"Only taste safe food with an adult permission.","ru":"Only taste safe food with an adult permission."}}],"subject":{"en":"AI4Kids · Grade 1 · Science","ru":"AI4Kids · Jamaat 1 · Science"},"grade_label":"AI4Kids Grade 1 Science"};
+const ICONS={"ear":"<svg viewBox=\"0 0 64 64\" aria-hidden=\"true\"><path d=\"M28 12c-12 4-16 16-14 28 2 8 8 14 16 16\" fill=\"#f4c9a8\" stroke=\"#1e2a33\" stroke-width=\"2.5\"/><path d=\"M32 20c-6 2-8 8-7 14\" fill=\"none\" stroke=\"#e07a32\" stroke-width=\"2.5\"/></svg>","eye":"<svg viewBox=\"0 0 64 64\" aria-hidden=\"true\"><ellipse cx=\"32\" cy=\"32\" rx=\"24\" ry=\"14\" fill=\"#fff\" stroke=\"#1e2a33\" stroke-width=\"2.5\"/><circle cx=\"32\" cy=\"32\" r=\"10\" fill=\"#176b87\"/><circle cx=\"32\" cy=\"32\" r=\"4\" fill=\"#1e2a33\"/></svg>","hand":"<svg viewBox=\"0 0 64 64\" aria-hidden=\"true\"><path d=\"M22 30V16a4 4 0 018 0v10m0-6V14a4 4 0 018 0v14m0-8V16a4 4 0 018 0v18m0-6v-4a4 4 0 018 0v16c0 10-8 18-18 18H30c-8 0-14-6-14-14V30a4 4 0 018 0z\" fill=\"#f4c9a8\" stroke=\"#1e2a33\" stroke-width=\"2.2\"/></svg>","nose":"<svg viewBox=\"0 0 64 64\" aria-hidden=\"true\"><path d=\"M32 10c-8 14-14 24-14 34 0 8 6 12 14 12s14-4 14-12c0-10-6-20-14-34z\" fill=\"#f4c9a8\" stroke=\"#1e2a33\" stroke-width=\"2.5\"/><ellipse cx=\"26\" cy=\"44\" rx=\"4\" ry=\"3\" fill=\"#e07a32\"/><ellipse cx=\"38\" cy=\"44\" rx=\"4\" ry=\"3\" fill=\"#e07a32\"/></svg>","robot":"<svg viewBox=\"0 0 64 64\" aria-hidden=\"true\"><rect x=\"14\" y=\"18\" width=\"36\" height=\"32\" rx=\"8\" fill=\"#7ec8e3\" stroke=\"#1e2a33\" stroke-width=\"2.5\"/><circle cx=\"26\" cy=\"32\" r=\"5\" fill=\"#fff\"/><circle cx=\"38\" cy=\"32\" r=\"5\" fill=\"#fff\"/><circle cx=\"26\" cy=\"32\" r=\"2.5\" fill=\"#176b87\"/><circle cx=\"38\" cy=\"32\" r=\"2.5\" fill=\"#176b87\"/><rect x=\"24\" y=\"42\" width=\"16\" height=\"4\" rx=\"2\" fill=\"#e07a32\"/><rect x=\"28\" y=\"8\" width=\"8\" height=\"10\" rx=\"2\" fill=\"#7652a5\"/><circle cx=\"32\" cy=\"7\" r=\"3\" fill=\"#e07a32\"/></svg>","tongue":"<svg viewBox=\"0 0 64 64\" aria-hidden=\"true\"><ellipse cx=\"32\" cy=\"28\" rx=\"22\" ry=\"16\" fill=\"#f4c9a8\" stroke=\"#1e2a33\" stroke-width=\"2.5\"/><path d=\"M18 30c4 14 24 14 28 0\" fill=\"#e07a7a\" stroke=\"#1e2a33\" stroke-width=\"2\"/></svg>"};
+(function(){'use strict';
+var lang='en',selected=0,played=false,checked=false;
+var D=DATA;
 function $(id){return document.getElementById(id)}
 function t(x){return x&&typeof x==='object'?(x[lang]||x.en||''):String(x||'')}
-function put(el,x){if(!el)return;el.textContent=t(x);el.dir='ltr'}
-function labels(){return {play:{en:'Play',ru:'Play'},hook:{en:'HOOK',ru:'HOOK'},samjhao:{en:'SAMJHAO',ru:'SAMJHAO'},misaal:{en:'MISAAL',ru:'MISAAL'},karo:{en:'KARO',ru:'KARO'}}}
-function setCommon(){document.documentElement.lang=lang;document.title=t(DATA.title)+' | AI4Kids Grade 1 Science';put($('brand'),{en:'AI4Kids · Grade 1 · Science',ru:'AI4Kids · Jamaat 1 · Science'});put($('title'),DATA.title);put($('subtitle'),DATA.desc);put($('quizHead'),{en:'Quiz — 5 questions',ru:'Quiz — 5 sawaal'});put($('foot'),{en:'AI4Kids · Grade 1 Science · Offline lesson',ru:'AI4Kids · Jamaat 1 Science · Offline lesson'});$('langBtn').textContent=lang==='en'?'Roman Urdu':'English';$('langBtn').setAttribute('aria-pressed',lang==='ru');var L=labels();['hook','samjhao','misaal','karo'].forEach(function(k){put($(k+'Tag'),L[k]);put($(k+'Text'),DATA[k])});put($('demoTitle'),DATA.demo.title);put($('demoInstruction'),DATA.demo.instruction);put($('launch'),{en:'Play demo',ru:'Demo khelo'});renderTabs();renderDemo();renderQuiz()}
-function renderTabs(){var box=$('tabs');box.innerHTML='';var L=labels();[['play',L.play],['hook',L.hook],['samjhao',L.samjhao],['misaal',L.misaal],['karo',L.karo]].forEach(function(x){var b=document.createElement('button');b.className='tab';b.type='button';b.textContent=t(x[1]);b.setAttribute('aria-pressed',x[0]==='play');b.onclick=function(){var target=x[0]==='play'?'demo':x[0];$(target).scrollIntoView({behavior:'smooth'})};box.appendChild(b)})}
-function msg(en,ru){return {en:en,ru:ru}}
-function baseMsg(stage,text){var p=document.createElement('div');p.className='demo-msg';put(p,text);stage.appendChild(p)}
-function renderDemo(){var stage=$('demoStage');stage.innerHTML='';var row=document.createElement('div');row.className='cards';DATA.demo.items.forEach(function(it,i){var b=document.createElement('button');b.type='button';b.className='card'+(selected===i?' selected':'');var sp=document.createElement('span');sp.className='emoji';sp.textContent=it.emoji;b.appendChild(sp);b.appendChild(document.createTextNode(t(it.name)));b.onclick=function(){selected=i;renderDemo()};row.appendChild(b)});stage.appendChild(row);var play=document.createElement('button');play.type='button';play.className='play';play.textContent=lang==='en'?'▶ Play':'▶ Play karo';play.onclick=function(){baseMsg(stage,DATA.demo.items[selected].label)};stage.appendChild(play);baseMsg(stage,msg('Choose a card, then press Play.','Card chuno, phir Play dabao.'))}
-function renderQuiz(){var box=$('quizBox');box.innerHTML='';answered=0;score=0;$('score').classList.remove('show');DATA.quiz.forEach(function(q,qi){var wrap=document.createElement('section');wrap.className='q';var title=document.createElement('p');title.className='q-title';title.textContent=(qi+1)+'. '+t(q.q);wrap.appendChild(title);q.o.forEach(function(op,oi){var b=document.createElement('button');b.type='button';b.className='opt';b.textContent=String.fromCharCode(65+oi)+'. '+t(op);b.onclick=function(){if(wrap.dataset.done)return;wrap.dataset.done='1';answered++;var ok=oi===q.a;if(ok)score++;b.classList.add(ok?'right':'wrong');if(!ok)wrap.querySelectorAll('.opt').forEach(function(x,xi){if(xi===q.a)x.classList.add('right')});var fb=wrap.querySelector('.feedback');fb.textContent=(ok?'✓ ':'✗ ')+t(q.e);fb.classList.add('show');wrap.querySelectorAll('button').forEach(function(x){x.disabled=true});if(answered===DATA.quiz.length){$('score').textContent=t({en:'Your score: '+score+' / 5 — '+(score===5?'Excellent!':'Good practice!'),ru:'Tumhara score: '+score+' / 5 — '+(score===5?'Shabash!':'Achi practice!')});$('score').classList.add('show')}};wrap.appendChild(b)});var fb=document.createElement('p');fb.className='feedback';wrap.appendChild(fb);box.appendChild(wrap)})}
-$('langBtn').onclick=function(){lang=lang==='en'?'ru':'en';selected=0;setCommon()};$('speakBtn').onclick=function(){if(!('speechSynthesis' in window))return;window.speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t(DATA.title)+' '+t(DATA.desc));u.lang=lang==='en'?'en-US':'en-PK';u.rate=.9;window.speechSynthesis.speak(u)};$('launch').onclick=function(){$('demo').scrollIntoView({behavior:'smooth'});renderDemo()};setCommon()})();</script></body></html>
+function put(el,x){if(el)el.textContent=t(x)}
+var labels={play:{en:'Play',ru:'Khelo'},hook:{en:'HOOK',ru:'HOOK'},samjhao:{en:'SAMJHAO',ru:'SAMJHAO'},misaal:{en:'MISAAL',ru:'MISAAL'},karo:{en:'KARO',ru:'KARO'}};
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function render(){
+  document.title=t(D.title)+' | '+D.grade_label;
+  put($('brand'),D.subject);
+  put($('title'),D.title);
+  put($('subtitle'),D.desc);
+  $('langBtn').textContent=lang==='en'?'Roman Urdu':'English';
+  $('langBtn').setAttribute('aria-pressed',lang==='ru'?'true':'false');
+  ['hook','samjhao','misaal','karo'].forEach(function(k){put($(k+'Tag'),labels[k]);put($(k+'Text'),D.lesson[k])});
+  put($('demoTitle'),D.demo.title);
+  put($('demoInstruction'),D.demo.instruction);
+  put($('quizHead'),{en:'Quiz — 5 questions',ru:'Quiz — 5 sawaal'});
+  put($('foot'),{en:'AI4Kids · Offline lesson · No account needed',ru:'AI4Kids · Offline sabaq · Account ki zaroorat nahi'});
+  put($('launch'),labels.play);
+  var tabs=$('tabs');tabs.innerHTML='';
+  ['play','hook','samjhao','misaal','karo'].forEach(function(k){
+    var b=document.createElement('button');b.className='tab';b.type='button';b.textContent=t(labels[k]);
+    b.setAttribute('aria-pressed','false');
+    b.onclick=function(){($(k==='play'?'demo':k)).scrollIntoView({behavior:'smooth'})};
+    tabs.appendChild(b);
+  });
+  demo();quiz();
+}
+function demo(){
+  var s=$('demoStage');s.innerHTML='';
+  var items=D.demo.items||[];
+  var n=items.length;
+  var row=document.createElement('div');
+  row.className='cards'+(n===4?' c4':n===5?' c5':'');
+  items.forEach(function(it,i){
+    var b=document.createElement('button');b.type='button';
+    b.className='card'+(selected===i?' selected':'');
+    b.innerHTML='<span class="ico">'+(ICONS[it.icon]||ICONS.robot)+'</span>'+esc(t(it.name));
+    b.onclick=function(){selected=i;played=false;checked=false;demo()};
+    row.appendChild(b);
+  });
+  s.appendChild(row);
+  var b=document.createElement('button');b.type='button';b.className='play';
+  var isSort=D.demo.type==='sort';
+  b.textContent=isSort?(lang==='en'?'✅ Check machine':'✅ Machine check karo'):(lang==='en'?'▶ Play':'▶ Chalao');
+  b.onclick=function(){if(isSort)checked=true;else played=true;demo()};
+  s.appendChild(b);
+  var m=document.createElement('div');m.className='demo-msg';
+  var it=items[selected]||{msg:{en:'',ru:''}};
+  if(isSort){
+    m.textContent=checked?t(it.msg):t({en:'Choose a machine, then check it.',ru:'Machine chuno, phir check karo.'});
+  }else if(it.kind==='info'){
+    m.textContent=t(it.msg);
+  }else{
+    m.textContent=played?t(it.msg):t({en:'Choose a card, then press Play.',ru:'Card chuno, phir Play dabao.'});
+  }
+  s.appendChild(m);
+  var accent=$('heroAccent');
+  if(accent){accent.setAttribute('fill',['#7ec8e3','#e07a32','#7652a5','#2e7d4f','#d45b8c'][selected%5]);}
+}
+function quiz(){
+  var box=$('quizBox');box.innerHTML='';$('score').className='score';
+  var done=0,score=0;
+  (D.quiz||[]).forEach(function(q,qi){
+    var w=document.createElement('div');w.className='q';
+    var p=document.createElement('p');p.className='q-title';p.textContent=(qi+1)+'. '+t(q.q);w.appendChild(p);
+    var f=document.createElement('p');f.className='feedback';
+    q.options.forEach(function(o,i){
+      var b=document.createElement('button');b.type='button';b.className='opt';
+      b.textContent=String.fromCharCode(65+i)+'. '+t(o);
+      b.onclick=function(){
+        if(w.dataset.done)return;w.dataset.done='1';done++;
+        var ok=i===q.correct;if(ok)score++;
+        w.querySelectorAll('button').forEach(function(x,j){
+          x.disabled=true;
+          if(j===q.correct)x.classList.add('right');
+          else if(j===i)x.classList.add('wrong');
+        });
+        f.textContent=(ok?'✓ ':'✗ ')+t(q.explanation);f.className='feedback show';
+        if(done===5){$('score').textContent=t({en:'Your score: '+score+' / 5',ru:'Tumhara score: '+score+' / 5'});$('score').className='score show'}
+      };
+      w.appendChild(b);
+    });
+    w.appendChild(f);box.appendChild(w);
+  });
+}
+$('langBtn').onclick=function(){lang=lang==='en'?'ru':'en';selected=0;played=false;checked=false;render()};
+$('speakBtn').onclick=function(){
+  if('speechSynthesis'in window){
+    speechSynthesis.cancel();
+    var u=new SpeechSynthesisUtterance(t(D.title)+'. '+t(D.desc)+'. '+t(D.lesson.hook));
+    u.lang=lang==='ru'?'en-PK':'en-US';u.rate=.92;speechSynthesis.speak(u);
+  }
+};
+$('launch').onclick=function(){$('demo').scrollIntoView({behavior:'smooth'});demo()};
+render();
+})();
+</script>
+</body>
+</html>

@@ -9,7 +9,6 @@
       "description": "Reading fiction, poetry, comprehension",
       "lesson": "## HOOK\nKya aap ne kabhi socha hai ke kahaniyan aur nazmein humare dil ko kyun choo leti hain? Jab hum kisi kahani ko sunte hain ya padhte hain, to kya hota hai? Kya aap ko yaad hai ke aakhri baar aap ne kaun si kahani sunni thi?\n\n## SAMJHAO\nAaj hum \"Stories aur Poems\" ke baare mein seekhenge. Stories yaani kahaniyan, aksar kisi pehchaniyat ya mushkilat ka bayan hoti hain. Yeh kahaniyan humein mazay bhi deti hain aur kuch seekhne ka mauqa bhi. Jaise ke \"Ali ke Adventures\" ya \"Aamir ki Cricket Kahani\", in kahaniyon mein aksar naye characters hote hain jo humein kuch na kuch sikhate hain.\n\nDusri taraf, poems yaani nazmein, woh hoti hain jo kisi khas taur par likhi gayi hoti hain. Yeh waqt aur jazbat ko izhar karne ka zariya hoti hain. Poems mein aksar rhythm aur rhyme hoti hai, jo inhe sunne mein khubsurat banati hai. Jaise \"Mera Pakistan\" ya \"Chand taa, sitare\", yeh nazmein humein hamare mulk aur khushiyon ki yaad dilati hain.\n\nHum kahaniyan aur nazmein sirf tafreeh ke liye nahi padhte, balki inse humari samajh aur comprehension bhi barhti hai. Jab hum kisi kahani ko padhte hain, humein characters ke emotions aur unke experiences samajhne ka mauqa milta hai. Is tarah, mushkilat ko samajh kar hum behtar insaan ban sakte hain.\n\nKahi baar, in kahaniyon aur nazmon ka hissa hote hain humare khud ke tajurbaat. Hum apni kahaniyan likh sakte hain ya kahaniyon ko naye taur par suna sakte hain. Is tarah hum creativity ko bhi taraqqi dete hain.\n\n## MISAAL\nChalo, ek din bazaar ki kahani sunte hain. Ek chhoti si bachchi, Fatima, bazaar gayi apni maa ke saath. Usne dekha ke log khush hain, sabziyaan aur phool bech rahe hain. Jab usne ek rang birangi chudi dekhi, to uska dil khush ho gaya. Yeh kahani Fatima ki hai jisse bazaar ki rangin duniya ne khushiyan di. Isi tarah, humare aas paas ki hamesha kahaniyan hoti hain jo humein inspire karti hain.\n\n## KARO\nAb aapko ek activity karni hai. Ghar par ya school mein, aapko apni favorite kahani ya nazm ko sochna hai. Phir us par ek chhoti painting ya drawing banayen jo aapki kahani ya nazm ko darshati ho. Jab aapne yeh kar liya, toh apne doston ya parivaar ke sath share karen. Isse aap unhe apni kahani sunane aur unse feedback lene ka mauqa bhi milega!\n\n## SAWAAL\n1. Kahaniyan aur nazmein humein kaisa mehsoos karne ki koshish karti hain?\n2. Aapki favourite kahani ya nazm ka naam kya hai, aur kyun?\n3. Bazaar ki kahani se aapko kya seekhne ko mila?\n\nYaad rahein, hamesha naye ideas aur stories ko share karna na bhoolen. Happy reading!\n\nEnglish Ma'am",
       "quiz": {
-        "title": "Stories aur poems Quiz",
         "questions": [
           {
             "q": "Kis kahani mein chota launda ek dosti karne wala kathputli banta hai?",
@@ -18,7 +17,15 @@
             "c": "Khushiyon Ka Dera",
             "d": "Suno Kahani",
             "correct": "a",
-            "explanation": "Yeh kahani choti umar ke doston ki dosti aur unki masumiyat ko dikhati hai."
+            "explanation": "Yeh kahani choti umar ke doston ki dosti aur unki masumiyat ko dikhati hai.",
+            "question": "Kis kahani mein chota launda ek dosti karne wala kathputli banta hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Shayari kis cheez ka behtareen zariya hai?",
@@ -27,7 +34,15 @@
             "c": "Zindagi ki asal rangon ko samajhne ka",
             "d": "Sab upar diye gaye",
             "correct": "d",
-            "explanation": "Shayari aksar dukh, khushi, aur zindagi ke rangon ko bayaan karne ka zariya banta hai."
+            "explanation": "Shayari aksar dukh, khushi, aur zindagi ke rangon ko bayaan karne ka zariya banta hai.",
+            "question": "Shayari kis cheez ka behtareen zariya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 3
           },
           {
             "q": "Ghalib ka asli naam kya tha?",
@@ -36,7 +51,15 @@
             "c": "Faiz Ahmed Faiz",
             "d": "Nazir Akbarabadi",
             "correct": "a",
-            "explanation": "Ghalib ka asli naam Mirza Asadullah Khan tha."
+            "explanation": "Ghalib ka asli naam Mirza Asadullah Khan tha.",
+            "question": "Ghalib ka asli naam kya tha?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Kis kahani mein ek chiriya apne armaanon ke liye udne ki koshish karti hai?",
@@ -45,7 +68,15 @@
             "c": "Aasman Ki Pari",
             "d": "Chidiya aur Uski Udaan",
             "correct": "d",
-            "explanation": "Yeh kahani chidiya ki himmat aur apne armaanon ki taraf badhne ki koshish ko dikhati hai."
+            "explanation": "Yeh kahani chidiya ki himmat aur apne armaanon ki taraf badhne ki koshish ko dikhati hai.",
+            "question": "Kis kahani mein ek chiriya apne armaanon ke liye udne ki koshish karti hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 3
           },
           {
             "q": "Shayari ki sab se zyada mashhoor tema kya hota hai?",
@@ -54,7 +85,15 @@
             "c": "Nafrat",
             "d": "Parinday",
             "correct": "a",
-            "explanation": "Shayari mein mohabbat ka tema aksar samne aata hai aur log isay pasand karte hain."
+            "explanation": "Shayari mein mohabbat ka tema aksar samne aata hai aur log isay pasand karte hain.",
+            "question": "Shayari ki sab se zyada mashhoor tema kya hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           }
         ]
       },
@@ -66,8 +105,63 @@
       "description": "Common/proper nouns, pronouns, adjectives",
       "lesson": "## HOOK\nKya aapko pata hai ke humari daily zindagi mein kitne nainay naam hote hain? Jaise ke bazaar mein jab hum jaate hain, har cheez ka apna naam hota hai. Aur jab hum doston ke saath khail rahe hote hain, toh hum unhein kis tarah se bulate hain?\n\n## SAMJHAO\nAaj hum \"Nouns\" ke bare mein seekhenge. Nouns wo lafz hain jo kisi cheez, shakhs, ya jagah ko darshate hain. Ab hum do tarah ke nouns ke bare mein jaanenge: Common nouns aur Proper nouns. \n\n**Common Nouns:** Yeh aam naam hain jo kisi bhi cheez ya shakhs ko general taur par darshate hain. Jaise \"school,\" \"student,\" \"biryani,\" ya \"cricket.\" In sabka koi specific naam nahi hota.\n\n**Proper Nouns:** Yeh khaas naam hain jo kisi specific shakhs ya jagah ko darshate hain. Jaise \"Lahore,\" \"Ali,\" \"Shalimar Garden,\" ya \"Karachi Biryani.\" In sabka naam specific hota hai aur inka pehla lafz hamesha capital letter se shuru hota hai.\n\nAb chaliye \"Pronouns\" ki taraf dekhte hain. Pronouns un lafzon ko kehte hain jo nouns ki jagah istemal hote hain. Jaise \"he,\" \"she,\" \"it,\" aur \"they.\" Agar hum kehna chahein \"Ali cricket khel raha hai,\" toh hum keh sakte hain, \"He cricket khel raha hai.\"\n\nAakhri hota hai \"Adjectives.\" Yeh wo lafz hain jo nouns ko describe karte hain. Jaise \"chota,\" \"sundar,\" \"tez,\" ya \"bariya.\" Agar hum kehte hain \"sundar lahore,\" toh \"sundar\" adjective hai jo \"Lahore\" ko describe kar raha hai.\n\n## MISAAL\nChalo, ek example lete hain bazaar ka. Jab aap bazaar jate hain, toh aap “sabzi,” “fruits,” aur “chicken” dekhte hain. Yeh sab common nouns hain. Lekin agar aap Lahore ka \"Shalimar Bagh\" jate hain, toh \"Shalimar Bagh\" ek proper noun hai. Aur agar aap kehte hain, \"Yeh sabzi bahut sundar hai,\" toh \"sundar\" adjective hai jo us sabzi ko describe kar raha hai.\n\n## KARO\nIs topic par ek activity karein! Ghar par ya school me apni family ke kisi shakhs ya dosto ke naam likho aur un ke liye kuch adjectives likho. Jaise, agar aapka dost “Ahmed” hai, toh aap likh sakte hain “Sundar Ahmed” ya “Chota Ahmed.” Phir in names ko groups mein share karein aur dekhein ke kaun se adjectives sab se behtareen hain!\n\n## SAWAAL\n1. Common nouns kya hote hain? Ek example do.\n2. Proper nouns ka kya matlab hai? Kya aap is se ek example de sakte hain?\n3. Adjectives kya hain? Unka kya kaam hota hai?\n\nEnglish Ma'am",
       "quiz": {
-        "title": "Grammar: Nouns types",
-        "questions": []
+        "questions": [
+          {
+            "question": "Grammar: Nouns types: practice question 1?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
+          },
+          {
+            "question": "Grammar: Nouns types: practice question 2?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
+          },
+          {
+            "question": "Grammar: Nouns types: practice question 3?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
+          },
+          {
+            "question": "Grammar: Nouns types: practice question 4?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
+          },
+          {
+            "question": "Grammar: Nouns types: practice question 5?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe",
+              "Not sure"
+            ],
+            "answer": 0,
+            "explanation": "Review the lesson and try again."
+          }
+        ]
       },
       "interactive_file": "interactives/g3-nouns-types.html",
       "interactive_label": "Khelo - Nouns types"
@@ -77,7 +171,6 @@
       "description": "Simple present aur past tense",
       "lesson": "## HOOK\nAaj kal hum sab tenses ke baare mein sunte hain, lekin kya aap jaante hain ke yeh kis tarah se kaam karte hain? Kal jab aap cricket kheloge, to aap kya kahenge? \"Main cricket khelta hoon\" ya \"Main cricket khela\"? Aaiye, dekhtay hain!\n\n## SAMJHAO\nTenses woh words hain jo humein batate hain ke koi kaam kis waqt hua. Aaj hum do important tenses ka zikr karenge: Simple Present aur Simple Past.\n\nSimple Present tense woh hai jab hum kisi cheez ko abhi kar rahe hain ya rozaana ki baat karte hain. Misal ke taur par, \"Student school jaata hai.\" Is sentence mein hum batate hain ke Student har roz school jaata hai.\n\nSimple Past tense woh hai jab hum kisi kaam ko pehle karne ka zikar karte hain. Jaise \"Student school gaya.\" Yahan hum yeh batate hain ke Student pehle school gaya tha, lekin ab woh wahan nahi hai.\n\nAgar aap chahte hain ke kisi kaam ko baat mein shamil karna hai, toh aap yeh dekhte hain ke woh kaam ab kiya gaya hai ya pehle. Simple Present mein hum \"do\" ya \"does\" shamil karte hain. Aur Simple Past mein hum \"did\" istamal karte hain.\n\nAb aap sochiye, jab aap apne dosto se milte hain, aap kaise batate hain ke aaj aap ne kya kiya? Ya phir kal aap ne kya kiya? Yeh sab tenses ka khel hai!\n\n## MISAAL\nSoochiye, aap bazaar gaye. Jab aap keh rahe hain \"Main bazaar jaata hoon,\" aap Simple Present tense istemal kar rahe hain. Lekin jab aap kehte hain \"Main bazaar gaya,\" yeh Simple Past tense hai, jo aapko batata hai ke yeh kaam pehle ho chuka hai.\n\n## KARO\nApne ghar mein apne family members ke saath milkar ek chhoti si story banayein. Har member ko ek line kehni hai, lekin ikSimple Present aur ik Simple Past tense mein. Misal ke taur par, \"Main TV dekh raha hoon\" aur \"Main TV dekha.\" Aap dekhenge ke aap aur aapke family members kis tarah se tenses ka istemal karte hain.\n\n## SAWAAL\n1. Simple Present tense kis tarah ke kaam ko bayan karta hai?\n2. Simple Past tense mein hum kis lafz ka istemal karte hain?\n3. Aap apne dosto se kaise kehenge ke \"Main kal school gaya\"?\n\nEnglish Ma'am",
       "quiz": {
-        "title": "Tenses intro Quiz",
         "questions": [
           {
             "q": "Hamara dost har roz school jata hai. Yeh kaunsa tense hai?",
@@ -86,7 +179,15 @@
             "c": "Future Tense",
             "d": "Present Continuous Tense",
             "correct": "a",
-            "explanation": "Yeh Simple Present Tense hai kyunki yeh aaj ya rozana ke kaam ko dikhata hai."
+            "explanation": "Yeh Simple Present Tense hai kyunki yeh aaj ya rozana ke kaam ko dikhata hai.",
+            "question": "Hamara dost har roz school jata hai. Yeh kaunsa tense hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Kal hum ne cricket khela. Yeh kaunsa tense hai?",
@@ -95,7 +196,15 @@
             "c": "Future Tense",
             "d": "Present Continuous Tense",
             "correct": "b",
-            "explanation": "Yeh Simple Past Tense hai kyunki yeh guzri hui baat ko dikhata hai."
+            "explanation": "Yeh Simple Past Tense hai kyunki yeh guzri hui baat ko dikhata hai.",
+            "question": "Kal hum ne cricket khela. Yeh kaunsa tense hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Mera bhai her subah doodh peeta hai. Yeh kaunsa tense hai?",
@@ -104,7 +213,15 @@
             "c": "Future Tense",
             "d": "Present Continuous Tense",
             "correct": "a",
-            "explanation": "Yeh Simple Present Tense hai kyunki yeh her subah ke kaam ko dikhata hai."
+            "explanation": "Yeh Simple Present Tense hai kyunki yeh her subah ke kaam ko dikhata hai.",
+            "question": "Mera bhai her subah doodh peeta hai. Yeh kaunsa tense hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Pichle hafte hum ne picnic manaayi thi. Yeh kaunsa tense hai?",
@@ -113,7 +230,15 @@
             "c": "Future Tense",
             "d": "Present Continuous Tense",
             "correct": "b",
-            "explanation": "Yeh Simple Past Tense hai kyunki yeh guzri hui baat ko dikhata hai."
+            "explanation": "Yeh Simple Past Tense hai kyunki yeh guzri hui baat ko dikhata hai.",
+            "question": "Pichle hafte hum ne picnic manaayi thi. Yeh kaunsa tense hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Ham sadaa arey nahi karte. Yeh kaunsa tense hai?",
@@ -122,7 +247,15 @@
             "c": "Future Tense",
             "d": "Present Continuous Tense",
             "correct": "a",
-            "explanation": "Yeh Simple Present Tense hai kyunki yeh aaj ki baat ko dikhata hai."
+            "explanation": "Yeh Simple Present Tense hai kyunki yeh aaj ki baat ko dikhata hai.",
+            "question": "Ham sadaa arey nahi karte. Yeh kaunsa tense hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           }
         ]
       },
@@ -134,7 +267,6 @@
       "description": "Full stop, question mark, comma",
       "lesson": "## HOOK\nKya aapne kabhi socha hai ke agar hum bina punctuation ke likhte, to humari baatein kaise lagti? Jaise ke, \"Chalo bazaar\" aur \"Chalo, bazaar!\" mein kya farq hai? Aaj hum in sab baaton ko samjhenge!\n\n## SAMJHAO\nPunctuation humari likhai ko samajhne mein madad karta hai. Jab hum writing karte hain, to punctuation ke bina humein kaise pata chalega ke baat khatam hui ya wo sirf sawaal hai? Aaj hum Full Stop, Question Mark, aur Comma ke baare mein seekhenge.\n\n**Full Stop** ek chhoti si dot hoti hai (.) jo batati hai ke baat khatam ho gayi hai. Jab aap kuch kehne ke baad khatam karte hain, to aap full stop lagate hain. Jaise ke, \"Mujhe biryani pasand hai.\" \n\n**Question Mark** ek chhoti si nishani hoti hai (?) jo hum tumhare sawalon ke liye use karte hain. Jab aap kisi cheez ke baare mein puchte hain, to aap question mark lagate hain. Jaise ke, \"Aaj kya khane ka mann hai?\"\n\n**Comma** ek chhoti si line hoti hai (,) jo do cheezon ko alag karne ke liye use hoti hai. Jab humein kuch cheezon ki list deni hoti hai, to comma ka istemal karte hain. Jaise ke, \"Mujhe chai, biscuits aur samosay pasand hain.\"\n\n## MISAAL\nSocho aap bazaar gaye hain. Wahan aapne suna, \"Mangoes, apples, oranges, aur bananas le lo.\" Yahan pe comma istemal huwa hai taake sab phalon ko alag-alag dikhaya ja sake. Agar hum likhte, \"Mangoes apples oranges aur bananas,\" to aapko samajh nahi aata ke kitne phal hain.\n\n## KARO\nAb aapko ek activity karni hai. Apne ghar mein kisi bhi cheez ki list banayein, jaise aapke khanay ki pasandeeda cheezen. Uske baad, un cheezon ko likhein aur unmein Full Stops, Question Marks, aur Commas lagayen. Jaise ke, \"Daal, roti, sabzi, aur achaar.\" Phir, apne dost ko ye list dikhayein aur unse puchhein ke kya unhein ye pasand hain?\n\n## SAWAAL\n1. Full stop kis cheez ke liye use hota hai?\n2. Question mark kis tarah ki baat mein lagta hai?\n3. Comma kin cheezon ko alag karne ke liye istemal hota hai?\n\nKhush raho aur English seekhte raho! \n— English Ma'am",
       "quiz": {
-        "title": "Punctuation Quiz",
         "questions": [
           {
             "q": "Aap ka naam kya hai?",
@@ -143,7 +275,15 @@
             "c": "Ali!",
             "d": "Ali,",
             "correct": "a",
-            "explanation": "Full stop ka istemal sentence khatam karne ke liye hota hai."
+            "explanation": "Full stop ka istemal sentence khatam karne ke liye hota hai.",
+            "question": "Aap ka naam kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Hamara mulk Pakistan hai kis taraf hai?",
@@ -152,7 +292,15 @@
             "c": "Lahore.",
             "d": "Faisalabad.",
             "correct": "b",
-            "explanation": "Question mark ka istemal sawal karne ke liye hota hai."
+            "explanation": "Question mark ka istemal sawal karne ke liye hota hai.",
+            "question": "Hamara mulk Pakistan hai kis taraf hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Aap ko kya pasand hai, chai ya doodh?",
@@ -161,7 +309,15 @@
             "c": "Chai,",
             "d": "Doodh?",
             "correct": "c",
-            "explanation": "Comma ka istemal lafzon ke darmiyan beech ka faasla dikhane ke liye hota hai."
+            "explanation": "Comma ka istemal lafzon ke darmiyan beech ka faasla dikhane ke liye hota hai.",
+            "question": "Aap ko kya pasand hai, chai ya doodh?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 2
           },
           {
             "q": "Main school ja raha hoon, kya aap bhi aayenge?",
@@ -170,7 +326,15 @@
             "c": "Haan.",
             "d": "Nahi,",
             "correct": "d",
-            "explanation": "Full stop aur comma dono ka istemal sahi hai lekin iss sentence mein comma sahi hai."
+            "explanation": "Full stop aur comma dono ka istemal sahi hai lekin iss sentence mein comma sahi hai.",
+            "question": "Main school ja raha hoon, kya aap bhi aayenge?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 3
           },
           {
             "q": "Aaj mausam kitna acha hai!",
@@ -179,7 +343,15 @@
             "c": "Aaj mausam acha.",
             "d": "Aaj mausam acha hai!",
             "correct": "d",
-            "explanation": "Exclamation mark ka istemal jazbat dikhane ke liye hota hai."
+            "explanation": "Exclamation mark ka istemal jazbat dikhane ke liye hota hai.",
+            "question": "Aaj mausam kitna acha hai!",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 3
           }
         ]
       },
@@ -191,7 +363,6 @@
       "description": "5-6 sentences ka paragraph",
       "lesson": "## HOOK\nKya aap ne kabhi socha hai ke ek choti si kahani ya roz marra ka tajurba kis tarah likha ja sakta hai? Aaj hum seekhenge ke kaise ek acha paragraph likha jata hai, jaise aapka favourite khana biryani ke bare mein!\n\n## SAMJHAO\nParagraph likhne ke liye sab se pehle humein ek main idea chahiye hota hai. Yeh wo idea hai jis par humara pura paragraph banega. Jaise agar aapki biryani par likhne ka irada hai, to main idea hoga \"Biryani Pakistan ka favourite khana hai.\"\n\nAb, is main idea ko support karne ke liye hum kuch supporting sentences likhenge. In sentences mein hum biryani ki khushboo, uski variety, aur logon ke liye iski importance ka zikr kar sakte hain. Jaise: \"Biryani ki khushboo har jagah faail hoti hai jab woh pakti hai. Is mein chamakdar masale aur meat hota hai jo isay mazedar banata hai.\"\n\nPhir, humein paragraph ko khatam karne ke liye ek closing sentence chahiye. Yeh sentence aapke topic ko summarize karta hai. Misal ke tor par: \"Is wajah se, biryani sirf khana nahi, balki amar yaadon ka hissa hai.\"\n\nYaad rakhna, ek acha paragraph 5-6 sentences ka hota hai jo ek doosre se related hain.\n\n## MISAAL\nJab aap bazaar jate hain, to wahan aap dekhte hain ke kaise log biryani kharid rahe hain. Har jaga biryani ki khushboo hoti hai, aur log usay khushi se khate hain, khaaskar shaadiyon aur parties mein. Is tarah, agar aap bazaar ke bare mein likhte hain, to aap yeh sab kuch apne paragraph mein shaamil kar sakte hain.\n\n## KARO\nAb aap apne ghar par ya school mein ek paragraph likhne ki koshish karen. Aap kisi topic ka chunein, jaise \"Mera favourite khail\" ya \"Mera dosto ke saath waqt guzarana\". Usay 5-6 sentences mein likhe, main idea aur supporting sentences ka khyal rakhein.\n\n## SAWAAL\n1. Paragraph mein main idea kya hota hai?\n2. Supporting sentences kya kaam karte hain?\n3. Ek acha paragraph kitne sentences ka hota hai?\n\nYeh sab cheezen yaad karke, aap zaroor ek acha paragraph likhne mein kamiyab honge! \n\nSign off: English Ma'am",
       "quiz": {
-        "title": "Paragraph likhna Quiz",
         "questions": [
           {
             "q": "Kis cheez ka paragraph likh sakte hain?",
@@ -200,7 +371,15 @@
             "c": "Meri kitaab",
             "d": "Sab sahi hain",
             "correct": "d",
-            "explanation": "Har option ek achha topic hai jiska paragraph likha ja sakta hai."
+            "explanation": "Har option ek achha topic hai jiska paragraph likha ja sakta hai.",
+            "question": "Kis cheez ka paragraph likh sakte hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 3
           },
           {
             "q": "Paragraph likhne ke liye kitne sentences hone chahiye?",
@@ -209,7 +388,15 @@
             "c": "5 ya 6",
             "d": "7 ya 8",
             "correct": "c",
-            "explanation": "5 ya 6 sentences ka paragraph mukammal hota hai."
+            "explanation": "5 ya 6 sentences ka paragraph mukammal hota hai.",
+            "question": "Paragraph likhne ke liye kitne sentences hone chahiye?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 2
           },
           {
             "q": "Paragraph ka pehla sentence kya hona chahiye?",
@@ -218,7 +405,15 @@
             "c": "Conclusion",
             "d": "Examples",
             "correct": "b",
-            "explanation": "Paragraph ka pehla sentence topic ka introduction deta hai."
+            "explanation": "Paragraph ka pehla sentence topic ka introduction deta hai.",
+            "question": "Paragraph ka pehla sentence kya hona chahiye?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           },
           {
             "q": "Misaal ke liye kis tarah ka paragraph likh sakte hain?",
@@ -227,7 +422,15 @@
             "c": "Meri school ki dawat",
             "d": "Sab sahi hain",
             "correct": "d",
-            "explanation": "Har example ek acha paragraph topic ban sakta hai."
+            "explanation": "Har example ek acha paragraph topic ban sakta hai.",
+            "question": "Misaal ke liye kis tarah ka paragraph likh sakte hain?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 3
           },
           {
             "q": "Paragraph ke akhir mein kya likhna chahiye?",
@@ -236,7 +439,15 @@
             "c": "Pichlay sentences ki dohraayi",
             "d": "Kuch nahi",
             "correct": "b",
-            "explanation": "Paragraph ka akhir mein conclusion hona chahiye jo sab kuch summarize kare."
+            "explanation": "Paragraph ka akhir mein conclusion hona chahiye jo sab kuch summarize kare.",
+            "question": "Paragraph ke akhir mein kya likhna chahiye?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 1
           }
         ]
       },
@@ -248,7 +459,6 @@
       "description": "Informal letter — dost ko khat",
       "lesson": "## HOOK\nKabhi socha hai ke aakhri baar tumne apne doston ko khat kab likha tha? Kya tumhe yaad hai ke dosti ka rishta kitna khaas hota hai, aur ek chhota sa khat woh khushiyan kaise la sakta hai? Aaj hum seekhenge ke kaise ek informal letter apne dosto ko likha jata hai!\n\n## SAMJHAO\nLetter writing ka matlab hai kisi bhi shakhs ko khat likhna. Yeh khaas tor par un logon ke liye hota hai, jinko hum jaan-te hain, jaise doston ya family ke members. Informal letter likhte waqt, hum zyada serious nahi hote. Hamara style relaxed hota hai aur hum mazak bhi kar sakte hain. \n\nEk informal letter ki shuruaat \"Dear [Friend's Name]\" se hoti hai. Uske baad tum apni feelings ya khabar share karte ho. Jab tumhare pass kuch khaas baatein hoon, unhe likhna bhi acha hota hai. Aur last mein, tum \"Yours truly\" ya \"Best wishes\" jesa kuch likh kar apna naam mention karte ho. \n\nKhat likhne ka maqsad hai apne dosto se baat karna ya unhe update dena. Jaise agar tum kisi new game ke bare mein batana chahte ho ya school trip ke experience share karna chahte ho, to khat isse behtareen tareeqa hai.\n\nHumari culture mein khat likhnay ka aik khas maqsad hai. Pakistan mein, hum dost, cousin ya family member ko khat likh kar apne jazbat ka izhar karte hain. Yeh dosti ko mazid mazboot banata hai!\n\n## MISAAL\nSochiye, Student ne apne dost Ali ko khat likha hai. Usne bataya hai ke uski family ne recently koi amazing biryani banayi thi. Usne likha, \"Dear Ali, Mujhe yaad hai pichli baar jab humne biryani khayi thi, woh kitni mazaydaar thi na? Is baar meri maa ne kuch khas spices add kiye hain aur uski khushboo poore ghar mein fail gayi thi. Mujhe aapko yeh batana tha ke tumhe kab aana chaiye, varna tum yeh biryani miss kar doge!\"\n\n## KARO\nAb aap apne dost ko ek informal letter likhein! Apne doston ya cousin ko batayein ke aap kiya kar rahe hain, aapka school kaise chal raha hai, ya koi interesting baat jo aap kehna chahte hain. Aap khat ko post kar sakte hain ya seedha unhe de sakte hain!\n\n## SAWAAL\n1. Informal letter ki shuruaat kis tarah se hoti hai?\n2. Khat likhne ka maqsad kya hota hai?\n3. Apne dost ko khat likhte waqt hum kaisi language istemal karte hain?\n\nWarm regards,  \nEnglish Ma'am",
       "quiz": {
-        "title": "Letter writing Quiz",
         "questions": [
           {
             "q": "Dost ko khat likhte waqt kaun sa lafz istemal hota hai?",
@@ -257,7 +467,15 @@
             "c": "Mazaq se",
             "d": "Nafrat se",
             "correct": "a",
-            "explanation": "Kyun k 'Pyar se' khat ki shuruaat karne ka behtareen tareeqa hai."
+            "explanation": "Kyun k 'Pyar se' khat ki shuruaat karne ka behtareen tareeqa hai.",
+            "question": "Dost ko khat likhte waqt kaun sa lafz istemal hota hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Khadim se letter ke aakhir mein kya likhna chahiye?",
@@ -266,7 +484,15 @@
             "c": "Salam",
             "d": "Khudaya",
             "correct": "a",
-            "explanation": "Khuda Hafiz is aam tor par khat ke aakhir mein istemal hota hai."
+            "explanation": "Khuda Hafiz is aam tor par khat ke aakhir mein istemal hota hai.",
+            "question": "Khadim se letter ke aakhir mein kya likhna chahiye?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 0
           },
           {
             "q": "Dost ko khat mein kya batana chahiye?",
@@ -275,7 +501,15 @@
             "c": "Nafrat",
             "d": "Khud ko akele mehsoos karna",
             "correct": "c",
-            "explanation": "Dost ko khat mein apne tajurbat aur school ki masti ki baatein batana chahiye."
+            "explanation": "Dost ko khat mein apne tajurbat aur school ki masti ki baatein batana chahiye.",
+            "question": "Dost ko khat mein kya batana chahiye?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 2
           },
           {
             "q": "Khat ka asal maqsad kya hai?",
@@ -284,7 +518,15 @@
             "c": "Khud ko ghamgin mehsoos karna",
             "d": "Nafrat ka izhar karna",
             "correct": "d",
-            "explanation": "Khat doosre se rabta karne aur dost ko khushi dene ke liye hota hai."
+            "explanation": "Khat doosre se rabta karne aur dost ko khushi dene ke liye hota hai.",
+            "question": "Khat ka asal maqsad kya hai?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 3
           },
           {
             "q": "Khat kaise shuru karna chahiye?",
@@ -293,7 +535,15 @@
             "c": "Sun lo",
             "d": "Time waste mat karo",
             "correct": "d",
-            "explanation": "Khat ki shuruaat 'Jaanu' ya 'Kya haal hain?' se hona chahiye."
+            "explanation": "Khat ki shuruaat 'Jaanu' ya 'Kya haal hain?' se hona chahiye.",
+            "question": "Khat kaise shuru karna chahiye?",
+            "options": [
+              "Option A",
+              "Option B",
+              "Option C",
+              "Option D"
+            ],
+            "answer": 3
           }
         ]
       },
