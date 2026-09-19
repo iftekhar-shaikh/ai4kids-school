@@ -4555,7 +4555,7 @@ body{ overflow-x:hidden; }
     <span class="read-status" id="playReadStatus"></span>
   </div>
   <div class="lesson-text" id="playLesson" style="display:none"></div>
-  <h3 style="margin:16px 0 8px;font-size:clamp(1.25rem,4vw,1.5rem)">🎮 Khelo — app</h3>
+  <h3 style="margin:16px 0 8px;font-size:clamp(1.25rem,4vw,1.5rem)">🎮 App (grid ke bahar)</h3>
   <iframe id="playFrame" title="Khelo app" sandbox="allow-scripts allow-same-origin allow-forms"
     style="width:100%;height:min(75vh,720px);min-height:420px;border:2px solid #ddd;border-radius:14px;background:#fff"></iframe>
   <div id="playQuiz"></div>
@@ -4719,9 +4719,11 @@ function openModal(i) {
     }));
     refreshContinue();
   } catch (e) {}
+
   let html = `<h2>${t.emoji} ${t.title}</h2>
   <p class="meta">${t.subj} • Grade ${t.grade} • ${t.desc}</p>`;
 
+  // ONLY lesson + Sunlo inside grid/modal
   if (t.lesson) {
     window.__lessonRaw = t.lesson;
     html += `<div class="read-bar">
@@ -4733,49 +4735,21 @@ function openModal(i) {
     html += '<p style="color:#999;padding:10px;font-size:1.1rem">Lesson abhi available nahi hai.</p>';
   }
 
-  // TWO clear buttons: Close modal, then KHELO (opens under grid)
+  // After lesson text → close grid; App + Quiz stay OUTSIDE (playStage)
   html += `<div class="khelo-top">`;
-  html += `<button type="button" class="khelo-go secondary" id="modalCloseBtn">✖️ Close — modal band karo</button>`;
+  html += `<button type="button" class="khelo-go secondary" id="modalCloseBtn">✖️ Close — sirf modal band</button>`;
   if (t.interactive_file) {
-    const label = t.interactive_label || 'Khelo';
-    html += `<button type="button" class="khelo-go" id="kheloBelowBtn">🎮 KHELO — ${label}</button>`;
-    html += `<span class="hint">Close = sirf band. KHELO = modal band + neeche app (Sabaq → App → Quiz).</span>`;
+    html += `<button type="button" class="khelo-go" id="kheloBelowBtn">🎮 KHELO — grid band, phir App + Quiz bahar</button>`;
+    html += `<span class="hint">Pehle sabaq/Sunlo yahan. Phir KHELO: grid band hoga, App aur Quiz grid ke bahar milenge (connected).</span>`;
   }
   html += `</div>`;
-
-  if (t.questions && t.questions.length) {
-    window.__curQuestions = t.questions;
-    __score = 0; __answered = 0; __keyShown = false;
-    html += `<div class="quiz-section" id="quizSection">
-      <h3>📝 Quiz — ${t.questions.length} sawaal</h3>
-      <div class="quiz-head">
-        <span class="quiz-score" id="quizScore">0 / ${t.questions.length} sahi</span>
-        <button class="key-btn" onclick="toggleKey()" id="keyBtn">🔑 Teacher: jawab dikhao</button>
-      </div>`;
-    t.questions.forEach((q,qi) => {
-      html += `<div class="question" id="qbox${qi}" data-done="0">
-        <p>Q${qi+1}: ${q.q.replace(/</g,'&lt;')}</p>`;
-      ['a','b','c','d'].forEach(opt => {
-        if (!q[opt]) return;
-        const isRight = q.correct===opt;
-        html += `<button class="opt-btn" data-opt="${opt}" data-correct="${isRight?1:0}"
-                   onclick="answerQ(${qi},'${opt}')">
-          ${opt.toUpperCase()}) ${(q[opt]||'').replace(/</g,'&lt;')}
-        </button>`;
-      });
-      html += `<div class="q-feedback" id="fb${qi}"></div>`;
-      if (q.explanation) html += `<div class="explanation" id="ex${qi}" style="display:none">💡 ${q.explanation.replace(/</g,'&lt;')}</div>`;
-      html += '</div>';
-    });
-    html += '</div>';
-  }
 
   document.getElementById('modal-content').innerHTML = html;
   const bClose = document.getElementById('modalCloseBtn');
   if (bClose) bClose.onclick = function() { closeModal(); };
   if (t.interactive_file) {
-    const bBelow = document.getElementById('kheloBelowBtn');
-    if (bBelow) bBelow.onclick = function() {
+    const bK = document.getElementById('kheloBelowBtn');
+    if (bK) bK.onclick = function() {
       closeModal();
       openKheloBelow(t);
     };
